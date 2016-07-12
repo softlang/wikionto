@@ -1,0 +1,8 @@
+PREFIX : <http://myCLOnto.de/> 
+SELECT ?e ?tname 
+WHERE {
+    ?t :name "Apache Empire-db" .
+    ?t :name ?tname .
+    ?t :hasInformation ?i .
+    ?i :topic ?e .
+}
