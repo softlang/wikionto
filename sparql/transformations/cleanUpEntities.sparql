@@ -1,0 +1,9 @@
+PREFIX : <http://myCLOnto.de/> 
+DELETE {
+  ?entity ?r ?n .
+}
+WHERE{ 
+  FILTER(regex(STR(?entity), "Entity"))
+  FILTER NOT EXISTS { ?entity ^:hasInstance ?supertype }
+  ?entity ?r ?n .
+}

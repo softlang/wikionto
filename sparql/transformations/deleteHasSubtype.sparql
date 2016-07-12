@@ -1,0 +1,8 @@
+PREFIX : <http://myCLOnto.de/> 
+DELETE {
+  ?supertype :hasSubtype ?subtype .
+}
+WHERE{ 
+  ?supertype :hasSubtype ?subtype .
+  ?subtype :name ?subtypename .
+  ?supertype :name ?oldsupertypename . }

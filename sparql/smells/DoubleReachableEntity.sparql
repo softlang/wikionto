@@ -1,0 +1,21 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://myCLOnto.de/> 
+SELECT ?toptype1name ?toptype2name ?entityname
+WHERE {
+    ?cl :name "Computer languages" .
+    ?cl :hasSubtype ?toptype1 .
+    ?cl :hasSubtype ?toptype2 .
+    
+    FILTER EXISTS{
+        ?toptype1 :hasSubtype*/:hasInstance ?entity .
+        ?toptype2 :hasSubtype*/:hasInstance ?entity .
+    }
+    FILTER NOT EXISTS{ ?toptype1 :hasSubtype* ?toptype2 . }
+    FILTER NOT EXISTS{ ?toptype2 :hasSubtype* ?toptype1 . }
+    
+    ?toptype1 :name ?toptype1name .
+    ?toptype2 :name ?toptype2name .
+    FILTER(?toptype1name < ?toptype2name && (?toptype1name!="Data modeling languages"||?toptype2name!="Markup languages"))
+    ?entity :name ?entityname .
+}
+ORDER BY ?toptype1name ?toptype2name

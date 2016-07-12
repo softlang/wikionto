@@ -1,0 +1,8 @@
+PREFIX : <http://myCLOnto.de/> 
+DELETE {
+  ?n ?r ?t .
+}
+WHERE{ 
+  ?n ?r ?t .
+  FILTER(regex(STR(?t),"Type"))
+  ?t :name ?name . }

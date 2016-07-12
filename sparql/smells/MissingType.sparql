@@ -1,0 +1,13 @@
+PREFIX : <http://myCLOnto.de/> 
+SELECT DISTINCT ?typename ?entityname  
+WHERE {  
+    ?type :name ?typename .
+	FILTER(regex(STR(?type),"Type"))
+	FILTER(regex(STR(?entity),"Entity"))
+    ?entity :name ?entityname .
+    FILTER contains(?typentityname, ?entityname)
+    FILTER NOT EXISTS{ 
+		?type :hasSubtype*/:hasInstance ?entity
+	}
+}
+ORDER BY ?typename
