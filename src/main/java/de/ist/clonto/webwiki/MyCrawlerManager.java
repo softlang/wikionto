@@ -33,6 +33,7 @@ import de.ist.clonto.webwiki.model.Classifier;
  */
 public class MyCrawlerManager {
 	private String rootname;
+	private Classifier root;
     private final Map<String, Classifier> classifierMap;
     private final Queue<Classifier> classifierQueue;
     private final Map<String, Instance> instanceMap;
@@ -52,14 +53,13 @@ public class MyCrawlerManager {
 		initialize(rootname);
 		threadcounter = 0;
 		crawl();
-		WikiTaxToJenaTDB.createTripleStore(classifierMap.get(rootname));
+		WikiTaxToJenaTDB.createTripleStore(root);
 	}
 
     public void crawl() throws SAXException, IOException, InterruptedException {
-    	initialize(rootname);
         int corenr = Runtime.getRuntime().availableProcessors();
         System.out.println("Starting with "+corenr+" threads!");
-        ExecutorService executor = Executors.newFixedThreadPool(corenr);
+        ExecutorService executor = Executors.newFixedThreadPool(corenr*3);
         while (true) {
             
             if (!classifierQueue.isEmpty()) {
@@ -78,9 +78,9 @@ public class MyCrawlerManager {
     }
 
     private void initialize(String name) {
-    	Classifier cl = new Classifier();
-        cl.setName(name);
-        this.offerClassifier(cl);
+    	root = new Classifier();
+        root.setName(name);
+        this.offerClassifier(root);
     	File dir = new File("./"+name.replaceAll(" ", ""));
         if(dir.exists()){
         	try {
@@ -122,7 +122,7 @@ public class MyCrawlerManager {
 
     public void offerClassifier(Classifier classifier) {
         if(classifierMap.size() % 100 ==0)
-            System.out.println("#C:"+ classifierMap.size()+", #I"+instanceMap.size());
+            System.out.println("#C:"+ classifierMap.size()+", #I:"+instanceMap.size());
         classifierQueue.offer(classifier);
     }
 

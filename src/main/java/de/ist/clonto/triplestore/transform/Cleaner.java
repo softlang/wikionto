@@ -38,7 +38,6 @@ public class Cleaner {
                 text += headlines[j] + " : " + parts[j] + "\n";
             String eval = JOptionPane.showInputDialog(null, text);
 
-            Refactor r = new Refactor(dataset);
             Prune p = new Prune(dataset);
             if(eval.contains("2"))
                 p.abandonType(null);

@@ -6,18 +6,9 @@
 package de.ist.clonto.webwiki;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.xml.sax.SAXException;
 
 import de.ist.clonto.webwiki.model.Classifier;
-import de.ist.clonto.webwiki.model.Element;
 import de.ist.clonto.webwiki.model.Instance;
-import info.bliki.api.Page;
 
 /**
  *
@@ -50,12 +41,12 @@ public class CategoryCrawler implements Runnable {
      * queue.
      */
     private void processSubCategories() {
-        List<String> subcats = null;
+        String[] subcats = null;
         try {
-            subcats = WikipediaAPI.getSubCategories(type.getName());
-        } catch (SAXException | IOException | InterruptedException ex) {
-            Logger.getLogger(CategoryCrawler.class.getName()).log(Level.SEVERE, null, ex);
-        }
+			subcats = (new Wiki()).getCategoryMembers(type.getName(), Wiki.CATEGORY_NAMESPACE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
         for (String name : subcats) {
             if (manager.isExcludedCategoryName(name.trim())) {
                 continue;
@@ -73,15 +64,14 @@ public class CategoryCrawler implements Runnable {
     }
 
     private void processEntities() {
-        //add entitys
-        List<String> entitys = null;
+        String[] articles = null;
         try {
-            entitys = WikipediaAPI.getPages(type.getName());
-        } catch (SAXException | IOException | InterruptedException ex) {
-            Logger.getLogger(CategoryCrawler.class.getName()).log(Level.SEVERE, null, ex);
-        }
+			articles = (new Wiki()).getCategoryMembers(type.getName(), Wiki.MAIN_NAMESPACE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-        for (String name : entitys) {
+        for (String name : articles) {
             if(name.contains("List of"))
                 continue;
             Instance entity = manager.getInstanceFromInstanceMap(name);
@@ -98,62 +88,37 @@ public class CategoryCrawler implements Runnable {
         Instance entity = new Instance();
         entity.setName(name);
 
-        Page entityPage = WikipediaAPI.getFirstPage(name);
-
-        retrieveSuperCategories(entityPage.toString(), entity);
+        Wiki w = new Wiki();
+        String[] cs;
+		try {
+			cs = w.getCategories(name,false,true);
+			for(String c : cs){
+	        	entity.addClassifier(c.replace("Category:", ""));
+	        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
         
         return entity;
     }
 
-    void retrieveSuperCategories(String entitytext, Element element) {
-        //get supercategories
-        Pattern categoryPattern = Pattern.compile("\\s*\\[\\[\\s*category\\s*:.*?\\]\\]", Pattern.CASE_INSENSITIVE);
-        Matcher categoryMatcher = categoryPattern.matcher(entitytext);
-        while (categoryMatcher.find()) {
-            String result = categoryMatcher.group();
-            result = result.replaceAll("[\\[\\]\\n]", "");
-            result = result.split("\\|")[0];
-            result = result.split(":")[1];
-            element.addClassifier(result);
-        }
-
-    }
-
-    /**
-    List<Information> retrieveAttributesFromInfobox(String entitytext) {
-        List<Information> informationList = new InfoboxParser().parse(entitytext);
-        
-        return informationList;
-    }
-    **/
-
     private void processCategory() {
-
-        Page page = WikipediaAPI.getFirstPage("Category:" + type.getName());
+    	
+    	Wiki w = new Wiki();
+        String[] cs;
+		try {
+			cs = w.getCategories("Category:"+type.getName(),false,true);
+			for(String c : cs){
+	        	type.addClassifier(c.replace("Category:", ""));
+	        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
         /**This kind of marker is not used
         if(page.toString().contains("{Eponymous}"))
             System.out.println(type.getName());
-        retrieveMainEntity(page.toString());
+        TODO: one may think about retrieving links from the description
         **/
-        retrieveSuperCategories(page.toString(), type);
     }
-    
-    void retrieveMainEntity(String page){
-        Pattern categoryPattern = Pattern.compile("\\n\\s*\\{\\{cat (main|more)\\|.*?\\}\\}", Pattern.CASE_INSENSITIVE);
-        Matcher categoryMatcher = categoryPattern.matcher(page);
-        if (categoryMatcher.find()) {
-            String result = categoryMatcher.group();
-            result = Pattern.compile("(cat|main|more|\\{|\\}|\\|)", Pattern.CASE_INSENSITIVE).matcher(result).replaceAll("").trim(); 
-            Instance mainentity = processentity(result);
-            type.setDescription(mainentity);
-        }
-        categoryPattern = Pattern.compile("\\n\\s*\\{\\{cat main\\}\\}", Pattern.CASE_INSENSITIVE);
-        categoryMatcher = categoryPattern.matcher(page);
-        if (categoryMatcher.find()) {
-            Instance mainentity = processentity(type.getName());
-            type.setDescription(mainentity);
-        }
-    }
-
-
 }

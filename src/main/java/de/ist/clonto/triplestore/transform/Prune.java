@@ -12,8 +12,6 @@ import javax.swing.JOptionPane;
 
 import com.hp.hpl.jena.query.Dataset;
 
-import de.ist.clonto.DissolveGUI;
-
 /**
  *
  * @author Marcel
@@ -235,7 +233,8 @@ public class Prune {
 		JOptionPane.showMessageDialog(null,
 				"Transformation successful! \n Model size difference: " + size);
 	}
-
+/**
+ * TODO
 	public void abandonTypeSelectiveRescue(String tname) {
 		String name = "";
 		if(tname == null)
@@ -244,13 +243,14 @@ public class Prune {
 		else
 			name = tname;
 		new DissolveGUI(proc.getDataset(), name).setVisible(true);
-		;
+		
 	}
+	**/
 
 	public void execute(String pruneName) {
 		switch (pruneName) {
 		case "Abandon Type (selective)":
-			abandonTypeSelectiveRescue(null);
+			//TODO : abandonTypeSelectiveRescue(null);
 			break;
 		case "Abandon Entity":
 			abandonEntity(null);
