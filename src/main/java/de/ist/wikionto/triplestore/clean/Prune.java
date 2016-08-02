@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.ist.wikionto.triplestore.transform;
+package de.ist.wikionto.triplestore.clean;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -140,7 +140,7 @@ public class Prune {
 		}
 	}
 
-	public void collapseType(String n) {
+	public void collapseClassifier(String n) {
 		String name = "";
 		if (n != null)
 			name = n;
@@ -148,26 +148,16 @@ public class Prune {
 			name = JOptionPane.showInputDialog(null, "Name the dissolvable type:");
 		if (null != name) {
 			Map<String, String> pmap = new HashMap<>();
-			pmap.put("oldtypename", name);
-			long size = proc.transform("collapseType.sparql", pmap);
+			pmap.put("name", name);
+			long size = proc.transform("collapseClassifier.sparql", pmap);
 			pmap.clear();
 			pmap.put("name", name);
-			size += proc.transform("abandonType.sparql", pmap);
+			size += proc.transform("abandonClassifier.sparql", pmap);
 			if (n == null)
 				JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
 		} else {
 			JOptionPane.showMessageDialog(null, "Transformation failed!" + name);
 		}
-	}
-
-	void liftCycle() {
-
-	}
-
-	private void custom() {
-		Map<String, String> pmap = new HashMap<>();
-		long size = proc.transform("custom.sparql", pmap);
-		JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
 	}
 
 }

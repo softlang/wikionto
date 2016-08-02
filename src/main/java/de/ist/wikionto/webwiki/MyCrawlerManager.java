@@ -20,7 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
-import org.xml.sax.SAXException;
 
 import de.ist.wikionto.triplestore.WikiTaxToJenaTDB;
 import de.ist.wikionto.webwiki.model.Classifier;
@@ -39,10 +38,9 @@ public class MyCrawlerManager {
 	private final Queue<Classifier> classifierQueue;
 	private final Map<String, Instance> instanceMap;
 	private Set<String> exclusionset;
-
 	private int threadcounter;
 
-	public MyCrawlerManager(String root, Set<String> excludedCategories, int maxDepth) {
+	public MyCrawlerManager(String root, Set<String> excludedCategories) {
 		this.rootname = root;
 		exclusionset = excludedCategories;
 		classifierQueue = new ConcurrentLinkedQueue<>();
@@ -50,14 +48,14 @@ public class MyCrawlerManager {
 		instanceMap = Collections.synchronizedMap(new HashMap<String, Instance>());
 	}
 
-	public void start() throws SAXException, IOException, InterruptedException {
+	public void start(int maxDepth) {
 		initialize(rootname);
 		threadcounter = 0;
 		crawl();
-		WikiTaxToJenaTDB.createTripleStore(root);
+		WikiTaxToJenaTDB.createTripleStore(root,maxDepth);
 	}
 
-	public void crawl() throws SAXException, IOException, InterruptedException {
+	public void crawl() {
 		int corenr = Runtime.getRuntime().availableProcessors();
 		System.out.println("Starting with " + corenr * 3 + " threads!");
 		ExecutorService executor = Executors.newFixedThreadPool(corenr * 3);
@@ -68,7 +66,7 @@ public class MyCrawlerManager {
 				executor.execute(new CategoryCrawler(this, popClassifier()));
 			} else {
 				if (threadcounter == 0) {
-					System.out.println("Stopping at " + classifierMap.size() + "C, " + instanceMap.size() + "E");
+					System.out.println("Finished crawl at #C:" + classifierMap.size() + ", #I:" + instanceMap.size());
 					break;
 				}
 			}
@@ -99,7 +97,7 @@ public class MyCrawlerManager {
 
 	}
 
-	public static void main(String[] args0) throws InterruptedException, SAXException, IOException {
+	public static void main(String[] args0) {
 		Set<String> exclusionset = new HashSet<>();
 		exclusionset.add("Data types");
 		exclusionset.add("Programming language topics");
@@ -117,8 +115,7 @@ public class MyCrawlerManager {
 		exclusionset.add("Software written");
 		exclusionset.add("Software by");
 		exclusionset.add("conference");
-		MyCrawlerManager manager = new MyCrawlerManager("Computer languages", exclusionset, 5);
-		manager.start();
+		new MyCrawlerManager("Computer languages", exclusionset).start(6);
 	}
 
 	public void offerClassifier(Classifier classifier) {

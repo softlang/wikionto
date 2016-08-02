@@ -16,8 +16,8 @@ public class GUIUtil {
 		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		gc.ipadx = ipadx;
 		gc.ipady = ipady;
-		gc.insets = new java.awt.Insets(10, 10, 10, 10);
-		gc.fill = java.awt.GridBagConstraints.NORTHWEST;
+		gc.insets = new java.awt.Insets(1, 1, 1, 1);
+		gc.fill = java.awt.GridBagConstraints.NONE;
 		a.add(c, gc);
 	}
 }

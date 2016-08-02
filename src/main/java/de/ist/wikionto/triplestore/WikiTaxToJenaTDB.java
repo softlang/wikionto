@@ -5,7 +5,6 @@
  */
 package de.ist.wikionto.triplestore;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,8 +37,10 @@ public class WikiTaxToJenaTDB {
 
     private static Map<String, Resource> classResMap;
     private static Map<String, Resource> instanceResMap;
+    private static int maxDepth;
 
-    public static void createTripleStore(Classifier root) throws FileNotFoundException {
+    public static void createTripleStore(Classifier root, int max) {
+    	maxDepth = max;
         String directory = "./"+root.getName().replaceAll(" ", "");
         Dataset dataset = TDBFactory.createDataset(directory);
 
@@ -55,6 +56,7 @@ public class WikiTaxToJenaTDB {
                 Integer.toString(root.getMinDepth()));
 
         transformClassifier(root);
+        System.out.println("Remaining after depth filter: #C:"+classResMap.size()+", #I:"+instanceResMap.size());
 
         // put outputstream instead of null
         dataset.commit();
@@ -62,11 +64,11 @@ public class WikiTaxToJenaTDB {
     }
 
     private static void transformClassifier(Classifier classifier) {
-    	if(classifier.getName().contains("OCaml software")){
-    		System.out.println(classifier.getName());
-    	}
         Resource classifierResource = classResMap.get(classifier.getURIName());
-
+        if(!(classifier.getMinDepth()<6)){
+        	System.out.println(classifier.getName());
+        	return;
+        }
         if (null != classifier.getDescription()) {
             Resource descriptionResource;
             if (!instanceResMap.containsKey(classifier.getDescription().getURIName())) {
@@ -102,8 +104,10 @@ public class WikiTaxToJenaTDB {
     }
 
     private static void transformSubclassifiers(Classifier classifier) {
+    	//stops at set maximum depth
+    	if(classifier.getMinDepth()==maxDepth)
+    		return;
         for (Classifier subclass : classifier.getSubclassifiers()) {
-        	System.out.println("Transforming subclassifier:"+subclass.getName());
             Resource subclassifierResource;
             if (!classResMap.containsKey(subclass.getURIName())) {
                 subclassifierResource = model.createResource(cURI + classResMap.size());

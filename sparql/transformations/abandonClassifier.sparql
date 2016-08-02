@@ -1,0 +1,8 @@
+PREFIX : <http://myWikiTax.de/> 
+DELETE {
+  ?n ?r ?t .
+}
+WHERE{ 
+  ?n ?r ?t .
+  FILTER(regex(STR(?t),"Classifier"))
+  ?t :name ?name . }

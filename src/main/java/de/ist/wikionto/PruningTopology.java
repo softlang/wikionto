@@ -2,8 +2,6 @@ package de.ist.wikionto;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -24,14 +23,16 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
 import de.ist.wikionto.gui.SupportFrame;
+import de.ist.wikionto.triplestore.clean.Prune;
 import de.ist.wikionto.triplestore.query.QueryUtil;
-import de.ist.wikionto.triplestore.transform.Prune;
 
 public class PruningTopology {
 
 	private static Dataset dataset;
-
 	private static String logPath;
+	private static final String wURI = "https://en.wikipedia.org/wiki/";
+	private static final String cURI = wURI+"Category:";
+	
 
 	// contains all valid eponymous classifiers
 	private static Set<String> valideC = new HashSet<>();
@@ -59,7 +60,7 @@ public class PruningTopology {
 		JOptionPane.showMessageDialog(null,
 				"The cleaning process is built around several things. \n"
 						+ "First, you should know what kind of categories you want to include or exclude"
-						+ "\nfor being feasible classifiers in your taxonomy."
+						+ "\nas classifiers in your taxonomy."
 						+ "\nSecond, the cleaning process will guide you through each bad smell. At first"
 						+ "\na description of a bad smell will be given. Then, for each bad smell we provide"
 						+ "\nGUI support helping in getting rid of confirmed issues."
@@ -89,6 +90,15 @@ public class PruningTopology {
 
 	private static void fixEponymousType() {
 		String p = "./sparql/smells/EponymousClassifier.sparql";
+		File logFile = new File(logPath+"EponymousClassifier.txt");
+		if(!logFile.exists()){
+			System.out.println("Creating log file "+logFile.getAbsolutePath());
+			try {
+				FileUtils.write(logFile, "");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		ResultSet rs = QueryUtil.executeQuery(dataset, p);
 		boolean f = false;
 		while (rs.hasNext()) {
@@ -99,66 +109,77 @@ public class PruningTopology {
 			else {
 				String[] options = new String[] { "?", "Valid", "Abandon instance", "Abandon classifier" };
 				String[] links = new String[2];
-				links[0] = "https://en.wikipedia.org/wiki/" + c;
-				links[1] = "https://en.wikipedia.org/wiki/Category:" + c;
+				links[0] = wURI + c;
+				links[1] = cURI + c;
 
 				String info = "By clicking on the ? button you can open a browser with "
-						+ "the corresponding Wikipedia page giving you decision ground." + "Three options are provided:"
-						+ "First, you can do nothing if the existence of both " + "elements in the taxonomy is okay. "
-						+ "Second, you can abandon the instance, if it does not "
-						+ "correspond to something you want to classify. "
-						+ "Third, you can abandon the classifier and carefully "
-						+ "inspect the relevance of subclassifiers and classified "
-						+ "instances. For each subclassifier and instance you can "
-						+ "toggle the Aba button to make sure this element is abandoned "
-						+ "as well or toggle the Del button to remove the relationship "
-						+ "from the classifier to the element.";
+						+ "\nthe corresponding Wikipedia page giving you decision ground." + "Three options are provided:"
+						+ "\nFirst, you can do nothing if the existence of both " + "elements in the taxonomy is okay. "
+						+ "\nSecond, you can abandon the instance, if it does not "
+						+ "\ncorrespond to something you want to classify. "
+						+ "\nThird, you can abandon the classifier and carefully "
+						+ "\ninspect the relevance of subclassifiers and classified "
+						+ "\ninstances. For each subclassifier and instance you can "
+						+ "\ntoggle the Aba button to make sure this element is abandoned "
+						+ "\nas well or toggle the Del button to remove the relationship "
+						+ "\nfrom the classifier to the element.";
 
 				Map<String, List<String>> map = new HashMap<>();
 				List<String> instances = QueryUtil.getInstances(dataset, c);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
-				map.put("Classified instances", instances);
-				map.put("Subclassifiers", subclassifiers);
-				SupportFrame ps = new SupportFrame(options, map, links, true, true, info);
+				List<String> linkedInstances = instances.stream().map(i -> wURI+i).collect(Collectors.toList());
+				List<String> linkedSubclassifiers = subclassifiers.stream().map(sc -> cURI+sc).collect(Collectors.toList());
+				map.put("Classified instances", linkedInstances);
+				map.put("Subclassifiers", linkedSubclassifiers);
+				//TODO Add proper links in the map
+				String qmsg = c+" is an eponymous classifier";
+				SupportFrame ps = new SupportFrame(qmsg,options, map, links, true, true, info);
 				ps.setVisible(true);
 				int r = ps.getOption();
+				System.out.println("Disposing");
 				ps.dispose();
-
+				addLogBlock("EponymousClassifier", qmsg);
 				assert (r > 0 && r < 4);
 				if (r == 1) {
 					valideC.add(c);
+					addLogEntry("EponymousClassifier", c+" is valid");
 					continue;
 				}
 				if (r == 2) {
 					f = true;
 					new Prune(dataset).abandonInstance(c);
+					addLogEntry("EponymousClassifier", "Abandon instance : "+c);
 					continue;
 				}
 				if (r == 3) {
 					f = true;
 					Map<String, List<JToggleButton>> tm = ps.getToggleMap();
 					List<JToggleButton> list1 = tm.get("Classified instances");
-					List<String> list2 = map.get("Classified Instances");
 					Iterator<JToggleButton> it = list1.iterator();
-					for (String l2 : list2) {
+					addLogEntry("EponymousClassifier", "Abandon classifier :"+c);
+					for (String l2 : instances) {
 						if (it.next().isSelected()) {
 							new Prune(dataset).abandonInstance(l2);
+							addLogEntry("EponymousClassifier", "\tAbandon instance "+l2);
 						}
 						if (it.next().isSelected()) {
 							new Prune(dataset).removeInstance(l2, c);
+							addLogEntry("EponymousClassifier", "\tRemove : "+c+" classifies "+l2);
 						}
 					}
 					list1 = tm.get("Subclassifiers");
-					list2 = map.get("Subclassifiers");
-					for (String l2 : list2) {
+					it = list1.iterator();
+					for (String l2 : subclassifiers) {
 						if (it.next().isSelected()) {
 							new Prune(dataset).abandonClassifier(l2);
+							addLogEntry("EponymousClassifier", "\tAbandon classifier "+l2);
 						}
 						if (it.next().isSelected()) {
 							new Prune(dataset).removeSubclassifier(c, l2);
+							addLogEntry("EponymousClassifier", "\tRemove : "+c+" has subclassifier "+l2);
 						}
 					}
-					new Prune(dataset).collapseType(c);
+					new Prune(dataset).collapseClassifier(c);
 				}
 			}
 		}
@@ -193,9 +214,10 @@ public class PruningTopology {
 				Map<String, List<String>> map = new HashMap<>();
 				List<String> instances = QueryUtil.getInstances(dataset, c);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
-				map.put("Classified instances", instances);
-				map.put("Subclassifiers", subclassifiers);
-				SupportFrame ps = new SupportFrame(options, map, links, true, true, info);
+				map.put("Classified instances", instances.stream().map(i -> wURI+i).collect(Collectors.toList()));
+				map.put("Subclassifiers", subclassifiers.stream().map(i -> cURI+i).collect(Collectors.toList()));
+				//TODO Add proper links in the map
+				SupportFrame ps = new SupportFrame(c+" is a semantically distant classifier",options, map, links, true, true, info);
 				ps.setVisible(true);
 				int r = ps.getOption();
 				ps.dispose();
@@ -229,7 +251,7 @@ public class PruningTopology {
 							new Prune(dataset).removeSubclassifier(c, l2);
 						}
 					}
-					new Prune(dataset).collapseType(c);
+					new Prune(dataset).collapseClassifier(c);
 				}
 			}
 		}
@@ -258,8 +280,9 @@ public class PruningTopology {
 
 				Map<String, List<String>> map = new HashMap<>();
 				List<String> classifiers = QueryUtil.getClassifiers(dataset, i);
-				map.put("Classifiers", classifiers);
-				SupportFrame ps = new SupportFrame(options, map, links, false, false, info);
+				map.put("Classifiers", classifiers.stream().map(cl -> cURI+cl).collect(Collectors.toList()));
+				//TODO Add proper links in the map
+				SupportFrame ps = new SupportFrame(i+" is a semantically distant instance",options, map, links, false, false, info);
 				ps.setVisible(true);
 				int r = ps.getOption();
 				ps.dispose();
@@ -310,10 +333,11 @@ public class PruningTopology {
 				Map<String, List<String>> map = new HashMap<>();
 				List<String> list1 = QueryUtil.getPathFromClassToClass(dataset, top1, t);
 				List<String> list2 = QueryUtil.getPathFromClassToClass(dataset, top2, t);
-				map.put("Path from top1", list1);
-				map.put("Path from top2", list2);
-
-				SupportFrame ps = new SupportFrame(options, map, links, false, true, info);
+				map.put("Path from top1", list1.stream().map(i -> cURI+i).collect(Collectors.toList()));
+				map.put("Path from top2", list2.stream().map(i -> cURI+i).collect(Collectors.toList()));
+				//TODO Add proper links in the map
+				String qmsg = t+" is a double reachable classifier with top classifiers:"+top1+" & "+top2;
+				SupportFrame ps = new SupportFrame(qmsg,options, map, links, false, true, info);
 				ps.setVisible(true);
 				int r = ps.getOption();
 				ps.dispose();
@@ -392,11 +416,20 @@ public class PruningTopology {
 
 				Map<String, List<String>> map = new HashMap<>();
 				List<String> list1 = QueryUtil.getPathFromClassToInstance(dataset, top1, dri);
+				list1 = list1.stream().map(i -> cURI+i).collect(Collectors.toList());
+				String inst = list1.get(list1.size()-1).replace("Category:", "");
+				list1.remove(list1.size()-1);
+				list1.add(inst);
 				List<String> list2 = QueryUtil.getPathFromClassToInstance(dataset, top2, dri);
+				list2 = list2.stream().map(i -> cURI+i).collect(Collectors.toList());
+				inst = list2.get(list2.size()-1).replace("Category:", "");
+				list2.remove(list2.size()-1);
+				list2.add(inst);
 				map.put("Path from top1", list1);
 				map.put("Path from top2", list2);
-
-				SupportFrame ps = new SupportFrame(options, map, links, false, true, info);
+				//TODO Add proper links in the map
+				String qmsg = dri +"is a double reachable instance with top classifiers:"+top1+" & "+top2;
+				SupportFrame ps = new SupportFrame(qmsg,options, map, links, false, true, info);
 				ps.setVisible(true);
 				int r = ps.getOption();
 				ps.dispose();
@@ -482,9 +515,9 @@ public class PruningTopology {
 
 			Map<String, List<String>> map = new HashMap<>();
 			List<String> list1 = QueryUtil.getPathFromClassToInstance(dataset, cc, cc);
-			map.put("Cycle path", list1);
-
-			SupportFrame ps = new SupportFrame(options, map, links, false, true, info);
+			map.put("Cycle path", list1.stream().map(i->cURI+i).collect(Collectors.toList()));
+			//TODO Add proper links in the map
+			SupportFrame ps = new SupportFrame(cc+" is a cyclic classifier",options, map, links, false, true, info);
 			ps.setVisible(true);
 			int r = ps.getOption();
 			ps.dispose();
@@ -519,21 +552,22 @@ public class PruningTopology {
 				ws[1] = "https://en.wikipedia.org/wiki/Category:" + c;
 
 				String info = "By clicking on the ? button you can open a browser with "
-						+ "the corresponding Wikipedia page giving you decision ground." + "Three options are provided:"
-						+ "First, you can do nothing if the existence the classifier is feasible. "
-						+ "Second, you can abandon the classifier and carefully "
-						+ "inspect the relevance of subclassifiers and classified "
-						+ "instances. For each subclassifier and instance you can "
-						+ "toggle the Aba button to make sure this element is abandoned "
-						+ "as well or toggle the Del button to remove the relationship "
-						+ "from the classifier to the element.";
+						+ "\nthe corresponding Wikipedia page giving you decision ground." + "Three options are provided:"
+						+ "\nFirst, you can do nothing if the existence the classifier is feasible. "
+						+ "\nSecond, you can abandon the classifier and carefully "
+						+ "\ninspect the relevance of subclassifiers and classified "
+						+ "\ninstances. For each subclassifier and instance you can "
+						+ "\ntoggle the Aba button to make sure this element is abandoned "
+						+ "\nas well or toggle the Del button to remove the relationship "
+						+ "\nfrom the classifier to the element.";
 
 				Map<String, List<String>> map = new HashMap<>();
 				List<String> instances = QueryUtil.getInstances(dataset, c);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
-				map.put("Classified instances", instances);
-				map.put("Subclassifiers", subclassifiers);
-				SupportFrame ps = new SupportFrame(options, map, ws, true, true, info);
+				map.put("Classified instances", instances.stream().map(i -> wURI+i).collect(Collectors.toList()));
+				map.put("Subclassifiers", subclassifiers.stream().map(i -> cURI+i).collect(Collectors.toList()));
+				//TODO Add proper links in the map
+				SupportFrame ps = new SupportFrame(c+" is a lazy classifier",options, map, ws, true, true, info);
 				ps.setVisible(true);
 				int r = ps.getOption();
 				ps.dispose();
@@ -565,7 +599,7 @@ public class PruningTopology {
 							new Prune(dataset).removeSubclassifier(c, l2);
 						}
 					}
-					new Prune(dataset).collapseType(c);
+					new Prune(dataset).collapseClassifier(c);
 				}
 			}
 		}
@@ -600,10 +634,10 @@ public class PruningTopology {
 		}
 		if (b == 1) {
 			File f = new File(
-					"./evaluation/logs/log" + LocalDateTime.now().toString().replaceAll(":", "").replaceAll("\\.", ""));
-			f.mkdir();
+					"evaluation/logs/log" + LocalDateTime.now().toString().replaceAll(":", "").replaceAll("\\.", ""));
+			f.mkdirs();
 			JOptionPane.showMessageDialog(null, "Creating new log files in \n" + f.getAbsolutePath());
-			logPath = f.getAbsolutePath();
+			logPath = f.getAbsolutePath()+"/";
 		}
 		if (b == 0) {
 			JFileChooser fc = new JFileChooser();
@@ -611,7 +645,7 @@ public class PruningTopology {
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = fc.showOpenDialog(null);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				logPath = fc.getSelectedFile().getAbsolutePath();
+				logPath = fc.getSelectedFile().getAbsolutePath()+"/";
 			} else {
 				JOptionPane.showMessageDialog(null, "Loading log folder failed. Please restart!");
 				System.exit(0);
@@ -623,7 +657,7 @@ public class PruningTopology {
 	public static void addLogBlock(String smellname, String queryresults) {
 		String e = "\n" + queryresults;
 
-		File f = new File(logPath + "/" + smellname + ".txt");
+		File f = new File(logPath + smellname + ".txt");
 		try {
 			String s = FileUtils.readFileToString(f);
 			s += e;
@@ -637,7 +671,7 @@ public class PruningTopology {
 	public static void addLogEntry(String smellname, String entry) {
 		String e = "\n\t" + entry;
 
-		File f = new File(logPath + "/" + smellname + ".txt");
+		File f = new File(logPath + smellname + ".txt");
 		try {
 			String s = FileUtils.readFileToString(f);
 			s += e;
@@ -649,6 +683,6 @@ public class PruningTopology {
 	}
 
 	public static void main(String[] args) {
-
+		clean();
 	}
 }

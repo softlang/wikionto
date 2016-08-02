@@ -1,4 +1,4 @@
-PREFIX : <http://myCLOnto.de/> 
+PREFIX : <http://myWikiTax.de/> 
 DELETE {
   ?n ?r ?entity .
 }

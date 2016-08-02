@@ -34,8 +34,8 @@ public class CrawlerTest {
 	@BeforeClass
 	public static void setUp() throws SAXException, IOException, InterruptedException {
 		Set<String> exclusionset = new HashSet<>();
-		MyCrawlerManager cm = new MyCrawlerManager("OCaml programming language family", exclusionset, 99);
-		cm.start();
+		MyCrawlerManager cm = new MyCrawlerManager("OCaml programming language family", exclusionset);
+		cm.start(6);
 		r = cm.getRoot();
 	}
 

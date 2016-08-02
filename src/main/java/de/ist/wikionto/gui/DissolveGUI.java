@@ -29,7 +29,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
-import de.ist.wikionto.triplestore.transform.Prune;
+import de.ist.wikionto.triplestore.clean.Prune;
 
 public class DissolveGUI extends JFrame {
 
@@ -272,7 +272,7 @@ public class DissolveGUI extends JFrame {
 		}
 		
 		System.out.println(";Collapse Hierarchy");
-		prune.collapseType(typename);
+		prune.collapseClassifier(typename);
 		this.dispose();
 	}
 

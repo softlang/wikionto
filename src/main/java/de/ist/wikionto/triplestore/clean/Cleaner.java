@@ -1,4 +1,4 @@
-package de.ist.wikionto.triplestore.transform;
+package de.ist.wikionto.triplestore.clean;
 
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.tdb.TDBFactory;

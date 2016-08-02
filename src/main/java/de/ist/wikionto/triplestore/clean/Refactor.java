@@ -3,7 +3,7 @@
  * To change null template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.ist.wikionto.triplestore.transform;
+package de.ist.wikionto.triplestore.clean;
 
 import java.util.ArrayList;
 import java.util.HashMap;

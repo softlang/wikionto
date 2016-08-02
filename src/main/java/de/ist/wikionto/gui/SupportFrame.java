@@ -1,6 +1,5 @@
 package de.ist.wikionto.gui;
 
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.io.IOException;
 import java.net.URI;
@@ -23,6 +22,7 @@ public class SupportFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private int chosenoption = -1;
 
+	private final String queryResult;
 	private final String[] options;
 	private final Map<String, List<String>> labelledlists;
 	private final Map<String, List<JToggleButton>> toggleMap;
@@ -31,8 +31,9 @@ public class SupportFrame extends JFrame {
 	private final boolean del;
 	private final String info;
 
-	public SupportFrame(String[] options, Map<String, List<String>> labelledlists, String[] websites, boolean aba,
+	public SupportFrame(String queryResult,String[] options, Map<String, List<String>> labelledlists, String[] websites, boolean aba,
 			boolean del, String info) {
+		this.queryResult = queryResult;
 		this.options = options;
 		this.labelledlists = labelledlists;
 		this.toggleMap = new HashMap<>();
@@ -49,29 +50,21 @@ public class SupportFrame extends JFrame {
 	 */
 	private void initializeComponents() {
 		setTitle("Interactive Pruning Support");
-		java.awt.GridBagConstraints gc;
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new GridBagLayout());
-
+		
+		JLabel qResult = new JLabel();
+		qResult.setText(queryResult);
+		GUIUtil.addComponentToContainer(0, 0, 1, 1, 0, 0, getContentPane(), qResult);
+		
+		
 		JPanel listspanel = new JPanel();
 		listspanel.setLayout(new GridBagLayout());
-		gc = new GridBagConstraints();
-		gc.gridx = 0;
-		gc.gridy = 0;
-		gc.anchor = GridBagConstraints.NORTHWEST;
-		gc.weightx = 1;
-		gc.weighty = 1;
-		getContentPane().add(listspanel, gc);
+		GUIUtil.addComponentToContainer(0, 1, 1, 1, 0, 0, getContentPane(), listspanel);
 
 		JPanel buttonpanel = new JPanel();
 		buttonpanel.setLayout(new GridBagLayout());
-		gc = new GridBagConstraints();
-		gc.gridx = 0;
-		gc.gridy = 1;
-		gc.anchor = GridBagConstraints.NORTHWEST;
-		gc.weightx = 1;
-		gc.weighty = 1;
-		getContentPane().add(buttonpanel, gc);
+		GUIUtil.addComponentToContainer(0, 2, 1, 1, 0, 0, getContentPane(), buttonpanel);
 		int i = 1;
 		if (options[0].equals("?")) {
 			JButton ob = new JButton("?");
@@ -79,20 +72,14 @@ public class SupportFrame extends JFrame {
 				for (String w : websites) {
 					try {
 						java.awt.Desktop.getDesktop().browse(new URI(w.replaceAll(" ", "_")));
-					} catch (IOException | URISyntaxException a) {
+						Thread.sleep(1000);
+					} catch (InterruptedException | IOException | URISyntaxException a) {
 						System.err.println("Failed to open " + w);
 						a.printStackTrace();
 					}
 				}
 			});
-			gc = new GridBagConstraints();
-			gc.gridx = 0;
-			gc.gridy = 0;
-			gc.anchor = GridBagConstraints.NORTHWEST;
-			gc.ipadx = 10;
-			gc.ipady = 10;
-			gc.insets = new java.awt.Insets(10, 10, 10, 10);
-			buttonpanel.add(ob, gc);
+			GUIUtil.addComponentToContainer(0, 0, 1, 1, 10, 10, buttonpanel, ob);
 		} else {
 			i = 0;
 		}
@@ -105,113 +92,71 @@ public class SupportFrame extends JFrame {
 				System.out.println(j);
 				chosenoption = j;
 			});
-			gc = new GridBagConstraints();
-			gc.gridx = i;
-			gc.gridy = 0;
-			gc.anchor = GridBagConstraints.NORTHWEST;
-			gc.ipadx = 10;
-			gc.ipady = 10;
-			gc.insets = new java.awt.Insets(10, 10, 10, 10);
-			buttonpanel.add(ob, gc);
+			GUIUtil.addComponentToContainer(i, 0, 1, 1, 10, 10, buttonpanel, ob);
 		}
 
 		JButton infob = new JButton("Help");
 		infob.setToolTipText("Provides information on what to do.");
 		infob.addActionListener(e -> JOptionPane.showMessageDialog(this, info));
-		gc = new GridBagConstraints();
-		gc.gridx = options.length;
-		gc.gridy = 0;
-		gc.anchor = GridBagConstraints.NORTHWEST;
-		gc.ipadx = 10;
-		gc.ipady = 10;
-		gc.insets = new java.awt.Insets(10, 10, 10, 10);
-		buttonpanel.add(infob, gc);
+		GUIUtil.addComponentToContainer(options.length, 0, 1, 1, 10, 10, buttonpanel, infob);
 
 		int j = 0;
-
 		for (String l : labelledlists.keySet()) {
+			if(labelledlists.get(l).isEmpty()){
+				continue;
+			}else{
+				System.out.println("Not Empty laballists "+labelledlists.get(l).size());
+				labelledlists.get(l).forEach(la -> System.out.println(la));
+			}
 			List<JToggleButton> toggleList = new ArrayList<>();
 			JScrollPane scrollList = new JScrollPane();
+			
 			scrollList.setBorder(javax.swing.BorderFactory.createTitledBorder(l));
 			JPanel listpanel = new JPanel();
 			listpanel.setLayout(new GridBagLayout());
-
 			scrollList.setViewportView(listpanel);
-			gc = new GridBagConstraints();
-			gc.gridx = j;
-			gc.gridy = 1;
-			gc.anchor = GridBagConstraints.NORTHWEST;
-			gc.ipadx = 10;
-			gc.ipady = 10;
-			gc.insets = new java.awt.Insets(10, 10, 10, 10);
-			listspanel.add(scrollList, gc);
+			scrollList.setMinimumSize(new java.awt.Dimension(500, 200));
+			GUIUtil.addComponentToContainer(j, 1, 1, 1, 0, 0, listspanel, scrollList);
+			
 
 			int k = 0;
 			for (String e : labelledlists.get(l)) {
 				JLabel label = new JLabel(getName(e));
-				gc = new GridBagConstraints();
-				gc.gridx = 0;
-				gc.gridy = k;
-				gc.anchor = GridBagConstraints.NORTHWEST;
-				gc.ipadx = 10;
-				gc.ipady = 10;
-				gc.insets = new java.awt.Insets(10, 10, 10, 10);
-				listpanel.add(label, gc);
+				GUIUtil.addComponentToContainer(0, k, 1, 1, 0, 0, listpanel, label);
 
 				JButton wb = new JButton("?");
 				wb.addActionListener(ev -> {
 					try {
-						java.awt.Desktop.getDesktop().browse(new URI(e));
-					} catch (IOException | URISyntaxException a) {
+						java.awt.Desktop.getDesktop().browse(new URI(e.replaceAll(" ", "_")));
+						Thread.sleep(100);
+					} catch (InterruptedException | IOException | URISyntaxException a) {
 						System.err.println("Failed to open " + e);
 						a.printStackTrace();
 					}
 				});
-				gc = new GridBagConstraints();
-				gc.gridx = 1;
-				gc.gridy = k;
-				gc.anchor = GridBagConstraints.NORTHWEST;
-				gc.ipadx = 10;
-				gc.ipady = 10;
-				gc.insets = new java.awt.Insets(10, 10, 10, 10);
-				listpanel.add(wb, gc);
+				GUIUtil.addComponentToContainer(1, k, 1, 1, 0, 0, listpanel, wb);
 
 				if (aba) {
 					JToggleButton abutton = new javax.swing.JToggleButton("Aba");
 					abutton.setToolTipText("The member is abandoned, if this button is toggled.");
-					gc = new GridBagConstraints();
-					gc.gridx = 2;
-					gc.gridy = k;
-					gc.anchor = GridBagConstraints.NORTHWEST;
-					gc.ipadx = 10;
-					gc.ipady = 10;
-					gc.insets = new java.awt.Insets(10, 10, 10, 10);
-					listpanel.add(abutton, gc);
+					GUIUtil.addComponentToContainer(2, k, 1, 1, 0, 0, listpanel, abutton);
 					toggleList.add(abutton);
 				}
 
 				if (del) {
 					JToggleButton dbutton = new javax.swing.JToggleButton("Del");
 					dbutton.setToolTipText("Removes relationship to this member.");
-					gc = new GridBagConstraints();
-					gc.gridx = 3;
-					gc.gridy = k;
-					gc.anchor = GridBagConstraints.NORTHWEST;
-					gc.ipadx = 10;
-					gc.ipady = 10;
-					gc.insets = new java.awt.Insets(10, 10, 10, 10);
-					listpanel.add(dbutton, gc);
+					GUIUtil.addComponentToContainer(3, k, 1, 1, 0, 0, listpanel, dbutton);
 					toggleList.add(dbutton);
 				}
-
 				k++;
 
 			}
-
 			toggleMap.put(l, toggleList);
 			j++;
 		}
-
+		setMaximumSize(new java.awt.Dimension(100,100));
+		
 		pack();
 	}
 
@@ -221,15 +166,13 @@ public class SupportFrame extends JFrame {
 
 	public int getOption() {
 		System.out.println("Calling getOption");
-		long time = System.nanoTime();
-		long timed = 0;
-		long time2;
 		while (chosenoption == -1) {
-			time2 = System.nanoTime();
-			timed += time2 - time;
-			time = time2;
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-		System.out.println("Time needed : " + timed);
 		return chosenoption;
 	}
 
@@ -242,15 +185,17 @@ public class SupportFrame extends JFrame {
 		Map<String, List<String>> m = new HashMap<>();
 		String l = "Instances";
 		List<String> vs = new ArrayList<>();
-		vs.add("https://en.wikipedia.org/wiki/Haskell_(programming_language)");
-		vs.add("https://en.wikipedia.org/wiki/Java_(programming_language)");
+		for(int i = 0; i<50;i++){
+			vs.add("https://en.wikipedia.org/wiki/Haskell_(programming_language)");
+			vs.add("https://en.wikipedia.org/wiki/Java_(programming_language)");
+		}
 		m.put(l, vs);
 		l = "Subclassifiers";
 		vs = new ArrayList<>();
 		vs.add("https://en.wikipedia.org/wiki/Category:JVM_programming_languages");
 		vs.add("https://en.wikipedia.org/wiki/Category:Concurrent_programming_languages");
 		m.put(l, vs);
-		SupportFrame ps = new SupportFrame(new String[] { "?", "Yes", "No" }, m,
+		SupportFrame ps = new SupportFrame("Haskell is a lazy category.",new String[] { "?", "Yes", "No" }, m,
 				new String[] { "https://en.wikipedia.org/wiki/Main Page" }, true, true, "info");
 		ps.setVisible(true);
 		int o = ps.getOption();

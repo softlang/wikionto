@@ -1,10 +1,10 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?name as ?cname
+SELECT DISTINCT ?cname ?depth
 WHERE {
 	?type3 :classifies ?entity .
     ?type2 :hasSubclassifier ?type . 
     ?entity :name ?cname .
     ?type :name ?cname .
-    ?type :depth ?depth
+    ?type :depth ?depth .
 }
-ORDER BY DESC ?depth
+ORDER BY DESC (?depth)

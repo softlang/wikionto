@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QueryParseException;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
@@ -114,10 +115,14 @@ public class QueryGUI extends JFrame {
 		for (String line : lines) {
 			queryString += line + System.lineSeparator();
 		}
+		try{
 		Query query = QueryFactory.create(queryString, Syntax.syntaxARQ);
 		queryResultArea.setText("Starting query: " + queryPath.toFile().getName() + "\n");
 		new QueryProcessor(query, dataset).stream(new QueryAreaStream(queryResultArea));
-
+		}catch (QueryParseException e){
+			queryResultArea.setText(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
