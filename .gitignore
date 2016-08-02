@@ -1,1 +1,7 @@
 /target/
+*.prefs
+*.dat
+*.idn
+*.jrnl
+*.dat-jrnl
+*.lock
