@@ -1,8 +1,0 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT DISTINCT ?name
-WHERE {
-	?t2 :depth "3" .
-    ?t2 :hasInstance ?t .
-    ?t :name ?name .
-}
-LIMIT 50

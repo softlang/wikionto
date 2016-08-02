@@ -1,8 +1,8 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT ?e ?tname 
+PREFIX : <http://myWikiTax.de/> 
+SELECT DISTINCT ?over
 WHERE {
-    ?t :name "Apache Empire-db" .
-    ?t :name ?tname .
-    ?t :hasInformation ?i .
-    ?i :topic ?e .
+    ?c1 :name "Free software programmed in OCaml" .
+    ?c1 (:hasSubclassifier)*/:classifies* ?c3 .
+    ?c3 :name "MLDonkey" .
+    ?c3 :name ?over .
 }

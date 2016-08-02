@@ -1,8 +1,0 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT DISTINCT ("https://en.wikipedia.org/wiki/Category:" + 
-  replace(?typename," ","_","i") as ?fname)
-WHERE {
-    ?type :name ?typename .
-    ?type :hasSubtype ?subtype .
-    ?subtype :name "Industry-specific XML-based standards" .
-}

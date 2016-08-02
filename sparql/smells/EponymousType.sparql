@@ -1,9 +1,0 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT DISTINCT ?name
-WHERE {
-	?type3 :hasInstance ?entity .
-    ?type2 :hasSubtype ?type . 
-    ?entity :name ?name .
-    ?type :name ?name .
-}
-ORDER BY ?name

@@ -1,0 +1,10 @@
+PREFIX : <http://myWikiTax.de/> 
+SELECT DISTINCT ?o
+WHERE {
+    ?cfrom :name ?from .
+    ?cto :name ?to .
+    ?cfrom :hasSubclassifier ?cover .
+    ?cover :hasSubclassifier* ?cto .
+    ?cover :name ?o .
+}
+LIMIT 1

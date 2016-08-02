@@ -1,8 +1,0 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT ?e ?infoname ?topic
-WHERE {
-    ?e :name "SpreadsheetML" .
-    ?e :hasInformation ?i .
-    ?i :name ?infoname .
-    ?i :topic ?topic .
-}

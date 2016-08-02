@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import de.ist.wikionto.webwiki.Wiki;
+
 public class WikiTest {
 
 	@Test
@@ -24,8 +26,19 @@ public class WikiTest {
 	public void testGetCategoriesCategory(){
 		Wiki w = new Wiki();
 		try {
-			String[] cs = w.getCategories("Category:Computer languages",false,true);
+			String[] cs = w.getSuperCategories("Computer languages");
 			assertEquals(3,cs.length);
+		} catch (IOException e) {
+			assertFalse(true);
+		}
+	}
+	
+	@Test
+	public void testGetSubcategories(){
+		Wiki w = new Wiki();
+		try {
+			String[] cs = w.getCategoryMembers("Object-based programming languages",Wiki.CATEGORY_NAMESPACE);
+			assertEquals(2,cs.length);
 		} catch (IOException e) {
 			assertFalse(true);
 		}
@@ -35,7 +48,7 @@ public class WikiTest {
 	public void testGetArticles(){
 		Wiki w = new Wiki();
 		try {
-			String[] is = w.getCategoryMembers("Category:Computer languages", Wiki.MAIN_NAMESPACE);
+			String[] is = w.getCategoryMembers("Computer languages", Wiki.MAIN_NAMESPACE);
 			assertEquals(19,is.length);
 		} catch (IOException e) {
 			assertFalse(true);
@@ -46,7 +59,7 @@ public class WikiTest {
 	public void testGetMain(){
 		Wiki w = new Wiki();
 		try {
-			String[] ls = w.getLinksOnPage("Category:Computer languages");
+			String[] ls = w.getLinksOnPage("Computer languages");
 			assertEquals(1,ls.length);
 			assertEquals("Computer language",ls[0]);
 		} catch (IOException e) {

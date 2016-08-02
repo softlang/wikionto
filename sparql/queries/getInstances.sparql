@@ -1,8 +1,0 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT DISTINCT ("https://en.wikipedia.org/wiki/" + 
-  replace(?iname," ","_","i") as ?fname)
-WHERE {
-    ?type :name "Translatewiki.net" .
-    ?type :hasInstance ?instance .
-    ?instance :name ?iname .
-}
