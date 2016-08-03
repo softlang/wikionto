@@ -1,0 +1,8 @@
+PREFIX : <http://myWikiTax.de/> 
+DELETE {
+  ?superclassifier :hasSubclassifier ?subclassifier .
+}
+WHERE{ 
+  ?superclassifier :hasSubclassifier ?subclassifier .
+  ?subclassifier :name ?subclassifiername .
+  ?superclassifier :name ?oldsuperclassifiername . }

@@ -1,32 +1,33 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT ?typename  (COUNT(?dtype) as ?howManyDistantTypes) (COUNT(?rtype) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference)
+PREFIX : <http://myWikiTax.de/> 
+SELECT ?cname  (COUNT(?dclassifier) as ?howManyDistantTypes) (COUNT(?rclassifier) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference) ?depth
 WHERE {
-	?type :name ?typename .
+	?classifier :name ?cname .
+    ?classifier :depth ?depth .
     
     FILTER EXISTS{
         ?cl :name "Computer languages" .
-        ?cl :hasSubtype* ?type . 
+        ?cl :hasSubclassifier* ?classifier . 
     }
     
-    {SELECT DISTINCT ?type ?dtype
+    {SELECT DISTINCT ?classifier ?dclassifier
     WHERE {
-        ?type ^:hasSubtype ?dtype .
+        ?classifier ^:hasSubclassifier ?dclassifier .
         FILTER NOT EXISTS{
             ?cl :name "Computer languages" .
-			?cl :hasSubtype* ?dtype .
+			?cl :hasSubclassifier* ?dclassifier .
 		}
     }
     }
 	UNION
 	
-	{SELECT DISTINCT ?type ?rtype
+	{SELECT DISTINCT ?classifier ?rclassifier
     WHERE {
-        ?type ^:hasSubtype ?rtype .
+        ?classifier ^:hasSubclassifier ?rclassifier .
         ?cl :name "Computer languages" .
-		?cl :hasSubtype* ?rtype .
+		?cl :hasSubclassifier* ?rclassifier .
     }
     }
 }
-GROUP BY ?typename
+GROUP BY ?cname ?depth
 HAVING (?difference > 0 && ?howManyReachableTypes > 0)
-ORDER BY ?difference
+ORDER BY ASC (?depth)

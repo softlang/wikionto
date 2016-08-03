@@ -1,32 +1,31 @@
-PREFIX : <http://myCLOnto.de/> 
-SELECT ?entityname  (COUNT(?dtype) as ?howManyDistantTypes) (COUNT(?rtype) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference)
+PREFIX : <http://myWikiTax.de/> 
+SELECT ?iname  (COUNT(?dclassifier) as ?howManyDistantTypes) (COUNT(?rclassifier) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference) 
 WHERE {
 
-    {SELECT DISTINCT ?entity ?dtype
+    {SELECT DISTINCT ?entity ?dclassifier
     WHERE {
-        ?entity ^:hasInstance ?dtype .
+        ?entity ^:classifies ?dclassifier .
         
         FILTER NOT EXISTS{ 
 			?cl :name "Computer languages" .
-			?cl :hasSubtype* ?dtype .
+			?cl :hasSubclassifier* ?dclassifier .
 		}
     }
     }
 	UNION
-	{SELECT DISTINCT ?entity ?rtype
+	{SELECT DISTINCT ?entity ?rclassifier
     WHERE {
-        ?entity ^:hasInstance ?rtype . 
+        ?entity ^:classifies ?rclassifier . 
         ?cl :name "Computer languages" .
-		?cl :hasSubtype* ?rtype .
+		?cl :hasSubclassifier* ?rclassifier .
     }
     }
-	?entity :name ?entityname .
+	?entity :name ?iname .
     FILTER EXISTS{
-        ?type :hasInstance ?entity .
+        ?classifier :classifies ?entity .
         ?cl :name "Computer languages" .
-		?cl :hasSubtype* ?type .
+		?cl :hasSubclassifier* ?classifier .
     }
 }
-GROUP BY ?entityname
+GROUP BY ?iname
 HAVING(?difference>0 && ?howManyReachableTypes>0)
-ORDER BY ?difference

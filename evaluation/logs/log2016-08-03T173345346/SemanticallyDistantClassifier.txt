@@ -1,0 +1,42 @@
+
+Architecture description language is a semantically distant classifier
+	Architecture description language is valid
+Specification languages is a semantically distant classifier
+	Specification languages is valid
+Programming languages is a semantically distant classifier
+	Programming languages is valid
+Discontinued programming languages is a semantically distant classifier
+	Abandon classifier Discontinued programming languages
+Architecture description language is a semantically distant classifier
+	Architecture description language is valid
+Specification languages is a semantically distant classifier
+Discontinued programming languages is a semantically distant classifier
+	Discontinued programming languages is valid
+Formal specification languages is a semantically distant classifier
+Formal specification languages is a semantically distant classifier
+	Abandon classifier Formal specification languages
+Formal specification languages is a semantically distant classifier
+	Abandon classifier Formal specification languages
+		Remove : Formal specification languages has subclassifier Synchronous programming languages
+		Abandon classifier Temporal logic
+HTML is a semantically distant classifier
+HTML is a semantically distant classifier
+	Abandon classifier HTML
+		Abandon classifier HTML5
+		Remove : HTML has subclassifier HTML parsers
+HTML is a semantically distant classifier
+	Abandon classifier HTML
+		Abandon classifier HTML parsers
+		Remove : HTML has subclassifier HTML editors
+HTML is a semantically distant classifier
+	Abandon classifier HTML
+		Abandon classifier HTML editors
+		Remove : HTML has subclassifier Semantic HTML
+Hardware description languages is a semantically distant classifier
+Hardware description languages is a semantically distant classifier
+	Abandon classifier Hardware description languages
+		Abandon classifier Hardware verification languages
+		Remove : Hardware description languages has subclassifier System description languages
+Knowledge representation languages is a semantically distant classifier
+	Knowledge representation languages is valid
+Markup language stubs is a semantically distant classifier

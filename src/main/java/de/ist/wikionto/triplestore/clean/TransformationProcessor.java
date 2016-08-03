@@ -28,69 +28,69 @@ import com.hp.hpl.jena.update.UpdateAction;
  */
 public class TransformationProcessor {
 
-    private final Dataset dataset;
+	private final Dataset dataset;
 
-    public TransformationProcessor(Dataset dataset) {
-        this.dataset = dataset;
-    }
-    
-    public long transform(String tfilename, Map<String,String> parameter){
-        File tfile = new File(System.getProperty("user.dir")+"/sparql/transformations/"+tfilename);
-        String transformation = "";
-        try {
-            List<String> lines = Files.readAllLines(tfile.toPath());
-            for(String line : lines){
-                transformation+=line+"\n";
-            }
-        } catch (IOException ex) {
-            System.err.println("Exception transforming:"+tfilename);;
-        }
-        dataset.begin(ReadWrite.WRITE);
-        Graph graph = dataset.asDatasetGraph().getDefaultGraph();
-        long size = graph.size();
-        ParameterizedSparqlString pss = new ParameterizedSparqlString();
-        pss.setCommandText(transformation);
-        for(String key: parameter.keySet()){
-            String query = pss.asUpdate().toString();
-            if(!parameter.get(key).contains("http://")){
-                pss.setLiteral(key, parameter.get(key).trim());
-            }else{
-                pss.setIri(key, parameter.get(key).trim());
-            }
-            if(query.equals(pss.asUpdate().toString())) {
-                JOptionPane.showMessageDialog(null,"Querynames are flawed. This should not happen.");
-                System.err.println(pss.toString());
-                return 0;
-            }
-        }
-        UpdateAction.execute(pss.asUpdate(), graph);
-        size = graph.size() - size;
-        dataset.commit();
-        return size;
-    }
-    
+	public TransformationProcessor(Dataset dataset) {
+		this.dataset = dataset;
+	}
+
+	public long transform(String tfilename, Map<String, String> parameter) {
+		File tfile = new File(System.getProperty("user.dir") + "/sparql/transformations/" + tfilename);
+		String transformation = "";
+		try {
+			List<String> lines = Files.readAllLines(tfile.toPath());
+			for (String line : lines) {
+				transformation += line + "\n";
+			}
+		} catch (IOException ex) {
+			System.err.println("Exception transforming:" + tfilename);
+			;
+		}
+		dataset.begin(ReadWrite.WRITE);
+		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
+		long size = graph.size();
+		ParameterizedSparqlString pss = new ParameterizedSparqlString();
+		pss.setCommandText(transformation);
+		for (String key : parameter.keySet()) {
+			String query = pss.asUpdate().toString();
+			if (!parameter.get(key).contains("http://")) {
+				pss.setLiteral(key, parameter.get(key).trim());
+			} else {
+				pss.setIri(key, parameter.get(key).trim());
+			}
+			if (query.equals(pss.asUpdate().toString())) {
+				JOptionPane.showMessageDialog(null, "Querynames are flawed. This should not happen.");
+				System.err.println(pss.toString());
+				dataset.abort();
+				return 0;
+			}
+		}
+		UpdateAction.execute(pss.asUpdate(), graph);
+		size = graph.size() - size;
+		dataset.commit();
+		return size;
+	}
+
 	public Dataset getDataset() {
 		return dataset;
 	}
 
-    /*
-     * This executes redundancy removal
-     */
-    public static void main(String[] args0){
-        //load dataset
-        Dataset dataset;
-        JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new File(System.getProperty("user.dir")));
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int returnVal = fc.showOpenDialog(null);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            dataset = TDBFactory.createDataset(fc.getSelectedFile().toString());
-            TransformationProcessor tp = new TransformationProcessor(dataset);
-            Map<String,String> pmap = new HashMap<>();
-            tp.transform("deletex.sparql",pmap);
-        }
-    }
-
-
+	/*
+	 * This executes redundancy removal
+	 */
+	public static void main(String[] args0) {
+		// load dataset
+		Dataset dataset;
+		JFileChooser fc = new JFileChooser();
+		fc.setCurrentDirectory(new File(System.getProperty("user.dir")));
+		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		int returnVal = fc.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			dataset = TDBFactory.createDataset(fc.getSelectedFile().toString());
+			TransformationProcessor tp = new TransformationProcessor(dataset);
+			Map<String, String> pmap = new HashMap<>();
+			tp.transform("deletex.sparql", pmap);
+		}
+	}
 
 }
