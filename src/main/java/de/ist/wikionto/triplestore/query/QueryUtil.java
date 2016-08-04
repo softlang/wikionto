@@ -173,7 +173,7 @@ public class QueryUtil {
 			r = results.next();
 			over = r.get("o").toString();
 		    } else {
-			throw new Exception("No result because of a cycle from:" + f + "to:" + t);
+			throw new Exception("No result because of an endless cycle from:" + f + "to:" + t);
 		    }
 		}
 		rs.add(over);
@@ -222,6 +222,14 @@ public class QueryUtil {
 		}
 		QuerySolution r = results.next();
 		over = r.get("over").toString();
+		if (rs.contains(over)) {
+		    if (results.hasNext()) {
+			r = results.next();
+			over = r.get("o").toString();
+		    } else {
+			throw new Exception("No result because of an endless cycle from:" + f + "to:" + t);
+		    }
+		}
 	    } catch (Exception e) {
 		e.printStackTrace();
 		System.exit(0);
