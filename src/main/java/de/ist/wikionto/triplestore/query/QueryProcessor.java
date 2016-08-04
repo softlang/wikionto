@@ -33,11 +33,8 @@ public class QueryProcessor {
 		dataset.begin(ReadWrite.READ);
 		Op op = Algebra.compile(query);
 		op = Algebra.optimize(op);
-		System.out.println("------------------");
-		System.out.println(query);
 		QueryExecution qe = QueryExecutionFactory.create(query, dataset);
 		ResultSet results = qe.execSelect();
-		System.out.println(results.hasNext());
 		dataset.end();
 		return results;
 	}

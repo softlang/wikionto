@@ -38,7 +38,7 @@ public class Refactor {
             pmap.put("type", type);
             pmap.put("oldname", oldname);
             pmap.put("newname", newname);
-            long size = proc.transform("renameElement.sparql", pmap);
+            long size = proc.transformFile("renameElement.sparql", pmap);
             JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         } else {
             JOptionPane.showMessageDialog(null, "Transformation failed!");
@@ -53,7 +53,7 @@ public class Refactor {
             Map<String, String> pmap = new HashMap<>();
             pmap.put("infoname", atsetname);
             pmap.put("newtopic", newtopic);
-            long size = proc.transform("changeTopic.sparql", pmap);
+            long size = proc.transformFile("changeTopic.sparql", pmap);
             JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         }else
             JOptionPane.showMessageDialog(null, "Transformation failed!");
@@ -70,8 +70,8 @@ public class Refactor {
             pmap.put("entityname", entityname);
             pmap.put("typename", oldname);
             pmap.put("newtypename", newname);
-            long size = proc.transform("insertHasInstance.sparql", pmap);
-            size += proc.transform("deleteHasInstance.sparql", pmap);
+            long size = proc.transformFile("insertHasInstance.sparql", pmap);
+            size += proc.transformFile("deleteHasInstance.sparql", pmap);
             JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         } else {
             JOptionPane.showMessageDialog(null, "Transformation failed!");
@@ -89,8 +89,8 @@ public class Refactor {
             pmap.put("subtypename", subtypename);
             pmap.put("oldsupertypename", oldname);
             pmap.put("newsupertypename", newname);
-            long size = proc.transform("insertHasSubtype.sparql", pmap);
-            size += proc.transform("deleteHasSubtype.sparql", pmap);
+            long size = proc.transformFile("insertHasSubtype.sparql", pmap);
+            size += proc.transformFile("deleteHasSubtype.sparql", pmap);
             JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         } else {
             JOptionPane.showMessageDialog(null, "Transformation failed!");
@@ -112,7 +112,7 @@ public class Refactor {
         pmap.put("newtypename", typename);
         pmap.put("entityname", entityname);
         if (null != typename && null != entityname) {
-            long size = proc.transform("insertHasInstance.sparql", pmap);
+            long size = proc.transformFile("insertHasInstance.sparql", pmap);
             if(tname==null&&ename==null)
             	JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         } else {
@@ -134,7 +134,7 @@ public class Refactor {
         pmap.put("newsupertypename", typename);
         pmap.put("subtypename", subtypename);
         if (null != typename && null != subtypename) {
-            long size = proc.transform("insertHasSubtype.sparql", pmap);
+            long size = proc.transformFile("insertHasSubtype.sparql", pmap);
             if(supname==null&&subname == null)
             	JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         } else {
@@ -152,13 +152,13 @@ public class Refactor {
         if (index != null && index2 != null && newname != null) {
             pmap.put("sinfoname", index2);
             pmap.put("tinfoname", index);
-            long size = proc.transform("moveProperties.sparql", pmap);
+            long size = proc.transformFile("moveProperties.sparql", pmap);
             pmap.clear();
             pmap.put("informationname", index);
-            size += proc.transform("deleteHasInformation.sparql", pmap);
+            size += proc.transformFile("deleteHasInformation.sparql", pmap);
             pmap.clear();
             pmap.put("newtopic",newname);
-            size += proc.transform("changeTopic.sparql", pmap);
+            size += proc.transformFile("changeTopic.sparql", pmap);
             JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
         } else {
             JOptionPane.showMessageDialog(null, "Transformation failed!");
@@ -172,7 +172,7 @@ public class Refactor {
         Map<String, String> pmap = new HashMap<>();
         pmap.put("newname", entityname);
         pmap.put("element", "http://myCLOnto.de/Entity#" + index);
-        long size = proc.transform("introduceElement.sparql", pmap);
+        long size = proc.transformFile("introduceElement.sparql", pmap);
         if (size == 0) {
             JOptionPane.showMessageDialog(null, "Transformation failed!");
             return;
@@ -232,19 +232,19 @@ public class Refactor {
         for (String type : types) {
             pmap.put("newtypename", type);
             pmap.put("entityname", entityname);
-            proc.transform("insertHasInstance.sparql", pmap);
+            proc.transformFile("insertHasInstance.sparql", pmap);
         }
         pmap = new HashMap<>();
         for (String category : rtypes) {
             pmap.put("typename", category);
             pmap.put("entityname", sourceentityname);
-            proc.transform("deleteHasInstance.sparql", pmap);
+            proc.transformFile("deleteHasInstance.sparql", pmap);
         }
         pmap = new HashMap<>();
         if (infotopic != null) {
             pmap.put("element", ":Information#" + infoname);
             pmap.put("newname", String.valueOf(infoname));
-            proc.transform("introduceElement.sparql", pmap);
+            proc.transformFile("introduceElement.sparql", pmap);
             pmap = new HashMap<>();
             pmap.put("infoname", String.valueOf(infoname));
             pmap.put("newtopic", infotopic);
@@ -253,11 +253,11 @@ public class Refactor {
         for (String matset : infoindices) {
             pmap.put("entityname", sourceentityname);
             pmap.put("informationname", matset);
-            proc.transform("deleteHasInformation.sparql", pmap);
+            proc.transformFile("deleteHasInformation.sparql", pmap);
             pmap = new HashMap<>();
             pmap.put("entityname", entityname);
             pmap.put("informationname", matset);
-            proc.transform("insertHasInformation.sparql", pmap);
+            proc.transformFile("insertHasInformation.sparql", pmap);
             pmap = new HashMap<>();
         }
         while (!propmovequeue.isEmpty()) {
@@ -268,9 +268,9 @@ public class Refactor {
 
             pmap.put("infoname", info2name);
             pmap.put("propname", propname);
-            proc.transform("deleteHasProperty.sparql", pmap);
+            proc.transformFile("deleteHasProperty.sparql", pmap);
             pmap.put("infoname", info1name);
-            proc.transform("insertHasProperty.sparql", pmap);
+            proc.transformFile("insertHasProperty.sparql", pmap);
             pmap = new HashMap<>();
         }
         JOptionPane.showMessageDialog(null, "Extracting Entity finished!");
@@ -278,13 +278,13 @@ public class Refactor {
 
     void removeRedundantInstances() {
     	HashMap<String, String> pmap = new HashMap<>();
-        long size = proc.transform("removeRedundantInstances.sparql", pmap);
+        long size = proc.transformFile("removeRedundantInstances.sparql", pmap);
         JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
     }
 
     void removeRedundantSubtypes() {
     	HashMap<String, String> pmap = new HashMap<>();
-        long size = proc.transform("removeRedundantSubtypes.sparql", pmap);
+        long size = proc.transformFile("removeRedundantSubtypes.sparql", pmap);
         JOptionPane.showMessageDialog(null, "Transformation successful! \n Model size difference: " + size);
     }
 

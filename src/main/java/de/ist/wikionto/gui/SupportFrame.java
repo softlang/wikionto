@@ -39,7 +39,7 @@ public class SupportFrame extends JFrame {
 		this.queryResult = queryResult;
 		this.options = options;
 		this.labelledlists = labelledlists;
-		this.toggleMap = new HashMap<>();
+		toggleMap = new HashMap<>();
 		this.websites = websites;
 		this.aba = aba;
 		this.del = del;
@@ -94,7 +94,7 @@ public class SupportFrame extends JFrame {
 		GUIUtil.addComponentToContainer(0, 0, 1, 1, 10, 10, buttonpanel, infob);
 		JButton b = new JButton("Wiki");
 		b.addActionListener(e -> {
-			for (String w : websites) {
+			for (String w : websites)
 				try {
 					java.awt.Desktop.getDesktop().browse(new URI(w.replaceAll(" ", "_")));
 					Thread.sleep(1000);
@@ -102,7 +102,6 @@ public class SupportFrame extends JFrame {
 					System.err.println("Failed to open " + w);
 					a.printStackTrace();
 				}
-			}
 		});
 		GUIUtil.addComponentToContainer(1, 0, 1, 1, 10, 10, buttonpanel, b);
 		for (int i = 0; i < options.length; i++) {
@@ -124,7 +123,8 @@ public class SupportFrame extends JFrame {
 			JScrollPane scroll = new JScrollPane(listpanel);
 			tabPane.addTab(l, scroll);
 
-			List<JToggleButton> toggleList = new ArrayList<>();
+			List<JToggleButton> toggleListAba = new ArrayList<>();
+			List<JToggleButton> toggleListDel = new ArrayList<>();
 
 			ParallelGroup pargroup = layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING);
 			SequentialGroup seqgroup = layout.createSequentialGroup();
@@ -152,7 +152,7 @@ public class SupportFrame extends JFrame {
 					hgroup = hgroup.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(abutton);
 					vgroup = vgroup.addComponent(abutton);
-					toggleList.add(abutton);
+					toggleListAba.add(abutton);
 				}
 
 				if (del) {
@@ -161,7 +161,7 @@ public class SupportFrame extends JFrame {
 					hgroup = hgroup.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(dbutton);
 					vgroup = vgroup.addComponent(dbutton);
-					toggleList.add(dbutton);
+					toggleListDel.add(dbutton);
 				}
 				// add horizontal group to layout
 				pargroup = pargroup.addGroup(hgroup);
@@ -175,7 +175,8 @@ public class SupportFrame extends JFrame {
 							Short.MAX_VALUE)));
 			layout.setVerticalGroup(
 					layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(seqgroup));
-			toggleMap.put(l, toggleList);
+			toggleMap.put(l + "ABA", toggleListAba);
+			toggleMap.put(l + "DEL", toggleListDel);
 		}
 
 		pack();
@@ -186,13 +187,12 @@ public class SupportFrame extends JFrame {
 	}
 
 	public int getOption() {
-		while (chosenoption == -1) {
+		while (chosenoption == -1)
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}
 		return chosenoption;
 	}
 

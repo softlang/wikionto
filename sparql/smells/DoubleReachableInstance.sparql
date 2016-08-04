@@ -1,21 +1,21 @@
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX : <http://myCLOnto.de/> 
-SELECT ?toptype1name ?toptype2name ?entityname
+PREFIX : <http://myWikiTax.de/> 
+SELECT ?top1name ?top2name ?name
 WHERE {
     ?cl :name "Computer languages" .
-    ?cl :hasSubtype ?toptype1 .
-    ?cl :hasSubtype ?toptype2 .
+    ?cl :hasSubclassifier ?topclassifier1 .
+    ?cl :hasSubclassifier ?topclassifier2 .
     
     FILTER EXISTS{
-        ?toptype1 :hasSubtype*/:hasInstance ?entity .
-        ?toptype2 :hasSubtype*/:hasInstance ?entity .
+        ?topclassifier1 :hasSubclassifier*/:classifies ?entity .
+        ?topclassifier2 :hasSubclassifier*/:classifies ?entity .
     }
-    FILTER NOT EXISTS{ ?toptype1 :hasSubtype* ?toptype2 . }
-    FILTER NOT EXISTS{ ?toptype2 :hasSubtype* ?toptype1 . }
+    FILTER NOT EXISTS{ ?topclassifier1 :hasSubclassifier* ?topclassifier2 . }
+    FILTER NOT EXISTS{ ?topclassifier2 :hasSubclassifier* ?topclassifier1 . }
     
-    ?toptype1 :name ?toptype1name .
-    ?toptype2 :name ?toptype2name .
-    FILTER(?toptype1name < ?toptype2name && (?toptype1name!="Data modeling languages"||?toptype2name!="Markup languages"))
-    ?entity :name ?entityname .
+    ?topclassifier1 :name ?top1name .
+    ?topclassifier2 :name ?top2name .
+    FILTER(?top1name < ?top2name && (?top1name!="Data modeling languages"||?top2name!="Markup languages"))
+    ?entity :name ?name .
 }
-ORDER BY ?toptype1name ?toptype2name
+ORDER BY ?topclassifier1name ?topclassifier2name

@@ -7,13 +7,13 @@ package de.ist.wikionto.triplestore.clean;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+
+import org.apache.commons.io.FileUtils;
 
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.query.Dataset;
@@ -34,17 +34,24 @@ public class TransformationProcessor {
 		this.dataset = dataset;
 	}
 
-	public long transform(String tfilename, Map<String, String> parameter) {
+	public long transformString(String transform) {
+		dataset.begin(ReadWrite.WRITE);
+		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
+		long size = graph.size();
+		UpdateAction.parseExecute(transform, dataset);
+		dataset.commit();
+		return graph.size() - size;
+	}
+
+	public long transformFile(String tfilename, Map<String, String> parameter) {
 		File tfile = new File(System.getProperty("user.dir") + "/sparql/transformations/" + tfilename);
 		String transformation = "";
 		try {
-			List<String> lines = Files.readAllLines(tfile.toPath());
-			for (String line : lines) {
-				transformation += line + "\n";
-			}
+			transformation = FileUtils.readFileToString(tfile);
 		} catch (IOException ex) {
-			System.err.println("Exception transforming:" + tfilename);
-			;
+			System.err.println("Exception reading:" + tfilename);
+			ex.printStackTrace();
+			return 0;
 		}
 		dataset.begin(ReadWrite.WRITE);
 		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
@@ -53,11 +60,10 @@ public class TransformationProcessor {
 		pss.setCommandText(transformation);
 		for (String key : parameter.keySet()) {
 			String query = pss.asUpdate().toString();
-			if (!parameter.get(key).contains("http://")) {
+			if (!parameter.get(key).contains("http://"))
 				pss.setLiteral(key, parameter.get(key).trim());
-			} else {
+			else
 				pss.setIri(key, parameter.get(key).trim());
-			}
 			if (query.equals(pss.asUpdate().toString())) {
 				JOptionPane.showMessageDialog(null, "Querynames are flawed. This should not happen.");
 				System.err.println(pss.toString());
@@ -89,7 +95,7 @@ public class TransformationProcessor {
 			dataset = TDBFactory.createDataset(fc.getSelectedFile().toString());
 			TransformationProcessor tp = new TransformationProcessor(dataset);
 			Map<String, String> pmap = new HashMap<>();
-			tp.transform("deletex.sparql", pmap);
+			tp.transformFile("deletex.sparql", pmap);
 		}
 	}
 

@@ -24,20 +24,20 @@ public class Prune {
 
 	public void removeRedundantInstances() {
 		HashMap<String, String> pmap = new HashMap<>();
-		long size = proc.transform("removeRedundantClassifies.sparql", pmap);
+		long size = proc.transformFile("removeRedundantClassifies.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 	}
 
 	public void removeRedundantSubtypes() {
 		HashMap<String, String> pmap = new HashMap<>();
-		long size = proc.transform("removeRedundantSubclassifier.sparql", pmap);
+		long size = proc.transformFile("removeRedundantSubclassifier.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 	}
 
 	public void abandonInstance(String n) {
 		Map<String, String> pmap = new HashMap<>();
 		pmap.put("name", n);
-		long size = proc.transform("abandonInstance.sparql", pmap);
+		long size = proc.transformFile("abandonInstance.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 
 	}
@@ -47,13 +47,13 @@ public class Prune {
 		long tsize = 0;
 		long size = 1;
 		while (size != 0) {
-			size = proc.transform("cleanUpTypes.sparql", pmap);
+			size = proc.transformFile("cleanUpTypes.sparql", pmap);
 			System.out.println("cleaned up types: " + size);
-			size += proc.transform("cleanUpEntities.sparql", pmap);
+			size += proc.transformFile("cleanUpEntities.sparql", pmap);
 			System.out.println("cleaned up entities: " + size);
-			size += proc.transform("cleanUpInformation.sparql", pmap);
+			size += proc.transformFile("cleanUpInformation.sparql", pmap);
 			System.out.println("cleaned up information: " + size);
-			size += proc.transform("cleanUpProperties.sparql", pmap);
+			size += proc.transformFile("cleanUpProperties.sparql", pmap);
 			System.out.println("cleaned up properties: " + size);
 			tsize += size;
 		}
@@ -66,7 +66,7 @@ public class Prune {
 		long tsize = 0;
 		long size = 1;
 		while (size != 0) {
-			size = proc.transform("cleanUpTypes.sparql", pmap);
+			size = proc.transformFile("cleanUpTypes.sparql", pmap);
 			System.out.println("cleaned up types: " + size);
 			tsize += size;
 		}
@@ -79,7 +79,7 @@ public class Prune {
 		long tsize = 0;
 		long size = 1;
 		while (size != 0) {
-			size += proc.transform("cleanUpEntities.sparql", pmap);
+			size += proc.transformFile("cleanUpEntities.sparql", pmap);
 			System.out.println("cleaned up entities: " + size);
 			tsize += size;
 		}
@@ -91,7 +91,7 @@ public class Prune {
 		Map<String, String> pmap = new HashMap<>();
 		pmap.put("classifiername", tname);
 		pmap.put("entityname", ename);
-		long size = proc.transform("deleteClassifies.sparql", pmap);
+		long size = proc.transformFile("deleteClassifies.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 
 	}
@@ -100,7 +100,7 @@ public class Prune {
 		Map<String, String> pmap = new HashMap<>();
 		pmap.put("subclassifiername", sub);
 		pmap.put("oldsuperclassifiername", sup);
-		long size = proc.transform("deleteHasSubclassifier.sparql", pmap);
+		long size = proc.transformFile("deleteHasSubclassifier.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 
 	}
@@ -108,17 +108,17 @@ public class Prune {
 	public void collapseClassifier(String name) {
 		Map<String, String> pmap = new HashMap<>();
 		pmap.put("name", name);
-		long size = proc.transform("collapseClassifier.sparql", pmap);
+		long size = proc.transformFile("collapseClassifier.sparql", pmap);
 		pmap.clear();
 		pmap.put("name", name);
-		size += proc.transform("abandonClassifier.sparql", pmap);
+		size += proc.transformFile("abandonClassifier.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 	}
 
 	public void abandonClassifier(String n) {
 		Map<String, String> pmap = new HashMap<>();
 		pmap.put("name", n);
-		long size = proc.transform("abandonClassifier.sparql", pmap);
+		long size = proc.transformFile("abandonClassifier.sparql", pmap);
 		System.out.println("Transformation successful! \n Model size difference: " + size);
 
 	}
