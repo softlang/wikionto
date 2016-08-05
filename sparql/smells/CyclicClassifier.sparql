@@ -1,6 +1,6 @@
-PREFIX : <http://myCLOnto.de/> 
+PREFIX : <http://myWikiTax.de/> 
 SELECT ?typename 
 WHERE {
 	?type :name ?typename .
-    ?type :hasSubtype+ ?type .
+    ?type :hasSubclassifier+ ?type .
 }
