@@ -1,27 +1,28 @@
-PREFIX : <http://myCLOnto.de/> 
+PREFIX : <http://myWikiTax.de/> 
 SELECT 
-?typename 
+?cname 
+?depth
 (COUNT(?entity) as ?NumberOfEntities)
-(COUNT(?subtype) as ?NumberOfSubtypes)
-(?NumberOfEntities + ?NumberOfSubtypes as ?howmany)
+(COUNT(?subclassifier) as ?NumberOfSubclassifiers)
+(?NumberOfEntities + ?NumberOfSubclassifiers as ?howmany)
 WHERE {
-	?type :depth ?depth .
-	?type :name ?typename .
+	?classifier :depth ?depth .
+	?classifier :name ?cname .
 	
-	{SELECT ?type ?entity
+	{SELECT ?classifier ?entity
 	WHERE{
-		?type :hasInstance ?entity .
+		?classifier :classifies ?entity .
 	}
 	}
 	
 	UNION
 	
-	{SELECT ?type ?subtype
+	{SELECT ?classifier ?subclassifier
 	WHERE{
-		?type :hasSubtype ?subtype .
+		?classifier :hasSubclassifier ?subclassifier .
 	}
 	}
 }
-GROUP BY ?typename
-HAVING (?howmany < 5)
-ORDER BY ?howmany
+GROUP BY ?cname ?depth
+HAVING (?howmany < ?n)
+ORDER BY ASC (?depth)

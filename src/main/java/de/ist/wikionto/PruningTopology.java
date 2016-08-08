@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,13 +18,17 @@ import javax.swing.JToggleButton;
 import org.apache.commons.io.FileUtils;
 
 import com.hp.hpl.jena.query.Dataset;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
 import de.ist.wikionto.gui.SupportFrame;
 import de.ist.wikionto.triplestore.clean.Prune;
 import de.ist.wikionto.triplestore.clean.TransformationProcessor;
+import de.ist.wikionto.triplestore.query.QueryProcessor;
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
 public class PruningTopology {
@@ -49,49 +52,55 @@ public class PruningTopology {
 			+ "\nGUI support helping in getting rid of confirmed issues."
 			+ "Further, every action you take is logged for reproducibility.");
 	initializeLog();
-	// JOptionPane.showMessageDialog(null,
-	// "We start with the bad smell `Eponymous Classifier'. "
-	// + "\nIt matches those classifiers for which an instance exist with
-	// the same name.");
+	JOptionPane.showMessageDialog(null, "We start with the bad smell `Eponymous Classifier'. "
+		+ "\nIt matches those classifiers for which an instance exist with the same name.");
 
-	// fixEponymousType();
+	fixEponymousType();
 
-	// JOptionPane.showMessageDialog(null,
-	// "We continue with the bad smell `Semantically Distant Classifier'. "
-	// + "\nIt matches those classifiers that have less superclassifiers
-	// that"
-	// + "are subclassifiers of the root than superclassifiers that
-	// aren't.");
-	// fixSemanticDistantClassifier();
+	JOptionPane.showMessageDialog(null,
+		"We continue with the bad smell `Semantically Distant Classifier'. "
+			+ "\nIt matches those classifiers that have less superclassifiers that"
+			+ "\nare subclassifiers of the root than superclassifiers that aren't.");
+	fixSemanticDistantClassifier();
 
-	// JOptionPane.showMessageDialog(null,
-	// "We continue with the bad smell `Semantically Distant Instance'. "
-	// + "\nIt matches those classified entities that have less classifiers
-	// that"
-	// + "are subclassifiers of the root than classifiers that aren't.");
+	JOptionPane.showMessageDialog(null,
+		"We continue with the bad smell `Semantically Distant Instance'. "
+			+ "\nIt matches those classified entities that have less classifiers that"
+			+ "are subclassifiers of the root than classifiers that aren't.");
 
-	// fixSemanticDistantInstance();
+	fixSemanticDistantInstance();
 
-	// JOptionPane.showMessageDialog(null,
-	// "We continue with the bad smell `Double Reachable Classifier'. "
-	// + "\nIt matches those classifiers that are reachable by two "
-	// + "\ndistinct subclassifiers of the root.");
+	new Prune(dataset).cleanUpUnreachableAll();
 
-	// fixDoubleReachableClassifier();
+	JOptionPane.showMessageDialog(null,
+		"We continue with the bad smell `Double Reachable Classifier'. "
+			+ "\nIt matches those classifiers that are reachable by two "
+			+ "\ndistinct subclassifiers of the root.");
 
-	// JOptionPane.showMessageDialog(null,
-	// "We continue with the bad smell `Double Reachable Instance'. "
-	// + "\nIt matches those instances that are classified by two "
-	// + "\ndistinct subclassifiers of the root.");
-	// fixDoubleReachableInstance();
+	fixDoubleReachableClassifier();
+
+	JOptionPane.showMessageDialog(null,
+		"We continue with the bad smell `Double Reachable Instance'. "
+			+ "\nIt matches those instances that are classified by two "
+			+ "\ndistinct subclassifiers of the root.");
+	fixDoubleReachableInstance();
 
 	JOptionPane.showMessageDialog(null, "We continue with the bad smell `Cyclic classifier'. "
 		+ "\nIt identifies the existence of a classifier that is" + "\na subclassifier of itself.");
 	fixCyclicClassifier();
 
-	// fixLazyClassifier();
+	JOptionPane.showMessageDialog(null,
+		"We continue with the bad smell `Lazy classifier'. "
+			+ "\nIt identifies all classifiers that have less than n subclassifiers and classified instances. In the next"
+			+ "\ndialog you have to set a value for n based on your own observations."
+			+ "\na subclassifier of itself.");
+	String n = JOptionPane.showInputDialog("Please enter the threshold for lazy classifiers. Classifiers"
+		+ "\nwith less subclassifiers and instances will be matched.");
+	fixLazyClassifier(n);
 
-	// fixRedundancies();
+	JOptionPane.showMessageDialog(null, "We continue with the bad smell `Redundancy'. "
+		+ "\nIt identifies redundant relationships and removes them automatically.");
+	fixRedundancies();
     }
 
     private static void fixEponymousType() {
@@ -116,7 +125,8 @@ public class PruningTopology {
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-	    if (log.contains(c + " is valid")) {
+	    if (log.contains(c + " is valid")
+		    || QueryUtil.getPathFromClassToClass(dataset, "Computer languages", c).isEmpty()) {
 		continue;
 	    } else {
 		String[] options = new String[] { "Valid", "Abandon instance", "Abandon classifier" };
@@ -176,6 +186,7 @@ public class PruningTopology {
 	}
     }
 
+    // TODO : Check again. Subclassifiers may not be removed.
     private static void fixSemanticDistantClassifier() {
 	String p = "./sparql/smells/SemanticallyDistantClassifier.sparql";
 	File logFile = new File(logPath + "SemanticallyDistantClassifier.txt");
@@ -198,7 +209,8 @@ public class PruningTopology {
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-	    if (log.contains(c + " is valid")) {
+	    if (log.contains(c + " is valid")
+		    || QueryUtil.getPathFromClassToClass(dataset, "Computer languages", c).isEmpty()) {
 		continue;
 	    } else {
 		String qmsg = c + " is a semantically distant classifier";
@@ -224,7 +236,7 @@ public class PruningTopology {
 		map.put("Classified instances", instances.stream().map(i -> wURI + i).collect(Collectors.toList()));
 		map.put("Subclassifiers", subclassifiers.stream().map(i -> cURI + i).collect(Collectors.toList()));
 		SupportFrame ps = new SupportFrame(qmsg, options, map, links, true, true, info);
-		ps.setVisible(true);
+
 		int r = ps.getOption();
 		ps.dispose();
 
@@ -251,6 +263,7 @@ public class PruningTopology {
 	}
     }
 
+    // TODO : Add Abandon selected categories
     private static void fixSemanticDistantInstance() {
 	String p = "./sparql/smells/SemanticallyDistantInstance.sparql";
 	File logFile = new File(logPath + "SemanticallyDistantInstance.txt");
@@ -273,7 +286,8 @@ public class PruningTopology {
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-	    if (log.contains(i + " is valid")) {
+	    if (log.contains(i + " is valid")
+		    || QueryUtil.getPathFromClassToInstance(dataset, "Computer languages", i).isEmpty()) {
 		continue;
 	    } else {
 		String[] options = new String[] { "Valid", "Abandon Instance" };
@@ -292,7 +306,7 @@ public class PruningTopology {
 		String qmsg = i + " is a semantically distant instance";
 		addLogBlock("SemanticallyDistantInstance", qmsg);
 		SupportFrame ps = new SupportFrame(qmsg, options, map, links, false, false, info);
-		ps.setVisible(true);
+
 		int r = ps.getOption();
 		ps.dispose();
 
@@ -379,7 +393,7 @@ public class PruningTopology {
 		String qmsg = t + " is a double reachable classifier with top classifiers:" + top1 + " & " + top2;
 		addLogBlock("DoubleReachableClassifier", qmsg);
 		SupportFrame ps = new SupportFrame(qmsg, options, map, links, true, true, info);
-		ps.setVisible(true);
+
 		int r = ps.getOption();
 		ps.dispose();
 		assert r >= 0 && r < 3;
@@ -542,7 +556,7 @@ public class PruningTopology {
 	    String qmsg = dri + " is a double reachable instance with top classifiers:" + top1 + " & " + top2;
 	    addLogBlock("DoubleReachableInstance", qmsg);
 	    SupportFrame ps = new SupportFrame(qmsg, options, map, links, true, true, info);
-	    ps.setVisible(true);
+
 	    int r = ps.getOption();
 	    ps.dispose();
 	    assert r >= 0 && r < 3;
@@ -659,18 +673,20 @@ public class PruningTopology {
 
 	    Map<String, List<String>> map = new HashMap<>();
 	    List<String> list1 = QueryUtil.getPathFromClassToClass(dataset, cc, cc);
+	    if (list1.isEmpty())
+		continue;
 	    map.put("Cycle path", list1.stream().map(i -> cURI + i).collect(Collectors.toList()));
-	    // TODO Add proper links in the map
+
 	    String qmsg = cc + " is a cyclic classifier";
 	    SupportFrame ps = new SupportFrame(qmsg, options, map, links, false, true, info);
-	    ps.setVisible(true);
+
 	    int r = ps.getOption();
 	    ps.dispose();
 	    assert r == 0;
 	    addLogBlock("CyclicClassifier", qmsg);
 	    addLogEntry("CyclicClassifier", "Lift Cycle");
 	    Map<String, List<JToggleButton>> togglemap = ps.getToggleMap();
-	    List<JToggleButton> toggles1 = togglemap.get("Cycle path");
+	    List<JToggleButton> toggles1 = togglemap.get("Cycle pathDEL");
 	    if (toggles1.get(0).isSelected()) {
 		addLogEntry("CyclicClassifier", "Remove : " + cc + " has subclassifier " + list1.get(0));
 		new Prune(dataset).removeSubclassifier(cc, list1.get(0));
@@ -688,8 +704,8 @@ public class PruningTopology {
 	}
     }
 
-    private static void fixLazyClassifier() {
-	String p = "./sparql/smells/LazyClassifier.sparql";
+    private static void fixLazyClassifier(String n) {
+	File lf = new File("./sparql/smells/LazyClassifier.sparql");
 	File logFile = new File(logPath + "LazyClassifier.txt");
 	if (!logFile.exists()) {
 	    System.out.println("Creating log file " + logFile.getAbsolutePath());
@@ -699,7 +715,15 @@ public class PruningTopology {
 		e.printStackTrace();
 	    }
 	}
-	ResultSet rs = QueryUtil.executeQuery(dataset, p);
+	String queryString = null;
+	try {
+	    queryString = FileUtils.readFileToString(lf);
+	} catch (IOException e1) {
+	    e1.printStackTrace();
+	    System.exit(-1);
+	}
+	Query query = QueryFactory.create(queryString.replace("?n", n), Syntax.syntaxARQ);
+	ResultSet rs = new QueryProcessor(query, dataset).query();
 	boolean f = false;
 	while (rs.hasNext()) {
 	    QuerySolution qs = rs.next();
@@ -710,12 +734,15 @@ public class PruningTopology {
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-	    if (log.contains(c + " is valid")) {
+	    if (log.contains(c + " is valid")
+		    || QueryUtil.getPathFromClassToClass(dataset, "Computer languages", c).isEmpty()) {
 		continue;
 	    } else {
+		String qmsg = c + " is a lazy classifier";
+		addLogBlock("LazyClassifier", qmsg);
 		String[] options = new String[] { "Valid", "Abandon classifier" };
-		String[] ws = new String[2];
-		ws[1] = "https://en.wikipedia.org/wiki/Category:" + c;
+		String[] ws = new String[1];
+		ws[0] = "https://en.wikipedia.org/wiki/Category:" + c;
 
 		String info = "By clicking on the ? button you can open a browser with "
 			+ "\nthe corresponding Wikipedia page giving you decision ground."
@@ -733,50 +760,36 @@ public class PruningTopology {
 		List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
 		map.put("Classified instances", instances.stream().map(i -> wURI + i).collect(Collectors.toList()));
 		map.put("Subclassifiers", subclassifiers.stream().map(i -> cURI + i).collect(Collectors.toList()));
-		// TODO Add proper links in the map
-		SupportFrame ps = new SupportFrame(c + " is a lazy classifier", options, map, ws, true, true, info);
-		ps.setVisible(true);
+
+		SupportFrame ps = new SupportFrame(qmsg, options, map, ws, true, true, info);
+
 		int r = ps.getOption();
 		ps.dispose();
 
 		assert r >= 0 && r < 2;
 		if (r == 0) {
+		    addLogEntry("LazyClassifier", c + " is valid");
 		    continue;
 		}
 		if (r == 1) {
+		    addLogEntry("LazyClassifier", "Abandon classifier : " + c);
 		    f = true;
 		    Map<String, List<JToggleButton>> tm = ps.getToggleMap();
-		    List<JToggleButton> list1 = tm.get("Classified instances");
-		    Iterator<JToggleButton> it = list1.iterator();
-		    for (String l2 : instances) {
-			if (it.next().isSelected()) {
-			    new Prune(dataset).abandonInstance(l2);
-			}
-			if (it.next().isSelected()) {
-			    new Prune(dataset).removeClassifies(l2, c);
-			}
-		    }
-		    list1 = tm.get("Subclassifiers");
-		    for (String l2 : subclassifiers) {
-			if (it.next().isSelected()) {
-			    new Prune(dataset).abandonClassifier(l2);
-			}
-			if (it.next().isSelected()) {
-			    new Prune(dataset).removeSubclassifier(c, l2);
-			}
-		    }
+		    PruneUtil.abandonSelected(tm.get("SubclassifiersABA"), tm.get("Classified instancesABA"),
+			    subclassifiers, instances, "LazyClassifier", dataset);
+		    PruneUtil.removeClassifierRelationships(tm.get("SubclassifiersDEL"),
+			    tm.get("Classified instancesDEL"), subclassifiers, instances, c, "LazyClassifier", dataset);
 		    new Prune(dataset).collapseClassifier(c);
 		}
 	    }
 	}
 	if (f) {
-	    fixLazyClassifier();
+	    fixLazyClassifier(n);
 	}
 
     }
 
     private static void fixRedundancies() {
-	JOptionPane.showMessageDialog(null, "At last, all existing redundancies will be automatically removed.");
 	Prune p = new Prune(dataset);
 	p.removeRedundantSubtypes();
 	p.removeRedundantInstances();

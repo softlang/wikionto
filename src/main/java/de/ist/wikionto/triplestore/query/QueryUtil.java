@@ -188,6 +188,7 @@ public class QueryUtil {
 	String q = "PREFIX : <http://myWikiTax.de/>" + "\nSELECT DISTINCT ?o WHERE {" + "\n ?cfrom :name \"" + from
 		+ "\" ." + "\n ?cto :name \"" + to + "\" ." + "\n ?cfrom :hasSubclassifier ?cover ."
 		+ "\n ?cover :hasSubclassifier* ?cto ." + "\n ?cover :name ?o . }";
+	dataset.begin(ReadWrite.READ);
 	try (QueryExecution qe = QueryExecutionFactory.create(q, dataset)) {
 	    ResultSet results = qe.execSelect();
 	    while (results.hasNext()) {
@@ -220,9 +221,7 @@ public class QueryUtil {
 	while (!front.isEmpty()) {
 	    // check the front whether the target is already reached
 	    List<List<String>> finished = front.stream()
-		    .filter(l -> getInstances(dataset, l.get(l.size() - 1))
-		    .contains(aim))
-		    .collect(Collectors.toList());
+		    .filter(l -> getInstances(dataset, l.get(l.size() - 1)).contains(aim)).collect(Collectors.toList());
 	    if (!finished.isEmpty()) {
 		ArrayList<String> rs = new ArrayList<>();
 		rs.addAll(finished.get(0));
@@ -268,13 +267,15 @@ public class QueryUtil {
 	dataset.end();
 	return os;
     }
-    
+
     public static void main(String[] args) {
 	String directory = "./Computerlanguages";
 	Dataset dataset = TDBFactory.createDataset(directory);
-	List<String> os = getPathFromClassToClass(dataset, "Programming languages", "Computer languages");
+	List<String> os = getPathFromClassToClass(dataset, "Persistent programming languages",
+		"Persistent programming languages");
 	System.out.println(os.size());
-	
+	os.forEach(l -> System.out.println(l));
+
     }
 
 }

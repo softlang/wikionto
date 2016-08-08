@@ -1,9 +1,9 @@
-PREFIX : <http://myCLOnto.de/> 
+PREFIX : <http://myWikiTax.de/> 
 DELETE {
   ?entity ?r ?n .
 }
 WHERE{ 
   FILTER(regex(STR(?entity), "Entity"))
-  FILTER NOT EXISTS { ?entity ^:hasInstance ?supertype }
+  FILTER NOT EXISTS { ?entity ^:classifies ?supertype }
   ?entity ?r ?n .
 }

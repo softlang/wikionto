@@ -1,5 +1,0 @@
-
-	Abandon instance SharkSSL
-	Abandon instance Java-gnome
-	Abandon instance Obfuscated Perl Contest
-	HPGL is valid
