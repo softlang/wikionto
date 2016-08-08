@@ -7,7 +7,7 @@ WHERE {
         ?entity ^:classifies ?dclassifier .
         
         FILTER NOT EXISTS{ 
-			?cl :name "Computer languages" .
+			?cl :name ?root .
 			?cl :hasSubclassifier* ?dclassifier .
 		}
     }
@@ -16,14 +16,14 @@ WHERE {
 	{SELECT DISTINCT ?entity ?rclassifier
     WHERE {
         ?entity ^:classifies ?rclassifier . 
-        ?cl :name "Computer languages" .
+        ?cl :name ?root .
 		?cl :hasSubclassifier* ?rclassifier .
     }
     }
 	?entity :name ?iname .
     FILTER EXISTS{
         ?classifier :classifies ?entity .
-        ?cl :name "Computer languages" .
+        ?cl :name ?root .
 		?cl :hasSubclassifier* ?classifier .
     }
 }

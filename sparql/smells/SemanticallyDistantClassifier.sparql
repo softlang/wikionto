@@ -5,7 +5,7 @@ WHERE {
     ?classifier :depth ?depth .
     
     FILTER EXISTS{
-        ?cl :name "Computer languages" .
+        ?cl :name ?root .
         ?cl :hasSubclassifier* ?classifier . 
     }
     
@@ -13,7 +13,7 @@ WHERE {
     WHERE {
         ?classifier ^:hasSubclassifier ?dclassifier .
         FILTER NOT EXISTS{
-            ?cl :name "Computer languages" .
+            ?cl :name ?root .
 			?cl :hasSubclassifier* ?dclassifier .
 		}
     }
@@ -23,7 +23,7 @@ WHERE {
 	{SELECT DISTINCT ?classifier ?rclassifier
     WHERE {
         ?classifier ^:hasSubclassifier ?rclassifier .
-        ?cl :name "Computer languages" .
+        ?cl :name ?root .
 		?cl :hasSubclassifier* ?rclassifier .
     }
     }

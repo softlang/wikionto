@@ -1,11 +1,6 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?o ?d
+SELECT DISTINCT ?r ?o
 WHERE {
-    ?c1 :name "Programming languages" .
-    ?c3 :name "MATLAB" .
-    ?c1 :hasSubclassifier ?c2 .
-    ?c2 :hasSubclassifier*/:classifies ?c3 .
-    ?c2 :depth ?d .
-    ?c2 :name ?o .
+    ?c3 :name "Discontinued BASICs" .
+    ?o ?r ?c3 .
 }
-ORDER BY ASC (?d)

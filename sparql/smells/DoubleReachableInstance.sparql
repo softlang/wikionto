@@ -2,7 +2,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX : <http://myWikiTax.de/> 
 SELECT ?top1name ?top2name ?name
 WHERE {
-    ?cl :name "Computer languages" .
+    ?cl :name ?root .
     ?cl :hasSubclassifier ?topclassifier1 .
     ?cl :hasSubclassifier ?topclassifier2 .
     
