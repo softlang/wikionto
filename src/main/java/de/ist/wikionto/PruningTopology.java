@@ -190,7 +190,6 @@ public class PruningTopology {
 		}
 	}
 
-	// TODO : Check again. Are relationships properly removed?
 	private static void fixSemanticDistantClassifier() {
 		String p = "./sparql/smells/SemanticallyDistantClassifier.sparql";
 		File logFile = new File(logPath + "SemanticallyDistantClassifier.txt");
