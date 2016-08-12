@@ -29,3 +29,4 @@ WHERE {
 }
 GROUP BY ?iname
 HAVING(?difference>0 && ?howManyReachableTypes>0)
+ORDER BY ?iname

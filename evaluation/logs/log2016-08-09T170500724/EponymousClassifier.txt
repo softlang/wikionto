@@ -1,0 +1,1374 @@
+
+Architecture description language is an eponymous classifier
+	Abandon instance : Architecture description language
+Cascading Style Sheets is an eponymous classifier
+	Abandon classifier :Cascading Style Sheets
+		Abandon instance Dynamic Cascading Style Sheets
+		Abandon instance CSS Working Group
+		Abandon instance CSS filter
+		Abandon instance CSS Animations
+		Abandon instance Bootstrap (front-end framework)
+		Abandon instance CSS frameworks
+		Abandon instance Tableless web design
+		Abandon instance Comparison of layout engines (Cascading Style Sheets)
+		Abandon instance Internet Explorer box model bug
+		Abandon instance Cassowary (software)
+		Abandon instance Fahrner Image Replacement
+		Abandon instance Media queries
+		Abandon instance Foundation (framework)
+		Abandon instance Stylish
+		Abandon instance YAML (framework)
+		Abandon instance Spacer GIF
+		Abandon instance Blueprint (CSS framework)
+		Abandon instance Holy Grail (web design)
+		Abandon instance CSS Zen Garden
+		Abandon instance Faux columns
+		Abandon instance Implicit animation
+		Abandon instance Aural Cascading Style Sheets
+		Abandon instance Z-index
+		Abandon instance The Zen of CSS Design
+		Abandon instance CSS Flex Box Layout
+		Abandon instance CSSTidy
+		Abandon instance Kickstart CSS library
+		Abandon instance OOCSS
+		Abandon instance Cascade Framework
+		Abandon instance Conditional comment
+		Abandon instance X11 color names
+		Abandon classifier CSS frameworks
+		Abandon classifier Responsive web design
+		Abandon classifier Acid tests
+		Abandon classifier Web colors
+DocBook is an eponymous classifier
+	Abandon classifier :DocBook
+		Abandon instance PhD Docbook renderer
+HTML is an eponymous classifier
+	Abandon classifier :HTML
+		Abandon instance Modernizr
+		Abandon instance Well-formed element
+		Abandon instance Numeric character reference
+		Abandon instance Use of Ogg formats in HTML5
+		Abandon instance Document Object Model
+		Abandon instance HTML5 in mobile devices
+		Abandon instance Polyglot markup
+		Abandon instance Image map
+		Abandon instance HTML Application
+		Abandon instance Nokogiri (software)
+		Abandon instance TeX4ht
+		Abandon instance Canvas element
+		Abandon instance Canonical link element
+		Abandon instance Framing (World Wide Web)
+		Abandon instance Alt attribute
+		Abandon instance File select
+		Abandon instance Meta refresh
+		Abandon instance Ruby character
+		Abandon instance Hreflang
+		Abandon instance Blockquote element
+		Abandon instance Upload components
+		Abandon instance HTML5 Shiv
+		Abandon instance Meta element
+		Abandon instance Validator
+		Abandon instance HTML Working Group
+		Abandon instance Cellpadding
+		Abandon instance Scott Isaacs
+		Abandon instance Comparison of layout engines (XHTML)
+		Abandon instance Link relation
+		Abandon instance Microcontent
+		Abandon instance Polymer (library)
+		Abandon instance Quirks mode
+		Abandon instance Character encodings in HTML
+		Abandon instance Layer element
+		Abandon instance Longdesc attribute
+		Abandon instance Comparison of layout engines (HTML)
+		Abandon instance HTML sanitization
+		Abandon instance Blink element
+		Abandon instance HTML email
+		Abandon instance CE-HTML
+		Abandon instance Font family (HTML)
+		Abandon instance Yeoman (computing)
+		Abandon instance Comparison of layout engines (non-standard HTML)
+		Abandon instance HTML attribute
+		Abandon instance HTML element
+		Abandon instance HTML scripting
+		Abandon instance Transclusion
+		Abandon instance Comparison of layout engines (XHTML 1.1)
+		Abandon instance Tag soup
+		Abandon instance Form (HTML)
+		Abandon instance HTML color names
+		Abandon instance Table cell
+		Abandon instance Span and div
+		Abandon instance Marquee element
+		Abandon instance Web Messaging
+		Abandon instance Dynamic HTML
+		Abandon instance Comparison of layout engines (HTML5)
+		Abandon instance Unicode and HTML
+		Abandon classifier Semantic HTML
+		Abandon classifier HTML editors
+		Abandon classifier HTML parsers
+		Abandon classifier HTML tags
+JSON is an eponymous classifier
+	Abandon classifier :JSON
+		Abandon instance JSONP
+		Abandon instance Jayrock
+		Abandon instance Web Application Messaging Protocol
+		Abandon instance JSON Web Token
+		Abandon instance Node-RED
+		Abandon instance JSON Streaming
+		Abandon instance JSON-RPC
+		Abandon instance Gson
+		Abandon instance JSON Web Signature
+Lists of programming languages is an eponymous classifier
+	Abandon classifier :Lists of programming languages
+		Abandon instance Lists of programming languages
+		Abandon instance Timeline of programming languages
+		Abandon instance Non-English-based programming languages
+		Abandon instance Generational list of programming languages
+		Abandon instance Comparison of open-source programming language licensing
+Non-English-based programming languages is an eponymous classifier
+	Abandon classifier :Non-English-based programming languages
+SyncML is an eponymous classifier
+	Abandon classifier :SyncML
+		Abandon instance The SyncML Initiative
+		Abandon instance SyncEvolution
+		Abandon instance Yahoo! Calendar
+TeX is an eponymous classifier
+	Abandon classifier :TeX
+		Abandon instance The PracTeX Journal
+		Abandon instance AMS Euler
+		Abandon instance ShareLaTeX
+		Abandon instance AMS-LaTeX
+		Abandon instance Deutschsprachige Anwendervereinigung TeX
+		Abandon instance Concrete Roman
+		Abandon instance Omega (TeX)
+		Abandon instance TUGboat
+		Abandon instance CTAN
+		Abandon instance XeTeX
+		Abandon instance LaTeX Project Public License
+		Abandon instance Lucida
+		Abandon instance Computers and Typesetting
+		Abandon instance Collection of Computer Science Bibliographies
+		Abandon instance New Typesetting System
+		Abandon instance Cork encoding
+		Abandon instance MusiXTeX
+		Abandon instance MathTime
+		Abandon instance Computer Modern
+		Abandon instance Grapher
+		Abandon classifier TeX editors
+Text Encoding Initiative is an eponymous classifier
+	Abandon classifier :Text Encoding Initiative
+		Abandon instance Text Encoding Initiative
+		Abandon instance Open Scripture Information Standard
+		Abandon instance Xaira
+		Abandon instance Perseus Project
+		Abandon instance Biografisch Portaal
+		Abandon instance Sebastian Rahtz
+		Abandon instance EpiDoc
+		Abandon instance British National Corpus
+		Abandon instance Corpus Corporum
+		Abandon instance FreeDict
+		Abandon instance Oxford Text Archive
+		Abandon instance Women Writers Project
+		Abandon instance Digital Medievalist
+		Abandon instance New Zealand Electronic Text Centre
+		Abandon instance The SWORD Project
+Troff is an eponymous classifier
+	Abandon classifier :Troff
+		Abandon instance Eqn
+		Abandon instance Tbl
+		Abandon instance Groff (software)
+		Abandon instance MakeIndex
+		Abandon instance Xindy
+		Abandon instance TYPSET and RUNOFF
+		Abandon instance Troff macro
+		Abandon instance Troff
+		Abandon instance Nroff
+		Abandon instance James Clark (programmer)
+		Abandon instance Joe Ossanna
+		Abandon instance Runoff (program)
+		Abandon instance Refer (software)
+		Abandon instance Mike Lesk
+Unified Modeling Language is an eponymous classifier
+	Abandon classifier :Unified Modeling Language
+		Abandon instance Meta-Object Facility
+		Abandon instance Glossary of Unified Modeling Language terms
+		Abandon instance Grady Booch
+		Abandon instance Inner class
+		Abandon instance Unified Modeling Language for Interactive Systems
+		Abandon instance Model-driven architecture
+		Abandon instance Object-oriented software engineering
+		Abandon instance Enterprise Distributed Object Computing
+		Abandon instance Object Modeling in Color
+		Abandon instance VIATRA
+		Abandon instance Component (UML)
+		Abandon instance ObjecTime Developer
+		Abandon instance Gentleware
+		Abandon instance Object aggregation
+		Abandon instance Action (UML)
+		Abandon instance Model-driven engineering
+		Abandon instance Production Rule Representation
+		Abandon instance Activity (UML)
+		Abandon instance Ivar Jacobson
+		Abandon instance David Harel
+		Abandon instance Object composition
+		Abandon instance Semantics of Business Vocabulary and Business Rules
+		Abandon instance UML Partners
+		Abandon instance Model transformation
+		Abandon instance Dependency (UML)
+		Abandon instance Metadata modeling
+		Abandon instance Modeling and Analysis of Real Time and Embedded systems
+		Abandon instance Modeling Maturity Levels
+		Abandon instance Applications of UML
+		Abandon instance Philippe Kruchten
+		Abandon instance UXF
+		Abandon instance Node (UML)
+		Abandon instance Telelogic
+		Abandon instance Powertype (UML)
+		Abandon instance Reich Technologies
+		Abandon instance Model-driven integration
+		Abandon instance Role Class Model
+		Abandon instance Profile (UML)
+		Abandon instance Visual modeling
+		Abandon instance Model-based systems engineering
+		Abandon instance Classifier (UML)
+		Abandon instance Event (UML)
+		Abandon instance Artifact (UML)
+		Abandon instance UPDM
+		Abandon instance Software analysis pattern
+		Abandon instance Element (UML)
+		Abandon instance Kermeta
+		Abandon instance Actor (UML)
+		Abandon instance James Rumbaugh
+		Abandon instance Object-modeling technique
+		Abandon instance Pathway Systems
+		Abandon instance Systems Modeling Language
+		Abandon instance Swim lane
+		Abandon instance UML tool
+		Abandon instance Stereotype (UML)
+		Abandon instance Use case
+		Abandon instance Object Management Group
+		Abandon instance Package (UML)
+		Abandon classifier Unified Modeling Language stubs
+		Abandon classifier UML tools
+XML is an eponymous classifier
+	Abandon classifier :XML
+		Abandon instance XML validation
+		Abandon instance Schematron
+		Abandon instance Document Schema Definition Languages
+		Abandon instance Component content management system
+		Abandon instance DITA Open Toolkit
+		Abandon instance Internationalization Tag Set
+		Abandon instance Well-formed document
+		Abandon instance SpeakRight Framework
+		Abandon instance OpenSearch
+		Abandon instance CodeSynthesis XSD
+		Abandon instance Simple Outline XML
+		Abandon instance XMLHttpRequest
+		Abandon instance XML Events
+		Abandon instance XML Literals
+		Abandon instance XML editor
+		Abandon instance Quark XML Author
+		Abandon instance Processing Instruction
+		Abandon instance Adobe FrameMaker
+		Abandon instance XEE (Starlight)
+		Abandon instance XML Encryption
+		Abandon instance XML Configuration Access Protocol
+		Abandon instance XML and MIME
+		Abandon instance Unique Particle Attribution
+		Abandon instance XML denial-of-service attack
+		Abandon instance XFDesigner
+		Abandon instance XML database
+		Abandon instance XidML
+		Abandon instance XML namespace
+		Abandon instance Streaming XML
+		Abandon instance Metadata Encoding and Transmission Standard
+		Abandon instance XML tree
+		Abandon instance OIOXML
+		Abandon instance ECMAScript for XML
+		Abandon instance Quark Author
+		Abandon instance Billion laughs
+		Abandon instance XML retrieval
+		Abandon instance Clusterpoint
+		Abandon instance XML Schema Editor
+		Abandon instance QName
+		Abandon instance Global information management Metrics eXchange
+		Abandon instance Tag omission
+		Abandon instance XML Base
+		Abandon instance Darwin Information Typing Architecture
+		Abandon instance MAREC
+		Abandon instance FLWOR
+		Abandon instance Legal XML
+		Abandon instance Binary XML
+		Abandon instance Zorba (XQuery processor)
+		Abandon instance XML framework
+		Abandon instance QTI
+		Abandon instance CDATA
+		Abandon instance Dynamic XML
+		Abandon instance VTD-XML
+		Abandon instance XML Protocol
+		Abandon instance Efficient XML Interchange
+		Abandon instance Root element
+		Abandon instance BaseX
+		Abandon instance XML appliance
+		Abandon instance FuseDocs (programming)
+		Abandon instance PCDATA
+		Abandon instance XML data binding
+		Abandon instance Valid characters in XML
+		Abandon instance Head–body pattern
+		Abandon instance XML Certification Program
+		Abandon instance EXtensible Text Framework
+		Abandon instance Open XML Paper Specification
+		Abandon instance XML Enabled Directory
+		Abandon instance XBRLS
+		Abandon classifier Ajax (programming)
+		Abandon classifier RDF data access
+		Abandon classifier XML parsers
+		Abandon classifier XML editors
+		Abandon classifier XML organizations
+		Abandon classifier XQuery processors
+		Abandon classifier XSLT processors
+		Abandon classifier Java API for XML
+		Abandon classifier XML data access
+		Abandon classifier XML technology people
+Ada (programming language) is an eponymous classifier
+	Abandon classifier :Ada (programming language)
+		Abandon instance David Luckham
+		Abandon instance Ravenscar profile
+		Abandon instance APSE
+		Abandon instance TLD Systems
+		Abandon instance Verdix
+		Abandon instance Ada Lovelace
+		Abandon instance Beaujolais effect
+		Abandon instance GNAT
+		Abandon instance Rational R1000
+		Abandon instance DDC-I
+		Abandon instance PolyORB
+		Abandon instance GNAVI
+		Abandon instance Ada Conformity Assessment Test Suite
+		Abandon instance John Barnes (computer scientist)
+		Abandon instance Thomson Software Products
+		Abandon instance Cluster (spacecraft)
+		Abandon instance High Order Language Working Group
+		Abandon instance Intermetrics
+		Abandon instance ISO/IEC 8652
+		Abandon instance GNAT Modified General Public License
+		Abandon instance Dansk Datamatik Center
+		Abandon instance Advanced Computer Techniques
+		Abandon instance Steelman language requirements
+		Abandon instance TeleSoft
+		Abandon instance Tartan Laboratories
+		Abandon instance GNAT Programming Studio
+		Abandon instance Jean Ichbiah
+Atom (standard) is an eponymous classifier
+	Abandon classifier :Atom (standard)
+		Abandon instance Virtuoso Universal Server
+		Abandon instance Content Management Interoperability Services
+		Abandon instance Open Data Protocol
+		Abandon instance Feed icon
+		Abandon instance Comparison of feed aggregators
+		Abandon instance Simple Update Protocol
+		Abandon instance Simple List Extensions
+		Abandon instance GData
+		Abandon instance WebFetch
+		Abandon instance Sage (Mozilla Firefox extension)
+		Abandon instance NewsFire
+		Abandon instance ESobi
+		Abandon instance Safari (web browser)
+		Abandon instance Liferea
+		Abandon instance NetNewsWire
+BibTeX is an eponymous classifier
+	Abandon classifier :BibTeX
+		Abandon instance Docear
+		Abandon instance Paperpile
+		Abandon instance BibBase
+		Abandon instance WizFolio
+		Abandon instance BibSonomy
+		Abandon instance Biber (LaTeX)
+		Abandon instance Qiqqa
+C standard library is an eponymous classifier
+	Abandon classifier :C standard library
+		Abandon instance C dynamic memory allocation
+		Abandon instance C standard library
+		Abandon instance C data types
+		Abandon instance C string handling
+		Abandon instance Hybris (software)
+		Abandon instance C localization functions
+		Abandon instance C process control
+		Abandon instance Exit (system call)
+		Abandon instance Scanf format string
+		Abandon instance Tmpfile
+		Abandon instance C character classification
+		Abandon instance Crt0
+		Abandon instance End-of-file
+		Abandon instance UClibc
+		Abandon instance Return-to-libc attack
+		Abandon instance Offsetof
+		Abandon instance Qsort
+		Abandon instance C signal handling
+		Abandon instance C file input/output
+		Abandon instance Dietlibc
+		Abandon instance GNU C Library
+		Abandon instance Klibc
+		Abandon instance Newlib
+		Abandon instance Musl
+		Abandon instance Bionic (software)
+		Abandon instance C mathematical functions
+		Abandon instance Embedded GLIBC
+		Abandon instance C date and time functions
+		Abandon instance Printf format string
+		Abandon classifier C standard library headers
+		Abandon classifier POSIX error codes
+C++ is an eponymous classifier
+	Abandon classifier :C++
+		Abandon instance BCX
+		Abandon instance Comparison of ALGOL 68 and C++
+		Abandon instance High Integrity C++
+		Abandon instance Comparison of Java and C++
+		Abandon instance Name mangling
+		Abandon instance Static (keyword)
+		Abandon instance The lexer hack
+		Abandon instance Libt2n
+		Abandon instance Delete (C++)
+		Abandon instance Curiously recurring template pattern
+		Abandon instance Input/output (C++)
+		Abandon instance Pete Becker
+		Abandon instance Erase–remove idiom
+		Abandon instance Reference (C++)
+		Abandon instance C++ classes
+		Abandon instance Assignment operator (C++)
+		Abandon instance Static cast
+		Abandon instance Outline of C++
+		Abandon instance Typename
+		Abandon instance C++11
+		Abandon instance Operators in C and C++
+		Abandon instance New and delete (C++)
+		Abandon instance Include directive
+		Abandon instance Class implementation file
+		Abandon instance Virtual function
+		Abandon instance Lourdes (C++ library)
+		Abandon instance Most vexing parse
+		Abandon instance Template (C++)
+		Abandon instance Brig (C++ libraries)
+		Abandon instance Mentat (computing)
+		Abandon instance One Definition Rule
+		Abandon instance Undefined behavior
+		Abandon instance ISO/IEC 14882
+		Abandon instance Partial template specialization
+		Abandon instance Destructor (computer programming)
+		Abandon instance C++03
+		Abandon instance Header-only
+		Abandon instance Loki (C++)
+		Abandon instance Argument-dependent name lookup
+		Abandon instance Criticism of C++
+		Abandon instance Run-time type information
+		Abandon instance OpenFOAM
+		Abandon instance C++ Report
+		Abandon instance Passive data structure
+		Abandon instance Barton–Nackman trick
+		Abandon instance Exception safety
+		Abandon instance Rick Mascitti
+		Abandon instance Return value optimization
+		Abandon instance Wide character
+		Abandon instance C++14
+		Abandon instance Copy elision
+		Abandon instance Sizeof
+		Abandon instance Pragma once
+		Abandon instance Concepts (C++)
+		Abandon instance Herb Sutter
+		Abandon instance Boost (C++ libraries)
+		Abandon instance Trait (computer programming)
+		Abandon instance Database Management Library
+		Abandon instance Bjarne Stroustrup
+		Abandon instance Scott Meyers
+		Abandon instance Decltype
+		Abandon instance Stack (C++)
+		Abandon instance Prefix header
+		Abandon instance Dominance (C++)
+		Abandon instance POCO C++ Libraries
+		Abandon instance C++ string handling
+		Abandon instance Reheapification
+		Abandon instance Substitution failure is not an error
+		Abandon instance Andrei Alexandrescu
+		Abandon instance Type qualifier
+		Abandon instance Precompiled header
+		Abandon instance Copy constructor (C++)
+		Abandon instance Expression templates
+		Abandon instance Functional (C++)
+		Abandon instance Template metaprogramming
+		Abandon instance Special member functions
+		Abandon instance ObjectCenter
+		Abandon instance Sequence point
+		Abandon instance Edison Design Group
+		Abandon instance Seekg
+		Abandon instance Single Compilation Unit
+		Abandon instance Alexander Stepanov
+		Abandon instance Compatibility of C and C++
+		Abandon instance Variadic macro
+		Abandon instance Comma operator
+		Abandon instance Typedef
+		Abandon instance Resource Acquisition Is Initialization
+		Abandon instance Placement syntax
+		Abandon instance Virtual inheritance
+		Abandon instance David Abrahams (computer programmer)
+		Abandon instance Move assignment operator
+		Abandon instance Rule of three (C++ programming)
+		Abandon instance Opaque pointer
+		Abandon instance Plain Old C++ Object
+		Abandon instance As-if rule
+		Abandon instance CFLAGS
+		Abandon instance Dune (software)
+		Abandon instance Auto-linking
+		Abandon instance Circular dependency
+		Abandon instance ACCU (organisation)
+		Abandon instance C++17
+		Abandon classifier C++ libraries
+		Abandon classifier C++ compilers
+		Abandon classifier Books about C++
+C++ Standard Library is an eponymous classifier
+	Abandon classifier :C++ Standard Library
+		Abandon instance Stdexcept
+		Abandon instance Algorithm (C++)
+		Abandon instance C++ Standard Library
+		Abandon instance Utility (C++)
+		Abandon instance STLport
+		Abandon instance Allocator (C++)
+		Abandon instance C++ Technical Report 1
+		Abandon instance Associative containers
+		Abandon instance Standard Template Library
+		Abandon instance Auto ptr
+		Abandon instance Unordered associative containers (C++)
+		Abandon instance Sstream
+		Abandon instance Sort (C++)
+		Abandon instance Iomanip
+		Abandon instance Sequence container (C++)
+Denotational semantics is an eponymous classifier
+	Abandon classifier :Denotational semantics
+		Abandon instance Denotational semantics
+		Abandon instance Unbounded nondeterminism
+		Abandon instance Strict function
+		Abandon instance Denotational semantics of the Actor model
+		Abandon instance Actor model theory
+		Abandon instance Divergence (computer science)
+		Abandon instance Power domains
+		Abandon classifier Domain theory
+Dylan (programming language) is an eponymous classifier
+	Abandon classifier :Dylan (programming language)
+		Abandon instance Hygienic macro
+		Abandon instance Apple Dylan
+		Abandon instance Harlequin (software company)
+		Abandon instance History of the Dylan programming language
+Erlang (programming language) is an eponymous classifier
+	Abandon classifier :Erlang (programming language)
+		Abandon instance Bitcask
+		Abandon instance Ejabberd
+		Abandon instance Mnesia
+		Abandon instance Hibari (database)
+		Abandon instance CouchDB
+		Abandon instance RabbitMQ
+		Abandon instance Yaws (web server)
+		Abandon instance Open Telecom Platform
+		Abandon instance CEAN
+		Abandon instance Wings 3D
+		Abandon instance LYME (software bundle)
+		Abandon instance Tsung
+Fortran is an eponymous classifier
+	Abandon classifier :Fortran
+		Abandon instance OpenACC
+		Abandon instance OpenHMPP
+		Abandon instance OpenMP
+		Abandon instance Fortran 95 language features
+		Abandon instance John Backus
+		Abandon instance Paul H. Cress
+		Abandon instance Hollerith constant
+		Abandon instance Roy Nutt
+		Abandon instance Photran
+		Abandon instance Simply Fortran
+		Abandon instance Lois Haibt
+		Abandon instance David Sayre
+		Abandon classifier Fortran compilers
+HTML5 is an eponymous classifier
+	Abandon classifier :HTML5
+		Abandon instance Sencha Touch
+		Abandon instance Ionic (mobile app framework)
+		Abandon instance Wakanda (software)
+		Abandon instance WiseMapping
+		Abandon instance Google Swiffy
+		Abandon instance Maqetta
+		Abandon instance Schema.org
+		Abandon instance DaVinci (software)
+		Abandon instance Comparison of layout engines (HTML5 canvas)
+		Abandon instance Cache manifest in HTML5
+		Abandon instance Comparison of layout engines (HTML5 media)
+		Abandon instance DOKY
+		Abandon instance Article element (HTML5)
+		Abandon instance LungoJS
+		Abandon instance WebVR
+		Abandon instance Construct (game engine)
+		Abandon instance Monaca (mobile application development tool)
+		Abandon instance Encrypted Media Extensions
+		Abandon instance Comparison of HTML5 and Flash
+		Abandon instance Media Source Extensions
+		Abandon instance Video alternative to GIF
+		Abandon instance HTML5 File API
+		Abandon instance Adobe Wallaby
+		Abandon instance Gliffy
+		Abandon instance American Graphics Institute
+		Abandon instance Appnovation
+		Abandon instance HTML5 video
+		Abandon instance HTML5 Audio
+		Abandon instance HTML5test
+ICL programming languages is an eponymous classifier
+	Abandon classifier :ICL programming languages
+		Abandon instance ApplicationMaster
+		Abandon instance ReportMaster
+		Abandon instance ICL programming languages
+Java (programming language) is an eponymous classifier
+	Abandon classifier :Java (programming language)
+		Abandon instance Apache Marmotta
+		Abandon instance Xerlin
+		Abandon instance ProgramByDesign
+		Abandon instance Comparison of C Sharp and Java
+		Abandon instance Jikes
+		Abandon instance Apache Stanbol
+		Abandon instance Java ConcurrentMap
+		Abandon instance Apache Calcite
+		Abandon instance Wildcard (Java)
+		Abandon instance Parboiled (Java)
+		Abandon instance Thinking in Java
+		Abandon instance JavaPoly
+		Abandon instance Clone (Java method)
+		Abandon instance GraphHopper
+		Abandon instance Java concurrency
+		Abandon instance Todd Greanier
+		Abandon instance Retrotranslator
+		Abandon instance Java Development Kit
+		Abandon instance JGroups
+		Abandon instance ActiveJDBC
+		Abandon instance Java resource bundle
+		Abandon instance JPicus
+		Abandon instance SwingLabs
+		Abandon instance Restlet
+		Abandon instance Java virtual machine
+		Abandon instance Java Work Framework
+		Abandon instance AgentSheets
+		Abandon instance Bean Scripting Framework
+		Abandon instance Primitive wrapper class
+		Abandon instance FormEngine
+		Abandon instance Criticism of Java
+		Abandon instance Head First (book series)
+		Abandon instance Project Valhalla (Java language)
+		Abandon instance Deterministic Parallel Java
+		Abandon instance GlassFish Metro
+		Abandon instance Celtix
+		Abandon instance Jem The Bee
+		Abandon instance Java 4K Game Programming Contest
+		Abandon instance Resource (Java)
+		Abandon instance Java package
+		Abandon instance JavaTest harness
+		Abandon instance Hector (API)
+		Abandon instance Inversion of control
+		Abandon instance Quark Framework
+		Abandon instance Swing (Java)
+		Abandon instance Java Access Bridge
+		Abandon instance Apache Empire-db
+		Abandon instance Associació d'Usuaris de Java de Catalunya
+		Abandon instance Jim Hugunin
+		Abandon instance Apache Harmony
+		Abandon instance Comparison of Java and Android API
+		Abandon instance SLAMD Server
+		Abandon instance CloudBees
+		Abandon instance Java hashCode()
+		Abandon instance Static import
+		Abandon instance Doclet
+		Abandon instance QDB
+		Abandon instance Java collections framework
+		Abandon instance OpenJDK
+		Abandon instance Persist
+		Abandon instance Java annotation
+		Abandon instance KonaKart
+		Abandon instance Chainsaw (log file viewer)
+		Abandon instance StormMQ
+		Abandon instance Joe-E
+		Abandon instance JavaFX
+		Abandon instance Synth Look and Feel
+		Abandon instance Java Champions
+		Abandon instance IBATIS
+		Abandon instance Object type (object-oriented programming)
+		Abandon instance Java TV
+		Abandon instance Strictfp
+		Abandon instance CookXml
+		Abandon instance Java Task Force
+		Abandon instance Event dispatching thread
+		Abandon instance Prevayler
+		Abandon instance Comparison of the Java and .NET platforms
+		Abandon instance Michael Kölling
+		Abandon instance Cougaar
+		Abandon instance Java view technologies and frameworks
+		Abandon instance James Gosling
+		Abandon instance Java Class Library
+		Abandon instance PHP/Java Bridge
+		Abandon instance Facelets
+		Abandon instance Marker interface pattern
+		Abandon instance Patrick Naughton
+		Abandon instance ActiveJPA
+		Abandon instance JnSynch
+		Abandon instance Final (Java)
+		Abandon instance Bruno Souza (programmer)
+		Abandon instance XStream
+		Abandon instance SouJava
+		Abandon instance Non-blocking I/O (Java)
+		Abandon instance Java applet
+		Abandon instance Apache Kylin
+		Abandon instance CJAN
+		Abandon instance SLF4J
+		Abandon instance Automated exception handling
+		Abandon instance Java syntax
+		Abandon instance Constant interface
+		Abandon instance Generics in Java
+		Abandon instance Graal (compiler)
+		Abandon instance Devoxx
+		Abandon instance Interface (Java)
+		Abandon instance Sun Web Developer Pack
+		Abandon instance Apache Muse
+		Abandon instance Pluggable look and feel
+		Abandon instance RESTHeart
+		Abandon instance OSGi Specification Implementations
+		Abandon instance Java compiler
+		Abandon instance JavaBeans Activation Framework
+		Abandon instance Real time Java
+		Abandon instance .properties
+		Abandon instance Internet Foundation Classes
+		Abandon instance REPLAY (software)
+		Abandon instance Java Classloader
+		Abandon classifier Java (programming language) libraries
+		Abandon classifier Java specification requests
+		Abandon classifier Java APIs
+JavaScript is an eponymous classifier
+	Abandon classifier :JavaScript
+		Abandon instance Unobtrusive JavaScript
+		Abandon instance DWR (Java)
+		Abandon instance Lively Kernel
+		Abandon instance Ajax (programming)
+		Abandon instance JavaScript Simple Syndication
+		Abandon instance Froala Editor
+		Abandon instance GNU LibreJS
+		Abandon instance Samy (computer worm)
+		Abandon instance Bookmarklet
+		Abandon instance Comparison of JavaScript charting frameworks
+		Abandon instance Asm.js
+		Abandon instance AtScript
+		Abandon instance Douglas Crockford
+		Abandon instance Asynchronous module definition
+		Abandon instance Plotly
+		Abandon instance JavaScript engine
+		Abandon instance OpenWebGlobe
+		Abandon instance Mozilla Raindrop
+		Abandon instance JS/UIX
+		Abandon instance JavaScript syntax
+		Abandon instance Comparison of server-side JavaScript solutions
+		Abandon instance JavaScript framework
+		Abandon instance Brendan Eich
+		Abandon instance COLT (software)
+		Abandon instance Highcharts
+		Abandon instance Immediately-invoked function expression
+		Abandon instance Minification (programming)
+		Abandon instance Protogrid
+		Abandon instance John Resig
+		Abandon instance Yamanner
+		Abandon instance CommonJS
+		Abandon instance Variable hoisting
+		Abandon instance Google Apps Script
+		Abandon classifier JavaScript libraries
+		Abandon classifier JavaScript-based HTML editors
+		Abandon classifier JavaScript programming tools
+		Abandon classifier JavaScript engines
+		Abandon classifier JavaScript-based calendar components
+Keyhole Markup Language is an eponymous classifier
+	Abandon instance : Keyhole Markup Language
+MathML is an eponymous classifier
+	Abandon classifier :MathML
+		Abandon instance Comparison of layout engines (MathML)
+Pascal (programming language) is an eponymous classifier
+	Abandon classifier :Pascal (programming language)
+		Abandon instance Morfik FX
+		Abandon instance Megido (Free Pascal)
+		Abandon instance Vector Pascal
+		Abandon instance Lazarus (IDE)
+		Abandon instance Comparison of Object Pascal and C
+		Abandon instance Comparison of Pascal and C
+		Abandon instance Sourceware Archive Group
+		Abandon instance Niklaus Wirth
+		Abandon instance Joel McCormack
+		Abandon instance P-code machine
+		Abandon instance Bill Catambay
+		Abandon instance Real Programmers Don't Use Pascal
+		Abandon classifier Pascal compilers
+		Abandon classifier Pascal libraries
+Perl is an eponymous classifier
+	Abandon classifier :Perl
+		Abandon instance Just another Perl hacker
+		Abandon instance Fat comma
+		Abandon instance CPAN
+		Abandon instance Parser Grammar Engine
+		Abandon instance Mod parrot
+		Abandon instance Schwartzian transform
+		Abandon instance Outline of Perl
+		Abandon instance Waterbed theory
+		Abandon instance BAPP
+		Abandon instance Xuheki
+		Abandon instance Perl::Critic
+		Abandon instance Parrot virtual machine
+		Abandon instance Test::More
+		Abandon instance Perl virtual machine
+		Abandon instance PerlMonks
+		Abandon instance Punie
+		Abandon instance Qrpff
+		Abandon instance Perl Mongers
+		Abandon instance Test Anything Protocol
+		Abandon instance White Camel award
+		Abandon instance Autovivification
+		Abandon instance PerlTidy
+		Abandon instance LAMP (software bundle)
+		Abandon instance PSGI
+		Abandon instance Perl 5 version history
+		Abandon instance Perl OpenGL
+		Abandon instance XS (Perl)
+		Abandon instance Obfuscated Perl Contest
+		Abandon instance Perl control structures
+		Abandon instance Perl Foundation
+		Abandon instance Mod perl
+		Abandon instance Black Perl
+		Abandon instance Yet Another Perl Conference
+		Abandon instance Leaning toothpick syndrome
+		Abandon instance Perl package manager
+		Abandon instance Perl language structure
+		Abandon instance Parrot intermediate representation
+		Abandon instance Perl module
+		Abandon instance There's more than one way to do it
+		Abandon instance Perl Object-Oriented Persistence
+		Abandon instance Warnock's dilemma
+		Abandon instance Perl Compatible Regular Expressions
+		Abandon classifier Perl 6
+		Abandon classifier Books about Perl
+Python (programming language) is an eponymous classifier
+	Abandon classifier :Python (programming language)
+		Abandon instance Python for S60
+		Abandon instance Docstring
+		Abandon instance Learning Python
+		Abandon instance Mod python
+		Abandon instance Numba
+		Abandon instance Zen of Python
+		Abandon instance CodeSkulptor
+		Abandon instance PyDev
+		Abandon instance Python Conference
+		Abandon instance The Python Papers Anthology
+		Abandon instance Tulip (python project)
+		Abandon instance Python License
+		Abandon instance Python Software Foundation
+		Abandon instance Python syntax and semantics
+		Abandon instance Alex Martelli
+		Abandon instance RUR-PLE
+		Abandon instance Core Python Programming
+		Abandon instance Global interpreter lock
+		Abandon instance Spyce
+		Abandon instance History of Python
+		Abandon instance PythonAnywhere
+		Abandon instance Web Server Gateway Interface
+		Abandon instance MicroPython
+		Abandon instance Python Software Foundation License
+		Abandon instance Statsmodels
+		Abandon instance Pyflag
+		Abandon instance Guido van Robot
+		Abandon instance Guido van Rossum
+		Abandon instance Python Server Pages
+		Abandon instance ActivePython
+		Abandon instance Dive Into Python
+		Abandon instance Python Package Index
+		Abandon classifier Python libraries
+		Abandon classifier Python implementations
+		Abandon classifier Python web frameworks
+		Abandon classifier Python development tools
+R (programming language) is an eponymous classifier
+	Abandon classifier :R (programming language)
+		Abandon instance Renjin
+		Abandon instance Journal of Statistical Software
+		Abandon instance Hadley Wickham
+		Abandon instance Sweave
+		Abandon instance John Chambers (statistician)
+		Abandon instance Robert Gentleman (statistician)
+		Abandon instance Distributed R
+		Abandon instance RExcel
+		Abandon instance Bio7
+		Abandon instance Knitr
+		Abandon instance H2O (software)
+		Abandon instance RStudio
+		Abandon instance Ross Ihaka
+		Abandon instance Revolution Analytics
+RSS is an eponymous classifier
+	Abandon classifier :RSS
+		Abandon instance RSS Cloud
+		Abandon instance PubSubHubbub
+		Abandon instance RSS enclosure
+		Abandon instance FeedSync
+		Abandon instance Yahoo! Pipes
+		Abandon instance Sitrion
+		Abandon instance RSS tracking
+		Abandon instance RSS TV
+		Abandon instance Broadcatching
+		Abandon instance SendMeRSS
+		Abandon instance Media RSS
+		Abandon instance RSS editor
+		Abandon instance Superfeedr
+		Abandon instance RSS-DEV Working Group
+		Abandon instance Windows RSS Platform
+		Abandon instance RSS Advisory Board
+		Abandon instance OpenAutonomy
+		Abandon instance Tencent
+Resource Description Framework is an eponymous classifier
+	Abandon classifier :Resource Description Framework
+		Abandon instance Metaclass (Semantic Web)
+		Abandon instance RDFLib
+		Abandon instance Stardog
+		Abandon instance Data Catalog Vocabulary
+		Abandon instance Linked Data Platform
+		Abandon instance Redland RDF Application Framework
+		Abandon instance Jena (framework)
+		Abandon instance Sesame (framework)
+		Abandon classifier Triplestores
+Ruby (programming language) is an eponymous classifier
+	Abandon classifier :Ruby (programming language)
+		Abandon instance JRuby
+		Abandon instance Factory Girl (Rails Testing)
+		Abandon instance Rails Day
+		Abandon instance Pry (software)
+		Abandon instance IronRuby
+		Abandon instance XRuby
+		Abandon instance RubyForge
+		Abandon instance Markaby
+		Abandon instance Hackety Hack
+		Abandon instance Network Applied Communication Laboratory
+		Abandon instance MacRuby
+		Abandon instance QtRuby
+		Abandon instance HotRuby
+		Abandon instance Ruby Version Manager
+		Abandon instance Watir
+		Abandon instance Rake (software)
+		Abandon instance Distributed Ruby
+		Abandon instance RubyCocoa
+		Abandon instance RubyMotion
+		Abandon instance Ruby Central
+		Abandon instance RubyJS
+		Abandon instance WEBrick
+		Abandon instance Why the lucky stiff
+		Abandon instance Pledgie
+		Abandon instance EventMachine
+		Abandon instance Capistrano (software)
+		Abandon instance RubyMine
+		Abandon instance Why's (poignant) Guide to Ruby
+		Abandon instance Programming Ruby
+		Abandon instance Rubinius
+		Abandon instance Uconv
+		Abandon instance Mruby
+		Abandon instance RubyKaigi
+		Abandon instance Ruby MRI
+		Abandon instance Phusion Passenger
+		Abandon instance YARV
+		Abandon instance Spree Commerce
+		Abandon instance Mongrel (web server)
+		Abandon instance Ruby Application Archive
+		Abandon instance Mod ruby
+		Abandon instance Yukihiro Matsumoto
+Rust (programming language) is an eponymous classifier
+	Abandon classifier :Rust (programming language)
+		Abandon instance Redox OS
+		Abandon instance Servo (layout engine)
+Scala (programming language) is an eponymous classifier
+	Abandon classifier :Scala (programming language)
+		Abandon instance ND4S
+		Abandon instance Deeplearning4j
+		Abandon instance ND4J (software)
+		Abandon instance Lift (web framework)
+		Abandon instance SBT (software)
+		Abandon instance Martin Odersky
+Scalable Vector Graphics is an eponymous classifier
+	Abandon classifier :Scalable Vector Graphics
+		Abandon instance SXBL
+		Abandon instance Renesis Player
+		Abandon instance Ikivo Animator
+		Abandon instance Batik (software)
+		Abandon instance Librsvg
+		Abandon instance Inkscape
+		Abandon instance SVG Working Group
+		Abandon instance SVG-edit
+		Abandon instance SVG filter effects
+		Abandon instance SVG animation
+		Abandon instance GPAC Project on Advanced Content
+		Abandon instance Comparison of layout engines (Scalable Vector Graphics)
+		Abandon instance Openclipart
+		Abandon instance Sodipodi
+Scheme (programming language) is an eponymous classifier
+	Abandon classifier :Scheme (programming language)
+		Abandon instance SLIB
+		Abandon instance The Structure and Interpretation of the Computer Science Curriculum
+		Abandon instance History of the Scheme programming language
+		Abandon instance Teach Yourself Scheme in Fixnum Days
+		Abandon instance Call-with-current-continuation
+		Abandon instance Tail call
+		Abandon instance Tail recursion
+		Abandon instance SLIME
+		Abandon instance Structure and Interpretation of Computer Programs
+		Abandon instance GNU Guile
+		Abandon instance Scheme Requests for Implementation
+		Abandon classifier Scheme (programming language) implementations
+Structured English is an eponymous classifier
+	Abandon classifier :Structured English
+		Abandon instance Natural language programming
+		Abandon instance Structured English
+Temporal logic is an eponymous classifier
+	Temporal logic is valid
+Z notation is an eponymous classifier
+	Abandon classifier :Z notation
+		Abandon instance Z User Group
+		Abandon instance Community Z Tools
+		Abandon instance Z User Meeting
+		Abandon instance Test Template Framework
+		Abandon instance Set comprehension
+		Abandon instance CICS
+		Abandon instance Mondex
+		Abandon instance Jean-Raymond Abrial
+		Abandon instance Fastest
+		Abandon instance S (set theory)
+		Abandon instance Michael Spivey
+		Abandon instance General set theory
+		Abandon instance Zermelo–Fraenkel set theory
+		Abandon instance Ib Holm Sørensen
+ALGOL 60 is an eponymous classifier
+	Abandon classifier :ALGOL 60
+		Abandon instance ALGOL Bulletin
+		Abandon classifier ALGOL 60 implementation
+ALGOL 68 is an eponymous classifier
+	Abandon classifier :ALGOL 68
+		Abandon instance Andrey Terekhov
+		Abandon classifier ALGOL 68 implementation
+ActionScript is an eponymous classifier
+	Abandon classifier :ActionScript
+		Abandon instance Starling Framework
+C (programming language) is an eponymous classifier
+	Abandon classifier :C (programming language)
+		Abandon instance C preprocessor
+		Abandon instance MISRA C
+		Abandon instance Bitwise operations in C
+		Abandon instance Translation unit (programming)
+		Abandon instance Escape sequences in C
+		Abandon instance C11 (C standard revision)
+		Abandon instance C99
+		Abandon instance C alternative tokens
+		Abandon instance Interactive C
+		Abandon instance Volatile (computer programming)
+		Abandon instance Strsafe.h
+		Abandon instance Flexible array member
+		Abandon instance Blocks (C language extension)
+		Abandon instance Painted blue
+		Abandon instance Brian Kernighan
+		Abandon instance Long double
+		Abandon instance The C Programming Language
+		Abandon instance The Power of 10: Rules for Developing Safety-Critical Code
+		Abandon instance C Primer Plus
+		Abandon instance Digraphs and trigraphs
+		Abandon instance X Macro
+		Abandon instance Linkage (software)
+		Abandon instance F2c
+		Abandon instance C syntax
+		Abandon instance C Traps and Pitfalls
+		Abandon instance Restrict
+		Abandon instance Union type
+		Abandon instance Dennis Ritchie
+		Abandon instance Duff's device
+		Abandon instance Internal linkage
+		Abandon instance GNU cflow
+		Abandon instance Storage class specifier
+		Abandon classifier C libraries
+		Abandon classifier C compilers
+		Abandon classifier C headers
+		Abandon classifier C language contests
+COBOL is an eponymous classifier
+	Abandon classifier :COBOL
+		Abandon instance CODASYL
+		Abandon instance Data Base Task Group
+		Abandon instance COBOL 68
+		Abandon instance COBOL 74
+		Abandon instance COBOL-68
+		Abandon instance O-O COBOL
+		Abandon instance Burroughs Medium Systems
+		Abandon instance X3J4
+		Abandon instance GnuCOBOL
+		Abandon instance PICTURE
+		Abandon instance IBM COBOL
+		Abandon instance Grace Hopper
+		Abandon instance COBOL language
+		Abandon instance COBOL ReSource
+		Abandon instance Common Ordinary Business-Oriented Language
+		Abandon instance COBOL-60
+		Abandon instance Year 2000 problem
+		Abandon instance COBOL68
+		Abandon instance Named condition
+		Abandon instance CoBoL
+		Abandon instance COBOL-85
+		Abandon instance RM/COBOL
+		Abandon instance Betty Holberton
+		Abandon instance ISO/IEC 1989
+		Abandon instance ISO 1989
+		Abandon instance COBOL programming language
+		Abandon instance COBOL (programming language)
+		Abandon instance Indexed file
+		Abandon instance Common Business Oriented Language
+		Abandon instance ADD 1 TO COBOL
+		Abandon instance COBOL 1960
+		Abandon instance Cobol
+		Abandon instance MF-COBOL
+		Abandon instance COBOL 1974
+		Abandon instance COBOL 20XX
+		Abandon instance Common Business-Oriented Language
+		Abandon instance 88 level
+		Abandon instance COBOL 60
+		Abandon instance OO COBOL
+		Abandon instance OO-COBOL
+		Abandon instance COBOL85
+		Abandon instance Microsoft Sort
+		Abandon instance COBOL 1985
+		Abandon instance ADD 1 TO COBOL GIVING COBOL
+		Abandon instance BLIS/COBOL
+		Abandon instance COBOL 1968
+		Abandon instance COBOL 2014
+		Abandon instance Jean E. Sammet
+		Abandon instance COBOL-74
+		Abandon instance COBOL 2002
+		Abandon instance COBOL 85
+		Abandon instance Picture clause
+		Abandon instance Air Force Materiel Command
+		Abandon instance COBOL74
+Common Lisp is an eponymous classifier
+	Abandon classifier :Common Lisp
+		Abandon instance Common Lisp Object System
+		Abandon instance CLX (Common Lisp)
+		Abandon instance UnCommon Web
+		Abandon instance Weblocks
+		Abandon instance Common Lisp Interface Manager
+		Abandon instance Format (Common Lisp)
+		Abandon instance McCLIM
+		Abandon classifier Common Lisp implementations
+		Abandon classifier Common Lisp publications
+Delphi (programming language) is an eponymous classifier
+	Abandon classifier :Delphi (programming language)
+		Abandon instance FastCode
+		Abandon instance Project Jedi
+Free Pascal is an eponymous classifier
+	Abandon classifier :Free Pascal
+		Abandon instance Internet Direct
+		Abandon instance Free Pascal Runtime Library
+		Abandon instance GLScene
+		Abandon instance Lazarus Component Library
+		Abandon instance FpGUI
+		Abandon instance XPower++
+		Abandon instance TAChart
+		Abandon instance Free Component Library
+		Abandon instance FCL-Web
+		Abandon instance Widgetset
+		Abandon instance Dev-Pascal
+Lisp (programming language) is an eponymous classifier
+	Abandon classifier :Lisp (programming language)
+		Abandon instance Prototype Verification System
+		Abandon instance Interlisp
+		Abandon instance Macintosh Common Lisp
+		Abandon instance Corman Common Lisp
+		Abandon instance LispWorks
+		Abandon instance Fexpr
+		Abandon instance Append
+		Abandon instance Cons
+		Abandon instance Lisp-based Intelligent Software Agents
+		Abandon instance CDR coding
+		Abandon instance Lisp machine
+		Abandon instance Read–eval–print loop
+		Abandon instance Lisp reader
+		Abandon instance CommonLoops
+		Abandon instance Advice (programming)
+		Abandon instance Space-cadet keyboard
+		Abandon instance AI winter
+		Abandon instance TI Explorer
+		Abandon instance Greenspun's tenth rule
+		Abandon instance The Art of the Metaobject Protocol
+		Abandon instance Hop (software)
+		Abandon instance CAR and CDR
+		Abandon instance Big ball of mud
+		Abandon instance M-expression
+		Abandon instance Lisp in Small Pieces
+		Abandon instance X3J13
+		Abandon instance Symbolics
+		Abandon instance Anaphoric macro
+		Abandon instance S-expression
+		Abandon instance Canonical S-expressions
+		Abandon instance S-1 Lisp
+		Abandon instance Lisp Machines
+		Abandon instance Mod lisp
+		Abandon classifier Lisp people
+Lua (programming language) is an eponymous classifier
+	Abandon classifier :Lua (programming language)
+		Abandon instance Codea
+		Abandon instance Plua
+		Abandon instance ZeroBrane Studio
+		Abandon instance Lua Player
+		Abandon classifier Lua-scriptable hardware
+Machine code is an eponymous classifier
+	Abandon classifier :Machine code
+		Abandon instance Addressing mode
+		Abandon instance Code injection
+		Abandon instance Illegal opcode
+		Abandon instance Object code
+		Abandon instance CPUID
+		Abandon instance Opcode
+		Abandon instance HLT (x86 instruction)
+		Abandon instance Broker injection
+		Abandon instance Halt and Catch Fire
+		Abandon instance Operand
+		Abandon instance Indirect branch
+		Abandon instance Interrupts in 65xx processors
+		Abandon instance Branch (computer science)
+		Abandon instance SEX (computing)
+		Abandon instance Code generation (compiler)
+		Abandon instance NOP
+		Abandon instance RdRand
+		Abandon instance MLX (software)
+Microsoft BASIC is an eponymous classifier
+	Abandon classifier :Microsoft BASIC
+		Abandon instance Galaksija BASIC
+		Abandon instance Is functions
+		Abandon classifier Discontinued Microsoft BASICs
+Objective-C is an eponymous classifier
+	Abandon classifier :Objective-C
+		Abandon instance Three20
+		Abandon instance Automatic Reference Counting
+		Abandon instance Core Data
+Office Open XML is an eponymous classifier
+	Abandon classifier :Office Open XML
+		Abandon instance Office Open XML
+		Abandon instance Standardization of Office Open XML
+		Abandon instance Comparison of Office Open XML and OpenDocument
+		Abandon instance Comparison of Office Open XML software
+		Abandon instance Open Packaging Conventions
+PHP is an eponymous classifier
+	Abandon classifier :PHP
+		Abandon instance Codelobster
+		Abandon instance CTPP
+		Abandon instance Zend Engine
+		Abandon instance KPHP
+		Abandon instance PHPMailer
+		Abandon instance Zikula
+		Abandon instance Zend Studio
+		Abandon instance SQLBuddy
+		Abandon instance Zend Server
+		Abandon instance Zend Technologies
+		Abandon instance PHP Unit Testing Framework
+		Abandon instance Lime (software)
+		Abandon instance Cotonti
+		Abandon instance Novius OS
+		Abandon instance Suhosin
+		Abandon instance Rocks (PHP)
+		Abandon instance Scriptcase
+		Abandon instance PHP Standard Recommendation
+		Abandon instance Sansa Framework
+		Abandon instance Behat (computer science)
+		Abandon instance PhpStorm
+		Abandon instance PHP License
+		Abandon classifier PHP writers
+PostScript is an eponymous classifier
+	Abandon classifier :PostScript
+		Abandon instance Zathura (document viewer)
+		Abandon instance Okular
+		Abandon instance Dvips
+		Abandon instance Harlequin RIP
+		Abandon instance Display PostScript
+		Abandon instance Pkfix
+		Abandon instance Xprint
+		Abandon instance NeWS
+		Abandon instance Document Structuring Conventions
+		Abandon instance Ghostscript
+		Abandon instance Pstoedit
+		Abandon instance Evince
+SQL is an eponymous classifier
+	Abandon classifier :SQL
+		Abandon instance Cubes (OLAP server)
+		Abandon instance SQL-92
+		Abandon instance SQL:2008
+		Abandon instance SQL:2011
+		Abandon instance SQL:1999
+		Abandon instance SQL:2003
+		Abandon instance Database Console Commands (Transact-SQL)
+		Abandon instance Skyline operator
+		Abandon instance Correlated subquery
+		Abandon instance Declarative Referential Integrity
+		Abandon instance SQL problems requiring cursors
+		Abandon instance FrontBase
+		Abandon instance Presto (SQL query engine)
+		Abandon instance SQL/MED
+		Abandon instance Cardinality (SQL statements)
+		Abandon instance Check constraint
+		Abandon instance Query optimization
+		Abandon instance Query plan
+		Abandon instance SQL/XML
+		Abandon instance HSQLDB
+		Abandon instance SQL injection
+		Abandon instance Hint (SQL)
+		Abandon instance Nested SQL
+		Abandon instance WQL
+		Abandon instance Structured type
+		Abandon instance SQL/Schemata
+		Abandon instance Table (database)
+		Abandon instance Cursor (databases)
+		Abandon instance View (SQL)
+		Abandon instance Alias (SQL)
+		Abandon instance SQuirreL SQL Client
+		Abandon instance Meta-SQL
+		Abandon instance Windows Internal Database
+		Abandon instance Hierarchical and recursive queries in SQL
+		Abandon instance Apache Drill
+		Abandon instance SQL:2006
+		Abandon instance COMMIT (SQL)
+		Abandon instance SQream DB
+		Abandon instance Call Level Interface
+		Abandon instance Rollback (data management)
+		Abandon instance Varchar
+		Abandon instance Foreign key
+		Abandon instance User-defined function
+		Abandon instance SQL/JRT
+		Abandon instance SQL Server Agent
+		Abandon instance SQL/OLB
+		Abandon instance SQL Access Group
+		Abandon instance Commit (data management)
+		Abandon instance SQL Database Studio
+		Abandon instance Condition (SQL)
+		Abandon instance SQL CLR
+		Abandon instance Prepared statement
+		Abandon instance SQL compliance
+		Abandon classifier SQL data access
+		Abandon classifier PostgreSQL
+		Abandon classifier SQL keywords
+Vala (programming language) is an eponymous classifier
+	Abandon classifier :Vala (programming language)
+Web Ontology Language is an eponymous classifier
+	Abandon classifier :Web Ontology Language
+XHTML is an eponymous classifier
+	Abandon classifier :XHTML
+		Abandon instance XHTML Modularization
+XTalk is an eponymous classifier
+	Abandon classifier :XTalk
+OpenDocument is an eponymous classifier
+	Abandon classifier :OpenDocument
+		Abandon instance OpenDocument standardization
+		Abandon instance Visioo-Writer
+		Abandon instance Comparison of OpenDocument software
+		Abandon instance OpenDocument adoption
+		Abandon instance Lpod
+		Abandon instance OpenDocument technical specification
+		Abandon instance OpenDocument software
+		Abandon classifier OpenOffice
+		Abandon classifier LibreOffice
+GIS file formats is an eponymous classifier
+	Abandon instance : GIS file formats

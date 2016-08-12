@@ -18,7 +18,6 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ReadWrite;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.tdb.TDBFactory;
 
 public class QueryUtil {
 
@@ -268,20 +267,10 @@ public class QueryUtil {
 		return os;
 	}
 
-	public static void main(String[] args) {
-		String directory = "./Computerlanguages";
-		Dataset dataset = TDBFactory.createDataset(directory);
-		List<String> os = getPathFromClassToClass(dataset, "Persistent programming languages",
-				"Persistent programming languages");
-		System.out.println(os.size());
-		os.forEach(l -> System.out.println(l));
-
-	}
-
 	public static List<String> getReachableClassifiers(Dataset dataset, String i, String root) {
-		String query = "PREFIX : <http://myWikiTax.de/>\nSELECT ?cname WHERE{ \n?c :name ?cname . "
-				+ "\n?c :classifies ?i " + "\n?cl :name ?clname. " + "\n?cl :hasSubclassifier* ?c ."
-				+ "\n?i :name ?iname . }";
+		String query = "PREFIX : <http://myWikiTax.de/>\nSELECT DISTINCT ?cname WHERE{ \n?c :name ?cname . "
+				+ "\n?c :classifies ?i ." + "\n?r :name \"" + root + "\" . "
+				+ "\nFILTER EXISTS{?r :hasSubclassifier* ?c .}" + "\n?i :name ?iname . }";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
 		pss.setCommandText(query);
 		pss.setLiteral("iname", i);
@@ -318,5 +307,12 @@ public class QueryUtil {
 		dataset.end();
 		return new QueryProcessor(query, dataset).query();
 	}
+
+	// public static void main(String[] args) {
+	// String directory = "./Computerlanguages";
+	// Dataset dataset = TDBFactory.createDataset(directory);
+	// new Prune(dataset).cleanUpUnreachableAll();
+	//
+	// }
 
 }

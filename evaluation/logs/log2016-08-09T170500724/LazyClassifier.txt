@@ -1,0 +1,69 @@
+
+Test items in computer languages is a lazy classifier
+	Abandon classifier : Test items in computer languages
+Formula manipulation languages is a lazy classifier
+	Formula manipulation languages is valid
+Page description markup languages is a lazy classifier
+	Abandon classifier : Page description markup languages
+Agent-oriented programming languages is a lazy classifier
+	Agent-oriented programming languages is valid
+Constraint programming languages is a lazy classifier
+	Constraint programming languages is valid
+Musical markup languages is a lazy classifier
+	Musical markup languages is valid
+Nondeterministic programming languages is a lazy classifier
+	Nondeterministic programming languages is valid
+Secure programming languages is a lazy classifier
+	Secure programming languages is valid
+Programming language standards is a lazy classifier
+	Abandon classifier : Programming language standards
+		Abandon instance Standard library
+Reactive programming languages is a lazy classifier
+	Reactive programming languages is valid
+Set theoretic programming languages is a lazy classifier
+	Set theoretic programming languages is valid
+Low-level programming languages is a lazy classifier
+	Low-level programming languages is valid
+Markup language comparisons is a lazy classifier
+	Abandon classifier : Markup language comparisons
+		Abandon instance Comparison of user interface markup languages
+		Abandon instance Lightweight markup language
+		Abandon instance Comparison of document markup languages
+		Abandon instance Comparison of OpenXPS and PDF
+Tree programming languages is a lazy classifier
+	Tree programming languages is valid
+MUD programming languages is a lazy classifier
+	MUD programming languages is valid
+SETL programming language family is a lazy classifier
+	Abandon classifier : SETL programming language family
+Spatial databases is a lazy classifier
+	Abandon classifier : Spatial databases
+		Abandon classifier Spatial database management systems
+Icon programming language family is a lazy classifier
+	Icon programming language family is valid
+SR programming language family is a lazy classifier
+	SR programming language family is valid
+FP programming language family is a lazy classifier
+	FP programming language family is valid
+Keyhole Markup Language is a lazy classifier
+	Keyhole Markup Language is valid
+OCaml programming language family is a lazy classifier
+	OCaml programming language family is valid
+System description languages is a lazy classifier
+	System description languages is valid
+MUMPS programming language family is a lazy classifier
+	MUMPS programming language family is valid
+Typesetting programming languages is a lazy classifier
+	Typesetting programming languages is valid
+ISO/IEC 19775 is a lazy classifier
+	Abandon classifier : ISO/IEC 19775
+JavaScript dialect engines is a lazy classifier
+	Abandon classifier : JavaScript dialect engines
+		Abandon instance ECMAScript
+		Abandon instance JScript
+		Abandon instance InScript (JavaScript engine)
+MUMPS programming language is a lazy classifier
+	Abandon classifier : MUMPS programming language
+		Abandon classifier MUMPS implementations
+ALGOL 58 dialect is a lazy classifier
+	ALGOL 58 dialect is valid

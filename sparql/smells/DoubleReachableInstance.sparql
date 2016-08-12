@@ -18,4 +18,4 @@ WHERE {
     FILTER(?top1name < ?top2name && (?top1name!="Data modeling languages"||?top2name!="Markup languages"))
     ?entity :name ?name .
 }
-ORDER BY ?topclassifier1name ?topclassifier2name
+ORDER BY ?name

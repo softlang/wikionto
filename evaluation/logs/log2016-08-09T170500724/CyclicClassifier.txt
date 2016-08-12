@@ -1,0 +1,19 @@
+
+C++ programming language family is a cyclic classifier
+	Lift Cycle
+	Remove : C++ programming language family has subclassifier C++ programming language family
+Ada programming language family is a cyclic classifier
+	Lift Cycle
+	Remove : Ada programming language family has subclassifier Ada programming language family
+C programming language family is a cyclic classifier
+	Lift Cycle
+	Remove : C programming language family has subclassifier C programming language family
+Data-centric programming languages is a cyclic classifier
+	Lift Cycle
+	Remove : Data-centric programming languages has subclassifier Persistent programming languages
+JavaScript programming language family is a cyclic classifier
+	Lift Cycle
+	Remove : JavaScript programming language family has subclassifier JavaScript programming language family
+Pascal programming language family is a cyclic classifier
+	Lift Cycle
+	Remove : Pascal programming language family has subclassifier Pascal programming language family

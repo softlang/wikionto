@@ -16,107 +16,107 @@ import com.hp.hpl.jena.query.Dataset;
  */
 public class Prune {
 
-    private final TransformationProcessor proc;
+	private final TransformationProcessor proc;
 
-    public Prune(Dataset dataset) {
-	this.proc = new TransformationProcessor(dataset);
-    }
-
-    public void removeRedundantInstances() {
-	HashMap<String, String> pmap = new HashMap<>();
-	long size = proc.transformFile("removeRedundantClassifies.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
-    }
-
-    public void removeRedundantSubtypes() {
-	HashMap<String, String> pmap = new HashMap<>();
-	long size = proc.transformFile("removeRedundantSubclassifier.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
-    }
-
-    public void abandonInstance(String n) {
-	Map<String, String> pmap = new HashMap<>();
-	pmap.put("name", n);
-	long size = proc.transformFile("abandonInstance.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
-
-    }
-
-    public void cleanUpUnreachableAll() {
-	Map<String, String> pmap = new HashMap<>();
-	long tsize = 0;
-	long size = 1;
-	while (size != 0) {
-	    size = proc.transformFile("cleanUpClassifiers.sparql", pmap);
-	    System.out.println("cleaned up classifiers: " + size);
-	    size += proc.transformFile("cleanUpInstances.sparql", pmap);
-	    System.out.println("cleaned up instances: " + size);
-	    tsize += size;
+	public Prune(Dataset dataset) {
+		proc = new TransformationProcessor(dataset);
 	}
 
-	System.out.println("Transformation successful! \n Model size difference: " + tsize);
-    }
-
-    void cleanUpUnreachableType() {
-	Map<String, String> pmap = new HashMap<>();
-	long tsize = 0;
-	long size = 1;
-	while (size != 0) {
-	    size = proc.transformFile("cleanUpTypes.sparql", pmap);
-	    System.out.println("cleaned up types: " + size);
-	    tsize += size;
+	public void removeRedundantInstances() {
+		HashMap<String, String> pmap = new HashMap<>();
+		long size = proc.transformFile("removeRedundantClassifies.sparql", pmap);
+		System.out.println("Transformation successful! \n Model size difference: " + size);
 	}
 
-	System.out.println("Transformation successful! \n Model size difference: " + tsize);
-    }
-
-    void cleanUpUnreachableEnt() {
-	Map<String, String> pmap = new HashMap<>();
-	long tsize = 0;
-	long size = 1;
-	while (size != 0) {
-	    size += proc.transformFile("cleanUpEntities.sparql", pmap);
-	    System.out.println("cleaned up entities: " + size);
-	    tsize += size;
+	public void removeRedundantSubtypes() {
+		HashMap<String, String> pmap = new HashMap<>();
+		long size = proc.transformFile("removeRedundantSubclassifier.sparql", pmap);
+		System.out.println("Transformation successful! \n Model size difference: " + size);
 	}
 
-	System.out.println("Transformation successful! \n Model size difference: " + tsize);
-    }
+	public void abandonInstance(String n) {
+		Map<String, String> pmap = new HashMap<>();
+		pmap.put("name", n);
+		long size = proc.transformFile("abandonInstance.sparql", pmap);
+		System.out.println("Transformation successful! \n Model size difference: " + size);
 
-    public void removeClassifies(String ename, String tname) {
-	Map<String, String> pmap = new HashMap<>();
-	pmap.put("classifiername", tname);
-	pmap.put("entityname", ename);
-	long size = proc.transformFile("deleteClassifies.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
+	}
 
-    }
+	public void cleanUpUnreachableAll() {
+		Map<String, String> pmap = new HashMap<>();
+		long tsize = 0;
+		long size = 1;
+		while (size != 0) {
+			size = proc.transformFile("cleanUpClassifier.sparql", pmap);
+			System.out.println("cleaned up classifiers: " + size);
+			size += proc.transformFile("cleanUpInstances.sparql", pmap);
+			System.out.println("cleaned up instances: " + size);
+			tsize += size;
+		}
 
-    public void removeSubclassifier(String sup, String sub) {
-	Map<String, String> pmap = new HashMap<>();
-	pmap.put("subclassifiername", sub);
-	pmap.put("oldsuperclassifiername", sup);
-	long size = proc.transformFile("deleteHasSubclassifier.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
+		System.out.println("Transformation successful! \n Model size difference: " + tsize);
+	}
 
-    }
+	void cleanUpUnreachableType() {
+		Map<String, String> pmap = new HashMap<>();
+		long tsize = 0;
+		long size = 1;
+		while (size != 0) {
+			size = proc.transformFile("cleanUpTypes.sparql", pmap);
+			System.out.println("cleaned up types: " + size);
+			tsize += size;
+		}
 
-    public void collapseClassifier(String name) {
-	Map<String, String> pmap = new HashMap<>();
-	pmap.put("name", name);
-	long size = proc.transformFile("collapseClassifier.sparql", pmap);
-	pmap.clear();
-	pmap.put("name", name);
-	size += proc.transformFile("abandonClassifier.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
-    }
+		System.out.println("Transformation successful! \n Model size difference: " + tsize);
+	}
 
-    public void abandonClassifier(String n) {
-	Map<String, String> pmap = new HashMap<>();
-	pmap.put("name", n);
-	long size = proc.transformFile("abandonClassifier.sparql", pmap);
-	System.out.println("Transformation successful! \n Model size difference: " + size);
+	void cleanUpUnreachableEnt() {
+		Map<String, String> pmap = new HashMap<>();
+		long tsize = 0;
+		long size = 1;
+		while (size != 0) {
+			size += proc.transformFile("cleanUpEntities.sparql", pmap);
+			System.out.println("cleaned up entities: " + size);
+			tsize += size;
+		}
 
-    }
+		System.out.println("Transformation successful! \n Model size difference: " + tsize);
+	}
+
+	public void removeClassifies(String ename, String tname) {
+		Map<String, String> pmap = new HashMap<>();
+		pmap.put("classifiername", tname);
+		pmap.put("entityname", ename);
+		long size = proc.transformFile("deleteClassifies.sparql", pmap);
+		System.out.println("Removed : " + tname + " classifies " + ename + "! \n Model size difference: " + size);
+
+	}
+
+	public void removeSubclassifier(String sup, String sub) {
+		Map<String, String> pmap = new HashMap<>();
+		pmap.put("subclassifiername", sub);
+		pmap.put("oldsuperclassifiername", sup);
+		long size = proc.transformFile("deleteHasSubclassifier.sparql", pmap);
+		System.out.println("Removed " + sup + " has subclassifier " + sub + " \n Model size difference: " + size);
+
+	}
+
+	public void collapseClassifier(String name) {
+		Map<String, String> pmap = new HashMap<>();
+		pmap.put("name", name);
+		long size = proc.transformFile("collapseClassifier.sparql", pmap);
+		pmap.clear();
+		pmap.put("name", name);
+		size += proc.transformFile("abandonClassifier.sparql", pmap);
+		System.out.println("Transformation successful! \n Model size difference: " + size);
+	}
+
+	public void abandonClassifier(String n) {
+		Map<String, String> pmap = new HashMap<>();
+		pmap.put("name", n);
+		long size = proc.transformFile("abandonClassifier.sparql", pmap);
+		System.out.println("Transformation successful! \n Model size difference: " + size);
+
+	}
 
 }

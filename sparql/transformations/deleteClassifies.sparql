@@ -1,8 +1,8 @@
 PREFIX : <http://myWikiTax.de/> 
 DELETE {
-  ?classifier :hasInstance ?entity .
+  ?classifier :classifies ?entity .
 }
 WHERE{ 
-  ?classifier :hasInstance ?entity .
+  ?classifier :classifies ?entity .
   ?classifier :name ?classifiername .
   ?entity :name ?entityname . }

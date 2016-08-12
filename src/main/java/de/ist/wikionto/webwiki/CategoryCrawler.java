@@ -13,6 +13,12 @@ import de.ist.wikionto.webwiki.model.Instance;
 /**
  *
  * @author Marcel
+ *
+ *         This runnable processes a category: 1) It retrieves subcategories. 2)
+ *         It retrieves contained articles and processes them. 3) It retrieves
+ *         supercategories.
+ *
+ *         Requests to the Wikipedia API are repeated until they are successful.
  */
 public class CategoryCrawler implements Runnable {
 
@@ -41,10 +47,13 @@ public class CategoryCrawler implements Runnable {
 	 */
 	private void processSubCategories() {
 		String[] subcats = null;
-		try {
-			subcats = (new Wiki()).getCategoryMembers(type.getName(), Wiki.CATEGORY_NAMESPACE);
-		} catch (IOException e) {
-			e.printStackTrace();
+		while (true) {
+			try {
+				subcats = new Wiki().getCategoryMembers(type.getName(), Wiki.CATEGORY_NAMESPACE);
+				break;
+			} catch (IOException e) {
+				System.err.println("Connection issue at processSubCategories for " + type.getName());
+			}
 		}
 		for (String name : subcats) {
 			if (manager.isExcludedCategoryName(name.trim())) {
@@ -65,15 +74,20 @@ public class CategoryCrawler implements Runnable {
 
 	private void processEntities() {
 		String[] articles = null;
-		try {
-			articles = (new Wiki()).getCategoryMembers(type.getName(), Wiki.MAIN_NAMESPACE);
-		} catch (IOException e) {
-			e.printStackTrace();
+		while (true) {
+			try {
+				articles = new Wiki().getCategoryMembers(type.getName(), Wiki.MAIN_NAMESPACE);
+				break;
+			} catch (IOException e) {
+				System.err.println("Connection issue at processEntities for " + type.getName());
+				e.printStackTrace();
+			}
 		}
 
 		for (String name : articles) {
-			if (name.contains("List of"))
+			if (name.contains("List of")) {
 				continue;
+			}
 			Instance entity = manager.getInstanceFromInstanceMap(name);
 
 			if (null == entity) {
@@ -90,29 +104,34 @@ public class CategoryCrawler implements Runnable {
 
 		Wiki w = new Wiki();
 		String[] cs;
-		try {
-			cs = w.getCategories(name, false, true);
-			for (String c : cs) {
-				entity.addClassifier(c.replace("Category:", ""));
+		while (true) {
+			try {
+				cs = w.getCategories(name, false, true);
+				break;
+			} catch (IOException e) {
+				System.err.println("Connection issue at processEntity for :" + name);
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-
+		for (String c : cs) {
+			entity.addClassifier(c.replace("Category:", ""));
+		}
 		return entity;
 	}
 
 	private void processCategory() {
 		Wiki w = new Wiki();
-		String[] cs;
-		try {
-			cs = w.getCategories("Category:" + type.getName(), false, true);
-			assert (cs.length > 0);
-			for (String c : cs) {
-				type.addClassifier(c.replace("Category:", ""));
+		String[] supercatgories = null;
+		while (true) {
+			try {
+				supercatgories = w.getCategories("Category:" + type.getName(), false, true);
+				assert supercatgories.length > 0;
+				break;
+			} catch (IOException e) {
+				System.err.println("Connection issue at processCategory for :" + type.getName());
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		}
+		for (String c : supercatgories) {
+			type.addClassifier(c.replace("Category:", ""));
 		}
 	}
 

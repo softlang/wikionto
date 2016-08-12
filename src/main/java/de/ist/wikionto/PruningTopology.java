@@ -56,12 +56,10 @@ public class PruningTopology {
 						+ "\nGUI support helping in getting rid of confirmed issues."
 						+ "Further, every action you take is logged for reproducibility.");
 		initializeLog();
-		// JOptionPane.showMessageDialog(null, "We start with the bad smell
-		// `Eponymous Classifier'. "
-		// + "\nIt matches those classifiers for which an instance exist with
-		// the same name.");
-		//
-		// fixEponymousType();
+		JOptionPane.showMessageDialog(null, "We start with the bad smell `Eponymous Classifier'. "
+				+ "\nIt matches those classifiers for which an instance exist with the same name.");
+
+		fixEponymousType();
 
 		JOptionPane.showMessageDialog(null,
 				"We continue with the bad smell `Semantically Distant Classifier'. "
@@ -538,31 +536,31 @@ public class PruningTopology {
 				System.out.println("No way from " + top1 + " to " + dri);
 				continue;
 			}
-			list1 = list1.stream().map(i -> cURI + i).collect(Collectors.toList());
+			List<String> list1links = list1.stream().map(i -> cURI + i).collect(Collectors.toList());
 
 			String inst = null;
 			try {
-				inst = list1.get(list1.size() - 1).replace("Category:", "");
+				inst = list1links.get(list1.size() - 1).replace("Category:", "");
 			} catch (Exception e) {
-				System.err.println("Size : " + list1.size());
+				System.err.println("Size : " + list1links.size());
 				System.err.println("Elements:");
-				list1.forEach(l -> System.err.println(l));
+				list1links.forEach(l -> System.err.println(l));
 				System.err.println("top1:" + top1 + ", dri:" + dri);
 				System.exit(0);
 			}
-			list1.remove(list1.size() - 1);
-			list1.add(inst);
+			list1links.remove(list1.size() - 1);
+			list1links.add(inst);
 			List<String> list2 = QueryUtil.getPathFromClassToInstance(dataset, top2, dri);
 			if (list2.isEmpty()) {
 				System.out.println("No way from " + top2 + " to " + dri);
 				continue;
 			}
-			list2 = list2.stream().map(i -> cURI + i).collect(Collectors.toList());
-			inst = list2.get(list2.size() - 1).replace("Category:", "");
-			list2.remove(list2.size() - 1);
-			list2.add(inst);
-			map.put("Path from " + top1, list1);
-			map.put("Path from " + top2, list2);
+			List<String> list2links = list2.stream().map(i -> cURI + i).collect(Collectors.toList());
+			inst = list2links.get(list2.size() - 1).replace("Category:", "");
+			list2links.remove(list2links.size() - 1);
+			list2links.add(inst);
+			map.put("Path from " + top1, list1links);
+			map.put("Path from " + top2, list2links);
 			String qmsg = dri + " is a double reachable instance with top classifiers:" + top1 + " & " + top2;
 			addLogBlock("DoubleReachableInstance", qmsg);
 			SupportFrame ps = new SupportFrame(qmsg, options, map, links, true, true, info);
@@ -597,7 +595,7 @@ public class PruningTopology {
 				// Remove selected relationships
 				List<JToggleButton> ptt1Del = tm.get("Path from " + top1 + "DEL");
 				List<JToggleButton> ptt2Del = tm.get("Path from " + top2 + "DEL");
-				if (ptt1Del.get(0).isSelected()) {
+				if (ptt1Del.get(0).isSelected() && ptt1Del.size() > 1) {
 					addLogEntry("DoubleReachableInstance", "\tRemove :" + top1 + " has subclassifier " + list1.get(0));
 					new Prune(dataset).removeSubclassifier(top1, list1.get(0));
 				}
@@ -618,7 +616,7 @@ public class PruningTopology {
 						new Prune(dataset).removeClassifies(list1.get(0), top1);
 					}
 				}
-				if (ptt2Del.get(0).isSelected()) {
+				if (ptt2Del.get(0).isSelected() && ptt2Del.size() > 1) {
 					addLogEntry("DoubleReachableInstance", "\tRemove :" + top2 + " has subclassifier " + list2.get(0));
 					new Prune(dataset).removeSubclassifier(top2, list2.get(0));
 				}
