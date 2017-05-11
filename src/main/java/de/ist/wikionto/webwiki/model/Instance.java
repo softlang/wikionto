@@ -5,26 +5,47 @@
  */
 package de.ist.wikionto.webwiki.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author Marcel
  */
-public class Instance extends Element{
-    
-    //private final List<Information> informationList;
+public class Instance extends Element {
 
-    public Instance(){
-        super();
-        //informationList = new ArrayList<>();
-    }
-    
-    /**
-    public List<Information> getInformationList() {
-        return Collections.unmodifiableList(informationList);
-    }
+	private String text;
+	private final Set<Element> links;
+	// private final List<Information> informationList;
 
-    public void addInformation(Information information) {
-        informationList.add(information);
-    }
-    **/
+	public Instance() {
+		super();
+		this.text = null;
+		this.links = new HashSet<>();
+		// informationList = new ArrayList<>();
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Set<Element> getLinks() {
+		return links;
+	}
+
+	public void addLink(Element e) {
+		links.add(e);
+	}
+
+	/**
+	 * public List<Information> getInformationList() { return
+	 * Collections.unmodifiableList(informationList); }
+	 * 
+	 * public void addInformation(Information information) {
+	 * informationList.add(information); }
+	 **/
 }

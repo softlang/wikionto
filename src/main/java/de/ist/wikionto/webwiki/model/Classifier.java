@@ -13,56 +13,76 @@ import java.util.Set;
  *
  * @author Marcel
  */
-public class Classifier extends Element{
-    
-    private final Set<Classifier> subclassifiers;
-    private final Set<Instance> instances;
+public class Classifier extends Element {
 
-    private Instance description;
+	private final Set<Classifier> subclassifiers;
+	private final Set<Instance> instances;
+	private final Set<Element> mainLinks;
+	private String text;
 
-    private int minDepth;
-    
-    public Classifier(){
-        super();
-        subclassifiers = new HashSet<>();
-        instances = new HashSet<>();
-    }
-    
-    public Set<Classifier> getSubclassifiers(){
-        return Collections.unmodifiableSet(subclassifiers);
-    }
-    
-    public void addSubclassifier(Classifier sub){
-        if(!subclassifiers.contains(sub)){
-            subclassifiers.add(sub);
-            sub.addClassifier(this.getName());
-        }
-    }
-    
-    public Set<Instance> getInstances(){
-        return Collections.unmodifiableSet(instances);
-    }
-    
-    public void addInstance(Instance instance){
-        if(!instances.contains(instance)){
-            instances.add(instance);
-        }
-    }
-    
-    public Instance getDescription() {
-        return description;
-    }
+	private Instance description;
 
-    public void setDescription(Instance description) {
-        this.description = description;
-    }
-    
-    public int getMinDepth() {
-        return minDepth;
-    }
+	private int minDepth;
 
-    public void setMinDepth(int minDepth) {
-        if(this.minDepth==0 || this.minDepth> minDepth)
-            this.minDepth = minDepth;
-    }
+	public Classifier() {
+		super();
+		subclassifiers = new HashSet<>();
+		instances = new HashSet<>();
+		text = null;
+		mainLinks = new HashSet<>();
+	}
+
+	public Set<Classifier> getSubclassifiers() {
+		return Collections.unmodifiableSet(subclassifiers);
+	}
+
+	public void addMainLink(Element e) {
+		this.mainLinks.add(e);
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public Set<Element> getMainLinks() {
+		return mainLinks;
+	}
+
+	public void addSubclassifier(Classifier sub) {
+		if (!subclassifiers.contains(sub)) {
+			subclassifiers.add(sub);
+			sub.addClassifier(this.getName());
+		}
+	}
+
+	public Set<Instance> getInstances() {
+		return Collections.unmodifiableSet(instances);
+	}
+
+	public void addInstance(Instance instance) {
+		if (!instances.contains(instance)) {
+			instances.add(instance);
+		}
+	}
+
+	public Instance getDescription() {
+		return description;
+	}
+
+	public void setDescription(Instance description) {
+		this.description = description;
+	}
+
+	public int getMinDepth() {
+		return minDepth;
+	}
+
+	public void setMinDepth(int minDepth) {
+		if (this.minDepth == 0 || this.minDepth > minDepth)
+			this.minDepth = minDepth;
+	}
 }
