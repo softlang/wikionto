@@ -1,0 +1,5 @@
+PREFIX : <http://myWikiTax.de/> 
+SELECT DISTINCT ?s ?r ?o
+WHERE {
+	?s ?r ?o.
+}

@@ -5,6 +5,7 @@
  */
 package de.ist.wikionto.webwiki.model;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +18,7 @@ public class Classifier extends Element {
 
 	private final Set<Classifier> subclassifiers;
 	private final Set<Instance> instances;
-	private final Set<Element> mainLinks;
+	private final Set<String> mainLinks;
 	private String text;
 
 	private Instance description;
@@ -36,8 +37,13 @@ public class Classifier extends Element {
 		return Collections.unmodifiableSet(subclassifiers);
 	}
 
-	public void addMainLink(Element e) {
+	public void addMainLink(String e) {
 		this.mainLinks.add(e);
+	}
+
+	public void addMainLinks(Collection<String> links) {
+
+		mainLinks.addAll(links);
 	}
 
 	public void setText(String text) {
@@ -48,7 +54,7 @@ public class Classifier extends Element {
 		return text;
 	}
 
-	public Set<Element> getMainLinks() {
+	public Set<String> getMainLinks() {
 		return mainLinks;
 	}
 

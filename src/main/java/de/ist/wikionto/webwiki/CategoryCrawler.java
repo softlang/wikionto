@@ -6,6 +6,8 @@
 package de.ist.wikionto.webwiki;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import de.ist.wikionto.webwiki.model.Classifier;
 import de.ist.wikionto.webwiki.model.Instance;
@@ -83,7 +85,7 @@ public class CategoryCrawler implements Runnable {
 				e.printStackTrace();
 			}
 		}
-
+		Set<String> artLinks = resolveLinks(articles);
 		for (String name : articles) {
 			if (name.contains("List of")) {
 				continue;
@@ -91,22 +93,26 @@ public class CategoryCrawler implements Runnable {
 			Instance entity = manager.getInstanceFromInstanceMap(name);
 
 			if (null == entity) {
-				entity = processentity(name);
+				entity = processEntity(name);
 				manager.putInInstanceMap(name, entity);
 			}
 			type.addInstance(entity);
 		}
 	}
 
-	private Instance processentity(String name) {
+	private Instance processEntity(String name) {
 		Instance entity = new Instance();
 		entity.setName(name);
-
+		Set<String> links = new HashSet<>();
 		Wiki w = new Wiki();
 		String[] cs;
 		while (true) {
 			try {
 				cs = w.getCategories(name, false, true);
+				String text = w.getPageText(name);
+				entity.setText(text);
+				links = this.resolveLinks(w.getLinksOnPage(name));
+				entity.addLinks(links);
 				break;
 			} catch (IOException e) {
 				System.err.println("Connection issue at processEntity for :" + name);
@@ -121,10 +127,15 @@ public class CategoryCrawler implements Runnable {
 	private void processCategory() {
 		Wiki w = new Wiki();
 		String[] supercatgories = null;
+		Set<String> links = new HashSet<>();
 		while (true) {
 			try {
 				supercatgories = w.getCategories("Category:" + type.getName(), false, true);
 				assert supercatgories.length > 0;
+				String text = w.getPageText("Category:" + type.getName());
+				type.setText(text);
+				links = this.resolveLinks(w.getLinksOnPage("Category:" + type.getName()));
+				type.addMainLinks(links);
 				break;
 			} catch (IOException e) {
 				System.err.println("Connection issue at processCategory for :" + type.getName());
@@ -135,4 +146,22 @@ public class CategoryCrawler implements Runnable {
 		}
 	}
 
+	private Set<String> resolveLinks(String[] links) {
+		Set<String> set = new HashSet<>();
+		Wiki wiki = new Wiki();
+		while (true) {
+			try {
+				String[] resolved = wiki.resolveRedirects(links);
+				for (int i = 0; i < links.length; i++)
+					if (resolved[i] == null)
+						set.add(links[i]);
+					else
+						set.add(resolved[i]);
+				break;
+			} catch (IOException e) {
+				System.err.println("Connection issue at processLinks for :" + type.getName());
+			}
+		}
+		return set;
+	}
 }

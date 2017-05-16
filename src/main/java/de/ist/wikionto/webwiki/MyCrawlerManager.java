@@ -8,6 +8,7 @@ package de.ist.wikionto.webwiki;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -52,7 +53,7 @@ public class MyCrawlerManager {
 		initialize(rootname);
 		threadcounter = 0;
 		crawl();
-		WikiTaxToJenaTDB.createTripleStore(root,maxDepth);
+		WikiTaxToJenaTDB.createTripleStore(root, maxDepth);
 	}
 
 	public void crawl() {
@@ -67,6 +68,7 @@ public class MyCrawlerManager {
 			} else {
 				if (threadcounter == 0) {
 					System.out.println("Finished crawl at #C:" + classifierMap.size() + ", #I:" + instanceMap.size());
+					System.out.println(new Date().toString());
 					break;
 				}
 			}
@@ -115,12 +117,15 @@ public class MyCrawlerManager {
 		exclusionset.add("Software written");
 		exclusionset.add("Software by");
 		exclusionset.add("conference");
-		new MyCrawlerManager("Computer languages", exclusionset).start(6);
+		MyCrawlerManager a = new MyCrawlerManager("Computer languages", exclusionset);
+		a.start(6);
 	}
 
 	public void offerClassifier(Classifier classifier) {
-		if (classifierMap.size() % 100 == 0)
+		if (classifierMap.size() % 100 == 0) {
 			System.out.println("#C:" + classifierMap.size() + ", #I:" + instanceMap.size());
+			System.out.println(new Date().toString());
+		}
 		classifierQueue.offer(classifier);
 	}
 

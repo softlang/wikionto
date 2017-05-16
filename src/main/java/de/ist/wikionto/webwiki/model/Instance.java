@@ -5,6 +5,7 @@
  */
 package de.ist.wikionto.webwiki.model;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ import java.util.Set;
 public class Instance extends Element {
 
 	private String text;
-	private final Set<Element> links;
+	private final Set<String> links;
 	// private final List<Information> informationList;
 
 	public Instance() {
@@ -33,12 +34,16 @@ public class Instance extends Element {
 		this.text = text;
 	}
 
-	public Set<Element> getLinks() {
+	public Set<String> getLinks() {
 		return links;
 	}
 
-	public void addLink(Element e) {
+	public void addLink(String e) {
 		links.add(e);
+	}
+
+	public void addLinks(Collection<String> links) {
+		links.addAll(links);
 	}
 
 	/**
