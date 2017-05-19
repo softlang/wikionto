@@ -15,6 +15,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
+import de.ist.wikionto.research.MyLogger;
 import de.ist.wikionto.webwiki.model.Classifier;
 import de.ist.wikionto.webwiki.model.Element;
 import de.ist.wikionto.webwiki.model.Instance;
@@ -24,6 +25,8 @@ import de.ist.wikionto.webwiki.model.Instance;
  * @author Marcel
  */
 public class WikiTaxToJenaTDB {
+
+	static MyLogger l = new MyLogger("logs/", "ToJena");
 
 	private static final String URI = "http://myWikiTax.de/";
 	private static final String cURI = URI + "Classifier#";
@@ -65,6 +68,9 @@ public class WikiTaxToJenaTDB {
 		System.out.println("Remaining after depth filter: #C:" + classResMap.size() + ", #I:" + instanceResMap.size());
 
 		// put outputstream instead of null
+		// l.logLn("classifers :" + classResMap.keySet().toString());
+		// l.logLn("instances :" + instanceResMap.keySet().toString());
+
 		dataset.commit();
 		dataset.end();
 	}
@@ -77,11 +83,14 @@ public class WikiTaxToJenaTDB {
 		}
 		if (null != classifier.getDescription()) {
 			Resource descriptionResource;
+			l.logLn(classifier.getDescription().getName());
 			if (!instanceResMap.containsKey(classifier.getDescription().getURIName())) {
 				descriptionResource = model.createResource(iURI + instanceResMap.size());
 				descriptionResource.addProperty(model.getProperty(nameURI), classifier.getDescription().getName());
 				instanceResMap.put(classifier.getDescription().getURIName(), descriptionResource);
 				classifierResource.addProperty(model.getProperty(defURI), descriptionResource);
+				transformLinks(classifier.getDescription());
+				descriptionResource.addProperty(model.getProperty(textURI), classifier.getDescription().getText());
 				transformInstance(classifier.getDescription());
 			} else {
 				descriptionResource = instanceResMap.get(classifier.getDescription().getURIName());
@@ -93,10 +102,14 @@ public class WikiTaxToJenaTDB {
 		for (Instance instance : classifier.getInstances()) {
 			Resource instanceResource;
 			if (!instanceResMap.containsKey(instance.getURIName())) {
+				// l.logLn(instance.getName());
 				instanceResource = model.createResource(iURI + instanceResMap.size());
 				instanceResMap.put(instance.getURIName(), instanceResource);
 				instanceResource.addProperty(model.getProperty(nameURI), instance.getName());
 				classifierResource.addProperty(model.getProperty(ciURI), instanceResource);
+				instanceResource.addProperty(model.getProperty(textURI), instance.getText());
+				// l.logLn("instance hasText " + instance.getName() + " with
+				// length" + instance.getText().length());
 				transformLinks(instance);
 				transformInstance(instance);
 			} else {
@@ -105,6 +118,9 @@ public class WikiTaxToJenaTDB {
 			}
 
 		}
+		classifierResource.addProperty(model.getProperty(textURI), classifier.getText());
+		// l.logLn("classifier hasText " + classifier.getName() + " with length"
+		// + classifier.getText().length());
 		transformLinks(classifier);
 		transformSubclassifiers(classifier);
 		transformClassifiers(classifier, false);
@@ -113,36 +129,61 @@ public class WikiTaxToJenaTDB {
 	private static void transformLinks(Classifier classifier) {
 		Resource classifierResource = classResMap.get(classifier.getURIName());
 		Set<String> links = classifier.getMainLinks();
+		// l.logLn("transform Links : " + classifier.getName() + "
+		// (classifier)");
+		// System.out.println(classifier.getName() + " : " + links.toString());
 		for (String link : links) {
-			Instance linkInstance = new Instance();
-			linkInstance.setName(link);
-			if (!instanceResMap.containsKey(linkInstance.getURIName())) {
-				Resource linkResource = model.createResource(iURI + instanceResMap.size());
-				instanceResMap.put(linkInstance.getURIName(), linkResource);
-				linkResource.addProperty(model.getProperty(nameURI), linkInstance.getName());
-				classifierResource.addProperty(model.getProperty(linkURI), linkResource);
+			if (link.contains("Category:")) {
+				transformLinkClassifier(classifierResource, link);
 			} else {
-				Resource linkResource = instanceResMap.get(linkInstance.getURIName());
-				classifierResource.addProperty(model.getProperty(linkURI), linkResource);
+				transformLinkInstance(classifierResource, link);
 			}
+
 		}
 	}
 
 	private static void transformLinks(Instance instance) {
 		Resource instanceResource = instanceResMap.get(instance.getURIName());
 		Set<String> links = instance.getLinks();
+		// l.logLn("transform Links : " + instance.getName() + " (instance)");
+		// System.out.println(instance.getName() + " : " + links.toString());
 		for (String link : links) {
-			Instance linkInstance = new Instance();
-			linkInstance.setName(link);
-			if (!instanceResMap.containsKey(linkInstance.getURIName())) {
-				Resource linkResource = model.createResource(iURI + instanceResMap.size());
-				instanceResMap.put(linkInstance.getURIName(), linkResource);
-				linkResource.addProperty(model.getProperty(nameURI), linkInstance.getName());
-				instanceResource.addProperty(model.getProperty(linkURI), instanceResource);
+			if (link.contains("Category:")) {
+				transformLinkClassifier(instanceResource, link);
 			} else {
-				Resource linkResource = instanceResMap.get(linkInstance.getURIName());
-				instanceResource.addProperty(model.getProperty(linkURI), linkResource);
+				transformLinkInstance(instanceResource, link);
 			}
+
+		}
+	}
+
+	private static void transformLinkInstance(Resource resource, String link) {
+		Instance linkInstance = new Instance();
+		linkInstance.setName(link);
+		if (!instanceResMap.containsKey(linkInstance.getURIName())) {
+			Resource linkResource = model.createResource(iURI + instanceResMap.size());
+			instanceResMap.put(linkInstance.getURIName(), linkResource);
+			linkResource.addProperty(model.getProperty(nameURI), linkInstance.getName());
+			resource.addProperty(model.getProperty(linkURI), linkResource);
+		} else {
+			Resource linkResource = instanceResMap.get(linkInstance.getURIName());
+			resource.addProperty(model.getProperty(linkURI), linkResource);
+		}
+	}
+
+	private static void transformLinkClassifier(Resource resource, String link) {
+		Classifier linkClassifier = new Classifier();
+		linkClassifier.setName(link.replace("Category:", "").trim());
+		if (!classResMap.containsKey(linkClassifier.getURIName())) {
+			Resource linkResource = model.createResource(cURI + classResMap.size());
+			classResMap.put(linkClassifier.getURIName(), linkResource);
+			linkResource.addProperty(model.getProperty(nameURI), linkClassifier.getName());
+			resource.addProperty(model.getProperty(linkURI), linkResource);
+
+		} else {
+			Resource linkResource = classResMap.get(linkClassifier.getURIName());
+			resource.addProperty(model.getProperty(linkURI), linkResource);
+
 		}
 	}
 

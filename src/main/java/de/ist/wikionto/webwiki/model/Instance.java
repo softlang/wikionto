@@ -16,7 +16,7 @@ import java.util.Set;
 public class Instance extends Element {
 
 	private String text;
-	private final Set<String> links;
+	private Set<String> links;
 	// private final List<Information> informationList;
 
 	public Instance() {

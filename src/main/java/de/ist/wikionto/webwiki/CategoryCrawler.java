@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import de.ist.wikionto.research.MyLogger;
 import de.ist.wikionto.webwiki.model.Classifier;
 import de.ist.wikionto.webwiki.model.Instance;
 
@@ -23,6 +24,7 @@ import de.ist.wikionto.webwiki.model.Instance;
  *         Requests to the Wikipedia API are repeated until they are successful.
  */
 public class CategoryCrawler implements Runnable {
+	MyLogger l = new MyLogger("logs/", "Crawl", false);
 
 	private final MyCrawlerManager manager;
 
@@ -86,7 +88,7 @@ public class CategoryCrawler implements Runnable {
 			}
 		}
 		Set<String> artLinks = resolveLinks(articles);
-		for (String name : articles) {
+		for (String name : artLinks) {
 			if (name.contains("List of")) {
 				continue;
 			}
@@ -110,9 +112,10 @@ public class CategoryCrawler implements Runnable {
 			try {
 				cs = w.getCategories(name, false, true);
 				String text = w.getPageText(name);
+				// System.out.println(text);
 				entity.setText(text);
 				links = this.resolveLinks(w.getLinksOnPage(name));
-				entity.addLinks(links);
+				entity.getLinks().addAll(links);
 				break;
 			} catch (IOException e) {
 				System.err.println("Connection issue at processEntity for :" + name);
@@ -135,7 +138,8 @@ public class CategoryCrawler implements Runnable {
 				String text = w.getPageText("Category:" + type.getName());
 				type.setText(text);
 				links = this.resolveLinks(w.getLinksOnPage("Category:" + type.getName()));
-				type.addMainLinks(links);
+				type.getMainLinks().addAll(links);
+
 				break;
 			} catch (IOException e) {
 				System.err.println("Connection issue at processCategory for :" + type.getName());

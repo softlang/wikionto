@@ -1,0 +1,6 @@
+PREFIX : <http://myWikiTax.de/> 
+SELECT DISTINCT ?n
+WHERE {
+	?s :linksTo ?o.
+	?o :name ?n.
+}

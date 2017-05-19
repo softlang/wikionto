@@ -1,5 +1,7 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?s ?r ?o
+SELECT DISTINCT ?s ?t
 WHERE {
-	?s ?r ?o.
+	?s :linksTo ?t.
+	?s :name "C (programming language)".
+	
 }

@@ -33,6 +33,7 @@ import de.ist.wikionto.webwiki.model.Instance;
  * @author Marcel
  */
 public class MyCrawlerManager {
+
 	private String rootname;
 	private Classifier root;
 	private final Map<String, Classifier> classifierMap;
@@ -119,6 +120,19 @@ public class MyCrawlerManager {
 		exclusionset.add("conference");
 		MyCrawlerManager a = new MyCrawlerManager("Computer languages", exclusionset);
 		a.start(6);
+		// System.out.println("Java : " + a.instanceMap.containsKey("Java
+		// (programming language)"));
+		// System.out.println(a.instanceMap.get("Java (programming
+		// language)").getLinks().toString());
+		// System.out.println("C : " + a.instanceMap.containsKey("C (programming
+		// language)"));
+		// System.out.println(a.instanceMap.get("C (programming
+		// language)").getLinks().toString());
+		// System.out.println("Haskell : " + a.instanceMap.containsKey("Haskell
+		// (programming language)"));
+		// System.out.println(a.instanceMap.get("Haskell (programming
+		// language)").getLinks().toString());
+
 	}
 
 	public void offerClassifier(Classifier classifier) {

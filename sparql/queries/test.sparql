@@ -1,6 +1,7 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?r ?o
+SELECT DISTINCT  ?n
 WHERE {
-    ?c3 :name "Discontinued BASICs" .
-    ?o ?r ?c3 .
+    ?s :hasText ?t.
+    ?s :name ?n
+
 }
