@@ -112,6 +112,8 @@ public class CategoryCrawler implements Runnable {
 			try {
 				cs = w.getCategories(name, false, true);
 				String text = w.getPageText(name);
+				// if (name.equals("C (programming language)"))
+				// System.out.println(text);
 				// System.out.println(text);
 				entity.setText(text);
 				links = this.resolveLinks(w.getLinksOnPage(name));
@@ -168,4 +170,5 @@ public class CategoryCrawler implements Runnable {
 		}
 		return set;
 	}
+
 }

@@ -41,6 +41,7 @@ public class CategoryChecker {
 		super();
 		this.maxDepth = maxDepth;
 		this.wiki = new Wiki();
+		this.wiki.setResolveRedirects(true);
 		this.exclusionset = exclusionset;
 		this.linkExclusionSet = linkExclusionSet;
 		this.loging = loging;
@@ -224,6 +225,20 @@ public class CategoryChecker {
 		this.logNewline("Total articles with link : " + j);
 	}
 
+	public Set<String> getLinks(String[] links, String[] resolved) {
+		Set<String> set = new HashSet<>();
+		int i = 0;
+		while (i < links.length) {
+			if (resolved[i] == null) {
+				set.add(links[i]);
+			} else {
+				set.add(resolved[i]);
+			}
+			i++;
+		}
+		return set;
+	}
+
 	public static void main(String[] args) throws IOException {
 		Set<String> exclusionset = new HashSet<>();
 		exclusionset.add("Data types");
@@ -246,7 +261,7 @@ public class CategoryChecker {
 		linkExclusionSet.add("Help:");
 		// linkExclusionSet.add("Category");
 		linkExclusionSet.add("Wikipedia");
-		CategoryChecker c = new CategoryChecker(3, exclusionset, linkExclusionSet, true);
+		CategoryChecker c = new CategoryChecker(3, exclusionset, linkExclusionSet, false);
 		System.out.println("Start");
 		c.logDate("start");
 		// c.checkCategory("Category:C_programming_language_family");
@@ -255,10 +270,11 @@ public class CategoryChecker {
 		// c.checkCategories(cats);
 		c.logDate("end");
 		System.out.println("End");
-		String[] as = c.wiki.whatLinksHere("C_(programming_language)", true);
-		String s = c.wiki.resolveRedirect("C_programming_language");
-		System.out.println(Arrays.toString(as));
-		System.out.println(s);
+		// String[] as = c.wiki.whatLinksHere("C_(programming_language)", true);
+		// ystem.out.println(Arrays.toString(b));
+		// System.out.println(c.wiki.resolveRedirects(c.wiki.getLinksOnPage("C_(programming_language)")).length);
+		// System.out.println(c.wiki.);
+		System.out.println(Arrays.toString(c.wiki.resolveRedirects(c.wiki.getLinksOnPage("C (programming language)"))));
 	}
 
 }

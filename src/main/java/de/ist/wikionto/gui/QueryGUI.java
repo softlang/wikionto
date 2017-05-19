@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -115,11 +116,12 @@ public class QueryGUI extends JFrame {
 		for (String line : lines) {
 			queryString += line + System.lineSeparator();
 		}
-		try{
-		Query query = QueryFactory.create(queryString, Syntax.syntaxARQ);
-		queryResultArea.setText("Starting query: " + queryPath.toFile().getName() + "\n");
-		new QueryProcessor(query, dataset).stream(new QueryAreaStream(queryResultArea));
-		}catch (QueryParseException e){
+		try {
+			Query query = QueryFactory.create(queryString, Syntax.syntaxARQ);
+			queryResultArea.setText("Starting query: " + queryPath.toFile().getName() + "\n");
+			new QueryProcessor(query, dataset).stream(new QueryAreaStream(queryResultArea));
+			System.out.println("Query end at " + new Date().toString());
+		} catch (QueryParseException e) {
 			queryResultArea.setText(e.getMessage());
 			e.printStackTrace();
 		}
