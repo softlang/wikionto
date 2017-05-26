@@ -1,0 +1,901 @@
+REGEX FOR CLEANING OF https://github.com/github/linguist/blob/master/lib/linguist/languages.yml:   
+(color:|extensions:|-|tm_scope|ace_mode|language_id|codemirror_|alias|group|filenames|interpreters|searchable|wrap).*\r\n
+Language, Type
+1C Enterprise:
+  type: programming
+ABAP:
+  type: programming
+ABNF:
+  type: data
+AGS Script:
+  type: programming
+AMPL:
+  type: programming
+ANTLR:
+  type: programming
+API Blueprint:
+  type: markup
+APL:
+  type: programming
+ASN.1:
+  type: data
+ASP:
+  type: programming
+ATS:
+  type: programming
+ActionScript:
+  type: programming
+Ada:
+  type: programming
+Agda:
+  type: programming
+Alloy:
+  type: programming
+Alpine Abuild:
+  type: programming
+Ant Build System:
+  type: data
+ApacheConf:
+  type: markup
+Apex:
+  type: programming
+Apollo Guidance Computer:
+  type: programming
+AppleScript:
+  type: programming
+Arc:
+  type: programming
+Arduino:
+  type: programming
+AsciiDoc:
+  type: prose
+AspectJ:
+  type: programming
+Assembly:
+  type: programming
+Augeas:
+  type: programming
+AutoHotkey:
+  type: programming
+AutoIt:
+  type: programming
+Awk:
+  type: programming
+Batchfile:
+  type: programming
+Befunge:
+  type: programming
+Bison:
+  type: programming
+BitBake:
+  type: programming
+Blade:
+  type: markup
+BlitzBasic:
+  type: programming
+BlitzMax:
+  type: programming
+Bluespec:
+  type: programming
+Boo:
+  type: programming
+Brainfuck:
+  type: programming
+Brightscript:
+  type: programming
+Bro:
+  type: programming
+C:
+  type: programming
+C#:
+  type: programming
+C++:
+  type: programming
+C-ObjDump:
+  type: data
+C2hs Haskell:
+  type: programming
+CLIPS:
+  type: programming
+CMake:
+  type: programming
+COBOL:
+  type: programming
+COLLADA:
+  type: data
+CSON:
+  type: data
+CSS:
+  type: markup
+CSV:
+  type: data
+CWeb:
+  type: programming
+Cap'n Proto:
+  type: programming
+CartoCSS:
+  type: programming
+Ceylon:
+  type: programming
+Chapel:
+  type: programming
+Charity:
+  type: programming
+ChucK:
+  type: programming
+Cirru:
+  type: programming
+Clarion:
+  type: programming
+Clean:
+  type: programming
+Click:
+  type: programming
+Clojure:
+  type: programming
+Closure Templates:
+  type: markup
+CoffeeScript:
+  type: programming
+ColdFusion:
+  type: programming
+ColdFusion CFC:
+  type: programming
+Common Lisp:
+  type: programming
+Component Pascal:
+  type: programming
+Cool:
+  type: programming
+Coq:
+  type: programming
+Cpp-ObjDump:
+  type: data
+Creole:
+  type: prose
+Crystal:
+  type: programming
+Csound:
+  type: programming
+Csound Document:
+  type: programming
+Csound Score:
+  type: programming
+Cuda:
+  type: programming
+Cycript:
+  type: programming
+Cython:
+  type: programming
+D:
+  type: programming
+D-ObjDump:
+  type: data
+DIGITAL Command Language:
+  type: programming
+DM:
+  type: programming
+DNS Zone:
+  type: data
+DTrace:
+  type: programming
+Darcs Patch:
+  type: data
+Dart:
+  type: programming
+Diff:
+  type: data
+Dockerfile:
+  type: data
+Dogescript:
+  type: programming
+Dylan:
+  type: programming
+E:
+  type: programming
+EBNF:
+  type: data
+ECL:
+  type: programming
+ECLiPSe:
+  type: programming
+EJS:
+  type: markup
+EQ:
+  type: programming
+Eagle:
+  type: markup
+Ecere Projects:
+  type: data
+Eiffel:
+  type: programming
+Elixir:
+  type: programming
+Elm:
+  type: programming
+Emacs Lisp:
+  type: programming
+EmberScript:
+  type: programming
+Erlang:
+  type: programming
+F#:
+  type: programming
+FLUX:
+  type: programming
+Factor:
+  type: programming
+Fancy:
+  type: programming
+Fantom:
+  type: programming
+Filebench WML:
+  type: programming
+Filterscript:
+  type: programming
+Formatted:
+  type: data
+Forth:
+  type: programming
+Fortran:
+  type: programming
+FreeMarker:
+  type: programming
+Frege:
+  type: programming
+G-code:
+  type: data
+GAMS:
+  type: programming
+GAP:
+  type: programming
+GCC Machine Description:
+  type: programming
+GDB:
+  type: programming
+GDScript:
+  type: programming
+GLSL:
+  type: programming
+GN:
+  type: data
+Game Maker Language:
+  type: programming
+Genie:
+  type: programming
+Genshi:
+  type: programming
+Gentoo Ebuild:
+  type: programming
+Gentoo Eclass:
+  type: programming
+Gettext Catalog:
+  type: prose
+Gherkin:
+  type: programming
+Glyph:
+  type: programming
+Gnuplot:
+  type: programming
+Go:
+  type: programming
+Golo:
+  type: programming
+Gosu:
+  type: programming
+Grace:
+  type: programming
+Gradle:
+  type: data
+Grammatical Framework:
+  type: programming
+Graph Modeling Language:
+  type: data
+GraphQL:
+  type: data
+Graphviz (DOT):
+  type: data
+Groovy:
+  type: programming
+Groovy Server Pages:
+  type: programming
+HCL:
+  type: programming
+HLSL:
+  type: programming
+HTML:
+  type: markup
+HTML+Django:
+  type: markup
+HTML+ECR:
+  type: markup
+HTML+EEX:
+  type: markup
+HTML+ERB:
+  type: markup
+HTML+PHP:
+  type: markup
+HTTP:
+  type: data
+Hack:
+  type: programming
+Haml:
+  type: markup
+Handlebars:
+  type: markup
+Harbour:
+  type: programming
+Haskell:
+  type: programming
+Haxe:
+  type: programming
+Hy:
+  type: programming
+HyPhy:
+  type: programming
+IDL:
+  type: programming
+IGOR Pro:
+  type: programming
+INI:
+  type: data
+IRC log:
+  type: data
+Idris:
+  type: programming
+Inform 7:
+  type: programming
+Inno Setup:
+  type: programming
+Io:
+  type: programming
+Ioke:
+  type: programming
+Isabelle:
+  type: programming
+Isabelle ROOT:
+  type: programming
+J:
+  type: programming
+JFlex:
+  type: programming
+JSON:
+  type: data
+JSON5:
+  type: data
+JSONLD:
+  type: data
+JSONiq:
+  type: programming
+JSX:
+  type: programming
+Jasmin:
+  type: programming
+Java:
+  type: programming
+Java Server Pages:
+  type: programming
+JavaScript:
+  type: programming
+Jison:
+  type: programming
+Jison Lex:
+  type: programming
+Jolie:
+  type: programming
+Julia:
+  type: programming
+Jupyter Notebook:
+  type: markup
+KRL:
+  type: programming
+KiCad:
+  type: programming
+Kit:
+  type: markup
+Kotlin:
+  type: programming
+LFE:
+  type: programming
+LLVM:
+  type: programming
+LOLCODE:
+  type: programming
+LSL:
+  type: programming
+LabVIEW:
+  type: programming
+Lasso:
+  type: programming
+Latte:
+  type: markup
+Lean:
+  type: programming
+Less:
+  type: markup
+Lex:
+  type: programming
+LilyPond:
+  type: programming
+Limbo:
+  type: programming
+Linker Script:
+  type: data
+Linux Kernel Module:
+  type: data
+Liquid:
+  type: markup
+Literate Agda:
+  type: programming
+Literate CoffeeScript:
+  type: programming
+Literate Haskell:
+  type: programming
+LiveScript:
+  type: programming
+Logos:
+  type: programming
+Logtalk:
+  type: programming
+LookML:
+  type: programming
+LoomScript:
+  type: programming
+Lua:
+  type: programming
+M:
+  type: programming
+M4:
+  type: programming
+M4Sugar:
+  type: programming
+MAXScript:
+  type: programming
+MQL4:
+  type: programming
+MQL5:
+  type: programming
+MTML:
+  type: markup
+MUF:
+  type: programming
+Makefile:
+  type: programming
+Mako:
+  type: programming
+Markdown:
+  type: prose
+Marko:
+  type: markup
+Mask:
+  type: markup
+Mathematica:
+  type: programming
+Matlab:
+  type: programming
+Maven POM:
+  type: data
+Max:
+  type: programming
+MediaWiki:
+  type: prose
+Mercury:
+  type: programming
+Meson:
+  type: programming
+Metal:
+  type: programming
+MiniD:
+  type: programming
+Mirah:
+  type: programming
+Modelica:
+  type: programming
+Modula-2:
+  type: programming
+Module Management System:
+  type: programming
+Monkey:
+  type: programming
+Moocode:
+  type: programming
+MoonScript:
+  type: programming
+Myghty:
+  type: programming
+NCL:
+  type: programming
+NL:
+  type: data
+NSIS:
+  type: programming
+Nemerle:
+  type: programming
+NetLinx:
+  type: programming
+NetLinx+ERB:
+  type: programming
+NetLogo:
+  type: programming
+NewLisp:
+  type: programming
+Nginx:
+  type: markup
+Nim:
+  type: programming
+Ninja:
+  type: data
+Nit:
+  type: programming
+Nix:
+  type: programming
+Nu:
+  type: programming
+NumPy:
+  type: programming
+OCaml:
+  type: programming
+ObjDump:
+  type: data
+Objective-C:
+  type: programming
+Objective-C++:
+  type: programming
+Objective-J:
+  type: programming
+Omgrofl:
+  type: programming
+Opa:
+  type: programming
+Opal:
+  type: programming
+OpenCL:
+  type: programming
+OpenEdge ABL:
+  type: programming
+OpenRC runscript:
+  type: programming
+OpenSCAD:
+  type: programming
+OpenType Feature File:
+  type: data
+Org:
+  type: prose
+Ox:
+  type: programming
+Oxygene:
+  type: programming
+Oz:
+  type: programming
+P4:
+  type: programming
+PAWN:
+  type: programming
+PHP:
+  type: programming
+PLSQL:
+  type: programming
+PLpgSQL:
+  type: programming
+POV-Ray SDL:
+  type: programming
+Pan:
+  type: programming
+Papyrus:
+  type: programming
+Parrot:
+  type: programming
+Parrot Assembly:
+  type: programming
+Parrot Internal Representation:
+  type: programming
+Pascal:
+  type: programming
+Pep8:
+  type: programming
+Perl:
+  type: programming
+Perl6:
+  type: programming
+Pic:
+  type: markup
+Pickle:
+  type: data
+PicoLisp:
+  type: programming
+PigLatin:
+  type: programming
+Pike:
+  type: programming
+Pod:
+  type: prose
+PogoScript:
+  type: programming
+Pony:
+  type: programming
+PostScript:
+  type: markup
+PowerBuilder:
+  type: programming
+PowerShell:
+  type: programming
+Processing:
+  type: programming
+Prolog:
+  type: programming
+Propeller Spin:
+  type: programming
+Protocol Buffer:
+  type: markup
+Public Key:
+  type: data
+Pug:
+  type: markup
+Puppet:
+  type: programming
+Pure Data:
+  type: programming
+PureBasic:
+  type: programming
+PureScript:
+  type: programming
+Python:
+  type: programming
+Python console:
+  type: programming
+Python traceback:
+  type: data
+QML:
+  type: programming
+QMake:
+  type: programming
+R:
+  type: programming
+RAML:
+  type: markup
+RDoc:
+  type: prose
+REALbasic:
+  type: programming
+REXX:
+  type: programming
+RHTML:
+  type: markup
+RMarkdown:
+  type: prose
+RPM Spec:
+  type: data
+RUNOFF:
+  type: markup
+Racket:
+  type: programming
+Ragel:
+  type: programming
+Rascal:
+  type: programming
+Raw token data:
+  type: data
+Reason:
+  type: programming
+Rebol:
+  type: programming
+Red:
+  type: programming
+Redcode:
+  type: programming
+Regular Expression:
+  type: data
+Ren'Py:
+  type: programming
+RenderScript:
+  type: programming
+RobotFramework:
+  type: programming
+Roff:
+  type: markup
+Rouge:
+  type: programming
+Ruby:
+  type: programming
+Rust:
+  type: programming
+SAS:
+  type: programming
+SCSS:
+  type: markup
+SMT:
+  type: programming
+SPARQL:
+  type: data
+SQF:
+  type: programming
+SQL:
+  type: data
+SQLPL:
+  type: programming
+SRecode Template:
+  type: markup
+STON:
+  type: data
+SVG:
+  type: data
+Sage:
+  type: programming
+SaltStack:
+  type: programming
+Sass:
+  type: markup
+Scala:
+  type: programming
+Scaml:
+  type: markup
+Scheme:
+  type: programming
+Scilab:
+  type: programming
+Self:
+  type: programming
+ShaderLab:
+  type: programming
+Shell:
+  type: programming
+ShellSession:
+  type: programming
+Shen:
+  type: programming
+Slash:
+  type: programming
+Slim:
+  type: markup
+Smali:
+  type: programming
+Smalltalk:
+  type: programming
+Smarty:
+  type: programming
+SourcePawn:
+  type: programming
+Spline Font Database:
+  type: data
+Squirrel:
+  type: programming
+Stan:
+  type: programming
+Standard ML:
+  type: programming
+Stata:
+  type: programming
+Stylus:
+  type: markup
+SubRip Text:
+  type: data
+Sublime Text Config:
+  type: data
+SuperCollider:
+  type: programming
+Swift:
+  type: programming
+SystemVerilog:
+  type: programming
+TI Program:
+  type: programming
+TLA:
+  type: programming
+TOML:
+  type: data
+TXL:
+  type: programming
+Tcl:
+  type: programming
+Tcsh:
+  type: programming
+TeX:
+  type: markup
+Tea:
+  type: markup
+Terra:
+  type: programming
+Text:
+  type: prose
+Textile:
+  type: prose
+Thrift:
+  type: programming
+Turing:
+  type: programming
+Turtle:
+  type: data
+Twig:
+  type: markup
+TypeScript:
+  type: programming
+Unified Parallel C:
+  type: programming
+Unity3D Asset:
+  type: data
+Unix Assembly:
+  type: programming
+Uno:
+  type: programming
+UnrealScript:
+  type: programming
+UrWeb:
+  type: programming
+VCL:
+  type: programming
+VHDL:
+  type: programming
+Vala:
+  type: programming
+Verilog:
+  type: programming
+Vim script:
+  type: programming
+Visual Basic:
+  type: programming
+Volt:
+  type: programming
+Vue:
+  type: markup
+Wavefront Material:
+  type: data
+Wavefront Object:
+  type: data
+Web Ontology Language:
+  type: markup
+WebIDL:
+  type: programming
+World of Warcraft Addon Data:
+  type: data
+X10:
+  type: programming
+XC:
+  type: programming
+XCompose:
+  type: data
+XML:
+  type: data
+XPages:
+  type: programming
+XProc:
+  type: programming
+XQuery:
+  type: programming
+XS:
+  type: programming
+XSLT:
+  type: programming
+Xojo:
+  type: programming
+Xtend:
+  type: programming
+YAML:
+  type: data
+YANG:
+  type: data
+Yacc:
+  type: programming
+Zephir:
+  type: programming
+Zimpl:
+  type: programming
+desktop:
+  type: data
+eC:
+  type: programming
+edn:
+  type: data
+fish:
+  type: programming
+mupad:
+  type: programming
+nesC:
+  type: programming
+ooc:
+  type: programming
+reStructuredText:
+  type: prose
+wisp:
+  type: programming
+xBase:
+  type: programming
