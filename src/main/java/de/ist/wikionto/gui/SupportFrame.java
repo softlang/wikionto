@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JToggleButton;
 
+@Deprecated
 public class SupportFrame extends JFrame {
 
     private static final long serialVersionUID = 1L;

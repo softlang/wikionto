@@ -11,7 +11,8 @@ public class MyLogger {
 
 	public MyLogger(String path, String name) {
 		try {
-			logger = new FileWriter(new File(path + name + new Date().toString() + ".log"));
+			//Replace because of Windows issues with ':'
+			logger = new FileWriter(new File(path + name + new Date().toString().replaceAll(":", "") + ".log"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -22,8 +23,8 @@ public class MyLogger {
 		this.log = log;
 		try {
 			if (log)
-
-				logger = new FileWriter(new File(path + name + new Date().toString() + ".log"));
+				//Replace because of Windows issues with ':'
+				logger = new FileWriter(new File(path + name + new Date().toString().replaceAll(":", "") + ".log"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
