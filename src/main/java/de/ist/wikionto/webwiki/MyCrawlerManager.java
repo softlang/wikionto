@@ -119,7 +119,7 @@ public class MyCrawlerManager {
 		exclusionset.add("Software by");
 		exclusionset.add("conference");
 		MyCrawlerManager a = new MyCrawlerManager("Computer languages", exclusionset);
-		a.start(6);
+		a.start(10);
 		// System.out.println("Java : " + a.instanceMap.containsKey("Java
 		// (programming language)"));
 		// System.out.println(a.instanceMap.get("Java (programming
@@ -172,7 +172,6 @@ public class MyCrawlerManager {
 			}
 		}
 		return result;
-
 	}
 
 	public synchronized void incthreadcounter() {

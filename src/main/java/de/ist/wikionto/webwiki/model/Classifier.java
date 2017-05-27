@@ -27,10 +27,10 @@ public class Classifier extends Element {
 
 	public Classifier() {
 		super();
-		subclassifiers = new HashSet<>();
-		instances = new HashSet<>();
+		subclassifiers = Collections.synchronizedSet(new HashSet<>());
+		instances = Collections.synchronizedSet(new HashSet<>());
 		text = null;
-		mainLinks = new HashSet<>();
+		mainLinks = Collections.synchronizedSet(new HashSet<>());
 	}
 
 	public Set<Classifier> getSubclassifiers() {
@@ -58,7 +58,7 @@ public class Classifier extends Element {
 		return mainLinks;
 	}
 
-	public void addSubclassifier(Classifier sub) {
+	public synchronized void addSubclassifier(Classifier sub) {
 		if (!subclassifiers.contains(sub)) {
 			subclassifiers.add(sub);
 			sub.addClassifier(this.getName());
@@ -69,7 +69,7 @@ public class Classifier extends Element {
 		return Collections.unmodifiableSet(instances);
 	}
 
-	public void addInstance(Instance instance) {
+	public synchronized void addInstance(Instance instance) {
 		if (!instances.contains(instance)) {
 			instances.add(instance);
 		}
