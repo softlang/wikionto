@@ -41,8 +41,7 @@ public class CrawlerTest {
 
 	@Test
 	public void testRootNames() {
-		assertEquals("OCaml programming language family", r.getName());
-		assertEquals("OCaml_programming_language_family", r.getURIName());
+		assertEquals("OCaml_programming_language_family", r.getName());
 	}
 
 	@Test

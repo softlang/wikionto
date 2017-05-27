@@ -59,8 +59,8 @@ public class WikiTaxToJenaTDB {
 		instanceResMap = new HashMap<>();
 
 		Resource rootResource = model.getResource(cURI + classResMap.size());
-		classResMap.put(root.getURIName(), rootResource);
-		rootResource.addProperty(nameP, root.getURIName());
+		classResMap.put(root.getName(), rootResource);
+		rootResource.addProperty(nameP, root.getName());
 		rootResource.addProperty(depthP, Integer.toString(root.getMinDepth()));
 
 		transformClassifier(root);
@@ -81,7 +81,7 @@ public class WikiTaxToJenaTDB {
 	
 	private static void transformText(Classifier element) {
 		String text = element.getText();
-		Resource resource = classResMap.get(element.getURIName());
+		Resource resource = classResMap.get(element.getName());
 		if (!resource.hasProperty(textP)){
 			if (text != null) {
 				resource.addProperty(textP, text);
@@ -92,14 +92,14 @@ public class WikiTaxToJenaTDB {
 	private static void transformDescription(Classifier classifier) {
 		Instance description = classifier.getDescription();
 		if (description != null) {
-			Resource classifierResource = classResMap.get(classifier.getURIName());
+			Resource classifierResource = classResMap.get(classifier.getName());
 			Resource descriptionResource;
-			if (instanceResMap.containsKey(description.getURIName())) {
-				descriptionResource = instanceResMap.get(description.getURIName());
+			if (instanceResMap.containsKey(description.getName())) {
+				descriptionResource = instanceResMap.get(description.getName());
 			} else {
 				descriptionResource = model.getResource(iURI + instanceResMap.size());
-				instanceResMap.put(description.getURIName(), descriptionResource);
-				descriptionResource.addProperty(nameP, description.getURIName());
+				instanceResMap.put(description.getName(), descriptionResource);
+				descriptionResource.addProperty(nameP, description.getName());
 				descriptionResource.addProperty(textP, classifier.getDescription().getText());
 			}
 			classifierResource.addProperty(defP, descriptionResource);
@@ -107,17 +107,16 @@ public class WikiTaxToJenaTDB {
 	}
 	
 	private static void transformInstances(Classifier classifier) {
-		
 		Set<Instance> instances = classifier.getInstances();
-		Resource classifierResource = classResMap.get(classifier.getURIName());
+		Resource classifierResource = classResMap.get(classifier.getName());
 		Resource instanceResource;
 		for (Instance instance : instances) {
-			if (instanceResMap.containsKey(instance.getURIName())) {
-				instanceResource = instanceResMap.get(instance.getURIName());
+			if (instanceResMap.containsKey(instance.getName())) {
+				instanceResource = instanceResMap.get(instance.getName());
 			} else {
 				instanceResource = model.getResource(iURI + instanceResMap.size());
-				instanceResMap.put(instance.getURIName(), instanceResource);
-				instanceResource.addProperty(nameP, instance.getURIName());
+				instanceResMap.put(instance.getName(), instanceResource);
+				instanceResource.addProperty(nameP, instance.getName());
 				// l.logLn("instance hasText " + instance.getName() + " with
 				// length" + instance.getText().length());
 				transformText(instance); //This would only happen if it was not processed before
@@ -130,37 +129,38 @@ public class WikiTaxToJenaTDB {
 	
 	private static void transformText(Instance element) {
 		String text = element.getText();
-		Resource resource = instanceResMap.get(element.getURIName());
+		Resource resource = instanceResMap.get(element.getName());
 		if (!resource.hasProperty(textP))
 			if (text != null)
 				resource.addProperty(textP, text);
 	}
 	
 	private static void transformLinks(Instance instance) {
-		Resource resource = instanceResMap.get(instance.getURIName());
+		Resource resource = instanceResMap.get(instance.getName());
 		instance.getLinks().forEach(link -> resource.addProperty(linkP, link));
 	}
 
 	private static void transformLinks(Classifier classifier) {
-		Resource resource = classResMap.get(classifier.getURIName());
+		Resource resource = classResMap.get(classifier.getName());
 		classifier.getMainLinks().forEach(link -> resource.addProperty(linkP, link));
 	}
 
 	private static void transformClassifiers(Element element, boolean isInstance) {
 		for (String classifier : element.getAllClassifiers()) {
+			String className = classifier.replaceAll(" ", "_");
 			Resource classifierResource;
-			if (!classResMap.containsKey(replaceWhitespaceByUnderscore(classifier))) {
+			if (!classResMap.containsKey(className)) {
 				classifierResource = model.createResource(cURI + classResMap.size());
-				classResMap.put(replaceWhitespaceByUnderscore(classifier), classifierResource);
-				classifierResource.addProperty(nameP, classifier);
+				classResMap.put(className, classifierResource);
+				classifierResource.addProperty(nameP, className);
 			} else {
-				classifierResource = classResMap.get(replaceWhitespaceByUnderscore(classifier));
+				classifierResource = classResMap.get(className);
 			}
 			if (isInstance) {
-				Resource elementResource = instanceResMap.get(element.getURIName());
+				Resource elementResource = instanceResMap.get(element.getName());
 				classifierResource.addProperty(ciP, elementResource);
 			} else {
-				Resource elementResource = classResMap.get(element.getURIName());
+				Resource elementResource = classResMap.get(element.getName());
 				classifierResource.addProperty(ccP, elementResource);
 			}
 		}
@@ -170,27 +170,23 @@ public class WikiTaxToJenaTDB {
 		if (classifier.getMinDepth() == maxDepth)
 			return;
 		Set<Classifier> subCs = classifier.getSubclassifiers();
-		Resource classifierResource = classResMap.get(classifier.getURIName());
+		Resource classifierResource = classResMap.get(classifier.getName());
 		for (Classifier subC : subCs) {
 			Resource subClassifierResource;
-			if (classResMap.containsKey(subC.getURIName())) {
-				subClassifierResource = classResMap.get(subC.getURIName());
+			if (classResMap.containsKey(subC.getName())) {
+				subClassifierResource = classResMap.get(subC.getName());
 				if (!subClassifierResource.hasProperty(depthP)){
 					subClassifierResource.addProperty(depthP, Integer.toString(subC.getMinDepth()));
 				}
 			} else {
 				subClassifierResource = model.getResource(cURI + classResMap.size());
-				classResMap.put(subC.getURIName(), subClassifierResource);
+				classResMap.put(subC.getName(), subClassifierResource);
 				subClassifierResource.addProperty(nameP, subC.getName());
 				subClassifierResource.addProperty(depthP, Integer.toString(subC.getMinDepth()));
 				transformClassifier(subC);
 			}
 			classifierResource.addProperty(ccP, subClassifierResource);
 		}
-	}
-
-	private static String replaceWhitespaceByUnderscore(String supercat) {
-		return supercat.replaceAll(" ", "_");
 	}
 
 }

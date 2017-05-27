@@ -16,7 +16,7 @@ public class WikiTest {
 		String[] cs;
 		try {
 			cs = w.getCategories("Haskell (programming language)",false,true);
-			assertEquals(9,cs.length);
+			assertEquals(8,cs.length);
 		} catch (IOException e) {
 			assertFalse(true);
 		}
@@ -49,7 +49,7 @@ public class WikiTest {
 		Wiki w = new Wiki();
 		try {
 			String[] is = w.getCategoryMembers("Computer languages", Wiki.MAIN_NAMESPACE);
-			assertEquals(19,is.length);
+			assertEquals(20,is.length);
 		} catch (IOException e) {
 			assertFalse(true);
 		}

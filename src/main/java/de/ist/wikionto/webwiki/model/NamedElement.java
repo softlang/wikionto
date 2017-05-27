@@ -13,16 +13,11 @@ public class NamedElement {
     
     private String name;
     
-    public String getURIName(){
-        return name.replaceAll(" ", "_");
-    }
-    
     public String getName(){
         return name;
     }
     
-    
     public void setName(String pname){
-        name = pname;
+        name = pname.replaceAll(" ", "_");
     }
 }

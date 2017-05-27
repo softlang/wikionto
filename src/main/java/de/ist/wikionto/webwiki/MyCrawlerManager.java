@@ -58,9 +58,9 @@ public class MyCrawlerManager {
 	}
 
 	public void crawl() {
-		int corenr = Runtime.getRuntime().availableProcessors();
-		System.out.println("Starting with " + corenr * 3 + " threads!");
-		ExecutorService executor = Executors.newFixedThreadPool(corenr * 3);
+		int threadnr = Runtime.getRuntime().availableProcessors() * 4;
+		System.out.println("Starting with " + threadnr + " threads!");
+		ExecutorService executor = Executors.newFixedThreadPool(threadnr);
 		while (true) {
 
 			if (!classifierQueue.isEmpty()) {
@@ -76,7 +76,9 @@ public class MyCrawlerManager {
 		}
 
 		executor.shutdown();
-
+		while(!executor.isTerminated() &&!executor.isShutdown()){
+			System.out.println("Awaiting termination");
+		}
 	}
 
 	private void initialize(String name) {
