@@ -71,6 +71,7 @@ public class WikiTaxToJenaTDB {
 	}
 
 	private static void transformClassifier(Classifier classifier) {
+		l.logLn("Transforming Classifier : "+classifier.getName());
 		transformText(classifier);
 		transformDescription(classifier);
 		transformInstances(classifier);
@@ -111,6 +112,7 @@ public class WikiTaxToJenaTDB {
 		Resource classifierResource = classResMap.get(classifier.getName());
 		Resource instanceResource;
 		for (Instance instance : instances) {
+			l.logLn("Transforming Instance "+instance.getName()+"--- of "+classifier.getName());
 			if (instanceResMap.containsKey(instance.getName())) {
 				instanceResource = instanceResMap.get(instance.getName());
 			} else {
@@ -177,6 +179,7 @@ public class WikiTaxToJenaTDB {
 				subClassifierResource = classResMap.get(subC.getName());
 				if (!subClassifierResource.hasProperty(depthP)){
 					subClassifierResource.addProperty(depthP, Integer.toString(subC.getMinDepth()));
+					transformClassifier(subC);
 				}
 			} else {
 				subClassifierResource = model.getResource(cURI + classResMap.size());
