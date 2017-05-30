@@ -1,7 +1,0 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT ?n  
-WHERE {
-	?s :linksTo ?o.
-	?s :name "Java (programming language)".
-	?o :name ?n
-}

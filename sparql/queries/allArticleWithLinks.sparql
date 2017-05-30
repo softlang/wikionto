@@ -1,7 +1,7 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?n ?t
+SELECT DISTINCT ?n
 WHERE {
-	?s :depth ?t.
+	?s :linksTo ?o.
 	?s :name ?n.
-	
+
 }
