@@ -35,7 +35,7 @@ public class WikiTaxToJenaTDB {
 
 	public static void createTripleStore(Collection<Classifier> classifiers, Collection<Instance> instances,
 			Classifier root) {
-		String directory = "./" + root;
+		String directory = "./" + root.getName();
 		Dataset dataset = TDBFactory.createDataset(directory);
 		model = dataset.getDefaultModel();
 		dataset.begin(ReadWrite.WRITE);

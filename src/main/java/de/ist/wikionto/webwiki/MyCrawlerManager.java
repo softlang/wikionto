@@ -86,6 +86,7 @@ public class MyCrawlerManager {
 	private void initialize(String name) {
 		root = new Classifier();
 		root.setName(name);
+		classifierMap.put(name, root);
 		offerClassifier(root);
 		File dir = new File("./" + name.replaceAll(" ", ""));
 		if (dir.exists()) {

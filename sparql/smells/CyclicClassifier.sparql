@@ -2,5 +2,5 @@ PREFIX : <http://myWikiTax.de/>
 SELECT ?typename 
 WHERE {
 	?type :name ?typename .
-    ?type :hasSubclassifier+ ?type .
+    ?type :isA+ ?type .
 }

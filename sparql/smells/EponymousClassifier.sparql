@@ -1,9 +1,9 @@
 PREFIX : <http://myWikiTax.de/> 
 SELECT DISTINCT ?cname ?depth
 WHERE {
-	?type3 :classifies ?entity .
-    ?type2 :hasSubclassifier ?type . 
-    ?entity :name ?cname .
+	?l1 :instanceOf ?type3 .
+    ?type :isA ?type2 . 
+    ?l1 :name ?cname .
     ?type :name ?cname .
     ?type :depth ?depth .
 }

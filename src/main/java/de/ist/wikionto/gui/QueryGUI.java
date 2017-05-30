@@ -48,7 +48,7 @@ public class QueryGUI extends JFrame {
 		lqlabel = new javax.swing.JLabel();
 
 		JScrollPane scroll = new javax.swing.JScrollPane();
-		GUIUtil.addComponentToContainer(0, 2, 3, 1, 800, 600, getContentPane(), scroll);
+		GUIUtil.addComponentToContainer(0, 2, 4, 1, 800, 600, getContentPane(), scroll);
 		queryResultArea = new JEditorPane();
 		scroll.setViewportView(queryResultArea);
 
@@ -66,6 +66,18 @@ public class QueryGUI extends JFrame {
 		q.setText("query");
 		q.addActionListener(e -> query());
 		GUIUtil.addComponentToContainer(2, 0, 1, 1, 10, 10, getContentPane(), q);
+
+		JButton e = new javax.swing.JButton();
+		e.setText("edit");
+		e.addActionListener(a -> {
+			try {
+				java.awt.Desktop.getDesktop().open(queryPath.toAbsolutePath().toFile());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+				System.err.println("failed to load query file");
+			}
+		});
+		GUIUtil.addComponentToContainer(3, 0, 1, 1, 10, 10, getContentPane(), e);
 
 		lolabel.setText("<loaded ontology>");
 		GUIUtil.addComponentToContainer(0, 1, 1, 1, 10, 10, getContentPane(), lolabel);
