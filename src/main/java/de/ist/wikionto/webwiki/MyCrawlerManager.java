@@ -43,7 +43,7 @@ public class MyCrawlerManager {
 	private int threadcounter;
 
 	public MyCrawlerManager(String root, Set<String> excludedCategories) {
-		this.rootname = root;
+		rootname = root;
 		exclusionset = excludedCategories;
 		classifierQueue = new ConcurrentLinkedQueue<>();
 		classifierMap = Collections.synchronizedMap(new HashMap<String, Classifier>());
@@ -54,7 +54,9 @@ public class MyCrawlerManager {
 		initialize(rootname);
 		threadcounter = 0;
 		crawl();
-		WikiTaxToJenaTDB.createTripleStore(root, maxDepth);
+		WikiTaxToJenaTDB.createTripleStore(classifierMap.values(), instanceMap.values(), root);
+		// WikiTaxToJenaTDB2.createTripleStore(classifierMap, instanceMap,
+		// rootname);
 	}
 
 	public void crawl() {
@@ -76,7 +78,7 @@ public class MyCrawlerManager {
 		}
 
 		executor.shutdown();
-		while(!executor.isTerminated() &&!executor.isShutdown()){
+		while (!executor.isTerminated() && !executor.isShutdown()) {
 			System.out.println("Awaiting termination");
 		}
 	}
@@ -84,7 +86,7 @@ public class MyCrawlerManager {
 	private void initialize(String name) {
 		root = new Classifier();
 		root.setName(name);
-		this.offerClassifier(root);
+		offerClassifier(root);
 		File dir = new File("./" + name.replaceAll(" ", ""));
 		if (dir.exists()) {
 			try {

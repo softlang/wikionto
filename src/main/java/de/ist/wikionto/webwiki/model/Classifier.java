@@ -21,15 +21,12 @@ public class Classifier extends Element {
 	private final Set<String> mainLinks;
 	private String text;
 
-	private Instance description;
-
 	private int minDepth;
 
 	public Classifier() {
 		super();
 		subclassifiers = Collections.synchronizedSet(new HashSet<>());
 		instances = Collections.synchronizedSet(new HashSet<>());
-		text = null;
 		mainLinks = Collections.synchronizedSet(new HashSet<>());
 	}
 
@@ -38,7 +35,7 @@ public class Classifier extends Element {
 	}
 
 	public void addMainLink(String e) {
-		this.mainLinks.add(e);
+		mainLinks.add(e);
 	}
 
 	public void addMainLinks(Collection<String> links) {
@@ -61,7 +58,7 @@ public class Classifier extends Element {
 	public synchronized void addSubclassifier(Classifier sub) {
 		if (!subclassifiers.contains(sub)) {
 			subclassifiers.add(sub);
-			sub.addClassifier(this.getName());
+			sub.addCategory(getName());
 		}
 	}
 
@@ -75,20 +72,13 @@ public class Classifier extends Element {
 		}
 	}
 
-	public Instance getDescription() {
-		return description;
-	}
-
-	public void setDescription(Instance description) {
-		this.description = description;
-	}
-
 	public int getMinDepth() {
 		return minDepth;
 	}
 
 	public void setMinDepth(int minDepth) {
-		if (this.minDepth == 0 || this.minDepth > minDepth)
+		if (this.minDepth == 0 || this.minDepth > minDepth) {
 			this.minDepth = minDepth;
+		}
 	}
 }

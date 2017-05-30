@@ -124,7 +124,7 @@ public class CategoryCrawler implements Runnable {
 			}
 		}
 		for (String c : cs) {
-			entity.addClassifier(c.replace("Category:", ""));
+			entity.addCategory(c.replace("Category:", ""));
 		}
 		return entity;
 	}
@@ -148,7 +148,7 @@ public class CategoryCrawler implements Runnable {
 			}
 		}
 		for (String c : supercatgories) {
-			type.addClassifier(c.replace("Category:", ""));
+			type.addCategory(c.replace("Category:", ""));
 		}
 	}
 

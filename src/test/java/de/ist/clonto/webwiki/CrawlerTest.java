@@ -46,7 +46,7 @@ public class CrawlerTest {
 
 	@Test
 	public void testRootSuperclassifiers() {
-		Set<String> superc = r.getAllClassifiers();
+		Set<String> superc = r.getCategories();
 		assertEquals(3, superc.size());
 	}
 
@@ -70,7 +70,7 @@ public class CrawlerTest {
 			if (i.getName().equals("OCaml"))
 				break;
 		}
-		Set<String> cs = i.getAllClassifiers();
+		Set<String> cs = i.getCategories();
 		assertEquals(11, cs.size());
 	}
 
@@ -92,7 +92,7 @@ public class CrawlerTest {
 	public void testOCamlSoftwareSuperclassifiers() {
 		Set<Classifier> subc = r.getSubclassifiers();
 		Classifier s1 = subc.iterator().next();
-		Set<String> superc = s1.getAllClassifiers();
+		Set<String> superc = s1.getCategories();
 		assertEquals(2, superc.size());
 	}
 }
