@@ -1,20 +1,24 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT ?cname  (COUNT(?dclassifier) as ?howManyDistantTypes) (COUNT(?rclassifier) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference) ?depth
+SELECT ?cname  
+?depth
+(COUNT(?dclassifier) as ?howManyDistantTypes) 
+(COUNT(?rclassifier) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference) 
+
 WHERE {
 	?classifier :name ?cname .
     ?classifier :depth ?depth .
     
     FILTER EXISTS{
-        ?cl :name ?root .
-        ?cl :hasSubclassifier* ?classifier . 
+        ?cl :name "Computer_languages" .
+        ?classifier :isA* ?cl . 
     }
     
     {SELECT DISTINCT ?classifier ?dclassifier
     WHERE {
-        ?classifier ^:hasSubclassifier ?dclassifier .
+        ?classifier :hasCategory ?dclassifier .
         FILTER NOT EXISTS{
-            ?cl :name ?root .
-			?cl :hasSubclassifier* ?dclassifier .
+            ?classifier :isA ?classifier2 .
+            ?classifier2 :name ?dclassifier .
 		}
     }
     }
@@ -22,12 +26,12 @@ WHERE {
 	
 	{SELECT DISTINCT ?classifier ?rclassifier
     WHERE {
-        ?classifier ^:hasSubclassifier ?rclassifier .
-        ?cl :name ?root .
-		?cl :hasSubclassifier* ?rclassifier .
+        ?classifier :hasCategory ?rclassifier .
+        ?classifier :isA ?classifier2 .
+        ?classifier2 :name ?rclassifier .
     }
     }
 }
 GROUP BY ?cname ?depth
 HAVING (?difference > 0 && ?howManyReachableTypes > 0)
-ORDER BY ASC (?depth)
+ORDER BY ASC (?difference)
