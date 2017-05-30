@@ -5,8 +5,6 @@
  */
 package de.ist.wikionto.webwiki;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,10 +15,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.apache.commons.io.FileUtils;
 
 import de.ist.wikionto.triplestore.WikiTaxToJenaTDB;
 import de.ist.wikionto.webwiki.model.Classifier;
@@ -39,6 +33,7 @@ public class MyCrawlerManager {
 	private final Map<String, Classifier> classifierMap;
 	private final Queue<Classifier> classifierQueue;
 	private final Map<String, Instance> instanceMap;
+	private int maxDepth;
 	private Set<String> exclusionset;
 	private int threadcounter;
 
@@ -51,7 +46,7 @@ public class MyCrawlerManager {
 	}
 
 	public void start(int maxDepth) {
-		initialize(rootname);
+		initialize(rootname,maxDepth);
 		threadcounter = 0;
 		crawl();
 		WikiTaxToJenaTDB.createTripleStore(classifierMap.values(), instanceMap.values(), root);
@@ -83,26 +78,12 @@ public class MyCrawlerManager {
 		}
 	}
 
-	private void initialize(String name) {
+	private void initialize(String name, int maxDepth) {
+		this.maxDepth = maxDepth;
 		root = new Classifier();
 		root.setName(name);
 		classifierMap.put(name, root);
 		offerClassifier(root);
-		File dir = new File("./" + name.replaceAll(" ", ""));
-		if (dir.exists()) {
-			try {
-				FileUtils.cleanDirectory(dir);
-			} catch (IOException ex) {
-				Logger.getLogger(WikiTaxToJenaTDB.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		} else {
-			boolean success = dir.mkdirs();
-			if (!success) {
-				System.err.println("Creating target directory failed");
-				System.exit(0);
-			}
-		}
-
 	}
 
 	public static void main(String[] args0) {
@@ -124,7 +105,7 @@ public class MyCrawlerManager {
 		exclusionset.add("Software by");
 		exclusionset.add("conference");
 		MyCrawlerManager a = new MyCrawlerManager("Computer languages", exclusionset);
-		a.start(10);
+		a.start(5);
 		// System.out.println("Java : " + a.instanceMap.containsKey("Java
 		// (programming language)"));
 		// System.out.println(a.instanceMap.get("Java (programming
@@ -189,5 +170,9 @@ public class MyCrawlerManager {
 
 	public Classifier getRoot() {
 		return root;
+	}
+
+	public int getMaxDepth() {
+		return maxDepth;
 	}
 }

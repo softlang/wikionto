@@ -1,8 +1,14 @@
 package de.ist.wikionto.triplestore;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.apache.commons.io.FileUtils;
 
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.ReadWrite;
@@ -35,6 +41,20 @@ public class WikiTaxToJenaTDB {
 
 	public static void createTripleStore(Collection<Classifier> classifiers, Collection<Instance> instances,
 			Classifier root) {
+		File dir = new File("./" + root.getName());
+		if (dir.exists()) {
+			try {
+				FileUtils.cleanDirectory(dir);
+			} catch (IOException ex) {
+				Logger.getLogger(WikiTaxToJenaTDB.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		} else {
+			boolean success = dir.mkdirs();
+			if (!success) {
+				System.err.println("Creating target directory failed");
+				System.exit(0);
+			}
+		}
 		String directory = "./" + root.getName();
 		Dataset dataset = TDBFactory.createDataset(directory);
 		model = dataset.getDefaultModel();

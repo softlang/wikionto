@@ -31,6 +31,7 @@ import de.ist.wikionto.triplestore.clean.TransformationProcessor;
 import de.ist.wikionto.triplestore.query.QueryProcessor;
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
+@Deprecated
 public class PruningTopology {
 
 	private static Dataset dataset;

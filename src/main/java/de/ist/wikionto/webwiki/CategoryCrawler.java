@@ -50,6 +50,9 @@ public class CategoryCrawler implements Runnable {
 	 * Adds Subcategories to type and offers them to the manager's type queue.
 	 */
 	private void processSubCategories() {
+		if(manager.getMaxDepth()==type.getMinDepth()){
+			return;
+		}
 		String[] subcats = null;
 		while (true) {
 			try {
@@ -116,7 +119,7 @@ public class CategoryCrawler implements Runnable {
 				// System.out.println(text);
 				// System.out.println(text);
 				entity.setText(text);
-				links = this.resolveLinks(w.getLinksOnPage(name));
+				links = resolveLinks(w.getLinksOnPage(name));
 				entity.getLinks().addAll(links);
 				break;
 			} catch (IOException e) {
@@ -139,7 +142,7 @@ public class CategoryCrawler implements Runnable {
 				assert supercatgories.length > 0;
 				String text = w.getPageText("Category:" + type.getName());
 				type.setText(text);
-				links = this.resolveLinks(w.getLinksOnPage("Category:" + type.getName()));
+				links = resolveLinks(w.getLinksOnPage("Category:" + type.getName()));
 				type.getMainLinks().addAll(links);
 
 				break;
@@ -158,11 +161,13 @@ public class CategoryCrawler implements Runnable {
 		while (true) {
 			try {
 				String[] resolved = wiki.resolveRedirects(links);
-				for (int i = 0; i < links.length; i++)
-					if (resolved[i] == null)
+				for (int i = 0; i < links.length; i++) {
+					if (resolved[i] == null) {
 						set.add(links[i]);
-					else
+					} else {
 						set.add(resolved[i]);
+					}
+				}
 				break;
 			} catch (IOException e) {
 				System.err.println("Connection issue at processLinks for :" + type.getName());
