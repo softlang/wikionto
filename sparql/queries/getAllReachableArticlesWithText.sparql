@@ -1,8 +1,8 @@
 PREFIX : <http://myWikiTax.de/>
 SELECT DISTINCT ?n ?t
 WHERE {
-?c :classifies ?i .
-?i :name ?n.
-?i :hasText ?t 
-FILTER regex(str(?i), "Instance")
+	?i :instanceOf ?c .
+	?i :name ?n.
+	?i :hasText ?t 
+	FILTER regex(str(?i), "Instance")
 }

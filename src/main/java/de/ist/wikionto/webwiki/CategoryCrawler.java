@@ -9,7 +9,11 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-import de.ist.wikionto.research.MyLogger;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import de.ist.wikionto.webwiki.model.Classifier;
 import de.ist.wikionto.webwiki.model.Instance;
 
@@ -24,7 +28,6 @@ import de.ist.wikionto.webwiki.model.Instance;
  *         Requests to the Wikipedia API are repeated until they are successful.
  */
 public class CategoryCrawler implements Runnable {
-	MyLogger l = new MyLogger("logs/", "Crawl", false);
 
 	private final MyCrawlerManager manager;
 
@@ -114,12 +117,10 @@ public class CategoryCrawler implements Runnable {
 		while (true) {
 			try {
 				cs = w.getCategories(name, false, true);
-				String text = w.getPageText(name);
-				// if (name.equals("C (programming language)"))
-				// System.out.println(text);
-				// System.out.println(text);
+				String text = w.getRenderedText(name);
 				entity.setText(text);
-				links = resolveLinks(w.getLinksOnPage(name));
+				entity.setFirst(getFirstSentence(text));
+				links = this.resolveLinks(w.getLinksOnPage(name));
 				entity.getLinks().addAll(links);
 				break;
 			} catch (IOException e) {
@@ -140,7 +141,7 @@ public class CategoryCrawler implements Runnable {
 			try {
 				supercatgories = w.getCategories("Category:" + type.getName(), false, true);
 				assert supercatgories.length > 0;
-				String text = w.getPageText("Category:" + type.getName());
+				String text = w.getRenderedText("Category:" + type.getName());
 				type.setText(text);
 				links = resolveLinks(w.getLinksOnPage("Category:" + type.getName()));
 				type.getMainLinks().addAll(links);
@@ -174,6 +175,17 @@ public class CategoryCrawler implements Runnable {
 			}
 		}
 		return set;
+	}
+
+	private String getFirstSentence(String html) {
+		Document doc = Jsoup.parse(html);
+		Elements es = doc.body().children();
+		for (Element e : es) {
+			if (e.select("img").isEmpty() && !e.is("table") && !e.is("div.hatnote") && !e.is("div.noprint")
+					&& !e.is("dl"))
+				return e.text();
+		}
+		return null;
 	}
 
 }

@@ -22,7 +22,7 @@ import de.ist.wikionto.webwiki.model.Instance;
 
 public class WikiTaxToJenaTDB {
 
-	//private static MyLogger l = new MyLogger("logs/", "ToJena");
+	// private static MyLogger l = new MyLogger("logs/", "ToJena");
 	private static final String URI = "http://myWikiTax.de/";
 	private static final String cURI = URI + "Classifier#";
 	private static final String iURI = URI + "Instance#";
@@ -35,6 +35,7 @@ public class WikiTaxToJenaTDB {
 	private static Property defP;
 	private static Property linkP;
 	private static Property textP;
+	private static Property firstP;
 
 	private static Map<String, Resource> classResources;
 	private static Map<String, Resource> instanceResources;
@@ -67,11 +68,12 @@ public class WikiTaxToJenaTDB {
 		defP = model.createProperty(URI + "definedBy");
 		linkP = model.createProperty(URI + "linksTo");
 		textP = model.createProperty(URI + "hasText");
+		firstP = model.createProperty(URI + "firstParagraph");
 
 		classResources = new HashMap<>();
 		instanceResources = new HashMap<>();
 
-		//Readability over small performance difference
+		// Readability over small performance difference
 		classifiers.forEach(c -> createClassifier(c));
 		instances.forEach(i -> createInstance(i));
 		classifiers.forEach(c -> createTree(c));
@@ -95,6 +97,7 @@ public class WikiTaxToJenaTDB {
 		instanceResources.put(i.getName(), res);
 		res.addProperty(nameP, i.getName());
 		res.addProperty(textP, i.getText());
+		res.addProperty(firstP, i.getFirst());
 		i.getCategories().stream().forEach(cat -> res.addProperty(catP, cat));
 		i.getLinks().stream().forEach(l -> res.addProperty(linkP, l));
 	}

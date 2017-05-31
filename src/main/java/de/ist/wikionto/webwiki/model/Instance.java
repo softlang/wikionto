@@ -16,12 +16,14 @@ import java.util.Set;
 public class Instance extends Element {
 
 	private String text;
+	private String first;
 	private Set<String> links;
 	// private final List<Information> informationList;
 
 	public Instance() {
 		super();
 		this.text = null;
+		this.setFirst(null);
 		this.links = new HashSet<>();
 		// informationList = new ArrayList<>();
 	}
@@ -44,6 +46,14 @@ public class Instance extends Element {
 
 	public void addLinks(Collection<String> links) {
 		links.addAll(links);
+	}
+
+	public String getFirst() {
+		return first;
+	}
+
+	public void setFirst(String first) {
+		this.first = first;
 	}
 
 	/**

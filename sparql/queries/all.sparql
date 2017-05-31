@@ -1,7 +1,6 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?n ?t
+SELECT DISTINCT ?t
 WHERE {
-	?s :depth ?t.
-	?s :name ?n.
-	
+	?s :name "Haskell_(programming_language)".
+	?s :hasText ?t.
 }

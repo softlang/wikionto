@@ -1,6 +1,7 @@
 PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT  ?t
+SELECT DISTINCT  ?n
 WHERE {
 	?s :name "Object-based_programming_languages".
-    ?s :classifies ?t.
+    ?i :instanceOf ?s.
+    ?i :name ?n.
 }
