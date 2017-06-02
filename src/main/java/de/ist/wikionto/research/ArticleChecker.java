@@ -1,6 +1,11 @@
 package de.ist.wikionto.research;
 
 import java.io.IOException;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,11 +15,25 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.hp.hpl.jena.query.Dataset;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
-import de.ist.wikionto.webwiki.Wiki;
+import de.ist.wikionto.triplestore.query.QueryUtil;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
+import edu.stanford.nlp.process.CoreLabelTokenFactory;
+import edu.stanford.nlp.process.PTBTokenizer;
+import edu.stanford.nlp.process.Tokenizer;
+import edu.stanford.nlp.process.TokenizerFactory;
+import edu.stanford.nlp.trees.GrammaticalStructure;
+import edu.stanford.nlp.trees.GrammaticalStructureFactory;
+import edu.stanford.nlp.trees.Tree;
+import edu.stanford.nlp.trees.TreebankLanguagePack;
+import edu.stanford.nlp.trees.TypedDependency;
 
 public class ArticleChecker {
+	static MyLogger l = new MyLogger("logs/", "test");
 
 	public static boolean checkTitle(String title) {
 		return title.contains("language");
@@ -41,62 +60,93 @@ public class ArticleChecker {
 		return result;
 	}
 
-	public static boolean checkText(String text) {
-		Document doc = Jsoup.parse(text);
-		Elements es = doc.getElementsByTag("p");
-		boolean result = false;
-		Pattern isA = Pattern.compile("is a",
-				Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.UNICODE_CHARACTER_CLASS);
-		Pattern lang = Pattern.compile("language|dsl",
-				Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.UNICODE_CHARACTER_CLASS);
-		int lineNum = 3;
-		if (es.size() < lineNum + 1)
-			lineNum = es.size();
-		for (int i = 0; i < lineNum; i++) {
-			// System.out.println(es.get(i).text());
-			String[] lines = es.get(i).text().split("\\.");
-			for (String line : lines) {
-				// System.out.println(line);
-				Matcher a = isA.matcher(line);
-
-				if (a.find()) {
-					line = line.substring(a.start());
-					// System.out.println(line);
-					Matcher b = lang.matcher(line);
-					if (b.find()) {
-						// System.out.println(line);
-						return true;
-					}
-				}
+	public static boolean checkText(String first) {
+		Set<String> langs = new HashSet<>();
+		langs.add("language");
+		langs.add("dsl");
+		List<TypedDependency> tdl;
+		String[] lines = first.split(".");
+		if (lines.length > 0)
+			tdl = stanford(lines[0]);
+		else
+			tdl = stanford(first);
+		List<TypedDependency> nmods = new ArrayList<>();
+		List<TypedDependency> cops = new ArrayList<>();
+		for (TypedDependency td : tdl) {
+			if (td.reln().getShortName().equals("cop")) {
+				cops.add(td);
+			}
+			if (td.reln().getShortName().contains("nmod")) {
+				nmods.add(td);
 			}
 		}
 		return false;
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main2(String[] args) throws IOException {
 		Dataset set = TDBFactory.createDataset("Computer_languages");
-		Wiki w = new Wiki();
-		String text = w.getRenderedText("Haskell (programming language)");
-		String text2 = w.getRenderedText("Oak_(programming_language)");
-		// System.out.println(checkTitle("Haskell (programming language)"));
-		// System.out.println(checkInfoBox(text));
-		// System.out.println(checkTitle("Oak_(programming_language)"));
-		// System.out.println(checkInfoBox(text2));
-		Document doc = Jsoup.parse(text);
-		Elements es = doc.getElementsByTag("p");
-		es.forEach(x -> System.out.println(x.text()));
+		ResultSet rs = QueryUtil.executeQuery(set, "/sparql/queries/getEponymousInstances.sparql");
+		QuerySolution qs;
+		String text = null;
+		String title;
+		String first;
 
-		// ResultSet rs = QueryUtil.executeQuery(set,
-		// "/sparql/queries/getAllReachableArticlesWithText.sparql");
-		// QuerySolution qs;
-		// String text = null;
-		// String title;
-		// while (rs.hasNext()) {
-		// qs = rs.next();
-		// text = qs.get("?t").asLiteral().getString();
-		// title = qs.get("?n").asLiteral().getString();
-		// System.out.println(title + ": " + checkInfoBox(text));
-		// }
+		while (rs.hasNext()) {
+			qs = rs.next();
+			text = qs.get("?text").asLiteral().getString();
+			title = qs.get("?name").asLiteral().getString();
+			first = qs.get("?first").asLiteral().getString();
+			// l.logLn(title + ": " + checkText(first));
+		}
+	}
+
+	static List<TypedDependency> stanford(String text) {
+		String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+		LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
+		TokenizerFactory<CoreLabel> tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
+		TreebankLanguagePack tlp = lp.treebankLanguagePack();
+		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
+		Tokenizer<CoreLabel> tok = tokenizerFactory.getTokenizer(new StringReader(text));
+		List<CoreLabel> rawWords2 = tok.tokenize();
+		Tree parse = lp.apply(rawWords2);
+		GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
+		List<TypedDependency> tdl = gs.typedDependenciesCCprocessed();
+		return tdl;
+	}
+
+	private static String getFirstSentence(String html) {
+		Document doc = Jsoup.parse(html);
+		Element first = doc.select("div.mw-parser-output").first();
+		for (Element e : first.children()) {
+			if (e.select("img").isEmpty() && !e.is("table") && !e.is("div.hatnote") && !e.is("div.noprint")
+					&& !e.is("dl"))
+				return e.text();
+		}
+		return "";
+	}
+
+	public static void main(String[] args) {
+		String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+		LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
+		String sent2 = "The Web Ontology Language (OWL) is a family of knowledge representation languages for authoring ontologies.";
+		TokenizerFactory<CoreLabel> tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
+		Tokenizer<CoreLabel> tok = tokenizerFactory.getTokenizer(new StringReader(sent2));
+		List<CoreLabel> rawWords2 = tok.tokenize();
+		Tree parse = lp.apply(rawWords2);
+
+		TreebankLanguagePack tlp = lp.treebankLanguagePack(); // PennTreebankLanguagePack
+																// for English
+		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
+		GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
+		List<TypedDependency> tdl = gs.typedDependenciesCCprocessed();
+		for (TypedDependency td : tdl) {
+			if (td.reln().getShortName().equals("cop"))
+				System.out.println(td.gov());
+			System.out.println(td.gov() + " depends on " + td.dep() + " by using " + td.reln());
+		}
+
+		String text = "The Web Ontology Language (OWL) is a family of knowledge representation languages for authoring ontologies.";
+		System.out.println(checkText(text));
 	}
 
 }
