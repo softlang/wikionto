@@ -119,7 +119,9 @@ public class CategoryCrawler implements Runnable {
 				cs = w.getCategories(name, false, true);
 				String text = w.getRenderedText(name);
 				entity.setText(text);
-				entity.setFirst(getFirstSentence(text));
+				String first = getFirstSentence(text);
+				System.out.println(first);
+				entity.setFirst(first);
 				links = this.resolveLinks(w.getLinksOnPage(name));
 				entity.getLinks().addAll(links);
 				break;
@@ -177,15 +179,19 @@ public class CategoryCrawler implements Runnable {
 		return set;
 	}
 
-	private String getFirstSentence(String html) {
+	private static String getFirstSentence(String html) {
 		Document doc = Jsoup.parse(html);
-		Elements es = doc.body().children();
+		Elements es = doc.select("div.mw-parser-output");
 		for (Element e : es) {
-			if (e.select("img").isEmpty() && !e.is("table") && !e.is("div.hatnote") && !e.is("div.noprint")
-					&& !e.is("dl"))
-				return e.text();
+			Elements childs = e.children();
+			for (Element child : childs){
+				if (child.select("img").isEmpty() && !child.is("table") && !child.is("div.hatnote") && !child.is("div.noprint")
+						&& !child.is("dl"))
+					return child.text();
+			}
 		}
-		return null;
+		return "";
 	}
+
 
 }

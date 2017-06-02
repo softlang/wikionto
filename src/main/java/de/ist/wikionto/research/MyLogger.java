@@ -12,6 +12,7 @@ public class MyLogger {
 	public MyLogger(String path, String name) {
 		try {
 			//Replace because of Windows issues with ':'
+			new File(path).mkdir();
 			logger = new FileWriter(new File(path + name + new Date().toString().replaceAll(":", "") + ".log"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

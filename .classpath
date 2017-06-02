@@ -22,5 +22,16 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="stanford/ejml-0.23.jar"/>
+	<classpathentry kind="lib" path="stanford/slf4j-api-1.7.12-sources.jar"/>
+	<classpathentry kind="lib" path="stanford/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="stanford/stanford-parser-3.7.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="stanford/stanford-parser-3.7.0-models.jar"/>
+	<classpathentry kind="lib" path="stanford/stanford-parser-3.7.0-sources.jar"/>
+	<classpathentry kind="lib" path="stanford/stanford-parser.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/WikiTax2/stanford/stanford-parser-3.7.0-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
