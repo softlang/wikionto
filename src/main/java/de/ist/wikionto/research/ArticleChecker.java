@@ -65,11 +65,7 @@ public class ArticleChecker {
 		langs.add("language");
 		langs.add("dsl");
 		List<TypedDependency> tdl;
-		String[] lines = first.split(".");
-		if (lines.length > 0)
-			tdl = stanford(lines[0]);
-		else
-			tdl = stanford(first);
+		tdl = stanford(first.replaceAll("\\(.*?\\)", ""));
 		List<TypedDependency> nmods = new ArrayList<>();
 		List<TypedDependency> cops = new ArrayList<>();
 		for (TypedDependency td : tdl) {
@@ -80,24 +76,21 @@ public class ArticleChecker {
 				nmods.add(td);
 			}
 		}
-		return false;
-	}
+		for (String lang : langs) {
+			for (TypedDependency cop : cops) {
+				if (cop.gov().originalText().contains(lang))
+					return true;
+				for (TypedDependency nmod : nmods) {
+					if (nmod.gov().equals(cop.gov()))
+						if (nmod.dep().originalText().contains(lang))
+							return true;
 
-	public static void main2(String[] args) throws IOException {
-		Dataset set = TDBFactory.createDataset("Computer_languages");
-		ResultSet rs = QueryUtil.executeQuery(set, "/sparql/queries/getEponymousInstances.sparql");
-		QuerySolution qs;
-		String text = null;
-		String title;
-		String first;
+				}
+			}
 
-		while (rs.hasNext()) {
-			qs = rs.next();
-			text = qs.get("?text").asLiteral().getString();
-			title = qs.get("?name").asLiteral().getString();
-			first = qs.get("?first").asLiteral().getString();
-			// l.logLn(title + ": " + checkText(first));
 		}
+
+		return false;
 	}
 
 	static List<TypedDependency> stanford(String text) {
@@ -128,7 +121,7 @@ public class ArticleChecker {
 	public static void main(String[] args) {
 		String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
 		LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
-		String sent2 = "The Web Ontology Language (OWL) is a family of knowledge representation languages for authoring ontologies.";
+		String sent2 = "Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages. It has built-in language support for design-by-contract, extremely strong typing, explicit concurrency, offering tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international standard; the current version (known as Ada 2012[7]) is defined by ISO/IEC 8652:2012.[8]";
 		TokenizerFactory<CoreLabel> tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
 		Tokenizer<CoreLabel> tok = tokenizerFactory.getTokenizer(new StringReader(sent2));
 		List<CoreLabel> rawWords2 = tok.tokenize();
@@ -145,8 +138,28 @@ public class ArticleChecker {
 			System.out.println(td.gov() + " depends on " + td.dep() + " by using " + td.reln());
 		}
 
-		String text = "The Web Ontology Language (OWL) is a family of knowledge representation languages for authoring ontologies.";
+		String text = "Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages. It has built-in language support for design-by-contract, extremely strong typing, explicit concurrency, offering tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international standard; the current version (known as Ada 2012[7]) is defined by ISO/IEC 8652:2012.[8]";
+		Pattern a = Pattern.compile("\\(.*?\\)");
+		Matcher b = a.matcher(text);
+		text = text.replaceAll("\\(.*?\\)", "");
 		System.out.println(checkText(text));
+	}
+
+	public static void main2(String[] args) throws IOException {
+		Dataset set = TDBFactory.createDataset("Computer_languages");
+		ResultSet rs = QueryUtil.executeQuery(set, "/sparql/queries/getEponymousInstances.sparql");
+		QuerySolution qs;
+		String text = null;
+		String title;
+		String first;
+
+		while (rs.hasNext()) {
+			qs = rs.next();
+			text = qs.get("?text").asLiteral().getString();
+			title = qs.get("?name").asLiteral().getString();
+			first = qs.get("?first").asLiteral().getString();
+			l.logLn(title + ": " + checkText(first));
+		}
 	}
 
 }
