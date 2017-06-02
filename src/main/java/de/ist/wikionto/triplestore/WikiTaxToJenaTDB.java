@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -97,7 +98,7 @@ public class WikiTaxToJenaTDB {
 		instanceResources.put(i.getName(), res);
 		res.addProperty(nameP, i.getName());
 		res.addProperty(textP, i.getText());
-		res.addProperty(firstP, i.getFirst());
+		res.addProperty(firstP, Optional.ofNullable(i.getFirst()).orElse("NOTEXT"));
 		i.getCategories().stream().forEach(cat -> res.addProperty(catP, cat));
 		i.getLinks().stream().forEach(l -> res.addProperty(linkP, l));
 	}
