@@ -46,7 +46,7 @@ public class MyCrawlerManager {
 	}
 
 	public void start(int maxDepth) {
-		initialize(rootname,maxDepth);
+		initialize(rootname, maxDepth);
 		threadcounter = 0;
 		crawl();
 		WikiTaxToJenaTDB.createTripleStore(classifierMap.values(), instanceMap.values(), root);
@@ -104,6 +104,8 @@ public class MyCrawlerManager {
 		exclusionset.add("Software written");
 		exclusionset.add("Software by");
 		exclusionset.add("conference");
+		// new exclusion criteria
+		// exclusionset.add("Academic");
 		MyCrawlerManager a = new MyCrawlerManager("Computer languages", exclusionset);
 		a.start(5);
 		// System.out.println("Java : " + a.instanceMap.containsKey("Java

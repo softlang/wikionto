@@ -53,7 +53,7 @@ public class CategoryCrawler implements Runnable {
 	 * Adds Subcategories to type and offers them to the manager's type queue.
 	 */
 	private void processSubCategories() {
-		if(manager.getMaxDepth()==type.getMinDepth()){
+		if (manager.getMaxDepth() == type.getMinDepth()) {
 			return;
 		}
 		String[] subcats = null;
@@ -120,7 +120,6 @@ public class CategoryCrawler implements Runnable {
 				String text = w.getRenderedText(name);
 				entity.setText(text);
 				String first = getFirstSentence(text);
-				System.out.println(first);
 				entity.setFirst(first);
 				links = this.resolveLinks(w.getLinksOnPage(name));
 				entity.getLinks().addAll(links);
@@ -184,14 +183,13 @@ public class CategoryCrawler implements Runnable {
 		Elements es = doc.select("div.mw-parser-output");
 		for (Element e : es) {
 			Elements childs = e.children();
-			for (Element child : childs){
-				if (child.select("img").isEmpty() && !child.is("table") && !child.is("div.hatnote") && !child.is("div.noprint")
-						&& !child.is("dl"))
+			for (Element child : childs) {
+				if (child.select("img").isEmpty() && child.select("table").isEmpty() && !child.is("div.hatnote")
+						&& !child.is("div.noprint") && !child.is("dl"))
 					return child.text();
 			}
 		}
 		return "";
 	}
-
 
 }

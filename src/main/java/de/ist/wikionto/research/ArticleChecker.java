@@ -1,6 +1,5 @@
 package de.ist.wikionto.research;
 
-import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,13 +13,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.tdb.TDBFactory;
 
-import de.ist.wikionto.triplestore.query.QueryUtil;
 import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.ling.IndexedWord;
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
@@ -32,18 +28,31 @@ import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreebankLanguagePack;
 import edu.stanford.nlp.trees.TypedDependency;
 
-public class ArticleChecker {
-	static MyLogger l = new MyLogger("logs/", "test");
+public abstract class ArticleChecker extends Transformation {
+	LexicalizedParser lp;
+	TokenizerFactory<CoreLabel> tokenizerFactory;
+	GrammaticalStructureFactory gsf;
 
-	public static boolean checkTitle(String title) {
+	public ArticleChecker(TransformationManager tm, List<QuerySolution> qss) {
+		super(tm, qss);
+		String parserModel1 = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+		String parserModel2 = "edu/stanford/nlp/models/lexparser/englishFactored.ser.gz";
+		lp = LexicalizedParser.loadModel(parserModel1);
+		tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
+		TreebankLanguagePack tlp = lp.treebankLanguagePack();
+		gsf = tlp.grammaticalStructureFactory();
+		// TODO Auto-generated constructor stub
+	}
+
+	public boolean checkTitle(String title) {
 		return title.contains("language");
 	}
 
-	public static boolean checkInfoBox(String text) {
+	public boolean checkInfoBox(String text) {
 		Pattern paradigm = Pattern.compile("paradigm", Pattern.CASE_INSENSITIVE);
 		Pattern influenced = Pattern.compile("influencd", Pattern.CASE_INSENSITIVE);
 		Pattern typing = Pattern.compile("typing", Pattern.CASE_INSENSITIVE);
-		Pattern lanuage = Pattern.compile("infox programming language", Pattern.CASE_INSENSITIVE);
+		Pattern language = Pattern.compile("infox programming language", Pattern.CASE_INSENSITIVE);
 		Boolean result = false;
 		Document doc = Jsoup.parse(text);
 		Elements infos = doc.getElementsByClass("infobox");
@@ -54,18 +63,25 @@ public class ArticleChecker {
 			result = result || m.find();
 			m = typing.matcher(e.text());
 			result = result || m.find();
-			m = lanuage.matcher(e.text());
+			m = language.matcher(e.text());
 			result = result || m.find();
 		}
+		// l.logLn("infobox test: " + result);
 		return result;
 	}
 
-	public static boolean checkText(String first) {
+	public boolean checkText(String first) {
 		Set<String> langs = new HashSet<>();
 		langs.add("language");
 		langs.add("dsl");
 		List<TypedDependency> tdl;
-		tdl = stanford(first.replaceAll("\\(.*?\\)", ""));
+		String text = first;
+		// String text = first.replaceAll("\\(.*?\\)", "");
+		text = text.replaceAll("\\[.*?\\]", " ");
+		String[] all = text.split("\\. ", 0);
+		text = all[0];
+		// l.logLn(text);
+		tdl = stanford(text);
 		List<TypedDependency> nmods = new ArrayList<>();
 		List<TypedDependency> cops = new ArrayList<>();
 		for (TypedDependency td : tdl) {
@@ -78,27 +94,31 @@ public class ArticleChecker {
 		}
 		for (String lang : langs) {
 			for (TypedDependency cop : cops) {
-				if (cop.gov().originalText().contains(lang))
+				// System.out.println(cop);
+				if (cop.gov().originalText().equals(lang))
 					return true;
-				for (TypedDependency nmod : nmods) {
-					if (nmod.gov().equals(cop.gov()))
-						if (nmod.dep().originalText().contains(lang))
-							return true;
-
-				}
+				else if (checkNMods(lang, cop.gov(), nmods))
+					return true;
 			}
 
 		}
-
 		return false;
 	}
 
-	static List<TypedDependency> stanford(String text) {
-		String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
-		LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
-		TokenizerFactory<CoreLabel> tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
-		TreebankLanguagePack tlp = lp.treebankLanguagePack();
-		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
+	private boolean checkNMods(String lang, IndexedWord gov, List<TypedDependency> nmods) {
+		for (TypedDependency nmod : nmods) {
+			if (nmod.gov().equals(gov)) {
+				if (nmod.dep().originalText().contains(lang))
+					return true;
+				else
+					return checkNMods(lang, nmod.dep(), nmods);
+			}
+
+		}
+		return false;
+	}
+
+	protected List<TypedDependency> stanford(String text) {
 		Tokenizer<CoreLabel> tok = tokenizerFactory.getTokenizer(new StringReader(text));
 		List<CoreLabel> rawWords2 = tok.tokenize();
 		Tree parse = lp.apply(rawWords2);
@@ -107,63 +127,18 @@ public class ArticleChecker {
 		return tdl;
 	}
 
-	private static String getFirstSentence(String html) {
+	private String getFirstSentence(String html) {
 		Document doc = Jsoup.parse(html);
-		Element first = doc.select("div.mw-parser-output").first();
-		for (Element e : first.children()) {
-			if (e.select("img").isEmpty() && !e.is("table") && !e.is("div.hatnote") && !e.is("div.noprint")
-					&& !e.is("dl"))
-				return e.text();
+		Elements es = doc.select("div.mw-parser-output");
+		for (Element e : es) {
+			Elements childs = e.children();
+			for (Element child : childs) {
+				if (child.select("img").isEmpty() && child.select("table").isEmpty() && !child.is("div.hatnote")
+						&& !child.is("div.noprint") && !child.is("dl"))
+					return child.text();
+			}
 		}
 		return "";
-	}
-
-	public static void main(String[] args) {
-		String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
-		LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
-		String sent2 = "Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages. It has built-in language support for design-by-contract, extremely strong typing, explicit concurrency, offering tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international standard; the current version (known as Ada 2012[7]) is defined by ISO/IEC 8652:2012.[8]";
-		TokenizerFactory<CoreLabel> tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
-		Tokenizer<CoreLabel> tok = tokenizerFactory.getTokenizer(new StringReader(sent2));
-		List<CoreLabel> rawWords2 = tok.tokenize();
-		Tree parse = lp.apply(rawWords2);
-
-		TreebankLanguagePack tlp = lp.treebankLanguagePack(); // PennTreebankLanguagePack
-																// for English
-		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
-		GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
-		List<TypedDependency> tdl = gs.typedDependenciesCCprocessed();
-		for (TypedDependency td : tdl) {
-			if (td.reln().getShortName().equals("cop"))
-				System.out.println(td.gov());
-			System.out.println(td.gov() + " depends on " + td.dep() + " by using " + td.reln());
-		}
-
-		String text = "Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages. It has built-in language support for design-by-contract, extremely strong typing, explicit concurrency, offering tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international standard; the current version (known as Ada 2012[7]) is defined by ISO/IEC 8652:2012.";
-		Pattern a = Pattern.compile("\\(.*?\\)");
-		Matcher b = a.matcher(text);
-		text = text.replaceAll("\\(.*?\\)", "");
-		text = text.replace("and", "");
-		text = text.replace("object-oriented,", "");
-		text = text.replace("statically typed,", "");
-		text = text.replace("imperative,", "");
-		System.out.println(checkText(text));
-	}
-
-	public static void main2(String[] args) throws IOException {
-		Dataset set = TDBFactory.createDataset("Computer_languages");
-		ResultSet rs = QueryUtil.executeQuery(set, "/sparql/queries/getEponymousInstances.sparql");
-		QuerySolution qs;
-		String text = null;
-		String title;
-		String first;
-
-		while (rs.hasNext()) {
-			qs = rs.next();
-			text = qs.get("?text").asLiteral().getString();
-			title = qs.get("?name").asLiteral().getString();
-			first = qs.get("?first").asLiteral().getString();
-			l.logLn(title + ": " + checkText(first));
-		}
 	}
 
 }
