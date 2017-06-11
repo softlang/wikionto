@@ -26,7 +26,7 @@ public abstract class Transformation implements Runnable {
 		return queryPath;
 	}
 
-	public abstract void transform(Dataset dataset);
+	public abstract void transform(Dataset dataset, String name, Boolean check);
 
 	public abstract boolean check(QuerySolution qs);
 

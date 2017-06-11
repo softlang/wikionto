@@ -8,6 +8,8 @@ import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
+import de.ist.wikionto.triplestore.clean.Prune;
+
 public class EponymousTransformation extends ArticleChecker {
 
 	public EponymousTransformation(TransformationManager tm, List<QuerySolution> qss) {
@@ -18,9 +20,23 @@ public class EponymousTransformation extends ArticleChecker {
 	}
 
 	@Override
-	public void transform(Dataset dataset) {
-		// TODO Auto-generated method stub
-
+	public void transform(Dataset dataset, String name, Boolean check) {
+		Prune p = new Prune(dataset);
+		if (check) {
+			System.out.println("Delete Category:" + name);
+			Map<String, String> pmap = new HashMap<>();
+			pmap.put("name", name);
+			long size = tm.transformFile(dataset, "abandonClassifierObject.sparql", pmap);
+			size += tm.transformFile(dataset, "abandonClassifierSubject.sparql", pmap);
+			System.out.println("Delete size " + size);
+		} else {
+			System.out.println("Delete " + name);
+			Map<String, String> pmap = new HashMap<>();
+			pmap.put("name", name);
+			long size = tm.transformFile(dataset, "abandonInstanceObject.sparql", pmap);
+			size += tm.transformFile(dataset, "abandonInstanceSubject.sparql", pmap);
+			System.out.println("Delete size " + size);
+		}
 	}
 
 	public Map<String, Boolean> check(Dataset dataset) {
@@ -44,6 +60,7 @@ public class EponymousTransformation extends ArticleChecker {
 		String first = qs.get("?first").asLiteral().getString();
 		boolean textC = this.checkText(first);
 		boolean infoC = this.checkInfoBox(text);
+		tm.checks.put(title, textC || infoC);
 		System.out.println(first + "\n" + title + ": " + this.checkText(first) + " ");
 		tm.log.logLn(title + ":\n	textCheck: " + textC + "\n	infoboxCheck: " + infoC);
 		return false;

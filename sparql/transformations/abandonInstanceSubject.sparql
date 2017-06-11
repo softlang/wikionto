@@ -1,0 +1,8 @@
+PREFIX : <http://myWikiTax.de/> 
+DELETE {
+  ?entity ?r ?n .
+}
+WHERE{ 
+  ?entity ?r ?n .
+  FILTER(regex(STR(?entity),"Instance"))
+  ?entity :name ?name . }
