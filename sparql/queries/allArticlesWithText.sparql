@@ -1,6 +1,6 @@
 PREFIX : <http://myWikiTax.de/> 
 SELECT DISTINCT ?n
 WHERE {
-	?s :hasText ?t.
 	?s :name ?n.
+	FILTER regex(str(?i), "Classifier")
 }

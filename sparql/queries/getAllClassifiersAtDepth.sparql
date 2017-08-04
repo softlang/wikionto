@@ -1,0 +1,10 @@
+PREFIX : <http://myWikiTax.de/> 
+SELECT DISTINCT  ?d
+WHERE {
+	?s :depth "4".
+	?s2 :isA ?s.
+	?s2 :depth ?d.
+	?s2 :name ?n.
+	
+	
+}
