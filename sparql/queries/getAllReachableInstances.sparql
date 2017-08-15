@@ -2,7 +2,7 @@ PREFIX : <http://myWikiTax.de/>
 SELECT DISTINCT ?n
 WHERE {
 	?i :instanceOf ?c.
-	?c :Computer_languagesisA* ?root.
+	?c :isA* ?root.
 	?root :name "Computer_languages".
 	?i :name ?n.
 	FILTER regex(str(?i), "Instance")

@@ -1,6 +1,21 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?s
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT ?na ?nb
 WHERE {
-	?i :name "Denotational_semantics".
-	?i :instanceOf ?s.
+	{SELECT DISTINCT ?na ?nb
+	WHERE{
+		?a :name "C_(programming_language)".
+		FILTER REGEX (str(?a),"Classifier").
+		?a :isA ?b.
+		?a :name ?na.
+		?b :name ?nb.
+	}}
+	UNION
+	{SELECT DISTINCT ?na ?nb
+	WHERE{
+		?b :name "C_(programming_language)".
+		FILTER REGEX (str(?b),"Classifier").
+		?a :isA ?b.
+		?a :name ?na.
+		?b :name ?nb.
+	}}
 }

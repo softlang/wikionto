@@ -2,5 +2,7 @@ PREFIX : <http://myWikiTax.de/>
 SELECT DISTINCT  ?name
 WHERE {
 	?c :name ?name.
-	FILTER regex(str(?c), "Classifier")
+	?c :isA* ?root.
+	?root :name "Computer_languages".
+	FILTER regex(str(?c), "Classifier").
 }

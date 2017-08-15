@@ -5,5 +5,7 @@ WHERE {
 	?i :name ?n.
 	?i :hasText ?t.
 	?i :firstParagraph ?f.
+	?root :name "Computer_languages".
+	?c :isA* ?root.
 	FILTER regex(str(?i), "Instance")
 }

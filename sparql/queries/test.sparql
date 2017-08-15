@@ -1,7 +1,7 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT  ?n
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT ?n
 WHERE {
-	?s :name "Resource_Description_Framework".
-   ?i :isA ?s.
-   ?i :name ?n.
+		?a :isA ?c.
+		?a :name ?n.
+		?c :name "Computer_languages".
 }
