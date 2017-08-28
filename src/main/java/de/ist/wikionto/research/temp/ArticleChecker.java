@@ -115,8 +115,8 @@ public class ArticleChecker implements Runnable {
 		String first = qs.get("?first").asLiteral().getString();
 		boolean textC = this.checkText(first);
 		boolean infoC = this.checkInfoBox(text);
-		acm.putArticleCheck(title, textC || infoC);
-		acm.l.logLn(title + ":\n	textCheck: " + textC + "\n	infoboxCheck: " + infoC);
+		acm.addArticles(title);
+		ArticleCheckManager.l.logLn(title + ":\n	textCheck: " + textC + "\n	infoboxCheck: " + infoC);
 		return textC || infoC;
 	}
 
@@ -127,8 +127,12 @@ public class ArticleChecker implements Runnable {
 		String first = qs.get("?f").asLiteral().getString();
 		boolean textC = this.checkText(first);
 		boolean infoC = this.checkInfoBox(text);
-		acm.putArticleCheck(title, textC || infoC);
-		acm.l.logLn(title + ":\n	textCheck: " + textC + "\n	infoboxCheck: " + infoC);
+		if (infoC)
+			acm.getInfoboxChecks().add(title);
+		if (textC)
+			acm.getTextChecks().add(title);
+		acm.getArticles().add(title);
+		ArticleCheckManager.l.logLn(title + ":\n	textCheck: " + textC + "\n	infoboxCheck: " + infoC);
 	}
 
 }

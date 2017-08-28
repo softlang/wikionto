@@ -6,33 +6,22 @@ import com.hp.hpl.jena.query.ResultSet;
 import de.ist.wikionto.research.MyLogger;
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
-public abstract class Transformation {
+public abstract class Annotation {
 	protected String name;
-	protected MyLogger log;
 	protected TransformationManager manager;
-	protected ResultSet querySolutions;
+	protected MyLogger log;
 
-	public Transformation(TransformationManager manager,String name) {
+	public Annotation(TransformationManager manager,String name) {
 		super();
 		this.manager = manager;
 		this.name = name;
 		this.log = new MyLogger("logs/", this.name);
-
 	}
 
-	public abstract void transform();;
-
+	public abstract void annotate();
+	
 	public ResultSet query(Dataset dataset, String queryFile) {
 		ResultSet rs = QueryUtil.executeQuery(dataset, queryFile);
 		return rs;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 }

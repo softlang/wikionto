@@ -1,9 +1,6 @@
 package de.ist.wikionto.research.temp;
 
-import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-
-import de.ist.wikionto.research.MyLogger;
 
 public class SemanticallyDistanstTransformation extends Transformation {
 
@@ -12,9 +9,7 @@ public class SemanticallyDistanstTransformation extends Transformation {
 	boolean changed = true;
 
 	public SemanticallyDistanstTransformation(TransformationManager manager) {
-		super(manager);
-		this.name = "SemanticallyDistanst";
-		log = new MyLogger("logs/", this.name);
+		super(manager,"SemanticallyDistanst");
 	}
 
 	@Override
@@ -53,15 +48,6 @@ public class SemanticallyDistanstTransformation extends Transformation {
 			instanceSet = this.query(this.manager.getStore(), queryInstances);
 			i++;
 		}
-	}
-
-	public boolean check(QuerySolution qs) {
-		if (qs.contains("?name")) {
-			String name = qs.get("?name").asLiteral().getString();
-			// TODO Manage unknown articles
-			return this.manager.getArticleChecks().get(name);
-		}
-		return false;
 	}
 
 }

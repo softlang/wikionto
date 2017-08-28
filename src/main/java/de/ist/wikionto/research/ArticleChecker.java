@@ -41,7 +41,6 @@ public abstract class ArticleChecker extends Transformation {
 		tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
 		TreebankLanguagePack tlp = lp.treebankLanguagePack();
 		gsf = tlp.grammaticalStructureFactory();
-		// TODO Auto-generated constructor stub
 	}
 
 	public boolean checkTitle(String title) {

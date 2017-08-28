@@ -2,11 +2,13 @@ package de.ist.wikionto.research.temp;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 
@@ -16,54 +18,60 @@ import com.hp.hpl.jena.tdb.TDBFactory;
 import de.ist.wikionto.research.MyLogger;
 
 public class TransformationManager {
-	private Map<String, Boolean> relevant;
-	private List<String> seed;
+	private Map<String, Boolean> relevant = new HashMap<>();
+	private List<String> seed = new ArrayList<String>();
+	private List<String> textC = new ArrayList<String>();
+	private List<String> infoboxC = new ArrayList<String>();
+	private List<String> articles = new ArrayList<String>();
 	private List<Transformation> transList = new LinkedList<>();
 	private String storeName = "Computer_languages";
 	private Dataset store;
 	private Dataset oldStore;
-	private Map<String, Boolean> articleChecks;
-	private int threadcounter;
+
 	private MyLogger log = new MyLogger("logs/", "Result");
 
 	// MyLogger log = new MyLogger("logs/", "Transformation");
 
 	public void transform() {
+		System.out.println("Start pipeline at " + new Date().toString());
+		log.logDate("Start pipeline");
 		// open base store
-		setRelevant(new HashMap());
+		this.relevant = new HashMap<>();
 		store = TDBFactory.createDataset(storeName);
 		oldStore = store;
-		// Seed-Based
-		this.setSeed(GitSeed.readLanguages());
-		// Hypernym
+		// get check lists
 		try {
-			this.articleChecks = new ArticleCheckManager().getArticleChecks(store);
+			this.articles = ArticleCheckManager.getArticles(store);
+			this.infoboxC = ArticleCheckManager.getInfoboxChecks(store);
+			this.textC = ArticleCheckManager.getTextChecks(store);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		for (Transformation t : transList) {
-			System.out.println("Start " + t.name);
-			// prepare new store
-			storeName = newDatasetName(t.name, storeName);
-			oldStore = store;
-
-			store = TDBFactory.createDataset(storeName);
-			t.log.logDate("Write transformation " + t.name + " to store " + storeName);
-
-			// perform transformation
-			t.transform();
-
-			System.out.println("Finish checking at " + new Date().toString());
-			t.log.logDate("Finish Transformation " + t.name);
-
-		}
-		relevant.keySet().stream().filter(relevant::get).forEach(log::logLn);
+		articles.forEach(x -> relevant.put(x, false));
+		// Seed-Based
+		SeedAnnotation sa = new SeedAnnotation(this);
+		sa.annotate();
+		// Hypernym
+		HypernymAnnotation ha = new HypernymAnnotation(this);
+		ha.annotate();
+		// Eponymous
+		EponymousTransformation et = new EponymousTransformation(this);
+		et.transform();
+		// Semantically Distant
+		SemanticallyDistanstAnnotation sda = new SemanticallyDistanstAnnotation(this);
+		sda.annotate();
+		ChildrenBased cb = new ChildrenBased(this);
+		cb.annotate();
+		List<String> base = relevant.keySet().stream().filter(relevant::get).sorted().collect(Collectors.toList());
+		base.stream().forEach(log::logLn);
+		log.logLn("Total number of relevant articles: " + base.stream().count());
+		System.out.println("Finish pipeline at " + new Date().toString());
+		log.logDate("Finish pipeline");
 
 	}
 
-	public String newDatasetName(String transName, String setName) {
+	public void createNewDatasetName(String transName, String setName) {
 		String newName = setName + "_" + transName;
 		File oldDir = new File("./" + setName);
 		File newDir = new File("./" + newName);
@@ -78,7 +86,18 @@ public class TransformationManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return newName;
+		this.oldStore = store;
+		this.store = TDBFactory.createDataset(newName);
+		this.storeName = newName;
+	}
+
+	public static void main(String[] args) {
+		TransformationManager tm = new TransformationManager();
+//		tm.transList.add(new Hypernym(tm));
+//		tm.transList.add(new EponymousTransformation(tm));
+//		tm.transList.add(new SemanticallyDistanst(tm));
+//		tm.transList.add(new ChildrenBased(tm));
+		tm.transform();
 	}
 
 	public Dataset getOldStore() {
@@ -105,39 +124,16 @@ public class TransformationManager {
 		this.store = store;
 	}
 
-	public Map<String, Boolean> getArticleChecks() {
-		return articleChecks;
+	public List<String> getArticles() {
+		return articles;
 	}
 
-	public void setArticleChecks(Map<String, Boolean> articleChecks) {
-		this.articleChecks = articleChecks;
+	public void setArticleChecks(List<String> articles) {
+		this.articles = articles;
 	}
 
-	public synchronized void incthreadcounter() {
-		threadcounter++;
-	}
 
-	public synchronized void decthreadcounter() {
-		threadcounter--;
-	}
 
-	public static void main(String[] args) {
-		TransformationManager tm = new TransformationManager();
-		tm.transList.add(new Hypernym(tm));
-		tm.transList.add(new EponymousTransformation(tm));
-		tm.transList.add(new SemanticallyDistanst(tm));
-		tm.transList.add(new ChildrenBased(tm));
-		tm.transform();
-
-	}
-
-	public Map<String, Boolean> getRelevant() {
-		return relevant;
-	}
-
-	public void setRelevant(Map<String, Boolean> relevant) {
-		this.relevant = relevant;
-	}
 
 	public List<String> getSeed() {
 		return seed;
@@ -145,6 +141,30 @@ public class TransformationManager {
 
 	public void setSeed(List<String> seed) {
 		this.seed = seed;
+	}
+
+	public List<String> getTextC() {
+		return textC;
+	}
+
+	public void setTextC(List<String> textC) {
+		this.textC = textC;
+	}
+
+	public List<String> getInfoboxC() {
+		return infoboxC;
+	}
+
+	public void setInfoboxC(List<String> infoboxC) {
+		this.infoboxC = infoboxC;
+	}
+
+	public Boolean putInRelevant(String arg0, Boolean arg1) {
+		return relevant.put(arg0, arg1);
+	}
+
+	public Boolean getFromRelevant(String key) {
+		return relevant.get(key);
 	}
 
 }

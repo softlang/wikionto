@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="de/ist/wikionto/research/InstanceCheck.java|de/ist/wikionto/research/DatabaseChecker.java" kind="src" output="target/classes" path="src/main/java">
+	<classpathentry excluding="de/ist/wikionto/research/InstanceCheck.java|de/ist/wikionto/research/DatabaseChecker.java|de/ist/wikionto/research/temp/DistanctCallTransformation.java" kind="src" output="target/classes" path="src/main/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
@@ -23,20 +23,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="stanford/ejml-0.23.jar"/>
-	<classpathentry kind="lib" path="stanford/slf4j-api-1.7.12-sources.jar"/>
 	<classpathentry kind="lib" path="stanford/slf4j-api.jar"/>
-	<classpathentry kind="lib" path="stanford/stanford-parser-3.7.0-javadoc.jar"/>
-	<classpathentry kind="lib" path="stanford/stanford-parser-3.7.0-models.jar"/>
-	<classpathentry kind="lib" path="stanford/stanford-parser-3.7.0-sources.jar"/>
-	<classpathentry kind="lib" path="stanford/stanford-parser.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/WikiTax2/stanford/stanford-parser-3.7.0-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="javax.json.jar"/>
-	<classpathentry kind="lib" path="joda-time.jar"/>
-	<classpathentry kind="lib" path="stanford-corenlp-3.7.0-models.jar"/>
-	<classpathentry kind="lib" path="stanford-corenlp-3.7.0.jar"/>
-	<classpathentry kind="lib" path="xom.jar"/>
+	<classpathentry kind="lib" path="stanford/stanford-parser-3.8.0-models.jar"/>
+	<classpathentry kind="lib" path="stanford/stanford-parser.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

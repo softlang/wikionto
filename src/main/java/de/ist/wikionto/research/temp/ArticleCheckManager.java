@@ -3,12 +3,12 @@ package de.ist.wikionto.research.temp;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -33,36 +33,82 @@ import edu.stanford.nlp.trees.TypedDependency;
 
 public class ArticleCheckManager {
 	private String queryPath = "/sparql/queries/getAllReachableArticlesWithText.sparql";
-	private Map<String, Boolean> articleChecks = new HashMap<String, Boolean>();
+	private List<String> infoChecks = new ArrayList<>();
+	private List<String> contentChecks = new ArrayList<>();
+	private List<String> articles = new ArrayList<>();
 	private LexicalizedParser lp;
 	private TokenizerFactory<CoreLabel> tokenizerFactory;
 	private GrammaticalStructureFactory gsf;
-	MyLogger l = new MyLogger("logs/", "articleCheck");
+	static MyLogger l = new MyLogger("logs/", "articleCheck");
 
-	public void putArticleCheck(String name, Boolean check) {
-		this.articleChecks.put(name, check);
+	public List<String> getTextChecks() {
+		return contentChecks;
 	}
 
-	public Map<String, Boolean> getArticleChecks() {
-		return articleChecks;
-	}
-
-	public Map<String, Boolean> getArticleChecks(Dataset ds)
-			throws JsonParseException, JsonMappingException, IOException {
+	public static List<String> getTextChecks(Dataset ds)
+			throws JsonGenerationException, JsonMappingException, IOException {
 		// TODO: Add time stamp check
-		File json = new File("test.json");
+		File json = new File("content.json");
 		ObjectMapper mapper = new ObjectMapper();
-		Map<String, Boolean> result = new HashMap<>();
+		List<String> result = new ArrayList<>();
 		if (!json.exists()) {
-			this.checkArticles(ds);
-			mapper.writeValue(json, this.articleChecks);
-			this.l.logDate("Write article checks to " + json.getPath());
+			ArticleCheckManager acm = new ArticleCheckManager();
+			acm.checkArticles(ds);
 		} else {
-			this.l.logDate("Read article checks from " + json.getPath());
+			l.logDate("Read article checks from " + json.getPath());
 		}
-		result = mapper.readValue(new File("test.json"), new TypeReference<Map<String, Boolean>>() {
+		result = mapper.readValue(json, new TypeReference<List<String>>() {
 		});
 		return result;
+	}
+
+	public List<String> getInfoboxChecks() {
+		return infoChecks;
+	}
+
+	public static List<String> getInfoboxChecks(Dataset ds)
+			throws JsonParseException, JsonMappingException, IOException {
+		// TODO: Add time stamp check
+		File json = new File("info.json");
+		ObjectMapper mapper = new ObjectMapper();
+		List<String> result = new ArrayList<>();
+		if (!json.exists()) {
+			ArticleCheckManager acm = new ArticleCheckManager();
+			acm.checkArticles(ds);
+		} else {
+			l.logDate("Read article checks from " + json.getPath());
+		}
+		result = mapper.readValue(json, new TypeReference<List<String>>() {
+		});
+		return result;
+	}
+
+	public List<String> getArticles() {
+		return articles;
+	}
+
+	public static List<String> getArticles(Dataset ds) throws JsonParseException, JsonMappingException, IOException {
+		// TODO: Add time stamp check
+		File json = new File("all.json");
+		ObjectMapper mapper = new ObjectMapper();
+		List<String> result = new ArrayList<>();
+		if (!json.exists()) {
+			ArticleCheckManager acm = new ArticleCheckManager();
+			acm.checkArticles(ds);
+		} else {
+			l.logDate("Read article checks from " + json.getPath());
+		}
+		result = mapper.readValue(json, new TypeReference<List<String>>() {
+		});
+		return result;
+	}
+
+	public void setInfoChecks(List<String> infoChecks) {
+		this.infoChecks = infoChecks;
+	}
+
+	public void addArticles(String name) {
+		this.articles.add(name);
 	}
 
 	public ArticleCheckManager(String queryPath) {
@@ -97,6 +143,22 @@ public class ArticleCheckManager {
 		while (true)
 			if (es.isTerminated())
 				break;
+
+		File info = new File("info.json");
+		File content = new File("content.json");
+		File all = new File("all.json");
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writeValue(info, this.infoChecks);
+			mapper.writeValue(content, this.contentChecks);
+			mapper.writeValue(all, this.articles);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.l.logDate("Write infobox checks to " + info.getPath());
+		this.l.logDate("Write content checks to " + content.getPath());
+		this.l.logDate("Write article checks to " + all.getPath());
 		l.logDate("Finish Article Checking");
 	}
 
@@ -118,23 +180,14 @@ public class ArticleCheckManager {
 		Dataset dataset = TDBFactory.createDataset("Computer_languages");
 		ArticleCheckManager acm = new ArticleCheckManager();
 		acm.checkArticles(dataset);
-		HashMap<String, Boolean> a = new HashMap<>();
-		a.put("a", true);
-		a.put("b", false);
-		a.put("c", false);
-		Map<String, Boolean> b = new HashMap<>();
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			mapper.writeValue(new File("test.json"), acm.articleChecks);
-			b = mapper.readValue(new File("test.json"), new TypeReference<Map<String, Boolean>>() {
-			});
+			mapper.writeValue(new File("test.json"), acm.articles);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		b.forEach((x, y) -> {
-			System.out.println(x + " : " + y);
-		});
+
 	}
 
 }
