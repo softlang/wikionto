@@ -18,7 +18,7 @@ public class SeedAnnotation extends Annotation {
 			.forEach(name -> {
 				this.log.logLn("Seed " + name + " is relevant");
 				this.manager.getSeed().add(name);
-				this.manager.putInRelevant(name, true);
+				this.manager.putInRelevantArticles(name, true);
 			});
 		this.log.logDate("Finish");
 	}

@@ -54,13 +54,14 @@ public class ChildrenBased extends Annotation {
 					result = result || checkSubcategories(name) ;
 					result = checkArticles(name) || result;
 					log.logLn("Result: " + result + "\n");
+					this.manager.putInRelevantCategories(name, result);
 					this.classifiers.put(name, result);
-					model.createProperty(classifier).addProperty(marked, Boolean.toString(result));	
+					model.createProperty(classifier).addProperty(marked, Boolean.toString(result));
 				}
 			});
 			store.commit();
 			store.end();
-		
+			
 		}
 		this.log.logDate("Log End");
 	}
@@ -72,7 +73,7 @@ public class ChildrenBased extends Annotation {
 		long articleSize = articles.size();
 		
 		long artCount = articles.stream()
-				.filter(manager::getFromRelevant).count();
+				.filter(manager::getFromRelevantArticles).count();
 		if (articles.size() > 0){
 			result =  artCount >= (threshold_instances * articleSize);
 		}
@@ -83,24 +84,15 @@ public class ChildrenBased extends Annotation {
 	private boolean checkSubcategories(String name) {
 		boolean result = false;
 		List<String> subcategories = QueryUtil.getSubclassifiers(manager.getOldStore(), name);
-		long subCount = subcategories.stream().filter(classifiers::get).count();
+		long subCount = subcategories.stream().filter(manager::getFromRelevantCategories).count();
 		if (subcategories.size() > 0){
 			result = subCount  >= (threshold_classifiers * subcategories.size());
-//			result = subCount >= cats;
+
 		}
 		this.log.logLn("Subcategories: "  + subcategories.size() + "  " + subCount + "  " + result);
 		return result;
 	}
 	
-
-	public boolean checkInstances(double threshold,List<String> ins) {
-		long n = ins.stream().filter(manager::getFromRelevant).count();
-		if (ins.size() > 0) {
-			log.logLn(n + " " + ins.size());
-			return n / ins.size() >= threshold;
-		} else
-			return true;
-	}
 
 	public HashMap<String, Boolean> getClassifiers() {
 		return classifiers;

@@ -36,6 +36,43 @@ public class QueryUtil {
 		return new QueryProcessor(query, dataset).query();
 
 	}
+	
+	public static List<String> getReachableClassifiers(Dataset dataset) {
+		List<String> result = new ArrayList<>();
+		String sparql = "PREFIX : <http://myWikiTax.de/> SELECT DISTINCT  ?name "
+				+ "WHERE {	"
+				+ "?c :name ?name.	?c :isA* ?root.	"
+				+ "?root :name \"Computer_languages\".	"
+				+ "FILTER regex(str(?c), \"Classifier\").}";
+		dataset.begin(ReadWrite.READ);
+		Query query = QueryFactory.create(sparql);
+		ResultSet rs = QueryExecutionFactory.create(query, dataset).execSelect();
+		rs.forEachRemaining(qs -> {
+			result.add(qs.get("name").asLiteral().getString());
+		});
+		dataset.end();
+		return result;
+	}
+	
+	public static List<String> getReachableArticles(Dataset dataset) {
+		List<String> result = new ArrayList<>();
+		String sparql = "PREFIX : <http://myWikiTax.de/> SELECT DISTINCT  ?name "
+				+ "WHERE {	"
+				+ "?i :instanceOf ?c."
+				+ "?c :isA* ?root."
+				+ "?root :name \"Computer_languages\"."
+				+ "?i :name ?name."
+				+ "FILTER regex(str(?i), \"Instance\")"
+				+ "}";
+		dataset.begin(ReadWrite.READ);
+		Query query = QueryFactory.create(sparql);
+		ResultSet rs = QueryExecutionFactory.create(query, dataset).execSelect();
+		rs.forEachRemaining(qs -> {
+			result.add(qs.get("name").asLiteral().getString());
+		});
+		dataset.end();
+		return result;
+	}
 
 	public static List<String> getClassifiers(Dataset dataset, String i) {
 		String query = "PREFIX : <http://myWikiTax.de/>\nSELECT ?cname WHERE{ \n?c :name ?cname . \n"
@@ -355,6 +392,8 @@ public class QueryUtil {
 		dataset.end();
 		return new QueryProcessor(query, dataset).query();
 	}
+
+	
 
 	// public static void main(String[] args) {
 	// String directory = "./Computerlanguages";

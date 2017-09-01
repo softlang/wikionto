@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
@@ -16,9 +17,11 @@ import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
 import de.ist.wikionto.research.MyLogger;
+import de.ist.wikionto.triplestore.query.QueryUtil;
 
 public class TransformationManager {
-	private Map<String, Boolean> relevant = new HashMap<>();
+	private Map<String, Boolean> relevantArticles = new HashMap<>();
+	private Map<String, Boolean> relevantCategories = new HashMap<>();
 	private List<String> seed = new ArrayList<String>();
 	private List<String> textC = new ArrayList<String>();
 	private List<String> infoboxC = new ArrayList<String>();
@@ -36,7 +39,7 @@ public class TransformationManager {
 		System.out.println("Start pipeline at " + new Date().toString());
 		log.logDate("Start pipeline");
 		// open base store
-		this.relevant = new HashMap<>();
+		this.relevantArticles = new HashMap<>();
 		store = TDBFactory.createDataset(storeName);
 		oldStore = store;
 		// get check lists
@@ -48,7 +51,7 @@ public class TransformationManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		articles.forEach(x -> relevant.put(x, false));
+		articles.forEach(x -> relevantArticles.put(x, false));
 		// Seed-Based
 		SeedAnnotation sa = new SeedAnnotation(this);
 		sa.annotate();
@@ -61,9 +64,18 @@ public class TransformationManager {
 		// Semantically Distant
 		SemanticallyDistanstAnnotation sda = new SemanticallyDistanstAnnotation(this);
 		sda.annotate();
+		// Children-based Category
 		ChildrenBased cb = new ChildrenBased(this);
 		cb.annotate();
-		List<String> base = relevant.keySet().stream().filter(relevant::get).sorted().collect(Collectors.toList());
+		// Clean up
+		CleanUp cu = new CleanUp(this);
+		cu.transform();
+		log.logLn("Reachable categories: ");
+		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream().filter(relevantCategories::get).collect(Collectors.toList());
+		base.stream().forEach(log::logLn);
+		log.logLn("Total number of relevant categories: " + base.stream().count() + "\n\n");
+		log.logLn("Reachable articles: ");
+		base = QueryUtil.getReachableArticles(this.getStore()).stream().filter(relevantArticles::get).collect(Collectors.toList());
 		base.stream().forEach(log::logLn);
 		log.logLn("Total number of relevant articles: " + base.stream().count());
 		System.out.println("Finish pipeline at " + new Date().toString());
@@ -159,12 +171,28 @@ public class TransformationManager {
 		this.infoboxC = infoboxC;
 	}
 
-	public Boolean putInRelevant(String arg0, Boolean arg1) {
-		return relevant.put(arg0, arg1);
+	public Set<String> keySetFromRelevantArticles(){
+		return this.relevantArticles.keySet();
+	}
+	
+	public Boolean putInRelevantArticles(String arg0, Boolean arg1) {
+		return relevantArticles.put(arg0, arg1);
+	}	
+
+	public Boolean getFromRelevantArticles(String key) {
+		return relevantArticles.get(key);
+	}
+	
+	public Set<String> keySetFromRelevantCategories(){
+		return this.relevantCategories.keySet();
 	}
 
-	public Boolean getFromRelevant(String key) {
-		return relevant.get(key);
+	public Boolean putInRelevantCategories(String arg0, Boolean arg1) {
+		return relevantCategories.put(arg0, arg1);
+	}
+
+	public Boolean getFromRelevantCategories(String key) {
+		return relevantCategories.get(key);
 	}
 
 }

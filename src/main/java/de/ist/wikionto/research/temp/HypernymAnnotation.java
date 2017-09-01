@@ -21,7 +21,7 @@ public class HypernymAnnotation extends Annotation {
 			.filter(manager.getInfoboxC()::contains)
 			.forEach(name -> {
 				i++;
-				this.manager.putInRelevant(name, true);
+				this.manager.putInRelevantArticles(name, true);
 				this.log.logLn("Mark " + name + " as relevant");
 			});
 		log.logLn("Total number of articles with programming language infobox: "+ i + "\nBegin text check:");
@@ -32,10 +32,10 @@ public class HypernymAnnotation extends Annotation {
 			.forEach(name -> {
 				if (manager.getTextC().contains(name)){
 					i++;
-					this.manager.putInRelevant(name, true);
+					this.manager.putInRelevantArticles(name, true);
 					this.log.logLn("Mark " + name + " as relevant");
 				} else {
-					this.manager.putInRelevant(name, false);
+					this.manager.putInRelevantArticles(name, false);
 					this.log.logLn("Mark " + name + " as irrelevant");
 				}
 			});

@@ -34,7 +34,7 @@ public class EponymousTransformation extends Transformation {
 		if (qs.contains("?name")) {
 			String name = qs.get("?name").asLiteral().getString();
 			// TODO Manage unknown articles
-			return this.manager.getFromRelevant(name);
+			return this.manager.getFromRelevantArticles(name);
 		}
 		return false;
 	}

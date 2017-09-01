@@ -20,7 +20,7 @@ public class Hypernym extends Transformation {
 		// !manager.getInfoboxC().contains(x)).collect(Collectors.toList());
 		checks.stream().forEach(name -> {
 			boolean check = this.check(name);
-			manager.putInRelevant(name, check);
+			manager.putInRelevantArticles(name, check);
 			if (check) {
 				log.logLn("Mark " + name + " as relevant");
 			} else {

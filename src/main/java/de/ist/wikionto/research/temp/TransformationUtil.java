@@ -18,19 +18,35 @@ public class TransformationUtil {
 		dataset.begin(ReadWrite.WRITE);
 		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
 		// remove isA relations
-		String query = "PREFIX : <http://myWikiTax.de/> \n" + "DELETE {\n" + "?s :isA ?o .}\n" + "WHERE {"
-				+ "{ SELECT DISTINCT ?s ?o WHERE " + "{ " + "?s :name ?name "
-				+ "FILTER REGEX (str(?s),\"Classifier\"). " + "?s :isA ?o. " + " }} " + "UNION "
-				+ "{ SELECT DISTINCT ?s ?o WHERE " + "{ " + "?o :name ?name "
-				+ "FILTER REGEX (str(?o),\"Classifier\"). " + "?s :isA ?o. " + " }}} ";
+		String query = "PREFIX : <http://myWikiTax.de/> \n" 
+				+ "DELETE {\n" 
+				+ "?s :isA ?o .}\n" 
+				+ "WHERE {"
+				+ "{ SELECT DISTINCT ?s ?o WHERE " 
+				+ "{ " + "?s :name ?name "
+				+ "FILTER REGEX (str(?s),\"Classifier\"). " 
+				+ "?s :isA ?o. " 
+				+ " }} " 
+				+ "UNION "
+				+ "{ SELECT DISTINCT ?s ?o WHERE " 
+				+ "{ " 
+				+ "?o :name ?name "
+				+ "FILTER REGEX (str(?o),\"Classifier\"). " 
+				+ "?s :isA ?o. " + " }}} ";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
 		pss.setCommandText(query);
 		pss.setLiteral("name", name);
 		UpdateAction.execute(pss.asUpdate(), graph);
 
 		// remove instanceOf Relations
-		query = "PREFIX : <http://myWikiTax.de/> \n" + "DELETE {\n" + "?i :instanceOf ?c .}\n" + "WHERE{\n"
-				+ "?i :instanceOf ?c .\n" + "FILTER(regex(STR(?c),\"Classifier\")) .\n" + "?c :name ?name . }";
+		query = 
+			"PREFIX : <http://myWikiTax.de/> \n" 
+				+ "DELETE {\n" 
+				+ "?i :instanceOf ?c .}\n" 
+				+ "WHERE{\n"
+				+ "?i :instanceOf ?c .\n" 
+				+ "FILTER(regex(STR(?c),\"Classifier\")) .\n" 
+				+ "?c :name ?name . }";
 		pss = new ParameterizedSparqlString();
 		pss.setCommandText(query);
 		pss.setLiteral("name", name);
@@ -44,8 +60,13 @@ public class TransformationUtil {
 		dataset.begin(ReadWrite.WRITE);
 		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
 		// remove instanceOf relations
-		String query = "PREFIX : <http://myWikiTax.de/> \n" + "DELETE {\n" + "?a :instanceOf ?b.}\n" + "WHERE{\n"
-				+ "?a :instanceOf ?b .\n" + "FILTER(regex(STR(?a),\"Instance\")) .\n" + "?a :name ?name . }";
+		String query = 
+				"PREFIX : <http://myWikiTax.de/> \n" 
+						+ "DELETE {\n" + "?a :instanceOf ?b.}\n" 
+						+ "WHERE{\n"
+						+ "?a :instanceOf ?b .\n" 
+						+ "FILTER(regex(STR(?a),\"Instance\")) .\n" 
+						+ "?a :name ?name . }";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
 		pss.setCommandText(query);
 		pss.setLiteral("name", name);
@@ -69,6 +90,8 @@ public class TransformationUtil {
 		dataset.commit();
 		dataset.end();
 	}
+	
+	
 
 	public static long transformFile(Dataset dataset, String tfilename, Map<String, String> parameter) {
 		File tfile = new File(System.getProperty("user.dir") + "/sparql/transformations/" + tfilename);
