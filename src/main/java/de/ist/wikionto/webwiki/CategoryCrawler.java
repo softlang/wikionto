@@ -6,8 +6,11 @@
 package de.ist.wikionto.webwiki;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -113,10 +116,12 @@ public class CategoryCrawler implements Runnable {
 		entity.setName(name);
 		Set<String> links = new HashSet<>();
 		Wiki w = new Wiki();
-		String[] cs;
+		List<String> cs;
+		String[] tmp;
 		while (true) {
 			try {
-				cs = w.getCategories(name, false, true);
+				tmp = w.getCategories(name, false, true);
+				cs = Arrays.stream(tmp).filter(x -> !manager.isStubCategory(x)).collect(Collectors.toList());
 				String text = w.getRenderedText(name);
 				entity.setText(text);
 				String first = getFirstSentence(text);
@@ -136,12 +141,14 @@ public class CategoryCrawler implements Runnable {
 
 	private void processCategory() {
 		Wiki w = new Wiki();
-		String[] supercatgories = null;
+		List<String> supercatgories = null;
 		Set<String> links = new HashSet<>();
+		String[] tmp;
 		while (true) {
 			try {
-				supercatgories = w.getCategories("Category:" + type.getName(), false, true);
-				assert supercatgories.length > 0;
+				tmp = w.getCategories("Category:" + type.getName(), false, true);
+				supercatgories = Arrays.stream(tmp).filter(x -> !manager.isStubCategory(x)).collect(Collectors.toList());
+				assert supercatgories.size() > 0;
 				String text = w.getRenderedText("Category:" + type.getName());
 				type.setText(text);
 				links = resolveLinks(w.getLinksOnPage("Category:" + type.getName()));

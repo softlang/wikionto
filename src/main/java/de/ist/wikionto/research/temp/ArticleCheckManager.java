@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -15,7 +17,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.tdb.TDBFactory;
 
 import de.ist.wikionto.research.MyLogger;
 import de.ist.wikionto.triplestore.query.QueryUtil;
@@ -36,11 +37,18 @@ public class ArticleCheckManager {
 	private List<String> infoChecks = new ArrayList<>();
 	private List<String> contentChecks = new ArrayList<>();
 	private List<String> articles = new ArrayList<>();
+	private List<String> languages = new ArrayList<>();
+	private List<String> dialects = new ArrayList<>();
+	private List<String> formats = new ArrayList<>();
+	
+	private Map<String,String> keywords = new HashMap<>();
+	
 	private LexicalizedParser lp;
 	private TokenizerFactory<CoreLabel> tokenizerFactory;
 	private GrammaticalStructureFactory gsf;
+	
 	static MyLogger l = new MyLogger("logs/", "articleCheck");
-
+	
 	public List<String> getTextChecks() {
 		return contentChecks;
 	}
@@ -156,10 +164,12 @@ public class ArticleCheckManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.l.logDate("Write infobox checks to " + info.getPath());
-		this.l.logDate("Write content checks to " + content.getPath());
-		this.l.logDate("Write article checks to " + all.getPath());
+		l.logDate("Write infobox checks to " + info.getPath());
+		l.logDate("Write content checks to " + content.getPath());
+		l.logDate("Write article checks to " + all.getPath());
+//		keywords.keySet().stream().sorted().forEach(x -> l.logLn(x + ": " + keywords.get(x)));
 		l.logDate("Finish Article Checking");
+		
 	}
 
 	public ResultSet query(Dataset dataset) {
@@ -177,17 +187,30 @@ public class ArticleCheckManager {
 	}
 
 	public static void main(String[] args) {
-		Dataset dataset = TDBFactory.createDataset("Computer_languages");
 		ArticleCheckManager acm = new ArticleCheckManager();
-		acm.checkArticles(dataset);
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			mapper.writeValue(new File("test.json"), acm.articles);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		List<TypedDependency> tdl = acm.stanford("Apple Pascal is a language and operating system based on the UCSD Pascal system.");
+		ArticleChecker ac = new ArticleChecker(null, acm);
+		System.out.println(ac.checkText("Apple Pascal is a language and operating system based on the UCSD Pascal system."));
+		tdl.forEach(System.out::println);
+	}
 
+	public boolean addDialect(String e) {
+		return dialects.add(e);
+	}
+	
+	public boolean addLanguage(String e) {
+		return languages.add(e);
+	}
+	
+	public boolean addFormat(String e) {
+		return formats.add(e);
+	}
+
+	public String putInKeywords(String key, String value) {
+		if (keywords.containsKey(key))
+			return keywords.get(key);
+		else 
+			return keywords.put(key, value);
 	}
 
 }

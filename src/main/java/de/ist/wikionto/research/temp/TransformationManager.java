@@ -71,12 +71,12 @@ public class TransformationManager {
 		CleanUp cu = new CleanUp(this);
 		cu.transform();
 		log.logLn("Reachable categories: ");
-		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream().filter(relevantCategories::get).collect(Collectors.toList());
-		base.stream().forEach(log::logLn);
+		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream().filter(this::getFromRelevantCategories).collect(Collectors.toList());
+		base.stream().sorted().forEach(log::logLn);
 		log.logLn("Total number of relevant categories: " + base.stream().count() + "\n\n");
 		log.logLn("Reachable articles: ");
-		base = QueryUtil.getReachableArticles(this.getStore()).stream().filter(relevantArticles::get).collect(Collectors.toList());
-		base.stream().forEach(log::logLn);
+		base = QueryUtil.getReachableArticles(this.getStore()).stream().filter(this::getFromRelevantArticles).collect(Collectors.toList());
+		base.stream().sorted().forEach(log::logLn);
 		log.logLn("Total number of relevant articles: " + base.stream().count());
 		System.out.println("Finish pipeline at " + new Date().toString());
 		log.logDate("Finish pipeline");
@@ -180,7 +180,10 @@ public class TransformationManager {
 	}	
 
 	public Boolean getFromRelevantArticles(String key) {
-		return relevantArticles.get(key);
+		if (relevantArticles.containsKey(key))
+			return relevantArticles.get(key);
+		else
+			return false;
 	}
 	
 	public Set<String> keySetFromRelevantCategories(){
@@ -192,7 +195,10 @@ public class TransformationManager {
 	}
 
 	public Boolean getFromRelevantCategories(String key) {
-		return relevantCategories.get(key);
+		if (relevantCategories.containsKey(key))
+			return relevantCategories.get(key);
+		else
+			return false;
 	}
 
 }

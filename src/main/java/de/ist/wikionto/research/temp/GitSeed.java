@@ -20,7 +20,7 @@ public class GitSeed {
 					.skip(3)
 					.filter(x -> !x.contains("  type:"))
 					.map(y -> {
-						return y.replace(":", "").toLowerCase();
+						return y.replace(":", "").replace(" ", "").toLowerCase();
 						})
 					.collect(Collectors.toList());
 			br.close();
@@ -35,7 +35,7 @@ public class GitSeed {
 	}
 
 	public static String matchWikiName(String wikiName) {
-		String result = wikiName.replaceAll("_", " ").replaceAll("\\(.*?\\)", "").trim().toLowerCase();
+		String result = wikiName.replaceAll("_", "").replaceAll("\\(.*?\\)", "").trim().toLowerCase();
 		return result;
 	}
 

@@ -35,6 +35,7 @@ public class MyCrawlerManager {
 	private final Map<String, Instance> instanceMap;
 	private int maxDepth;
 	private Set<String> exclusionset;
+	private Set<String> stubs;
 	private int threadcounter;
 
 	public MyCrawlerManager(String root, Set<String> excludedCategories) {
@@ -104,23 +105,16 @@ public class MyCrawlerManager {
 		exclusionset.add("Software written");
 		exclusionset.add("Software by");
 		exclusionset.add("conference");
+		
 		// new exclusion criteria
-		// exclusionset.add("Academic");
+//		exclusionset.add("Programming languages created in");
+		
+//		stubs.add("Programming language topic stubs");
+//		stubs.add("Markup language stubs");
+
+		
 		MyCrawlerManager a = new MyCrawlerManager("Computer languages", exclusionset);
 		a.start(5);
-		// System.out.println("Java : " + a.instanceMap.containsKey("Java
-		// (programming language)"));
-		// System.out.println(a.instanceMap.get("Java (programming
-		// language)").getLinks().toString());
-		// System.out.println("C : " + a.instanceMap.containsKey("C (programming
-		// language)"));
-		// System.out.println(a.instanceMap.get("C (programming
-		// language)").getLinks().toString());
-		// System.out.println("Haskell : " + a.instanceMap.containsKey("Haskell
-		// (programming language)"));
-		// System.out.println(a.instanceMap.get("Haskell (programming
-		// language)").getLinks().toString());
-
 	}
 
 	public void offerClassifier(Classifier classifier) {
@@ -151,7 +145,7 @@ public class MyCrawlerManager {
 		instanceMap.put(name, instance);
 	}
 
-	public boolean isExcludedCategoryName(String name) {
+	public boolean isExcludedCategoryNamew2(String name) {
 		boolean result = false;
 		for (String ex : exclusionset) {
 			if (name.contains(ex)) {
@@ -160,6 +154,14 @@ public class MyCrawlerManager {
 			}
 		}
 		return result;
+	}
+	
+	public boolean isExcludedCategoryName(String name) {
+		return exclusionset.stream().anyMatch(name::contains);
+	}
+	
+	public boolean isStubCategory(String name) {
+		return name.contains("stubs");
 	}
 
 	public synchronized void incthreadcounter() {
