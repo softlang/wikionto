@@ -1,8 +1,10 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT  ?name
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT ?classifier ?name ?depth
 WHERE {
-	?c :name ?name.
-	?c :isA* ?root.
+	?classifier :name ?name.
+	?classifier :isA* ?root.
 	?root :name "Computer_languages".
-	FILTER regex(str(?c), "Classifier").
+   ?classifier :depth ?depth.
+	FILTER regex(str(?classifier), "Classifier").
 }
+ORDER BY DESC (?depth)

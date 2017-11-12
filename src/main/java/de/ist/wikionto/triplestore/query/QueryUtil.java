@@ -3,7 +3,9 @@ package de.ist.wikionto.triplestore.query;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
@@ -18,6 +20,7 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ReadWrite;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
+import com.hp.hpl.jena.rdf.model.Resource;
 
 public class QueryUtil {
 
@@ -74,7 +77,7 @@ public class QueryUtil {
 		return result;
 	}
 
-	public static List<String> getClassifiers(Dataset dataset, String i) {
+	public static List<String> getClassifiersFromInstance(Dataset dataset, String i) {
 		String query = "PREFIX : <http://myWikiTax.de/>\nSELECT ?cname WHERE{ \n?c :name ?cname . \n"
 				+ "?i :instanceOf ?c . \n?i :name ?iname . }";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
@@ -98,7 +101,7 @@ public class QueryUtil {
 		return instances;
 	}
 
-	public static List<String> getInstances(Dataset dataset, String typename) {
+	public static List<String> getInstancesFromClassifier(Dataset dataset, String typename) {
 		String query = "PREFIX : <http://myWikiTax.de/>\nSELECT ?iname WHERE{ \n?c :name ?cname . \n"
 				+ "?i :instanceOf ?c . \n?i :name ?iname . }";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
@@ -121,10 +124,53 @@ public class QueryUtil {
 		dataset.end();
 		return instances;
 	}
+	
+	public static Map<String,Resource> getReachableInstanceResources(Dataset dataset){
+		Map<String,Resource> result = new HashMap<>();
+		String sparql = "PREFIX : <http://myWikiTax.de/> SELECT DISTINCT ?i ?name "
+				+ "WHERE {	"
+				+ "?i :instanceOf ?c."
+				+ "?c :isA* ?root."
+				+ "?root :name \"Computer_languages\"."
+				+ "?i :name ?name."
+				+ "FILTER regex(str(?i), \"Instance\")"
+				+ "}";
+		dataset.begin(ReadWrite.READ);
+		Query query = QueryFactory.create(sparql);
+		ResultSet rs = QueryExecutionFactory.create(query, dataset).execSelect();
+		rs.forEachRemaining(qs -> {
+			String name = qs.get("?name").asLiteral().getString();
+			Resource res = qs.getResource("?i");
+			result.put(name, res);
+		});
+		dataset.end();
+		return result;
+	}
+	
+	public static Map<String,Resource> getReachableClassifierResources(Dataset dataset){
+		Map<String,Resource> result = new HashMap<>();
+		String sparql = "PREFIX : <http://myWikiTax.de/> SELECT DISTINCT ?c ?name "
+				+ "WHERE {	"
+				+ "?c :name ?name.	"
+				+ "?c :isA* ?root.	"
+				+ "?root :name \"Computer_languages\".	"
+				+ "FILTER regex(str(?c), \"Classifier\"). "
+				+ "}";
+		dataset.begin(ReadWrite.READ);
+		Query query = QueryFactory.create(sparql);
+		ResultSet rs = QueryExecutionFactory.create(query, dataset).execSelect();
+		rs.forEachRemaining(qs -> {
+			String name = qs.get("?name").asLiteral().getString();
+			Resource res = qs.getResource("?c");
+			result.put(name, res);
+		});
+		dataset.end();
+		return result;
+	}
 
 	public static List<String> getSuperclassifiers(Dataset dataset, String typename) {
 		String query = "PREFIX : <http://myWikiTax.de/> \nSELECT DISTINCT ?scname WHERE {\n?sc :name ?scname ."
-				+ "\n?c :isA ?sc ." + "\n?c :name ?cname . } ";
+				+ "\n?c :isA ?sc ." + "\n?c :name ?cname ." + " ?c :depth ?depth." + "} ORDER BY ASC (?depth)";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
 		pss.setCommandText(query);
 		pss.setLiteral("cname", typename);
@@ -133,7 +179,7 @@ public class QueryUtil {
 		List<String> subtypes = new ArrayList<>();
 		try (QueryExecution qe = QueryExecutionFactory.create(pss.toString(), dataset)) {
 			results = qe.execSelect();
-			System.out.println(results.hasNext());
+//			System.out.println(results.hasNext());
 			while (results.hasNext()) {
 				QuerySolution r = results.next();
 				subtypes.add(r.get("scname").toString());
@@ -264,7 +310,7 @@ public class QueryUtil {
 	public static List<String> getPathFromClassToInstance(Dataset dataset, String start, String aim) {
 		List<String> nextcs = determineNextClassifiersOnPathCI(dataset, start, aim);
 		// the instance may be classified by start
-		if (getInstances(dataset, start).contains(aim)) {
+		if (getInstancesFromClassifier(dataset, start).contains(aim)) {
 			ArrayList<String> rs = new ArrayList<>();
 			rs.add(aim);
 			return rs;
@@ -279,7 +325,7 @@ public class QueryUtil {
 		while (!front.isEmpty()) {
 			// check the front whether the target is already reached
 			List<List<String>> finished = front.stream()
-					.filter(l -> getInstances(dataset, l.get(l.size() - 1)).contains(aim)).collect(Collectors.toList());
+					.filter(l -> getInstancesFromClassifier(dataset, l.get(l.size() - 1)).contains(aim)).collect(Collectors.toList());
 			if (!finished.isEmpty()) {
 				ArrayList<String> rs = new ArrayList<>();
 				rs.addAll(finished.get(0));
@@ -393,13 +439,6 @@ public class QueryUtil {
 		return new QueryProcessor(query, dataset).query();
 	}
 
-	
 
-	// public static void main(String[] args) {
-	// String directory = "./Computerlanguages";
-	// Dataset dataset = TDBFactory.createDataset(directory);
-	// new Prune(dataset).cleanUpUnreachableAll();
-	//
-	// }
 
 }

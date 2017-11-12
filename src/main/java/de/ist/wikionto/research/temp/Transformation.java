@@ -1,38 +1,14 @@
 package de.ist.wikionto.research.temp;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.ResultSet;
-
 import de.ist.wikionto.research.MyLogger;
-import de.ist.wikionto.triplestore.query.QueryUtil;
 
-public abstract class Transformation {
-	protected String name;
-	protected MyLogger log;
-	protected TransformationManager manager;
-	protected ResultSet querySolutions;
+public abstract class Transformation extends PipelineElement{
 
-	public Transformation(TransformationManager manager,String name) {
-		super();
-		this.manager = manager;
-		this.name = name;
+	public Transformation(WikiOntoPipeline manager,String name) {
+		super(manager,name);
 		this.log = new MyLogger("logs/", this.name);
+		System.out.println("Start transformation " + name + "\n see log \"" + log.logPath() + "\"");
 
-	}
-
-	public abstract void transform();;
-
-	public ResultSet query(Dataset dataset, String queryFile) {
-		ResultSet rs = QueryUtil.executeQuery(dataset, queryFile);
-		return rs;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }

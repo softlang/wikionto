@@ -1,27 +1,13 @@
 package de.ist.wikionto.research.temp;
 
 import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.ResultSet;
-
 import de.ist.wikionto.research.MyLogger;
-import de.ist.wikionto.triplestore.query.QueryUtil;
 
-public abstract class Annotation {
-	protected String name;
-	protected TransformationManager manager;
-	protected MyLogger log;
+public abstract class Annotation extends PipelineElement{
 
-	public Annotation(TransformationManager manager,String name) {
-		super();
-		this.manager = manager;
-		this.name = name;
-		this.log = new MyLogger("logs/", this.name);
-	}
-
-	public abstract void annotate();
+	public Annotation(WikiOntoPipeline manager,String name) {
+		super(manager,name);
+		System.out.println("Start annotation " + name + "\n see log \"" + log.logPath() + "\"");
+	}	
 	
-	public ResultSet query(Dataset dataset, String queryFile) {
-		ResultSet rs = QueryUtil.executeQuery(dataset, queryFile);
-		return rs;
-	}
 }

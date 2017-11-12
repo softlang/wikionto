@@ -1,5 +1,6 @@
 package de.ist.wikionto.research.temp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,16 +11,17 @@ public class SemanticallyDistanstAnnotation extends Annotation {
 	double threshold = 0.5;
 	String queryInstances = "/sparql/smells/SemanticallyDistantInstance.sparql";
 
-	public SemanticallyDistanstAnnotation(TransformationManager manager) {
+	public SemanticallyDistanstAnnotation(WikiOntoPipeline manager) {
 		super(manager,"SemanticallyDistanstInstances");
 	}
 
-	
+	// needs Hypernym
 	@Override
-	public void annotate() {
+	public void execute() {
 		log.logDate("Start " + this.name);
 		log.logLn("Threshold : " + threshold);
 		log.logLn("name, number of reachable classifiers, number of classifiers");
+		List<String> temp = new ArrayList<String>();
 		ResultSet instanceSet = this.query(this.manager.getStore(), queryInstances);
 		List<String> base = 
 			this.manager.getTextC().stream()
@@ -46,12 +48,24 @@ public class SemanticallyDistanstAnnotation extends Annotation {
 				} else {
 					log.logLn("Instance " + name + ", " + reachable + ", " + distant);
 					log.logLn("Mark " + name + " as irrelevant");
+					this.manager.getTextC().remove(name);
 					manager.putInRelevantArticles(name, false);
 				}
+			} else {
+				if (check)
+					temp.add(name);
 			}
+			
 		});
+		log.logLn("\nOther Instances with positive Semantically distant check:");
+		temp.stream()
+			.filter(x -> !manager.getSeed().contains(x))
+			.filter(x -> !manager.getInfoboxC().contains(x))
+			.forEach(log::logLn);
 		log.logLn("Total number of sematically distant checks: " + base.size());
 		log.logLn("Number of relevant marked categories: " + i);
+		
+		log.logDate("End");
 	}
-
+	
 }

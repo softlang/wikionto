@@ -4,12 +4,12 @@ import java.util.List;
 
 public class SeedAnnotation extends Annotation {
 
-	public SeedAnnotation(TransformationManager manager) {
+	public SeedAnnotation(WikiOntoPipeline manager) {
 		super(manager,"GitSeed");
 	}
 
 	@Override
-	public void annotate() {
+	public void execute() {
 		this.log.logDate("Start");
 		List<String> seed = GitSeed.readLanguages();
 		manager.getArticles().stream()

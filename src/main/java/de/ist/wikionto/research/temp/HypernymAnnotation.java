@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 public class HypernymAnnotation extends Annotation {
 	private int i = 0;
 	
-	public HypernymAnnotation(TransformationManager manager) {
+	public HypernymAnnotation(WikiOntoPipeline manager) {
 		super(manager,"Hypernym");
 	}
 
 	@Override
-	public void annotate() {
+	public void execute() {
 		this.log.logDate("Start");
 		this.log.logLn("begin Infobox");
 		List<String> base = this.manager.getArticles().stream()
@@ -24,7 +24,7 @@ public class HypernymAnnotation extends Annotation {
 				this.manager.putInRelevantArticles(name, true);
 				this.log.logLn("Mark " + name + " as relevant");
 			});
-		log.logLn("Total number of articles with programming language infobox: "+ i + "\nBegin text check:");
+		log.logLn("Total number of articles with programming language infobox: "+ i + "\n\nBegin text check:");
 		i = 0;
 		base.stream()
 			.filter(x -> !manager.getInfoboxC().contains(x))
@@ -40,6 +40,7 @@ public class HypernymAnnotation extends Annotation {
 				}
 			});
 		log.logLn("Total number of articles with isA language relation: "+ i );
+		
 		this.log.logDate("Finish");
 	}
 
