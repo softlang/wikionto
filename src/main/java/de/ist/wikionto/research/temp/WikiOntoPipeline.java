@@ -19,7 +19,7 @@ import com.hp.hpl.jena.tdb.TDBFactory;
 import de.ist.wikionto.research.MyLogger;
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
-public class TransformationManager {
+public class WikiOntoPipeline {
 	private Map<String, Boolean> relevantArticles = new HashMap<>();
 	private Map<String, Boolean> relevantCategories = new HashMap<>();
 	private List<String> seed = new ArrayList<String>();
@@ -29,24 +29,27 @@ public class TransformationManager {
 	private List<Transformation> transList = new LinkedList<>();
 	private String storeName = "Computer_languages";
 	private Dataset store;
-	private Dataset oldStore;
+	private Dataset sourceStore;
 
 	private MyLogger log = new MyLogger("logs/", "Result");
 
-	// MyLogger log = new MyLogger("logs/", "Transformation");
-
-	public void transform() {
+	public static void main(String[] args) {
+		WikiOntoPipeline tm = new WikiOntoPipeline();
+		tm.executePipeline();
+	}
+	
+	public void executePipeline() {
 		System.out.println("Start pipeline at " + new Date().toString());
 		log.logDate("Start pipeline");
 		// open base store
 		this.relevantArticles = new HashMap<>();
-		store = TDBFactory.createDataset(storeName);
-		oldStore = store;
+		sourceStore = TDBFactory.createDataset(storeName);;
+		store = createNewDataset(storeName + "_Pipeline", storeName);
 		// get check lists
 		try {
-			this.articles = ArticleCheckManager.getArticles(store);
-			this.infoboxC = ArticleCheckManager.getInfoboxChecks(store);
-			this.textC = ArticleCheckManager.getTextChecks(store);
+			this.articles = NewArticleCheckManager.getArticles(store);
+			this.infoboxC = NewArticleCheckManager.getInfoboxChecks(store);
+			this.textC = NewArticleCheckManager.getTextChecks(store);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,28 +57,34 @@ public class TransformationManager {
 		articles.forEach(x -> relevantArticles.put(x, false));
 		// Seed-Based
 		SeedAnnotation sa = new SeedAnnotation(this);
-		sa.annotate();
+		sa.execute();
 		// Hypernym
 		HypernymAnnotation ha = new HypernymAnnotation(this);
-		ha.annotate();
+		ha.execute();
 		// Eponymous
 		EponymousTransformation et = new EponymousTransformation(this);
-		et.transform();
+		et.execute();
 		// Semantically Distant
 		SemanticallyDistanstAnnotation sda = new SemanticallyDistanstAnnotation(this);
-		sda.annotate();
+		sda.execute();
 		// Children-based Category
 		ChildrenBased cb = new ChildrenBased(this);
-		cb.annotate();
+		cb.execute();
+		ArticleAnnotation aa = new ArticleAnnotation(this);
+		aa.execute();
 		// Clean up
 		CleanUp cu = new CleanUp(this);
-		cu.transform();
+		cu.execute();
 		log.logLn("Reachable categories: ");
-		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream().filter(this::getFromRelevantCategories).collect(Collectors.toList());
+		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream()
+				.filter(this::getFromRelevantCategories)
+				.collect(Collectors.toList());
 		base.stream().sorted().forEach(log::logLn);
 		log.logLn("Total number of relevant categories: " + base.stream().count() + "\n\n");
 		log.logLn("Reachable articles: ");
-		base = QueryUtil.getReachableArticles(this.getStore()).stream().filter(this::getFromRelevantArticles).collect(Collectors.toList());
+		base = QueryUtil.getReachableArticles(this.getStore()).stream()
+				.filter(this::getFromRelevantArticles)
+				.collect(Collectors.toList());
 		base.stream().sorted().forEach(log::logLn);
 		log.logLn("Total number of relevant articles: " + base.stream().count());
 		System.out.println("Finish pipeline at " + new Date().toString());
@@ -83,9 +92,8 @@ public class TransformationManager {
 
 	}
 
-	public void createNewDatasetName(String transName, String setName) {
-		String newName = setName + "_" + transName;
-		File oldDir = new File("./" + setName);
+	public Dataset createNewDataset(String newName, String oldName) {
+		File oldDir = new File("./" + oldName);
 		File newDir = new File("./" + newName);
 		try {
 			if (newDir.exists()) {
@@ -98,26 +106,16 @@ public class TransformationManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.oldStore = store;
-		this.store = TDBFactory.createDataset(newName);
 		this.storeName = newName;
+		return TDBFactory.createDataset(newName);
 	}
 
-	public static void main(String[] args) {
-		TransformationManager tm = new TransformationManager();
-//		tm.transList.add(new Hypernym(tm));
-//		tm.transList.add(new EponymousTransformation(tm));
-//		tm.transList.add(new SemanticallyDistanst(tm));
-//		tm.transList.add(new ChildrenBased(tm));
-		tm.transform();
+	public Dataset getSourceStore() {
+		return sourceStore;
 	}
 
-	public Dataset getOldStore() {
-		return oldStore;
-	}
-
-	public void setOldStore(Dataset oldStore) {
-		this.oldStore = oldStore;
+	public void setSourceStore(Dataset oldStore) {
+		this.sourceStore = oldStore;
 	}
 
 	public String getStoreName() {
@@ -143,9 +141,6 @@ public class TransformationManager {
 	public void setArticleChecks(List<String> articles) {
 		this.articles = articles;
 	}
-
-
-
 
 	public List<String> getSeed() {
 		return seed;

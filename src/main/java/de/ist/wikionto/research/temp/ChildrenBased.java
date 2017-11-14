@@ -1,6 +1,5 @@
 package de.ist.wikionto.research.temp;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,10 +26,9 @@ public class ChildrenBased extends Annotation {
 
 	@Override
 	public void execute() {
-		this.log.logDate("Log Start\nThreshold children: " + thresholdInstances + "\nThreshold subcategories: " + thresholdClassifiers + "\n");
+		log.logDate("Log Start\nThreshold children: " + thresholdInstances + "\nThreshold subcategories: " + thresholdClassifiers + "\n");
 		while (a){
 			a = false;
-			List<String> temp = new ArrayList<>(); 
 			Dataset store = this.manager.getStore();
 			ResultSet rs = this.query(store, query);
 			store.begin(ReadWrite.WRITE);
@@ -59,7 +57,7 @@ public class ChildrenBased extends Annotation {
 			store.end();
 			
 		}
-		this.log.logDate("Log End");
+		log.logDate("Log End");
 	}
 
 	
@@ -73,7 +71,7 @@ public class ChildrenBased extends Annotation {
 		if (articles.size() > 0){
 			result =  artCount >= (thresholdInstances * articleSize);
 		}
-		this.log.logLn("  Articles: " + result + "  " + articles.size() + "  " + artCount + "  " );
+		log.logLn("  Articles: " + result + "  " + articles.size() + "  " + artCount + "  " );
 		return result;
 	}
 
@@ -85,7 +83,7 @@ public class ChildrenBased extends Annotation {
 			result = subCount  >= (thresholdClassifiers * subcategories.size());
 
 		}
-		this.log.logLn("  Subcategories: " + result + "  "  + subcategories.size() + "  " + subCount);
+		log.logLn("  Subcategories: " + result + "  "  + subcategories.size() + "  " + subCount);
 		return result;
 	}
 	

@@ -153,7 +153,7 @@ public class PruningTopology {
 						+ "\nfrom the classifier to the element.";
 
 				Map<String, List<String>> map = new HashMap<>();
-				List<String> instances = QueryUtil.getInstances(dataset, c);
+				List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, c);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
 				map.put("Classified instances", instances.stream().map(i -> wURI + i).collect(Collectors.toList()));
 				map.put("Subclassifiers", subclassifiers.stream().map(sc -> cURI + sc).collect(Collectors.toList()));
@@ -234,7 +234,7 @@ public class PruningTopology {
 						+ "\nfrom the classifier to the element.";
 
 				Map<String, List<String>> map = new HashMap<>();
-				List<String> instances = QueryUtil.getInstances(dataset, c);
+				List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, c);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
 				map.put("Classified instances", instances.stream().map(i -> wURI + i).collect(Collectors.toList()));
 				map.put("Subclassifiers", subclassifiers.stream().map(i -> cURI + i).collect(Collectors.toList()));
@@ -390,7 +390,7 @@ public class PruningTopology {
 				if (path2.isEmpty()) {
 					continue;
 				}
-				List<String> instances = QueryUtil.getInstances(dataset, t);
+				List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, t);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, t);
 				map.put("Path from " + top1, path1.stream().map(i -> cURI + i).collect(Collectors.toList()));
 				map.put("Path from " + top2, path2.stream().map(i -> cURI + i).collect(Collectors.toList()));
@@ -764,7 +764,7 @@ public class PruningTopology {
 						+ "\nfrom the classifier to the element.";
 
 				Map<String, List<String>> map = new HashMap<>();
-				List<String> instances = QueryUtil.getInstances(dataset, c);
+				List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, c);
 				List<String> subclassifiers = QueryUtil.getSubclassifiers(dataset, c);
 				map.put("Classified instances", instances.stream().map(i -> wURI + i).collect(Collectors.toList()));
 				map.put("Subclassifiers", subclassifiers.stream().map(i -> cURI + i).collect(Collectors.toList()));

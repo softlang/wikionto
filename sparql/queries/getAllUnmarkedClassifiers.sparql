@@ -8,7 +8,7 @@ WHERE {
    NOT EXISTS { ?classifier :marked ?m}.
    FILTER NOT EXISTS {
       ?c2 :isA ?classifier.
-      FILTER NOT EXISTS {?c2 :marked ?mark.}.
+      ?c2 :marked ?mark.
    }.
 
    {SELECT DISTINCT ?classifier ?dclassifier

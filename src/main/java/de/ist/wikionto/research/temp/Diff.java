@@ -111,7 +111,7 @@ public class Diff {
 	
 	
 	public static void main(String[] args) {
-		Dataset ds = TDBFactory.createDataset("Computer_languages_Eponymous_ChildrenBased");
+		Dataset ds = TDBFactory.createDataset("Computer_languages_Pipeline");
 		log.logDate("Start diff");
 		stats(ds);
 		log.logLn("");

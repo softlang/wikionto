@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 
@@ -62,16 +63,16 @@ public class TransformationUtil {
 		dataset.end();
 	}
 	
-	//TODO Wirte Methode to remove unmarked articles and categories
+	//TODO Write method to remove unmarked articles and categories
 	
 	public static void removeClassifiers(Dataset dataset, List<String> names) {
 		dataset.begin(ReadWrite.WRITE);
 		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
 		// remove isA relations
 		names.forEach(name -> {
-			String query = "PREFIX : <http://myWikiTax.de/> \n" 
-					+ "DELETE {\n" 
-					+ "?s :isA ?o .}\n" 
+			String query = "PREFIX : <http://myWikiTax.de/> " 
+					+ "DELETE {" 
+					+ "?s :isA ?o .}" 
 					+ "WHERE {"
 					+ "{ SELECT DISTINCT ?s ?o WHERE " 
 					+ "{ " + "?s :name ?name "
@@ -105,6 +106,10 @@ public class TransformationUtil {
 		});
 		dataset.commit();
 		dataset.end();
+	}
+	
+	public static void abandonClassifiers(Dataset dataset, List<String> names) {
+		
 	}
 
 
@@ -224,11 +229,11 @@ public class TransformationUtil {
 	}
 	
 	public static void moveUp(Dataset dataset, String name){
+		Map<String,Resource> instanceResources = QueryUtil.getReachableInstanceResources(dataset);
+		Map<String,Resource> classifierResources = QueryUtil.getReachableClassifierResources(dataset);
 		List<String> subCats = QueryUtil.getSubclassifiers(dataset, name);
 		List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, name);
 		List<String> parents = QueryUtil.getSuperclassifiers(dataset, name);
-		Map<String,Resource> instanceResources = QueryUtil.getReachableInstanceResources(dataset);
-		Map<String,Resource> classifierResources = QueryUtil.getReachableClassifierResources(dataset);
 		dataset.begin(ReadWrite.WRITE);
 		Model model = dataset.getDefaultModel();
 		Property isAP = model.getProperty("http://myWikiTax.de/isA");
@@ -252,7 +257,10 @@ public class TransformationUtil {
 		names.forEach(name -> {
 			List<String> subCats = QueryUtil.getSubclassifiers(dataset, name);
 			List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, name);
-			List<String> parents = QueryUtil.getSuperclassifiers(dataset, name);
+			List<String> parents = QueryUtil.getSuperclassifiers(dataset, name)
+					.stream()
+					.filter(n -> !names.contains(n))
+					.collect(Collectors.toList());
 			dataset.begin(ReadWrite.WRITE);
 			Model model = dataset.getDefaultModel();
 			Property isAP = model.getProperty("http://myWikiTax.de/isA");

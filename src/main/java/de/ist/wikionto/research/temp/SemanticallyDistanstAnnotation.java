@@ -33,7 +33,7 @@ public class SemanticallyDistanstAnnotation extends Annotation {
 			String name = qs.get("?iname").asLiteral().getString();
 			int distant = qs.get("?howManyDistantTypes").asLiteral().getInt();
 			int reachable = qs.get("?howManyReachableTypes").asLiteral().getInt();
-			int difference = qs.get("?difference").asLiteral().getInt();
+//			int difference = qs.get("?difference").asLiteral().getInt();
 			Boolean check;
 			if (distant > 0)
 				check = reachable >= threshold * distant ;

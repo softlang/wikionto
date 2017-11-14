@@ -28,7 +28,7 @@ public class QueryTest {
 
 	@Test
 	public void testgetInstances() {
-		List<String> is = QueryUtil.getInstances(dataset, "OCaml software");
+		List<String> is = QueryUtil.getInstancesFromClassifier(dataset, "OCaml software");
 		assertEquals(18, is.size());
 	}
 
@@ -49,7 +49,7 @@ public class QueryTest {
 
 	@Test
 	public void testgetClassifiers() {
-		List<String> ss = QueryUtil.getClassifiers(dataset, "OCaml");
+		List<String> ss = QueryUtil.getClassifiersFromInstance(dataset, "OCaml");
 		assertEquals(11, ss.size());
 	}
 

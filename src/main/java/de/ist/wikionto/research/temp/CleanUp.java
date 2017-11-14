@@ -32,28 +32,27 @@ public class CleanUp extends Transformation {
 		log.logDate("Start " + this.getName());
 		classifiers = QueryUtil.getReachableClassifierResources(this.manager.getStore());
 		instances = QueryUtil.getReachableInstanceResources(this.manager.getStore());
+		baseClassifiers = QueryUtil.getReachableClassifiers(this.manager.getStore());
+		baseInstances = QueryUtil.getReachableArticles(this.manager.getStore());
 		deleteClassifiers = baseClassifiers.stream()
 			.filter(key -> !this.manager.getFromRelevantCategories(key))
-			.map(name -> {
-				this.log.logLn("Remove category " + name);
-				return name;
-			})
 			.collect(Collectors.toList());
 		deleteInstances = baseInstances.stream()
 			.filter(key -> !this.manager.getFromRelevantArticles(key))
-			.map(name -> {
-				this.log.logLn("Remove article " + name);
-				return name;
-			})
 			.collect(Collectors.toList());
+		deleteClassifiers.forEach(name -> log.logLn("Remove category " + name));
+		deleteInstances.forEach(name -> log.logLn("Remove article " + name));
 		System.out.println(deleteInstances.size());
 		System.out.println(deleteClassifiers.size());
+//		TransformationUtil.transformFile(this.manager.getStore(), "abandonUnrelevantInstance.sparql" , new HashMap<String, String>());
 		TransformationUtil.removeInstances(this.manager.getStore(), deleteInstances);
 		TransformationUtil.moveUp(this.manager.getStore(),deleteClassifiers);
 		TransformationUtil.removeClassifiers(this.manager.getStore(), deleteClassifiers);
+//		TransformationUtil.transformFile(this.manager.getStore(), "abandonUnmarkedClassifier0.sparql" , new HashMap<String, String>());
 		log.logDate("Finish " + this.getName());
 	}
 	
+	@Deprecated
 	public void moveUp(String name){
 		Dataset dataset = this.manager.getStore();
 		List<String> children = QueryUtil.getInstancesFromClassifier(this.manager.getStore(), name);
