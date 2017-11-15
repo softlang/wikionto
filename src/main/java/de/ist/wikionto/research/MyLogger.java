@@ -26,6 +26,7 @@ public class MyLogger {
 			// Replace because of Windows issues with ':'
 			new File(path).mkdir();
 			this.logFile = new File(path + name + new Date().toString().replaceAll(":", "") + ".log");
+			this.logFile.createNewFile();
 			logger = new FileWriter(logFile);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -71,6 +72,16 @@ public class MyLogger {
 				e.printStackTrace();
 			}
 
+		}
+	}
+	
+	public void close(){
+		try {
+			this.logger.flush();
+			this.logger.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

@@ -6,7 +6,7 @@ public abstract class Transformation extends PipelineElement{
 
 	public Transformation(WikiOntoPipeline manager,String name) {
 		super(manager,name);
-		this.log = new MyLogger("logs/", this.name);
+		log = new MyLogger("logs/", this.name);
 		System.out.println("Start transformation " + name + "\n see log \"" + log.logPath() + "\"");
 
 	}

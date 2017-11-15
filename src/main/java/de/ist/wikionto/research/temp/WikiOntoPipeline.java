@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,11 +22,13 @@ import de.ist.wikionto.triplestore.query.QueryUtil;
 public class WikiOntoPipeline {
 	private Map<String, Boolean> relevantArticles = new HashMap<>();
 	private Map<String, Boolean> relevantCategories = new HashMap<>();
+	private Map<String, Set<Annotation>> articleAnnotations = new HashMap<>();
+	private Map<String, Set<Annotation>> categoryAnnotations = new HashMap<>();
 	private List<String> seed = new ArrayList<String>();
 	private List<String> textC = new ArrayList<String>();
 	private List<String> infoboxC = new ArrayList<String>();
 	private List<String> articles = new ArrayList<String>();
-	private List<Transformation> transList = new LinkedList<>();
+//	private List<Transformation> transList = new LinkedList<>();
 	private String storeName = "Computer_languages";
 	private Dataset store;
 	private Dataset sourceStore;
@@ -43,7 +45,7 @@ public class WikiOntoPipeline {
 		log.logDate("Start pipeline");
 		// open base store
 		this.relevantArticles = new HashMap<>();
-		sourceStore = TDBFactory.createDataset(storeName);;
+		sourceStore = TDBFactory.createDataset(storeName);
 		store = createNewDataset(storeName + "_Pipeline", storeName);
 		// get check lists
 		try {
@@ -56,40 +58,49 @@ public class WikiOntoPipeline {
 		}
 		articles.forEach(x -> relevantArticles.put(x, false));
 		// Seed-Based
-		SeedAnnotation sa = new SeedAnnotation(this);
+		SeedAnnotator sa = new SeedAnnotator(this);
 		sa.execute();
 		// Hypernym
-		HypernymAnnotation ha = new HypernymAnnotation(this);
+		HypernymAnnotator ha = new HypernymAnnotator(this);
 		ha.execute();
 		// Eponymous
 		EponymousTransformation et = new EponymousTransformation(this);
 		et.execute();
 		// Semantically Distant
-		SemanticallyDistanstAnnotation sda = new SemanticallyDistanstAnnotation(this);
+		SemanticallyDistanstAnnotator sda = new SemanticallyDistanstAnnotator(this);
 		sda.execute();
 		// Children-based Category
-		ChildrenBased cb = new ChildrenBased(this);
+		ChildrenBasedAnnotator cb = new ChildrenBasedAnnotator(this);
 		cb.execute();
-		ArticleAnnotation aa = new ArticleAnnotation(this);
+		RelevantArticlesTransformation aa = new RelevantArticlesTransformation(this);
 		aa.execute();
 		// Clean up
 		CleanUp cu = new CleanUp(this);
 		cu.execute();
-		log.logLn("Reachable categories: ");
+		
 		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream()
 				.filter(this::getFromRelevantCategories)
 				.collect(Collectors.toList());
-		base.stream().sorted().forEach(log::logLn);
+		
 		log.logLn("Total number of relevant categories: " + base.stream().count() + "\n\n");
-		log.logLn("Reachable articles: ");
+		log.logLn("Reachable categories: ");
+		base.stream().sorted().forEach(log::logLn);
+		
 		base = QueryUtil.getReachableArticles(this.getStore()).stream()
 				.filter(this::getFromRelevantArticles)
 				.collect(Collectors.toList());
-		base.stream().sorted().forEach(log::logLn);
 		log.logLn("Total number of relevant articles: " + base.stream().count());
+		log.logLn("Reachable articles: ");
+		base.stream().sorted().forEach(log::logLn);
 		System.out.println("Finish pipeline at " + new Date().toString());
 		log.logDate("Finish pipeline");
-
+		log.close();
+		Annotation.log.logLn("Article name: Annotations");
+		articleAnnotations.forEach((x,y) -> {
+			Annotation.log.log(x + ": ");
+			String s = String.join(", ", y.stream().map(Annotation::toString).collect(Collectors.toList()));
+			Annotation.log.logLn(s);
+		});
 	}
 
 	public Dataset createNewDataset(String newName, String oldName) {
@@ -194,6 +205,31 @@ public class WikiOntoPipeline {
 			return relevantCategories.get(key);
 		else
 			return false;
+	}
+	
+	public Boolean addArticleAnnotation(String article,Annotation annotation){
+		if (!articleAnnotations.containsKey(article))
+			articleAnnotations.put(article, new HashSet<>());
+		return articleAnnotations.get(article).add(annotation);
+	}
+	
+	public Boolean addCategoryAnnotation(String cat,Annotation annotation){
+		if (!categoryAnnotations.containsKey(cat))
+			categoryAnnotations.put(cat, new HashSet<>());
+		return categoryAnnotations.get(cat).add(annotation);
+	}
+
+	public boolean removeArticleAnnotation(String article, Annotation anno) {
+		if (!articleAnnotations.containsKey(article))
+			articleAnnotations.put(article, new HashSet<>());
+		return articleAnnotations.get(article).remove(anno);
+		
+	}
+	
+	public boolean removeArticleCategory(String cat, Annotation anno) {
+		if (!categoryAnnotations.containsKey(cat))
+			categoryAnnotations.put(cat, new HashSet<>());
+		return categoryAnnotations.get(cat).remove(anno);
 	}
 
 }

@@ -6,6 +6,8 @@ import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
+import de.ist.wikionto.triplestore.query.QueryUtil;
+
 public class EponymousTransformation extends Transformation {
 
 	
@@ -25,7 +27,7 @@ private List<String> deleteInstances = new ArrayList<>();
 	@Override
 	public void execute() {
 		log.logDate("Write transformation " + this.name + " to store " + this.manager.getStoreName());
-		ResultSet rs = query(store, queryPath);
+		ResultSet rs = QueryUtil.executeQuery(store, queryPath);
 		rs.forEachRemaining(qs -> {
 			boolean check = this.check(qs);
 			String name = qs.get("?cname").asLiteral().getString();

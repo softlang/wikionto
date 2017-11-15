@@ -1,13 +1,29 @@
 package de.ist.wikionto.research.temp;
 
-import com.hp.hpl.jena.query.Dataset;
 import de.ist.wikionto.research.MyLogger;
 
-public abstract class Annotation extends PipelineElement{
-
-	public Annotation(WikiOntoPipeline manager,String name) {
-		super(manager,name);
-		System.out.println("Start annotation " + name + "\n see log \"" + log.logPath() + "\"");
-	}	
+public enum Annotation {
+	SEED,
+	ISA,
+	INFOBOX,
+	SEMANTICDISTANT,
+	CHILDRENBASED,
+	REMOVED_SEMANTICDISTANT,
+	REMOVED_CHILDRENBASED,
+	REMOVED_ISA,
+	REMOVED_FROM_STORE;
+	
+	public static MyLogger log = new MyLogger("logs/", "Annotations");
+	
+	private int count = 0;
+	
+	public void setCount(int i){
+		this.count = i;
+	}
+	
+	public int getCount(){
+		return this.count;
+	}
+	
 	
 }
