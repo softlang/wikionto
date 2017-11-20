@@ -8,5 +8,5 @@ WHERE{
    FILTER(regex(STR(?classifier), "Classifier")).
    ?instance :instanceOf ?classifier.
    ?classifier :isA ?c2.
-   
+
 }

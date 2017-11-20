@@ -9,11 +9,11 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
-public class ArticleAnnotation extends Annotation{
-	private String query = "/sparql/queries/getAllReachableArticles.sparql";
+public class InsertRelevantArticlesTransformation extends Transformation{
+	private String query = "/sparql/queries/instance/getAllReachableInstances.sparql";
 	
-	public ArticleAnnotation(WikiOntoPipeline manager) {
-		super(manager, "");
+	public InsertRelevantArticlesTransformation(WikiOntoPipeline manager) {
+		super(manager, "InsertRelevantArticles",false);
 		
 	}
 

@@ -30,7 +30,7 @@ public class CleanUp extends Transformation {
 		log.logDate("Start " + this.getName());
 		
 		System.out.println("Delete instances: " + cleanUpInstances());
-//		System.out.println("Delete classifiers: " + cleanUpClassifiers());
+		System.out.println("Delete classifiers: " + cleanUpClassifiers());
 		
 		log.logDate("Finish " + this.getName());
 	}
@@ -52,15 +52,16 @@ public class CleanUp extends Transformation {
 		List<String> deleteClassifiers = QueryUtil.getReachableClassifiers(this.store).stream()
 			.filter(key -> !this.manager.getFromRelevantCategories(key))
 			.collect(Collectors.toList());
-		System.out.println(deleteClassifiersQuery.length());
 		TransformationUtil.moveUp(this.store, deleteClassifiers);
+//		TransformationUtil.removeIsARelations(this.store, deleteClassifiers);
+		TransformationUtil.transformFile(this.store, "/removeIrrelevantClassifiers.sparql", new HashMap<>());
 		deleteClassifiers.forEach(name -> {
 			log.logLn("Remove category " + name);
 			Map<String,String> temp = new HashMap<>();
 			temp.put("name", name);
-			System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery , temp));			
+//			System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery , temp));			
 		});
-//		TransformationUtil.removeIsARelations(this.store, deleteClassifiers);
+		
 //		System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery ,new HashMap<>()));
 		return deleteClassifiers.size();
 	}

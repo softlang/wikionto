@@ -1,7 +1,6 @@
 PREFIX : <http://myWikiTax.de/>
 DELETE {?c1 :isA ?c2}
 WHERE{
-   ?c1 :isA ?c2.
    ?c1 :name ?name.
    FILTER EXISTS {
       ?c1 :isA* ?r.

@@ -2,5 +2,7 @@ PREFIX : <http://myWikiTax.de/>
 SELECT DISTINCT  (COUNT(?classifier) AS ?number)
 WHERE {
 	?classifier :relevant "false".
+   ?root :name "Computer_languages".
+   ?classifier :isA* ?root.
 	FILTER regex(str(?classifier), "Classifier").
 }
