@@ -1,0 +1,18 @@
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT ?classifier ?name
+WHERE {
+   ?classifier :name ?name.
+   ?classifier :isA* ?root.
+   ?root :name "Computer_languages".
+
+   FILTER NOT EXISTS {?classifier :marked ?m}.
+   FILTER NOT EXISTS {
+      ?c2 :isA ?classifier.
+      NOT EXISTS {
+         ?c2 :marked ?mark.
+      }
+   }.
+   FILTER regex(str(?classifier), "Classifier").
+}
+GROUP BY ?name ?classifier
+ORDER BY ASC (?name)

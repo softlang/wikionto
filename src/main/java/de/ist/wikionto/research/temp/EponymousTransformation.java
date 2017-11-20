@@ -43,7 +43,7 @@ private List<String> deleteInstances = new ArrayList<>();
 		});
 		TransformationUtil.removeInstances(store, deleteInstances);
 		TransformationUtil.moveUp(store, deleteClassifiers);
-		TransformationUtil.removeClassifiers(store, deleteClassifiers);
+		TransformationUtil.removeIsARelations(store, deleteClassifiers);
 		log.logDate("Finish Transformation " + this.name);
 	}
 

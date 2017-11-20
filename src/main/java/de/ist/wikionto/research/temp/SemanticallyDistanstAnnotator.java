@@ -6,50 +6,65 @@ import java.util.stream.Collectors;
 
 import com.hp.hpl.jena.query.ResultSet;
 
-public class SemanticallyDistanstAnnotation extends Annotation {
+import de.ist.wikionto.triplestore.query.QueryUtil;
+
+public class SemanticallyDistanstAnnotator extends Annotator {
 	int i = 0;
 	double threshold = 0.5;
 	String queryInstances = "/sparql/smells/SemanticallyDistantInstance.sparql";
-
-	public SemanticallyDistanstAnnotation(WikiOntoPipeline manager) {
-		super(manager,"SemanticallyDistanstInstances");
+	Boolean changed = false;
+	private int iteration = 0;
+	int j = 0;
+	
+	public SemanticallyDistanstAnnotator(WikiOntoPipeline manager , int iteration) {
+		super(manager,"SemanticallyDistanstInstances" + "Iteration" + iteration);
+		this.iteration = iteration;
 	}
 
 	// needs Hypernym
 	@Override
-	public void execute() {
-		log.logDate("Start " + this.name);
+	public void execute() {	
+		log.logDate("Start " + this.name + " Iteration " + iteration);
+		this.changed = false;
 		log.logLn("Threshold : " + threshold);
 		log.logLn("name, number of reachable classifiers, number of classifiers");
 		List<String> temp = new ArrayList<String>();
-		ResultSet instanceSet = this.query(this.manager.getStore(), queryInstances);
+		ResultSet instanceSet = QueryUtil.executeQuery(this.manager.getStore(), queryInstances);
 		List<String> base = 
 			this.manager.getTextC().stream()
 			.filter(x -> !manager.getSeed().contains(x))
 			.filter(x -> !manager.getInfoboxC().contains(x))
+			.filter(x -> this.manager.getFromRelevantArticles(x))
+			.sorted()
 			.collect(Collectors.toList());
+		System.out.println("Only text checks: " + base.size());
 		i = 0;
 		instanceSet.forEachRemaining(qs -> {
 			String name = qs.get("?iname").asLiteral().getString();
-			int distant = qs.get("?howManyDistantTypes").asLiteral().getInt();
+			int numberOfCats = qs.get("?howManyDistantTypes").asLiteral().getInt();
 			int reachable = qs.get("?howManyReachableTypes").asLiteral().getInt();
-//			int difference = qs.get("?difference").asLiteral().getInt();
+			int unreachable = qs.get("?difference").asLiteral().getInt();
 			Boolean check;
-			if (distant > 0)
-				check = reachable >= threshold * distant ;
-			else 
+			if (numberOfCats > 0 && reachable > 0){
+				check = reachable >= threshold * numberOfCats ;
+			} else 
 				check = false;  
 			if (base.contains(name)) {
+				j++;
 				if (check) {
 					i++;
-					log.logLn("Instance " + name + ", " + reachable + ", " + distant);
-					log.logLn("Mark " + name + " as relevant");
-					manager.putInRelevantArticles(name, true);
+					log.logLn("Instance " + name + ", " + reachable + ", " + numberOfCats);
+					log.logLn("  Mark " + name + " as relevant");
+					hasChanged(name, true);
+					this.log.log("\n");
+					manager.addArticleAnnotation(name, Annotation.SEMANTICDISTANT);
 				} else {
-					log.logLn("Instance " + name + ", " + reachable + ", " + distant);
-					log.logLn("Mark " + name + " as irrelevant");
+					log.logLn("Instance " + name + ", " + reachable + ", " + numberOfCats);
+					log.logLn("  Mark " + name + " as irrelevant");
 					this.manager.getTextC().remove(name);
-					manager.putInRelevantArticles(name, false);
+					hasChanged(name,false);
+					this.log.log("\n");
+					this.manager.addArticleAnnotation(name, Annotation.ISA_FALSE);
 				}
 			} else {
 				if (check)
@@ -57,15 +72,28 @@ public class SemanticallyDistanstAnnotation extends Annotation {
 			}
 			
 		});
-		log.logLn("\nOther Instances with positive Semantically distant check:");
-		temp.stream()
-			.filter(x -> !manager.getSeed().contains(x))
-			.filter(x -> !manager.getInfoboxC().contains(x))
-			.forEach(log::logLn);
+	System.out.println("Checked semantically: " + j);
 		log.logLn("Total number of sematically distant checks: " + base.size());
 		log.logLn("Number of relevant marked categories: " + i);
 		
 		log.logDate("End");
+		log.close();
 	}
 	
+	public boolean hasChanged(){
+		return changed;
+	}
+	
+	private void hasChanged(String name, boolean result) {
+		boolean old = this.manager.getFromRelevantArticles(name);
+		if (old != result) {
+			changed = true;
+//			log.logLn("  Changed value");
+			this.manager.putInRelevantArticles(name, result);
+		}
+	}
+
+	public int getIteration() {
+		return iteration;
+	}
 }

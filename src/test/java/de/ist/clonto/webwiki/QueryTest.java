@@ -28,7 +28,7 @@ public class QueryTest {
 
 	@Test
 	public void testgetInstances() {
-		List<String> is = QueryUtil.getInstancesFromClassifier(dataset, "OCaml software");
+		List<String> is = QueryUtil.getInstances(dataset, "OCaml software");
 		assertEquals(18, is.size());
 	}
 

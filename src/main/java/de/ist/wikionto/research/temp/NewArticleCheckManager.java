@@ -40,16 +40,14 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
 import edu.stanford.nlp.util.CoreMap;
 
 public class NewArticleCheckManager{
-	private String queryPath = "/sparql/queries/getAllReachableArticlesWithText.sparql";
+	private String queryPath = "/sparql/queries/instances/getAllReachableArticlesWithText.sparql";
 	private List<String> infoCboxChecks = new ArrayList<>();
 	private List<String> textChecks = new ArrayList<>();
 	private List<String> articles = new ArrayList<>();
 	private List<String> languages = new ArrayList<>();
 	private List<String> dialects = new ArrayList<>();
 	private List<String> formats = new ArrayList<>();
-	
-	private Map<String,String> keywords = new HashMap<>();
-	
+		
 	static MyLogger l = new MyLogger("logs/", "newArticleCheck");
 	
 	Pattern paradigm = Pattern.compile("paradigm", Pattern.CASE_INSENSITIVE);
@@ -228,20 +226,26 @@ public class NewArticleCheckManager{
 			.map(SemanticGraphEdge::getGovernor)
 			.collect(Collectors.toList());
 		
-		List<IndexedWord> langs = sg.getAllNodesByWordPattern("(languages?)|(formats?)|(dsls?)|(dialects?)");
-
+		List<IndexedWord> langs = sg.getAllNodesByWordPattern("(languages?)|(dsls?)|(dialects?)");
+		List<IndexedWord> formats = sg.getAllNodesByWordPattern("(formats?)");
 		for(IndexedWord cop : cops){
+			
+			result = hasPath(sg, cop, langs);
 			if (result){
+				this.addLanguage(this.title);
 				break;
 			}
-			result = hasPath(sg, cop, langs);
+			result = hasPath(sg, cop, formats);
+			if (result){
+				this.addFormat(this.title);
+				break;
+			}
 			
 		}
 		return result;
 	}
 	
 	public boolean hasPath(SemanticGraph graph, IndexedWord source, List<IndexedWord> langs){
-		boolean result = false;
 		if (langs.contains(source)){
 			this.keyword = source.originalText();
 			return true;
@@ -280,18 +284,18 @@ public class NewArticleCheckManager{
 				this.addInfoboxCheck(title);
 			if (textCheck)
 				this.addTextCheck(title);
-			if (this.keyword != null)
-				if (this.keyword.contains("language"))
-					this.addLanguage(title);
-				else
-					if (this.keyword.contains("format"))
-						this.addFormat(title);
-					else
-						if (this.keyword.contains("dialect"))
-							this.addLanguage(title);
-						else
-							if (this.keyword.contains("dsl"))
-								this.addLanguage(title);
+//			if (this.keyword != null)
+//				if (this.keyword.contains("language"))
+//					this.addLanguage(title);
+//				else
+//					if (this.keyword.contains("format"))
+//						this.addFormat(title);
+//					else
+//						if (this.keyword.contains("dialect"))
+//							this.addLanguage(title);
+//						else
+//							if (this.keyword.contains("dsl"))
+//								this.addLanguage(title);
 			NewArticleCheckManager.l.logLn(
 					this.title + ": " + this.keyword 
 					+ "\n  Content Check: " + textCheck

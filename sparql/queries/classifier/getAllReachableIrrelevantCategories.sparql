@@ -1,0 +1,9 @@
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT ?name
+WHERE {
+	?classifier :isA* ?root.
+	?root :name "Computer_languages".
+	?classifier :name ?name.
+	?classifier :relevant "false".
+	FILTER regex(str(?classifier), "Classifier").
+}

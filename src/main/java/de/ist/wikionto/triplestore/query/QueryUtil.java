@@ -44,7 +44,8 @@ public class QueryUtil {
 		List<String> result = new ArrayList<>();
 		String sparql = "PREFIX : <http://myWikiTax.de/> SELECT DISTINCT  ?name "
 				+ "WHERE {	"
-				+ "?c :name ?name.	?c :isA* ?root.	"
+				+ "?c :name ?name.	"
+				+ "?c :isA* ?root.	"
 				+ "?root :name \"Computer_languages\".	"
 				+ "FILTER regex(str(?c), \"Classifier\").}";
 		dataset.begin(ReadWrite.READ);
@@ -57,7 +58,7 @@ public class QueryUtil {
 		return result;
 	}
 	
-	public static List<String> getReachableArticles(Dataset dataset) {
+	public static List<String> getReachableInstances(Dataset dataset) {
 		List<String> result = new ArrayList<>();
 		String sparql = "PREFIX : <http://myWikiTax.de/> SELECT DISTINCT  ?name "
 				+ "WHERE {	"
@@ -101,7 +102,7 @@ public class QueryUtil {
 		return instances;
 	}
 
-	public static List<String> getInstancesFromClassifier(Dataset dataset, String typename) {
+	public static List<String> getInstances(Dataset dataset, String typename) {
 		String query = "PREFIX : <http://myWikiTax.de/>\nSELECT ?iname WHERE{ \n?c :name ?cname . \n"
 				+ "?i :instanceOf ?c . \n?i :name ?iname . }";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
@@ -310,7 +311,7 @@ public class QueryUtil {
 	public static List<String> getPathFromClassToInstance(Dataset dataset, String start, String aim) {
 		List<String> nextcs = determineNextClassifiersOnPathCI(dataset, start, aim);
 		// the instance may be classified by start
-		if (getInstancesFromClassifier(dataset, start).contains(aim)) {
+		if (getInstances(dataset, start).contains(aim)) {
 			ArrayList<String> rs = new ArrayList<>();
 			rs.add(aim);
 			return rs;
@@ -325,7 +326,7 @@ public class QueryUtil {
 		while (!front.isEmpty()) {
 			// check the front whether the target is already reached
 			List<List<String>> finished = front.stream()
-					.filter(l -> getInstancesFromClassifier(dataset, l.get(l.size() - 1)).contains(aim)).collect(Collectors.toList());
+					.filter(l -> getInstances(dataset, l.get(l.size() - 1)).contains(aim)).collect(Collectors.toList());
 			if (!finished.isEmpty()) {
 				ArrayList<String> rs = new ArrayList<>();
 				rs.addAll(finished.get(0));

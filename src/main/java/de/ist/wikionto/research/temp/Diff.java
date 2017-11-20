@@ -52,7 +52,7 @@ public class Diff {
 	}
 	
 	public static void stats(Dataset dataset){
-		List<String> articles = QueryUtil.getReachableArticles(dataset);
+		List<String> articles = QueryUtil.getReachableInstances(dataset);
 		List<String> categories = QueryUtil.getReachableClassifiers(dataset);
 		List<String> gold_articles = getGoldArticles();
 		List<String> gold_categories = getGoldClassifiers();
@@ -91,7 +91,7 @@ public class Diff {
 	}
 	
 	public static void diffInstances(Dataset dataset){
-		List<String> articles = QueryUtil.getReachableArticles(dataset);
+		List<String> articles = QueryUtil.getReachableInstances(dataset);
 		List<String> gold_articles = getGoldArticles();
 		List<String> union = gold_articles.stream().map(Diff::matchName).filter(name -> articles.contains(name)).collect(Collectors.toList());
 		log.logLn("Articles in gold standard and not in own store: ");

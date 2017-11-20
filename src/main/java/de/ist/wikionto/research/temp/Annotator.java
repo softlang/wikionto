@@ -7,5 +7,7 @@ public abstract class Annotator extends PipelineElement{
 		System.out.println("Start annotation " + name + "\n see log \"" + log.logPath() + "\"");
 	}	
 	
-	
+	public Annotator(WikiOntoPipeline manager, String name, boolean log) {
+		super(manager,name,log);
+	}
 }

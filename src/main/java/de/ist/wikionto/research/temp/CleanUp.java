@@ -15,62 +15,53 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
 public class CleanUp extends Transformation {
-
-	private Map<String,Resource> instances = new HashMap<>();
-	private Map<String,Resource> classifiers = new HashMap<>();
-	private List<String> baseClassifiers = new ArrayList<>();
-	private List<String> baseInstances = new ArrayList<>();
-	private List<String> deleteClassifiers = new ArrayList<>();
-	private List<String> deleteInstances = new ArrayList<>();
+	Dataset store;
+	String deleteInstancesQuery = "/cleanUpIrrelevantInstances.sparql";
+	String deleteClassifiersQuery = "/cleanUpClassifier.sparql";
+	String moveUp = "";
 	
 	public CleanUp(WikiOntoPipeline manager) {
 		super(manager, "CleanUp");
+		this.store = this.manager.getStore();
 	}
 
 	@Override
 	public void execute() {
 		log.logDate("Start " + this.getName());
-		classifiers = QueryUtil.getReachableClassifierResources(this.manager.getStore());
-		instances = QueryUtil.getReachableInstanceResources(this.manager.getStore());
-		baseClassifiers = QueryUtil.getReachableClassifiers(this.manager.getStore());
-		baseInstances = QueryUtil.getReachableArticles(this.manager.getStore());
-		deleteClassifiers = baseClassifiers.stream()
-			.filter(key -> !this.manager.getFromRelevantCategories(key))
-			.collect(Collectors.toList());
-		deleteInstances = baseInstances.stream()
-			.filter(key -> !this.manager.getFromRelevantArticles(key))
-			.collect(Collectors.toList());
-		deleteClassifiers.forEach(name -> log.logLn("Remove category " + name));
-		deleteInstances.forEach(name -> log.logLn("Remove article " + name));
-		System.out.println(deleteInstances.size());
-		System.out.println(deleteClassifiers.size());
-//		TransformationUtil.transformFile(this.manager.getStore(), "abandonUnrelevantInstance.sparql" , new HashMap<String, String>());
-		TransformationUtil.removeInstances(this.manager.getStore(), deleteInstances);
-		TransformationUtil.moveUp(this.manager.getStore(),deleteClassifiers);
-		TransformationUtil.removeClassifiers(this.manager.getStore(), deleteClassifiers);
-//		TransformationUtil.transformFile(this.manager.getStore(), "abandonUnmarkedClassifier0.sparql" , new HashMap<String, String>());
+		
+		System.out.println("Delete instances: " + cleanUpInstances());
+//		System.out.println("Delete classifiers: " + cleanUpClassifiers());
+		
 		log.logDate("Finish " + this.getName());
 	}
-	
-	@Deprecated
-	public void moveUp(String name){
-		Dataset dataset = this.manager.getStore();
-		List<String> children = QueryUtil.getInstancesFromClassifier(this.manager.getStore(), name);
-		dataset.begin(ReadWrite.WRITE);
-		Model model = dataset.getDefaultModel();
-		Property p = model.getProperty("http://myWikiTax.de/instanceOf");
-		children.stream()
-			.filter(manager::getFromRelevantArticles)
-			.forEach(x -> {
-				List<String> parents = QueryUtil.getSuperclassifiers(this.manager.getSourceStore(), name);
-				parents.forEach(y -> {
-					if (this.manager.getFromRelevantCategories(y))
-						model.add(this.instances.get(x), p , this.classifiers.get(y));
-				});
-			});
-		dataset.commit();
-		dataset.end();
+
+	private int cleanUpInstances(){
+		List<String> deleteInstances = QueryUtil.getReachableInstances(this.store).stream()
+			.filter(key -> !this.manager.getFromRelevantArticles(key))
+			.collect(Collectors.toList());
+		System.out.println(deleteInstances.size());
+		deleteInstances.forEach(name -> {
+			log.logLn("Remove article " + name);
+//			TransformationUtil.removeInstance(this.store,name);
+		});
+		System.out.println(TransformationUtil.transformFile(this.store, deleteInstancesQuery, new HashMap<>()));
+		return deleteInstances.size();
 	}
-
-
+	
+	private int cleanUpClassifiers(){
+		List<String> deleteClassifiers = QueryUtil.getReachableClassifiers(this.store).stream()
+			.filter(key -> !this.manager.getFromRelevantCategories(key))
+			.collect(Collectors.toList());
+		System.out.println(deleteClassifiersQuery.length());
+		TransformationUtil.moveUp(this.store, deleteClassifiers);
+		deleteClassifiers.forEach(name -> {
+			log.logLn("Remove category " + name);
+			Map<String,String> temp = new HashMap<>();
+			temp.put("name", name);
+			System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery , temp));			
+		});
+//		TransformationUtil.removeIsARelations(this.store, deleteClassifiers);
+//		System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery ,new HashMap<>()));
+		return deleteClassifiers.size();
+	}
 }

@@ -1,10 +1,11 @@
-PREFIX : <http://myWikiTax.de/> 
-DELETE {
-  ?t ?r ?n .
-}
-WHERE{ 
-  FILTER(regex(STR(?t), "Classifier"))
-  FILTER NOT EXISTS { ?t ^:hasSubclassifier ?supert }
-  FILTER NOT EXISTS { ?t :name "Computer languages" }
-  ?t ?r ?n .
+PREFIX : <http://myWikiTax.de/>
+DELETE {?c1 :isA ?c2}
+WHERE{
+   ?c1 :isA ?c2.
+   ?c1 :name ?name.
+   FILTER EXISTS {
+      ?c1 :isA* ?r.
+      ?r :name "Computer:languages".
+   }
+   FILTER(regex(STR(?c1), "Classifier")).
 }

@@ -8,22 +8,43 @@ public enum Annotation {
 	INFOBOX,
 	SEMANTICDISTANT,
 	CHILDRENBASED,
-	REMOVED_SEMANTICDISTANT,
-	REMOVED_CHILDRENBASED,
-	REMOVED_ISA,
+	RESULT,
+	SEMANTICDISTANT_FALSE,
+	CHILDRENBASED_FALSE,
+	ISA_FALSE,
 	REMOVED_FROM_STORE;
 	
 	public static MyLogger log = new MyLogger("logs/", "Annotations");
 	
-	private int count = 0;
+	private String text;
+	private String classifier;
+	private int iteration = 0;
 	
-	public void setCount(int i){
-		this.count = i;
+	public void setIteration(int iteration){
+		this.iteration = iteration;
 	}
 	
 	public int getCount(){
-		return this.count;
+		return this.iteration;
 	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getClassifier() {
+		return classifier;
+	}
+
+	public void setClassifier(String classifier) {
+		this.classifier = classifier;
+	}
+	
+	
 	
 	
 }

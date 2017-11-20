@@ -3,7 +3,7 @@ package de.ist.wikionto.research.temp;
 import de.ist.wikionto.research.MyLogger;
 
 public abstract class PipelineElement {
-	protected static MyLogger log;
+	protected MyLogger log;
 	protected WikiOntoPipeline manager;
 	protected String name;
 
@@ -11,6 +11,13 @@ public abstract class PipelineElement {
 		this.name = name;
 		this.manager = manager;
 		log = new MyLogger("logs/", name);
+	}
+	
+	public PipelineElement(WikiOntoPipeline manager, String name, boolean log) {
+		this.name = name;
+		this.manager = manager;
+		if (log)
+		 this.log = new MyLogger("logs/", name);
 	}
 	
 	public abstract void execute();

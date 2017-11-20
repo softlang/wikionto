@@ -1,8 +1,9 @@
-PREFIX : <http://myWikiTax.de/> 
+PREFIX : <http://myWikiTax.de/>
 DELETE {
   ?classifier :isA ?entity .
 }
-WHERE{ 
-  ?classifier :isA ?entity .
-  ?classifier :name ?classifiername .
-  ?entity :name ?entityname . }
+WHERE{
+   ?classifier :isA ?entity .
+   ?classifier :name ?classifiername .
+   ?entity :name ?entityname .
+}

@@ -1,0 +1,10 @@
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT  (COUNT(?instance) AS ?number)
+WHERE {
+    SELECT DISTINCT ?instance WHERE {
+        ?instance :instanceOf ?classifier.
+        ?instance :relevant "true".
+        ?root :name "Computer_languages".
+        ?classifier :isA* ?root.
+   }
+}

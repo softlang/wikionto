@@ -37,70 +37,73 @@ public class WikiOntoPipeline {
 
 	public static void main(String[] args) {
 		WikiOntoPipeline tm = new WikiOntoPipeline();
-		tm.executePipeline();
+		tm.defaultPipeline();
 	}
 	
-	public void executePipeline() {
+	public void defaultPipeline() {
 		System.out.println("Start pipeline at " + new Date().toString());
 		log.logDate("Start pipeline");
 		// open base store
 		this.relevantArticles = new HashMap<>();
 		sourceStore = TDBFactory.createDataset(storeName);
 		store = createNewDataset(storeName + "_Pipeline", storeName);
-		// get check lists
-		try {
-			this.articles = NewArticleCheckManager.getArticles(store);
-			this.infoboxC = NewArticleCheckManager.getInfoboxChecks(store);
-			this.textC = NewArticleCheckManager.getTextChecks(store);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		articles.forEach(x -> relevantArticles.put(x, false));
+		
 		// Seed-Based
-		SeedAnnotator sa = new SeedAnnotator(this);
-		sa.execute();
+		PipelineFactory.seed(this);
+		
 		// Hypernym
-		HypernymAnnotator ha = new HypernymAnnotator(this);
-		ha.execute();
+		PipelineFactory.hypernym(this);
+		
 		// Eponymous
-		EponymousTransformation et = new EponymousTransformation(this);
-		et.execute();
-		// Semantically Distant
-		SemanticallyDistanstAnnotator sda = new SemanticallyDistanstAnnotator(this);
-		sda.execute();
-		// Children-based Category
-		ChildrenBasedAnnotator cb = new ChildrenBasedAnnotator(this);
-		cb.execute();
-		RelevantArticlesTransformation aa = new RelevantArticlesTransformation(this);
-		aa.execute();
+		PipelineFactory.eponymous(this);
+
+		// Semantically 
+		PipelineFactory.semantic(this, 1);
+		
+		//Children-based
+		PipelineFactory.children(this, 1);
+		
+//		long l = TransformationUtil.transformFile(this.getStore(), "deleteMarked.sparql", new HashMap<>());
+//		System.out.println("Delete " + l);		
+		
+		//Insert 
+		PipelineFactory.insertArticles(this, 1);
+		PipelineFactory.insertCategories(this, 1);
+		
 		// Clean up
-		CleanUp cu = new CleanUp(this);
-		cu.execute();
+		PipelineFactory.cleanUp(this);
 		
-		List<String> base = QueryUtil.getReachableClassifiers(this.getStore()).stream()
-				.filter(this::getFromRelevantCategories)
-				.collect(Collectors.toList());
+		logResult();
 		
-		log.logLn("Total number of relevant categories: " + base.stream().count() + "\n\n");
-		log.logLn("Reachable categories: ");
-		base.stream().sorted().forEach(log::logLn);
-		
-		base = QueryUtil.getReachableArticles(this.getStore()).stream()
-				.filter(this::getFromRelevantArticles)
-				.collect(Collectors.toList());
-		log.logLn("Total number of relevant articles: " + base.stream().count());
-		log.logLn("Reachable articles: ");
-		base.stream().sorted().forEach(log::logLn);
-		System.out.println("Finish pipeline at " + new Date().toString());
 		log.logDate("Finish pipeline");
 		log.close();
+		
+		System.out.println("Finish pipeline at " + new Date().toString());
+		
 		Annotation.log.logLn("Article name: Annotations");
 		articleAnnotations.forEach((x,y) -> {
 			Annotation.log.log(x + ": ");
 			String s = String.join(", ", y.stream().map(Annotation::toString).collect(Collectors.toList()));
 			Annotation.log.logLn(s);
 		});
+	}
+	
+	private void logResult(){
+		List<String> baseC = QueryUtil.getReachableClassifiers(this.getStore()).stream()
+				.filter(this::getFromRelevantCategories)
+				.collect(Collectors.toList());
+		List<String> baseI = QueryUtil.getReachableInstances(this.getStore()).stream()
+				.filter(this::getFromRelevantArticles)
+				.collect(Collectors.toList());
+		log.logLn("Total number of relevant categories: " + baseC.stream().count());
+		log.logLn("Total number of relevant articles: " + baseI.stream().count() + "\n\n");
+		
+		log.logLn("Reachable categories: ");
+		baseC.stream().sorted().forEach(log::logLn);
+		log.log("\n\n");
+		
+		log.logLn("Reachable articles: ");
+		baseI.stream().sorted().forEach(log::logLn);
 	}
 
 	public Dataset createNewDataset(String newName, String oldName) {

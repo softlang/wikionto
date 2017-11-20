@@ -88,5 +88,18 @@ public class MyLogger {
 	public String logPath(){
 		return this.logFile.getPath();
 	}
+	
+	public void newLog(String path, String name){
+		try {
+			// Replace because of Windows issues with ':'
+			new File(path).mkdir();
+			this.logFile = new File(path + name + new Date().toString().replaceAll(":", "") + ".log");
+			this.logFile.createNewFile();
+			logger = new FileWriter(logFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

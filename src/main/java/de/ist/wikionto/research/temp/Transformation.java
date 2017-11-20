@@ -11,4 +11,8 @@ public abstract class Transformation extends PipelineElement{
 
 	}
 
+	public Transformation(WikiOntoPipeline manager, String name, boolean log) {
+		super(manager,name,log);
+	}
+
 }

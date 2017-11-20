@@ -65,7 +65,42 @@ public class TransformationUtil {
 	
 	//TODO Write method to remove unmarked articles and categories
 	
-	public static void removeClassifiers(Dataset dataset, List<String> names) {
+	public static void removeIsARelations(Dataset dataset, List<String> names) {
+		dataset.begin(ReadWrite.WRITE);
+		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
+		// remove isA relations
+		names.forEach(name -> {
+			String query = "PREFIX : <http://myWikiTax.de/> " 
+					+ "DELETE {" 
+					+ "?s :isA ?o .}" 
+					+ "WHERE {"
+					+ "?s :name ?name."
+					+ "FILTER REGEX (str(?o),\"Classifier\"). " 
+					+ "?s :isA ?o. " + " } ";
+			ParameterizedSparqlString pss = new ParameterizedSparqlString();
+			pss.setCommandText(query);
+			pss.setLiteral("name", name);
+			UpdateAction.execute(pss.asUpdate(), graph);
+
+			// remove instanceOf Relations
+//			query = 
+//				"PREFIX : <http://myWikiTax.de/> \n" 
+//					+ "DELETE {\n" 
+//					+ "?i :instanceOf ?c .}\n" 
+//					+ "WHERE{\n"
+//					+ "?i :instanceOf ?c .\n" 
+//					+ "FILTER(regex(STR(?c),\"Classifier\")) .\n" 
+//					+ "?c :name ?name . }";
+//			pss = new ParameterizedSparqlString();
+//			pss.setCommandText(query);
+//			pss.setLiteral("name", name);
+//			UpdateAction.execute(pss.asUpdate(), graph);
+		});
+		dataset.commit();
+		dataset.end();
+	}
+	
+	public static void removeIsARelations2(Dataset dataset, List<String> names) {
 		dataset.begin(ReadWrite.WRITE);
 		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
 		// remove isA relations
@@ -91,18 +126,18 @@ public class TransformationUtil {
 			UpdateAction.execute(pss.asUpdate(), graph);
 
 			// remove instanceOf Relations
-			query = 
-				"PREFIX : <http://myWikiTax.de/> \n" 
-					+ "DELETE {\n" 
-					+ "?i :instanceOf ?c .}\n" 
-					+ "WHERE{\n"
-					+ "?i :instanceOf ?c .\n" 
-					+ "FILTER(regex(STR(?c),\"Classifier\")) .\n" 
-					+ "?c :name ?name . }";
-			pss = new ParameterizedSparqlString();
-			pss.setCommandText(query);
-			pss.setLiteral("name", name);
-			UpdateAction.execute(pss.asUpdate(), graph);
+//			query = 
+//				"PREFIX : <http://myWikiTax.de/> \n" 
+//					+ "DELETE {\n" 
+//					+ "?i :instanceOf ?c .}\n" 
+//					+ "WHERE{\n"
+//					+ "?i :instanceOf ?c .\n" 
+//					+ "FILTER(regex(STR(?c),\"Classifier\")) .\n" 
+//					+ "?c :name ?name . }";
+//			pss = new ParameterizedSparqlString();
+//			pss.setCommandText(query);
+//			pss.setLiteral("name", name);
+//			UpdateAction.execute(pss.asUpdate(), graph);
 		});
 		dataset.commit();
 		dataset.end();
@@ -118,12 +153,12 @@ public class TransformationUtil {
 		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
 		// remove instanceOf relations
 		String query = 
-				"PREFIX : <http://myWikiTax.de/> \n" 
-						+ "DELETE {\n" + "?a :instanceOf ?b.}\n" 
-						+ "WHERE{\n"
-						+ "?a :instanceOf ?b .\n" 
-						+ "FILTER(regex(STR(?a),\"Instance\")) .\n" 
-						+ "?a :name ?name . }";
+				"PREFIX : <http://myWikiTax.de/> " 
+						+ "DELETE {" 
+						+ "?a :instanceOf ?b.}" 
+						+ "WHERE{"
+						+ "?a :instanceOf ?b ." 
+						+ "FILTER(regex(STR(?a),\"Instance\")) .";
 		ParameterizedSparqlString pss = new ParameterizedSparqlString();
 		pss.setCommandText(query);
 		pss.setLiteral("name", name);
@@ -139,11 +174,12 @@ public class TransformationUtil {
 		names.forEach(name -> {
 			String query = 
 					"PREFIX : <http://myWikiTax.de/> \n" 
-							+ "DELETE {\n" + "?a :instanceOf ?b.}\n" 
-							+ "WHERE{\n"
-							+ "?a :instanceOf ?b .\n" 
-							+ "FILTER(regex(STR(?a),\"Instance\")) .\n" 
-							+ "?a :name ?name . }";
+							+ "DELETE {" + "?a :instanceOf ?b.}" 
+							+ "WHERE{"
+							+ "?a :instanceOf ?b ." 
+							+ "FILTER(regex(STR(?a),\"Instance\")) ." 
+							+ "?a :name ?name . "
+							+ "}";
 			ParameterizedSparqlString pss = new ParameterizedSparqlString();
 			pss.setCommandText(query);
 			pss.setLiteral("name", name);
@@ -154,7 +190,7 @@ public class TransformationUtil {
 	}
 	
 	public static void moveUpInstance(Dataset dataset, String name){
-		List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, name);
+		List<String> instances = QueryUtil.getInstances(dataset, name);
 		Map<String,Resource> instanceResources = QueryUtil.getReachableInstanceResources(dataset);
 		Map<String,Resource> classifierResources = QueryUtil.getReachableClassifierResources(dataset);
 		dataset.begin(ReadWrite.WRITE);
@@ -175,7 +211,7 @@ public class TransformationUtil {
 		Map<String,Resource> instanceResources = QueryUtil.getReachableInstanceResources(dataset);
 		Map<String,Resource> classifierResources = QueryUtil.getReachableClassifierResources(dataset);
 		names.forEach(name -> {
-			List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, name);
+			List<String> instances = QueryUtil.getInstances(dataset, name);
 			List<String> parents = QueryUtil.getSuperclassifiers(dataset, name);
 			dataset.begin(ReadWrite.WRITE);
 			Model model = dataset.getDefaultModel();
@@ -232,7 +268,7 @@ public class TransformationUtil {
 		Map<String,Resource> instanceResources = QueryUtil.getReachableInstanceResources(dataset);
 		Map<String,Resource> classifierResources = QueryUtil.getReachableClassifierResources(dataset);
 		List<String> subCats = QueryUtil.getSubclassifiers(dataset, name);
-		List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, name);
+		List<String> instances = QueryUtil.getInstances(dataset, name);
 		List<String> parents = QueryUtil.getSuperclassifiers(dataset, name);
 		dataset.begin(ReadWrite.WRITE);
 		Model model = dataset.getDefaultModel();
@@ -256,7 +292,7 @@ public class TransformationUtil {
 		Map<String,Resource> classifierResources = QueryUtil.getReachableClassifierResources(dataset);
 		names.forEach(name -> {
 			List<String> subCats = QueryUtil.getSubclassifiers(dataset, name);
-			List<String> instances = QueryUtil.getInstancesFromClassifier(dataset, name);
+			List<String> instances = QueryUtil.getInstances(dataset, name);
 			List<String> parents = QueryUtil.getSuperclassifiers(dataset, name)
 					.stream()
 					.filter(n -> !names.contains(n))
@@ -317,6 +353,36 @@ public class TransformationUtil {
 		UpdateAction.execute(pss.asUpdate(), graph);
 		size = graph.size() - size;
 		dataset.commit();
+		dataset.end();
+		return size;
+	}
+	
+	public static long transformFile2(Dataset dataset, String tfilename, Map<String, String> parameter) {
+		File tfile = new File(System.getProperty("user.dir") + "/sparql/transformations/" + tfilename);
+		String transformation = "";
+		try {
+			transformation = FileUtils.readFileToString(tfile);
+		} catch (IOException ex) {
+			System.err.println("Exception reading:" + tfilename);
+			ex.printStackTrace();
+			return 0;
+		}
+		dataset.begin(ReadWrite.WRITE);
+		Graph graph = dataset.asDatasetGraph().getDefaultGraph();
+		long size = graph.size();
+		ParameterizedSparqlString pss = new ParameterizedSparqlString();
+		pss.setCommandText(transformation);
+		for (String key : parameter.keySet()) {
+			String query = pss.asUpdate().toString();
+			if (!parameter.get(key).contains("http://"))
+				pss.setLiteral(key, parameter.get(key).trim());
+			else
+				pss.setIri(key, parameter.get(key).trim());
+		}
+		UpdateAction.execute(pss.asUpdate(), graph);
+		size = graph.size() - size;
+		dataset.commit();
+		dataset.end();
 		return size;
 	}
 

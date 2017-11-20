@@ -1,33 +1,35 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT ?iname  (COUNT(?dclassifier) as ?howManyDistantTypes) (COUNT(?rclassifier) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference) 
+PREFIX : <http://myWikiTax.de/>
+SELECT ?iname  (COUNT(?dclassifier) as ?howManyDistantTypes) (COUNT(?rclassifier) as ?howManyReachableTypes) ((?howManyDistantTypes-?howManyReachableTypes) as ?difference)
 WHERE {
 	?entity :name ?iname .
 	FILTER EXISTS{
         ?classifier ^:instanceOf ?entity .
         ?cl :name "Computer_languages" .
-		?classifier :isA* ?cl .
+        ?classifier :isA* ?cl .
     }
-    
+
     {SELECT DISTINCT ?entity ?dclassifier
     WHERE {
-        ?entity :hasCategory ?dclassifier .
-        
-        FILTER NOT EXISTS{ 
-			?cl :name "Computer_languages" .
-			?cl ^:hasCategory* ?dclassifier .
-		}
-    }
-    }
-	UNION
-	{SELECT DISTINCT ?entity ?rclassifier
+      ?entity :hasCategory ?dclassifier .
+
+      FILTER NOT EXISTS{
+         ?cl :name "Computer_languages" .
+         ?cl ^:hasCategory* ?dclassifier .
+      }
+   }
+   }
+   UNION
+   {SELECT DISTINCT ?entity ?rclassifier
     WHERE {
-        ?entity :instanceOf ?rclassifier . 
+        ?entity :instanceOf ?rclassifier .
         ?cl :name "Computer_languages" .
-		?rclassifier :isA*  ?cl.
+        ?rclassifier :isA*  ?cl.
+        FILTER NOT EXISTS {
+            ?rclassifier :marked "false".
+        }
     }
     }
-    
+
 }
 GROUP BY ?iname
-HAVING(?difference>0 && ?howManyReachableTypes>0)
 ORDER BY ?iname

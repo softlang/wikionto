@@ -2,25 +2,31 @@ package de.ist.wikionto.research.temp;
 
 import java.util.List;
 
-public class SeedAnnotation extends Annotation {
-
-	public SeedAnnotation(WikiOntoPipeline manager) {
+public class SeedAnnotator extends Annotator {
+	SeedAnnotation anno = new SeedAnnotation();
+	
+	public SeedAnnotator(WikiOntoPipeline manager) {
 		super(manager,"GitSeed");
 	}
 
 	@Override
 	public void execute() {
-		this.log.logDate("Start");
+		log.logDate("Start");
 		List<String> seed = GitSeed.readLanguages();
 		manager.getArticles().stream()
 			.filter(x -> seed.contains(GitSeed.matchWikiName(x)))
 			.sorted()
 			.forEach(name -> {
-				this.log.logLn("Seed " + name + " is relevant");
+				log.logLn("Seed " + name + " is relevant");
 				this.manager.getSeed().add(name);
 				this.manager.putInRelevantArticles(name, true);
+				this.manager.addArticleAnnotation(name, Annotation.SEED);
 			});
-		this.log.logDate("Finish");
+	
+		log.logDate("Finish");
+		log.close();
 	}
+
+	
 
 }

@@ -1,0 +1,7 @@
+PREFIX : <http://myWikiTax.de/>
+SELECT DISTINCT  (COUNT(?classifier) AS ?number)
+WHERE {
+
+	?classifier :relevant "true".
+	FILTER regex(str(?classifier), "Classifier").
+}

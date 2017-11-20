@@ -4,7 +4,7 @@ WHERE {
    ?c :name ?name.
 
    FILTER EXISTS {
-      ?c :marked "false".
+      ?c :relevant "false".
    }
    FILTER NOT EXISTS {
       ?c :isA* ?r.
