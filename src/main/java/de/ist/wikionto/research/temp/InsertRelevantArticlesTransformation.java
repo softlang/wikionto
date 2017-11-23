@@ -27,7 +27,7 @@ public class InsertRelevantArticlesTransformation extends Transformation{
 		rs.forEachRemaining(qs -> {
 			String name = qs.get("?name").asLiteral().getString();
 			Resource instance = qs.get("?instance").asResource();
-			model.add(instance, relevantP, this.manager.getFromRelevantArticles(name).toString());
+			model.add(instance, relevantP, this.manager.getOptionalFromRelevantArticles(name).orElse(true).toString());
 		});
 		store.commit();
 		store.end();

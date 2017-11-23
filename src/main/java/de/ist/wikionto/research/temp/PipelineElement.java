@@ -6,6 +6,7 @@ public abstract class PipelineElement {
 	protected MyLogger log;
 	protected WikiOntoPipeline manager;
 	protected String name;
+	protected Boolean changed = false;
 
 	public PipelineElement(WikiOntoPipeline manager, String name) {
 		this.name = name;
@@ -24,6 +25,10 @@ public abstract class PipelineElement {
 
 	public String getName() {
 		return name;
+	}
+	
+	public boolean hasChanged() {
+		return changed;
 	}
 
 }

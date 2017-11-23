@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -90,10 +91,10 @@ public class WikiOntoPipeline {
 	
 	private void logResult(){
 		List<String> baseC = QueryUtil.getReachableClassifiers(this.getStore()).stream()
-				.filter(this::getFromRelevantCategories)
+				.filter(name -> this.getOptionalFromRelevantCategories(name).orElse(false))
 				.collect(Collectors.toList());
 		List<String> baseI = QueryUtil.getReachableInstances(this.getStore()).stream()
-				.filter(this::getFromRelevantArticles)
+				.filter(name -> this.getOptionalFromRelevantArticles(name).orElse(false))
 				.collect(Collectors.toList());
 		log.logLn("Total number of relevant categories: " + baseC.stream().count());
 		log.logLn("Total number of relevant articles: " + baseI.stream().count() + "\n\n");
@@ -188,9 +189,13 @@ public class WikiOntoPipeline {
 		return relevantArticles.put(arg0, arg1);
 	}	
 
-	public Boolean getFromRelevantArticles(String key) {
-		if (relevantArticles.containsKey(key))
-			return relevantArticles.get(key);
+	public Optional<Boolean> getOptionalFromRelevantArticles(String key) {
+		return Optional.ofNullable(this.relevantArticles.get(key));
+	}
+	
+	public Boolean getBooleanFromRelevantArticles(String key) {
+		if (this.relevantArticles.containsKey(key))
+			return this.relevantArticles.get(key);
 		else
 			return false;
 	}
@@ -203,9 +208,13 @@ public class WikiOntoPipeline {
 		return relevantCategories.put(arg0, arg1);
 	}
 
-	public Boolean getFromRelevantCategories(String key) {
-		if (relevantCategories.containsKey(key))
-			return relevantCategories.get(key);
+	public Optional<Boolean> getOptionalFromRelevantCategories(String key) {
+		return Optional.ofNullable(this.relevantCategories.get(key));
+	}
+	
+	public Boolean getBooleanFromRelevantCategories(String key) {
+		if (this.relevantCategories.containsKey(key))
+			return this.relevantCategories.get(key);
 		else
 			return false;
 	}

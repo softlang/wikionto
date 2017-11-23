@@ -5,6 +5,5 @@ DELETE {
 WHERE{
    ?classifier :name ?name.
    ?classifier :isA ?superclassifier .
-   ?classifier :relevant "false".
    FILTER regex(str(?classifier), "Classifier").
 }

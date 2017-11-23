@@ -4,13 +4,10 @@ WHERE {
    ?classifier :name ?name.
    ?classifier :isA* ?root.
    ?root :name "Computer_languages".
-
-   FILTER NOT EXISTS {?classifier :marked ?m}.
    FILTER NOT EXISTS {
+      ?classifier :marked ?m.
       ?c2 :isA ?classifier.
-      NOT EXISTS {
-         ?c2 :marked ?mark.
-      }
+      ?c2 :marked ?mark.
    }.
    FILTER regex(str(?classifier), "Classifier").
 }

@@ -1,15 +1,11 @@
 package de.ist.wikionto.research.temp;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ReadWrite;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
-
+import java.util.Map;
+import java.util.Optional;
+import java.util.Queue;
 import de.ist.wikionto.triplestore.query.QueryUtil;
 
 public class ChildrenBasedAnnotator extends Annotator {
@@ -17,10 +13,18 @@ public class ChildrenBasedAnnotator extends Annotator {
 	private double thresholdSemantically = 0.4;
 	private double thresholdClassifiers = 0.3;
 	private static final String URI = "http://myWikiTax.de/";
-	String query = "/sparql/queries/classifier/getAllUnmarkedClassifiers.sparql";
-	Boolean a = true;
-	Boolean changed = false;
+	private String query = "/sparql/queries/classifier/getAllUnmarkedClassifiers.sparql";
+	private Boolean a = true;
+	
+	
 	private  int iteration = 0;
+	private int i = 0;
+	
+	private Map<String, Optional<Boolean>> currentMap = new HashMap<>();
+	private Map<String, String> articlesCheckResults = new HashMap<>();
+	private Map<String, String> categoriesCheckResults = new HashMap<>();
+	
+	//	private Optional<Boolean> current;
 	
 	public ChildrenBasedAnnotator(WikiOntoPipeline manager, int iteration) {
 		super(manager,"ChildrenBased" + "Iteration" + iteration);
@@ -32,86 +36,107 @@ public class ChildrenBasedAnnotator extends Annotator {
 	public void execute() {
 		log.logDate("Log Start + Iteration " + iteration + "\nThreshold children: " + thresholdInstances + "\nThreshold subcategories: " + thresholdClassifiers + "\n");
 		changed = false;
-		while (a){
-			a = false;
-			Dataset store = this.manager.getStore();
-			ResultSet rs = QueryUtil.executeQuery(store, query);
-			store.begin(ReadWrite.WRITE);
-			Model model = this.manager.getStore().getDefaultModel();
-			Property marked = model.createProperty(URI + "marked");
-			QuerySolution qs;
-			while (rs.hasNext()){
-				qs = rs.next();
-				if (qs.contains("?classifier")){
-					a = true;
-					Resource classifier = qs.get("?classifier").asResource();
-					String name = qs.get("?name").asLiteral().getString();
-					log.logLn("Category " + name);
-					boolean result = false;
-					result = checkSubcategories(name);
-					result = checkArticles(name) || result;
-					log.logLn("  Result: " + result);	
-					hasChanged(name,result);
-					log.log("\n");
-					model.add(classifier,marked, Boolean.toString(result));
-					if (result) {
-						this.manager.addCategoryAnnotation(name, Annotation.CHILDRENBASED);
-					} else {
-						this.manager.addCategoryAnnotation(name, Annotation.CHILDRENBASED_FALSE);
-					}
-				}
-			}
-			
-			store.commit();
-			store.end();
-			
-		}
+		List<String> classifiers = QueryUtil.getReachableClassifiers(this.manager.getStore());
+		Queue<String> todos = forEachCheckArticles(classifiers);
+		forEachCheckCategories(todos);
+		logResults(classifiers);
+		commitResults();
 		log.logDate("Log End");
 		log.close();
 	}
 
 	
-	private void hasChanged(String name, boolean result) {
-		boolean old = this.manager.getFromRelevantCategories(name);
-		if (old != result) {
-			changed = true;		
-//			log.logLn("  Changed value");
+
+	private void commitResults() {
+		currentMap.keySet().stream()
+			.forEach(name -> {
+				this.commitChangedValue(name, this.currentMap.get(name).get());
+			});
+		
+	}
+	
+	private boolean commitChangedValue(String name, Boolean result){
+		if (this.manager.getBooleanFromRelevantCategories(name) == result) {
+			return false;
+		} else {
+			changed = true;
 			this.manager.putInRelevantCategories(name, result);
+			return  true;
+		}
+
+	}
+
+	private void logResults(List<String> classifiers) {
+		classifiers.stream()
+			.filter(this.currentMap::containsKey)
+			.forEach(name -> {
+				log.logLn("Category " + name );
+				log.logLn(this.articlesCheckResults.get(name));
+				if (this.categoriesCheckResults.containsKey(name))
+					log.logLn(this.categoriesCheckResults.get(name));
+				log.logLn("  Result: " + this.currentMap.get(name).orElse(false) + "\n");
+			});
+		
+		
+	}
+	
+	private void forEachCheckCategories(Queue<String> classifiers) {
+		Queue<String> todos = classifiers;
+		while(!todos.isEmpty()) {
+			String name = todos.poll();
+			Optional<Boolean> result = checkSubcategories(name);
+			if (result.isPresent())
+				this.currentMap.put(name, result);
+			else
+				todos.offer(name);
 		}
 	}
 
-	private boolean checkArticles(String name) {
+	private Queue<String> forEachCheckArticles(List<String> classifiers) {
+		Queue<String> todos = new LinkedList<>();
+		classifiers.stream()
+			.forEach(name -> {
+				Boolean result = checkArticles(name);
+				if (result) 
+					currentMap.put(name, Optional.of(true));
+				else {
+					todos.offer(name);
+					currentMap.put(name, Optional.empty());
+				}
+			});
+		return todos;
+	}
+
+	private Boolean checkArticles(String name) {
 		boolean result = false;
 		List<String> articles = QueryUtil.getInstances(manager.getSourceStore(), name);
-//		System.out.println(name + ": " + articles.toString());
 		long articleSize = articles.size();
 		long artCount = articles.stream()
-				.filter(manager::getFromRelevantArticles).count();
+				.filter(x -> manager.getOptionalFromRelevantArticles(x).orElse(false)).count();
 		if (articles.size() > 0){
 			result =  artCount >= (thresholdInstances * articleSize);
 		}
-		log.logLn("  Articles: " + result + "  " + articles.size() + "  " + artCount + "  " );
+		
+		this.articlesCheckResults.put(name,"  Articles: " + result + "  " + articles.size() + "  " + artCount);
 		return result;
 	}
 
-	private boolean checkSubcategories(String name) {
-		boolean result = false;
-		List<String> subcategories = QueryUtil.getSubclassifiers(manager.getSourceStore(), name);
-		long subCount = subcategories.stream().filter(manager::getFromRelevantCategories).count();
-		if (subcategories.size() > 0){
-			result = subCount  >= (thresholdClassifiers * subcategories.size());
+	private Optional<Boolean> checkSubcategories(String name) {
+		Boolean result = false;
+		List<String> subcategories = QueryUtil.getSubclassifiers(manager.getStore(), name);
+		if (subcategories.stream().anyMatch(x -> !currentMap.get(x).isPresent())) {
+			return Optional.empty();
 		}
-		log.logLn("  Subcategories: " + result + "  "  + subcategories.size() + "  " + subCount);
-		return result;
-	}
-
-	public boolean hasChanged(){
-		return changed;
+		long subCount = subcategories.stream().filter(x -> this.currentMap.get(x).get()).count();
+		if (subcategories.size() > 0){
+			 result = subCount  >= (thresholdClassifiers * subcategories.size());
+		}
+		this.categoriesCheckResults.put(name,"  Subcategories: " + result + "  "  + subcategories.size() + "  " + subCount);
+		return Optional.of(result);
 	}
 
 	public int getIteration() {
 		return iteration;
 	}
-
 	
 }

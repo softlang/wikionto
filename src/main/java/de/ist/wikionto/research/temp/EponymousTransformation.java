@@ -50,7 +50,7 @@ private List<String> deleteInstances = new ArrayList<>();
 	public boolean check(QuerySolution qs) {
 		if (qs.contains("?cname")) {
 			String name = qs.get("?cname").asLiteral().getString();
-			return this.manager.getFromRelevantArticles(name);
+			return this.manager.getBooleanFromRelevantArticles(name);
 		}
 		return false;
 	}

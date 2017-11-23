@@ -12,7 +12,6 @@ public class SemanticallyDistanstAnnotator extends Annotator {
 	int i = 0;
 	double threshold = 0.5;
 	String queryInstances = "/sparql/smells/SemanticallyDistantInstance.sparql";
-	Boolean changed = false;
 	private int iteration = 0;
 	int j = 0;
 	
@@ -34,7 +33,7 @@ public class SemanticallyDistanstAnnotator extends Annotator {
 			this.manager.getTextC().stream()
 			.filter(x -> !manager.getSeed().contains(x))
 			.filter(x -> !manager.getInfoboxC().contains(x))
-			.filter(x -> this.manager.getFromRelevantArticles(x))
+			.filter(x -> this.manager.getBooleanFromRelevantArticles(x))
 			.sorted()
 			.collect(Collectors.toList());
 		System.out.println("Only text checks: " + base.size());
@@ -55,14 +54,14 @@ public class SemanticallyDistanstAnnotator extends Annotator {
 					i++;
 					log.logLn("Instance " + name + ", " + reachable + ", " + numberOfCats);
 					log.logLn("  Mark " + name + " as relevant");
-					hasChanged(name, true);
+					commitChangedValue(name, true);
 					this.log.log("\n");
 					manager.addArticleAnnotation(name, Annotation.SEMANTICDISTANT);
 				} else {
 					log.logLn("Instance " + name + ", " + reachable + ", " + numberOfCats);
 					log.logLn("  Mark " + name + " as irrelevant");
 					this.manager.getTextC().remove(name);
-					hasChanged(name,false);
+					commitChangedValue(name,false);
 					this.log.log("\n");
 					this.manager.addArticleAnnotation(name, Annotation.ISA_FALSE);
 				}
@@ -80,12 +79,8 @@ public class SemanticallyDistanstAnnotator extends Annotator {
 		log.close();
 	}
 	
-	public boolean hasChanged(){
-		return changed;
-	}
-	
-	private void hasChanged(String name, boolean result) {
-		boolean old = this.manager.getFromRelevantArticles(name);
+	private void commitChangedValue(String name, boolean result) {
+		boolean old = this.manager.getBooleanFromRelevantArticles(name);
 		if (old != result) {
 			changed = true;
 //			log.logLn("  Changed value");

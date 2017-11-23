@@ -64,8 +64,6 @@ public class TransformationUtil {
 		dataset.end();
 	}
 	
-	//TODO Write method to remove unmarked articles and categories
-	
 	public static void removeIsARelations(Dataset dataset, List<String> names) {
 		for (String name : names){
 			HashMap<String,String> temp = new HashMap<>();

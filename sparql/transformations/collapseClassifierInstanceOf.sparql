@@ -1,7 +1,11 @@
 PREFIX : <http://myWikiTax.de/>
-INSERT {  ?entity :instanceOf ?superclassifier. }
+INSERT {
+   ?entity :instanceOf ?superclassifier.
+   ?entity :hasCategory ?supername.
+}
 WHERE{
    ?oldclassifier :name ?name .
    ?oldclassifier :isA ?superclassifier .
    ?entity :instanceOf ?oldclassifier .
+   ?superclassifier :name ?supername.
 }

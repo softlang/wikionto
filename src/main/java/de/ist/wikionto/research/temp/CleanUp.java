@@ -31,15 +31,14 @@ public class CleanUp extends Transformation {
 		
 		System.out.println("Delete instances: " + cleanUpInstances());
 		System.out.println("Delete classifiers: " + cleanUpClassifiers());
-		
+		cleanUpUnreachableClassifiers();
 		log.logDate("Finish " + this.getName());
 	}
 
 	private int cleanUpInstances(){
 		List<String> deleteInstances = QueryUtil.getReachableInstances(this.store).stream()
-			.filter(key -> !this.manager.getFromRelevantArticles(key))
+			.filter(key -> !this.manager.getOptionalFromRelevantArticles(key).orElse(false))
 			.collect(Collectors.toList());
-		System.out.println(deleteInstances.size());
 		deleteInstances.forEach(name -> {
 			log.logLn("Remove article " + name);
 //			TransformationUtil.removeInstance(this.store,name);
@@ -50,19 +49,18 @@ public class CleanUp extends Transformation {
 	
 	private int cleanUpClassifiers(){
 		List<String> deleteClassifiers = QueryUtil.getReachableClassifiers(this.store).stream()
-			.filter(key -> !this.manager.getFromRelevantCategories(key))
+			.filter(key -> !this.manager.getOptionalFromRelevantCategories(key).orElse(false))
 			.collect(Collectors.toList());
 		TransformationUtil.moveUp(this.store, deleteClassifiers);
-//		TransformationUtil.removeIsARelations(this.store, deleteClassifiers);
 		TransformationUtil.transformFile(this.store, "/removeIrrelevantClassifiers.sparql", new HashMap<>());
 		deleteClassifiers.forEach(name -> {
 			log.logLn("Remove category " + name);
-			Map<String,String> temp = new HashMap<>();
-			temp.put("name", name);
-//			System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery , temp));			
 		});
-		
-//		System.out.println(TransformationUtil.transformFile(this.store, deleteClassifiersQuery ,new HashMap<>()));
 		return deleteClassifiers.size();
+	}
+	
+	private void cleanUpUnreachableClassifiers(){
+		TransformationUtil.transformFile(this.store, "/removeInstanceOfs.sparql", new HashMap<>());
+		TransformationUtil.transformFile(this.store, "/removeSubclassifiersFromIrrelevantClassifiers.sparql", new HashMap<>());
 	}
 }

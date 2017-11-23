@@ -25,7 +25,7 @@ WHERE {
         ?cl :name "Computer_languages" .
         ?rclassifier :isA*  ?cl.
         FILTER NOT EXISTS {
-            ?rclassifier :marked "false".
+            ?rclassifier :relevant "false".
         }
     }
     }
