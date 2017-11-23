@@ -3,7 +3,6 @@ package de.ist.wikionto.research.temp;
 import java.util.List;
 
 public class SeedAnnotator extends Annotator {
-	SeedAnnotation anno = new SeedAnnotation();
 	
 	public SeedAnnotator(WikiOntoPipeline manager) {
 		super(manager,"GitSeed");
