@@ -1,0 +1,10 @@
+PREFIX : <http://myWikiTax.de/>
+INSERT {
+   ?entity :relevant ?mark.
+}
+WHERE{
+   FILTER NOT EXISTS {
+      ?entity :relevant ?t.
+   }
+   FILTER regex(str(?entity), "Instance").
+}

@@ -1,0 +1,8 @@
+PREFIX : <http://myWikiTax.de/>
+INSERT {
+   ?entity :relevant ?mark.
+}
+WHERE{
+   ?entiy :name ?name.
+   FILTER regex(str(?entity), "Classifier").
+}
