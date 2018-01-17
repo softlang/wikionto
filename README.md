@@ -6,8 +6,14 @@ Wikipedia-based ontology engineering
 * CoreNLPServer must be started before using the tests. 
 
 # How to use:
+* Required technology using pip: 
+  * sparqlwrapper
+  * nltk
 * Download Stanford Core NLP: https://stanfordnlp.github.io/CoreNLP/index.html#download
 * Start Server
+  * Open the folder, where you deployed Stanford Core NLP.
+  * Open a Terminal here.
+  * Start the server using: `java -cp "*" -Xmx4g edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 15000`
   * (Be sure that your computer's network settings allow connection to the created local host server.)
 * Start pipeline
 ... (More soon)

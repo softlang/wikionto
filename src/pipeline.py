@@ -19,10 +19,10 @@ langdict = check_gitseed(langdict)
 langdict = check_infobox(langdict)
 langdict = check_purlHypernymLanguage(langdict)
 langdict = check_nltk_pos(langdict)
-langdict = check_stanford_cop(langdict)
+#langdict = check_stanford_cop(langdict)
 langdict = check_semantic_distance(langdict)
 
 with open('langdict.json', 'w') as f:
-    f.write(json.dump(langdict))
+    json.dump(langdict, f)
     f.flush()
     f.close()
