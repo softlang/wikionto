@@ -1,6 +1,0 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT ?typename 
-WHERE {
-	?type :name ?typename .
-    ?type :isA+ ?type .
-}

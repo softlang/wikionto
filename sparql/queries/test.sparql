@@ -1,7 +1,0 @@
-PREFIX : <http://myWikiTax.de/>
-SELECT DISTINCT ?n
-WHERE {
-		?a :isA ?c.
-		?a :name ?n.
-		?c :name "Computer_languages".
-}

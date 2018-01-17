@@ -1,7 +1,0 @@
-PREFIX : <http://myWikiTax.de/>
-INSERT { ?subclassifier :isA ?superclassifier. }
-WHERE{
-   ?oldclassifier :name ?name .
-   ?oldclassifier :isA ?superclassifier .
-   ?subclassifier :isA ?oldclassifier .
-}

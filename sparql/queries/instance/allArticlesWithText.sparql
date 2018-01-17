@@ -1,6 +1,0 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?n
-WHERE {
-	?s :name ?n.
-	FILTER regex(str(?i), "Classifier")
-}

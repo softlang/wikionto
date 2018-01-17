@@ -1,6 +1,0 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?d
-WHERE {
-	?s :depth ?d
-	
-}

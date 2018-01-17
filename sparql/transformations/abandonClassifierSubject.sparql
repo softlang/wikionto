@@ -1,8 +1,0 @@
-PREFIX : <http://myWikiTax.de/> 
-DELETE {
-  ?classifier ?r ?instance .
-}
-WHERE{ 
-  ?classifier ?r ?instance .
-  FILTER(regex(STR(?classifier),"Classifier")) .
-  ?classifier :name ?name . }

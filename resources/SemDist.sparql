@@ -1,0 +1,30 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT DISTINCT ?article ?howManyReachable ((?howManyTotal - ?howManyReachable) as ?howManyDistant) ?howManyTotal WHERE { 
+  SELECT DISTINCT ?article (COUNT(?rcat) as ?howManyReachable) (COUNT(?cat) as ?howManyTotal) WHERE {
+    FILTER EXISTS{
+        ?article dct:subject/skos:broader{0,7} <http://dbpedia.org/resource/Category:Computer_languages>.
+    }
+    
+    {SELECT DISTINCT ?article ?rcat
+     WHERE {
+      ?article dct:subject ?rcat .
+      FILTER EXISTS{
+        ?rcat skos:broader{0,7}  <http://dbpedia.org/resource/Category:Computer_languages>.
+      }
+     }
+    }
+    UNION
+    {SELECT DISTINCT ?article ?cat
+     WHERE {
+       ?article dct:subject ?cat .
+     }
+    }
+  }
+  GROUP BY ?article
+  ORDER BY ASC(?article)
+}
+GROUP BY ?article
+HAVING ((?howManyTotal - ?howManyReachable) > ?howManyReachable)
+LIMIT 10000
+OFFSET 0

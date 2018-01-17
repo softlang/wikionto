@@ -1,9 +1,0 @@
-PREFIX : <http://myWikiTax.de/> 
-SELECT DISTINCT ?name
-WHERE {
-	?l1 :instanceOf ?type3 .
-    ?type :isA ?type2 . 
-    ?l1 :name ?name .
-    ?type :name ?name .
-}
-ORDER BY ASC (?depth)
