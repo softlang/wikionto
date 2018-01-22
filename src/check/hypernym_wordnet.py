@@ -9,8 +9,12 @@ def check_wordnet_hypernym(langdict):
     cls = articles_below(CLURI,0,6)
     cffs = articles_below(CFFURI,0,6)
     for cl in cls+cffs:
-        for syn in wn.synsets(cl):
-            for hyp in syn.hypernyms():
-                if('language' in str(hyp))|('format' in str(hyp))|('dsl' in str(hyp))|('dialect' in str(hyp)):
-                    langdict[cl]["WordnetHypernym"] = True
+        langdict[cl]["WordnetHypernym"] = is_hyponym(cl)
     return langdict
+
+def is_hyponym(cl):
+    for syn in wn.Synset(cl):
+        for hyp in syn.hypernyms():
+            if('language' in str(hyp))|('format' in str(hyp))|('dsl' in str(hyp))|('dialect' in str(hyp)):
+                return True
+    return False

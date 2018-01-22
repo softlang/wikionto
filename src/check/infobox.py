@@ -16,7 +16,7 @@ def check_infobox(langdict):
     for p in propertylist:
         cls = articles_with_property(CLURI, 0, 6, p)
         cffs = articles_with_property(CFFURI, 0, 6, p)
-        for cl in cls | cffs:
-            langdict[cl]["infobox"] = True
+        for cl in langdict:
+            langdict[cl]["infobox"+p] = cl in cls | cffs
         time.sleep(2)
     return langdict

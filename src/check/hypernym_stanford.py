@@ -4,14 +4,12 @@ from nltk.parse.corenlp import CoreNLPDependencyParser
 
 
 def check_stanford(langdict):
-    print("Checking POS-based Hypernym with Stanford")
+    print("Checking Hypernym with Stanford")
     clarticles = articles_with_summaries(CLURI,0,6)
     cffarticles = articles_with_summaries(CFFURI, 0, 6)
     for a,summary in clarticles + cffarticles:
-        if pos_language(summary):
-            langdict[a]["StanfordPOSHypernym"] = True
-        if cop_language(summary):
-            langdict[a]["StanfordCOPHypernym"] = True
+        langdict[a]["StanfordPOSHypernym"] = pos_language(summary)
+        langdict[a]["StanfordCOPHypernym"] = cop_language(summary)
     return langdict
 
 def pos_language(summary):
@@ -30,4 +28,7 @@ def cop_language(summary):
 #You can run this for test purposes after starting the server
 text = "Java is a programming language."
 tagged = CoreNLPPOSTagger(url='http://localhost:9000').tag(text.split())
+dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
+parse, = dep_parser.raw_parse(text)
 print(tagged)
+print(parse.triples())
