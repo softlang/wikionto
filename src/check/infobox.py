@@ -14,9 +14,9 @@ def check_infobox(langdict):
         "^<http://dbpedia.org/ontology/programmingLanguage>"
         ]
     for p in propertylist:
-        cls = articles_with_property(CLURI, 0, 7, p)
-        cffs = articles_with_property(CFFURI, 0, 7, p)
+        cls = articles_with_property(CLURI, 0, 6, p)
+        cffs = articles_with_property(CFFURI, 0, 6, p)
         for cl in cls | cffs:
-            langdict[cl]["infobox"+p] = True
+            langdict[cl]["infobox"] = True
         time.sleep(2)
     return langdict
