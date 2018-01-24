@@ -16,7 +16,7 @@ def pos_language(summary):
     tagged = CoreNLPPOSTagger(url='http://localhost:9000').tag(summary.split())
     vbzs = {(w,p) for (w,p) in tagged if (p=="VBZ") & ("is" in w)}
     nns = {(w,p) for (w,p) in tagged if (p=="NN") & (("language" in w) | ("format" in w))}
-    return vbzs & nns 
+    return bool(vbzs & nns) 
 
 def cop_language(summary):
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')

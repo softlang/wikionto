@@ -6,6 +6,7 @@ from check.hypernym_stanford import check_stanford
 from check.hypernym_wordnet import check_wordnet_hypernym
 from check.semantic_distance import check_semantic_distance
 from json import dump
+import timeit
 
 f = open('data/softwarelanguages.csv','r',encoding="utf8")
 next(f) 
@@ -20,7 +21,9 @@ langdict = check_gitseed(langdict)
 langdict = check_infobox(langdict)
 langdict = check_purlHypernymLanguage(langdict)
 langdict = check_stanford(langdict)
+start_time = timeit.default_timer()
 langdict = check_wordnet_hypernym(langdict)
+print(timeit.default_timer()-start_time)
 langdict = check_semantic_distance(langdict)
 
 with open('langdict.json', 'w') as f:
