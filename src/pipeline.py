@@ -20,10 +20,10 @@ f.close
 langdict = check_gitseed(langdict)
 langdict = check_infobox(langdict)
 langdict = check_purlHypernymLanguage(langdict)
-langdict = check_stanford(langdict)
 start_time = timeit.default_timer()
-langdict = check_wordnet_hypernym(langdict)
+langdict = check_stanford(langdict)
 print(timeit.default_timer()-start_time)
+langdict = check_wordnet_hypernym(langdict)
 langdict = check_semantic_distance(langdict)
 
 with open('langdict.json', 'w') as f:
