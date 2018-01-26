@@ -4,8 +4,6 @@ import time
 def check_infobox(langdict):
     print("Checking Infobox properties")
     propertylist = [
-        "<http://dbpedia.org/ontology/influenced>",
-        "<http://dbpedia.org/ontology/influencedBy>",
         "<http://dbpedia.org/property/dialects>",
         "<http://dbpedia.org/property/paradigm>",
         "<http://dbpedia.org/property/typing>",

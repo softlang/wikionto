@@ -1,14 +1,11 @@
 from nltk.corpus import wordnet as wn
 from nltk import download
-from mine.dbpedia import articles_below,CLURI,CFFURI
 
 download('wordnet')
 
 def check_wordnet_hypernym(langdict):
     print("Checking Wordnet Hypernym")
-    cls = articles_below(CLURI,0,6)
-    cffs = articles_below(CFFURI,0,6)
-    for cl in cls+cffs:
+    for cl in langdict:
         langdict[cl]["WordnetHypernym"] = is_hyponym(cl)
     return langdict
 

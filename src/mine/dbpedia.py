@@ -1,5 +1,6 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 from argparse import ArgumentError
+from collections import defaultdict
 
 CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
 CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
@@ -111,7 +112,7 @@ PREFIX dbp: <http://dbpedia.org/resource/>
 PREFIX dct: <http://purl.org/dc/terms/>
 SELECT ?article ?summary where { 
     SELECT DISTINCT ?article ?summary where {
-        ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
+        ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root .
         ?article dbo:abstract ?summary .
     }
     ORDER BY ASC(?article)
@@ -119,12 +120,12 @@ SELECT ?article ?summary where {
 limit 10000
 offset ?offset
     """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
-    articles = []
+    articles = dict()
     for result in query(querytext):
         if result["summary"]["xml:lang"] == "en":
             article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
             summary = result["summary"]["value"].split(". ")[0]+"."
-            articles.append((article,summary))
+            articles[article]=summary
     return articles
 
 def articles_semantic_distant(root, mindepth,maxdepth):
@@ -163,4 +164,28 @@ OFFSET ?offset
     articles = []
     for result in query(querytext):
         articles.append(result["article"]["value"].replace("http://dbpedia.org/resource/", ""))
-    return articles    
+    return articles  
+
+def category_to_subcategory_below(root, mindepth, maxdepth):
+    cat_subcat = defaultdict(dict)
+    querytext = """
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?cat ?subcat where { 
+    SELECT DISTINCT ?cat ?subcat where {
+        ?cat skos:broader{?mindepth,?maxdepth} ?root.
+        ?subcat skos:broader ?cat.
+    }
+    ORDER BY ASC(?cat)
+}
+limit 10000
+offset ?offset
+    """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(querytext)
+    for result in results:
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        subcat = result["subcat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        if cat not in cat_subcat:
+            cat_subcat[cat]["subcats"]=[]
+        cat_subcat[cat]["subcats"].append(subcat)
+    return cat_subcat

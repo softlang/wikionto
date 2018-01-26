@@ -5,5 +5,5 @@ def check_semantic_distance(langdict):
     clsdistant = articles_semantic_distant(CLURI, 0, 6)
     cffsdistant = articles_semantic_distant(CFFURI, 0, 6)
     for cl in langdict: 
-        langdict[cl]["SemanticallyDistant"] = cl not in clsdistant + cffsdistant
+        langdict[cl]["SemanticallyRelevant"] = cl not in clsdistant + cffsdistant
     return langdict
