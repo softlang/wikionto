@@ -8,11 +8,13 @@ def check_stanford(langdict):
     cffarticles = articles_with_summaries(CFFURI, 0, 6)
     clarticles.update(cffarticles)
     zipped_art_sum = list(zip(*clarticles.items()))
-    
-    pos_tagged = CoreNLPPOSTagger(url='http://localhost:9000').tag_sents(zipped_art_sum[1])
+    split_art_sum = map(lambda s: s.split(),zipped_art_sum[1])
+    pos_tagged = CoreNLPPOSTagger(url='http://localhost:9000').tag_sents(list(split_art_sum))
     cls_pos_tagged = dict(zip(zipped_art_sum[0],pos_tagged))
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
-    dep_parsed = map(lambda s: dep_parser.raw_parse(s),zipped_art_sum[1])
+    dep_parsed = []
+    for s in zipped_art_sum[1]:
+        dep_parsed.append(dep_parser.raw_parse(s))
     cls_dep_parsed = dict(zip(zipped_art_sum[0],dep_parsed))
     
     for cl in langdict:
@@ -28,7 +30,7 @@ def check_stanford(langdict):
 
 def pos_language(tagged):
     vbzs = {(w,p) for (w,p) in tagged if (p=="VBZ") & ("is" in w)}
-    nns = {(w,p) for (w,p) in tagged if (p=="NN") & (("language" in w) | ("format" in w))}
+    nns = {(w,p) for (w,p) in tagged if (p=="NN") & (("language" in w.lower()) | ("format" in w.lower()))}
     return bool(vbzs & nns) 
 
 def cop_language(tagged):
@@ -49,4 +51,4 @@ def run_solo():
         f.flush()
         f.close()
 
-run_solo()
+#run_solo()

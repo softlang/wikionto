@@ -5,10 +5,11 @@ Created on 22.01.2018
 '''
 import json
 
+
 def save_list(name, cllist):
-    f = open(name+".txt","w")
+    f = open(name+".txt","w",encoding='utf8')
     for cl in cllist:
-        f.write(str(cl.encode('utf-8'))+"\n")
+        f.write(cl + '\n')
     f.flush()
     f.close()
 
@@ -31,7 +32,7 @@ def infobox_and_not_hypernym():
 def total():
     with open('langdict.json', 'r',encoding="UTF8") as f: 
         langdict = json.load(f)
-        print(len(langdict))
+        print("Wikipedia lists "+str(len(langdict))+" candidates.")
         
 def dbpedia_hypernym():
     with open('langdict.json', 'r',encoding="UTF8") as f: 
@@ -117,3 +118,4 @@ dbpedia_hypernym()
 wordnet_hypernym()
 stanford_hypernym()
 infobox()
+infobox_and_not_hypernym()

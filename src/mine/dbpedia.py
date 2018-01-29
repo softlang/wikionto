@@ -1,6 +1,7 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 from argparse import ArgumentError
 from collections import defaultdict
+from email.policy import default
 
 CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
 CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
@@ -132,7 +133,7 @@ def articles_semantic_distant(root, mindepth,maxdepth):
     querytext="""
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT DISTINCT ?article ?howManyReachable ((?howManyTotal - ?howManyReachable) as ?howManyDistant) ?howManyTotal WHERE { 
+SELECT DISTINCT ?article ?howManyReachable ?howManyTotal WHERE { 
   SELECT DISTINCT ?article (COUNT(?rcat) as ?howManyReachable) (COUNT(?cat) as ?howManyTotal) WHERE {
     FILTER EXISTS{
         ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root.
@@ -157,13 +158,16 @@ SELECT DISTINCT ?article ?howManyReachable ((?howManyTotal - ?howManyReachable) 
   ORDER BY ASC(?article)
 }
 GROUP BY ?article
-HAVING ((?howManyTotal - ?howManyReachable) > ?howManyReachable)
 LIMIT 10000
 OFFSET ?offset
     """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
     articles = []
     for result in query(querytext):
-        articles.append(result["article"]["value"].replace("http://dbpedia.org/resource/", ""))
+        how_many_total = int(result["howManyTotal"]["value"])
+        how_many_reachable = int(result["howManyReachable"]["value"])
+        how_many_distant = how_many_total - how_many_reachable
+        if how_many_distant > how_many_reachable:
+            articles.append(result["article"]["value"].replace("http://dbpedia.org/resource/", ""))
     return articles  
 
 def category_to_subcategory_below(root, mindepth, maxdepth):
@@ -189,3 +193,27 @@ offset ?offset
             cat_subcat[cat]["subcats"]=[]
         cat_subcat[cat]["subcats"].append(subcat)
     return cat_subcat
+
+def category_to_articles_below(root,mindepth,maxdepth):
+    cat_articles = defaultdict(dict)
+    querytext = """
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?cat ?article where { 
+    SELECT DISTINCT ?cat ?article where {
+        ?cat skos:broader{?mindepth,?maxdepth} ?root.
+        ?article dct:subject ?cat.
+    }
+    ORDER BY ASC(?cat)
+}
+limit 10000
+offset ?offset
+    """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(querytext)
+    for result in results:
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        if cat not in cat_articles:
+            cat_articles[cat]["articles"]=[]
+        cat_articles[cat]["articles"].append(article)
+    return cat_articles
