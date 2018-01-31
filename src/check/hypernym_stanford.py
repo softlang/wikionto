@@ -12,33 +12,31 @@ def check_stanford(langdict):
     pos_tagged = CoreNLPPOSTagger(url='http://localhost:9000').tag_sents(list(split_art_sum))
     cls_pos_tagged = dict(zip(zipped_art_sum[0],pos_tagged))
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
-    dep_parsed = []
-    for s in zipped_art_sum[1]:
-        dep_parsed.append(dep_parser.raw_parse(s))
+    dep_parsed = list(map(lambda s: dep_parser.raw_parse(s),zipped_art_sum[1]))
     cls_dep_parsed = dict(zip(zipped_art_sum[0],dep_parsed))
     
     for cl in langdict:
         if cl not in cls_pos_tagged:
-            langdict[cl]["StanfordPOSHypernym"] = False
-            langdict[cl]["StanfordCOPHypernym"] = False
-            langdict[cl]["SummaryExists"] = False
+            langdict[cl]["StanfordPOSHypernym"] = 0
+            langdict[cl]["StanfordCOPHypernym"] = 0
+            langdict[cl]["Summary"]="No Summary!"
         else: 
-            langdict[cl]["SummaryExists"] = True
+            langdict[cl]["Summary"] = clarticles[cl]
             langdict[cl]["StanfordPOSHypernym"] = pos_language(cls_pos_tagged[cl])
             langdict[cl]["StanfordCOPHypernym"] = cop_language(cls_dep_parsed[cl])
     return langdict
 
 def pos_language(tagged):
     vbzs = {(w,p) for (w,p) in tagged if (p=="VBZ") & ("is" in w)}
-    nns = {(w,p) for (w,p) in tagged if (p=="NN") & (("language" in w.lower()) | ("format" in w.lower()))}
-    return bool(vbzs & nns) 
+    nns = {(w,p) for (w,p) in tagged if (p=="NN") & (("language" in w.lower()) | ("format" in w.lower()))} 
+    return int(bool(vbzs) & bool(nns))
 
 def cop_language(tagged):
     parse, = tagged
     for subj, dep, obj in parse.triples():
         if (subj[1]=='NN')&(subj[0] in ['language','format','dsl','dialect']) & (dep=='cop') & (obj==('is','VBZ')):
-            return True
-    return False
+            return 1
+    return 0
 
 def run_solo():
     import json

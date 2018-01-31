@@ -1,5 +1,4 @@
 from mine.dbpedia import articles_with_property,CLURI,CFFURI
-import time
 
 def check_infobox(langdict):
     print("Checking Infobox properties")
@@ -15,6 +14,5 @@ def check_infobox(langdict):
         cls = articles_with_property(CLURI, 0, 6, p)
         cffs = articles_with_property(CFFURI, 0, 6, p)
         for cl in langdict:
-            langdict[cl]["infobox"+p] = cl in cls | cffs
-        time.sleep(2)
+            langdict[cl][p] = int(cl in cls | cffs)
     return langdict

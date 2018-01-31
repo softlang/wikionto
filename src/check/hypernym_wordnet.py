@@ -13,5 +13,5 @@ def is_hyponym(cl):
     for syn in wn.synsets(cl):
         for hyp in syn.hypernyms():
             if('language' in str(hyp))|('format' in str(hyp))|('dsl' in str(hyp))|('dialect' in str(hyp)):
-                return True
-    return False
+                return 1
+    return 0
