@@ -166,7 +166,7 @@ OFFSET ?offset
         how_many_total = int(result["howManyTotal"]["value"])
         how_many_reachable = int(result["howManyReachable"]["value"])
         how_many_distant = how_many_total - how_many_reachable
-        if how_many_distant > how_many_reachable:
+        if (how_many_distant > how_many_reachable) & (how_many_total > 0):
             articles.append(result["article"]["value"].replace("http://dbpedia.org/resource/", ""))
     return articles  
 

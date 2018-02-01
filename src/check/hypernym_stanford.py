@@ -15,7 +15,7 @@ def check_stanford(langdict):
     cls_dep_parsed = dict(zip(zipped_art_sum[0],dep_parsed))
     
     for cl in langdict:
-        if cl not in cls_pos_tagged:
+        if cl not in cls_dep_parsed:
             langdict[cl]["StanfordPOSHypernym"] = 0
             langdict[cl]["StanfordCOPHypernym"] = 0
             langdict[cl]["Summary"]="No Summary!"
