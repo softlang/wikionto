@@ -1,4 +1,4 @@
-from mine.dbpedia import articles_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
+from dbpedia import articles_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
 from json import dump, load
 
 def init_langdict():
@@ -84,6 +84,7 @@ def init_cat_articles():
     dump(obj=cat_dict, fp=f, indent=2)
     f.flush()
     f.close()
-#init_langdict()
+    
+init_langdict()
 init_cat_subcat()
 init_cat_articles()

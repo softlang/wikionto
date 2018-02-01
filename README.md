@@ -9,6 +9,7 @@ Wikipedia-based ontology engineering
 * Required technology using pip: 
   * sparqlwrapper
   * nltk
+  * requests
 * Download Stanford Core NLP: https://stanfordnlp.github.io/CoreNLP/index.html#download
 * Start Server
   * Open the folder, where you deployed Stanford Core NLP.

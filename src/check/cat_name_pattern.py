@@ -1,5 +1,6 @@
 
 def check_cat_name(catdict):
+    print("Checking category names")
     ex_pattern = ["Data_types","lists_of","comparison","companies"]
     for cl in catdict:
         matches = filter(lambda p: p in cl,ex_pattern)

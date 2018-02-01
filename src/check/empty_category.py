@@ -2,7 +2,7 @@ from data.eval_langdict import lang_succeeds_at_none
 from json import load
 
 def check_empty_cat(catdict,langdict):
-    
+    print("Checking for categories with no relevant articles")
     for cat in catdict:
         if not "articles" in catdict[cat]:
             catdict[cat]["NonEmptyCategory"] = 0
@@ -26,4 +26,4 @@ def run_solo():
         json.dump(obj=catdict, fp=f, indent=2)
         f.flush()
         f.close()
-run_solo()
+#run_solo()
