@@ -1,7 +1,6 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 from argparse import ArgumentError
 from collections import defaultdict
-from email.policy import default
 
 CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
 CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"

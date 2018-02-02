@@ -1,6 +1,6 @@
 import re
 
-f = open('gitseed_annotated.txt','r',encoding="utf8")
+f = open('gitseed_annotated.csv','r',encoding="utf8")
 annotationeval = []
 evaldict = dict()
 #(method,lang)

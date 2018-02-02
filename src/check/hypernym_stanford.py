@@ -1,4 +1,3 @@
-from nltk.tag.stanford import CoreNLPPOSTagger
 from nltk.parse.corenlp import CoreNLPDependencyParser
 from mine.dbpedia import articles_with_summaries,CFFURI,CLURI
 
@@ -9,7 +8,6 @@ def check_stanford(langdict):
     cffarticles = articles_with_summaries(CFFURI, 0, 6)
     clarticles.update(cffarticles)
     zipped_art_sum = list(zip(*clarticles.items()))
-    split_art_sum = map(lambda s: s.split(),zipped_art_sum[1])
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
     dep_parsed = list(map(lambda s: dep_parser.raw_parse(s),zipped_art_sum[1]))
     cls_dep_parsed = dict(zip(zipped_art_sum[0],dep_parsed))
@@ -27,9 +25,8 @@ def check_stanford(langdict):
 
 def pos_language(tagged):
     parse, = tagged
-    vbzs = [s for (s,d,o) in parse.triples() if s==('is','VBZ') | o==('is','VBZ')]
-    nns = [s for (s,d,o) in parse.triples() if (s[0].lower() in keywords & s[1]=='NN')
-           | ((o[0].lower() in keywords) & o[1]=='NN')]
+    vbzs = list([s for (s,d,o) in parse.triples() if (s==('is','VBZ')) | (o==('is','VBZ'))])
+    nns = list([s for (s,d,o) in parse.triples() if ((s[0].lower() in keywords) & (s[1]=='NN')) | ((o[0].lower() in keywords) & (o[1]=='NN'))])
     return int(bool(vbzs) & bool(nns))
 
 def cop_language(tagged):
