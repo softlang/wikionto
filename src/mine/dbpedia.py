@@ -22,7 +22,8 @@ def query(query):
                 res = sparql.query()
                 break
             except HTTPError:
-                sleep(5)
+                print("    HTTP error! Sleeping 5 secs...")
+                sleep(15)
         qres = res.convert()
         size = len(qres["results"]["bindings"])
         results = results + qres["results"]["bindings"]
@@ -136,47 +137,6 @@ offset ?offset
             articles[article]=summary
     return articles
 
-def articles_semantic_distant(root, mindepth,maxdepth):
-    querytext="""
-PREFIX dct: <http://purl.org/dc/terms/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT DISTINCT ?article ?howManyReachable ?howManyTotal WHERE { 
-  SELECT DISTINCT ?article (COUNT(?rcat) as ?howManyReachable) (COUNT(?cat) as ?howManyTotal) WHERE {
-    FILTER EXISTS{
-        ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root.
-    }
-    
-    {SELECT DISTINCT ?article ?rcat
-     WHERE {
-      ?article dct:subject ?rcat .
-      FILTER EXISTS{
-        ?rcat skos:broader{?mindepth,?maxdepth}  ?root.
-      }
-     }
-    }
-    UNION
-    {SELECT DISTINCT ?article ?cat
-     WHERE {
-       ?article dct:subject ?cat .
-     }
-    }
-  }
-  GROUP BY ?article
-  ORDER BY ASC(?article)
-}
-GROUP BY ?article
-LIMIT 10000
-OFFSET ?offset
-    """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
-    articles = []
-    for result in query(querytext):
-        how_many_total = int(result["howManyTotal"]["value"])
-        how_many_reachable = int(result["howManyReachable"]["value"])
-        how_many_distant = how_many_total - how_many_reachable
-        if (how_many_distant > how_many_reachable) & (how_many_total > 0):
-            articles.append(result["article"]["value"].replace("http://dbpedia.org/resource/", ""))
-    return articles  
-
 def category_to_subcategory_below(root, mindepth, maxdepth):
     cat_subcat = defaultdict(dict)
     querytext = """
@@ -224,3 +184,27 @@ offset ?offset
             cat_articles[cat]["articles"]=[]
         cat_articles[cat]["articles"].append(article)
     return cat_articles
+
+def articles_to_categories_below(root,mindepth,maxdepth):
+    article_cats = defaultdict(dict)
+    querytext = """
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT DISTINCT ?article ?cat where { 
+    SELECT DISTINCT ?article ?cat where {
+        ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root.
+        ?article dct:subject ?cat.
+    }
+    ORDER BY ASC(?article)
+}
+limit 10000
+offset ?offset
+    """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(querytext)
+    for result in results:
+        article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        if article not in article_cats:
+            article_cats[article]["cats"]=[]
+        article_cats[article]["cats"].append(cat)
+    return article_cats

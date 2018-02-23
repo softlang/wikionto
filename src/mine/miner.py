@@ -1,5 +1,5 @@
-from mine.dbpedia import articles_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
-from json import dump, load
+from mine.dbpedia import articles_below,articles_to_categories_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
+from json import dump
 
 def init_langdict():
     cls_result = list(map(lambda x: (x,0),articles_below(CLURI,0,0)))
@@ -22,10 +22,12 @@ def init_langdict():
             langdict[cff] = dict()
             langdict[cff]["CLDepth"] = -1
         langdict[cff]["CFFDepth"] = d
-    with open('data/langdict.json', 'w',encoding='utf8') as f:
-        dump(obj=langdict, fp=f, indent=2)
-        f.flush()
-        f.close()
+    return langdict
+        
+def init_article_cats():
+    atc = articles_to_categories_below(CLURI, 0, 6)
+    atc.update(articles_to_categories_below(CFFURI, 0, 6))
+    return atc
 
 def init_cat_subcat():
     cat_dict = category_to_subcategory_below(CLURI,0,0)
@@ -49,10 +51,7 @@ def init_cat_subcat():
                 cff_cat_subcat[cat]["CFFDepth"] = x
                 cff_cat_subcat[cat]["subcats"] = cffs_cat_subcat_x[cat]["subcats"]
     cat_dict.update(cff_cat_subcat)
-    with open('data/catdict.json', 'w',encoding='utf8') as f:
-        dump(obj=cat_dict, fp=f, indent=2)
-        f.flush()
-        f.close()
+    return cat_dict
 
 def init_cat_articles():
     cl_cat_articles = category_to_articles_below(CLURI,0,0)
@@ -76,19 +75,23 @@ def init_cat_articles():
                 cff_cat_articles[cat]["CFFDepth"] = x
                 cff_cat_articles[cat]["articles"] = cffs_cat_articles_x[cat]["articles"]
     cl_cat_articles.update(cff_cat_articles)
-    f= open('data/catdict.json', 'r',encoding='utf8')
-    cat_dict = load(f)
-    cat_dict.update(cl_cat_articles)
-    f.close()
-    f= open('data/catdict.json', 'w',encoding='utf8')
-    dump(obj=cat_dict, fp=f, indent=2)
-    f.flush()
-    f.close()
+    return cl_cat_articles
+    
 
 def mine():
-    init_langdict()
-    init_cat_subcat()
-    init_cat_articles()
+    langdict = init_langdict()
+    langdict.update(init_article_cats())
+    with open('data/langdict.json', 'w',encoding='utf8') as f:
+        dump(obj=langdict, fp=f, indent=2)
+        f.flush()
+        f.close()
+        
+    catdict = init_cat_subcat()
+    catdict.update(init_cat_articles())
+    f= open('data/catdict.json', 'w',encoding='utf8')
+    dump(obj=catdict, fp=f, indent=2)
+    f.flush()
+    f.close()
     
 if __name__ == 'main':
     mine()

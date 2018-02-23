@@ -12,7 +12,7 @@ from check.eponymous_cat import check_eponymous
 
 from mine.miner import mine
 
-#mine()
+mine()
 
 with open('data/langdict.json', 'r',encoding="UTF8") as f: 
     langdict = load(f)

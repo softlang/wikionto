@@ -1,9 +1,16 @@
-from mine.dbpedia import articles_semantic_distant,CLURI,CFFURI
+from json import load
 
 def check_semantic_distance(langdict):
     print("Checking semantic distance")
-    clsdistant = articles_semantic_distant(CLURI, 0, 6)
-    cffsdistant = articles_semantic_distant(CFFURI, 0, 6)
+    f = open('data/catdict.json', 'r',encoding="UTF8")
+    catdict = load(f)
     for cl in langdict: 
-        langdict[cl]["SemanticallyRelevant"] = int(cl not in (clsdistant + cffsdistant))
+        cats = langdict[cl]["cats"]
+        total = len(cats)
+        reachable_cats = 0
+        for cat in cats:
+            if cat in catdict:
+                reachable_cats += 1
+        langdict[cl]["SemanticallyRelevant"] = total - (reachable_cats*2)
+        langdict[cl]["NumberOfCategories"] = total
     return langdict
