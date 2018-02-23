@@ -10,6 +10,10 @@ from json import dump, load
 from check.cat_name_pattern import check_cat_name
 from check.eponymous_cat import check_eponymous
 
+from mine.miner import mine
+
+#mine()
+
 with open('data/langdict.json', 'r',encoding="UTF8") as f: 
     langdict = load(f)
     langdict = check_gitseed(langdict)

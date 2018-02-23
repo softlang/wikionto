@@ -1,4 +1,4 @@
-from dbpedia import articles_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
+from mine.dbpedia import articles_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
 from json import dump, load
 
 def init_langdict():
@@ -22,7 +22,7 @@ def init_langdict():
             langdict[cff] = dict()
             langdict[cff]["CLDepth"] = -1
         langdict[cff]["CFFDepth"] = d
-    with open('../data/langdict.json', 'w',encoding='utf8') as f:
+    with open('data/langdict.json', 'w',encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
@@ -49,7 +49,7 @@ def init_cat_subcat():
                 cff_cat_subcat[cat]["CFFDepth"] = x
                 cff_cat_subcat[cat]["subcats"] = cffs_cat_subcat_x[cat]["subcats"]
     cat_dict.update(cff_cat_subcat)
-    with open('../data/catdict.json', 'w',encoding='utf8') as f:
+    with open('data/catdict.json', 'w',encoding='utf8') as f:
         dump(obj=cat_dict, fp=f, indent=2)
         f.flush()
         f.close()
@@ -76,15 +76,19 @@ def init_cat_articles():
                 cff_cat_articles[cat]["CFFDepth"] = x
                 cff_cat_articles[cat]["articles"] = cffs_cat_articles_x[cat]["articles"]
     cl_cat_articles.update(cff_cat_articles)
-    f= open('../data/catdict.json', 'r',encoding='utf8')
+    f= open('data/catdict.json', 'r',encoding='utf8')
     cat_dict = load(f)
     cat_dict.update(cl_cat_articles)
     f.close()
-    f= open('../data/catdict.json', 'w',encoding='utf8')
+    f= open('data/catdict.json', 'w',encoding='utf8')
     dump(obj=cat_dict, fp=f, indent=2)
     f.flush()
     f.close()
+
+def mine():
+    init_langdict()
+    init_cat_subcat()
+    init_cat_articles()
     
-init_langdict()
-init_cat_subcat()
-init_cat_articles()
+if __name__ == 'main':
+    mine()

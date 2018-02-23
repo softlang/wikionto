@@ -19,25 +19,23 @@ def check_stanford(langdict):
             langdict[cl]["Summary"]="No Summary!"
         else: 
             langdict[cl]["Summary"] = clarticles[cl]
-            langdict[cl]["StanfordPOSHypernym"] = pos_language(cls_dep_parsed[cl])
-            langdict[cl]["StanfordCOPHypernym"] = cop_language(cls_dep_parsed[cl])
+            parse, = cls_dep_parsed[cl]
+            langdict[cl]["StanfordPOSHypernym"] = pos_language(parse)
+            langdict[cl]["StanfordCOPHypernym"] = cop_language(parse)
     return langdict
 
-def pos_language(tagged):
-    parse, = tagged
+def pos_language(parse):
     vbzs = list([s for (s,d,o) in parse.triples() if (s==('is','VBZ')) | (o==('is','VBZ'))])
     nns = list([s for (s,d,o) in parse.triples() if ((s[0].lower() in keywords) & (s[1]=='NN')) | ((o[0].lower() in keywords) & (o[1]=='NN'))])
     return int(bool(vbzs) & bool(nns))
 
-def cop_language(tagged):
-    parse, = tagged
-    
+def cop_language(parse):
     for subj, dep, obj in parse.triples():
         if (subj[1]=='NN')&(subj[0] in ['language','format','dsl','dialect']) & (dep=='cop') & (obj==('is','VBZ')):
             return 1
     return 0
 
-def run_solo():
+if __name__ == '__main__':
     import json
     with open('../data/langdict.json', 'r',encoding="UTF8") as f: 
         langdict = json.load(f)
@@ -47,5 +45,3 @@ def run_solo():
         json.dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
-
-#run_solo()

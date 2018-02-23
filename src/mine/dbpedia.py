@@ -1,6 +1,8 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 from argparse import ArgumentError
 from collections import defaultdict
+from time import sleep
+from urllib.error import HTTPError
 
 CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
 CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
@@ -8,14 +10,20 @@ CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
 def query(query):
     if not "?offset" in query:
         raise ArgumentError("Work with offset as dbpedia returns a limited amount of results.")
-    sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+    sparql = SPARQLWrapper("http://live.dbpedia.org/sparql")
     sparql.setReturnFormat(JSON)
     offset = 0
     results = []
     while True:
         newquery = query.replace("?offset",str(offset))
         sparql.setQuery(newquery)
-        qres = sparql.query().convert()
+        while True:
+            try:
+                res = sparql.query()
+                break
+            except HTTPError:
+                sleep(5)
+        qres = res.convert()
         size = len(qres["results"]["bindings"])
         results = results + qres["results"]["bindings"]
         if size==10000:
