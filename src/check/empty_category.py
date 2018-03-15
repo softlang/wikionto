@@ -1,4 +1,3 @@
-from data.eval_langdict import lang_succeeds_at_none
 from json import load
 
 def check_empty_cat(catdict,langdict):
@@ -14,6 +13,14 @@ def check_empty_cat(catdict,langdict):
                 catdict[cat]["NonEmptyCategory"] = 1
     return catdict
 
+def lang_succeeds_at_none(lang,langdict):
+    properties01 = ['DbpediaInfobox','DbpediaHypernym'
+                    ,'StanfordPOSHypernym','StanfordCOPHypernym','WordnetHypernym'
+                    ,'IncludedNamePattern']
+    flag = bool(sum(map(lambda p:langdict[lang][p],properties01)))
+    sr = langdict[lang]['SemanticallyRelevant'] > 1
+    return flag | sr
+    
 def run_solo():
     import json
     f=open('../data/langdict.json', 'r',encoding="UTF8")

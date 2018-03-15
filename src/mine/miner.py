@@ -80,7 +80,9 @@ def init_cat_articles():
 
 def mine():
     langdict = init_langdict()
-    langdict.update(init_article_cats())
+    langdict2 = init_article_cats()
+    for cl in langdict:
+        langdict[cl]['cats'] = langdict2[cl]['cats']
     with open('data/langdict.json', 'w',encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
         f.flush()

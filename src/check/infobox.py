@@ -10,9 +10,10 @@ def check_infobox(langdict):
         "^<http://dbpedia.org/property/language>",
         "^<http://dbpedia.org/ontology/programmingLanguage>"
         ]
+    cls = set()
     for p in propertylist:
-        cls = articles_with_property(CLURI, 0, 6, p)
-        cffs = articles_with_property(CFFURI, 0, 6, p)
-        for cl in langdict:
-            langdict[cl][p] = int(cl in cls | cffs)
+        cls = cls.union(articles_with_property(CLURI, 0, 6, p))
+        cls = cls.union(articles_with_property(CFFURI, 0, 6, p))
+    for cl in langdict:
+        langdict[cl]["DbpediaInfobox"] = int(cl in cls)
     return langdict
