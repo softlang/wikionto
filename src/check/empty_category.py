@@ -4,13 +4,17 @@ def check_empty_cat(catdict,langdict):
     print("Checking for categories with no relevant articles")
     for cat in catdict:
         if not "articles" in catdict[cat]:
-            catdict[cat]["NonEmptyCategory"] = 0
+            catdict[cat]["ChildTest"] = 0
         else:
+            count = 0
+            for cl in catdict[cat]["articles"]:
+                if lang_succeeds_at_none(cl,langdict):
+                    count += 1 
             some = list(filter(lambda cl: not lang_succeeds_at_none(cl,langdict),catdict[cat]["articles"]))
             if not some:
-                catdict[cat]["NonEmptyCategory"] = 0
+                catdict[cat]["ChildTest"] = 0
             else:
-                catdict[cat]["NonEmptyCategory"] = 1
+                catdict[cat]["ChildTest"] = 1
     return catdict
 
 def lang_succeeds_at_none(lang,langdict):

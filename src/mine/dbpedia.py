@@ -10,7 +10,7 @@ CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
 def query(query):
     if not "?offset" in query:
         raise ArgumentError("Work with offset as dbpedia returns a limited amount of results.")
-    sparql = SPARQLWrapper("http://live.dbpedia.org/sparql")
+    sparql = SPARQLWrapper("http://dbpedia.org/sparql")
     sparql.setReturnFormat(JSON)
     offset = 0
     results = []

@@ -25,8 +25,8 @@ def check_stanford(langdict):
     return langdict
 
 def pos_language(parse):
-    vbzs = list([s for (s,d,o) in parse.triples() if (s==('is','VBZ')) | (o==('is','VBZ'))])
-    nns = list([s for (s,d,o) in parse.triples() if ((s[0].lower() in keywords) & (s[1]=='NN')) | ((o[0].lower() in keywords) & (o[1]=='NN'))])
+    vbzs = list([s for (s,_,o) in parse.triples() if (s==('is','VBZ')) | (o==('is','VBZ'))])
+    nns = list([s for (s,_,o) in parse.triples() if ((s[0].lower() in keywords) & (s[1]=='NN')) | ((o[0].lower() in keywords) & (o[1]=='NN'))])
     return int(bool(vbzs) & bool(nns))
 
 def cop_language(parse):
