@@ -6,11 +6,13 @@ from urllib.error import HTTPError
 
 CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
 CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
+DBPEDIA = "http://dbpedia.org/sparql"
+DBPEDIALIVE = "http://live.dbpedia.org/sparql"
 
-def query(query):
+def query(query, url=DBPEDIALIVE):
     if not "?offset" in query:
         raise ArgumentError("Work with offset as dbpedia returns a limited amount of results.")
-    sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+    sparql = SPARQLWrapper(url)
     sparql.setReturnFormat(JSON)
     offset = 0
     results = []
@@ -91,6 +93,7 @@ offset ?offset
     """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
     return query(querytext)
 
+#Only dbpedia.org holds the hypernym relation
 def articles_with_hypernymContains(root,mindepth,maxdepth,hypernym):
     articles = []
     querytext="""
@@ -108,7 +111,7 @@ SELECT ?article where {
 limit 10000
 offset ?offset
     """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth)).replace("?hypernym",hypernym)
-    results = query(querytext)
+    results = query(querytext,url=DBPEDIA)
     for result in results:
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
         articles.append(article)

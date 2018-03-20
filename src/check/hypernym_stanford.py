@@ -1,5 +1,6 @@
 from nltk.parse.corenlp import CoreNLPDependencyParser
 from mine.dbpedia import articles_with_summaries,CFFURI,CLURI
+from data import DATAP
 
 keywords = ['language','format','dsl','dialect']
 def check_stanford(langdict):
@@ -37,11 +38,11 @@ def cop_language(parse):
 
 if __name__ == '__main__':
     import json
-    with open('../data/langdict.json', 'r',encoding="UTF8") as f: 
+    with open(DATAP+'/langdict.json', 'r',encoding="UTF8") as f: 
         langdict = json.load(f)
         langdict = check_stanford(langdict)
         f.close()
-    with open('../data/langdict.json', 'w',encoding="UTF8") as f:
+    with open(DATAP+'/langdict.json', 'w',encoding="UTF8") as f:
         json.dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()

@@ -1,4 +1,5 @@
-from json import load
+from json import load, dump
+from data import DATAP
 
 def check_empty_cat(catdict,langdict):
     print("Checking for categories with no relevant articles")
@@ -10,11 +11,12 @@ def check_empty_cat(catdict,langdict):
             for cl in catdict[cat]["articles"]:
                 if lang_succeeds_at_none(cl,langdict):
                     count += 1 
-            some = list(filter(lambda cl: not lang_succeeds_at_none(cl,langdict),catdict[cat]["articles"]))
-            if not some:
+            catdict[cat]["NoLangRatio"] = count
+            catdict[cat]["#articles"] = len(catdict[cat]["articles"])
+            if count > len(catdict[cat]["articles"])/2:
                 catdict[cat]["ChildTest"] = 0
             else:
-                catdict[cat]["ChildTest"] = 1
+                catdict[cat]["ChildTest"] = 1 
     return catdict
 
 def lang_succeeds_at_none(lang,langdict):
@@ -25,16 +27,14 @@ def lang_succeeds_at_none(lang,langdict):
     sr = langdict[lang]['SemanticallyRelevant'] > 1
     return flag | sr
     
-def run_solo():
-    import json
-    f=open('../data/langdict.json', 'r',encoding="UTF8")
+if __name__ == "__main__":
+    f=open(DATAP+'/langdict.json', 'r',encoding="UTF8")
     langdict = load(f)
-    with open('../data/catdict.json', 'r',encoding="UTF8") as f: 
-        catdict = json.load(f)
+    with open(DATAP+'/catdict.json', 'r',encoding="UTF8") as f: 
+        catdict = load(f)
         catdict = check_empty_cat(catdict,langdict)
         f.close()
-    with open('../data/catdict.json', 'w',encoding="UTF8") as f:
-        json.dump(obj=catdict, fp=f, indent=2)
+    with open(DATAP+'/catdict.json', 'w',encoding="UTF8") as f:
+        dump(obj=catdict, fp=f, indent=2)
         f.flush()
         f.close()
-#run_solo()

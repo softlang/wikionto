@@ -12,11 +12,12 @@ how many tests succeed?
 import pandas as pd
 from json import load
 import matplotlib.pyplot as plt
+from data import DATAP
 
 properties = ['DbpediaInfobox','StanfordPOSHypernym','StanfordCOPHypernym','SemanticallyRelevant','DbpediaHypernym']
 
 def eval_lang_dict():
-    f= open('langdict.json', 'r',encoding="UTF8")
+    f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
     lf = pd.DataFrame(load(f)).transpose()
     catalog = lf.reindex(columns=properties+["CLDepth","CFFDepth",'GitSeed'])
     print(catalog.describe().to_latex())
@@ -39,7 +40,7 @@ def eval_lang_dict():
     plt.show()
     
 def eval_cat_dict():
-    f= open('catdict.json', 'r',encoding="UTF8")
+    f= open(DATAP+'/catdict.json', 'r',encoding="UTF8")
     cf = pd.DataFrame(load(f)).transpose()
     catalog = cf.reindex(columns=["CLDepth","CFFDepth",'NonEmptyCategory','IncludedNamePattern','Eponymous'])
     
@@ -57,7 +58,7 @@ def eval_cat_dict():
     plt.show()
     
 def sampling_buckets():
-    f= open('langdict.json', 'r',encoding="UTF8")
+    f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
     lf = pd.DataFrame(load(f)).transpose()
     catalog = lf.reindex(columns=properties+["CLDepth","CFFDepth",'GitSeed'])
     
@@ -72,14 +73,14 @@ def sampling_buckets():
     plt.show()
     
 def pos_vs_cop():
-    f= open('langdict.json', 'r',encoding="UTF8")
+    f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["StanfordCOPHypernym"] == 1):
             print(cl)
             
 def dbpedia_vs_pos():    
-    f= open('langdict.json', 'r',encoding="UTF8")
+    f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["DbpediaHypernym"] == 1):

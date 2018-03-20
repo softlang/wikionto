@@ -1,8 +1,9 @@
 from json import load
+from data import DATAP
 
 def check_semantic_distance(langdict):
     print("Checking semantic distance")
-    f = open('data/catdict.json', 'r',encoding="UTF8")
+    f = open(DATAP+'/catdict.json', 'r',encoding="UTF8")
     catdict = load(f)
     for cl in langdict: 
         cats = langdict[cl]["cats"]
@@ -20,11 +21,11 @@ def check_semantic_distance(langdict):
 
 if __name__ == '__main__':
     import json
-    with open('../data/langdict.json', 'r',encoding="UTF8") as f: 
+    with open(DATAP+'/langdict.json', 'r',encoding="UTF8") as f: 
         langdict = json.load(f)
         langdict = check_semantic_distance(langdict)
         f.close()
-    with open('../data/langdict.json', 'w',encoding="UTF8") as f:
+    with open(DATAP+'/langdict.json', 'w',encoding="UTF8") as f:
         json.dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()

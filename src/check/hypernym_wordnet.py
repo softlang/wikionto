@@ -1,4 +1,4 @@
-from nltk.corpus import wordnet as wn
+from nltk.corpus import wordnet
 from nltk import download
 import re
 
@@ -12,7 +12,7 @@ def check_wordnet_hypernym(langdict):
 
 def is_hyponym(cl):
     cl = namenorm(cl)
-    for syn in wn.synsets(cl):
+    for syn in wordnet.synsets(cl):
         for hyp in syn.hypernyms():
             if('language' in str(hyp))|('format' in str(hyp))|('dsl' in str(hyp))|('dialect' in str(hyp)):
                 return 1
@@ -22,14 +22,3 @@ def namenorm(name):
     x = re.sub("\(.*?\)", "", name).lower().strip()
     x = re.sub("[_]","",x).strip()
     return x
-
-if __name__ == '__main__':
-    import json
-    with open('../data/langdict.json', 'r',encoding="UTF8") as f: 
-        langdict = json.load(f)
-        langdict = check_wordnet_hypernym(langdict)
-        f.close()
-    with open('../data/langdict.json', 'w',encoding="UTF8") as f:
-        json.dump(obj=langdict, fp=f, indent=2)
-        f.flush()
-        f.close()

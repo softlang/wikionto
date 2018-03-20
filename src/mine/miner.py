@@ -1,5 +1,6 @@
 from mine.dbpedia import articles_below,articles_to_categories_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
 from json import dump
+from data import DATAP
 
 def init_langdict():
     cls_result = list(map(lambda x: (x,0),articles_below(CLURI,0,0)))
@@ -83,14 +84,14 @@ def mine():
     langdict2 = init_article_cats()
     for cl in langdict:
         langdict[cl]['cats'] = langdict2[cl]['cats']
-    with open('data/langdict.json', 'w',encoding='utf8') as f:
+    with open(DATAP+'/langdict.json', 'w',encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
         
     catdict = init_cat_subcat()
     catdict.update(init_cat_articles())
-    f= open('data/catdict.json', 'w',encoding='utf8')
+    f= open(DATAP+'/catdict.json', 'w',encoding='utf8')
     dump(obj=catdict, fp=f, indent=2)
     f.flush()
     f.close()
