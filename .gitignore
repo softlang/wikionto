@@ -61,3 +61,4 @@ resources/stanford/
 src/__pycache__/
 *.pyc
 src/langdict.json
+.idea/
