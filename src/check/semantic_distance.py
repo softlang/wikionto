@@ -12,8 +12,6 @@ def check_semantic_distance(langdict):
         for cat in cats:
             if cat in catdict:
                 reachable_cats += 1
-            else:
-                print(cat)
         langdict[cl]["SemanticDistance"] = total - (reachable_cats*2)
         langdict[cl]["SemanticallyRelevant"] = int(langdict[cl]["SemanticDistance"] < 1)
         langdict[cl]["NumberOfCategories"] = total

@@ -85,9 +85,24 @@ def dbpedia_vs_pos():
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["DbpediaHypernym"] == 1):
             print(cl + ':' + cldict[cl]["Summary"])    
-    
+
+def dbpediaprop_vs_pos():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    lf = pd.DataFrame(load(f)).transpose()
+    catalog = lf.reindex(columns=["StanfordPOSHypernym", "DbpediaInfobox"])
+    print(catalog.describe().to_latex())
+
+    fig, axes = plt.subplots(nrows=1, ncols=1)
+    rfail = catalog.groupby(by=["StanfordPOSHypernym", "DbpediaInfobox"]).apply(lambda x: len(x))
+    rfail.to_frame('Combis').plot(kind='bar', ax=axes, color='blue')
+    for p in axes.patches:
+        axes.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+    plt.show()
+    plt.show()
+
 if __name__ == '__main__':
     #eval_lang_dict()
     #eval_cat_dict()
     #sampling_buckets()
-    dbpedia_vs_pos()
+    #dbpediahyp_vs_pos()
+    dbpediaprop_vs_pos()
