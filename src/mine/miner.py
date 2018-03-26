@@ -1,4 +1,4 @@
-from mine.dbpedia import articles_below,articles_to_categories_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
+from mine.dbpedia import articles_below,articles_with_summaries,articles_to_categories_below,category_to_subcategory_below,category_to_articles_below,CLURI,CFFURI
 from json import dump
 from data import DATAP
 
@@ -18,11 +18,22 @@ def init_langdict():
         langdict[cl]["CLDepth"] = d
         if cl not in list(zip(*cffs_result))[0]:
             langdict[cl]["CFFDepth"] = -1
-    for cff,d in cffs_result:
-        if not cff in langdict:
+    for cff, d in cffs_result:
+        if cff not in langdict:
             langdict[cff] = dict()
             langdict[cff]["CLDepth"] = -1
         langdict[cff]["CFFDepth"] = d
+    return langdict
+
+def add_summaries(langdict):
+    clarticles = articles_with_summaries(CLURI, 0, 6)
+    cffarticles = articles_with_summaries(CFFURI, 0, 6)
+    clarticles.update(cffarticles)
+    for cl in langdict:
+        if cl in clarticles:
+            langdict[cl]["Summary"] = clarticles[cl]
+        else:
+            langdict[cl]["Summary"] = "No Summary"
     return langdict
         
 def init_article_cats():
@@ -81,6 +92,7 @@ def init_cat_articles():
 
 def mine():
     langdict = init_langdict()
+    langdict = add_summaries(langdict)
     langdict2 = init_article_cats()
     for cl in langdict:
         langdict[cl]['cats'] = langdict2[cl]['cats']

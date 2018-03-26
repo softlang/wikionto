@@ -7,18 +7,20 @@ from urllib.error import HTTPError
 CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
 CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
 DBPEDIA = "http://dbpedia.org/sparql"
-DBPEDIALIVE = "http://live.dbpedia.org/sparql"
+DBPEDIALIVE = "http://dbpedia-live.openlinksw.com/sparql"
 
-def query(query, url=DBPEDIALIVE):
-    if not "?offset" in query:
+def query(query, url=DBPEDIA, use_offset=True):
+    if use_offset and ("?offset" not in query):
         raise ArgumentError("Work with offset as dbpedia returns a limited amount of results.")
     sparql = SPARQLWrapper(url)
     sparql.setReturnFormat(JSON)
     offset = 0
     results = []
     while True:
-        newquery = query.replace("?offset",str(offset))
-        sparql.setQuery(newquery)
+        fquery = query
+        if use_offset:
+            fquery = fquery.replace("?offset",str(offset))
+        sparql.setQuery(fquery)
         while True:
             try:
                 res = sparql.query()
@@ -31,7 +33,7 @@ def query(query, url=DBPEDIALIVE):
         results = results + qres["results"]["bindings"]
         if size==10000:
             offset += 10000
-        else:
+        if (size!=10000) or (not use_offset):
             break
     return results
 
@@ -76,6 +78,51 @@ offset ?offset
         articles.add(article)
     return articles
 
+def properties_in(root,mindepth,maxdepth):
+    queryText = """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    SELECT ?prop, (COUNT(?article) as ?count) where { 
+        SELECT DISTINCT ?article ?prop where {
+            ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
+
+            FILTER(regex(str(?prop),"http://dbpedia.org/property","i"))
+            ?article ?prop ?object .   
+        }
+        GROUP BY ?prop
+    }
+    GROUP BY ?prop
+    HAVING(COUNT(?article) > 50)
+    ORDER BY DESC(?count)
+        """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(queryText,use_offset=False)
+    propdict = dict()
+    for result in results:
+        propname = result["prop"]["value"].replace("http://dbpedia.org/property/", "")
+        in_count = int(result["count"]["value"])
+        propdict[propname] = dict()
+        propdict[propname]["in_count"] = in_count
+    return propdict
+
+def articles_out_with(property, mindepth, maxdepth):
+    prop_out_query = """
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    SELECT DISTINCT ?article where {
+        ?article ?property ?object . 
+        FILTER NOT EXISTS {
+            ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_languages>.
+        }
+        FILTER NOT EXISTS {
+            ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_file_formats>.
+        }  
+    }
+    LIMIT 10000
+    """.replace("?property", '<http://dbpedia.org/property/' + property + '>').replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
+    return len(query(query=prop_out_query,use_offset=False))
+
+
 def articles_with_redirects(root,mindepth,maxdepth):
     querytext="""
 PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -93,7 +140,8 @@ offset ?offset
     """.replace("?root", root).replace("?mindepth",str(mindepth)).replace("?maxdepth", str(maxdepth))
     return query(querytext)
 
-#Only dbpedia.org holds the hypernym relation
+
+# Only dbpedia.org holds the hypernym relation
 def articles_with_hypernymContains(root,mindepth,maxdepth,hypernym):
     articles = []
     querytext="""

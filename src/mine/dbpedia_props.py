@@ -16,7 +16,7 @@ def properties():
             propdict[propname]["in_count"] = resultsCFF[propname]["in_count"]
     for propname in propdict:
         print(propname)
-        propdict[propname]["out_count"] = len(articles_out_with(propname, 0, 6))
+        propdict[propname]["out_count"] = articles_out_with(propname, 0, 6)
     with open(DATAP+'/all_props.json', 'w',encoding="UTF8") as f:
         dump(obj=propdict, fp=f, indent=2)
         f.flush()
@@ -35,5 +35,5 @@ def plot_props():
     plt.show()
 
 if __name__ == '__main__':
-    properties()
-    #plot_props()
+    #properties()
+    plot_props()
