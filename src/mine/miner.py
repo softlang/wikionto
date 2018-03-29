@@ -1,5 +1,6 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below \
-    , category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, get_properties
+    , category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI
+from mine.property_miner import add_properties
 from json import dump
 from data import DATAP
 
@@ -39,13 +40,6 @@ def add_summaries(langdict):
             langdict[cl]["Summary"] = clarticles[cl]
         else:
             langdict[cl]["Summary"] = "No Summary"
-    return langdict
-
-
-def add_properties(langdict):
-    print("Mining article properties")
-    langdict = get_properties(CLURI, 0, 6, langdict)
-    langdict = get_properties(CFFURI,0,6,langdict)
     return langdict
 
 

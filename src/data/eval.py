@@ -79,7 +79,7 @@ def pos_vs_cop():
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["StanfordCOPHypernym"] == 1):
             print(cl)
             
-def dbpedia_vs_pos():    
+def dbpediahyp_vs_pos():
     f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
@@ -88,9 +88,10 @@ def dbpedia_vs_pos():
 
 def dbpediaprop_vs_pos():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
-    lf = pd.DataFrame(load(f)).transpose()
+    langdict = load(f)
+    lf = pd.DataFrame(langdict).transpose()
     catalog = lf.reindex(columns=["StanfordPOSHypernym", "DbpediaInfobox"])
-    print(catalog.describe().to_latex())
+    #print(catalog.describe().to_latex())
 
     fig, axes = plt.subplots(nrows=1, ncols=1)
     rfail = catalog.groupby(by=["StanfordPOSHypernym", "DbpediaInfobox"]).apply(lambda x: len(x))
@@ -98,11 +99,29 @@ def dbpediaprop_vs_pos():
     for p in axes.patches:
         axes.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
     plt.show()
-    plt.show()
+    for cl in langdict:
+        if (langdict[cl]["StanfordPOSHypernym"] == 0) and (langdict[cl]["DbpediaInfobox"]==1):
+            print(cl)
+
+def dbpediaprop_single_vs_pos():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    for cl in langdict:
+        if "properties" not in langdict[cl]:
+            continue
+        if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("paradigm" in langdict[cl]["properties"]):
+            print("paradigm: "+cl +"  - "+langdict[cl]["Summary"])
+        if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("fileExt" in langdict[cl]["properties"]):
+            print("fileExt: "+cl +"  - "+langdict[cl]["Summary"])
+        if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("implementations" in langdict[cl]["properties"]):
+            print("implementations: "+cl +"  - "+langdict[cl]["Summary"])
+        if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("typing" in langdict[cl]["properties"]):
+            print("typing: "+cl +"  - "+langdict[cl]["Summary"])
 
 if __name__ == '__main__':
     #eval_lang_dict()
     #eval_cat_dict()
     #sampling_buckets()
-    #dbpediahyp_vs_pos()
-    dbpediaprop_vs_pos()
+    dbpediahyp_vs_pos()
+    #dbpediaprop_vs_pos()
+    #dbpediaprop_single_vs_pos()

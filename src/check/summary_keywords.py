@@ -6,3 +6,4 @@ def check_summary_for_keywords(langdict):
             langdict[cl]["PlainTextKeyword"] = 1
         else:
             langdict[cl]["PlainTextKeyword"] = 0
+    return langdict
