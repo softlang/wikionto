@@ -2,7 +2,7 @@ from check.gitseed import check_gitseed
 from check.infobox import check_infobox
 from check.hypernym_dbpedia import check_purlHypernymLanguage
 from check.hypernym_stanford import check_stanford
-from check.string_containment import check_summary_for_keywords
+from check.summary_keywords import check_summary_for_keywords
 from check.hypernym_wordnet import check_wordnet_hypernym
 from check.semantic_distance import check_semantic_distance
 from check.article_name_pattern import check_article_name
@@ -14,8 +14,8 @@ from check.eponymous_cat import check_eponymous
 from mine.miner import mine
 from data import DATAP
 
-if __name__=='__main__':
-    #mine()
+if __name__ == '__main__':
+    mine()
     with open(DATAP+'/langdict.json', 'r',encoding="UTF8") as f: 
         langdict = load(f)
         langdict = check_gitseed(langdict)

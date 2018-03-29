@@ -1,19 +1,20 @@
-from mine.dbpedia import articles_with_property,CLURI,CFFURI
+ex_properties = {"recorded","artist","album","thisSingle","accessdate","fromAlbum","lastSingle","nextSingle",
+                 "nosales","composer","streaming","writingCredits"
+                 ,"thesisYear","workInstitutions","workplaces","thesisUrl","thesisTitle","species","spouse",
+                 "battery"}
+
+in_properties = {"paradigm", "typing", "fileExt", "implementation"}
+
 
 def check_infobox(langdict):
     print("Checking Infobox properties")
-    propertylist = [
-        "<http://dbpedia.org/property/dialects>",
-        "<http://dbpedia.org/property/paradigm>",
-        "<http://dbpedia.org/property/typing>",
-        "^<http://dbpedia.org/ontology/language>",
-        "^<http://dbpedia.org/property/language>",
-        "^<http://dbpedia.org/ontology/programmingLanguage>"
-        ]
-    cls = set()
-    for p in propertylist:
-        cls = cls.union(articles_with_property(CLURI, 0, 6, p))
-        cls = cls.union(articles_with_property(CFFURI, 0, 6, p))
     for cl in langdict:
-        langdict[cl]["DbpediaInfobox"] = int(cl in cls)
+        for p in ex_properties:
+            if p in langdict[cl]["properties"]:
+                langdict[cl]["DbpediaInfobox"] = 0
+                break
+        for p in in_properties:
+            if p in langdict[cl]["properties"]:
+                langdict[cl]["DbpediaInfobox"] = 1
+                break
     return langdict
