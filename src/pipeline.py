@@ -15,7 +15,7 @@ from mine.miner import mine
 from data import DATAP
 
 if __name__ == '__main__':
-    #mine()
+    mine()
     with open(DATAP+'/langdict.json', 'r',encoding="UTF8") as f: 
         langdict = load(f)
         langdict = check_gitseed(langdict)

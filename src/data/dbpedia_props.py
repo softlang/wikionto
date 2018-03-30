@@ -103,11 +103,11 @@ def property_extents():
         print(p + ' ' + str(s))
 
 
-def property_lattice2():
+def property_lattice():
     f = open(DATAP + '/all_props.json', 'r', encoding="UTF8")
     propdict = load(f)
     prop_lat0 = dict()
-    props0 = sorted(list(filter(lambda p: p not in (g_properties | ex_properties), propdict.keys())))
+    props0 = sorted(list(filter(lambda p: propdict[p]["out_count"]!=10000,propdict.keys())))
     for c in combinations(props0, 2):
         articles1 = set(propdict[c[0]]["articles"])
         articles2 = set(propdict[c[1]]["articles"])
@@ -118,18 +118,20 @@ def property_lattice2():
     dump(prop_lat0, f, indent=2)
     f.close()
 
-def property_lattice():
+    f = open(DATAP + '/prop_extents.json', 'r', encoding="UTF8")
+    prop_extents = load(f)
     x = 3
     while True:
         f = open(DATAP + '/prop_lattice'+str(x-1)+'.json', 'r', encoding="UTF8")
         prop_lat1 = load(f)
         f.close()
         prop_lat2 = dict()
-        for p2 in props0:
-            for p1 in prop_lat1:
-                if p2 in p1:
-                    continue
-                keylist = p1.split(",")
+        for p1 in prop_lat1:
+            keylist = p1.split(',')
+            extents = set(prop_extents[keylist[0]]["extents"])
+            for p in keylist:
+                extents = extents & set(prop_extents[p]["extents"])
+            for p2 in extents:
                 keylist.append(p2)
                 keytext = ",".join(sorted(keylist))
                 if keytext in prop_lat2:
@@ -163,9 +165,9 @@ def plot_props():
 
 
 if __name__ == '__main__':
-    # properties()
-    # reverse_properties()
+    #properties()
+    #reverse_properties()
     #properties_to_articles()
-    property_extents()
-    #property_lattice()
+    #property_extents()
+    property_lattice()
     # plot_props()

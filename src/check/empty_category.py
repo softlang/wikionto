@@ -4,7 +4,7 @@ from data import DATAP
 def check_empty_cat(catdict,langdict):
     print("Checking for categories with no relevant articles")
     for cat in catdict:
-        if not "articles" in catdict[cat]:
+        if "articles" not in catdict[cat]:
             catdict[cat]["ChildTest"] = 0
         else:
             count = 0
@@ -23,7 +23,7 @@ def lang_succeeds_at_none(lang,langdict):
     properties01 = ['DbpediaInfobox','DbpediaHypernym'
                     ,'StanfordPOSHypernym','StanfordCOPHypernym','WordnetHypernym'
                     ,'IncludedNamePattern']
-    flag = bool(sum(map(lambda p:langdict[lang][p],properties01)))
+    flag = bool(sum(map(lambda p:p in langdict[lang] and langdict[lang][p],properties01)))
     sr = langdict[lang]['SemanticallyRelevant'] > 1
     return flag | sr
     

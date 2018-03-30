@@ -1,5 +1,4 @@
 Query_language:Query languages are computer languages used to make queries in databases and information systems..
-.QL:.QL (pronounced "dot-cue-el") is an object-oriented query language used to retrieve data from relational database management systems.
 Algebraic_modeling_language:Algebraic Modeling Languages (AML) are high-level computer programming languages for describing and solving high complexity problems for large scale mathematical computation (i.e.
 Bs_(programming_language):bs was a programming language from Apple Inc.
 Cybil_(programming_language):Cybil (short for the Cyber Implementation Language of the Control Data Network Operating System) was a Pascal-like language developed at Control Data Corporation.
@@ -32,14 +31,12 @@ IMP_(programming_language):IMP was a systems programming language developed by E
 Intermediate_representation:An Intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code.
 LIS_(programming_language):LIS (Language d'Implementation de Systèmes) was a system implementation programming language designed by Jean Ichbiah, who later designed Ada.
 Little_Implementation_Language:LIL, the Little Implementation Language, was a system programming language during the early days of Unix history on PDP-11 machines.
-Lua_(programming_language):Lua (/ˈluːə/ LOO-ə, from Portuguese: lua [ˈlu.(w)ɐ] meaning moon) is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients.
 Met_English:Met English Language (MEL) was an early computer language used by the Metropolitan Life Insurance Company (MetLife).
 MultiLisp:MultiLisp was a functional programming language and dialect of Scheme, extended with constructs for parallel execution and shared memory.
 Newsqueak:Squeak and its successor Newsqueak are concurrent programming languages for writing application software with interactive graphical user interfaces.
 Nord_Programming_Language:Nord Programming Language, commonly abbreviated NPL, was a programming language by the Norwegian minicomputer manufacturer Norsk Data.
 Pattern_directed_invocation_programming_language:In computer science, pattern-directed invocation programming languages are programming languages in which procedures are invoked indirectly by specifying a pattern for a set of procedures as opposed to specifying one directly by name, pointer, URL, etc., as in conventional programming.
 Petri_net:A Petri net (also known as a place/transition net or P/T net) is one of several mathematical modeling languages for the description of distributed systems.
-Quartz_Composer:(Not to be confused with Quartz Compositor.) Quartz Composer is a node-based visual programming language provided as part of the Xcode development environment in Mac OS X for processing and rendering graphical data.
 ReGIS:ReGIS, short for Remote Graphic Instruction Set, was a vector graphics markup language developed by Digital Equipment Corporation (DEC) for later models of their famous VT series of computer terminals.
 SYMPL:SYMPL was a programming language developed by the Control Data Corporation for use on the CDC 6000 series computer systems in the 1970s and 1980s.
 Short_Code_(computer_language):Short Code was one of the first higher-level languages ever developed for an electronic computer.
@@ -80,12 +77,10 @@ Simula:Simula is the name of two simulation programming languages, Simula I and 
 TELCOMP:TELCOMP was a programming language developed at Bolt, Beranek and Newman (BBN) in about 1964 and in use until at least 1974.
 TOM_(object-oriented_programming_language):TOM was an object-oriented programming language developed in the 1990s that built on the lessons learned from Objective-C.
 UNCOL:UNCOL (Universal Computer Oriented Language) was a proposed universal intermediate language for compilers introduced by Melvin E.
-Visual_Basic_.NET:Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
 WSFN_(programming_language):WSFN (Which Stands for Nothing) was a programming language for controlling robots created by Li-Chen Wang and published by Dr.
 Web_Services_Flow_Language:Web Services Flow Language 1.0 (WSFL) was an XML programming language proposed by IBM in 2001 for describing Web services compositions.
 XHTML_Friends_Network:XHTML Friends Network (XFN) is an HTML microformat developed by Global Multimedia Protocols Group that provides a simple way to represent human relationships using links.
 ZZT-oop:ZZT-oop was an early in-game scripting programming language, designed by Tim Sweeney, for his computer game ZZT.
-Data_Interchange_Format:Data Interchange Format (.dif) is a text file format used to import/export single spreadsheets between spreadsheet programs (OpenOffice.org Calc, Excel, Gnumeric, StarCalc, Lotus 1-2-3, FileMaker, dBase, Framework, Multiplan, etc.).
 Geo_(microformat):Geo is a microformat used for marking up WGS84 geographical coordinates (latitude;longitude) in (X)HTML.
 HCalendar:(For details of hCalendar used on Wikipedia, see Wikipedia:Microformats.) hCalendar (short for HTML iCalendar) is a microformat standard for displaying a semantic (X)HTML representation of iCalendar-format calendar information about an event, on web pages, using HTML classes and rel attributes.
 HCard:hCard is a microformat for publishing the contact details (which might be no more than the name) of people, companies, organizations, and places, in (X)HTML, Atom, RSS, or arbitrary XML.
@@ -106,18 +101,10 @@ Moskau_(song):"Moskau" is a German-language single by the German pop-act Dsching
 NeighborCity:NeighborCity is a residential real estate information and service company that rates real-estate agents in the United States, offering a way for buyers and sellers of homes to compare and evaluate agents.
 Polysyndactyly:Polysyndactyly is an hereditary anatomical malformation combining polydactyly and syndactyly..
 S.O.S._(Ola_song):S.O.S.
-ICalendar:(Not to be confused with the Calendar application (previously named iCal).) iCalendar is a computer file format which allows Internet users to send meeting requests and tasks to other Internet users, via email, or sharing files with an extension of .ics.
 MPEG-1_Audio_Layer_I:MPEG-1 Audio Layer I, commonly abbreviated to MP1, is one of three audio formats included in the MPEG-1 standard.
-Portable_Draughts_Notation:Portable Draughts Notation (.PDN) is the standard computer-processable format for recording draughts games.
-Rich_Text_Format_Directory:Rich Text Format Directory, also known as RTFD (due to its extension .rtfd), or Rich Text Format with Attachments, is a primary document format of TextEdit, an application native to NeXTSTEP and OS X which has also been ported to other versions of Unix.
 .3ds:3DS is one of the file formats used by the Autodesk 3ds Max 3D modeling, animation and rendering software.
 Bitstream_Speedo_Fonts:Bitstream Speedo, or Speedo, are an obsolete scalable font format created by Bitstream Inc.
-Cartesian_Perceptual_Compression:Cartesian Perceptual Compression (abbreviated CPC, with filename extension .cpc) is a proprietary image file format.
 Comparison_of_archive_formats:There are many popular computer data archive formats for creating and maintaining archive files.
-FDB_(file_format):Font Definition Block (abbreviation: FDB, filename extension .fdb) is a file format for computer fonts used by the Ming library.
 Intergraph_Standard_File_Formats:Intergraph Standard File Formats (ISFF) are the file formats common to MicroStation and Intergraph's Interactive Graphics Design System (IGDS).
-Personal_Storage_Table:In computing, a Personal Storage Table (.pst) is an open proprietary file format used to store copies of messages, calendar events, and other items within Microsoft software such as Microsoft Exchange Client, Windows Messaging, and Microsoft Outlook.
-Wavefront_.obj_file:OBJ (or .OBJ) is a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package.
 WebM:WebM is a video file format.It is primarily intended to offer a royalty-free alternative to use in the HTML5 video tag.
-IFrame_(video_format):(For other uses, see IFrame (disambiguation).) iFrame logo iFrame is a digital video format developed by Apple.
 SlotRadio:(Not to be confused with slotMusic.) slotRadio was a music format delivered on a memory card (flash memory).
