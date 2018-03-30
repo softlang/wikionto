@@ -23,7 +23,7 @@ def check_stanford(langdict):
 
 def pos_language(parse):
     vbzs = list([s for (s, _, o) in parse.triples() if
-                 (s == ('is', 'VBZ')) | (s == ('was', 'VBZ')) | (o == ('is', 'VBZ')) | (o == ('was', 'VBZ'))])
+                 (s == ('is', 'VBZ')) | (s == ('was', 'VBD')) | (o == ('is', 'VBZ')) | (o == ('was', 'VBD'))])
     nns = list([s for (s, _, o) in parse.triples() if
                 ((s[0].lower() in keywords) & (s[1] == 'NN')) | ((o[0].lower() in keywords) & (o[1] == 'NN'))])
     return int(bool(vbzs) & bool(nns))
@@ -31,7 +31,7 @@ def pos_language(parse):
 
 def cop_language(parse):
     for subj, dep, obj in parse.triples():
-        if (subj[1] == 'NN') & (subj[0] in ['language', 'format', 'dsl', 'dialect']) & (dep == 'cop') & (
+        if (subj[1] == 'NN') & (subj[0] in keywords) & (dep == 'cop') & (
                 obj == ('is', 'VBZ')):
             return 1
     return 0
@@ -52,6 +52,12 @@ def solo():
         f.flush()
         f.close()
 
+def test():
+    summary = "bs was a programming language from Apple Inc."
+    dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
+    parse, = dep_parser.raw_parse(norm(summary))
+    print(pos_language(parse))
 
 if __name__ == "__main__":
     solo()
+    #test()
