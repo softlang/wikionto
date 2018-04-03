@@ -295,7 +295,7 @@ offset ?offset
     for result in query(querytext):
         if result["summary"]["xml:lang"] == "en":
             article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
-            summary = result["summary"]["value"].replace("(.*?)","").split(". ")[0] + "."
+            summary = result["summary"]["value"]
             result = ""
             lvl = 0
             for c in summary:

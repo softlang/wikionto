@@ -65,13 +65,13 @@ def init_cat_subcat():
         x = i + 1
         cls_cat_subcat_x = category_to_subcategory_below(CLURI, x, x)
         for cat in cls_cat_subcat_x:
-            if not cat in cat_dict:
+            if cat not in cat_dict:
                 cat_dict[cat]["CLDepth"] = x
                 cat_dict[cat]["subcats"] = cls_cat_subcat_x[cat]["subcats"]
 
         cffs_cat_subcat_x = category_to_subcategory_below(CFFURI, x, x)
         for cat in cffs_cat_subcat_x:
-            if not cat in cff_cat_subcat:
+            if cat not in cff_cat_subcat:
                 cff_cat_subcat[cat]["CFFDepth"] = x
                 cff_cat_subcat[cat]["subcats"] = cffs_cat_subcat_x[cat]["subcats"]
     cat_dict.update(cff_cat_subcat)
@@ -91,13 +91,13 @@ def init_cat_articles():
         x = i + 1
         cls_cat_articles_x = category_to_articles_below(CLURI, x, x)
         for cat in cls_cat_articles_x:
-            if not cat in cl_cat_articles:
+            if cat not in cl_cat_articles:
                 cl_cat_articles[cat]["CLDepth"] = x
                 cl_cat_articles[cat]["articles"] = cls_cat_articles_x[cat]["articles"]
 
         cffs_cat_articles_x = category_to_articles_below(CFFURI, x, x)
         for cat in cffs_cat_articles_x:
-            if not cat in cff_cat_articles:
+            if cat not in cff_cat_articles:
                 cff_cat_articles[cat]["CFFDepth"] = x
                 cff_cat_articles[cat]["articles"] = cffs_cat_articles_x[cat]["articles"]
     cl_cat_articles.update(cff_cat_articles)

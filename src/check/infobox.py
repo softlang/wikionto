@@ -11,6 +11,7 @@ def check_infobox(langdict):
     for cl in langdict:
         if "properties" not in langdict[cl]:
             langdict[cl]["DbpediaInfobox"] = -1
+            continue
         for p in ex_properties:
             if p in langdict[cl]["properties"]:
                 langdict[cl]["DbpediaInfobox"] = 0

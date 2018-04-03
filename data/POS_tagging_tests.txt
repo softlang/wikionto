@@ -1,55 +1,36 @@
 Query_language:Query languages are computer languages used to make queries in databases and information systems..
-Algebraic_modeling_language:Algebraic Modeling Languages  are high-level computer programming languages for describing and solving high complexity problems for large scale mathematical computation
-HTML:
-Lightweight_Imaging_Device_Interface_Language:Lightweight Imaging Device Interface Language
-Microsoft_Office_XML_formats:The Microsoft Office XML formats are XML-based document formats  introduced in versions of Microsoft Office prior to Office 2007.
-OGML:Ontology Grounded Metalanguage  is a metalanguage like MOF.
-Structured_text:Structured text is one of the five languages supported by the IEC 61131-3 standard, designed for programmable logic controllers .
+Algebraic_modeling_language:Algebraic Modeling Languages (AML) are high-level computer programming languages for describing and solving high complexity problems for large scale mathematical computation (i.e.
+HTML:(".htm" and ".html" redirect here.
+Lightweight_Imaging_Device_Interface_Language:Lightweight Imaging Device Interface Language (abbr.
+Microsoft_Office_XML_formats:The Microsoft Office XML formats are XML-based document formats (or XML schemas) introduced in versions of Microsoft Office prior to Office 2007.
 Abstract-Type_and_Scheme-Definition_Language:ASDL is also a common misspelling of ADSL.
 Albatross_(programming_language):Albatrossis a general purpose programming language which can be verified statically..
 BlooP_and_FlooP:BlooP and FlooP are simple programming languages designed by Douglas Hofstadter to illustrate a point in his book Gödel, Escher, Bach.
-Chinese_character_description_languages:The Chinese character description languages are several proposed languages to most accurately and completely describe Chinese  characters and information such as their list of components, list of strokes , their order, and the location of each of them on a background empty square.
+Chinese_character_description_languages:The Chinese character description languages are several proposed languages to most accurately and completely describe Chinese (or CJKV) characters and information such as their list of components, list of strokes (basic and complex), their order, and the location of each of them on a background empty square.
 Cilk:Cilk, Cilk++ and Cilk Plus are general-purpose programming languages designed for multithreaded parallel computing.
 ECL_programming_language:The ECL programming language and system were an extensible high-level programming language and development environment developed at Harvard University in the 1970s.
 Expression-oriented_programming_language:ALGOL 68 and Lisp are examples of expression-oriented languages.
-HAtom:hAtom is a draft Microformat for marking up HTML, using classes and rel attributes, content on web pages that contain blog entries or similar chronological content.
-HNews:hNews is a microformat for news content developed by the Associated Press and the Media Standards Trust.
-Intermediate_representation:An Intermediate representation  is the data structure or code used internally by a compiler or virtual machine to represent source code.
+Intermediate_representation:An Intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code.
 Newsqueak:Squeak and its successor Newsqueak are concurrent programming languages for writing application software with interactive graphical user interfaces.
 Pattern_directed_invocation_programming_language:In computer science, pattern-directed invocation programming languages are programming languages in which procedures are invoked indirectly by specifying a pattern for a set of procedures as opposed to specifying one directly by name, pointer, URL, etc., as in conventional programming.
-Petri_net:A Petri net  is one of several mathematical modeling languages for the description of distributed systems.
-Short_Code_(computer_language):Short Code was one of the first higher-level languages ever developed for an electronic computer.
 Vector_addition_system:A vector addition system consists of a finite set of integer vectors.
-XOXO_(microformat):XOXO  is an XML microformat for outlines built on top of XHTML.
-Darwin_Core_Archive:Darwin Core Archive  is a biodiversity informatics data standard that makes use of the Darwin Core terms to produce a single, self-contained dataset for species occurrence or checklist data.
-Deforestation_(computer_science):In the theory of programming languages in computer science, deforestation  is a program transformation to eliminate tree structures.
-Judoscript:Judoscript is one of several general purpose programming languages designed primarily for scripting on the Java platform.
-MetaQuotes_Language_MQL4/MQL5:MQL4  and MQL5  are integrated programming languages designed for developing trading robots, technical market indicators, scripts and function libraries within the MetaTrader software.
+Darwin_Core_Archive:Darwin Core Archive (DwC-A) is a biodiversity informatics data standard that makes use of the Darwin Core terms to produce a single, self-contained dataset for species occurrence or checklist data.
+Deforestation_(computer_science):In the theory of programming languages in computer science, deforestation (also known as fusion) is a program transformation to eliminate tree structures.
+MetaQuotes_Language_MQL4/MQL5:MQL4 (MetaQuotes Language 4) and MQL5 (MetaQuotes Language 5) are integrated programming languages designed for developing trading robots, technical market indicators, scripts and function libraries within the MetaTrader software.
 Ontology_language:In computer science and artificial intelligence, ontology languages are formal languages used to construct ontologies.
-Parrot_intermediate_representation:The Parrot intermediate representation , previously called Intermediate code , is one of the two assembly languages for the Parrot virtual machine.
 Simula:Simula is the name of two simulation programming languages, Simula I and Simula 67, developed in the 1960s at the Norwegian Computing Center in Oslo, by Ole-Johan Dahl and Kristen Nygaard.
-XHTML_Friends_Network:XHTML Friends Network  is an HTML microformat developed by Global Multimedia Protocols Group that provides a simple way to represent human relationships using links.
-Geo_(microformat):Geo is a microformat used for marking up WGS84 geographical coordinates  in HTML.
-HCalendar:hCalendar  is a microformat standard for displaying a semantic HTML representation of iCalendar-format calendar information about an event, on web pages, using HTML classes and rel attributes.
-HCard:hCard is a microformat for publishing the contact details  of people, companies, organizations, and places, in HTML, Atom, RSS, or arbitrary XML.
-HProduct:hProduct is a microformat for publishing details of products, on web pages, using HTML classes and rel attributes.
-HRecipe:hRecipe is a draft microformat for publishing details of recipes using HTML on web pages, using HTML classes and rel attributes.
-HResume:hResume is a microformat for publishing résumé or Curriculum Vitae  information  using HTML on web pages.
-HReview:hReview is a microformat for publishing reviews of books, music, films, restaurants, businesses, holidays, etc.
 Harmonic_wavelet_transform:In the mathematics of signal processing, the harmonic wavelet transform, introduced by David Edward Newland in 1993, is a wavelet-based linear transformation of a given function into a time-frequency representation.
 Biome:A biome /ˈbaɪoʊm/ is a formation of plants and animals that have common characteristics due to similar climates and can be found over a range of continents.
 Homeosis:Homeosis is the transformation of one organ into another, arising from mutation in or misexpression of specific developmentally critical genes.
 Transaction_processing:In computer science, transaction processing is information processing that is divided into individual, indivisible operations called transactions.
-DLS_format:DLS , is standardized file formats for digital musical instrument sound banks .
+DLS_format:DLS (from Downloadable Sounds), is standardized file formats for digital musical instrument sound banks (collections of virtual musical instrument programs).
 Danza_Kuduro:"Danza Kuduro" is a Spanish/Portuguese-language hit song from Don Omar's collaborative album Meet the Orphans released as the lead single from the album on August 15, 2010 through Machete Music and VI Music.
 Friedman_translation:In mathematical logic, the Friedman translation is a certain transformation of intuitionistic formulas.
-Moskau_(song):"Moskau" is a German-language single by the German pop-act Dschinghis Khan  released in 1979.
+Moskau_(song):"Moskau" is a German-language single by the German pop-act Dschinghis Khan (known as Genghis Khan in Australia and other countries) released in 1979.
 NeighborCity:NeighborCity is a residential real estate information and service company that rates real-estate agents in the United States, offering a way for buyers and sellers of homes to compare and evaluate agents.
 Polysyndactyly:Polysyndactyly is an hereditary anatomical malformation combining polydactyly and syndactyly..
 S.O.S._(Ola_song):S.O.S.
-MPEG-1_Audio_Layer_I:MPEG-1 Audio Layer I, commonly abbreviated to MP1, is one of three audio formats included in the MPEG-1 standard.
-.3ds:3DS is one of the file formats used by the Autodesk 3ds Max 3D modeling, animation and rendering software.
 Bitstream_Speedo_Fonts:Bitstream Speedo, or Speedo, are an obsolete scalable font format created by Bitstream Inc.
 Comparison_of_archive_formats:There are many popular computer data archive formats for creating and maintaining archive files.
-Intergraph_Standard_File_Formats:Intergraph Standard File Formats  are the file formats common to MicroStation and Intergraph's Interactive Graphics Design System .
+Intergraph_Standard_File_Formats:Intergraph Standard File Formats (ISFF) are the file formats common to MicroStation and Intergraph's Interactive Graphics Design System (IGDS).
 WebM:WebM is a video file format.It is primarily intended to offer a royalty-free alternative to use in the HTML5 video tag.

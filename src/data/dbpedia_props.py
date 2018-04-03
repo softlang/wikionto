@@ -107,7 +107,7 @@ def property_lattice():
     f = open(DATAP + '/all_props.json', 'r', encoding="UTF8")
     propdict = load(f)
     prop_lat0 = dict()
-    props0 = sorted(list(filter(lambda p: propdict[p]["out_count"]!=10000,propdict.keys())))
+    props0 = sorted(list(filter(lambda p: propdict[p]["out_count"] != 10000, propdict.keys())))
     for c in combinations(props0, 2):
         articles1 = set(propdict[c[0]]["articles"])
         articles2 = set(propdict[c[1]]["articles"])
@@ -132,8 +132,11 @@ def property_lattice():
             for p in keylist:
                 extents = extents & set(prop_extents[p]["extents"])
             for p2 in extents:
-                keylist.append(p2)
-                keytext = ",".join(sorted(keylist))
+                if (p2 in keylist) | (propdict[p2]["out_count"] == 10000):
+                    continue
+                newkeylist = list(keylist)
+                newkeylist.append(p2)
+                keytext = ",".join(sorted(newkeylist))
                 if keytext in prop_lat2:
                     continue
                 articles1 = set(prop_lat1[p1])
@@ -149,6 +152,17 @@ def property_lattice():
         dump(prop_lat2, f, indent=2)
         f.close()
         x += 1
+
+
+def find_insightful():
+    f = open(DATAP + '/prop_extents.json', 'r', encoding="UTF8")
+    ed = load(f)
+    psdict = dict()
+    for p in ed:
+        psdict[p] = ed[p]["size"]
+    sorted_ps = sorted(psdict.items(),key=operator.itemgetter(1))
+    for p,s in sorted_ps:
+        print(p + ' ' + str(s))
 
 
 def plot_props():
@@ -169,5 +183,6 @@ if __name__ == '__main__':
     #reverse_properties()
     #properties_to_articles()
     #property_extents()
-    property_lattice()
+    #property_lattice()
     # plot_props()
+    find_insightful()
