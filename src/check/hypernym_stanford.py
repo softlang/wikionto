@@ -1,7 +1,5 @@
 from nltk.parse.corenlp import CoreNLPDependencyParser
-from mine.dbpedia import articles_with_summaries, CFFURI, CLURI
 from data import DATAP
-import re
 
 keywords = ['language', 'format', 'dsl', 'dialect']
 
@@ -22,11 +20,23 @@ def check_stanford(langdict):
 
 
 def pos_language(parse):
-    vbzs = list([s for (s, _, o) in parse.triples() if
-                 (s == ('is', 'VBZ')) | (s == ('was', 'VBD')) | (o == ('is', 'VBZ')) | (o == ('was', 'VBD'))])
-    nns = list([s for (s, _, o) in parse.triples() if
-                ((s[0].lower() in keywords) & (s[1] == 'NN')) | ((o[0].lower() in keywords) & (o[1] == 'NN'))])
-    return int(bool(vbzs) & bool(nns))
+    is_VBZ = [s for (s, _, o) in parse.triples() if
+                 (s == ('is', 'VBZ')) | (o == ('is', 'VBZ'))]
+    was_VBD = [s for (s, _, o) in parse.triples() if
+                 (s == ('was', 'VBD')) | (o == ('was', 'VBD'))]
+    key_nn = [s for (s, _, o) in parse.triples() if
+                (any([k for k in keywords if s[0].lower().endswith(k)]) & (s[1] == 'NN')) 
+                | (any([k for k in keywords if o[0].lower().endswith(k)]) & (o[1] == 'NN'))]
+    one = [s for (s, _, o) in parse.triples() if
+                 (s == ('one', 'CD')) | (o == ('one', 'CD'))]
+    of = [s for (s, _, o) in parse.triples() if
+                 (s == ('of', 'IN')) | (o == ('of', 'IN'))]
+    key_nns = [s for (s, _, o) in parse.triples() if
+                (any([k for k in keywords if s[0].lower().endswith(k+'s')]) & (s[1] == 'NNS')) 
+                | (any([k for k in keywords if o[0].lower().endswith(k+'s')]) & (o[1] == 'NNS'))]
+    p1 = (bool(is_VBZ) | bool(was_VBD)) & bool(key_nn)
+    p2 = (bool(is_VBZ) | bool(was_VBD)) & bool(one) & bool(of) & bool(key_nns)
+    return int(p1 | p2)
 
 
 def cop_language(parse):
@@ -53,11 +63,11 @@ def solo():
         f.close()
 
 def test():
-    summary = "bs was a programming language from Apple Inc."
+    summary = "Short Code was one of the first higher-level languages ever developed for an electronic computer."
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
     parse, = dep_parser.raw_parse(norm(summary))
     print(pos_language(parse))
 
 if __name__ == "__main__":
-    solo()
-    #test()
+    #solo()
+    test()
