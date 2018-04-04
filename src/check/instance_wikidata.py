@@ -7,5 +7,5 @@ def check_instance_of_wikidata(langdict):
     cffs = get_computer_formats()
     for cl in langdict:
         qitem = langdict[cl]["wikidataid"]
-        langdict[cl]["wikidata_CL"] = int(qitem in cls | cffs)
+        langdict[cl]["wikidata_CL"] = int(qitem in set(cls) | set(cffs))
     return langdict
