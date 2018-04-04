@@ -1,5 +1,7 @@
 from multiprocessing import Pool
 from nltk.parse.corenlp import CoreNLPDependencyParser
+from requests.exceptions import HTTPError
+
 from data import DATAP
 from json.decoder import JSONDecodeError
 
@@ -10,15 +12,21 @@ def map_parse(pair):
     cl = pair[0]
     summary = pair[1]
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
-    try:
-        parse, = dep_parser.raw_parse(summary)
-        return (cl, parse)
-    except JSONDecodeError:
-        print("Decode Error at :" + summary)
-        return (cl, None)
-    except StopIteration:
-        print("Stopped at " + summary)
-        return (cl, None)
+    while True:
+        try:
+            parse, = dep_parser.raw_parse(summary)
+            pos = pos_language(parse)
+            cop = cop_language(parse)
+            return cl, (pos, cop)
+        except JSONDecodeError:
+            print("Decode Error at :" + cl)
+            return cl, None
+        except StopIteration:
+            print("Stopped at " + cl)
+            return cl, None
+        except HTTPError:
+            print("HTTPError "+ cl)
+            return cl, None
 
 
 def check_stanford(langdict):
@@ -31,15 +39,15 @@ def check_stanford(langdict):
     parsed_pairs = pool.map(map_parse, cl_sums)
     parsed_pairs = dict(parsed_pairs)
     for cl in langdict:
-        summary = langdict[cl]["Summary"].decode('UTF-8')
+        summary = langdict[cl]["Summary"]
         if summary == "No Summary":
             langdict[cl]["StanfordPOSHypernym"] = 0
             langdict[cl]["StanfordCOPHypernym"] = 0
         else:
-            parse = parsed_pairs[cl]
-            if parse is not None:
-                langdict[cl]["StanfordPOSHypernym"] = pos_language(parse)
-                langdict[cl]["StanfordCOPHypernym"] = cop_language(parse)
+            tests = parsed_pairs[cl]
+            if tests is not None:
+                langdict[cl]["StanfordPOSHypernym"] = tests[0]
+                langdict[cl]["StanfordCOPHypernym"] = tests[1]
             else:
                 langdict[cl]["StanfordPOSHypernym"] = 0
                 langdict[cl]["StanfordCOPHypernym"] = 0

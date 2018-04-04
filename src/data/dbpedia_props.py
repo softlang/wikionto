@@ -4,7 +4,7 @@ from itertools import combinations
 from data import DATAP
 import pandas as pd
 import matplotlib.pyplot as plt
-from mine.dbpedia import properties_in, rev_properties_in, articles_out_with, articles_out_with_rev, CLURI, CFFURI
+from mine.dbpedia import properties_in, reverse_properties_in, articles_out_with, articles_out_with_reverse, CLURI, CFFURI
 
 g_properties = {"wordnet_type","title","logo","icon","caption","developer","years","year","screenshot","type","name","website"
                 "wikt","after","before","commons","url","align"}
@@ -17,13 +17,13 @@ ex_properties = {"recorded","artist","album","thisSingle","accessdate","fromAlbu
 
 def properties():
     propdict = properties_in(CLURI, 0, 6)
-    resultsCFF = properties_in(CFFURI, 0, 6)
-    for propname in resultsCFF:
+    propdictCFF = properties_in(CFFURI, 0, 6)
+    for propname in propdictCFF:
         if propname in propdict:
-            propdict[propname]["in_count"] = propdict[propname]["in_count"] + resultsCFF[propname]["in_count"]
+            propdict[propname]["in_count"] = propdict[propname]["in_count"] + propdictCFF[propname]["in_count"]
         else:
             propdict[propname] = dict()
-            propdict[propname]["in_count"] = resultsCFF[propname]["in_count"]
+            propdict[propname]["in_count"] = propdictCFF[propname]["in_count"]
     for propname in propdict:
         print(propname)
         propdict[propname]["out_count"] = articles_out_with(propname, 0, 6)
@@ -34,8 +34,8 @@ def properties():
 
 
 def reverse_properties():
-    propdict = rev_properties_in(CLURI, 0, 6)
-    resultsCFF = rev_properties_in(CFFURI, 0, 6)
+    propdict = reverse_properties_in(CLURI, 0, 6)
+    resultsCFF = reverse_properties_in(CFFURI, 0, 6)
     for propname in resultsCFF:
         if propname in propdict:
             propdict[propname]["in_count"] = propdict[propname]["in_count"] + resultsCFF[propname]["in_count"]
@@ -44,7 +44,7 @@ def reverse_properties():
             propdict[propname]["in_count"] = resultsCFF[propname]["in_count"]
     for propname in propdict:
         print(propname)
-        propdict[propname]["out_count"] = articles_out_with_rev(propname, 0, 6)
+        propdict[propname]["out_count"] = articles_out_with_reverse(propname, 0, 6)
     with open(DATAP + '/all_reverse_props.json', 'w', encoding="UTF8") as f:
         dump(obj=propdict, fp=f, indent=2)
         f.flush()
@@ -183,6 +183,6 @@ if __name__ == '__main__':
     #reverse_properties()
     #properties_to_articles()
     #property_extents()
-    #property_lattice()
+    property_lattice()
     # plot_props()
-    find_insightful()
+    #find_insightful()

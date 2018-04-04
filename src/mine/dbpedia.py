@@ -122,7 +122,6 @@ def get_properties(root, mindepth, maxdepth, langdict):
             article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
             propname = result["property"]["value"].replace("http://dbpedia.org/property/", "")
             if oldpropname != propname:
-                print(propname)
                 oldpropname = propname
             if "properties" in langdict[article]:
                 langdict[article]["properties"].append(propname)
@@ -163,7 +162,7 @@ def properties_in(root, mindepth, maxdepth):
     return propdict
 
 
-def rev_properties_in(root, mindepth, maxdepth):
+def reverse_properties_in(root, mindepth, maxdepth):
     queryText = """
     PREFIX dbo: <http://dbpedia.org/ontology/>
     PREFIX dbr: <http://dbpedia.org/resource/>
@@ -211,7 +210,7 @@ def articles_out_with(property, mindepth, maxdepth):
     return len(query(query=prop_out_query, use_offset=False))
 
 
-def articles_out_with_rev(property, mindepth, maxdepth):
+def articles_out_with_reverse(property, mindepth, maxdepth):
     prop_out_query = """
     PREFIX dbr: <http://dbpedia.org/resource/>
     PREFIX dct: <http://purl.org/dc/terms/>
@@ -251,7 +250,7 @@ offset ?offset
 
 
 # Only dbpedia.org holds the hypernym relation
-def articles_with_hypernymContains(root, mindepth, maxdepth, hypernym):
+def articles_with_hypernym(root, mindepth, maxdepth, hypernym):
     articles = []
     querytext = """
 PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -311,6 +310,52 @@ offset ?offset
             articles[article] = summary
     return articles
 
+
+def articles_with_revisions(root, mindepth, maxdepth):
+    querytext = """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbp: <http://dbpedia.org/resource/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    SELECT ?article ?rev where { 
+        SELECT DISTINCT ?article ?rev where {
+            ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root .
+            ?article <http://www.w3.org/ns/prov#wasDerivedFrom> ?rev .
+        }
+        ORDER BY ASC(?article)
+    }
+    limit 10000
+    offset ?offset
+        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    articles = dict()
+    for result in query(querytext):
+        article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        rev = result["rev"]["value"]
+        articles[article] = rev
+    return articles
+
+
+def articles_with_wikidataid(root, mindepth, maxdepth):
+    querytext = """
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbp: <http://dbpedia.org/resource/>
+        PREFIX dct: <http://purl.org/dc/terms/>
+        SELECT ?article ?qid where { 
+            SELECT DISTINCT ?article ?qid where {
+                ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root .
+                FILTER(regex(str(?qid),"wikidata","i"))
+                ?article <http://www.w3.org/2002/07/owl#sameAs> ?qid .
+            }
+            ORDER BY ASC(?article)
+        }
+        limit 10000
+        offset ?offset
+            """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    articles = dict()
+    for result in query(querytext):
+        article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        qid = result["qid"]["value"]
+        articles[article] = qid
+    return articles
 
 def category_to_subcategory_below(root, mindepth, maxdepth):
     cat_subcat = defaultdict(dict)

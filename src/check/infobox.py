@@ -1,7 +1,4 @@
-ex_properties = {"recorded","artist","album","thisSingle","accessdate","fromAlbum","lastSingle","nextSingle",
-                 "nosales","composer","streaming","writingCredits"
-                 ,"thesisYear","workInstitutions","workplaces","thesisUrl","thesisTitle","species","spouse",
-                 "battery"}
+ex_properties = {"battery","connectivity","cpu","display","form","input","memory","memoryCard","networks","platform","related","slogan","soc","storage"}
 
 in_properties = {"paradigm", "typing", "fileExt", "implementation"}
 

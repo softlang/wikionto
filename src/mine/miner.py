@@ -1,5 +1,6 @@
-from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below \
-    , category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI
+from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
+    category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, articles_with_revisions, \
+    articles_with_wikidataid
 from mine.property_miner import add_properties
 from json import dump
 from data import DATAP
@@ -42,6 +43,30 @@ def add_summaries(langdict):
             langdict[cl]["Summary"] = "No Summary"
     return langdict
 
+
+def add_revisions(langdict):
+    print("Mining wikipedia revisions of articles")
+    clarticles = articles_with_revisions(CLURI, 0, 6)
+    cffarticles = articles_with_revisions(CFFURI, 0, 6)
+    clarticles.update(cffarticles)
+    for cl in langdict:
+        if cl in clarticles:
+            langdict[cl]["Revision"] = clarticles[cl]
+        else:
+            langdict[cl]["Revision"] = "-1"
+    return langdict
+
+def add_wikidata_ids(langdict):
+    print("Mining wikidata ids of articles")
+    clarticles = articles_with_wikidataid(CLURI, 0, 6)
+    cffarticles = articles_with_wikidataid(CFFURI, 0, 6)
+    clarticles.update(cffarticles)
+    for cl in langdict:
+        if cl in clarticles:
+            langdict[cl]["wikidataid"] = clarticles[cl]
+        else:
+            langdict[cl]["wikidataid"] = "None"
+    return langdict
 
 def init_article_cats(langdict):
     print("Mining categories of articles")
@@ -107,6 +132,8 @@ def init_cat_articles():
 def mine():
     langdict = init_langdict()
     langdict = add_summaries(langdict)
+    langdict = add_revisions(langdict)
+    langdict = add_wikidata_ids(langdict)
     langdict = add_properties(langdict)
     langdict = init_article_cats(langdict)
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
