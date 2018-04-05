@@ -11,6 +11,8 @@ keywords = ['language', 'format', 'dsl', 'dialect']
 def map_parse(pair):
     cl = pair[0]
     summary = pair[1]
+    if summary.startswith('.'):
+        summary = summary[1:]
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
     while True:
         try:

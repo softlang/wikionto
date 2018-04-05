@@ -190,27 +190,27 @@ def reverse_properties_in(root, mindepth, maxdepth):
     return propdict
 
 
-def articles_out_with(property, mindepth, maxdepth):
+def articles_out_with(propname, mindepthcl, maxdepthcl, mindepthcff, maxdepthcff):
     prop_out_query = """
     PREFIX dbr: <http://dbpedia.org/resource/>
     PREFIX dct: <http://purl.org/dc/terms/>
     SELECT DISTINCT ?article where {
         ?article ?property ?object . 
         FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_languages>.
+            ?article dct:subject/skos:broader{?mindepthcl,?maxdepthcl} <http://dbpedia.org/resource/Category:Computer_languages>.
         }
         FILTER NOT EXISTS {
             ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_file_formats>.
         }  
     }
     LIMIT 10000
-    """.replace("?property", '<http://dbpedia.org/property/' + property + '>').replace("?mindepth",
-                                                                                       str(mindepth)).replace(
-        "?maxdepth", str(maxdepth))
+    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>')\
+        .replace("?mindepthcl",str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl))\
+        .replace("?mindepthcff", str(mindepthcff)).replace("?maxdepthcff", str(maxdepthcff))
     return len(query(query=prop_out_query, use_offset=False))
 
 
-def articles_out_with_reverse(property, mindepth, maxdepth):
+def articles_out_with_reverse(propname, mindepthcl, maxdepthcl, mindepthcff, maxdepthcff):
     prop_out_query = """
     PREFIX dbr: <http://dbpedia.org/resource/>
     PREFIX dct: <http://purl.org/dc/terms/>
@@ -218,16 +218,16 @@ def articles_out_with_reverse(property, mindepth, maxdepth):
         FILTER(regex(str(?article),"dbpedia.org/resource","i"))
         ?object ?property ?article . 
         FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_languages>.
+            ?article dct:subject/skos:broader{?mindepthcl,?maxdepthcl} <http://dbpedia.org/resource/Category:Computer_languages>.
         }
         FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_file_formats>.
+            ?article dct:subject/skos:broader{?mindepthcff,?maxdepthcff} <http://dbpedia.org/resource/Category:Computer_file_formats>.
         }  
     }
     LIMIT 10000
-    """.replace("?property", '<http://dbpedia.org/property/' + property + '>').replace("?mindepth",
-                                                                                       str(mindepth)).replace(
-        "?maxdepth", str(maxdepth))
+    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>')\
+        .replace("?mindepthcl",str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl))\
+        .replace("?mindepthcff", str(mindepthcff)).replace("?maxdepthcff", str(maxdepthcff))
     return len(query(query=prop_out_query, use_offset=False))
 
 

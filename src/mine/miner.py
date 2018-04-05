@@ -3,17 +3,20 @@ from mine.dbpedia import articles_below, articles_with_summaries, articles_to_ca
     articles_with_wikidataid
 from mine.property_miner import add_properties
 from json import dump
-from data import DATAP
+from data import DATAP, CLDEPTH, CFFDEPTH
 
 
 def init_langdict():
     print("Mining article names and depth of first appearance")
     cls_result = list(map(lambda x: (x, 0), articles_below(CLURI, 0, 0)))
     cffs_result = list(map(lambda x: (x, 0), articles_below(CFFURI, 0, 0)))
-    for i in range(6):
+    for i in range(CLDEPTH):
         x = i + 1
         cls = articles_below(CLURI, x, x)
         cls_result = cls_result + [(cl, x) for cl in cls if cl not in list(zip(*cls_result))[0]]
+
+    for i in range(CFFDEPTH):
+        x = i + 1
         cffs = articles_below(CFFURI, x, x)
         cffs_result = cffs_result + [(cff, x) for cff in cffs if cff not in list(zip(*cffs_result))[0]]
 
@@ -33,8 +36,8 @@ def init_langdict():
 
 def add_summaries(langdict):
     print("Mining article summaries")
-    clarticles = articles_with_summaries(CLURI, 0, 6)
-    cffarticles = articles_with_summaries(CFFURI, 0, 6)
+    clarticles = articles_with_summaries(CLURI, 0, CLDEPTH)
+    cffarticles = articles_with_summaries(CFFURI, 0, CFFDEPTH)
     clarticles.update(cffarticles)
     for cl in langdict:
         if cl in clarticles:
@@ -46,8 +49,8 @@ def add_summaries(langdict):
 
 def add_revisions(langdict):
     print("Mining wikipedia revisions of articles")
-    clarticles = articles_with_revisions(CLURI, 0, 6)
-    cffarticles = articles_with_revisions(CFFURI, 0, 6)
+    clarticles = articles_with_revisions(CLURI, 0, CLDEPTH)
+    cffarticles = articles_with_revisions(CFFURI, 0, CFFDEPTH)
     clarticles.update(cffarticles)
     for cl in langdict:
         if cl in clarticles:
@@ -58,8 +61,8 @@ def add_revisions(langdict):
 
 def add_wikidata_ids(langdict):
     print("Mining wikidata ids of articles")
-    clarticles = articles_with_wikidataid(CLURI, 0, 6)
-    cffarticles = articles_with_wikidataid(CFFURI, 0, 6)
+    clarticles = articles_with_wikidataid(CLURI, 0, CLDEPTH)
+    cffarticles = articles_with_wikidataid(CFFURI, 0, CFFDEPTH)
     clarticles.update(cffarticles)
     for cl in langdict:
         if cl in clarticles:
@@ -70,8 +73,8 @@ def add_wikidata_ids(langdict):
 
 def init_article_cats(langdict):
     print("Mining categories of articles")
-    atc = articles_to_categories_below(CLURI, 0, 6)
-    atc.update(articles_to_categories_below(CFFURI, 0, 6))
+    atc = articles_to_categories_below(CLURI, 0, CLDEPTH)
+    atc.update(articles_to_categories_below(CFFURI, 0, CFFDEPTH))
     for cl in atc:
         langdict[cl]['cats'] = atc[cl]['cats']
     return langdict
@@ -86,7 +89,7 @@ def init_cat_subcat():
     for cat in cff_cat_subcat:
         cff_cat_subcat[cat]["CFFDepth"] = 0
 
-    for i in range(6):
+    for i in range(CLDEPTH):
         x = i + 1
         cls_cat_subcat_x = category_to_subcategory_below(CLURI, x, x)
         for cat in cls_cat_subcat_x:
@@ -94,6 +97,8 @@ def init_cat_subcat():
                 cat_dict[cat]["CLDepth"] = x
                 cat_dict[cat]["subcats"] = cls_cat_subcat_x[cat]["subcats"]
 
+    for i in range(CFFDEPTH):
+        x = i + 1
         cffs_cat_subcat_x = category_to_subcategory_below(CFFURI, x, x)
         for cat in cffs_cat_subcat_x:
             if cat not in cff_cat_subcat:
@@ -112,14 +117,15 @@ def init_cat_articles():
     for cat in cff_cat_articles:
         cff_cat_articles[cat]["CFFDepth"] = 0
 
-    for i in range(6):
+    for i in range(CLDEPTH):
         x = i + 1
         cls_cat_articles_x = category_to_articles_below(CLURI, x, x)
         for cat in cls_cat_articles_x:
             if cat not in cl_cat_articles:
                 cl_cat_articles[cat]["CLDepth"] = x
                 cl_cat_articles[cat]["articles"] = cls_cat_articles_x[cat]["articles"]
-
+    for i in range(CFFDEPTH):
+        x = i + 1
         cffs_cat_articles_x = category_to_articles_below(CFFURI, x, x)
         for cat in cffs_cat_articles_x:
             if cat not in cff_cat_articles:
