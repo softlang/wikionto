@@ -5,7 +5,8 @@ from requests.exceptions import HTTPError
 from data import DATAP
 from json.decoder import JSONDecodeError
 
-keywords = ['language', 'format', 'dsl', 'dialect']
+keywords_s = ['language', 'format', 'dsl', 'dialect']
+keywords_p = ['languages', 'formats', 'dsls', 'dialects']
 
 
 def map_parse(pair):
@@ -27,7 +28,7 @@ def map_parse(pair):
             print("Stopped at " + cl)
             return cl, None
         except HTTPError:
-            print("HTTPError "+ cl)
+            print("HTTPError " + cl)
             return cl, None
 
 
@@ -62,26 +63,38 @@ def pos_language(parse):
     was_VBD = [s for (s, _, o) in parse.triples() if
                (s == ('was', 'VBD')) | (o == ('was', 'VBD'))]
     key_nn = [s for (s, _, o) in parse.triples() if
-              (any([k for k in keywords if s[0].lower().endswith(k)]) & (s[1] == 'NN'))
-              | (any([k for k in keywords if o[0].lower().endswith(k)]) & (o[1] == 'NN'))]
+              (any([k for k in keywords_s if s[0].lower().endswith(k)]) & (s[1] == 'NN'))
+              | (any([k for k in keywords_s if o[0].lower().endswith(k)]) & (o[1] == 'NN'))]
     one = [s for (s, _, o) in parse.triples() if
            (s == ('one', 'CD')) | (o == ('one', 'CD'))]
     of = [s for (s, _, o) in parse.triples() if
           (s == ('of', 'IN')) | (o == ('of', 'IN'))]
     key_nns = [s for (s, _, o) in parse.triples() if
-               (any([k for k in keywords if s[0].lower().endswith(k + 's')]) & (s[1] == 'NNS'))
-               | (any([k for k in keywords if o[0].lower().endswith(k + 's')]) & (o[1] == 'NNS'))]
+               (any([k for k in keywords_p if s[0].lower().endswith(k)]) & (s[1] == 'NNS'))
+               | (any([k for k in keywords_p if o[0].lower().endswith(k)]) & (o[1] == 'NNS'))]
     p1 = (bool(is_VBZ) | bool(was_VBD)) & bool(key_nn)
     p2 = (bool(is_VBZ) | bool(was_VBD)) & bool(one) & bool(of) & bool(key_nns)
     return int(p1 | p2)
 
 
 def cop_language(parse):
-    for subj, dep, obj in parse.triples():
-        if (subj[1] == 'NN') & (subj[0] in keywords) & (dep == 'cop') & (
-                obj == ('is', 'VBZ')):
-            return 1
-    return 0
+    is_key = False
+    was_key = False
+    was_one = False
+    is_one = False
+    one_keys = False
+    of_keys = False
+    for s, d, o in parse.triples():
+        is_key = is_key or ((s[1] == 'NN') & (s[0] in keywords_s) & (d == 'cop') & (o == ('is', 'VBZ')))
+        was_key = was_key or (s[1] == 'NN') & (s[0] in keywords_s) & (d == 'cop') & (o == ('was', 'VBD'))
+        is_one = is_one or ((s == ('is', 'VBZ')) & (d == 'cop') & (o == ('one', 'CD')))
+        was_one = was_one or ((s == ('was', 'VBZ')) & (d == 'cop') & (o == ('one', 'CD')))
+        one_keys = one_keys or ((s == ('one', 'CD')) & (d == 'nmod')
+                                & (any([k for k in keywords_p if o[0].lower().endswith(k)]) & (o[1] == 'NNS')))
+        of_keys = of_keys or ((any([k for k in keywords_p if s[0].lower().endswith(k)]) & (s[1] == 'NNS'))
+                              & (d == 'case') & (o == ('of', 'CD')))
+    one_of_keys = (is_one | was_one) & one_keys & of_keys
+    return int(is_key or was_key or one_of_keys)
 
 
 def solo():
@@ -101,8 +114,9 @@ def test():
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
     parse, = dep_parser.raw_parse(summary)
     print(pos_language(parse))
+    print(cop_language(parse))
 
 
 if __name__ == "__main__":
-    solo()
-    #test()
+    #solo()
+    test()

@@ -118,14 +118,21 @@ def dbpediaprop_single_vs_pos():
         if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("typing" in langdict[cl]["properties"]):
             print("typing: "+cl +"  - "+langdict[cl]["Summary"])
 
-def dbpediaprop_vs_git():
+def versus():
+    print("POS vs Gitseed")
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
+    for cl in langdict:
+        if "GitSeed" in langdict[cl]:
+            if (langdict[cl]["GitSeed"] == 1) and (langdict[cl]["StanfordPOSHypernym"]==0):
+                print(cl + ': ' + langdict[cl]["Summary"])
+
 
 if __name__ == '__main__':
     #eval_lang_dict()
     #eval_cat_dict()
     #sampling_buckets()
-    dbpediahyp_vs_pos()
+    #dbpediahyp_vs_pos()
     #dbpediaprop_vs_pos()
     #dbpediaprop_single_vs_pos()
+    versus()

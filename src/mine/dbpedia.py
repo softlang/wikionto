@@ -82,6 +82,30 @@ offset ?offset
         articles.add(article)
     return articles
 
+def articles_with_commons(root, mindepth, maxdepth):
+    querytext = """
+    PREFIX dct: <http://purl.org/dc/terms/>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    SELECT ?article ?c where { 
+        SELECT DISTINCT ?article where {
+            ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
+            ?article <http://dbpedia.org/property/commons> ?c.
+        }
+        ORDER BY ASC(?article)
+    }
+    limit 10000
+    offset ?offset
+        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(querytext)
+    acdict = dict()
+    for result in results:
+        article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        commons = result["article"]["value"].replace("Category:","")
+        if article in acdict:
+            acdict[article].append(commons)
+        else:
+            acdict[article] = [commons]
+    return acdict
 
 def get_properties(root, mindepth, maxdepth, langdict):
     sparql = SPARQLWrapper(DBPEDIA)

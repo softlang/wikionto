@@ -1,4 +1,5 @@
 import requests
+from json.decoder import JSONDecodeError
 
 URL = "http://en.wikipedia.org/w/api.php"
 HEADER = {'User-Agent': 'WikiOnto'}
@@ -13,6 +14,8 @@ def wiki_request(params):
     except requests.ConnectionError:
         print("Connection Error")
         r = wiki_request(params)
+    except JSONDecodeError:
+        return None
     return r
 
 
@@ -67,6 +70,8 @@ def getcontent(revid):
         , 'rvprop': 'content'
         , 'revids': revid}
     wikijson = wiki_request(params)
+    if wikijson is None:
+        return None
     try:
         return next(iter(wikijson["query"]["pages"].values()))["revisions"][0]['*']
     except KeyError:
