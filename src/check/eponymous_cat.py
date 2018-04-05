@@ -1,6 +1,7 @@
 from data import DATAP
 from json import load, dump
 
+# TODO: look at dbpedia property commons
 def check_eponymous(catdict, langdict):
     print("Checking for Eponymous")
     for cat in catdict:
