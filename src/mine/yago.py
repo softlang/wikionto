@@ -13,8 +13,10 @@ SELECT ?s WHERE {
         ?s a ?t. 
         ?t <http://lod.openlinksw.com/describe/?url=http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23subClassOf>* <http://dbpedia.org/class/yago/ArtificialLanguage106894544>.
     }
-} limit 10000
-offset ?offset"""
+    ORDER BY ?s
+} 
+limit 10000
+"""
     sparql.setQuery(query)
     res = sparql.query().convert()
     cls = []

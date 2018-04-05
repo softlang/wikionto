@@ -14,7 +14,7 @@ Wikipedia-based ontology engineering
 * Start Server
   * Open the folder, where you deployed Stanford Core NLP.
   * Open a Terminal here.
-  * Start the server using: `java -cp "*" -Xmx4g edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 150000`
+  * Start the server using: `java -cp "*" -Xmx4g edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 150000 -quiet`
   * (Be sure that your computer's network settings allow connection to the created local host server.)
 * Start pipeline
 ... (More soon)

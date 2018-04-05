@@ -1,4 +1,5 @@
 from mine.yago import get_artificial_languages
+from data import DATAP
 
 
 def check_instance_of_yago(langdict):
@@ -7,3 +8,19 @@ def check_instance_of_yago(langdict):
     for cl in langdict:
         langdict[cl]["yago_CL"] = int(cl in als)
     return langdict
+
+
+def solo():
+    import json
+    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+        langdict = json.load(f)
+        langdict = check_instance_of_yago(langdict)
+        f.close()
+    with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
+        json.dump(obj=langdict, fp=f, indent=2)
+        f.flush()
+        f.close()
+
+
+if __name__ == "__main__":
+    solo()

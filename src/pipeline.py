@@ -1,6 +1,6 @@
 from check.gitseed import check_gitseed
 from check.infobox import check_infobox
-from check.hypernym_dbpedia import check_purlHypernymLanguage
+from check.hypernym_dbpedia import check_dbpedia_hypernym
 from check.hypernym_stanford import check_stanford
 from check.summary_keywords import check_summary_for_keywords
 from check.semantic_distance import check_semantic_distance
@@ -22,7 +22,7 @@ if __name__ == '__main__':
         langdict = load(f)
         langdict = check_gitseed(langdict)
         langdict = check_infobox(langdict)
-        langdict = check_purlHypernymLanguage(langdict)
+        langdict = check_dbpedia_hypernym(langdict)
         langdict = check_stanford(langdict)
         langdict = check_summary_for_keywords(langdict)
         langdict = check_semantic_distance(langdict)
