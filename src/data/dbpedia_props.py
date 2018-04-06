@@ -24,7 +24,7 @@ def properties():
         else:
             propdict[propname] = dict()
             propdict[propname]["in_count"] = propdict_cff[propname]["in_count"]
-    for propname in propdict:
+    for propname in sorted(propdict.keys()):
         print(propname)
         propdict[propname]["out_count"] = articles_out_with(propname, 0, CLDEPTH, 0, CFFDEPTH)
     with open(DATAP + '/all_props.json', 'w', encoding="UTF8") as f:
@@ -107,7 +107,7 @@ def property_lattice():
     f = open(DATAP + '/all_props.json', 'r', encoding="UTF8")
     propdict = load(f)
     prop_lat0 = dict()
-    props0 = sorted(list(filter(lambda p: propdict[p]["out_count"] != 10000, propdict.keys())))
+    props0 = sorted(list(filter(lambda p: propdict[p]["out_count"] < 10000, propdict.keys())))
     for c in combinations(props0, 2):
         articles1 = set(propdict[c[0]]["articles"])
         articles2 = set(propdict[c[1]]["articles"])
@@ -154,6 +154,18 @@ def property_lattice():
         x += 1
 
 
+def seed_properties():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    f = open(DATAP + '/all_props.json', 'r', encoding="UTF8")
+    propdict = load(f)
+    propset = set()
+    for cl in langdict:
+        if (langdict[cl]["GitSeed"] == 1) & ("properties" in langdict[cl]):
+            propset = propset | set(filter(lambda p: propdict[p]["out_count"]<10000,langdict[cl]["properties"]))
+    for p in propset:
+        print(p)
+
 def find_insightful():
     f = open(DATAP + '/prop_extents.json', 'r', encoding="UTF8")
     ed = load(f)
@@ -179,10 +191,11 @@ def plot_props():
 
 
 if __name__ == '__main__':
-    #properties()
-    #reverse_properties()
-    #properties_to_articles()
-    #property_extents()
+    # properties()
+    # reverse_properties()
+    # properties_to_articles()
+    property_extents()
     property_lattice()
     # plot_props()
-    #find_insightful()
+    # find_insightful()
+    # seed_properties()

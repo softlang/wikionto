@@ -128,11 +128,20 @@ def versus():
                 print(cl + ': ' + langdict[cl]["Summary"])
 
 
+def seed_depth():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    max_cl = 0
+    max_cff = 0
+    for cl in langdict:
+        if "GitSeed" in langdict[cl]:
+            if (langdict[cl]["GitSeed"] == 1) & (langdict[cl]["CLDepth"] > max_cl):
+                max_cl = langdict[cl]["CLDepth"]
+            if (langdict[cl]["GitSeed"] == 1) & (langdict[cl]["CFFDepth"] > max_cff):
+                max_cff = langdict[cl]["CLDepth"]
+    print(max_cl)
+    print(max_cff)
+
+
 if __name__ == '__main__':
-    #eval_lang_dict()
-    #eval_cat_dict()
-    #sampling_buckets()
-    #dbpediahyp_vs_pos()
-    #dbpediaprop_vs_pos()
-    #dbpediaprop_single_vs_pos()
-    versus()
+    seed_depth()

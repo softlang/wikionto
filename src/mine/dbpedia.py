@@ -224,7 +224,7 @@ def articles_out_with(propname, mindepthcl, maxdepthcl, mindepthcff, maxdepthcff
             ?article dct:subject/skos:broader{?mindepthcl,?maxdepthcl} <http://dbpedia.org/resource/Category:Computer_languages>.
         }
         FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepth,?maxdepth} <http://dbpedia.org/resource/Category:Computer_file_formats>.
+            ?article dct:subject/skos:broader{?mindepthcff,?maxdepthcff} <http://dbpedia.org/resource/Category:Computer_file_formats>.
         }  
     }
     LIMIT 10000
