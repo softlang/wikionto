@@ -3,8 +3,9 @@ from nltk.parse.corenlp import CoreNLPDependencyParser
 from requests.exceptions import HTTPError
 from mine.dbpedia import articles_with_summaries, CLURI, CFFURI
 from data import DATAP, CLDEPTH, CFFDEPTH
-from json import dump
+from json import dump, load
 from json.decoder import JSONDecodeError
+import operator
 
 keywords_s = ['language', 'format', 'dsl', 'dialect']
 keywords_p = ['languages', 'formats', 'dsls', 'dialects']
@@ -106,6 +107,22 @@ def cop_language(parse):
     one_of_keys = (is_one | was_one) & one_keys & of_keys
     return int(is_key or was_key or one_of_keys)
 
+def get_top():
+    f = open(DATAP+'/nndict.json')
+    worddict = load(f)
+    nndict = worddict["NN"]
+    nnlist = list(nndict.items())
+    nnlist.sort(key=operator.itemgetter(1))
+    #for w,n in nnlist:
+    #    if n>1:
+    #        print(w,n)
+    nnsdict = worddict["NNS"]
+    nnslist = list(nnsdict.items())
+    nnslist.sort(key=operator.itemgetter(1))
+    for w, n in nnslist:
+        if n>1:
+            print(w, n)
 
 if __name__ == "__main__":
-    explo_pos()
+    #explo_pos()
+    get_top()

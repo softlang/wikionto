@@ -191,9 +191,9 @@ def plot_props():
 
 
 if __name__ == '__main__':
-    # properties()
-    # reverse_properties()
-    # properties_to_articles()
+    properties()
+    reverse_properties()
+    properties_to_articles()
     property_extents()
     property_lattice()
     # plot_props()

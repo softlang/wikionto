@@ -1,12 +1,12 @@
 from mine.dbpedia import get_properties,CLURI,CFFURI
-from data import DATAP
+from data import DATAP,CLDEPTH, CFFDEPTH
 from json import load, dump
 
 
 def add_properties(langdict):
     print("Mining article properties")
-    langdict = get_properties(CLURI, 0, 6, langdict)
-    langdict = get_properties(CFFURI,0,6,langdict)
+    langdict = get_properties(CLURI, 0, CLDEPTH, langdict)
+    langdict = get_properties(CFFURI, 0, CFFDEPTH, langdict)
     return langdict
 
 
