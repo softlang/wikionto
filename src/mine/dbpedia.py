@@ -173,7 +173,6 @@ def properties_in(root, mindepth, maxdepth):
         GROUP BY ?prop
     }
     GROUP BY ?prop
-    HAVING(COUNT(?article) > 50)
     ORDER BY DESC(?count)
         """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
     results = query(queryText, use_offset=False)

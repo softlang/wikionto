@@ -1,3 +1,6 @@
+"""
+Script support for recognizing Git languages in Wikipedia.
+"""
 import re
 from mine.dbpedia import articles_with_redirects, CLURI, CFFURI
 

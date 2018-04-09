@@ -192,10 +192,10 @@ def plot_props():
 
 if __name__ == '__main__':
     properties()
-    reverse_properties()
+    #reverse_properties()
     properties_to_articles()
-    property_extents()
-    property_lattice()
+    #property_extents()
+    #property_lattice()
     # plot_props()
     # find_insightful()
-    # seed_properties()
+    #seed_properties()

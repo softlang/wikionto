@@ -6,6 +6,8 @@ from data import DATAP, CLDEPTH, CFFDEPTH
 from json import dump, load
 from json.decoder import JSONDecodeError
 import operator
+import pandas
+import matplotlib.pyplot as plt
 
 keywords_s = ['language', 'format', 'dsl', 'dialect']
 keywords_p = ['languages', 'formats', 'dsls', 'dialects']
@@ -113,16 +115,27 @@ def get_top():
     nndict = worddict["NN"]
     nnlist = list(nndict.items())
     nnlist.sort(key=operator.itemgetter(1))
-    #for w,n in nnlist:
-    #    if n>1:
-    #        print(w,n)
+    for w,n in nnlist:
+        if n>100:
+            print(w+', '+str(n))
     nnsdict = worddict["NNS"]
     nnslist = list(nnsdict.items())
     nnslist.sort(key=operator.itemgetter(1))
     for w, n in nnslist:
-        if n>1:
-            print(w, n)
+        if n>100:
+            print(w+', '+str(n))
+
+def plot_top():
+    f = open(DATAP+'/top_nn.csv')
+    headers = ['word','#articles']
+    df = pandas.read_csv(f,names=headers)
+    print(df)
+    df.plot(x="word", y="#articles")
+    # beautify the x-labels
+    #plt.gcf().autofmt_xdate()
+    plt.show()
 
 if __name__ == "__main__":
     #explo_pos()
-    get_top()
+    #get_top()
+    plot_top()

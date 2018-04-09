@@ -128,6 +128,12 @@ def versus():
                 print(cl + ': ' + langdict[cl]["Summary"])
 
 
+def semdist_depth_overcat():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    lf = pd.DataFrame(langdict).transpose()
+    print(lf)
+
 def seed_depth():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
@@ -142,6 +148,6 @@ def seed_depth():
     print(max_cl)
     print(max_cff)
 
-
 if __name__ == '__main__':
-    seed_depth()
+    langdict_to_csv()
+    semdist_depth_overcat()
