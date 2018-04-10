@@ -3,8 +3,8 @@ from json import load, dump
 import operator
 
 
-def words_in_titles():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+def words_in_titles(name):
+    f = open(DATAP + '/'+name+'.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
@@ -21,8 +21,8 @@ def words_in_titles():
         print(cl + ', ' + str(v))
 
 
-def tags_in_titles_braces():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+def tags_in_titles_braces(name):
+    f = open(DATAP + '/'+name+'.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
@@ -38,8 +38,8 @@ def tags_in_titles_braces():
         print(cl + ', ' + str(v))
 
 
-def words_in_tags_in_titles_braces():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+def words_in_tags_in_titles_braces(name):
+    f = open(DATAP + '/'+name+'.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
@@ -58,6 +58,4 @@ def words_in_tags_in_titles_braces():
 
 
 if __name__ == '__main__':
-    # words_in_titles()
-    tags_in_titles_braces()
-    #words_in_tags_in_titles_braces()
+    words_in_titles('catdict')

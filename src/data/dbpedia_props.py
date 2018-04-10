@@ -198,4 +198,4 @@ if __name__ == '__main__':
     #property_lattice()
     # plot_props()
     # find_insightful()
-    #seed_properties()
+    # seed_properties()
