@@ -16,8 +16,8 @@ from check.yago import check_instance_of_yago
 from mine.miner import mine
 from data import DATAP
 
-if __name__ == '__main__':
-    mine()
+
+def pipeline():
     with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
         langdict = check_gitseed(langdict)
@@ -48,3 +48,8 @@ if __name__ == '__main__':
         dump(obj=catdict, fp=f, indent=2)
         f.flush()
         f.close()
+
+
+if __name__ == '__main__':
+    mine()
+    pipeline()
