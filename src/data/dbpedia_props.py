@@ -157,14 +157,22 @@ def property_lattice():
 def seed_properties():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
+    f.close()
     f = open(DATAP + '/all_props.json', 'r', encoding="UTF8")
     propdict = load(f)
+    f.close()
     propset = set()
     for cl in langdict:
         if (langdict[cl]["GitSeed"] == 1) & ("properties" in langdict[cl]):
-            propset = propset | set(filter(lambda p: propdict[p]["out_count"]<10000,langdict[cl]["properties"]))
+            for p in langdict[cl]["properties"]:
+                if p not in propdict:
+                    continue
+                propset.add(p)
+    f = open(DATAP + '/prop_seed.csv', 'w', encoding="UTF8")
     for p in propset:
-        print(p)
+        f.write(p + ','+str(propdict[p]["in_count"])+','+str(propdict[p]["out_count"])+'\n')
+    f.flush()
+    f.close()
 
 def find_insightful():
     f = open(DATAP + '/prop_extents.json', 'r', encoding="UTF8")
@@ -191,11 +199,11 @@ def plot_props():
 
 
 if __name__ == '__main__':
-    properties()
+    #properties()
     #reverse_properties()
-    properties_to_articles()
+    #properties_to_articles()
     #property_extents()
     #property_lattice()
     # plot_props()
     # find_insightful()
-    # seed_properties()
+    seed_properties()
