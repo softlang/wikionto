@@ -103,7 +103,7 @@ def plot_selective_props():
     df2.plot(x='property', y='#non-cl-candidates', style='-', color='red', ax=ax, logy=True)
 
     ax.set_xticklabels(df2.property)
-    ax.tick_params(axis='x', which='both', labelsize='small', labelcolor='black',labelrotation =30)
+    ax.tick_params(axis='x', which='both', labelsize='small', labelcolor='black',labelrotation =-30)
     ax.legend()
 
     plt.show()

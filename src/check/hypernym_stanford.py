@@ -110,7 +110,7 @@ def solo():
 
 
 def test():
-    summary = "S.O.S. is a Swedish English language hit for Swedish singer Ola Svensson written by Tony Nilsson, taken from his third album Good Enough, also appearing in Good Enough - The Feelgood Edition. The hit credited to just Ola was a #1 hit on the Swedish Singles Chart on the chart dated 22 November 2007, staying a total of 16 weeks in the charts including 6 weeks in the Top 5. Selling over 10,000 copies, the single was certified Gold by the IFPI."
+    summary = "Java is a language."
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
     parse, = dep_parser.raw_parse(summary)
     print(pos_language(parse))
