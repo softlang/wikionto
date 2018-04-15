@@ -25,5 +25,4 @@ def check_article_name(langdict):
         else:
             langdict[cl]["IncludedNamePattern"] = 1
 
-
     return langdict

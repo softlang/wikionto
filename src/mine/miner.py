@@ -36,16 +36,20 @@ def init_langdict():
 
 def add_summaries(langdict):
     print("Mining article summaries")
-    clarticles = articles_with_summaries(CLURI, 0, CLDEPTH)
-    cffarticles = articles_with_summaries(CFFURI, 0, CFFDEPTH)
-    clarticles.update(cffarticles)
+    cl_sums = get_summaries()
     for cl in langdict:
-        if cl in clarticles:
-            langdict[cl]["Summary"] = clarticles[cl]
+        if cl in cl_sums:
+            langdict[cl]["Summary"] = cl_sums[cl]
         else:
             langdict[cl]["Summary"] = "No Summary"
     return langdict
 
+
+def get_summaries():
+    clarticles = articles_with_summaries(CLURI, 0, CLDEPTH)
+    cffarticles = articles_with_summaries(CFFURI, 0, CFFDEPTH)
+    clarticles.update(cffarticles)
+    return clarticles
 
 def add_revisions(langdict):
     print("Mining wikipedia revisions of articles")
