@@ -21,13 +21,16 @@ def check_multi_infobox(langdict):
             langdict[cl]["MultiInfobox"] = 0
             langdict[cl]["Infobox programming language"] = 0
             langdict[cl]["Infobox software"] = 0
+            langdict[cl]["Infobox file format"] = 0
         else:
             nr = text.count("{{Infobox")
             pl_box = 'Infobox programming language' in text
             soft_box = 'Infobox software' in text
+            ff_box = 'Infobox file format' in text
             langdict[cl]["MultiInfobox"] = nr
             langdict[cl]["Infobox programming language"] = int(pl_box)
             langdict[cl]["Infobox software"] = int(soft_box)
+            langdict[cl]["Infobox file format"] = int(ff_box)
     return langdict
 
 
