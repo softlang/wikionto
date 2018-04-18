@@ -5,11 +5,11 @@ from requests.exceptions import HTTPError
 from data import DATAP
 from json.decoder import JSONDecodeError
 
-keywords_s = ['language', 'format', 'dsl', 'dialect']
-keywords_p = ['languages', 'formats', 'dsls', 'dialects']
+keywords_s = ['language', 'format']
+keywords_p = ['languages', 'formats']
 
 
-def map_parse(pair):
+def check(pair):
     cl = pair[0]
     summary = pair[1]
     if summary.startswith('.'):
@@ -18,8 +18,8 @@ def map_parse(pair):
     while True:
         try:
             parse, = dep_parser.raw_parse(summary)
-            pos = pos_language(parse)
-            cop = cop_language(parse)
+            pos = pos_hypernyms(parse)
+            cop = cop_hypernyms(parse)
             return cl, (pos, cop)
         except JSONDecodeError:
             print("Decode Error at :" + cl)
@@ -39,7 +39,7 @@ def check_stanford(langdict):
     for cl in langdict:
         cl_sums.append((cl, langdict[cl]["Summary"]))
     pool = Pool(processes=8)
-    parsed_pairs = pool.map(map_parse, cl_sums)
+    parsed_pairs = pool.map(check, cl_sums)
     parsed_pairs = dict(parsed_pairs)
     for cl in langdict:
         summary = langdict[cl]["Summary"]
@@ -57,44 +57,95 @@ def check_stanford(langdict):
     return langdict
 
 
-def pos_language(parse):
-    is_VBZ = [s for (s, _, o) in parse.triples() if
-              (s == ('is', 'VBZ')) | (o == ('is', 'VBZ'))]
-    was_VBD = [s for (s, _, o) in parse.triples() if
-               (s == ('was', 'VBD')) | (o == ('was', 'VBD'))]
-    key_nn = [s for (s, _, o) in parse.triples() if
-              (any([k for k in keywords_s if s[0].lower().endswith(k)]) & (s[1] == 'NN'))
-              | (any([k for k in keywords_s if o[0].lower().endswith(k)]) & (o[1] == 'NN'))]
-    one = [s for (s, _, o) in parse.triples() if
-           (s == ('one', 'CD')) | (o == ('one', 'CD'))]
-    of = [s for (s, _, o) in parse.triples() if
-          (s == ('of', 'IN')) | (o == ('of', 'IN'))]
-    key_nns = [s for (s, _, o) in parse.triples() if
-               (any([k for k in keywords_p if s[0].lower().endswith(k)]) & (s[1] == 'NNS'))
-               | (any([k for k in keywords_p if o[0].lower().endswith(k)]) & (o[1] == 'NNS'))]
-    p1 = (bool(is_VBZ) | bool(was_VBD)) & bool(key_nn)
-    p2 = (bool(is_VBZ) | bool(was_VBD)) & bool(one) & bool(of) & bool(key_nns)
-    return int(p1 | p2)
+def pos_hypernyms(parse):
+    for index, wdict in parse.nodes.items():
+        if ((wdict['tag'] == 'VBZ') & (wdict['word'] == 'is')) | ((wdict['tag'] == 'VBD') & (wdict['word'] == 'was')):
+            nnlist = pos_a_NN(index + 1, parse)
+            nnslist = pos_one_of_NNS(index + 1, parse)
+    return nnlist, nnslist
 
 
-def cop_language(parse):
-    is_key = False
-    was_key = False
-    was_one = False
-    is_one = False
-    one_keys = False
-    of_keys = False
-    for s, d, o in parse.triples():
-        is_key = is_key or ((s[1] == 'NN') & (s[0] in keywords_s) & (d == 'cop') & (o == ('is', 'VBZ')))
-        was_key = was_key or (s[1] == 'NN') & (s[0] in keywords_s) & (d == 'cop') & (o == ('was', 'VBD'))
-        is_one = is_one or ((s == ('is', 'VBZ')) & (d == 'cop') & (o == ('one', 'CD')))
-        was_one = was_one or ((s == ('was', 'VBZ')) & (d == 'cop') & (o == ('one', 'CD')))
-        one_keys = one_keys or ((s == ('one', 'CD')) & (d == 'nmod')
-                                & (any([k for k in keywords_p if o[0].lower().endswith(k)]) & (o[1] == 'NNS')))
-        of_keys = of_keys or ((any([k for k in keywords_p if s[0].lower().endswith(k)]) & (s[1] == 'NNS'))
-                              & (d == 'case') & (o == ('of', 'CD')))
-    one_of_keys = (is_one | was_one) & one_keys & of_keys
-    return int(is_key or was_key or one_of_keys)
+def pos_a_nn(index, parse):
+    nnlist = []
+    for x in range(index, len(parse.nodes.items()), 1):
+        wdict = parse.nodes[x]
+        if wdict['tag'] == 'NN':
+            nnlist.append(wdict['word'])
+    return nnlist
+
+
+def pos_one_of_nns(index, parse):
+    nnlist = []
+    for x in range(index, len(parse.nodes.items()), 1):
+        wdict = parse.nodes[x]
+        if wdict['tag'] == 'NNS':
+            nnlist.append(wdict['word'])
+    return nnlist
+
+
+def cop_hypernyms(parse):
+    p = cop_isa_pattern(parse.nodes.items())
+    if p is not None:
+        return p
+    p = cop_oneof_pattern(parse.nodes.items())
+    if p is not None:
+        return p
+    return None
+
+
+def cop_isa_pattern(nodedict):
+    nn_set = {key: value for (key, value) in nodedict if value['tag'] == 'NN'}
+    for n, ndict in nn_set.items():
+        if 'nsubj' not in ndict['deps']:
+            continue
+        subject = __get_node(nodedict, ndict['deps']['nsubj'][0])
+        if not (subject['tag'] == 'NNP'):
+            continue
+        if 'cop' not in ndict['deps']:
+            continue
+        is_or_was = __get_node(nodedict, ndict['deps']['cop'][0])
+        if not (((is_or_was['tag'] == 'VBZ') & (is_or_was['word'] == 'is')) |
+                ((is_or_was['tag'] == 'VBD') & (is_or_was['word'] == 'was'))):
+            continue
+        return ndict['word']
+    return None
+
+
+def cop_oneof_pattern(nodedict):
+    nns_set = {key: value for (key, value) in nodedict if value['tag'] == 'NNS'}
+    cd_set = {key: value for (key, value) in nodedict if value['tag'] == 'CD'}
+    for n, ndict in nns_set.items():
+        if 'case' not in ndict['deps']:
+            continue
+        nmod_check = False
+        for cd, cddict in cd_set.items():
+            if 'nmod' not in cddict['deps']:
+                continue
+            if cddict['deps']['nmod'][0] is not ndict['address']:
+                continue
+            if 'cop' not in cddict['deps']:
+                continue
+            vbnode = __get_node(nodedict, cddict['deps']['cop'][0])
+            if not (((vbnode['tag'] == 'VBZ') & (vbnode['word'] == 'is')) | (
+                    (vbnode['tag'] == 'VBD') & (vbnode['word'] == 'was'))):
+                continue
+            if 'nsubj' not in cddict['deps']:
+                continue
+            nsubj = __get_node(nodedict, cddict['deps']['nsubj'][0])
+            if not nsubj['tag'] == 'NNP':
+                continue
+            nmod_check = True
+            break
+        if nmod_check:
+            return ndict['word']
+    return None
+
+
+def __get_node(dict_items, index):
+    for n, v in dict_items:
+        if v["address"] == index:
+            return v
+    return None
 
 
 def solo():
@@ -109,14 +160,5 @@ def solo():
         f.close()
 
 
-def test():
-    summary = "Java is a language."
-    dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
-    parse, = dep_parser.raw_parse(summary)
-    print(pos_language(parse))
-    print(cop_language(parse))
-
-
 if __name__ == "__main__":
-    #solo()
-    test()
+    solo()
