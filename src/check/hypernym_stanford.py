@@ -60,8 +60,8 @@ def check_stanford(langdict):
 def pos_hypernyms(parse):
     for index, wdict in parse.nodes.items():
         if ((wdict['tag'] == 'VBZ') & (wdict['word'] == 'is')) | ((wdict['tag'] == 'VBD') & (wdict['word'] == 'was')):
-            nnlist = pos_a_NN(index + 1, parse)
-            nnslist = pos_one_of_NNS(index + 1, parse)
+            nnlist = pos_a_nn(index + 1, parse)
+            nnslist = pos_one_of_nns(index + 1, parse)
     return nnlist, nnslist
 
 
