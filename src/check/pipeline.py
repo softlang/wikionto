@@ -1,4 +1,5 @@
 from check.gitseed import check_gitseed
+from check.tiobe import check_tiobe
 from check.infobox import check_infobox
 from check.hypernym_dbpedia import check_dbpedia_hypernym
 from check.hypernym_stanford import check_stanford
@@ -15,21 +16,16 @@ from check.yago import check_instance_of_yago
 
 from mine.miner import mine
 from data import DATAP
+from functools import reduce
 
 
 def pipeline():
     with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
-        langdict = check_gitseed(langdict)
-        langdict = check_infobox(langdict)
-        langdict = check_dbpedia_hypernym(langdict)
-        langdict = check_stanford(langdict)
-        langdict = check_summary_for_keywords(langdict)
-        langdict = check_semantic_distance(langdict)
-        langdict = check_article_name(langdict)
-        langdict = check_multi_infobox(langdict)
-        langdict = check_instance_of_wikidata(langdict)
-        langdict = check_instance_of_yago(langdict)
+        checks = [check_gitseed, check_tiobe, check_infobox, check_dbpedia_hypernym, check_stanford,
+                  check_summary_for_keywords, check_semantic_distance, check_article_name, check_multi_infobox,
+                  check_instance_of_wikidata, check_instance_of_yago]
+        langdict = reduce((lambda d, c: c(d)), checks, langdict)
         f.close()
 
     with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:

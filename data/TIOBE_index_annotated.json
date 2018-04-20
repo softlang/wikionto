@@ -220,7 +220,7 @@
     "mentionIn": "George_Necula#C_Intermediate_Language"
   },
   "CL (OS/400)": {
-    "hints": " CL (exceptions"
+    "hints": " CL (exceptions",
     "recall": 1,
     "recalledAs": "IBM_i_Control_Language"
   },
