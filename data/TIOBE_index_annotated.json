@@ -1,0 +1,1261 @@
+{
+  "(Visual) FoxPro": {
+    "hints": " FoxPro, Fox Pro, VFP\n",
+    "recall": 1,
+    "recalledAs": "FoxPro"
+  },
+  "4th Dimension/4D": {
+    "hints": " 4D, 4th Dimension\n",
+    "recall": 1,
+    "recalledAs": "4th_Dimension_(software)"
+  },
+  "ABAP": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "ABAP"
+  },
+  "ABC": {
+    "hints": " ABC (exceptions",
+    "recall": 1,
+    "recalledAs": "ABC_(programming_language)"
+  },
+  "ActionScript": {
+    "hints": " ActionScript, AS1, AS2, AS3\n",
+    "recall": 1,
+    "recalledAs": "ActionScript"
+  },
+  "Ada": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Ada_(programming_language)"
+  },
+  "Agilent VEE": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Keysight_VEE"
+  },
+  "Algol": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Algol"
+  },
+  "Alice": {
+    "hints": " Alice (confidence",
+    "recall": 1,
+    "recalledAs": "Alice_(software)"
+  },
+  "Angelscript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "AngelScript"
+  },
+  "Apex": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "https://en.wikipedia.org/wiki/Salesforce.com#Apex"
+  },
+  "APL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "APL_(programming_language)"
+  },
+  "Applescript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "AppleScript"
+  },
+  "Arc": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Arc_(programming_language)"
+  },
+  "AspectJ": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "AspectJ"
+  },
+  "Assembly language": {
+    "hints": " Assembly, Assembly language\n",
+    "recall": 1,
+    "recalledAs": "Assembly_language"
+  },
+  "ATLAS": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Atlas_(star)"
+  },
+  "AutoIt": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "AutoIt"
+  },
+  "AutoLISP": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "AutoLISP"
+  },
+  "Automator": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "https://en.wikipedia.org/wiki/List_of_macOS_components#Automator"
+  },
+  "Avenue": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "https://en.wikipedia.org/wiki/ArcView_3.x"
+  },
+  "Awk": {
+    "hints": " Awk, Mawk, Gawk, Nawk\n",
+    "recall": 1,
+    "recalledAs": "AWK"
+  },
+  "Bash": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Bash_(Unix_shell)"
+  },
+  "Basic": {
+    "hints": " Basic (confidence",
+    "recall": 1,
+    "recalledAs": "BASIC"
+  },
+  "BBC BASIC": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "BBC_BASIC"
+  },
+  "bc": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Bc_(programming_language)"
+  },
+  "BCPL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "BCPL"
+  },
+  "BETA": {
+    "hints": " BETA (confidence",
+    "recall": 1,
+    "recalledAs": "BETA_(programming_language)"
+  },
+  "BlitzMax": {
+    "hints": " BlitzMax, BlitzBasic, Blitz Basic\n",
+    "recall": 1,
+    "recalledAs": "Blitz_BASIC"
+  },
+  "Boo": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Boo_(programming_language)"
+  },
+  "Bourne shell": {
+    "hints": " Bourne shell, sh\n",
+    "recall": 1,
+    "recalledAs": "Bourne_shell"
+  },
+  "C shell": {
+    "hints": " Csh, C shell (confidence",
+    "recall": 1,
+    "recalledAs": "C_shell"
+  },
+  "C#": {
+    "hints": " C#, C-Sharp, C Sharp, CSharp, CSharp.NET, C#.NET\n",
+    "recall": 1,
+    "recalledAs": "C_Sharp_(programming_language)"
+  },
+  "C++": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "C++"
+  },
+  "C++/CLI": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "C++/CLI"
+  },
+  "C-Omega": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "C\u03c9"
+  },
+  "C": {
+    "hints": " C (exceptions",
+    "recall": 1,
+    "recalledAs": "C_(programming_language)"
+  },
+  "Caml": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Caml"
+  },
+  "Ceylon": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Ceylon_(programming_language)"
+  },
+  "CFML": {
+    "hints": " CFML, ColdFusion\n",
+    "recall": 1,
+    "recalledAs": "Cold_fusion"
+  },
+  "cg": {
+    "hints": " cg (confidence",
+    "recall": 1,
+    "recalledAs": "Cg_(programming_language)"
+  },
+  "Ch": {
+    "hints": " Ch (exceptions",
+    "recall": 1,
+    "recalledAs": "Ch_(computer_programming)"
+  },
+  "CHILL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "CHILL"
+  },
+  "CIL": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "George_Necula#C_Intermediate_Language"
+  },
+  "CL (OS/400)": {
+    "hints": " CL (exceptions"
+    "recall": 1,
+    "recalledAs": "IBM_i_Control_Language"
+  },
+  "Clarion": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Clarion_(programming_language)"
+  },
+  "Clean": {
+    "hints": " Clean (confidence",
+    "recall": 1,
+    "recalledAs": "Clean_(programming_language)"
+  },
+  "Clipper": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Clipper_(programming_language)"
+  },
+  "Clojure": {
+    "hints": " Clojure, ClojureScript\n",
+    "recall": 1,
+    "recalledAs": "Clojure"
+  },
+  "CLU": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "CLU_(programming_language)"
+  },
+  "COBOL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "COBOL"
+  },
+  "Cobra": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Cobra_(programming_language)"
+  },
+  "CoffeeScript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "CoffeeScript"
+  },
+  "COMAL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "COMAL"
+  },
+  "Common Lisp": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Common_Lisp"
+  },
+  "Crystal": {
+    "hints": " Crystal (confidence",
+    "recall": 1,
+    "recalledAs": "Crystal_(programming_language)"
+  },
+  "cT": {
+    "hints": null,
+    "recall": 0
+  },
+  "Curl": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Curl_(programming_language)"
+  },
+  "D": {
+    "hints": " D (confidence",
+    "recall": 1,
+    "recalledAs": "D_(programming_language)"
+  },
+  "Dart": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Dart_(programming_language)"
+  },
+  "DCL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Data_control_language"
+  },
+  "Delphi/Object Pascal": {
+    "hints": " Delphi, Delphi.NET, DwScript, Object Pascal, Pascal (confidence",
+    "recall": 1,
+    "recalledAs": "Object_Pascal"
+  },
+  "DiBOL": {
+    "hints": " DBL, Synergy/DE, DIBOL\n",
+    "recall": 1,
+    "recalledAs": "DIBOL"
+  },
+  "Dylan": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Dylan_(programming_language)"
+  },
+  "E": {
+    "hints": " E (exceptions",
+    "recall": 1,
+    "recalledAs": "E_(programming_language)"
+  },
+  "ECMAScript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "ECMAScript"
+  },
+  "EGL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "EGL_(programming_language)"
+  },
+  "Eiffel": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Eiffel_(programming_language)"
+  },
+  "Elixir": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Elixir_(programming_language)"
+  },
+  "Elm": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Elm_(programming_language)"
+  },
+  "Emacs Lisp": {
+    "hints": " Emacs Lisp, Elips\n",
+    "recall": 1,
+    "recalledAs": "Emacs_Lisp"
+  },
+  "Erlang": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Erlang_(programming_language)"
+  },
+  "Etoys": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Etoys_(programming_language)"
+  },
+  "Euphoria": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Euphoria_(programming_language)"
+  },
+  "EXEC": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Exec_(system_call)"
+  },
+  "F#": {
+    "hints": " F#, F-Sharp, FSharp, F Sharp\n",
+    "recall": 1,
+    "recalledAs": "F_Sharp_(programming_language)"
+  },
+  "Factor": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Factor_(programming_language)"
+  },
+  "Falcon": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Falcon_(programming_language)"
+  },
+  "Fantom": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Fantom_(programming_language)"
+  },
+  "Felix": {
+    "hints": " Felix (confidence",
+    "recall": 0
+  },
+  "Forth": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Forth_(programming_language)"
+  },
+  "Fortran": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Fortran"
+  },
+  "Fortress": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Fortress_(programming_language)"
+  },
+  "Gambas": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Gambas"
+  },
+  "GLSL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "OpenGL_Shading_Language"
+  },
+  "GNU Octave": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "GNU_Octave"
+  },
+  "Go": {
+    "hints": " Go, Golang\n",
+    "recall": 1,
+    "recalledAs": "Go_(programming_language)"
+  },
+  "Gosu": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Gosu_(programming_language)"
+  },
+  "Groovy": {
+    "hints": " Groovy, GPATH, GSQL, Groovy++\n",
+    "recall": 1,
+    "recalledAs": "Groovy_(programming_language)"
+  },
+  "Hack": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Hack_(programming_language)"
+  },
+  "Haskell": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Haskell_(programming_language)"
+  },
+  "Haxe": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Haxe"
+  },
+  "Heron": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Heron_(event_processor)"
+  },
+  "HPL": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "HP_9800_series#HPL"
+  },
+  "HyperTalk": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "HyperTalk"
+  },
+  "Icon": {
+    "hints": " Icon (confidence",
+    "recall": 1,
+    "recalledAs": "Icon_(programming_language)"
+  },
+  "IDL": {
+    "hints": " IDL (exceptions",
+    "recall": 1,
+    "recalledAs": "IDL_(programming_language)"
+  },
+  "Idris": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Idris_(programming_language)"
+  },
+  "Inform": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Inform"
+  },
+  "Informix-4GL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "IBM_Informix-4GL"
+  },
+  "INTERCAL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "INTERCAL"
+  },
+  "Io": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Io_(programming_language)"
+  },
+  "Ioke": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Ioke_(programming_language)"
+  },
+  "J#": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "J_Sharp"
+  },
+  "J": {
+    "hints": " J (confidence",
+    "recall": 1,
+    "recalledAs": "J_(programming_language)"
+  },
+  "JADE": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "JADE_(programming_language)"
+  },
+  "Java": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Java_(programming_language)"
+  },
+  "JavaFX Script": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "JavaFX_Script"
+  },
+  "JavaScript": {
+    "hints": " JavaScript, JS, SSJS\n",
+    "recall": 1,
+    "recalledAs": "JavaScript"
+  },
+  "JScript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "JScript"
+  },
+  "JScript.NET": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "JScript_.NET"
+  },
+  "Julia": {
+    "hints": " Julia, Julialang, julia-lang\n",
+    "recall": 1,
+    "recalledAs": "Julia_(programming_language)"
+  },
+  "Korn shell": {
+    "hints": " Korn shell, ksh\n",
+    "recall": 1,
+    "recalledAs": "Korn_shell"
+  },
+  "Kotlin": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Kotlin_(programming_language)"
+  },
+  "LabVIEW": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "LabVIEW"
+  },
+  "Ladder Logic": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Ladder_logic"
+  },
+  "Lasso": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Lasso_(programming_language)"
+  },
+  "Limbo": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Limbo_(programming_language)"
+  },
+  "Lingo": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "LINGO_(mathematical_modeling_language)"
+  },
+  "Lisp": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Lisp_(programming_language)"
+  },
+  "LiveCode": {
+    "hints": " Revolution, LiveCode\n",
+    "recall": 1,
+    "recalledAs": "Revolution_(software_platform)"
+  },
+  "Logo": {
+    "hints": " Logo (confidence",
+    "recall": 1,
+    "recalledAs": "Logo_(programming_language)"
+  },
+  "LotusScript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "LotusScript"
+  },
+  "LPC": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "LPC_(programming_language)"
+  },
+  "Lua": {
+    "hints": " Lua, LuaJIT\n",
+    "recall": 1,
+    "recalledAs": "Lua_(programming_language)"
+  },
+  "Lustre": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Lustre_(programming_language)"
+  },
+  "M4": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "M4_(computer_language)"
+  },
+  "MAD": {
+    "hints": " MAD (confidence",
+    "recall": 1,
+    "recalledAs": "MAD_(programming_language)"
+  },
+  "Magic": {
+    "hints": " Magic (confidence",
+    "recall": 1,
+    "recalledAs": "Magic_(Olivia_Newton-John_song)"
+  },
+  "Magik": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Magik_(programming_language)"
+  },
+  "Malbolge": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Malbolge"
+  },
+  "MANTIS": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "Cincom_Systems"
+  },
+  "Maple": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Maple_(software)"
+  },
+  "MATLAB": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "MATLAB"
+  },
+  "Max/MSP": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Max_(software)"
+  },
+  "MAXScript": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "Autodesk_3ds_Max#Features"
+  },
+  "MDX": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": ".MDX"
+  },
+  "MEL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Maya_Embedded_Language"
+  },
+  "Mercury": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Mercury_(programming_language)"
+  },
+  "Miva": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "MIVA_Script"
+  },
+  "ML": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "ML_(programming_language)"
+  },
+  "Modula-2": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Modula-2"
+  },
+  "Modula-3": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Modula-3"
+  },
+  "Monkey": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Monkey_(song)"
+  },
+  "MOO": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "MOO"
+  },
+  "Moto": {
+    "hints": null,
+    "recall": 0
+  },
+  "MQL4": {
+    "hints": " MQL4, MQL5\n",
+    "recall": 1,
+    "recalledAs": "MetaQuotes_Language_MQL4/MQL5"
+  },
+  "MS-DOS batch": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "Batch_file"
+  },
+  "MUMPS": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "MUMPS"
+  },
+  "NATURAL": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "Natural_(Programmiersprache)"
+  },
+  "Nemerle": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Nemerle"
+  },
+  "NetLogo": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "NetLogo"
+  },
+  "Nim": {
+    "hints": " Nim, Nimrod\n",
+    "recall": 1,
+    "recalledAs": "Nim"
+  },
+  "NQC": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Not_Quite_C"
+  },
+  "NSIS": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "Nullsoft_Scriptable_Install_System"
+  },
+  "NXT-G": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "Lego_Mindstorms_NXT#NXT-G"
+  },
+  "Oberon": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Oberon_(programming_language)"
+  },
+  "Object Rexx": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Object_REXX"
+  },
+  "Objective-C": {
+    "hints": " Objective-C, objc, obj-c\n",
+    "recall": 1,
+    "recalledAs": "Objective-C"
+  },
+  "OCaml": {
+    "hints": " Objective Caml, OCaml\n",
+    "recall": 1,
+    "recalledAs": "OCaml"
+  },
+  "Occam": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Occam_(programming_language)"
+  },
+  "OpenCL": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "OpenCL"
+  },
+  "OpenEdge ABL": {
+    "hints": " Progress, Progress 4GL, ABL, Advanced Business Language, OpenEdge\n",
+    "recall": 1,
+    "recalledAs": "OpenEdge_Advanced_Business_Language"
+  },
+  "OPL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Open_Programming_Language"
+  },
+  "Oxygene": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Oxygene_(programming_language)"
+  },
+  "Oz": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Oz_(programming_language)"
+  },
+  "Paradox": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Paradox_(theorem_prover)"
+  },
+  "Pascal": {
+    "hints": " Pascal (confidence",
+    "recall": 1,
+    "recalledAs": "Pascal_(programming_language)"
+  },
+  "Perl": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Perl"
+  },
+  "PHP": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "PHP"
+  },
+  "Pike": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Pike_(programming_language)"
+  },
+  "PILOT": {
+    "hints": " PILOT (confidence",
+    "recall": 1,
+    "recalledAs": "PILOT"
+  },
+  "PL/I": {
+    "hints": " PL/1, PL/I\n",
+    "recall": 1,
+    "recalledAs": "PL/I"
+  },
+  "PL/SQL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "PL/SQL"
+  },
+  "Pliant": {
+    "hints": null,
+    "recall": 0
+  },
+  "PostScript": {
+    "hints": " PostScript, PS\n",
+    "recall": 1,
+    "recalledAs": "PostScript"
+  },
+  "POV-Ray": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "POV-Ray"
+  },
+  "PowerBasic": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "PowerBASIC"
+  },
+  "PowerScript": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "PowerBuilder"
+  },
+  "PowerShell": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "PowerShell"
+  },
+  "Processing": {
+    "hints": " Processing (exceptions",
+    "recall": 1,
+    "recalledAs": "Processing_(programming_language)"
+  },
+  "Programming Without Coding Technology": {
+    "hints": " Programming Without Coding Technology, PWCT\n",
+    "recall": 0,
+    "mentionIn": "Ring_(programming_language)" 
+  },
+  "Prolog": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Prolog"
+  },
+  "Pure Data": {
+    "hints": " Pure Data, PD\n",
+    "recall": 1,
+    "recalledAs": "Pure_Data"
+  },
+  "PureBasic": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "PureBasic"
+  },
+  "Python": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Python_(programming_language)"
+  },
+  "Q": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Q_(programming_language_from_Kx_Systems)"
+  },
+  "R": {
+    "hints": " R (confidence",
+    "recall": 1,
+    "recalledAs": "R_(programming_language)"
+  },
+  "Racket": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Racket_(programming_language)"
+  },
+  "REBOL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Rebol"
+  },
+  "Red": {
+    "hints": " Red (confidence",
+    "recall": 1,
+    "recalledAs": "Red"
+  },
+  "REXX": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Rexx"
+  },
+  "Ring": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Ring_(software)"
+  },
+  "RPG": {
+    "hints": " RPG (confidence",
+    "recall": 1,
+    "recalledAs": "IBM_RPG"
+  },
+  "Ruby": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Ruby_(hardware_description_language)"
+  },
+  "Rust": {
+    "hints": " Rust, Rustlang\n",
+    "recall": 1,
+    "recalledAs": "Rust_(programming_language)"
+  },
+  "S-PLUS": {
+    "hints": " S-PLUS (exceptions",
+    "recall": 0,
+    "mentionIn": "S-PLUS"
+  },
+  "S": {
+    "hints": " S (exceptions",
+    "recall": 1,
+    "recalledAs": "S_(programming_language)"
+  },
+  "SAS": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "SAS_(software)"
+  },
+  "Sather": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Sather"
+  },
+  "Scala": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Scala_(programming_language)"
+  },
+  "Scheme": {
+    "hints": " Scheme (exceptions",
+    "recall": 1,
+    "recalledAs": "Scheme_(programming_language)"
+  },
+  "Scratch": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Scratch_(programming_language)"
+  },
+  "sed": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Sed"
+  },
+  "Seed7": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Seed7"
+  },
+  "SIGNAL": {
+    "hints": " SIGNAL (confidence",
+    "recall": 1,
+    "recalledAs": "SIGNAL_(programming_language)"
+  },
+  "Simula": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Simula"
+  },
+  "Simulink": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Simulink"
+  },
+  "Slate": {
+    "hints": " Slate (confidence",
+    "recall": 0
+  },
+  "Smalltalk": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Smalltalk"
+  },
+  "Smarty": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Smarty"
+  },
+  "Snap!": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Snap!"
+  },
+  "Solidity": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Solidity"
+  },
+  "SPARK": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "SPARK_(programming_language)"
+  },
+  "SPSS": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "SPSS"
+  },
+  "SQL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "SQL"
+  },
+  "SQR": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "SQR"
+  },
+  "Squeak": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Squeak"
+  },
+  "Squirrel": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Squirrel_(programming_language)"
+  },
+  "Standard ML": {
+    "hints": " Standard ML, SML\n",
+    "recall": 1,
+    "recalledAs": "Standard_ML"
+  },
+  "Stata": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Stata"
+  },
+  "Suneido": {
+    "hints": null,
+    "recall": 0
+  },
+  "SuperCollider": {
+    "hints": " SuperCollider (confidence",
+    "recall": 1,
+    "recalledAs": "SuperCollider"
+  },
+  "Swift": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Swift_(parallel_scripting_language)"
+  },
+  "TACL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "TACL"
+  },
+  "Tcl": {
+    "hints": " Tcl/Tk, Tcl\n",
+    "recall": 1,
+    "recalledAs": "Tcl"
+  },
+  "tcsh": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Tcsh"
+  },
+  "Tex": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "TeX"
+  },
+  "thinBasic": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "ThinBasic"
+  },
+  "TOM": {
+    "hints": " TOM (confidence",
+    "recall": 1,
+    "recalledAs": "Tom_(pattern_matching_language)"
+  },
+  "Transact-SQL": {
+    "hints": " T-SQL, Transact-SQL, TSQL\n",
+    "recall": 1,
+    "recalledAs": "Transact-SQL"
+  },
+  "TypeScript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "TypeScript"
+  },
+  "Vala/Genie": {
+    "hints": " Vala, Genie\n",
+    "recall": 1,
+    "recalledAs": "Genie_(programming_language)"
+  },
+  "VBScript": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "VBScript"
+  },
+  "Verilog": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Verilog"
+  },
+  "VHDL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "VHDL"
+  },
+  "Visual Basic .NET": {
+    "hints": " Visual Basic .NET, VB.NET, Visual Basic.NET, Visual Basic (confidence",
+    "recall": 1,
+    "recalledAs": "Visual_Basic_.NET"
+  },
+  "Visual Basic": {
+    "hints": " Visual Basic (confidence",
+    "recall": 1,
+    "recalledAs": "Visual_Basic"
+  },
+  "WebDNA": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "WebDNA"
+  },
+  "Whitespace": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Whitespace_(programming_language)"
+  },
+  "Wolfram": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Wolfram_Language"
+  },
+  "X10": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "X10_(programming_language)"
+  },
+  "xBase": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "XBase"
+  },
+  "XBase++": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "XBase++"
+  },
+  "Xen": {
+    "hints": null,
+    "recall": 0,
+    "mentionIn": "C\u03c9"
+  },
+  "Xojo": {
+    "hints": " REALbasic, Xojo\n",
+    "recall": 1,
+    "recalledAs": "Xojo"
+  },
+  "XPL": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "XPL"
+  },
+  "XQuery": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "XQuery"
+  },
+  "XSLT": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "XSLT"
+  },
+  "Xtend": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Xtend"
+  },
+  "yacc": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Yacc"
+  },
+  "Yorick": {
+    "hints": null,
+    "recall": 1,
+    "recalledAs": "Yorick_(programming_language)"
+  },
+  "Z shell": {
+    "hints": " Z shell, zsh",
+    "recall": 1,
+    "recalledAs": "Z_shell"
+  }
+}

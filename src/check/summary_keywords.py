@@ -1,4 +1,6 @@
-keywords = ['language','format','dsl','dialect']
+keywords = ['language','format']
+
+
 def check_summary_for_keywords(langdict):
     print("Checking summary for keywords")
     for cl in langdict:

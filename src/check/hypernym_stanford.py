@@ -5,9 +5,6 @@ from requests.exceptions import HTTPError
 from data import DATAP
 from json.decoder import JSONDecodeError
 
-keywords_s = ['language', 'format']
-keywords_p = ['languages', 'formats']
-
 
 def check(pair):
     cl = pair[0]
@@ -18,8 +15,8 @@ def check(pair):
     while True:
         try:
             parse, = dep_parser.raw_parse(summary)
-            pos = pos_hypernyms(parse)
-            cop = cop_hypernyms(parse)
+            pos = __pos_hypernyms(parse)
+            cop = __cop_hypernym(parse)
             return cl, (pos, cop)
         except JSONDecodeError:
             print("Decode Error at :" + cl)
@@ -43,57 +40,79 @@ def check_stanford(langdict):
     parsed_pairs = dict(parsed_pairs)
     for cl in langdict:
         summary = langdict[cl]["Summary"]
-        if summary == "No Summary":
-            langdict[cl]["StanfordPOSHypernym"] = 0
-            langdict[cl]["StanfordCOPHypernym"] = 0
+        hyp = parsed_pairs[cl]
+        if (summary == "No Summary") | (hyp is None):
+            langdict[cl]["POSLanguage"] = 0
+            langdict[cl]["COPLanguage"] = 0
+            langdict[cl]["POSFormat"] = 0
+            langdict[cl]["COPFormat"] = 0
         else:
-            tests = parsed_pairs[cl]
-            if tests is not None:
-                langdict[cl]["StanfordPOSHypernym"] = tests[0]
-                langdict[cl]["StanfordCOPHypernym"] = tests[1]
-            else:
-                langdict[cl]["StanfordPOSHypernym"] = 0
-                langdict[cl]["StanfordCOPHypernym"] = 0
+            ((nn, nns), cop) = hyp
+            langdict[cl]["POSHypernyms"] = nn + nns
+            langdict[cl]["COPHypernym"] = cop
+            langdict[cl]["POSLanguage"] = int(bool(list(filter(lambda w: w.endsWith("language"), nn)))
+                                              | bool(list(filter(lambda w: w.endsWith("languages"), nns))))
+            langdict[cl]["COPLanguage"] = int(str(cop).endswith("language") | str(cop).endswith("languages"))
+            langdict[cl]["POSFormat"] = int(bool(list(filter(lambda w: w.endsWith("format"), nn)))
+                                            | bool(list(filter(lambda w: w.endsWith("formats"), nns))))
+            langdict[cl]["COPFormat"] = int(str(cop).endswith("format") | str(cop).endswith("formats"))
     return langdict
 
 
-def pos_hypernyms(parse):
+def __pos_hypernyms(parse):
     for index, wdict in parse.nodes.items():
         if ((wdict['tag'] == 'VBZ') & (wdict['word'] == 'is')) | ((wdict['tag'] == 'VBD') & (wdict['word'] == 'was')):
-            nnlist = pos_a_nn(index + 1, parse)
-            nnslist = pos_one_of_nns(index + 1, parse)
-    return nnlist, nnslist
+            return __pos_is_an_one_nn(index, parse)
+    return []
 
 
-def pos_a_nn(index, parse):
-    nnlist = []
+def __pos_is_an_one_nn(index, parse):
+    for x in range(index, len(parse.nodes.items()), 1):
+        wdict = parse.nodes[x]
+        if (wdict['tag'] == 'DT') & (wdict['word'] in 'an'):
+            return __pos_nn(x, parse)
+        if (wdict['tag'] == 'CD') & (wdict['word'] == 'one'):
+            return __pos_of_nns(x, parse)
+    return []
+
+
+def __pos_nn(index, parse):
+    nns = []
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if wdict['tag'] == 'NN':
-            nnlist.append(wdict['word'])
-    return nnlist
+            nns.append(wdict['word'])
+    return nns
 
 
-def pos_one_of_nns(index, parse):
-    nnlist = []
+def __pos_of_nns(index, parse):
+    for x in range(index, len(parse.nodes.items()), 1):
+        wdict = parse.nodes[x]
+        if (wdict['tag'] == 'IN') & (wdict['word'] == 'of'):
+            return __pos_nns(x, parse)
+    return []
+
+
+def __pos_nns(index, parse):
+    nns = []
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if wdict['tag'] == 'NNS':
-            nnlist.append(wdict['word'])
-    return nnlist
+            nns.append(wdict['word'])
+    return nns
 
 
-def cop_hypernyms(parse):
-    p = cop_isa_pattern(parse.nodes.items())
+def __cop_hypernym(parse):
+    p = __cop_isa_pattern(parse.nodes.items())
     if p is not None:
         return p
-    p = cop_oneof_pattern(parse.nodes.items())
+    p = __cop_oneof_pattern(parse.nodes.items())
     if p is not None:
         return p
     return None
 
 
-def cop_isa_pattern(nodedict):
+def __cop_isa_pattern(nodedict):
     nn_set = {key: value for (key, value) in nodedict if value['tag'] == 'NN'}
     for n, ndict in nn_set.items():
         if 'nsubj' not in ndict['deps']:
@@ -111,7 +130,7 @@ def cop_isa_pattern(nodedict):
     return None
 
 
-def cop_oneof_pattern(nodedict):
+def __cop_oneof_pattern(nodedict):
     nns_set = {key: value for (key, value) in nodedict if value['tag'] == 'NNS'}
     cd_set = {key: value for (key, value) in nodedict if value['tag'] == 'CD'}
     for n, ndict in nns_set.items():
