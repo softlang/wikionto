@@ -17,16 +17,16 @@ def check_multi_infobox(langdict):
     cltexts = dict(pool.map(get_text, clrevs))
     for cl in langdict:
         text = cltexts[cl]
-        if text is None:
+        if text == None:
             langdict[cl]["MultiInfobox"] = 0
             langdict[cl]["Infobox programming language"] = 0
             langdict[cl]["Infobox software"] = 0
             langdict[cl]["Infobox file format"] = 0
         else:
             nr = text.count("{{Infobox")
-            pl_box = 'Infobox programming language' in text
-            soft_box = 'Infobox software' in text
-            ff_box = 'Infobox file format' in text
+            pl_box = 'infobox programming language' in text.lower()
+            soft_box = 'infobox software' in text.lower()
+            ff_box = 'infobox file format' in text.lower()
             langdict[cl]["MultiInfobox"] = nr
             langdict[cl]["Infobox programming language"] = int(pl_box)
             langdict[cl]["Infobox software"] = int(soft_box)

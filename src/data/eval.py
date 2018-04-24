@@ -70,8 +70,8 @@ def versus():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     for cl in langdict:
-        if "GitSeed" in langdict[cl]:
-            if (langdict[cl]["GitSeed"] == 1) and (langdict[cl]["StanfordPOSHypernym"]==0):
+        if "In_Wikipedia_List" in langdict[cl]:
+            if (langdict[cl]["In_Wikipedia_List"] == 1) and (langdict[cl]["StanfordPOSHypernym"]==0):
                 print(cl + ': ' + langdict[cl]["Summary"])
 
 
@@ -88,3 +88,6 @@ def seed_depth():
                 max_cff = langdict[cl]["CLDepth"]
     print(max_cl)
     print(max_cff)
+
+if __name__ == "__main__":
+    versus()
