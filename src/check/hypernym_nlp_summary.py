@@ -14,10 +14,13 @@ def check(pair):
     dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
     while True:
         try:
-            parse, = dep_parser.raw_parse(summary)
-            pos = __pos_hypernyms(parse)
-            cop = __cop_hypernym(parse)
-            return cl, (pos, cop)
+            parses = dep_parser.raw_parse(summary)
+            pos_list = []
+            cop_list = []
+            for parse in parses:
+                pos_list.append(__pos_hypernyms(parse))
+                cop_list.append(__cop_hypernym(parse))
+            return cl, (pos_list, cop_list)
         except JSONDecodeError:
             print("Decode Error at :" + cl)
             return cl, None
@@ -47,14 +50,14 @@ def check_stanford(langdict):
             langdict[cl]["POSFormat"] = 0
             langdict[cl]["COPFormat"] = 0
         else:
-            pos, cop = hyp
-            langdict[cl]["POSHypernyms"] = pos
+            (nn, nns), cop = hyp
+            langdict[cl]["POSHypernyms"] = nn + nns
             langdict[cl]["COPHypernym"] = cop
-            langdict[cl]["POSLanguage"] = int(bool(list(filter(lambda w: w.endswith("language"), pos)))
-                                              | bool(list(filter(lambda w: w.endswith("languages"), pos))))
+            langdict[cl]["POSLanguage"] = int(bool(list(filter(lambda w: w.endsWith("language"), nn)))
+                                              | bool(list(filter(lambda w: w.endsWith("languages"), nns))))
             langdict[cl]["COPLanguage"] = int(str(cop).endswith("language") | str(cop).endswith("languages"))
-            langdict[cl]["POSFormat"] = int(bool(list(filter(lambda w: w.endswith("format"), pos)))
-                                            | bool(list(filter(lambda w: w.endswith("formats"), pos))))
+            langdict[cl]["POSFormat"] = int(bool(list(filter(lambda w: w.endsWith("format"), nn)))
+                                            | bool(list(filter(lambda w: w.endsWith("formats"), nns))))
             langdict[cl]["COPFormat"] = int(str(cop).endswith("format") | str(cop).endswith("formats"))
     return langdict
 
@@ -169,11 +172,11 @@ def __get_node(dict_items, index):
 
 def solo():
     import json
-    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/testdict.json', 'r', encoding="UTF8") as f:
         langdict = json.load(f)
         langdict = check_stanford(langdict)
         f.close()
-    with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
+    with open(DATAP + '/testdict.json', 'w', encoding="UTF8") as f:
         json.dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()

@@ -35,7 +35,13 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_positive_pattern2(self):
-        self.assertEqual(1, 1)
+        cl, (pos, cop) = check(("ADSL", "ASDL is also a common misspelling of ADSL. Abstract-Type and "
+                                        "Scheme-Definition Language  is a computer language developed as part of "
+                                        "ESPRIT project GRASPIN, as a basis for generating language-based editors and "
+                                        "environments."))
+        self.assertEqual("ADSL", cl)
+        self.assertEqual(["misspelling"], pos)
+        self.assertEqual("misspelling", cop)
 
     @ignore_warnings
     def test_negative_pattern2(self):
