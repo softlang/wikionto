@@ -17,20 +17,25 @@ def check_multi_infobox(langdict):
     cltexts = dict(pool.map(get_text, clrevs))
     for cl in langdict:
         text = cltexts[cl]
-        if text == None:
-            langdict[cl]["MultiInfobox"] = 0
-            langdict[cl]["Infobox programming language"] = 0
-            langdict[cl]["Infobox software"] = 0
-            langdict[cl]["Infobox file format"] = 0
+        if text is None:
+            langdict[cl]["MultiInfobox"] = -1
+            langdict[cl]["Infobox programming language"] = -1
+            langdict[cl]["Infobox software"] = -1
+            langdict[cl]["Infobox file format"] = -1
         else:
-            nr = text.count("{{Infobox")
-            pl_box = 'infobox programming language' in text.lower()
-            soft_box = 'infobox software' in text.lower()
-            ff_box = 'infobox file format' in text.lower()
-            langdict[cl]["MultiInfobox"] = nr
-            langdict[cl]["Infobox programming language"] = int(pl_box)
-            langdict[cl]["Infobox software"] = int(soft_box)
-            langdict[cl]["Infobox file format"] = int(ff_box)
+            if 'infobox programming language' in text.lower():
+                langdict[cl]["Infobox programming language"] = text.lower().index('infobox programming language')
+            else:
+                langdict[cl]["Infobox programming language"] = -1
+            if 'infobox software' in text.lower():
+                langdict[cl]["Infobox software"] = text.lower().index('infobox software')
+            else:
+                langdict[cl]["Infobox software"] = -1
+            if 'infobox file format' in text.lower():
+                langdict[cl]["Infobox file format"] = text.lower().index('infobox file format')
+            else:
+                langdict[cl]["Infobox file format"] = -1
+            langdict[cl]["MultiInfobox"] = text.lower().count("{{infobox")
     return langdict
 
 

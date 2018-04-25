@@ -44,12 +44,11 @@ def check_links(langdict):
     for page in lists:
         links = getlinks(page)
         for l in links:
-            ln = l.replace(' ','_')
+            ln = l.replace(' ', '_')
             if ln in langdict:
                 langdict[ln]['In_Wikipedia_List'] = 1
             else:
-                if not (("Wikipedia" in l) | ("Template" in l) | ("Category" in l) | ("Help" in l) | ('Talk' in l)
-                        | ("Portal" in l)):
+                if not any(w in l for w in ["Wikipedia", "Template", "Category", "Help", "Talk", "Portal"]):
                     print(ln)
     return langdict
 
