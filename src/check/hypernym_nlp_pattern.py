@@ -20,7 +20,7 @@ def pos_family(index,parse):
         wdict = parse.nodes[x]
         if (wdict['tag'] == 'NN') & (wdict['word'] in 'family'):
             return pos_of_nns(x, parse)
-    return pos_nn
+    return pos_nn(index,parse)
 
 
 def pos_nn(index, parse):
