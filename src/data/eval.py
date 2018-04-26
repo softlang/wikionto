@@ -70,8 +70,7 @@ def versus():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     for cl in langdict:
-        if "In_Wikipedia_List" in langdict[cl]:
-            if (langdict[cl]["In_Wikipedia_List"] == 1) and (langdict[cl]["StanfordPOSHypernym"]==0):
+        if (langdict[cl]["GitSeed"] == 1) and (langdict[cl]["StanfordPOSHypernym"]==0):
                 print(cl + ': ' + langdict[cl]["Summary"])
 
 

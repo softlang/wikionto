@@ -7,7 +7,6 @@ from data import DATAP
 from check.hypernym_nlp_pattern import cop_hypernym, pos_hypernyms
 
 
-
 def check(pair):
     cl = pair[0]
     summary = pair[1]
@@ -52,26 +51,34 @@ def check_stanford(langdict):
             pos, cop = hyp
             langdict[cl]["POSHypernyms"] = pos
             langdict[cl]["COPHypernym"] = cop
-            langdict[cl]["POSLanguage"] = int(bool(list(filter(lambda w: w.endswith("language"), pos)))
-                                              | bool(list(filter(lambda w: w.endswith("languages"), pos))))
-            langdict[cl]["COPLanguage"] = int(str(cop).endswith("language") | str(cop).endswith("languages"))
-            langdict[cl]["POSFormat"] = int(bool(list(filter(lambda w: w.endswith("format"), pos)))
-                                            | bool(list(filter(lambda w: w.endswith("formats"), pos))))
-            langdict[cl]["COPFormat"] = int(str(cop).endswith("format") | str(cop).endswith("formats"))
+            if any("language" in p for p in pos):
+                langdict[cl]["POSLanguage"] = 1
+            if any("format" in p for p in pos):
+                langdict[cl]["POSLanguage"] = 1
+
+            if cop is not None:
+                if any("language" in c for c in cop):
+                    langdict[cl]["COPLanguage"] = 1
+                if any("format" in c for c in cop):
+                    langdict[cl]["COPFormat"] = 1
+            else:
+                langdict[cl]["COPLanguage"] = 0
+                langdict[cl]["COPFormat"] = 0
     return langdict
 
 
 def solo():
     import json
-    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/testdict.json', 'r', encoding="UTF8") as f:
         langdict = json.load(f)
         langdict = check_stanford(langdict)
         f.close()
-    with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
+    with open(DATAP + '/testdict.json', 'w', encoding="UTF8") as f:
         json.dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
 
 
 if __name__ == "__main__":
+    print(("language" in "language"))
     solo()

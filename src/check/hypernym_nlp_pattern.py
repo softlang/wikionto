@@ -56,16 +56,13 @@ def cop_hypernym(parse):
     p = cop_oneof_pattern(parse.nodes.items())
     if p is not None:
         return p
-    return None
+    return []
 
 
 def cop_isa_pattern(nodedict):
     nn_set = {key: value for (key, value) in nodedict if value['tag'] == 'NN'}
     for n, ndict in nn_set.items():
-        if 'nsubj' not in ndict['deps']:
-            continue
-        subject = __get_node(nodedict, ndict['deps']['nsubj'][0])
-        if not (subject['tag'] == 'NNP'):
+        if ('nsubj' not in ndict['deps']) & ('csubj' not in ndict['deps']):
             continue
         if 'cop' not in ndict['deps']:
             continue
@@ -73,8 +70,13 @@ def cop_isa_pattern(nodedict):
         if not (((is_or_was['tag'] == 'VBZ') & (is_or_was['word'] == 'is')) |
                 ((is_or_was['tag'] == 'VBD') & (is_or_was['word'] == 'was'))):
             continue
-        return ndict['word']
-    return None
+        cops = [ndict['word']]
+        if 'conj' in ndict['deps']:
+            for x in range(len(ndict['deps']['conj'])):
+                conj_node = __get_node(nodedict,ndict['deps']['conj'][x])
+                cops.append(conj_node['word'])
+        return cops
+    return []
 
 
 def cop_oneof_pattern(nodedict):
@@ -103,8 +105,8 @@ def cop_oneof_pattern(nodedict):
             nmod_check = True
             break
         if nmod_check:
-            return ndict['word']
-    return None
+            return [ndict['word']]
+    return []
 
 
 def __get_node(dict_items, index):
