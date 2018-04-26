@@ -2,7 +2,7 @@ from check.gitseed import check_gitseed
 from check.tiobe import check_tiobe
 from check.infobox import check_infobox
 from check.hypernym_dbpedia import check_dbpedia_hypernym
-from check.hypernym_stanford import check_stanford
+from check.hypernym_nlp_firstsentence import check_stanford
 from check.summary_keywords import check_summary_for_keywords
 from check.semantic_distance import check_semantic_distance
 from check.article_name_pattern import check_article_name
