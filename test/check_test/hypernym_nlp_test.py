@@ -23,7 +23,7 @@ class TestHypernyms(unittest.TestCase):
                                             "to have as few implementation dependencies as possible."))
         self.assertEqual("Java_(programming_language)", cl)
         self.assertEqual(["computer", "programming", "language", "implementation"], pos)
-        self.assertEqual("language", cop)
+        self.assertEqual(["language"], cop)
 
     @ignore_warnings
     def test_negative_pattern1(self):
@@ -32,7 +32,7 @@ class TestHypernyms(unittest.TestCase):
                     "associatedschema with a simple, human-accessible syntax."))
         self.assertEqual("Pan", cl)
         self.assertEqual([], pos)
-        self.assertEqual(None, cop)
+        self.assertEqual([], cop)
 
     @ignore_warnings
     def test_positive_pattern2(self):
@@ -42,7 +42,14 @@ class TestHypernyms(unittest.TestCase):
                                         "environments."))
         self.assertEqual("ADSL", cl)
         self.assertEqual(["misspelling"], pos)
-        self.assertEqual("misspelling", cop)
+        self.assertEqual(["misspelling"], cop)
+
+    def test_notation(self):
+        cl, (pos, cop) = check(("Abstract Syntax Notation One", "Abstract Syntax Notation One  is a standard and "
+                                                                "notation"))
+        self.assertEqual("Abstract Syntax Notation One", cl)
+        self.assertEqual(["notation"], pos)
+        self.assertEqual([""], cop)  # standard gets tagged as JJ instead of NN as expected
 
     @ignore_warnings
     def test_positive_check2_pattern2(self):
@@ -52,7 +59,7 @@ class TestHypernyms(unittest.TestCase):
                                          "and environments."))
         self.assertEqual("ADSL", cl)
         self.assertEqual(['misspelling', 'computer', 'language', 'part', 'project', 'basis'], pos)
-        self.assertEqual(["misspelling", "language"], cop)
+        self.assertEqual([["misspelling"], ["language"]], cop)
 
     @ignore_warnings
     def test_typeerror_check2(self):

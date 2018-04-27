@@ -2,10 +2,10 @@ from mine.dbpedia import articles_below
 from data import DATAP
 
 ex_cat = [
-    "<http://dbpedia.org/resource/Category:Songs>",
-    "<http://dbpedia.org/resource/Category:Astronomical_objects>",
-    "<http://dbpedia.org/resource/Category:Software>",
-    "<http://dbpedia.org/resource/Category:Hardware>",
+    #"<http://dbpedia.org/resource/Category:Songs>",
+    #"<http://dbpedia.org/resource/Category:Astronomical_objects>",
+    #"<http://dbpedia.org/resource/Category:Software>",
+    #"<http://dbpedia.org/resource/Category:Hardware>",
     "<http://dbpedia.org/resource/Category:People>"
 ]
 
@@ -13,9 +13,7 @@ ex_cat = [
 def check_reachable_by(langdict, c):
     print("Checking reachable by "+c)
     xs = set()
-    for i in range(8):
-        print("    Depth:"+str(i))
-        xs = xs | set(articles_below(c, i, i))
+    xs = xs | set(articles_below(c, 5, 5))
     inter = xs & langdict.keys()
     for cl in inter:
         langdict[cl][c] = 1

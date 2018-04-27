@@ -1,17 +1,17 @@
 from check.gitseed import check_gitseed
 from check.tiobe import check_tiobe
-from check.infobox import check_infobox
+from check.infobox_properties import check_infobox_properties
 from check.hypernym_dbpedia import check_dbpedia_hypernym
 from check.hypernym_nlp_firstsentence import check_stanford
 from check.summary_keywords import check_summary_for_keywords
 from check.semantic_distance import check_semantic_distance
-from check.article_name_pattern import check_article_name
-from check.empty_category import check_empty_cat
+from check.url_pattern import check_article_name
+from check.empty_cat import check_empty_cat
 from json import dump, load
-from check.cat_name_pattern import check_cat_name
+from check.url_pattern_cat import check_cat_name
 from check.eponymous_cat import check_eponymous
-from check.multi_infobox import check_multi_infobox
-from check.instance_wikidata import check_instance_of_wikidata
+from check.infobox_existence import check_infobox_existence
+from check.wikidata import check_instance_of_wikidata
 from check.yago import check_instance_of_yago
 
 from mine.miner import mine
@@ -22,8 +22,8 @@ from functools import reduce
 def pipeline():
     with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
-        checks = [check_gitseed, check_tiobe, check_infobox, check_dbpedia_hypernym, check_stanford,
-                  check_summary_for_keywords, check_semantic_distance, check_article_name, check_multi_infobox,
+        checks = [check_gitseed, check_tiobe, check_infobox_properties, check_dbpedia_hypernym, check_stanford,
+                  check_summary_for_keywords, check_semantic_distance, check_article_name, check_infobox_existence,
                   check_instance_of_wikidata, check_instance_of_yago]
         langdict = reduce((lambda d, c: c(d)), checks, langdict)
         f.close()

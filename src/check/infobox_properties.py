@@ -3,7 +3,7 @@ ex_properties = {"battery","connectivity","cpu","display","form","input","memory
 in_properties = {"paradigm", "typing", "fileExt", "implementation"}
 
 
-def check_infobox(langdict):
+def check_infobox_properties(langdict):
     print("Checking Infobox properties")
     for cl in langdict:
         if "properties" not in langdict[cl]:

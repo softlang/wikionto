@@ -7,7 +7,7 @@ def get_text(clrev):
     return clrev[0], getcontent(clrev[1])
 
 
-def check_multi_infobox(langdict):
+def check_infobox_existence(langdict):
     print("Checking for multiple infoboxes")
     pool = Pool(processes=100)
     clrevs = []
@@ -43,7 +43,7 @@ def solo():
     import json
     with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
         langdict = json.load(f)
-        langdict = check_multi_infobox(langdict)
+        langdict = check_infobox_existence(langdict)
         f.close()
     with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
         json.dump(obj=langdict, fp=f, indent=2)

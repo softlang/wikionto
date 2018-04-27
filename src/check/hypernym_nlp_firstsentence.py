@@ -3,9 +3,8 @@ from nltk.parse.corenlp import CoreNLPDependencyParser
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
 
-from data import DATAP
+from data import DATAP, KEYWORDS
 from check.hypernym_nlp_pattern import cop_hypernym, pos_hypernyms
-
 
 def check(pair):
     cl = pair[0]
@@ -42,43 +41,29 @@ def check_stanford(langdict):
     for cl in langdict:
         summary = langdict[cl]["Summary"]
         hyp = parsed_pairs[cl]
-        if (summary == "No Summary") | (hyp is None):
-            langdict[cl]["POSLanguage"] = 0
-            langdict[cl]["COPLanguage"] = 0
-            langdict[cl]["POSFormat"] = 0
-            langdict[cl]["COPFormat"] = 0
-        else:
+        if not((summary == "No Summary") | (hyp is None)):
             pos, cop = hyp
             langdict[cl]["POSHypernyms"] = pos
             langdict[cl]["COPHypernym"] = cop
-            if any("language" in p for p in pos):
-                langdict[cl]["POSLanguage"] = 1
-            if any("format" in p for p in pos):
-                langdict[cl]["POSLanguage"] = 1
-
+            if any(kw in p for p in pos for kw in KEYWORDS):
+                langdict[cl]["POS"] = 1
             if cop is not None:
-                if any("language" in c for c in cop):
-                    langdict[cl]["COPLanguage"] = 1
-                if any("format" in c for c in cop):
-                    langdict[cl]["COPFormat"] = 1
-            else:
-                langdict[cl]["COPLanguage"] = 0
-                langdict[cl]["COPFormat"] = 0
+                if any(kw in c for c in cop for kw in KEYWORDS):
+                    langdict[cl]["COP"] = 1
     return langdict
 
 
 def solo():
     import json
-    with open(DATAP + '/testdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
         langdict = json.load(f)
         langdict = check_stanford(langdict)
         f.close()
-    with open(DATAP + '/testdict.json', 'w', encoding="UTF8") as f:
+    with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
         json.dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
 
 
 if __name__ == "__main__":
-    print(("language" in "language"))
     solo()
