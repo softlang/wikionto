@@ -47,6 +47,18 @@ def check_stanford(langdict):
             langdict[cl]["COPHypernym"] = cop
             if any(kw in p for p in pos for kw in KEYWORDS):
                 langdict[cl]["POS"] = 1
+            if ("template" in pos) & ("engine" in pos):
+                langdict[cl]["POSX"] = 1
+            if ("Template" in pos) & ("Engine" in pos):
+                langdict[cl]["POSX"] = 1
+            if("templating" in pos) & ("system" in pos):
+                langdict[cl]["POSX"] = 1
+            if ("theorem" in pos) & ("prover" in pos):
+                langdict[cl]["POSX"] = 1
+            if ("parser" in pos) & ("generator" in pos):
+                langdict[cl]["POSX"] = 1
+            if ("build" in pos) & ("tool" in pos):
+                langdict[cl]["POSX"] = 1
             if cop is not None:
                 if any(kw in c for c in cop for kw in KEYWORDS):
                     langdict[cl]["COP"] = 1

@@ -44,12 +44,26 @@ class TestHypernyms(unittest.TestCase):
         self.assertEqual(["misspelling"], pos)
         self.assertEqual(["misspelling"], cop)
 
+    @ignore_warnings
     def test_notation(self):
         cl, (pos, cop) = check(("Abstract Syntax Notation One", "Abstract Syntax Notation One  is a standard and "
                                                                 "notation"))
         self.assertEqual("Abstract Syntax Notation One", cl)
         self.assertEqual(["notation"], pos)
-        self.assertEqual([""], cop)  # standard gets tagged as JJ instead of NN as expected
+        self.assertEqual([], cop)  # standard gets tagged as JJ instead of NN as expected
+
+    @ignore_warnings
+    def test_html(self):
+        cl, (pos,cop) = check(("HTML","HyperText Markup Language  is the standard markup language for creating web "
+                                      "pages and web applications."))
+        self.assertEqual(['markup', 'language', 'web', 'web'], pos)
+        self.assertEqual(["language"], cop)
+
+    @ignore_warnings
+    def test_templateengine(self):
+        cl, (pos, cop) = check(("Mako", "Mako is a template engine written in Python."))
+        self.assertEqual(['template', 'engine'], pos)
+        self.assertEqual(["engine"], cop)
 
     @ignore_warnings
     def test_positive_check2_pattern2(self):
@@ -59,42 +73,18 @@ class TestHypernyms(unittest.TestCase):
                                          "and environments."))
         self.assertEqual("ADSL", cl)
         self.assertEqual(['misspelling', 'computer', 'language', 'part', 'project', 'basis'], pos)
-        self.assertEqual([["misspelling"], ["language"]], cop)
+        self.assertEqual(['misspelling', 'language'], cop)
 
     @ignore_warnings
     def test_typeerror_check2(self):
-        self.assertRaises(TypeError, check2(("BPML","BPML was a proposed language, but now the BPMI has dropped support for this in "
+        cl, (pos,cop) = check2(("BPML","BPML was a proposed language, but now the BPMI has dropped support for this in "
                                       "favor of BPEL4WS (Business Process Execution Language for Web Services).As of "
                                       "2008, BPML has also been reported to have been deprecated in favor of BPDM ("
                                       "Business Process Definition Metamodel).BPMI took this decision when it was "
                                       "acquired by OMG in order to gain access to its popular specification, "
-                                      "BPMN (Business Process Model and Notation).")))
-
-    @ignore_warnings
-    def test_typeerror_check2_false(self):
-        self.assertRaises(TypeError, check2(
-            ("BPML", "BPML was a proposed language, but now the BPMI has dropped support for this in "
-                     "favor of BPEL4WS (Business Process Execution Language for Web Services). As of "
-                     "2008, BPML has also been reported to have been deprecated in favor of BPDM ("
-                     "Business Process Definition Metamodel). BPMI took this decision when it was "
-                     "acquired by OMG in order to gain access to its popular specification, "
-                     "BPMN (Business Process Model and Notation).")))
-
-    @ignore_warnings
-    def test_positive_pattern3(self):
-        self.assertEqual(1, 1)
-
-    @ignore_warnings
-    def test_negative_pattern3(self):
-        self.assertEqual(1, 1)
-
-    @ignore_warnings
-    def test_positive_pattern4(self):
-        self.assertEqual(1, 1)
-
-    @ignore_warnings
-    def test_negative_pattern4(self):
-        self.assertEqual(1, 1)
+                                      "BPMN (Business Process Model and Notation)."))
+        self.assertEqual(['language', 'support', 'favor', 'BPEL4WS', 'Business', 'Web'], pos)
+        self.assertEqual(['language', 'dropped'], cop)
 
 
 if __name__ == '__main__':

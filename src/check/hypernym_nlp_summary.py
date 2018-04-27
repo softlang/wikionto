@@ -17,12 +17,9 @@ def check(pair):
             parsed = dep_parser.parse_text(summary)
             pos_list = []
             cop_list = []
-            print(cl)
             for p in parsed:
                 pos_list += pos_hypernyms(p)
-                cop = cop_hypernym(p)
-                if cop is not None:
-                    cop_list.append(cop)
+                cop_list += cop_hypernym(p)
             return cl, (pos_list, cop_list)
         except JSONDecodeError:
             print("Decode Error at :" + cl)
@@ -32,9 +29,6 @@ def check(pair):
             return cl, (pos_list, cop_list)
         except HTTPError:
             print("HTTPError " + cl)
-            return cl, None
-        except TypeError:
-            print("TypeError" + cl + ": " + summary)
             return cl, None
 
 
