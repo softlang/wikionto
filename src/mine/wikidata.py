@@ -1,10 +1,12 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
+from data import WIKIDATA
+
 
 def get_computer_languages():
-    sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    sparql = SPARQLWrapper(WIKIDATA)
     sparql.setReturnFormat(JSON)
 
-    query = "SELECT ?cl WHERE { ?cl wdt:P31 ?t. ?t wdt:P279* wd:Q9143. }"
+    query = "SELECT ?cl WHERE { ?cl wdt:P31/wdt:P279* wd:Q9143. }"
     sparql.setQuery(query)
     res = sparql.query().convert()
     cls = []
@@ -13,12 +15,13 @@ def get_computer_languages():
         cls.append(r["cl"]["value"])
     print(size)
     return cls
+
 
 def get_computer_formats():
-    sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    sparql = SPARQLWrapper(WIKIDATA)
     sparql.setReturnFormat(JSON)
 
-    query = "SELECT ?cl WHERE { ?cl wdt:P31 ?t. ?t wdt:P279* wd:Q494823. }"
+    query = "SELECT ?cl WHERE { ?cl wdt:P31/wdt:P279* wd:Q494823. }"
     sparql.setQuery(query)
     res = sparql.query().convert()
     cls = []
@@ -27,4 +30,3 @@ def get_computer_formats():
         cls.append(r["cl"]["value"])
     print(size)
     return cls
-

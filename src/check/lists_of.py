@@ -1,5 +1,6 @@
+from check.langdictcheck import LangdictCheck
 from data import DATAP
-from json import load, dump
+from json import load
 from mine.wiki import getlinks
 
 lists = ["List_of_XML_markup_languages",
@@ -40,28 +41,18 @@ def explore_all():
             print(cl)
 
 
-def check_links(langdict):
-    for page in lists:
-        links = getlinks(page)
-        for l in links:
-            ln = l.replace(' ', '_')
-            if ln in langdict:
-                langdict[ln]['In_Wikipedia_List'] = 1
-            else:
-                if not any(w in l for w in ["Wikipedia", "Template", "Category", "Help", "Talk", "Portal"]):
+class WikiList(LangdictCheck):
+    def check(self,langdict):
+        for page in lists:
+            links = getlinks(page)
+            for l in links:
+                ln = l.replace(' ', '_')
+                if ln in langdict:
+                    langdict[ln]['In_Wikipedia_List'] = 1
+                elif not any(w in l for w in ["Wikipedia", "Template", "Category", "Help", "Talk", "Portal"]):
                     print(ln)
-    return langdict
-
-
-def solo():
-    f = open(DATAP + "/langdict.json", "r", encoding="UTF8")
-    langdict = check_links(load(f))
-    f.close()
-    f = open(DATAP + "/langdict.json", "w", encoding="UTF8")
-    dump(langdict, f, indent=2)
-    f.flush()
-    f.close()
+        return langdict
 
 
 if __name__ == "__main__":
-    solo()
+    WikiList().solo()

@@ -1,44 +1,44 @@
-
 def pos_hypernyms(parse):
     for index, wdict in parse.nodes.items():
-        if ((wdict['tag'] == 'VBZ') & (wdict['word'] in ['is','refers'])) | ((wdict['tag'] == 'VBD') & (wdict['word'] == 'was')):
-            return pos_is_an_one_nn(index, parse)
-    return []
+        if ((wdict['tag'] == 'VBZ') & (wdict['word'] in ['is', 'refers'])) | (
+                (wdict['tag'] == 'VBD') & (wdict['word'] == 'was')):
+            return pos_is_an_one_nn(index, 'is', parse)
+    return [], ''
 
 
-def pos_is_an_one_nn(index, parse):
+def pos_is_an_one_nn(index, s,parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
-        if (wdict['tag'] == 'DT') & any(wdict['word'] == w for w in ['a','an','the']):
-            return pos_family(x, parse)
+        if (wdict['tag'] == 'DT') & any(wdict['word'] == w for w in ['a', 'an', 'the']):
+            return pos_family(x, s+'a', parse)
         if (wdict['tag'] == 'CD') & (wdict['word'] in ['one']):
-            return pos_of_nns(x, parse)
-    return []
+            return pos_of_nns(x, s+'one', parse)
+    return [], ''
 
 
-def pos_family(index,parse):
+def pos_family(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if (wdict['tag'] == 'NN') & any(wdict['word'] in w for w in ['family', 'member']):
-            return pos_of_nns(x, parse)
-    return pos_nn(index,parse)
+            return pos_of_nns(x, s+'family', parse)
+    return pos_nn(index, s, parse)
 
 
-def pos_of_nns(index, parse):
+def pos_of_nns(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if (wdict['tag'] == 'IN') & (wdict['word'] == 'of'):
-            return pos_nn(x, parse)
-    return []
+            return pos_nn(x, s+'of', parse)
+    return [], ''
 
 
-def pos_nn(index, parse):
+def pos_nn(index, s, parse):
     nns = []
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if wdict['tag'].startswith('NN'):
             nns.append(wdict['word'])
-    return nns
+    return nns, s
 
 
 def cop_hypernym(parse):
@@ -65,7 +65,7 @@ def cop_isa_pattern(nodedict):
         cops = [ndict['word']]
         if 'conj' in ndict['deps']:
             for x in range(len(ndict['deps']['conj'])):
-                conj_node = __get_node(nodedict,ndict['deps']['conj'][x])
+                conj_node = __get_node(nodedict, ndict['deps']['conj'][x])
                 cops.append(conj_node['word'])
         return cops
     return []

@@ -4,6 +4,8 @@ DATAP = join(dirname(abspath(__file__)), '..', '..', 'data')
 CLDEPTH = 7
 CFFDEPTH = 7
 
+WIKIDATA = "https://query.wikidata.org/sparql"
+
 KEYWORDS = ['language', 'format', 'notation', 'file']
 
 #  ex_pattern = ["List_of","comparison","Comparison"]
