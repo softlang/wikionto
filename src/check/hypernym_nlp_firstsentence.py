@@ -48,20 +48,33 @@ class HypPOSSent(LangdictCheck):
                 (pos, s), cop = hyp
                 langdict[cl]["POSHypernyms"] = pos
                 langdict[cl]["COPHypernym"] = cop
+                if s != '':
+                    langdict[cl]["POS_" + s] = 1
                 if any(kw in p for p in pos for kw in KEYWORDS):
                     langdict[cl]["POS"] = 1
-                    langdict[cl]["POS_" + s] = 1
                 if ("template" in pos) & ("engine" in pos):
+                    langdict[cl]["POSX"] = 1
                     langdict[cl]["POS_" + s + "templateengine"] = 1
                 if ("Template" in pos) & ("Engine" in pos):
+                    langdict[cl]["POSX"] = 1
                     langdict[cl]["POS_" + s + "TemplateEngine"] = 1
                 if ("templating" in pos) & ("system" in pos):
+                    langdict[cl]["POSX"] = 1
                     langdict[cl]["POS_" + s + "templatingsystem"] = 1
+                if ("template" in pos) & ("system" in pos):
+                    langdict[cl]["POSX"] = 1
+                    langdict[cl]["POS_" + s + "templatesystem"] = 1
                 if ("theorem" in pos) & ("prover" in pos):
+                    langdict[cl]["POSX"] = 1
                     langdict[cl]["POS_" + s + "theoremprover"] = 1
                 if ("parser" in pos) & ("generator" in pos):
+                    langdict[cl]["POSX"] = 1
                     langdict[cl]["POS_" + s + "parsergenerator"] = 1
-                if ("build" in pos) & ("tool" in pos):
+                if ('typesetting' in pos) & ("system" in pos):
+                    langdict[cl]["POSX"] = 1
+                    langdict[cl]["POS_" + s + "typesettingsystem"] = 1
+                if ("build" in pos) & ("tool" in pos):#TODO: Doesn't work: ('build','VB')
+                    langdict[cl]["POSX"] = 1
                     langdict[cl]["POS_" + s + "buildtool"] = 1
                 if cop is not None:
                     if any(kw in c for c in cop for kw in KEYWORDS):

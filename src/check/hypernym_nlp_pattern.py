@@ -1,30 +1,54 @@
 def pos_hypernyms(parse):
+    the_node = parse.nodes[1]
+    if (the_node['tag'] == 'DT') and (the_node['word'] == 'The'):
+        x = 2
+        last = None
+        while parse.nodes[x]['tag'] == 'JJ':
+            x+=1
+        if parse.nodes[x]['tag'] == 'NNP':
+            x+=1
+        while parse.nodes[x]['tag'] == 'NN':
+            last = parse.nodes[x]['word']
+            x+=1
+        if last is not None and parse.nodes[x]['tag'] is not 'POS':
+            return [last],'The'
+
     for index, wdict in parse.nodes.items():
-        if ((wdict['tag'] == 'VBZ') & (wdict['word'] in ['is', 'refers'])) | (
+        if ((wdict['tag'] == 'VBZ') & (wdict['word'] in ['is', 'refers', 'denotes', 'specifies'])) | (
                 (wdict['tag'] == 'VBD') & (wdict['word'] == 'was')):
             return pos_is_an_one_nn(index, 'is', parse)
     return [], ''
 
 
-def pos_is_an_one_nn(index, s,parse):
+def pos_is_an_one_nn(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if (wdict['tag'] == 'DT') & any(wdict['word'] == w for w in ['a', 'an', 'the']):
-            return pos_family(x, s+'a', parse)
+            return pos_x(x, s + 'a', parse)
         if (wdict['tag'] == 'CD') & (wdict['word'] in ['one']):
             return pos_of_nns(x, s+'one', parse)
     return [], ''
 
 
-def pos_family(index, s, parse):
+def pos_x(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if (wdict['tag'] == 'NN') & any(wdict['word'] in w for w in ['family', 'member']):
-            return pos_of_nns(x, s+'family', parse)
+            nns, snew = pos_of_nns(x, s+'family', parse)
+            if not nns:
+                continue
+            else:
+                return nns,snew
+        if (wdict['tag'] == 'NN') & (wdict['word'] == 'name'):
+            nns, snew = pos_of_nn(x, s + 'name', parse)
+            if not nns:
+                continue
+            else:
+                return nns, snew
     return pos_nn(index, s, parse)
 
 
-def pos_of_nns(index, s, parse):
+def pos_of_nn(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
         if (wdict['tag'] == 'IN') & (wdict['word'] == 'of'):
@@ -32,11 +56,28 @@ def pos_of_nns(index, s, parse):
     return [], ''
 
 
+def pos_of_nns(index, s, parse):
+    for x in range(index, len(parse.nodes.items()), 1):
+        wdict = parse.nodes[x]
+        if (wdict['tag'] == 'IN') & (wdict['word'] == 'of'):
+            return pos_nns(x, s+'of', parse)
+    return [], ''
+
+
 def pos_nn(index, s, parse):
     nns = []
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
-        if wdict['tag'].startswith('NN'):
+        if wdict['tag'] == 'NN':
+            nns.append(wdict['word'])
+    return nns, s
+
+
+def pos_nns(index, s, parse):
+    nns = []
+    for x in range(index, len(parse.nodes.items()), 1):
+        wdict = parse.nodes[x]
+        if wdict['tag'] == 'NNS':
             nns.append(wdict['word'])
     return nns, s
 

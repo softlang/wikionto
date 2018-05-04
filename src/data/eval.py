@@ -12,11 +12,11 @@ how many tests succeed?
 import pandas as pd
 from json import load
 import matplotlib.pyplot as plt
-from data import DATAP
+from data import DATAP,KEYWORDS
 
 
 def pos_vs_cop():
-    f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["StanfordCOPHypernym"] == 1):
@@ -24,11 +24,11 @@ def pos_vs_cop():
 
 
 def dbpediahyp_vs_pos():
-    f= open(DATAP+'/langdict.json', 'r',encoding="UTF8")
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["DbpediaHypernym"] == 1):
-            print(cl + ':' + cldict[cl]["Summary"])    
+            print(cl + ':' + cldict[cl]["Summary"])
 
 
 def dbpediaprop_vs_pos():
@@ -36,7 +36,7 @@ def dbpediaprop_vs_pos():
     langdict = load(f)
     lf = pd.DataFrame(langdict).transpose()
     catalog = lf.reindex(columns=["StanfordPOSHypernym", "DbpediaInfobox"])
-    #print(catalog.describe().to_latex())
+    # print(catalog.describe().to_latex())
 
     fig, axes = plt.subplots(nrows=1, ncols=1)
     rfail = catalog.groupby(by=["StanfordPOSHypernym", "DbpediaInfobox"]).apply(lambda x: len(x))
@@ -45,7 +45,7 @@ def dbpediaprop_vs_pos():
         axes.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
     plt.show()
     for cl in langdict:
-        if (langdict[cl]["StanfordPOSHypernym"] == 0) and (langdict[cl]["DbpediaInfobox"]==1):
+        if (langdict[cl]["StanfordPOSHypernym"] == 0) and (langdict[cl]["DbpediaInfobox"] == 1):
             print(cl)
 
 
@@ -56,13 +56,13 @@ def dbpediaprop_single_vs_pos():
         if "properties" not in langdict[cl]:
             continue
         if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("paradigm" in langdict[cl]["properties"]):
-            print("paradigm: "+cl +"  - "+langdict[cl]["Summary"])
+            print("paradigm: " + cl + "  - " + langdict[cl]["Summary"])
         if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("fileExt" in langdict[cl]["properties"]):
-            print("fileExt: "+cl +"  - "+langdict[cl]["Summary"])
+            print("fileExt: " + cl + "  - " + langdict[cl]["Summary"])
         if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("implementations" in langdict[cl]["properties"]):
-            print("implementations: "+cl +"  - "+langdict[cl]["Summary"])
+            print("implementations: " + cl + "  - " + langdict[cl]["Summary"])
         if (langdict[cl]["StanfordPOSHypernym"] == 0) and ("typing" in langdict[cl]["properties"]):
-            print("typing: "+cl +"  - "+langdict[cl]["Summary"])
+            print("typing: " + cl + "  - " + langdict[cl]["Summary"])
 
 
 def versus():
@@ -70,8 +70,8 @@ def versus():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     for cl in langdict:
-        if (langdict[cl]["GitSeed"] == 1) and ("POS" not in langdict[cl]):
-                print(cl + ': ' + langdict[cl]["Summary"])
+        if (langdict[cl]["GitSeed"] == 1) and ("POS" not in langdict[cl]) and ("POSX" not in langdict[cl]):
+            print(cl + ': ' + langdict[cl]["Summary"])
 
 
 def seed_depth():
@@ -88,5 +88,32 @@ def seed_depth():
     print(max_cl)
     print(max_cff)
 
+
+def count_pos_variants():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    pat = {p for cl in langdict for p in langdict[cl] if p.startswith('POS_')}
+    pxdict = {p: {cl for (cl, cldict) in langdict.items() if p in cldict} for p in pat}
+    for p,cls in pxdict.items():
+        print(p + ':' + str(len(cls)))
+
+
+def get_nohitpos():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    cls = [cl for cl in langdict if langdict[cl]["Summary"] == 'No Summary']
+    print(len(cls))
+    cls = [cl for cl in langdict if ("POS_" in langdict[cl]) and not (langdict[cl]["Summary"] == 'No Summary')
+           and not cl.startswith('List') and not cl.startswith('Comparison') and any(k in langdict[cl]["Summary"] for k in KEYWORDS)]
+    print(len(cls))
+    for cl in cls:
+        print(cl+': '+langdict[cl]["Summary"])
+        text = input(">")
+        if text == 'n':
+            continue
+        else:
+            break
+
+
 if __name__ == "__main__":
-    versus()
+    get_nohitpos()
