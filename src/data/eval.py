@@ -9,10 +9,12 @@ Infobox & not Hypernym
 no test succeeds
 how many tests succeed?
 '''
+import operator
+
 import pandas as pd
 from json import load
 import matplotlib.pyplot as plt
-from data import DATAP,KEYWORDS
+from data import DATAP, KEYWORDS
 
 
 def pos_vs_cop():
@@ -94,7 +96,7 @@ def count_pos_variants():
     langdict = load(f)
     pat = {p for cl in langdict for p in langdict[cl] if p.startswith('POS_')}
     pxdict = {p: {cl for (cl, cldict) in langdict.items() if p in cldict} for p in pat}
-    for p,cls in pxdict.items():
+    for p, cls in pxdict.items():
         print(p + ':' + str(len(cls)))
 
 
@@ -104,10 +106,11 @@ def get_nohitpos():
     cls = [cl for cl in langdict if langdict[cl]["Summary"] == 'No Summary']
     print(len(cls))
     cls = [cl for cl in langdict if ("POS_" in langdict[cl]) and not (langdict[cl]["Summary"] == 'No Summary')
-           and not cl.startswith('List') and not cl.startswith('Comparison') and any(k in langdict[cl]["Summary"] for k in KEYWORDS)]
+           and not cl.startswith('List') and not cl.startswith('Comparison') and any(
+        k in langdict[cl]["Summary"] for k in KEYWORDS)]
     print(len(cls))
     for cl in cls:
-        print(cl+': '+langdict[cl]["Summary"])
+        print(cl + ': ' + langdict[cl]["Summary"])
         text = input(">")
         if text == 'n':
             continue
@@ -115,5 +118,67 @@ def get_nohitpos():
             break
 
 
+def topflop_pos_semdist():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+
+    pattern = ["POS_isa",
+               "POS_isanameof",
+               "POS_isoneof",
+               "POS_isafamilyof",
+               "POS_The"]
+    xpattern = ["POSX_theoremprover",
+                "POSX_parsergenerator",
+                "POSX_templateengine",
+                "POSX_templatesystem",
+                "POSX_templatingsystem",
+                "POSX_typesettingsystem",
+                "POSX_file"]
+
+    patdict = dict()
+    for p in pattern:
+        patdict[p] = []
+        for cl in langdict:
+            if p in langdict[cl] and langdict[cl][p] == 1 and ("POS" in langdict[cl] and langdict[cl]["POS"] == 1):
+                patdict[p].append((cl, langdict[cl]["SemanticDistance"]))
+    xpatdict = dict()
+    for p in pattern:
+        xpatdict[p] = []
+        for cl in langdict:
+            if p in langdict[cl] and langdict[cl][p] == 1 and \
+                    any(xp in langdict[cl] and langdict[cl][xp] == 1 for xp in xpattern):
+                xpatdict[p].append((cl, langdict[cl]["SemanticDistance"]))
+
+    for p, cllist in patdict.items():
+        cllist.sort(key=operator.itemgetter(1))
+        print(p)
+        if len(cllist) < 20:
+            print("  all:")
+            for cl in cllist:
+                print("    " + str(cl))
+            continue
+        print("  top10: ")
+        for x in range(0, 10):
+            print("    " + str(cllist[x]))
+        print("  flop10: ")
+        for x in range(-10, 0):
+            print("    " + str(cllist[x]))
+    print("----Stretched pattern-----")
+    for p,cllist in xpatdict.items():
+        cllist.sort(key=operator.itemgetter(1))
+        print(p)
+        if len(cllist) < 20:
+            print("  all:")
+            for cl in cllist:
+                print("    " + str(cl))
+            continue
+        print("  top10: ")
+        for x in range(0, 10):
+            print("    " + str(cllist[x]))
+        print("  flop10: ")
+        for x in range(-10, 0):
+            print("    " + str(cllist[x]))
+
+
 if __name__ == "__main__":
-    get_nohitpos()
+    topflop_pos_semdist()

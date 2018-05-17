@@ -51,7 +51,7 @@ def pos_x(index, s, parse):
 def pos_of_nn(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
-        if (wdict['tag'] == 'IN') & (wdict['word'] == 'of'):
+        if (wdict['tag'] == 'IN') & (wdict['word'] in ['of', 'for']):
             return pos_nn(x, s+'of', parse)
     return [], ''
 
