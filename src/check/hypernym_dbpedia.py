@@ -2,7 +2,7 @@ from mine.dbpedia import articles_with_hypernym,CLURI,CFFURI
 from data import CLDEPTH, CFFDEPTH
 from check.langdictcheck import LangdictCheck
 
-class Dbpedia(LangdictCheck):
+class DbpediaHyp(LangdictCheck):
 
     def check(self,langdict):
         print("Checking Dbpedia Hypernym")
@@ -17,4 +17,4 @@ class Dbpedia(LangdictCheck):
 
 
 if __name__ == '__main__':
-    Dbpedia().solo()
+    DbpediaHyp().solo()

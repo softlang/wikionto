@@ -4,7 +4,7 @@ from data import KEYWORDS
 
 class SumKeyWords(LangdictCheck):
     def check(self,langdict):
-        print("Checking summary for keywords")
+        print("Checking summary for keyword mentions")
         for cl in langdict:
             summary = langdict[cl]["Summary"]
             if any(word in summary.lower() for word in KEYWORDS):

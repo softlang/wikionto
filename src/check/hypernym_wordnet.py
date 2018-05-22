@@ -22,7 +22,7 @@ class WordNet(LangdictCheck):
 
     def namenorm(self,name):
         x = re.sub("\(.*?\)", "", name).lower().strip()
-        x = re.sub("[_]","",x).strip()
+        x = re.sub("[_]"," ",x).strip()
         return x
 
 

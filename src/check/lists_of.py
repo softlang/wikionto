@@ -25,7 +25,6 @@ lists = ["List_of_XML_markup_languages",
          "List_of_programming_languages_with_algebraic_data_types",
          "List_of_reflective_programming_languages_and_platforms",  # ?
          "List_of_user_interface_markup_languages",
-         "List_of_program_transformation_systems",  # ?
          "List_of_functional_programming_languages",
          "List_of_file_formats",
          "List_of_motion_and_gesture_file_formats",
@@ -43,6 +42,7 @@ def explore_all():
 
 class WikiList(LangdictCheck):
     def check(self,langdict):
+        print("Checking Wikipedia's lists")
         for page in lists:
             links = getlinks(page)
             for l in links:

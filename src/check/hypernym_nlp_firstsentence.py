@@ -8,7 +8,7 @@ from check.hypernym_nlp_pattern import cop_hypernym, pos_hypernyms
 from check.langdictcheck import LangdictCheck
 
 
-class HypPOSSent(LangdictCheck):
+class HypNLPSent(LangdictCheck):
 
     def check_single(self, pair):
         cl = pair[0]
@@ -68,4 +68,4 @@ class HypPOSSent(LangdictCheck):
 
 
 if __name__ == "__main__":
-    HypPOSSent().solo()
+    HypNLPSent().solo()

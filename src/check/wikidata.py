@@ -2,7 +2,7 @@ from mine.wikidata import get_computer_languages, get_computer_formats
 from check.langdictcheck import LangdictCheck
 
 
-class WikidataCheck(LangdictCheck):
+class Wikidata(LangdictCheck):
 
     def check(self, langdict):
         print("Checking instance of 'Computer languages' and 'data formats' in Wikidata")
@@ -15,4 +15,4 @@ class WikidataCheck(LangdictCheck):
 
 
 if __name__=='__main__':
-    WikidataCheck().solo()
+    Wikidata().solo()

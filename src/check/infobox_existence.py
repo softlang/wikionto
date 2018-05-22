@@ -9,7 +9,7 @@ class InfoboxEx(LangdictCheck):
         return clrev[0], getcontent(clrev[1])
 
     def check(self,langdict):
-        print("Checking for multiple infoboxes")
+        print("Checking for infobox existence")
         pool = Pool(processes=100)
         clrevs = []
         for cl in langdict:

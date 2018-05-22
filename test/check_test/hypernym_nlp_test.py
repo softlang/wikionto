@@ -1,5 +1,5 @@
 import unittest
-from check.hypernym_nlp_firstsentence import HypPOSSent
+from check.hypernym_nlp_firstsentence import HypNLPSent
 from check.hypernym_nlp_summary import check as check2
 import warnings
 
@@ -17,7 +17,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_positive_pattern1(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("Java_(programming_language)", "Java is a general-purpose computer programming language that is "
                                             "concurrent, class-based, object-oriented, and specifically designed "
                                             "to have as few implementation dependencies as possible."))
@@ -27,7 +27,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_negative_pattern1(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("Pan", "The pan configuration language allows the definition of machine configuration information and an "
                     "associatedschema with a simple, human-accessible syntax."))
         self.assertEqual("Pan", cl)
@@ -36,7 +36,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_positive_pattern2(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("ADSL", "ASDL is also a common misspelling of ADSL. Abstract-Type and "
                      "Scheme-Definition Language  is a computer language developed as part of "
                      "ESPRIT project GRASPIN, as a basis for generating language-based editors and "
@@ -47,7 +47,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_notation(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("Abstract Syntax Notation One", "Abstract Syntax Notation One  is a standard and "
                                              "notation"))
         self.assertEqual("Abstract Syntax Notation One", cl)
@@ -56,7 +56,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_html(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("HTML", "HyperText Markup Language  is the standard markup language for creating web "
                      "pages and web applications."))
         self.assertEqual((['markup', 'language', 'web', 'web'], 'isa'), pos)
@@ -64,7 +64,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_templateengine(self):
-        cl, (pos, cop) = HypPOSSent().check_single(("Mako", "Mako is a template engine written in Python."))
+        cl, (pos, cop) = HypNLPSent().check_single(("Mako", "Mako is a template engine written in Python."))
         self.assertEqual((['template', 'engine'], 'isa'), pos)
         self.assertEqual(["engine"], cop)
 
@@ -92,7 +92,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_sndsent(self):
-        cl, (pos, cop) = HypPOSSent().check_single(("SubRip", "SubRip is a software program for Windows which rips "
+        cl, (pos, cop) = HypNLPSent().check_single(("SubRip", "SubRip is a software program for Windows which rips "
                                                               "subtitles and their timings from video. It is free "
                                                               "software, released under the GNU GPL. SubRip is also "
                                                               "the name of the widely used and broadly compatible "
@@ -108,7 +108,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_Smarty(self):
-        cl, (pos, cop) = HypPOSSent().check_single(("Smarty", "Smarty is a web template system written in PHP. Smarty "
+        cl, (pos, cop) = HypNLPSent().check_single(("Smarty", "Smarty is a web template system written in PHP. Smarty "
                                                               "is primarily promoted as a tool for separation of "
                                                               "concerns.Smarty is intended to simplify "
                                                               "compartmentalization, allowing the front-end of a web "
@@ -128,7 +128,7 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_templateengineCap(self):
-        cl, (pos, cop) = HypPOSSent().check_single(("FreeMarker", "FreeMarker is a Java-based Template Engine, "
+        cl, (pos, cop) = HypNLPSent().check_single(("FreeMarker", "FreeMarker is a Java-based Template Engine, "
                                                                   "originally focusing on dynamic web page generation "
                                                                   "with MVC software architecture. However, "
                                                                   "it's a general purpose template engine, "
@@ -159,28 +159,28 @@ class TestHypernyms(unittest.TestCase):
 
     @ignore_warnings
     def test_racket(self):
-        cl, (pos, cop) = HypPOSSent().check_single(("Racket", "Racket  is a general purpose, multi-paradigm programming language in the "
+        cl, (pos, cop) = HypNLPSent().check_single(("Racket", "Racket  is a general purpose, multi-paradigm programming language in the "
                                            "Lisp-Scheme family."))
         self.assertEqual((['purpose', 'programming', 'language', 'family'], 'isa'), pos)
         self.assertEqual(['purpose'], cop)
 
     @ignore_warnings
     def test_pan(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("Racket", "The pan  configuration language allows the definition of machine configuration information."))
         self.assertEqual((['language'], 'The'), pos)
         self.assertEqual([], cop)
 
     @ignore_warnings
     def test_isabelle(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("Isabelle", "The Isabelle theorem prover is an interactive theorem prover."))
         self.assertEqual((['prover','theorem'], 'isa'), pos)
         self.assertEqual(['prover'], cop)
 
     @ignore_warnings
-    def test_isabelle(self):
-        cl, (pos, cop) = HypPOSSent().check_single(
+    def test_islandgrammar(self):
+        cl, (pos, cop) = HypNLPSent().check_single(
             ("Island_grammar", "An island grammar is a grammar that only describes a small chunk of the underlying language."))
         self.assertEqual((['grammar'], 'isa'), pos)
         self.assertEqual(['grammar'], cop)

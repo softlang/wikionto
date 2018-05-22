@@ -3,7 +3,7 @@ from data import KEYWORDS
 
 class URLPattern(LangdictCheck):
     def check(self,langdict):
-        print("Checking article names")
+        print("Checking URL pattern")
 
         for cl in langdict:
             if any(kw in cl for kw in KEYWORDS):
