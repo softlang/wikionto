@@ -29,9 +29,7 @@ def seedsim(cltuple):
     cl = cltuple[0]
     text = cltuple[1]
     ssums = cltuple[2]
-    if text in ssums:
-        return cl, 1
-    if text.lower().startswith("no summary") or text is "":
+    if text is "No Summary" or text is "":
         return cl, 0
     else:
         return cl, sim(text, ssums)
