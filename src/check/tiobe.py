@@ -6,6 +6,7 @@ from json import load
 class Tiobe(LangdictCheck):
 
     def check(self, langdict):
+        print("Checking TIOBE index")
         f = open(DATAP+"/TIOBE_index_annotated.json",'r',encoding="UTF8")
         tiobedict = load(f)
         f.close()

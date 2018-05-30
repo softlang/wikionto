@@ -49,8 +49,6 @@ class WikiList(LangdictCheck):
                 ln = l.replace(' ', '_')
                 if ln in langdict:
                     langdict[ln]['In_Wikipedia_List'] = 1
-                elif not any(w in l for w in ["Wikipedia", "Template", "Category", "Help", "Talk", "Portal"]):
-                    print(ln)
         return langdict
 
 

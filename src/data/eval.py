@@ -180,5 +180,17 @@ def topflop_pos_semdist():
             print("    " + str(cllist[x]))
 
 
+def weirdo_seed_similarity():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    for cl, feat in langdict.items():
+        if feat["Seed_Similarity"] > 0.8:
+            fs = ["GitSeed", "TIOBE", "DbpediaHypernym", "PlainTextKeyword", "POS", "COP", "URLPattern",
+                  "URLBracesPattern", "Infobox programming language", "Infobox file format",
+                  "Infobox software", "wikidata_CL", "yago_CL"]
+            if not [f for f in fs if (f in feat) and (feat[f] > 0)]:
+                print(cl + feat["Summary"])
+
+
 if __name__ == "__main__":
-    topflop_pos_semdist()
+    weirdo_seed_similarity()

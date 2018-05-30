@@ -11,7 +11,6 @@ from check.wikidata import Wikidata
 from check.yago import Yago
 from check.hypernym_wordnet import WordNet
 from check.semantic_distance import SemDist
-from check.overcat import OverCat
 from check.empty_cat import check_empty_cat
 from check.url_pattern_cat import check_cat_name
 from check.eponymous_cat import check_eponymous
@@ -25,8 +24,8 @@ from functools import reduce
 def pipeline():
     with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
-        ans = [Gitseed, Tiobe, SeedSim, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
-               Wikidata, Yago, WordNet, SemDist, OverCat]
+        ans = [Gitseed, Tiobe, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
+               Wikidata, Yago, WordNet, SemDist, SeedSim]
         langdict = reduce((lambda d, c: c().check(d)), ans, langdict)
         f.close()
 
@@ -49,5 +48,5 @@ def pipeline():
 
 
 if __name__ == '__main__':
-    mine()
+    #mine()
     pipeline()
