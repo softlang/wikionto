@@ -22,18 +22,16 @@ from functools import reduce
 
 
 def pipeline():
-    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
-        langdict = load(f)
-        ans = [Gitseed, Tiobe, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
-               Wikidata, Yago, WordNet, SemDist, SeedSim]
-        langdict = reduce((lambda d, c: c().check(d)), ans, langdict)
-        f.close()
+    ans = [Gitseed, Tiobe, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
+           Wikidata, Yago, WordNet, SemDist]
+    for c in ans:
+        try:
+            c().solo()
+        except:
+            print("Error")
 
-    with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
-        dump(obj=langdict, fp=f, indent=2)
-        f.flush()
-        f.close()
 
+"""
     with open(DATAP + '/catdict.json', 'r', encoding="UTF8") as f:
         catdict = load(f)
         catdict = check_empty_cat(catdict, langdict)
@@ -45,8 +43,8 @@ def pipeline():
         dump(obj=catdict, fp=f, indent=2)
         f.flush()
         f.close()
-
+"""
 
 if __name__ == '__main__':
-    #mine()
+    mine()
     pipeline()

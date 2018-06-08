@@ -13,8 +13,9 @@ class SeedSim(LangdictCheck):
         print("Annotating similarity to seed sentences")
         ssums = []
         for cl, feat in langdict.items():
-            if ("TIOBE" in feat and feat["TIOBE"] == 1) or \
-                    ("GitSeed" in feat and feat["GitSeed"] == 1):
+            if (("TIOBE" in feat and feat["TIOBE"] == 1) or
+                    ("GitSeed" in feat and feat["GitSeed"] == 1)) and \
+                        feat["Summary"] is not "No Summary":
                 ssums.append(feat["Summary"])
 
         pool = Pool(processes=4)
@@ -26,13 +27,17 @@ class SeedSim(LangdictCheck):
 
 
 def seedsim(cltuple):
-    cl = cltuple[0]
-    text = cltuple[1]
-    ssums = cltuple[2]
-    if text is "No Summary" or text is "":
-        return cl, 0
-    else:
-        return cl, sim(text, ssums)
+    try:
+        cl = cltuple[0]
+        text = cltuple[1]
+        ssums = cltuple[2]
+        if (text == "No Summary") or (text is "no summary") or (text is ''):
+            return cl, 0.0
+        else:
+            return cl, sim(text, ssums)
+    except IndexError:
+        print("ERROR at " + cl)
+        return cl, 0.0
 
 
 def sim(text, texts):

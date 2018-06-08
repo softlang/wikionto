@@ -60,8 +60,8 @@ def seed_similarity_binned_range():
     df1 = df1.groupby(by=pandas.cut(df1['Seed_Similarity'], bins=bins)).Seed_Similarity.count()
 
     fig, ax = plt.subplots()
-    rects0 = ax.bar(ind, df0, width, color='royalblue')
-    rects1 = ax.bar(ind + width, df1, width, color='orange')
+    rects0 = ax.bar(ind, df0, width, color='black')
+    rects1 = ax.bar(ind + width, df1, width, color='lightgrey')
 
     # add some text for labels, title and axes ticks
     ax.set_ylabel('')
