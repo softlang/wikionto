@@ -7,9 +7,11 @@ class Tiobe(LangdictCheck):
 
     def check(self, langdict):
         print("Checking TIOBE index")
-        f = open(DATAP+"/TIOBE_index_annotated.json",'r',encoding="UTF8")
+        f = open(DATAP+"/TIOBE_index_annotated.json", 'r', encoding="UTF8")
         tiobedict = load(f)
         f.close()
+        for cl in langdict:
+            langdict[cl]["TIOBE"] = 0
         for tl, tld in tiobedict.items():
             if "recalledAs" in tld:
                 rec = tld["recalledAs"]

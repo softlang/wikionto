@@ -37,7 +37,7 @@
   "Algol": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Algol"
+    "recalledAs": "ALGOL"
   },
   "Alice": {
     "hints": " Alice (confidence",
@@ -82,7 +82,7 @@
   "ATLAS": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Atlas_(star)"
+    "recalledAs": "Abbreviated_Test_Language_for_All_Systems"
   },
   "AutoIt": {
     "hints": null,
@@ -197,7 +197,7 @@
   "CFML": {
     "hints": " CFML, ColdFusion\n",
     "recall": 1,
-    "recalledAs": "Cold_fusion"
+    "recalledAs": "ColdFusion_Markup_Language"
   },
   "cg": {
     "hints": " cg (confidence",
@@ -371,7 +371,7 @@
   "EXEC": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Exec_(system_call)"
+    "recalledAs": "CMS_EXEC"
   },
   "F#": {
     "hints": " F#, F-Sharp, FSharp, F Sharp\n",
@@ -639,8 +639,8 @@
   },
   "Magic": {
     "hints": " Magic (confidence",
-    "recall": 1,
-    "recalledAs": "Magic_(Olivia_Newton-John_song)"
+    "recall": 0,
+    "mentionIn": "Magic disambiguation page"
   },
   "Magik": {
     "hints": null,
@@ -715,7 +715,7 @@
   "Monkey": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Monkey_(song)"
+    "recalledAs": "Monkey_X"
   },
   "MOO": {
     "hints": null,
@@ -958,7 +958,7 @@
   "Ring": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Ring_(software)"
+    "recalledAs": "Ring_(programming_language)"
   },
   "RPG": {
     "hints": " RPG (confidence",
@@ -1052,7 +1052,7 @@
   "Snap!": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Snap!"
+    "recalledAs": "Snap!_(programming_language)"
   },
   "Solidity": {
     "hints": null,

@@ -6,6 +6,8 @@ class Gitseed(LangdictCheck):
 
     def check(self, langdict):
         print("Checking Gitseed")
+        for cl in langdict:
+            langdict[cl]["GitSeed"] = 0
         f = open(DATAP+'/gitseed_annotated.csv','r',encoding="utf8")
         for line in f:
             comment = line.split(",")[1]
@@ -19,9 +21,7 @@ class Gitseed(LangdictCheck):
                 langdict[seed_language]["GitSeed"] = 1
             if "recalled" in comment and not seed_language in langdict:
                 print(seed_language)
-        for cl in langdict:
-            if "GitSeed" not in langdict[cl]:
-                langdict[cl]["GitSeed"] = 0
+
         return langdict
 
 
