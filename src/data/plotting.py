@@ -89,7 +89,7 @@ def plot_feature(feature):
     rfail = df[(df.CLDepth >= 0) & (df[feature] == 0)].groupby(by=['CLDepth']).apply(lambda x: len(x))
     rfail.plot(kind='bar', ax=axes[0], color='blue', linestyle='dashed')
 
-    rsuccess = df[(df.CLDepth >= 0) & (df[feature] == 1)].groupby(by=['CLDepth']).apply(lambda x: len(x))
+    rsuccess = df[(df.CFFDepth >= 0) & (df[feature] == 1)].groupby(by=['CFFDepth']).apply(lambda x: len(x))
     rsuccess.plot(kind='bar', ax=axes[1], color='blue', linestyle='dashed')
 
     for ax in axes:

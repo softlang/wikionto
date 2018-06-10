@@ -1,0 +1,1711 @@
+{
+  "REALbasic": {
+    "recall": 1,
+    "recalledAs": "Xojo"
+  },
+  "SVG": {
+    "recall": 1,
+    "recalledAs": "Scalable_Vector_Graphics"
+  },
+  "SCSS": {
+    "recall": 1,
+    "recalledAs": "Sass_(stylesheet_language)"
+  },
+  "SaltStack": {
+    "recall": 1,
+    "recalledAs": "Salt_(software)"
+  },
+  "Pep8": {
+    "recall": 1,
+    "recalledAs": "Python_(programming_language)"
+  },
+  "GLSL": {
+    "recall": 1,
+    "recalledAs": "OpenGL_Shading_Language"
+  },
+  "Objective-C++": {
+    "recall": 1,
+    "recalledAs": "Objective-C"
+  },
+  "MQL4": {
+    "recall": 1,
+    "recalledAs": "MetaQuotes_Language_MQL4/MQL5"
+  },
+  "HLSL": {
+    "recall": 1,
+    "recalledAs": "High-Level_Shading_Language"
+  },
+  "GDB": {
+    "recall": 1,
+    "recalledAs": "GNU_Debugger"
+  },
+  "EBNF": {
+    "recall": 1,
+    "recalledAs": "Extended_Backus\u2013Naur_Form"
+  },
+  "RHTML": {
+    "recall": 1,
+    "recalledAs": "ERuby"
+  },
+  "EJS": {
+    "recall": 1,
+    "recalledAs": "Easy_Java_Simulations"
+  },
+  "Diff": {
+    "recall": 1,
+    "recalledAs": "Diff_utility"
+  },
+  "CSS": {
+    "recall": 1,
+    "recalledAs": "Cascading_Style_Sheets"
+  },
+  "BlitzMax": {
+    "recall": 1,
+    "recalledAs": "Blitz_BASIC"
+  },
+  "ColdFusion": {
+    "recall": 1,
+    "recalledAs": "Adobe_ColdFusion"
+  },
+  "ASN.1": {
+    "recall": 1,
+    "recalledAs": "Abstract_Syntax_Notation_One"
+  },
+  "ABAP": {
+    "recall": 1
+  },
+  "ActionScript": {
+    "recall": 1
+  },
+  "Ada": {
+    "recall": 1,
+    "recalledAs": "Ada_(programming_language)"
+  },
+  "Adobe Font Metrics": {
+    "recall": 0,
+    "mentionIn": "PostScript_fonts#AFM"
+  },
+  "Agda": {
+    "recall": 1,
+    "recalledAs": "Agda_(programming_language)"
+  },
+  "Alloy": {
+    "recall": 1,
+    "recalledAs": "Alloy_(specification_language)"
+  },
+  "AMPL": {
+    "recall": 1
+  },
+  "AngelScript": {
+    "recall": 1
+  },
+  "ANTLR": {
+    "recall": 1
+  },
+  "APL": {
+    "recall": 1,
+    "recalledAs": "APL_(programming_language)"
+  },
+  "Apollo Guidance Computer": {
+    "recall": 1,
+    "recalledAs": "Apollo_Guidance_Computer"
+  },
+  "AppleScript": {
+    "recall": 1
+  },
+  "Arc": {
+    "recall": 1,
+    "recalledAs": "Arc_(programming_language)"
+  },
+  "AsciiDoc": {
+    "recall": 1
+  },
+  "AspectJ": {
+    "recall": 1
+  },
+  "Assembly": {
+    "recall": 1,
+    "recalledAs": "Assembly_language"
+  },
+  "ATS": {
+    "recall": 1,
+    "recalledAs": "ATS_(programming_language)"
+  },
+  "AutoHotkey": {
+    "recall": 1
+  },
+  "AutoIt": {
+    "recall": 1
+  },
+  "Awk": {
+    "recall": 1,
+    "recalledAs": "AWK"
+  },
+  "Batchfile": {
+    "recall": 1,
+    "recalledAs": "Batch_file"
+  },
+  "Befunge": {
+    "recall": 1
+  },
+  "BitBake": {
+    "recall": 1
+  },
+  "BlitzBasic": {
+    "recall": 1,
+    "recalledAs": "Blitz_BASIC"
+  },
+  "Boo": {
+    "recall": 1,
+    "recalledAs": "Boo_(programming_language)"
+  },
+  "Brainfuck": {
+    "recall": 1
+  },
+  "Bro": {
+    "recall": 0,
+    "mentionIn": "Bro_(software)"
+  },
+  "C": {
+    "recall": 1,
+    "recalledAs": "C_(programming_language)"
+  },
+  "C++": {
+    "recall": 1
+  },
+  "Ceylon": {
+    "recall": 1,
+    "recalledAs": "Ceylon_(programming_language)"
+  },
+  "Chapel": {
+    "recall": 1,
+    "recalledAs": "Chapel_(programming_language)"
+  },
+  "Charity": {
+    "recall": 1,
+    "recalledAs": "Charity_(programming_language)"
+  },
+  "ChucK": {
+    "recall": 1
+  },
+  "Clarion": {
+    "recall": 1,
+    "recalledAs": "Clarion_(programming_language)"
+  },
+  "Clean": {
+    "recall": 1,
+    "recalledAs": "Clean_(programming_language)"
+  },
+  "CLIPS": {
+    "recall": 1
+  },
+  "Clojure": {
+    "recall": 1
+  },
+  "CMake": {
+    "recall": 1
+  },
+  "COBOL": {
+    "recall": 1
+  },
+  "CoffeeScript": {
+    "recall": 1
+  },
+  "COLLADA": {
+    "recall": 1
+  },
+  "Common Lisp": {
+    "recall": 1,
+    "recalledAs": "Common_Lisp"
+  },
+  "Component Pascal": {
+    "recall": 1,
+    "recalledAs": "Component_Pascal"
+  },
+  "Cool": {
+    "recall": 1,
+    "recalledAs": "Cool_(programming_language)"
+  },
+  "Coq": {
+    "recall": 1
+  },
+  "Creole": {
+    "recall": 1,
+    "recalledAs": "Creole_(markup)"
+  },
+  "Crystal": {
+    "recall": 1,
+    "recalledAs": "Crystal_(programming_language)"
+  },
+  "Csound": {
+    "recall": 1
+  },
+  "CWeb": {
+    "recall": 1,
+    "recalledAs": "CWEB"
+  },
+  "Cython": {
+    "recall": 1
+  },
+  "D": {
+    "recall": 1,
+    "recalledAs": "D_(programming_language)"
+  },
+  "Dart": {
+    "recall": 1,
+    "recalledAs": "Dart_(programming_language)"
+  },
+  "DIGITAL Command Language": {
+    "recall": 1,
+    "recalledAs": "DIGITAL_Command_Language"
+  },
+  "DTrace": {
+    "recall": 1
+  },
+  "Dylan": {
+    "recall": 1,
+    "recalledAs": "Dylan_(programming_language)"
+  },
+  "E": {
+    "recall": 1,
+    "recalledAs": "E_(programming_language)"
+  },
+  "Eagle": {
+    "recall": 0,
+    "mentionIn": "EAGLE_(program)"
+  },
+  "eC": {
+    "recall": 1,
+    "recalledAs": "EC_(programming_language)"
+  },
+  "ECL": {
+    "recall": 1,
+    "recalledAs": "ECL_(data-centric_programming_language)"
+  },
+  "ECLiPSe": {
+    "recall": 1
+  },
+  "Eiffel": {
+    "recall": 1,
+    "recalledAs": "Eiffel_(programming_language)"
+  },
+  "Elixir": {
+    "recall": 1,
+    "recalledAs": "Elixir_(programming_language)"
+  },
+  "Elm": {
+    "recall": 1,
+    "recalledAs": "Elm_(programming_language)"
+  },
+  "Emacs Lisp": {
+    "recall": 1,
+    "recalledAs": "Emacs_Lisp"
+  },
+  "Erlang": {
+    "recall": 1,
+    "recalledAs": "Erlang_(programming_language)"
+  },
+  "Factor": {
+    "recall": 1,
+    "recalledAs": "Factor_(programming_language)"
+  },
+  "Fancy": {
+    "recall": 0,
+    "comment": " mismatched if you search for it on Wikipedia\n"
+  },
+  "Fantom": {
+    "recall": 1,
+    "recalledAs": "Fantom_(programming_language)"
+  },
+  "fish": {
+    "recall": 0
+  },
+  "Forth": {
+    "recall": 1,
+    "recalledAs": "Forth_(programming_language)"
+  },
+  "Fortran": {
+    "recall": 1
+  },
+  "FreeMarker": {
+    "recall": 1
+  },
+  "Frege": {
+    "recall": 1,
+    "recalledAs": "Frege_(programming_language)"
+  },
+  "G-code": {
+    "recall": 1
+  },
+  "GAP": {
+    "recall": 1,
+    "recalledAs": "GAP_(computer_algebra_system)"
+  },
+  "Genie": {
+    "recall": 1,
+    "recalledAs": "Genie_(programming_language)"
+  },
+  "Genshi": {
+    "recall": 1,
+    "recalledAs": "Genshi_(templating_language)"
+  },
+  "Gnuplot": {
+    "recall": 1
+  },
+  "Go": {
+    "recall": 1,
+    "recalledAs": "Go_(programming_language)"
+  },
+  "Golo": {
+    "recall": 1,
+    "recalledAs": "Golo_(programming_language)"
+  },
+  "Gosu": {
+    "recall": 1,
+    "recalledAs": "Gosu_(programming_language)"
+  },
+  "Gradle": {
+    "recall": 1
+  },
+  "Grammatical Framework": {
+    "recall": 1,
+    "recalledAs": "Grammatical_Framework"
+  },
+  "GraphQL": {
+    "recall": 1
+  },
+  "Graphviz (DOT)": {
+    "recall": 1,
+    "recalledAs": "DOT_(graph_description_language)"
+  },
+  "Groovy": {
+    "recall": 1,
+    "recalledAs": "Groovy_(programming_language)"
+  },
+  "Groovy Server Pages": {
+    "recall": 1,
+    "recalledAs": "Groovy_Server_Pages"
+  },
+  "Hack": {
+    "recall": 1,
+    "recalledAs": "Hack_(programming_language)"
+  },
+  "Haml": {
+    "recall": 1
+  },
+  "Handlebars": {
+    "recall": 1,
+    "recalledAs": "Handlebars_(template_system)"
+  },
+  "Harbour": {
+    "recall": 1,
+    "recalledAs": "Harbour_(software)"
+  },
+  "Haskell": {
+    "recall": 1,
+    "recalledAs": "Haskell_(programming_language)"
+  },
+  "Haxe": {
+    "recall": 1
+  },
+  "HTML": {
+    "recall": 1
+  },
+  "Hy": {
+    "recall": 1
+  },
+  "IDL": {
+    "recall": 1,
+    "recalledAs": "IDL_(programming_language)"
+  },
+  "Idris": {
+    "recall": 1,
+    "recalledAs": "Idris_(programming_language)"
+  },
+  "Inno Setup": {
+    "recall": 1,
+    "recalledAs": "Inno_Setup"
+  },
+  "Io": {
+    "recall": 1,
+    "recalledAs": "Io_(programming_language)"
+  },
+  "Ioke": {
+    "recall": 1,
+    "recalledAs": "Ioke_(programming_language)"
+  },
+  "Isabelle": {
+    "recall": 1,
+    "recalledAs": "Isabelle_(proof_assistant)"
+  },
+  "J": {
+    "recall": 1,
+    "recalledAs": "J_(programming_language)"
+  },
+  "Jasmin": {
+    "recall": 1,
+    "recalledAs": "Jasmin_(software)"
+  },
+  "Java": {
+    "recall": 1,
+    "recalledAs": "Java_(programming_language)"
+  },
+  "Java Server Pages": {
+    "recall": 1,
+    "recalledAs": "JavaServer_Pages"
+  },
+  "JavaScript": {
+    "recall": 1
+  },
+  "Jolie": {
+    "recall": 1,
+    "recalledAs": "Jolie_(programming_language)"
+  },
+  "JSON": {
+    "recall": 1
+  },
+  "JSONiq": {
+    "recall": 1
+  },
+  "Julia": {
+    "recall": 1,
+    "recalledAs": "Julia_(programming_language)"
+  },
+  "Kotlin": {
+    "recall": 1,
+    "recalledAs": "Kotlin_(programming_language)"
+  },
+  "KRL": {
+    "recall": 1,
+    "recalledAs": "KRL_(programming_language)"
+  },
+  "LabVIEW": {
+    "recall": 1
+  },
+  "Lasso": {
+    "recall": 1,
+    "recalledAs": "Lasso_(programming_language)"
+  },
+  "Less": {
+    "recall": 1,
+    "recalledAs": "Less_(stylesheet_language)"
+  },
+  "Lex": {
+    "recall": 1,
+    "recalledAs": "Lex_(software)"
+  },
+  "LFE": {
+    "recall": 1,
+    "recalledAs": "LFE_(programming_language)"
+  },
+  "LilyPond": {
+    "recall": 1
+  },
+  "Limbo": {
+    "recall": 1,
+    "recalledAs": "Limbo_(programming_language)"
+  },
+  "LiveScript": {
+    "recall": 1
+  },
+  "LLVM": {
+    "recall": 1
+  },
+  "Logtalk": {
+    "recall": 1
+  },
+  "LOLCODE": {
+    "recall": 1
+  },
+  "Lua": {
+    "recall": 1,
+    "recalledAs": "Lua_(programming_language)"
+  },
+  "M": {
+    "recall": 1,
+    "recalledAs": "M_(programming_language)"
+  },
+  "M4": {
+    "recall": 1,
+    "recalledAs": "M4_(computer_language)"
+  },
+  "Makefile": {
+    "recall": 1
+  },
+  "Mako": {
+    "recall": 1,
+    "recalledAs": "Mako_(template_engine)"
+  },
+  "Markdown": {
+    "recall": 1
+  },
+  "Matlab": {
+    "recall": 1,
+    "recalledAs": "MATLAB"
+  },
+  "Max": {
+    "recall": 1,
+    "recalledAs": "Max_(software)"
+  },
+  "MediaWiki": {
+    "recall": 1
+  },
+  "Mercury": {
+    "recall": 1,
+    "recalledAs": "Mercury_(programming_language)"
+  },
+  "Meson": {
+    "recall": 1,
+    "recalledAs": "Meson_(software)"
+  },
+  "Metal": {
+    "recall": 1,
+    "recalledAs": "Metal_(API)"
+  },
+  "MiniD": {
+    "recall": 1
+  },
+  "Mirah": {
+    "recall": 1,
+    "recalledAs": "Mirah_(programming_language)"
+  },
+  "Modelica": {
+    "recall": 1
+  },
+  "Modula-2": {
+    "recall": 1
+  },
+  "mupad": {
+    "recall": 1,
+    "recalledAs": "MuPAD"
+  },
+  "Nemerle": {
+    "recall": 1
+  },
+  "nesC": {
+    "recall": 1,
+    "recalledAs": "NesC"
+  },
+  "NetLogo": {
+    "recall": 1
+  },
+  "NewLisp": {
+    "recall": 1,
+    "recalledAs": "NewLISP"
+  },
+  "Nginx": {
+    "recall": 1
+  },
+  "Nim": {
+    "recall": 1,
+    "recalledAs": "Nim_(programming_language)"
+  },
+  "NL": {
+    "recall": 1,
+    "recalledAs": "Nl_(format)"
+  },
+  "Nu": {
+    "recall": 1,
+    "recalledAs": "Nu_(programming_language)"
+  },
+  "NumPy": {
+    "recall": 1
+  },
+  "Objective-C": {
+    "recall": 1
+  },
+  "Objective-J": {
+    "recall": 1
+  },
+  "OCaml": {
+    "recall": 1
+  },
+  "Opa": {
+    "recall": 1,
+    "recalledAs": "Opa_(programming_language)"
+  },
+  "Opal": {
+    "recall": 1,
+    "recalledAs": "Opal_(programming_language)"
+  },
+  "OpenSCAD": {
+    "recall": 1
+  },
+  "Ox": {
+    "recall": 1,
+    "recalledAs": "Ox_(programming_language)"
+  },
+  "Oxygene": {
+    "recall": 1,
+    "recalledAs": "Oxygene_(programming_language)"
+  },
+  "Oz": {
+    "recall": 1,
+    "recalledAs": "Oz_(programming_language)"
+  },
+  "P4": {
+    "recall": 1,
+    "recalledAs": "P4_(programming_language)"
+  },
+  "Pan": {
+    "recall": 1,
+    "recalledAs": "Pan_(programming_language)"
+  },
+  "Papyrus": {
+    "recall": 1,
+    "recalledAs": "Papyrus_(software)"
+  },
+  "Pascal": {
+    "recall": 1,
+    "recalledAs": "Pascal_(programming_language)"
+  },
+  "PAWN": {
+    "recall": 1,
+    "recalledAs": "Pawn_(scripting_language)"
+  },
+  "Perl": {
+    "recall": 1
+  },
+  "Perl 6": {
+    "recall": 1,
+    "recalledAs": "Perl_6"
+  },
+  "PHP": {
+    "recall": 1
+  },
+  "Pickle": {
+    "recall": 1,
+    "recalledAs": "Pickle_(Python)"
+  },
+  "PicoLisp": {
+    "recall": 1
+  },
+  "Pike": {
+    "recall": 1,
+    "recalledAs": "Pike_(programming_language)"
+  },
+  "PLpgSQL": {
+    "recall": 1,
+    "recalledAs": "PL/pgSQL"
+  },
+  "PLSQL": {
+    "recall": 1,
+    "recalledAs": "PL/SQL"
+  },
+  "PostCSS": {
+    "recall": 1
+  },
+  "PostScript": {
+    "recall": 1
+  },
+  "PowerBuilder": {
+    "recall": 1
+  },
+  "PowerShell": {
+    "recall": 1
+  },
+  "Processing": {
+    "recall": 1,
+    "recalledAs": "Processing_(programming_language)"
+  },
+  "Prolog": {
+    "recall": 1
+  },
+  "Puppet": {
+    "recall": 1,
+    "recalledAs": "Puppet_(software)"
+  },
+  "Pure Data": {
+    "recall": 1,
+    "recalledAs": "Pure_Data"
+  },
+  "PureBasic": {
+    "recall": 1
+  },
+  "PureScript": {
+    "recall": 1
+  },
+  "Python": {
+    "recall": 1,
+    "recalledAs": "Python_(programming_language)"
+  },
+  "QMake": {
+    "recall": 1,
+    "recalledAs": "Qmake"
+  },
+  "QML": {
+    "recall": 1
+  },
+  "R": {
+    "recall": 1,
+    "recalledAs": "R_(programming_language)"
+  },
+  "Racket": {
+    "recall": 1,
+    "recalledAs": "Racket_(programming_language)"
+  },
+  "Ragel": {
+    "recall": 1
+  },
+  "RAML": {
+    "recall": 1,
+    "recalledAs": "RAML_(software)"
+  },
+  "Rebol": {
+    "recall": 1
+  },
+  "Red": {
+    "recall": 1,
+    "recalledAs": "Red_(programming_language)"
+  },
+  "Regular Expression": {
+    "recall": 1,
+    "recalledAs": "Regular_expression"
+  },
+  "Ren'Py": {
+    "recall": 1,
+    "recalledAs": "Ren'Py"
+  },
+  "reStructuredText": {
+    "recall": 1,
+    "recalledAs": "ReStructuredText"
+  },
+  "REXX": {
+    "recall": 1,
+    "recalledAs": "Rexx"
+  },
+  "Ring": {
+    "recall": 1,
+    "recalledAs": "Ring_(programming_language)"
+  },
+  "RobotFramework": {
+    "recall": 1,
+    "recalledAs": "Robot_Framework"
+  },
+  "Ruby": {
+    "recall": 1,
+    "recalledAs": "Ruby_(programming_language)"
+  },
+  "RUNOFF": {
+    "recall": 1,
+    "recalledAs": "Runoff_(program)"
+  },
+  "Rust": {
+    "recall": 1,
+    "recalledAs": "Rust_(programming_language)"
+  },
+  "Sage": {
+    "recall": 1,
+    "recalledAs": "Sage_(Mozilla_Firefox_extension)"
+  },
+  "SAS": {
+    "recall": 1,
+    "recalledAs": "SAS_language"
+  },
+  "Sass": {
+    "recall": 1,
+    "recalledAs": "Sass_(stylesheet_language)"
+  },
+  "Scala": {
+    "recall": 1,
+    "recalledAs": "Scala_(programming_language)"
+  },
+  "Scheme": {
+    "recall": 1,
+    "recalledAs": "Scheme_(programming_language)"
+  },
+  "Scilab": {
+    "recall": 1
+  },
+  "Self": {
+    "recall": 1,
+    "recalledAs": "Self_(programming_language)"
+  },
+  "Slash": {
+    "recall": 1,
+    "recalledAs": "Slash_(CMS)"
+  },
+  "Smalltalk": {
+    "recall": 1
+  },
+  "Smarty": {
+    "recall": 1
+  },
+  "SPARQL": {
+    "recall": 1
+  },
+  "SQL": {
+    "recall": 1
+  },
+  "SQLPL": {
+    "recall": 1,
+    "recalledAs": "SQL_PL"
+  },
+  "Squirrel": {
+    "recall": 1,
+    "recalledAs": "Squirrel_(programming_language)"
+  },
+  "Stan": {
+    "recall": 1,
+    "recalledAs": "Stan_(software)"
+  },
+  "Standard ML": {
+    "recall": 1,
+    "recalledAs": "Standard_ML"
+  },
+  "Stata": {
+    "recall": 1
+  },
+  "Stylus": {
+    "recall": 1,
+    "recalledAs": "Stylus_(stylesheet_language)"
+  },
+  "SuperCollider": {
+    "recall": 1
+  },
+  "Swift": {
+    "recall": 1,
+    "recalledAs": "Swift_(parallel_scripting_language)"
+  },
+  "SystemVerilog": {
+    "recall": 1
+  },
+  "Tcl": {
+    "recall": 1
+  },
+  "Tcsh": {
+    "recall": 1
+  },
+  "Tea": {
+    "recall": 1,
+    "recalledAs": "Tea_(programming_language)"
+  },
+  "TeX": {
+    "recall": 1
+  },
+  "Text": {
+    "recall": 1,
+    "recalledAs": "Text_(Chrome_app)"
+  },
+  "Textile": {
+    "recall": 1,
+    "recalledAs": "Textile_(markup_language)"
+  },
+  "TOML": {
+    "recall": 1
+  },
+  "Turing": {
+    "recall": 1,
+    "recalledAs": "Turing_(programming_language)"
+  },
+  "Turtle": {
+    "recall": 1,
+    "recalledAs": "Turtle_(syntax)"
+  },
+  "Twig": {
+    "recall": 1,
+    "recalledAs": "Twig_(template_engine)"
+  },
+  "TXL": {
+    "recall": 1,
+    "recalledAs": "TXL_(programming_language)"
+  },
+  "TypeScript": {
+    "recall": 1
+  },
+  "Unified Parallel C": {
+    "recall": 1,
+    "recalledAs": "Unified_Parallel_C"
+  },
+  "Vala": {
+    "recall": 1,
+    "recalledAs": "Vala_(programming_language)"
+  },
+  "Verilog": {
+    "recall": 1
+  },
+  "VHDL": {
+    "recall": 1
+  },
+  "Vim script": {
+    "recall": 1,
+    "recalledAs": "Vim_script"
+  },
+  "Visual Basic": {
+    "recall": 1,
+    "recalledAs": "Visual_Basic"
+  },
+  "Web Ontology Language": {
+    "recall": 1,
+    "recalledAs": "Web_Ontology_Language"
+  },
+  "WebAssembly": {
+    "recall": 1
+  },
+  "WebIDL": {
+    "recall": 1,
+    "recalledAs": "Web_IDL"
+  },
+  "X10": {
+    "recall": 1,
+    "recalledAs": "X10_(programming_language)"
+  },
+  "xBase": {
+    "recall": 1,
+    "recalledAs": "XBase"
+  },
+  "XC": {
+    "recall": 1,
+    "recalledAs": "XC_(programming_language)"
+  },
+  "XML": {
+    "recall": 1
+  },
+  "Xojo": {
+    "recall": 1
+  },
+  "XProc": {
+    "recall": 1
+  },
+  "XQuery": {
+    "recall": 1
+  },
+  "XS": {
+    "recall": 1,
+    "recalledAs": "XS_(Perl)"
+  },
+  "XSLT": {
+    "recall": 1
+  },
+  "Xtend": {
+    "recall": 1
+  },
+  "Yacc": {
+    "recall": 1
+  },
+  "YAML": {
+    "recall": 1
+  },
+  "YANG": {
+    "recall": 1
+  },
+  "ABNF": {},
+  "XPM": {
+    "recall": 1,
+    "recalledAs": "X_PixMap"
+  },
+  "Mathematica": {
+    "recall": 1,
+    "recalledAs": "Wolfram_Mathematica"
+  },
+  "Wavefront Object": {
+    "recall": 1,
+    "recalledAs": "Wavefront_.obj_file"
+  },
+  "UrWeb": {
+    "recall": 1,
+    "recalledAs": "Ur_(programming_language)"
+  },
+  "TLA": {
+    "recall": 1,
+    "recalledAs": "TLA+"
+  },
+  "TI Program": {
+    "recall": 1,
+    "recalledAs": "TI-BASIC"
+  },
+  "SubRip Text": {
+    "recall": 1,
+    "recalledAs": "SubRip"
+  },
+  "Rascal": {
+    "recall": 1,
+    "recalledAs": "RascalMPL"
+  },
+  "Pod": {
+    "recall": 1,
+    "recalledAs": "Plain_Old_Documentation"
+  },
+  "Pic": {
+    "recall": 1,
+    "recalledAs": "Pic_language"
+  },
+  "Parrot Assembly": {
+    "recall": 1,
+    "recalledAs": "Parrot_assembly_language"
+  },
+  "OpenEdge ABL": {
+    "recall": 1,
+    "recalledAs": "OpenEdge_Advanced_Business_Language"
+  },
+  "Monkey": {
+    "recall": 1,
+    "recalledAs": "Monkey_X"
+  },
+  "MQL5": {
+    "recall": 1,
+    "recalledAs": "MetaQuotes_Language_MQL4/MQL5"
+  },
+  "LSL": {},
+  "JSONLD": {
+    "recall": 1,
+    "recalledAs": "JSON-LD"
+  },
+  "INI": {
+    "recall": 1,
+    "recalledAs": "INI_file"
+  },
+  "Inform 7": {
+    "recall": 1,
+    "recalledAs": "Inform"
+  },
+  "Bison": {
+    "recall": 1,
+    "recalledAs": "GNU_bison"
+  },
+  "Gerber Image": {
+    "recall": 1,
+    "recalledAs": "Gerber_format"
+  },
+  "GAMS": {
+    "recall": 1,
+    "recalledAs": "General_Algebraic_Modeling_System"
+  },
+  "F#": {
+    "recall": 1,
+    "recalledAs": "F_Sharp_(programming_language)"
+  },
+  "Gentoo Ebuild": {},
+  "Csound Document": {
+    "recall": 1,
+    "recalledAs": "Csound"
+  },
+  "C#": {
+    "recall": 1,
+    "recalledAs": "C_Sharp_(programming_language)"
+  },
+  "Thrift": {
+    "recall": 1,
+    "recalledAs": "Apache_Thrift"
+  },
+  "ASP": {},
+  "CSV": {
+    "recall": 1
+  },
+  "edn": {
+    "recall": 1
+  },
+  "Graph Modeling Language": {
+    "recall": 1
+  },
+  "Protocol Buffer": {
+    "recall": 1
+  },
+  "Parrot": {
+    "recall": 0,
+    "comment": " not matchable from \"Parrot_virtual_machine\"\n"
+  },
+  "Alpine Abuild": {
+    "recall": 0
+  },
+  "Ballerina": {
+    "recall": 0
+  },
+  "C-ObjDump": {
+    "recall": 0
+  },
+  "C2hs Haskell": {
+    "recall": 0
+  },
+  "Cirru": {
+    "recall": 0
+  },
+  "Click": {
+    "recall": 0
+  },
+  "Common Workflow Language": {
+    "recall": 0
+  },
+  "Cpp-ObjDump": {
+    "recall": 0
+  },
+  "CSON": {
+    "recall": 0
+  },
+  "D-ObjDump": {
+    "recall": 0
+  },
+  "DataWeave": {
+    "recall": 0
+  },
+  "desktop": {
+    "recall": 0
+  },
+  "DM": {
+    "recall": 0
+  },
+  "DNS Zone": {
+    "recall": 0
+  },
+  "Dogescript": {
+    "recall": 0
+  },
+  "Easybuild": {
+    "recall": 0
+  },
+  "Edje Data Collection": {
+    "recall": 0
+  },
+  "EmberScript": {
+    "recall": 0
+  },
+  "EQ": {
+    "recall": 0
+  },
+  "Filebench WML": {
+    "recall": 0
+  },
+  "FLUX": {
+    "recall": 0,
+    "comment": " not clear whether it matches \"Flux (software)\"\n"
+  },
+  "Formatted": {
+    "recall": 0,
+    "comment": " no github projects via trending\n"
+  },
+  "Gentoo Eclass": {
+    "recall": 0
+  },
+  "Glyph": {
+    "recall": 0
+  },
+  "GN": {
+    "recall": 0
+  },
+  "Grace": {
+    "recall": 0
+  },
+  "HCL": {
+    "recall": 0,
+    "comment": " trace leads to Terraform (software)\n"
+  },
+  "HTML+Django": {
+    "recall": 0,
+    "comment": "' template language is not mentioned in Django''s article'\n"
+  },
+  "HTML+ECR": {
+    "recall": 0,
+    "comment": " no trending repositories at github \n"
+  },
+  "HTML+EEX": {
+    "recall": 0
+  },
+  "IRC log": {
+    "recall": 0,
+    "comment": " no trending projects at github\n"
+  },
+  "Isabelle ROOT": {
+    "recall": 0,
+    "comment": " they keyword \"ROOT\" cannot be matched at \"Isabelle (proof assistant)\" as https://github.com/pirapira/eth-isabelle/blob/master/ROOT suggests\n"
+  },
+  "Jison": {
+    "recall": 0
+  },
+  "Jison Lex": {
+    "recall": 0
+  },
+  "JSON5": {
+    "recall": 0
+  },
+  "KiCad Legacy Layout": {
+    "recall": 0,
+    "comment": " no trending repos at github\n"
+  },
+  "Kit": {
+    "recall": 0
+  },
+  "Latte": {
+    "recall": 0,
+    "comment": " unclear \"Nette_Framework\" or \"Scrivener_(software)\"\n"
+  },
+  "Lean": {
+    "recall": 0
+  },
+  "Logos": {
+    "recall": 0,
+    "comment": " unclear relationship to Logo (programming language)\n"
+  },
+  "LookML": {
+    "recall": 0
+  },
+  "LoomScript": {
+    "recall": 0
+  },
+  "M4Sugar": {
+    "recall": 0
+  },
+  "Marko": {
+    "recall": 0
+  },
+  "Mask": {
+    "recall": 0,
+    "comment": " unclear relationship to Concept \"Mask (computing)\"\n"
+  },
+  "Moocode": {
+    "recall": 0
+  },
+  "MTML": {
+    "recall": 0
+  },
+  "NCL": {
+    "recall": 0,
+    "comment": " unclear relationship to \"Nested_Context_Language\" or \"NCAR_Command_Language\"\n"
+  },
+  "NetLinx+ERB": {
+    "recall": 0
+  },
+  "Nit": {
+    "recall": 0
+  },
+  "Omgrofl": {
+    "recall": 0
+  },
+  "OpenRC runscript": {
+    "recall": 0
+  },
+  "Org": {
+    "recall": 0
+  },
+  "PogoScript": {
+    "recall": 0
+  },
+  "Pony": {
+    "recall": 0
+  },
+  "Propeller Spin": {
+    "recall": 0
+  },
+  "Public Key": {
+    "recall": 0,
+    "comment": " no trending on github\n"
+  },
+  "Pug": {
+    "recall": 0,
+    "comment": " unclear relationship to \"Pugs_(programming)\" no trending at github\n"
+  },
+  "Python console": {
+    "recall": 0,
+    "comment": " no trending at github\n"
+  },
+  "Python traceback": {
+    "recall": 0,
+    "comment": " no trending at github\n"
+  },
+  "Raw token data": {
+    "recall": 0,
+    "comment": " no trending at github\n"
+  },
+  "Reason": {
+    "recall": 0
+  },
+  "RMarkdown": {
+    "recall": 0,
+    "comment": " no trending at github\n"
+  },
+  "Rouge": {
+    "recall": 0,
+    "comment": " cannot find code at github repos marked as using Rouge\n"
+  },
+  "Scaml": {
+    "recall": 0,
+    "comment": " no trending repos at github\n"
+  },
+  "Shell": {
+    "recall": 0,
+    "comment": " mixes bash and batch into one pot on github\n"
+  },
+  "ShellSession": {
+    "recall": 0,
+    "comment": " unclear match\n"
+  },
+  "Shen": {
+    "recall": 0
+  },
+  "Slim": {
+    "recall": 0,
+    "comment": " no trending repos on github\n"
+  },
+  "Smali": {
+    "recall": 0
+  },
+  "SMT": {
+    "recall": 0,
+    "comment": " not clear what language is used to persist \"Satisfiability_modulo_theories\" problems\n"
+  },
+  "SourcePawn": {
+    "recall": 0
+  },
+  "SRecode Template": {
+    "recall": 0,
+    "comment": " could be \"Redis\" but \"template\" is not mentioned there\n"
+  },
+  "STON": {
+    "recall": 0,
+    "comment": " no repo at github\n"
+  },
+  "Sublime Text Config": {
+    "recall": 0,
+    "comment": " no repo at github\n"
+  },
+  "SugarSS": {
+    "recall": 0
+  },
+  "Terra": {
+    "recall": 0
+  },
+  "Type Language": {
+    "recall": 0,
+    "comment": " no repos at github\n"
+  },
+  "Unity3D Asset": {
+    "recall": 0,
+    "comment": " expected at \"Unity_(game_engine)\"\n"
+  },
+  "Uno": {
+    "recall": 0,
+    "comment": " expected at \"Fusebox_(programming)\"\n"
+  },
+  "Volt": {
+    "recall": 0
+  },
+  "wdl": {
+    "recall": 0
+  },
+  "wisp": {
+    "recall": 0
+  },
+  "World of Warcraft Addon Data": {
+    "recall": 0,
+    "comment": " no repos at github\n"
+  },
+  "XCompose": {
+    "recall": 0,
+    "comment": " no repos at github\n"
+  },
+  "YARA": {
+    "recall": 0,
+    "mentionIn": "YARA"
+  },
+  "XPages": {
+    "recall": 0,
+    "mentionIn": "XPages"
+  },
+  "Wavefront Material": {
+    "recall": 0,
+    "mentionIn": "Wavefront .obj file"
+  },
+  "Vue": {
+    "recall": 0,
+    "mentionIn": "Vue.js"
+  },
+  "ShaderLab": {
+    "recall": 0,
+    "mentionIn": "Visual_Studio_Code"
+  },
+  "VCL": {
+    "recall": 0,
+    "mentionIn": "Varnish_(software)"
+  },
+  "UnrealScript": {
+    "recall": 0,
+    "mentionIn": "Unreal_Engine"
+  },
+  "MUF": {
+    "recall": 0,
+    "mentionIn": "TinyMUCK"
+  },
+  "POV-Ray SDL": {
+    "recall": 0,
+    "mentionIn": "SDL_(disambiguation)",
+    "comment": " \"POV-RAY\" as software\n"
+  },
+  "Apex": {
+    "recall": 0,
+    "mentionIn": "Salesforce.com"
+  },
+  "RPM Spec": {
+    "recall": 0,
+    "mentionIn": "rpm (software)"
+  },
+  "Brightscript": {
+    "recall": 0,
+    "mentionIn": "Roku"
+  },
+  "Roff": {
+    "recall": 0,
+    "mentionIn": "roff (computer program)",
+    "comment": " more clearly in \"Troff\"\n"
+  },
+  "Filterscript": {
+    "recall": 0,
+    "mentionIn": "RenderScript"
+  },
+  "RenderScript": {
+    "recall": 0,
+    "mentionIn": "RenderScript"
+  },
+  "Redcode": {
+    "recall": 0,
+    "mentionIn": "Redcode_(disambiguation)"
+  },
+  "JSX": {
+    "recall": 0,
+    "mentionIn": "React_(JavaScript_library)"
+  },
+  "RDoc": {
+    "recall": 0,
+    "mentionIn": "RDoc"
+  },
+  "Myghty": {
+    "recall": 0,
+    "mentionIn": "Pylons_project"
+  },
+  "Gettext Catalog": {
+    "recall": 0,
+    "mentionIn": "Poedit"
+  },
+  "PigLatin": {
+    "recall": 0,
+    "mentionIn": "Pig_(programming_tool)"
+  },
+  "HTML+PHP": {
+    "recall": 0,
+    "mentionIn": "PHP"
+  },
+  "Zephir": {
+    "recall": 0,
+    "mentionIn": "PHP"
+  },
+  "Parrot Internal Representation": {
+    "recall": 0,
+    "mentionIn": "Parrot_intermediate_representation"
+  },
+  "API Blueprint": {
+    "recall": 0,
+    "mentionIn": "Overview_of_RESTful_API_Description_Languages"
+  },
+  "OpenType Feature File": {
+    "recall": 0,
+    "mentionIn": "OpenType"
+  },
+  "OpenCL": {
+    "recall": 0,
+    "mentionIn": "OpenCL"
+  },
+  "ObjDump": {
+    "recall": 0,
+    "mentionIn": "Objdump"
+  },
+  "NSIS": {
+    "recall": 0,
+    "mentionIn": "Nullsoft_Scriptable_Install_System"
+  },
+  "Nix": {
+    "recall": 0,
+    "mentionIn": "Nix_package_manager"
+  },
+  "Ninja": {
+    "recall": 0,
+    "mentionIn": "Ninja_(build_system)"
+  },
+  "NetLinx": {
+    "recall": 0,
+    "mentionIn": "NetLinx"
+  },
+  "Module Management System": {
+    "recall": 0,
+    "mentionIn": "MMS (disambiguation)"
+  },
+  "MoonScript": {
+    "recall": 0,
+    "mentionIn": "Lua_(programming_language)"
+  },
+  "Linux Kernel Module": {
+    "recall": 0,
+    "mentionIn": "Loadable_kernel_module"
+  },
+  "Literate Agda": {
+    "recall": 0,
+    "mentionIn": "Literate_programming"
+  },
+  "Literate CoffeeScript": {
+    "recall": 0,
+    "mentionIn": "Literate_programming"
+  },
+  "Literate Haskell": {
+    "recall": 0,
+    "mentionIn": "Literate_programming"
+  },
+  "SQF": {
+    "recall": 0,
+    "mentionIn": "List_of_file_formats"
+  },
+  "Zimpl": {
+    "recall": 0,
+    "mentionIn": "Linear_programming"
+  },
+  "Cycript": {
+    "recall": 0,
+    "mentionIn": "libffi"
+  },
+  "Blade": {
+    "recall": 0,
+    "mentionIn": "Laravel"
+  },
+  "KiCad Layout": {
+    "recall": 0,
+    "mentionIn": "KiCad",
+    "comment": " may be Pcbnew\n"
+  },
+  "KiCad Schematic": {
+    "recall": 0,
+    "mentionIn": "KiCad",
+    "comment": " may be Eeschema\n"
+  },
+  "Jupyter Notebook": {
+    "recall": 0,
+    "mentionIn": "IPython and Notebook_interface"
+  },
+  "IGOR Pro": {
+    "recall": 0,
+    "mentionIn": "IGOR Pro"
+  },
+  "HyPhy": {
+    "recall": 0,
+    "mentionIn": "HYPHY_(software)"
+  },
+  "HTTP": {
+    "recall": 0,
+    "mentionIn": "Hypertext_Transfer_Protocol"
+  },
+  "Closure Templates": {
+    "recall": 0,
+    "mentionIn": "Google_Closure_Tools"
+  },
+  "GDScript": {
+    "recall": 0,
+    "mentionIn": "Godot_(game_engine)"
+  },
+  "Linker Script": {
+    "recall": 0,
+    "mentionIn": "GNU_linker"
+  },
+  "GCC Machine Description": {
+    "recall": 0,
+    "mentionIn": "GNU_Compiler_Collection"
+  },
+  "Game Maker Language": {
+    "recall": 0,
+    "mentionIn": "GameMaker_Studio"
+  },
+  "Spline Font Database": {
+    "recall": 0,
+    "mentionIn": "FontForge"
+  },
+  "JFlex": {
+    "recall": 0,
+    "mentionIn": "Flex_(lexical_analyser_generator)"
+  },
+  "HTML+ERB": {
+    "recall": 0,
+    "mentionIn": "ERuby"
+  },
+  "Ecere Projects": {
+    "recall": 0,
+    "mentionIn": "EC_(programming_language)"
+  },
+  "ooc": {
+    "recall": 0,
+    "mentionIn": "EC_(programming_language)"
+  },
+  "Dockerfile": {
+    "recall": 0,
+    "mentionIn": "Docker_(software)"
+  },
+  "Darcs Patch": {
+    "recall": 0,
+    "mentionIn": "Darcs"
+  },
+  "Cuda": {
+    "recall": 0,
+    "mentionIn": "CUDA"
+  },
+  "Gherkin": {
+    "recall": 0,
+    "mentionIn": "Cucumber_(software)"
+  },
+  "Csound Score": {
+    "recall": 0,
+    "mentionIn": "Csound"
+  },
+  "Liquid": {
+    "recall": 0,
+    "mentionIn": "Comparison_of_web_template_engines"
+  },
+  "Nearley": {
+    "recall": 0,
+    "mentionIn": "Comparison_of_parser_generators"
+  },
+  "Cap'n Proto": {
+    "recall": 0,
+    "mentionIn": "Comparison_of_data_serialization_formats"
+  },
+  "CartoCSS": {
+    "recall": 0,
+    "mentionIn": "CartoDB"
+  },
+  "Bluespec": {
+    "recall": 0,
+    "mentionIn": "Bluespec"
+  },
+  "MAXScript": {
+    "recall": 0,
+    "mentionIn": "Autodesk_3ds_Max"
+  },
+  "Augeas": {
+    "recall": 0,
+    "mentionIn": "Augeas (software)"
+  },
+  "Unix Assembly": {
+    "recall": 0,
+    "mentionIn": "Assembly_language"
+  },
+  "Arduino": {
+    "recall": 0,
+    "mentionIn": "Arduino"
+  },
+  "Ant Build System": {
+    "recall": 0,
+    "mentionIn": "Apache_Ant"
+  },
+  "Maven POM": {
+    "recall": 0,
+    "mentionIn": "Apache Maven"
+  },
+  "AGS Script": {
+    "recall": 0,
+    "mentionIn": "Adventure_Game_Studio"
+  },
+  "ColdFusion CFC": {
+    "recall": 0,
+    "mentionIn": "Adobe ColdFusion"
+  },
+  "1C Enterprise": {
+    "recall": 0,
+    "mentionIn": "1C_Company"
+  },
+  "ApacheConf": {
+    "recall": 0,
+    "mentionIn": ".htaccess"
+  }
+}

@@ -10,7 +10,7 @@ DBPEDIA = "http://dbpedia.org/sparql"
 DBPEDIALIVE = "http://dbpedia-live.openlinksw.com/sparql"
 
 
-def query(query, url=DBPEDIA, use_offset=True):
+def query(query, url=DBPEDIALIVE, use_offset=True):
     if use_offset and ("?offset" not in query):
         raise ArgumentError("Work with offset as dbpedia returns a limited amount of results.")
     sparql = SPARQLWrapper(url)

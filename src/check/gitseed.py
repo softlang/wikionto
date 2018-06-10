@@ -1,27 +1,24 @@
 from data import DATAP
 from check.langdictcheck import LangdictCheck
+from json import load
 
 
 class Gitseed(LangdictCheck):
 
     def check(self, langdict):
         print("Checking Gitseed")
+        f = open(DATAP + "/gitseed_annotated.json", 'r', encoding="UTF8")
+        tiobedict = load(f)
+        f.close()
         for cl in langdict:
             langdict[cl]["GitSeed"] = 0
-        f = open(DATAP+'/gitseed_annotated.csv','r',encoding="utf8")
-        for line in f:
-            comment = line.split(",")[1]
-            if comment == "recalled":
-                seed_language = line.split(",")[0]
-            if "recalled redirect" in comment:
-                seed_language = comment.split('"')[1]
-            if "recalled as" in comment:
-                seed_language = comment.split('"')[1]
-            if "recalled" in comment and seed_language in langdict:
-                langdict[seed_language]["GitSeed"] = 1
-            if "recalled" in comment and not seed_language in langdict:
-                print(seed_language)
-
+        for tl, tld in tiobedict.items():
+            if "recalledAs" in tld:
+                rec = tld["recalledAs"]
+                if rec in langdict:
+                    langdict[rec]["GitSeed"] = 1
+                else:
+                    print(rec)
         return langdict
 
 
