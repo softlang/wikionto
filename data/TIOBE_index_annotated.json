@@ -281,7 +281,8 @@
   },
   "cT": {
     "hints": null,
-    "recall": 0
+    "recall": 0,
+    "comment": "no mention"
   },
   "Curl": {
     "hints": null,
@@ -560,7 +561,7 @@
   "Korn shell": {
     "hints": " Korn shell, ksh\n",
     "recall": 1,
-    "recalledAs": "Korn_shell"
+    "recalledAs": "KornShell"
   },
   "Kotlin": {
     "hints": null,
@@ -1037,7 +1038,8 @@
   },
   "Slate": {
     "hints": " Slate (confidence",
-    "recall": 0
+    "recall": 0,
+    "comment": "no mention"
   },
   "Smalltalk": {
     "hints": null,
@@ -1047,7 +1049,7 @@
   "Smarty": {
     "hints": null,
     "recall": 1,
-    "recalledAs": "Smarty"
+    "recalledAs": "Smarty_(template_engine)"
   },
   "Snap!": {
     "hints": null,
@@ -1101,7 +1103,8 @@
   },
   "Suneido": {
     "hints": null,
-    "recall": 0
+    "recall": 0,
+    "comment": "no mention"
   },
   "SuperCollider": {
     "hints": " SuperCollider (confidence",
