@@ -144,7 +144,7 @@ def mine():
     langdict = add_summaries(langdict)
     langdict = add_revisions(langdict)
     langdict = add_wikidata_ids(langdict)
-    langdict = add_properties(langdict)
+    #langdict = add_properties(langdict)
     langdict = init_article_cats(langdict)
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)

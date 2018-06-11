@@ -108,7 +108,7 @@ def articles_with_commons(root, mindepth, maxdepth):
     return acdict
 
 def get_properties(root, mindepth, maxdepth, langdict):
-    sparql = SPARQLWrapper(DBPEDIA)
+    sparql = SPARQLWrapper(DBPEDIALIVE)
     sparql.setReturnFormat(JSON)
     offset = 0
     querytext = """
@@ -291,7 +291,7 @@ limit 10000
 offset ?offset
     """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth)).replace(
         "?hypernym", hypernym)
-    results = query(querytext, url=DBPEDIA)
+    results = query(querytext, url=DBPEDIALIVE)
     for result in results:
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
         articles.append(article)
