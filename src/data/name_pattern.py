@@ -4,7 +4,7 @@ import operator
 
 
 def words_in_titles(name):
-    f = open(DATAP + '/'+name+'.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/' + name + '.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
@@ -21,25 +21,28 @@ def words_in_titles(name):
         print(cl + ', ' + str(v))
 
 
-def tags_in_titles_braces(name):
-    f = open(DATAP + '/'+name+'.json', 'r', encoding="UTF8")
+def tags_in_titles_braces(name, seed=True):
+    f = open(DATAP + '/' + name + '.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
         if '(' not in cl:
             continue
+        if seed:
+            if (langdict[cl]["TIOBE"] == 0) and (langdict[cl]["GitSeed"] == 0):
+                continue
         tag = cl.split('(')[1].split(')')[0]
         if tag in pattern_freq:
             pattern_freq[tag] += 1
         else:
             pattern_freq[tag] = 1
     sorted_x = sorted(pattern_freq.items(), key=operator.itemgetter(1))
-    for cl,v in sorted_x:
+    for cl, v in sorted_x:
         print(cl + ', ' + str(v))
 
 
 def words_in_tags_in_titles_braces(name):
-    f = open(DATAP + '/'+name+'.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/' + name + '.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
@@ -53,9 +56,9 @@ def words_in_tags_in_titles_braces(name):
             else:
                 pattern_freq[t] = 1
     sorted_x = sorted(pattern_freq.items(), key=operator.itemgetter(1))
-    for cl,v in sorted_x:
+    for cl, v in sorted_x:
         print(cl + ', ' + str(v))
 
 
 if __name__ == '__main__':
-    words_in_titles('catdict')
+    tags_in_titles_braces('langdict')
