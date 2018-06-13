@@ -356,6 +356,28 @@ def articles_with_revisions(root, mindepth, maxdepth):
         articles[article] = rev
     return articles
 
+def articles_with_revisions_live(root, mindepth, maxdepth):
+    querytext = """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbp: <http://dbpedia.org/resource/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    SELECT ?article ?rev where { 
+        SELECT DISTINCT ?article (max(?revn) as ?rev) where {
+            ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root.
+            ?article <http://dbpedia.org/ontology/wikiPageRevisionID> ?revn .
+        }
+        ORDER BY ASC(?article)
+    }
+    limit 10000
+    offset ?offset
+        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    articles = dict()
+    for result in query(querytext):
+        article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        rev = result["rev"]["value"]
+        articles[article] = rev
+    return articles
+
 
 def articles_with_wikidataid(root, mindepth, maxdepth):
     querytext = """

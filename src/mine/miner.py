@@ -1,8 +1,8 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
-    category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, articles_with_revisions, \
+    category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, articles_with_revisions_live, \
     articles_with_wikidataid
 from mine.property_miner import add_properties
-from json import dump
+from json import dump,load
 from data import DATAP, CLDEPTH, CFFDEPTH
 
 
@@ -53,8 +53,8 @@ def get_summaries():
 
 def add_revisions(langdict):
     print("Mining wikipedia revisions of articles")
-    clarticles = articles_with_revisions(CLURI, 0, CLDEPTH)
-    cffarticles = articles_with_revisions(CFFURI, 0, CFFDEPTH)
+    clarticles = articles_with_revisions_live(CLURI, 0, CLDEPTH)
+    cffarticles = articles_with_revisions_live(CFFURI, 0, CFFDEPTH)
     clarticles.update(cffarticles)
     for cl in langdict:
         if cl in clarticles:
@@ -160,4 +160,10 @@ def mine():
 
 
 if __name__ == '__main__':
-    mine()
+    with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
+        ld = load(f)
+        ld = add_revisions(ld)
+    with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
+        dump(obj=ld, fp=f, indent=2)
+        f.flush()
+        f.close()
