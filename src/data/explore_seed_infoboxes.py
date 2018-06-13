@@ -12,7 +12,10 @@ def get_infobox(rev):
     ibs = []
     for x in range(1,len(parts)):
         p = parts[x]
-        ibs.append(p.split('|')[0].replace('\\n', '').strip())
+        name = p.split('|')[0].replace('\\n', '').strip()
+        if name=='software':
+            print(rev)
+        ibs.append(name)
     return ibs
 
 

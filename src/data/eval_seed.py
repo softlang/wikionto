@@ -1,6 +1,6 @@
 from data import DATAP
-from json import load
-
+from json import load, dump
+from mine.dbpedia import get_summary
 
 def get_n(n):
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
@@ -20,6 +20,26 @@ def get_list_linked_seed():
     print(len(sl))
     print(len(sl0))
 
+def annotate_summary():
+    f = open(DATAP + '/gitseed_annotated.json', 'r', encoding="UTF8")
+    d = load(f)
+    f.close()
+    for l in d:
+        s = "Unknown"
+        if "recalledAs" in d[l]:
+            rl = d[l]["recalledAs"]
+            s = get_summary(rl)
+        elif "recall"==1:
+            s = get_summary(l)
+        elif "mentionIn" in d[l]:
+            ml = d[l]["mentionIn"]
+            s = get_summary(ml)
+        d[l]["Summary"] = s
+    f = open(DATAP + '/gitseed_annotated.json', 'w', encoding="UTF8")
+    dump(d,f,indent=2)
+    f.flush()
+    f.close()
+
 
 if __name__ == "__main__":
-    get_list_linked_seed()
+    annotate_summary()

@@ -1,1729 +1,2197 @@
 {
   "REALbasic": {
     "recall": 1,
-    "recalledAs": "Xojo"
+    "recalledAs": "Xojo",
+    "Summary": "The Xojo programming environment is developed and commercially marketed by Xojo, Inc of Austin, Texas for software development targeting Mac OS X, Microsoft Windows, x86 Linux, iOS, as well as the web and Raspberry Pi"
   },
   "SVG": {
     "recall": 1,
-    "recalledAs": "Scalable_Vector_Graphics"
+    "recalledAs": "Scalable_Vector_Graphics",
+    "Summary": "Scalable Vector Graphics  is an XML-based vector image format for two-dimensional graphics with support for interactivity and animation"
   },
   "SCSS": {
     "recall": 1,
-    "recalledAs": "Sass_(stylesheet_language)"
+    "recalledAs": "Sass_(stylesheet_language)",
+    "Summary": "Sass  is a style sheet language initially designed by Hampton Catlin and developed by Natalie Weizenbaum"
   },
   "SaltStack": {
     "recall": 1,
-    "recalledAs": "Salt_(software)"
+    "recalledAs": "Salt_(software)",
+    "Summary": "Salt  is a Python-based open-source configuration management software and remote execution engine"
   },
   "Pep8": {
     "recall": 1,
-    "recalledAs": "Python_(programming_language)"
+    "recalledAs": "Python_(programming_language)",
+    "Summary": "Python is a widely used high-level, general-purpose, interpreted, dynamic programming language"
   },
   "GLSL": {
     "recall": 1,
-    "recalledAs": "OpenGL_Shading_Language"
+    "recalledAs": "OpenGL_Shading_Language",
+    "Summary": "OpenGL Shading Language , is a high-level shading language with a syntax based on the C programming language"
   },
   "Objective-C++": {
     "recall": 1,
-    "recalledAs": "Objective-C"
+    "recalledAs": "Objective-C",
+    "Summary": "Objective-C is a general-purpose, object-oriented programming language that adds Smalltalk-style messaging to the C programming language"
   },
   "MQL4": {
     "recall": 1,
-    "recalledAs": "MetaQuotes_Language_MQL4/MQL5"
+    "recalledAs": "MetaQuotes_Language_MQL4/MQL5",
+    "Summary": "MQL4  and MQL5  are integrated programming languages designed for developing trading robots, technical market indicators, scripts and function libraries within the MetaTrader software.The primary objective of MQL4 and MQL5 is automation of trading and facilitation of operational analysis"
   },
   "HLSL": {
     "recall": 1,
-    "recalledAs": "High-Level_Shading_Language"
+    "recalledAs": "High-Level_Shading_Language",
+    "Summary": "The High-Level Shader Language or High-Level Shading Language  is a proprietary shading language developed by Microsoft for the Direct3D 9 API to augment the shader assembly language, and went on to become the required shading language for the unified shader model of Direct3D 10 and higher.HLSL is analogous to the GLSL shading language used with the OpenGL standard"
   },
   "GDB": {
     "recall": 1,
-    "recalledAs": "GNU_Debugger"
+    "recalledAs": "GNU_Debugger",
+    "Summary": "The GNU Debugger  is a portable debugger that runs on many Unix-like systems and works for many programming languages, including Ada, C, C++, Objective-C, Free Pascal, Fortran, Go, Java and partially others."
   },
   "EBNF": {
     "recall": 1,
-    "recalledAs": "Extended_Backus\u2013Naur_Form"
+    "recalledAs": "Extended_Backus\u2013Naur_Form",
+    "Summary": "In computer science, Extended Backus\u2013Naur Form  is a family of metasyntax notations, any of which can be used to express a context-free grammar"
   },
   "RHTML": {
     "recall": 1,
-    "recalledAs": "ERuby"
+    "recalledAs": "ERuby",
+    "Summary": "eRuby  is a templating system that embeds Ruby into a text document"
   },
   "EJS": {
     "recall": 1,
-    "recalledAs": "Easy_Java_Simulations"
+    "recalledAs": "Easy_Java_Simulations",
+    "Summary": "Old name \"\"EJS\"\" Easy Java Simulations or new name since 2014 EJSS, or Easy JavaScript Simulations, is an open-source software tool, part of the Open Source Physics project, designed for the creation of discrete computer simulations.A discrete computer simulation, or simply a computer simulation, is a computer program that tries to reproduce, for pedagogical or scientific purposes, a natural phenomenon through the visualization of the different states that it can have"
   },
   "Diff": {
     "recall": 1,
-    "recalledAs": "Diff_utility"
+    "recalledAs": "Diff_utility",
+    "Summary": "In computing, the diff utility is a data comparison tool that calculates and displays the differences between two files"
   },
   "CSS": {
     "recall": 1,
-    "recalledAs": "Cascading_Style_Sheets"
+    "recalledAs": "Cascading_Style_Sheets",
+    "Summary": "Cascading Style Sheets  is a style sheet language used for describing the presentation of a document written in a markup language"
   },
   "BlitzMax": {
     "recall": 1,
-    "recalledAs": "Blitz_BASIC"
+    "recalledAs": "Blitz_BASIC",
+    "Summary": "Blitz BASIC refers to the programming language dialect that was interpreted by the first Blitz compilers, devised by New Zealand-based developer Mark Sibly"
   },
   "ColdFusion": {
     "recall": 1,
-    "recalledAs": "Adobe_ColdFusion"
+    "recalledAs": "Adobe_ColdFusion",
+    "Summary": "Adobe ColdFusion is a commercial rapid web application development platform created by JJ Allaire in 1995"
   },
   "ASN.1": {
     "recall": 1,
-    "recalledAs": "Abstract_Syntax_Notation_One"
+    "recalledAs": "Abstract_Syntax_Notation_One",
+    "Summary": "Abstract Syntax Notation One  is an interface description language for defining data structures that can be serialized and deserialized in a standard, cross-platform way"
   },
   "ABAP": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "ActionScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Ada": {
     "recall": 1,
-    "recalledAs": "Ada_(programming_language)"
+    "recalledAs": "Ada_(programming_language)",
+    "Summary": "Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages"
   },
   "Adobe Font Metrics": {
     "recall": 0,
-    "mentionIn": "PostScript_fonts#AFM"
+    "mentionIn": "PostScript_fonts#AFM",
+    "Summary": null
   },
   "Agda": {
     "recall": 1,
-    "recalledAs": "Agda_(programming_language)"
+    "recalledAs": "Agda_(programming_language)",
+    "Summary": "Agda is a dependently typed functional programming language originally developed by Ulf Norell at Chalmers University of Technology with implementation described in his PhD thesis"
   },
   "Alloy": {
     "recall": 1,
-    "recalledAs": "Alloy_(specification_language)"
+    "recalledAs": "Alloy_(specification_language)",
+    "Summary": "In computer science and software engineering, Alloy is a declarative specification language for expressing complex structural constraints and behavior in a software system"
   },
   "AMPL": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "AngelScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "ANTLR": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "APL": {
     "recall": 1,
-    "recalledAs": "APL_(programming_language)"
+    "recalledAs": "APL_(programming_language)",
+    "Summary": "APL  is a programming language developed in the 1960s by Kenneth E"
   },
   "Apollo Guidance Computer": {
     "recall": 0,
-    "mentionIn": "Apollo_Guidance_Computer"
+    "mentionIn": "Apollo_Guidance_Computer",
+    "Summary": null
   },
   "AppleScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Arc": {
     "recall": 1,
-    "recalledAs": "Arc_(programming_language)"
+    "recalledAs": "Arc_(programming_language)",
+    "Summary": "Arc is a dialect of the Lisp programming language developed by Paul Graham and Robert Morris."
   },
   "AsciiDoc": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "AspectJ": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Assembly": {
     "recall": 1,
-    "recalledAs": "Assembly_language"
+    "recalledAs": "Assembly_language",
+    "Summary": "Assembly is the best language ever with many of the best games made in it, also dos is the best for games .Dos, Assembly, commodore, windows 95, anything with about 200mb of ram will do.As many people know i will kill you if you dont agree with my insane logic, but hey, assembly,dos,assembly,gameboy...An assembly  language, often abbreviated asm, is a low-level programming language for a computer, or other programmable device, in which there is a very strong  correspondence between the language and the architecture's machine code instructions"
   },
   "ATS": {
     "recall": 1,
-    "recalledAs": "ATS_(programming_language)"
+    "recalledAs": "ATS_(programming_language)",
+    "Summary": "ATS  is a programming language designed to unify programming with formal specification"
   },
   "AutoHotkey": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "AutoIt": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Awk": {
     "recall": 1,
-    "recalledAs": "AWK"
+    "recalledAs": "AWK",
+    "Summary": "AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool"
   },
   "Batchfile": {
     "recall": 1,
-    "recalledAs": "Batch_file"
+    "recalledAs": "Batch_file",
+    "Summary": "A batch file is a kind of script file in DOS, OS/2 and Windows"
   },
   "Befunge": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "BitBake": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "BlitzBasic": {
     "recall": 1,
-    "recalledAs": "Blitz_BASIC"
+    "recalledAs": "Blitz_BASIC",
+    "Summary": "Blitz BASIC refers to the programming language dialect that was interpreted by the first Blitz compilers, devised by New Zealand-based developer Mark Sibly"
   },
   "Boo": {
     "recall": 1,
-    "recalledAs": "Boo_(programming_language)"
+    "recalledAs": "Boo_(programming_language)",
+    "Summary": "Boo is an object-oriented, statically typed, general-purpose programming language that seeks to make use of the Common Language Infrastructure's support for Unicode, internationalization, and web applications, while using a Python-inspired syntax and a special focus on language and compiler extensibility"
   },
   "Brainfuck": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Bro": {
     "recall": 0,
-    "mentionIn": "Bro_(software)"
+    "mentionIn": "Bro_(software)",
+    "Summary": "Originally written by Vern Paxson, Bro is an open source Unix based network monitoring framework"
   },
   "C": {
     "recall": 1,
-    "recalledAs": "C_(programming_language)"
+    "recalledAs": "C_(programming_language)",
+    "Summary": "C  is a general-purpose, imperative computer programming language, supporting structured programming, lexical variable scope and recursion, while a static type system prevents many unintended operations"
   },
   "C++": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Ceylon": {
     "recall": 1,
-    "recalledAs": "Ceylon_(programming_language)"
+    "recalledAs": "Ceylon_(programming_language)",
+    "Summary": "Ceylon is an object-oriented, strongly statically typed programming language with an emphasis on immutability, created by Red Hat"
   },
   "Chapel": {
     "recall": 1,
-    "recalledAs": "Chapel_(programming_language)"
+    "recalledAs": "Chapel_(programming_language)",
+    "Summary": "Chapel, the Cascade High Productivity Language, is a parallel programming language developed by Cray"
   },
   "Charity": {
     "recall": 1,
-    "recalledAs": "Charity_(programming_language)"
+    "recalledAs": "Charity_(programming_language)",
+    "Summary": "Charity is an experimental purely functional programming language, developed at the University of Calgary under the supervision of Robin Cockett"
   },
   "ChucK": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Clarion": {
     "recall": 1,
-    "recalledAs": "Clarion_(programming_language)"
+    "recalledAs": "Clarion_(programming_language)",
+    "Summary": "Clarion is a commercial, proprietary, 4GL, multi-paradigm, programming language and Integrated Development Environment from SoftVelocity used to program database applications"
   },
   "Clean": {
     "recall": 1,
-    "recalledAs": "Clean_(programming_language)"
+    "recalledAs": "Clean_(programming_language)",
+    "Summary": "In computer science, Clean is a general-purpose purely functional computer programming language"
   },
   "CLIPS": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Clojure": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "CMake": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "COBOL": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "CoffeeScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "COLLADA": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Common Lisp": {
     "recall": 1,
-    "recalledAs": "Common_Lisp"
+    "recalledAs": "Common_Lisp",
+    "Summary": "Common Lisp  is a dialect of the Lisp programming language, published in ANSI standard document ANSI INCITS 226-1994  "
   },
   "Component Pascal": {
     "recall": 1,
-    "recalledAs": "Component_Pascal"
+    "recalledAs": "Component_Pascal",
+    "Summary": "Component Pascal is a programming language in the tradition of Niklaus Wirth's Pascal, Modula-2, Oberon and Oberon-2"
   },
   "Cool": {
     "recall": 1,
-    "recalledAs": "Cool_(programming_language)"
+    "recalledAs": "Cool_(programming_language)",
+    "Summary": "Cool, an acronym for Classroom Object Oriented Language, is a computer programming language designed by Alexander Aiken for use in an undergraduate compiler course project"
   },
   "Coq": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Creole": {
     "recall": 1,
-    "recalledAs": "Creole_(markup)"
+    "recalledAs": "Creole_(markup)",
+    "Summary": "Creole is a lightweight markup language, aimed at being a common markup language for wikis, enabling and simplifying the transfer of content between different wiki engines."
   },
   "Crystal": {
     "recall": 1,
-    "recalledAs": "Crystal_(programming_language)"
+    "recalledAs": "Crystal_(programming_language)",
+    "Summary": "In computer software programming languages, Crystal is a general-purpose, object-oriented programming language, designed and developed by Ary Borenszweig and Juan Wajnerman and more than 200 contributors"
   },
   "Csound": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "CWeb": {
     "recall": 1,
-    "recalledAs": "CWEB"
+    "recalledAs": "CWEB",
+    "Summary": "CWEB is a computer programming system created by Donald Knuth and Silvio Levy as a follow-up to Knuth's WEB literate programming system, using the C programming language  instead of Pascal.Like WEB, it consists of two primary programs: CTANGLE, which produces compilable C code from the source texts, and CWEAVE, which produces nicely-formatted printable documentation using TeX."
   },
   "Cython": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "D": {
     "recall": 1,
-    "recalledAs": "D_(programming_language)"
+    "recalledAs": "D_(programming_language)",
+    "Summary": "D is an object-oriented, imperative, multi-paradigm system programming language created by Walter Bright of Digital Mars and released in 2001"
   },
   "Dart": {
     "recall": 1,
-    "recalledAs": "Dart_(programming_language)"
+    "recalledAs": "Dart_(programming_language)",
+    "Summary": "Dart is a general-purpose programming language originally developed by Google and later approved as a standard by Ecma "
   },
   "DIGITAL Command Language": {
     "recall": 1,
-    "recalledAs": "DIGITAL_Command_Language"
+    "recalledAs": "DIGITAL_Command_Language",
+    "Summary": "DIGITAL Command Language  is the standard command language adopted by most of the operating systems  that were sold by the former Digital Equipment Corporation "
   },
   "DTrace": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Dylan": {
     "recall": 1,
-    "recalledAs": "Dylan_(programming_language)"
+    "recalledAs": "Dylan_(programming_language)",
+    "Summary": "Dylan is a multi-paradigm programming language that includes support for functional and object-oriented programming, and is dynamic and reflective while providing a programming model designed to support efficient machine code generation, including fine-grained control over dynamic and static behaviors"
   },
   "E": {
     "recall": 1,
-    "recalledAs": "E_(programming_language)"
+    "recalledAs": "E_(programming_language)",
+    "Summary": "E is an object-oriented programming language for secure distributed computing, created by Mark S"
   },
   "Eagle": {
     "recall": 0,
-    "mentionIn": "EAGLE_(program)"
+    "mentionIn": "EAGLE_(program)",
+    "Summary": "EAGLE stands for, Easily Applicable Graphical Layout Editor in English and, Einfach anzuwendender grafischer Layout-Editor in German"
   },
   "eC": {
     "recall": 1,
-    "recalledAs": "EC_(programming_language)"
+    "recalledAs": "EC_(programming_language)",
+    "Summary": "eC  is an object-oriented programming language, defined as a super-set of the C language.eC was initially developed as part of the Ecere Cross-platform Software Development Kit project.The goals of the language are to provide object-oriented constructs, reflection, properties and dynamic modules on top of the C language while maintaining C compatibility and optimal native performance.eC currently relies on GCC or Clang to perform the final steps of compilation, using C as an intermediate language"
   },
   "ECL": {
     "recall": 1,
-    "recalledAs": "ECL_(data-centric_programming_language)"
+    "recalledAs": "ECL_(data-centric_programming_language)",
+    "Summary": "ECL is a declarative, data centric programming language designed in 2000 to allow a team of programmers to process big data across a high performance computing cluster without the programmer being involved in many of the lower level, imperative decisions."
   },
   "ECLiPSe": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Eiffel": {
     "recall": 1,
-    "recalledAs": "Eiffel_(programming_language)"
+    "recalledAs": "Eiffel_(programming_language)",
+    "Summary": "Eiffel is an object-oriented programming language designed by Bertrand Meyer  and Eiffel Software"
   },
   "Elixir": {
     "recall": 1,
-    "recalledAs": "Elixir_(programming_language)"
+    "recalledAs": "Elixir_(programming_language)",
+    "Summary": "Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine "
   },
   "Elm": {
     "recall": 1,
-    "recalledAs": "Elm_(programming_language)"
+    "recalledAs": "Elm_(programming_language)",
+    "Summary": "Elm is a functional programming language for declaratively creating web browser-based graphical user interfaces"
   },
   "Emacs Lisp": {
     "recall": 1,
-    "recalledAs": "Emacs_Lisp"
+    "recalledAs": "Emacs_Lisp",
+    "Summary": "Emacs Lisp is a dialect of the Lisp programming language used by the GNU Emacs and XEmacs text editors "
   },
   "Erlang": {
     "recall": 1,
-    "recalledAs": "Erlang_(programming_language)"
+    "recalledAs": "Erlang_(programming_language)",
+    "Summary": "Erlang  is a general-purpose, concurrent, functional programming language, as well as a garbage-collected runtime system.The term Erlang is used interchangeably with Erlang/OTP, or OTP, which consists of the Erlang runtime system, a number of ready-to-use components mainly written in Erlang, and a set of design principles for Erlang programs.The Erlang runtime system is known for its designs that are well suited for systems with the following characteristics:DistributedFault-tolerantSoft real-time,Highly available, non-stop applicationsHot swapping, where code can be changed without stopping a system.The Erlang programming language is known for the following properties:Immutable dataPattern matchingFunctional programmingThe sequential subset of the Erlang language supports eager evaluation, single assignment, and dynamic typing.It was originally a proprietary language within Ericsson, developed by Joe Armstrong, Robert Virding and Mike Williams in 1986, but was released as open source in 1998"
   },
   "Factor": {
     "recall": 1,
-    "recalledAs": "Factor_(programming_language)"
+    "recalledAs": "Factor_(programming_language)",
+    "Summary": "Factor is a stack-oriented programming language created by Slava Pestov"
   },
   "Fancy": {
     "recall": 0,
-    "comment": " mismatched if you search for it on Wikipedia\n"
+    "comment": " mismatched if you search for it on Wikipedia\n",
+    "Summary": "Unknown"
   },
   "Fantom": {
     "recall": 1,
-    "recalledAs": "Fantom_(programming_language)"
+    "recalledAs": "Fantom_(programming_language)",
+    "Summary": "Fantom is a general purpose object-oriented programming language created by Brian and Andy Frank that runs on the Java Runtime Environment , JavaScript, and the .NET Common Language Runtime  "
   },
   "fish": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Forth": {
     "recall": 1,
-    "recalledAs": "Forth_(programming_language)"
+    "recalledAs": "Forth_(programming_language)",
+    "Summary": "Forth is an imperative stack-based computer programming language and environment originally designed by Charles \"Chuck\" Moore"
   },
   "Fortran": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "FreeMarker": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Frege": {
     "recall": 1,
-    "recalledAs": "Frege_(programming_language)"
+    "recalledAs": "Frege_(programming_language)",
+    "Summary": "Frege is a non-strict, purely functional programming language for the Java virtual machine in the spirit of Haskell.It is considered a Haskell dialect or simply \"a\" Haskell for the Java virtual machine.Frege has a strong static type system with type inference"
   },
   "G-code": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "GAP": {
     "recall": 1,
-    "recalledAs": "GAP_(computer_algebra_system)"
+    "recalledAs": "GAP_(computer_algebra_system)",
+    "Summary": "GAP  is a computer algebra system for computational discrete algebra with particular emphasis on computational group theory."
   },
   "Genie": {
     "recall": 1,
-    "recalledAs": "Genie_(programming_language)"
+    "recalledAs": "Genie_(programming_language)",
+    "Summary": "Genie is a modern, general-purpose high-level programming language in active development since 2008"
   },
   "Genshi": {
     "recall": 1,
-    "recalledAs": "Genshi_(templating_language)"
+    "recalledAs": "Genshi_(templating_language)",
+    "Summary": "Genshi is a template engine for XML-based vocabularies written in Python"
   },
   "Gnuplot": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Go": {
     "recall": 1,
-    "recalledAs": "Go_(programming_language)"
+    "recalledAs": "Go_(programming_language)",
+    "Summary": "Go  is an open source programming language created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson"
   },
   "Golo": {
     "recall": 1,
-    "recalledAs": "Golo_(programming_language)"
+    "recalledAs": "Golo_(programming_language)",
+    "Summary": "Golo is computer software, a programming language for the Java virtual machine "
   },
   "Gosu": {
     "recall": 1,
-    "recalledAs": "Gosu_(programming_language)"
+    "recalledAs": "Gosu_(programming_language)",
+    "Summary": "Gosu is a statically-typed programming language that runs on the Java Virtual Machine released under the Apache 2"
   },
   "Gradle": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Grammatical Framework": {
     "recall": 1,
-    "recalledAs": "Grammatical_Framework"
+    "recalledAs": "Grammatical_Framework",
+    "Summary": "Grammatical Framework  is a programming language for writing grammars of natural languages"
   },
   "GraphQL": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Graphviz (DOT)": {
     "recall": 1,
-    "recalledAs": "DOT_(graph_description_language)"
+    "recalledAs": "DOT_(graph_description_language)",
+    "Summary": "DOT is a plain text graph description language"
   },
   "Groovy": {
     "recall": 1,
-    "recalledAs": "Groovy_(programming_language)"
+    "recalledAs": "Groovy_(programming_language)",
+    "Summary": "Apache Groovy is an object-oriented programming language for the Java platform"
   },
   "Groovy Server Pages": {
     "recall": 1,
-    "recalledAs": "Groovy_Server_Pages"
+    "recalledAs": "Groovy_Server_Pages",
+    "Summary": "Groovy Server Pages  is a presentation language for web applications, similar to JSP"
   },
   "Hack": {
     "recall": 1,
-    "recalledAs": "Hack_(programming_language)"
+    "recalledAs": "Hack_(programming_language)",
+    "Summary": "Hack is a programming language for the HipHop Virtual Machine , created by Facebook as a dialect of PHP"
   },
   "Haml": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Handlebars": {
     "recall": 1,
-    "recalledAs": "Handlebars_(template_system)"
+    "recalledAs": "Handlebars_(template_system)",
+    "Summary": "Handlebars is a semantic web template system, started by Yehuda Katz in 2010"
   },
   "Harbour": {
     "recall": 1,
-    "recalledAs": "Harbour_(software)"
+    "recalledAs": "Harbour_(software)",
+    "Summary": "Harbour is a modern computer programming language, primarily used to create database/business programs"
   },
   "Haskell": {
     "recall": 1,
-    "recalledAs": "Haskell_(programming_language)"
+    "recalledAs": "Haskell_(programming_language)",
+    "Summary": "Haskell  is a standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing"
   },
   "Haxe": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "HTML": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Hy": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "IDL": {
     "recall": 1,
-    "recalledAs": "IDL_(programming_language)"
+    "recalledAs": "IDL_(programming_language)",
+    "Summary": "IDL, short for Interactive Data Language, is a programming language used for data analysis"
   },
   "Idris": {
     "recall": 1,
-    "recalledAs": "Idris_(programming_language)"
+    "recalledAs": "Idris_(programming_language)",
+    "Summary": "Idris is a general-purpose purely functional programming language with dependent types, strict or optional lazy evaluation and features such as a totality checker.Even before its possible usage for interactive theorem-proving, the focus of Idris is on general-purpose programming, like the purely functional Haskell, and with sufficient performance"
   },
   "Inno Setup": {
     "recall": 1,
-    "recalledAs": "Inno_Setup"
+    "recalledAs": "Inno_Setup",
+    "Summary": "Inno Setup is a free software script-driven installation system created in Delphi by Jordan Russell"
   },
   "Io": {
     "recall": 1,
-    "recalledAs": "Io_(programming_language)"
+    "recalledAs": "Io_(programming_language)",
+    "Summary": "Io is a pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript"
   },
   "Ioke": {
     "recall": 1,
-    "recalledAs": "Ioke_(programming_language)"
+    "recalledAs": "Ioke_(programming_language)",
+    "Summary": "Ioke is a dynamic, strongly typed, prototype-based programming language targeting the Java Virtual Machine and the Common Language Runtime"
   },
   "Isabelle": {
     "recall": 1,
-    "recalledAs": "Isabelle_(proof_assistant)"
+    "recalledAs": "Isabelle_(proof_assistant)",
+    "Summary": "The Isabelle theorem prover is an interactive theorem prover, a Higher Order Logic  theorem prover"
   },
   "J": {
     "recall": 1,
-    "recalledAs": "J_(programming_language)"
+    "recalledAs": "J_(programming_language)",
+    "Summary": "The J programming language, developed in the early 1990s by Kenneth E"
   },
   "Jasmin": {
     "recall": 1,
-    "recalledAs": "Jasmin_(software)"
+    "recalledAs": "Jasmin_(software)",
+    "Summary": "Jasmin is a free open source assembler to create class files from human readable assembler-like syntax using the Java Virtual Machine instruction sets"
   },
   "Java": {
     "recall": 1,
-    "recalledAs": "Java_(programming_language)"
+    "recalledAs": "Java_(programming_language)",
+    "Summary": "Java is a general-purpose computer-programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible"
   },
   "Java Server Pages": {
     "recall": 1,
-    "recalledAs": "JavaServer_Pages"
+    "recalledAs": "JavaServer_Pages",
+    "Summary": "JavaServer Pages  is a technology that helps software developers create dynamically generated web pages based on HTML, XML, or other document types"
   },
   "JavaScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Jolie": {
     "recall": 1,
-    "recalledAs": "Jolie_(programming_language)"
+    "recalledAs": "Jolie_(programming_language)",
+    "Summary": "Jolie  is an open-source programming language for developing distributed applications based on microservices"
   },
   "JSON": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "JSONiq": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Julia": {
     "recall": 1,
-    "recalledAs": "Julia_(programming_language)"
+    "recalledAs": "Julia_(programming_language)",
+    "Summary": "Julia is a high-level dynamic programming language designed to address the requirements of high-performance numerical and scientific computing while also being effective for general-purpose programming, web use or as a specification language"
   },
   "Kotlin": {
     "recall": 1,
-    "recalledAs": "Kotlin_(programming_language)"
+    "recalledAs": "Kotlin_(programming_language)",
+    "Summary": "Kotlin is a statically-typed programming language that runs on the Java virtual machine and also can be compiled to JavaScript source code or uses the LLVM compiler infrastructure"
   },
   "KRL": {
     "recall": 1,
-    "recalledAs": "KRL_(programming_language)"
+    "recalledAs": "KRL_(programming_language)",
+    "Summary": "KRL is a knowledge representation language, developed by Daniel G"
   },
   "LabVIEW": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Lasso": {
     "recall": 1,
-    "recalledAs": "Lasso_(programming_language)"
+    "recalledAs": "Lasso_(programming_language)",
+    "Summary": "Lasso is an application server and server management interface used to develop internet applications and is a general-purpose, high-level programming language"
   },
   "Less": {
     "recall": 1,
-    "recalledAs": "Less_(stylesheet_language)"
+    "recalledAs": "Less_(stylesheet_language)",
+    "Summary": "Less  is a dynamic preprocessor style sheet language that can be compiled into Cascading Style Sheets  and run on the client side or server side"
   },
   "Lex": {
     "recall": 1,
-    "recalledAs": "Lex_(software)"
+    "recalledAs": "Lex_(software)",
+    "Summary": "Lex is a computer program that generates lexical analyzers .Lex is commonly used with the yacc parser generator"
   },
   "LFE": {
     "recall": 1,
-    "recalledAs": "LFE_(programming_language)"
+    "recalledAs": "LFE_(programming_language)",
+    "Summary": "Lisp Flavored Erlang  is a functional, concurrent, general-purpose programming language and Lisp dialect built on top of Core Erlang and the Erlang Virtual Machine "
   },
   "LilyPond": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Limbo": {
     "recall": 1,
-    "recalledAs": "Limbo_(programming_language)"
+    "recalledAs": "Limbo_(programming_language)",
+    "Summary": "Limbo is a programming language for writing distributed systems and is the language used to write applications for the Inferno operating system"
   },
   "LiveScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "LLVM": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Logtalk": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "LOLCODE": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Lua": {
     "recall": 1,
-    "recalledAs": "Lua_(programming_language)"
+    "recalledAs": "Lua_(programming_language)",
+    "Summary": "Lua  is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients"
   },
   "M": {
     "recall": 1,
-    "recalledAs": "M_(programming_language)"
+    "recalledAs": "M_(programming_language)",
+    "Summary": null
   },
   "M4": {
     "recall": 1,
-    "recalledAs": "M4_(computer_language)"
+    "recalledAs": "M4_(computer_language)",
+    "Summary": "m4 is a general-purpose macro processor included in all UNIX-like operating systems, and is a component of the POSIX standard.The language was designed by Brian Kernighan and Dennis Ritchie for the original versions of UNIX"
   },
   "Makefile": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Mako": {
     "recall": 1,
-    "recalledAs": "Mako_(template_engine)"
+    "recalledAs": "Mako_(template_engine)",
+    "Summary": "Mako is a template engine written in Python"
   },
   "Markdown": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Matlab": {
     "recall": 1,
-    "recalledAs": "MATLAB"
+    "recalledAs": "MATLAB",
+    "Summary": "MATLAB  is a multi-paradigm numerical computing environment and fourth-generation programming language"
   },
   "Max": {
     "recall": 1,
-    "recalledAs": "Max_(software)"
+    "recalledAs": "Max_(software)",
+    "Summary": "Max is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74"
   },
   "MediaWiki": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Mercury": {
     "recall": 1,
-    "recalledAs": "Mercury_(programming_language)"
+    "recalledAs": "Mercury_(programming_language)",
+    "Summary": "Mercury is a functional logic programming language made for real-world uses"
   },
   "Meson": {
     "recall": 1,
-    "recalledAs": "Meson_(software)"
+    "recalledAs": "Meson_(software)",
+    "Summary": "Meson  is a software tool for automating the building  of software"
   },
   "Metal": {
     "recall": 1,
-    "recalledAs": "Metal_(API)"
+    "recalledAs": "Metal_(API)",
+    "Summary": "Metal is a low-level, low-overhead hardware-accelerated graphics and compute application programming interface  that debuted in iOS 8"
   },
   "MiniD": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Mirah": {
     "recall": 1,
-    "recalledAs": "Mirah_(programming_language)"
+    "recalledAs": "Mirah_(programming_language)",
+    "Summary": "Mirah  is a programming language based on Ruby language syntax, local type inference, hybrid static\u2013dynamic type system, and a pluggable compiler toolchain"
   },
   "Modelica": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Modula-2": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "mupad": {
     "recall": 1,
-    "recalledAs": "MuPAD"
+    "recalledAs": "MuPAD",
+    "Summary": null
   },
   "Nemerle": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "nesC": {
     "recall": 1,
-    "recalledAs": "NesC"
+    "recalledAs": "NesC",
+    "Summary": "nesC  is a component-based, event-driven programming language used to build applications for the TinyOS platform"
   },
   "NetLogo": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "NewLisp": {
     "recall": 1,
-    "recalledAs": "NewLISP"
+    "recalledAs": "NewLISP",
+    "Summary": "newLISP is an open source scripting language in the Lisp family of programming languages developed by Lutz Mueller and released under the GNU General Public License."
   },
   "Nginx": {
     "recall": 0,
-    "mentionIn": "Nginx"
+    "mentionIn": "Nginx",
+    "Summary": "Nginx  is a web server"
   },
   "Nim": {
     "recall": 1,
-    "recalledAs": "Nim_(programming_language)"
+    "recalledAs": "Nim_(programming_language)",
+    "Summary": "Nim  is an imperative, multi-paradigm, compiled programming language designed and developed by Andreas Rumpf"
   },
   "NL": {
     "recall": 1,
-    "recalledAs": "Nl_(format)"
+    "recalledAs": "Nl_(format)",
+    "Summary": "nl is a file format for presenting and archiving mathematical programming problems"
   },
   "Nu": {
     "recall": 1,
-    "recalledAs": "Nu_(programming_language)"
+    "recalledAs": "Nu_(programming_language)",
+    "Summary": "Nu is an interpreted object-oriented programming language, with a Lisp-like syntax, created by Tim Burks as an alternative scripting language to program OS X through its Cocoa application programming interface "
   },
   "NumPy": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Objective-C": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Objective-J": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "OCaml": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Opa": {
     "recall": 1,
-    "recalledAs": "Opa_(programming_language)"
+    "recalledAs": "Opa_(programming_language)",
+    "Summary": "Opa is an open source programming language for developing scalable web applications.It can be used for both client-side and server-side scripting, where complete programs are written in Opa and subsequently compiled to Nodejs on the server and JavaScript on the client, with the compiler automating all communication between the two"
   },
   "Opal": {
     "recall": 1,
-    "recalledAs": "Opal_(programming_language)"
+    "recalledAs": "Opal_(programming_language)",
+    "Summary": "OPAL  is a functional programming language first developed at the Technical University of Berlin."
   },
   "OpenSCAD": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Ox": {
     "recall": 1,
-    "recalledAs": "Ox_(programming_language)"
+    "recalledAs": "Ox_(programming_language)",
+    "Summary": "Ox is an object-oriented matrix programming language with a mathematical and statistical function library, developed by Jurgen Doornik"
   },
   "Oxygene": {
     "recall": 1,
-    "recalledAs": "Oxygene_(programming_language)"
+    "recalledAs": "Oxygene_(programming_language)",
+    "Summary": "Oxygene  is a programming language developed by RemObjects Software for Microsoft's Common Language Infrastructure, the Java Platform and Cocoa"
   },
   "Oz": {
     "recall": 1,
-    "recalledAs": "Oz_(programming_language)"
+    "recalledAs": "Oz_(programming_language)",
+    "Summary": "Oz is a multiparadigm programming language, developed in the Programming Systems Lab at Universit\u00e9 catholique de Louvain, for programming language education"
   },
   "P4": {
     "recall": 1,
-    "recalledAs": "P4_(programming_language)"
+    "recalledAs": "P4_(programming_language)",
+    "Summary": "P4 is a programming language designed to allow programming of packet forwarding dataplanes"
   },
   "Pan": {
     "recall": 1,
-    "recalledAs": "Pan_(programming_language)"
+    "recalledAs": "Pan_(programming_language)",
+    "Summary": "The pan configuration language allows the definition of machine configuration information and an associated schema with a simple, human-accessible syntax"
   },
   "Papyrus": {
     "recall": 1,
-    "recalledAs": "Papyrus_(software)"
+    "recalledAs": "Papyrus_(software)",
+    "Summary": "Papyrus is an Open Source UML 2 tool  based on Eclipse and licensed under the EPL"
   },
   "Pascal": {
     "recall": 1,
-    "recalledAs": "Pascal_(programming_language)"
+    "recalledAs": "Pascal_(programming_language)",
+    "Summary": "Pascal is an imperative and procedural programming language, which Niklaus Wirth designed in 1968\u201369 and published in 1970, as a small, efficient language intended to encourage good programming practices using structured programming and data structuring"
   },
   "PAWN": {
     "recall": 1,
-    "recalledAs": "Pawn_(scripting_language)"
+    "recalledAs": "Pawn_(scripting_language)",
+    "Summary": null
   },
   "Perl": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Perl 6": {
     "recall": 1,
-    "recalledAs": "Perl_6"
+    "recalledAs": "Perl_6",
+    "Summary": "Perl 6 is a member of the Perl family of programming languages.While historically several interpreter and compiler implementations were being written, today only the Rakudo Perl implementation is in active development.It is introducing elements of many modern and historical languages"
   },
   "PHP": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Pickle": {
     "recall": 1,
-    "recalledAs": "Pickle_(Python)"
+    "recalledAs": "Pickle_(Python)",
+    "Summary": null
   },
   "PicoLisp": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Pike": {
     "recall": 1,
-    "recalledAs": "Pike_(programming_language)"
+    "recalledAs": "Pike_(programming_language)",
+    "Summary": "Pike is an interpreted, general-purpose, high-level, cross-platform, dynamic programming language, with a syntax similar to that of C"
   },
   "PLpgSQL": {
     "recall": 1,
-    "recalledAs": "PL/pgSQL"
+    "recalledAs": "PL/pgSQL",
+    "Summary": "PL/pgSQL  is a procedural programming language supported by the PostgreSQL ORDBMS"
   },
   "PLSQL": {
     "recall": 1,
-    "recalledAs": "PL/SQL"
+    "recalledAs": "PL/SQL",
+    "Summary": "PL/SQL  is Oracle Corporation's procedural extension for SQL and the Oracle relational database"
   },
   "PostCSS": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "PostScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "PowerBuilder": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "PowerShell": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Processing": {
     "recall": 1,
-    "recalledAs": "Processing_(programming_language)"
+    "recalledAs": "Processing_(programming_language)",
+    "Summary": "Processing is an open-source computer programming language and integrated development environment  built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context"
   },
   "Prolog": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Puppet": {
     "recall": 1,
-    "recalledAs": "Puppet_(software)"
+    "recalledAs": "Puppet_(software)",
+    "Summary": "In computing, Puppet is an open-source configuration management tool"
   },
   "Pure Data": {
     "recall": 1,
-    "recalledAs": "Pure_Data"
+    "recalledAs": "Pure_Data",
+    "Summary": "Pure Data  is a visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works"
   },
   "PureBasic": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "PureScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Python": {
     "recall": 1,
-    "recalledAs": "Python_(programming_language)"
+    "recalledAs": "Python_(programming_language)",
+    "Summary": "Python is a widely used high-level, general-purpose, interpreted, dynamic programming language"
   },
   "QMake": {
     "recall": 1,
-    "recalledAs": "Qmake"
+    "recalledAs": "Qmake",
+    "Summary": "qmake is a utility that automates the generation of Makefiles"
   },
   "QML": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "R": {
     "recall": 1,
-    "recalledAs": "R_(programming_language)"
+    "recalledAs": "R_(programming_language)",
+    "Summary": "R is a programming language and software environment for statistical computing and graphics supported by Kakajan Kab for Statistical Computing"
   },
   "Racket": {
     "recall": 1,
-    "recalledAs": "Racket_(programming_language)"
+    "recalledAs": "Racket_(programming_language)",
+    "Summary": "Racket  is a general-purpose, multi-paradigm programming language in the Lisp-Scheme family"
   },
   "Ragel": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "RAML": {
     "recall": 1,
-    "recalledAs": "RAML_(software)"
+    "recalledAs": "RAML_(software)",
+    "Summary": "RESTful API Modeling Language  is a YAML-based language for describing RESTful APIs"
   },
   "Rebol": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Red": {
     "recall": 1,
-    "recalledAs": "Red_(programming_language)"
+    "recalledAs": "Red_(programming_language)",
+    "Summary": "Red is a computer programming language"
   },
   "Regular Expression": {
     "recall": 1,
-    "recalledAs": "Regular_expression"
+    "recalledAs": "Regular_expression",
+    "Summary": "In theoretical computer science and formal language theory, a regular expression  is a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e"
   },
   "Ren'Py": {
     "recall": 1,
-    "recalledAs": "Ren'Py"
+    "recalledAs": "Ren'Py",
+    "Summary": "The Ren'Py Visual Novel Engine is a free software engine which facilitates the creation of visual novels, a form of computer-mediated storytelling"
   },
   "reStructuredText": {
     "recall": 1,
-    "recalledAs": "ReStructuredText"
+    "recalledAs": "ReStructuredText",
+    "Summary": "reStructuredText  is a file format for textual data used primarily in the Python programming language community for technical documentation.It is part of the Docutils project of the Python Doc-SIG , aimed at creating a set of tools for Python similar to Javadoc for Java or POD for Perl"
   },
   "REXX": {
     "recall": 1,
-    "recalledAs": "Rexx"
+    "recalledAs": "Rexx",
+    "Summary": "Rexx  is an interpreted programming language developed at IBM by Mike Cowlishaw"
   },
   "Ring": {
     "recall": 1,
-    "recalledAs": "Ring_(programming_language)"
+    "recalledAs": "Ring_(programming_language)",
+    "Summary": "Ring is a dynamic and general-purpose programming language"
   },
   "RobotFramework": {
     "recall": 1,
-    "recalledAs": "Robot_Framework"
+    "recalledAs": "Robot_Framework",
+    "Summary": "The Robot Framework is a generic test automation framework for acceptance testing and acceptance test-driven development "
   },
   "Ruby": {
     "recall": 1,
-    "recalledAs": "Ruby_(programming_language)"
+    "recalledAs": "Ruby_(programming_language)",
+    "Summary": "Ruby is a dynamic, reflective, object-oriented, general-purpose programming language"
   },
   "RUNOFF": {
     "recall": 1,
-    "recalledAs": "Runoff_(program)"
+    "recalledAs": "Runoff_(program)",
+    "Summary": "runoff was the text formatting program on the Multics operating system.It was a descendant of the RUNOFF type-setting program from CTSS and was originally written by Jerome H"
   },
   "Rust": {
     "recall": 1,
-    "recalledAs": "Rust_(programming_language)"
+    "recalledAs": "Rust_(programming_language)",
+    "Summary": "Rust is a general-purpose, multi-paradigm, compiled programming language sponsored by Mozilla Research"
   },
   "Sage": {
     "recall": 1,
-    "recalledAs": "Sage_(Mozilla_Firefox_extension)"
+    "recalledAs": "Sage_(Mozilla_Firefox_extension)",
+    "Summary": "Sage is a lightweight RSS and atom feed aggregator extension for the Mozilla Firefox web browser"
   },
   "SAS": {
     "recall": 1,
-    "recalledAs": "SAS_language"
+    "recalledAs": "SAS_language",
+    "Summary": "The SAS language is a computer programming language used for statistical analysis, created by Anthony James Barr at North Carolina State University"
   },
   "Sass": {
     "recall": 1,
-    "recalledAs": "Sass_(stylesheet_language)"
+    "recalledAs": "Sass_(stylesheet_language)",
+    "Summary": "Sass  is a style sheet language initially designed by Hampton Catlin and developed by Natalie Weizenbaum"
   },
   "Scala": {
     "recall": 1,
-    "recalledAs": "Scala_(programming_language)"
+    "recalledAs": "Scala_(programming_language)",
+    "Summary": "Scala  is a general-purpose programming language"
   },
   "Scheme": {
     "recall": 1,
-    "recalledAs": "Scheme_(programming_language)"
+    "recalledAs": "Scheme_(programming_language)",
+    "Summary": "Scheme is a programming language that supports multiple paradigms, including functional programming and imperative programming, and is one of the two main dialects of Lisp"
   },
   "Scilab": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Self": {
     "recall": 1,
-    "recalledAs": "Self_(programming_language)"
+    "recalledAs": "Self_(programming_language)",
+    "Summary": "Self is an object-oriented programming language based on the concept of prototypes"
   },
   "Slash": {
     "recall": 1,
-    "recalledAs": "Slash_(CMS)"
+    "recalledAs": "Slash_(CMS)",
+    "Summary": "Slash  is a content management system, originally created for Slashdot, one of the oldest collaborative sites on the Internet"
   },
   "Smalltalk": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Smarty": {
     "recall": 1,
-    "recalledAs": "Smarty_(template_engine)"
+    "recalledAs": "Smarty_(template_engine)",
+    "Summary": "Smarty is a web template system written in PHP"
   },
   "SPARQL": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "SQL": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "SQLPL": {
     "recall": 1,
-    "recalledAs": "SQL_PL"
+    "recalledAs": "SQL_PL",
+    "Summary": "SQL PL stands for Structured Query Language Procedural Language and was developed by IBM as a set of commands that extend the use of SQL in the IBM DB2  database system"
   },
   "Squirrel": {
     "recall": 1,
-    "recalledAs": "Squirrel_(programming_language)"
+    "recalledAs": "Squirrel_(programming_language)",
+    "Summary": "Squirrel is a high level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games and hardware such as Electric Imp.MirthKit, a simple toolkit for making and distributing open source, cross-platform 2D games, uses Squirrel for its platform"
   },
   "Stan": {
     "recall": 1,
-    "recalledAs": "Stan_(software)"
+    "recalledAs": "Stan_(software)",
+    "Summary": "Stan is a probabilistic programming language for statistical inference written in C++"
   },
   "Standard ML": {
     "recall": 1,
-    "recalledAs": "Standard_ML"
+    "recalledAs": "Standard_ML",
+    "Summary": "Standard ML  is a general-purpose, modular, functional programming language with compile-time type checking and type inference"
   },
   "Stata": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Stylus": {
     "recall": 1,
-    "recalledAs": "Stylus_(stylesheet_language)"
+    "recalledAs": "Stylus_(stylesheet_language)",
+    "Summary": "Stylus is a dynamic stylesheet preprocessor language that is compiled into Cascading Style Sheets "
   },
   "SuperCollider": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Swift": {
     "recall": 1,
-    "recalledAs": "Swift_(parallel_scripting_language)"
+    "recalledAs": "Swift_(parallel_scripting_language)",
+    "Summary": "Swift is an implicitly parallel programming language that allows writing scripts that distribute program execution across distributed computing resources, including clusters, clouds, grids, and supercomputers"
   },
   "SystemVerilog": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Tcl": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Tcsh": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Tea": {
     "recall": 1,
-    "recalledAs": "Tea_(programming_language)"
+    "recalledAs": "Tea_(programming_language)",
+    "Summary": "Tea is a high level scripting language for the Java environment"
   },
   "TeX": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Text": {
     "recall": 1,
-    "recalledAs": "Text_(Chrome_app)"
+    "recalledAs": "Text_(Chrome_app)",
+    "Summary": "Text is a Google Chrome packaged app"
   },
   "Textile": {
     "recall": 1,
-    "recalledAs": "Textile_(markup_language)"
+    "recalledAs": "Textile_(markup_language)",
+    "Summary": "Textile is a lightweight markup language that uses a text formatting syntax to convert plain text into structured HTML markup"
   },
   "TOML": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Turing": {
     "recall": 1,
-    "recalledAs": "Turing_(programming_language)"
+    "recalledAs": "Turing_(programming_language)",
+    "Summary": "Turing is a Pascal-like programming language developed in 1982 by Ric Holt and James Cordy, then of University of Toronto, Canada"
   },
   "Turtle": {
     "recall": 1,
-    "recalledAs": "Turtle_(syntax)"
+    "recalledAs": "Turtle_(syntax)",
+    "Summary": "Turtle  is a format for expressing data in the Resource Description Framework  data model with a syntax similar to SPARQL"
   },
   "Twig": {
     "recall": 1,
-    "recalledAs": "Twig_(template_engine)"
+    "recalledAs": "Twig_(template_engine)",
+    "Summary": "Twig is a template engine for the PHP programming language"
   },
   "TXL": {
     "recall": 1,
-    "recalledAs": "TXL_(programming_language)"
+    "recalledAs": "TXL_(programming_language)",
+    "Summary": "TXL is a special-purpose programming language originally designed by Charles Halpern-Hamu and James Cordy at the University of Toronto in 1985"
   },
   "TypeScript": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Unified Parallel C": {
     "recall": 1,
-    "recalledAs": "Unified_Parallel_C"
+    "recalledAs": "Unified_Parallel_C",
+    "Summary": "Unified Parallel C  is an extension of the C programming language designed for high-performance computing on large-scale parallel machines, including those with a common global address space  and those with distributed memory "
   },
   "Vala": {
     "recall": 1,
-    "recalledAs": "Vala_(programming_language)"
+    "recalledAs": "Vala_(programming_language)",
+    "Summary": "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.Vala is syntactically similar to C# and includes several features such as: anonymous functions, signals, properties, generics, assisted memory management, exception handling, type inference, and foreach statements"
   },
   "Verilog": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "VHDL": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Vim script": {
     "recall": 1,
-    "recalledAs": "Vim_script"
+    "recalledAs": "Vim_script",
+    "Summary": null
   },
   "Visual Basic": {
     "recall": 1,
-    "recalledAs": "Visual_Basic"
+    "recalledAs": "Visual_Basic",
+    "Summary": "Visual Basic is a third-generation event-driven programming language and integrated development environment  from Microsoft for its COM programming model first released in 1991 and declared legacy in 2008"
   },
   "Web Ontology Language": {
     "recall": 1,
-    "recalledAs": "Web_Ontology_Language"
+    "recalledAs": "Web_Ontology_Language",
+    "Summary": "The Web Ontology Language  is a family of knowledge representation languages for authoring ontologies"
   },
   "WebAssembly": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "WebIDL": {
     "recall": 1,
-    "recalledAs": "Web_IDL"
+    "recalledAs": "Web_IDL",
+    "Summary": "Web IDL is an interface description language  format for describing application programming interfaces  that are intended to be implemented in web browsers."
   },
   "X10": {
     "recall": 1,
-    "recalledAs": "X10_(programming_language)"
+    "recalledAs": "X10_(programming_language)",
+    "Summary": "X10 is a programming language being developed by IBM at the Thomas J"
   },
   "xBase": {
     "recall": 1,
-    "recalledAs": "XBase"
+    "recalledAs": "XBase",
+    "Summary": "xBase is the generic term for all programming languages that derive from the original dBASE  programming language and database formats"
   },
   "XC": {
     "recall": 1,
-    "recalledAs": "XC_(programming_language)"
+    "recalledAs": "XC_(programming_language)",
+    "Summary": "In computers, XC is a programming language for real-time embedded parallel processors, targeted at the XMOS XCore processor architecture.XC is an imperative language, based on the features for parallelism and communication in occam, and the syntax and sequential features of C"
   },
   "XML": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Xojo": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "XProc": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "XQuery": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "XS": {
     "recall": 1,
-    "recalledAs": "XS_(Perl)"
+    "recalledAs": "XS_(Perl)",
+    "Summary": "XS is an interface through which a program written in the Perl programming language can call a C or C++ language subroutine"
   },
   "XSLT": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Xtend": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "Yacc": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "YAML": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "YANG": {
-    "recall": 1
+    "recall": 1,
+    "Summary": "Unknown"
   },
   "ABNF": {
     "recall": 1,
-    "recalledAs": "Augmented_Backus–Naur_form"
+    "recalledAs": "Augmented_Backus\u2013Naur_form",
+    "Summary": null
   },
   "XPM": {
     "recall": 1,
-    "recalledAs": "X_PixMap"
+    "recalledAs": "X_PixMap",
+    "Summary": "X PixMap  is an image file format used by the X Window System, created in 1989 by Daniel Dardailler and Colas Nahaboo working at Bull Research Center at Sophia Antipolis, France, and later enhanced by Arnaud Le Hors.It is intended primarily for creating icon pixmaps, and supports transparent pixels"
   },
   "Mathematica": {
     "recall": 1,
-    "recalledAs": "Wolfram_Mathematica"
+    "recalledAs": "Wolfram_Mathematica",
+    "Summary": "Wolfram Mathematica  is a symbolic mathematical computation program, sometimes called a computer algebra program, used in many scientific, engineering, mathematical, and computing fields"
   },
   "Wavefront Object": {
     "recall": 1,
-    "recalledAs": "Wavefront_.obj_file"
+    "recalledAs": "Wavefront_.obj_file",
+    "Summary": "OBJ  is a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package"
   },
   "UrWeb": {
     "recall": 1,
-    "recalledAs": "Ur_(programming_language)"
+    "recalledAs": "Ur_(programming_language)",
+    "Summary": "Ur also called Ur/Web is an open source functional programming language specific for web development, created by Adam Chlipala at the Massachusetts Institute of Technology that from a single program produces server code, browser client code and SQL code specific for the chosen database backend.Ur supports a powerful kind of metaprogramming based on row types.Ur/Web is Ur plus a special standard library and associated rules for parsing and optimization"
   },
   "TLA": {
     "recall": 1,
-    "recalledAs": "TLA+"
+    "recalledAs": "TLA+",
+    "Summary": "TLA+  is a formal specification language developed by Leslie Lamport"
   },
   "TI Program": {
     "recall": 1,
-    "recalledAs": "TI-BASIC"
+    "recalledAs": "TI-BASIC",
+    "Summary": "TI-BASIC is the official name of a BASIC-like language built into Texas Instruments 's graphing calculators, including the TI-83 series, TI-84 Plus series, TI-89 series, TI-92 series , TI-73, and TI-Nspire"
   },
   "SubRip Text": {
     "recall": 1,
-    "recalledAs": "SubRip"
+    "recalledAs": "SubRip",
+    "Summary": "SubRip is a free software program for Windows which \"rips\"  subtitles and their timings from video"
   },
   "Rascal": {
     "recall": 1,
-    "recalledAs": "RascalMPL"
+    "recalledAs": "RascalMPL",
+    "Summary": "Rascal is an experimental domain specific language for metaprogramming, such as static code analysis, program transformation and implementation of domain specific languages"
   },
   "Pod": {
     "recall": 1,
-    "recalledAs": "Plain_Old_Documentation"
+    "recalledAs": "Plain_Old_Documentation",
+    "Summary": "Plain Old Documentation, abbreviated pod, is a lightweight markup language used to document the Perl programming language."
   },
   "Pic": {
     "recall": 1,
-    "recalledAs": "Pic_language"
+    "recalledAs": "Pic_language",
+    "Summary": null
   },
   "Parrot Assembly": {
     "recall": 1,
-    "recalledAs": "Parrot_assembly_language"
+    "recalledAs": "Parrot_assembly_language",
+    "Summary": "The Parrot assembly language  is the basic assembly language used by the Parrot virtual machine.PASM is the lowest level assembly language in the Parrot stack"
   },
   "OpenEdge ABL": {
     "recall": 1,
-    "recalledAs": "OpenEdge_Advanced_Business_Language"
+    "recalledAs": "OpenEdge_Advanced_Business_Language",
+    "Summary": "OpenEdge Advanced Business Language, or OpenEdge ABL for short, is a business application development language created and maintained by Progress Software Corporation "
   },
   "Monkey": {
     "recall": 1,
-    "recalledAs": "Monkey_X"
+    "recalledAs": "Monkey_X",
+    "Summary": "Monkey X is a high-level programming language designed for video game development for many different platforms, including desktop and laptop computers, mobile phones, tablets, and video game consoles"
   },
   "MQL5": {
     "recall": 1,
-    "recalledAs": "MetaQuotes_Language_MQL4/MQL5"
+    "recalledAs": "MetaQuotes_Language_MQL4/MQL5",
+    "Summary": "MQL4  and MQL5  are integrated programming languages designed for developing trading robots, technical market indicators, scripts and function libraries within the MetaTrader software.The primary objective of MQL4 and MQL5 is automation of trading and facilitation of operational analysis"
   },
   "LSL": {
     "recall": 0,
-    "mentionIn": "Second_Life"
+    "mentionIn": "Second_Life",
+    "Summary": "Second Life is an online virtual world, developed by Linden Lab, based in San Francisco, and launched on June 23, 2003"
   },
   "JSONLD": {
     "recall": 1,
-    "recalledAs": "JSON-LD"
+    "recalledAs": "JSON-LD",
+    "Summary": "JSON-LD, or JavaScript Object Notation for Linked Data, is a method of encoding Linked Data using JSON"
   },
   "INI": {
     "recall": 1,
-    "recalledAs": "INI_file"
+    "recalledAs": "INI_file",
+    "Summary": "The INI file format is an informal standard for configuration files for some platforms or software"
   },
   "Inform 7": {
     "recall": 1,
-    "recalledAs": "Inform"
+    "recalledAs": "Inform",
+    "Summary": "Inform is a programming language and design system for interactive fiction originally created in 1993 by Graham Nelson"
   },
   "Bison": {
     "recall": 1,
-    "recalledAs": "GNU_bison"
+    "recalledAs": "GNU_bison",
+    "Summary": "GNU bison, commonly known as Bison, is a parser generator that is part of the GNU Project"
   },
   "Gerber Image": {
     "recall": 1,
-    "recalledAs": "Gerber_format"
+    "recalledAs": "Gerber_format",
+    "Summary": "The Gerber format is an open ASCII vector format for 2D binary images"
   },
   "GAMS": {
     "recall": 1,
-    "recalledAs": "General_Algebraic_Modeling_System"
+    "recalledAs": "General_Algebraic_Modeling_System",
+    "Summary": "The General Algebraic Modeling System  is a high-level modeling system for mathematical optimization"
   },
   "F#": {
     "recall": 1,
-    "recalledAs": "F_Sharp_(programming_language)"
+    "recalledAs": "F_Sharp_(programming_language)",
+    "Summary": "F#  is a strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods"
   },
   "Gentoo Ebuild": {
     "recall": 0,
-    "mentionIn": "Ebuild"
+    "mentionIn": "Ebuild",
+    "Summary": "An ebuild is a specialized bash script which automates compilation and installation procedures for software packages"
   },
   "Csound Document": {
     "recall": 1,
-    "recalledAs": "Csound"
+    "recalledAs": "Csound",
+    "Summary": "Csound is a computer programming language for sound, also known as a sound compiler or an audio programming language, or more precisely, an audio DSL"
   },
   "C#": {
     "recall": 1,
-    "recalledAs": "C_Sharp_(programming_language)"
+    "recalledAs": "C_Sharp_(programming_language)",
+    "Summary": "C#  is a multi-paradigm programming language encompassing strong typing, imperative, declarative, functional, generic, object-oriented , and component-oriented programming disciplines"
   },
   "Thrift": {
     "recall": 1,
-    "recalledAs": "Apache_Thrift"
+    "recalledAs": "Apache_Thrift",
+    "Summary": "Thrift is an interface definition language and binary communication protocol used for defining and creating services for numerous languages"
   },
   "ASP": {
     "recall": 0,
-    "mentionIn": "Active_Server_Pages"
+    "mentionIn": "Active_Server_Pages",
+    "Summary": "Active Server Pages , later known as Classic ASP or ASP Classic, is Microsoft's first server-side script engine for dynamically generated web pages"
   },
   "CSV": {
     "recall": 1,
-    "recalledAs": "Comma-separated_values"
+    "recalledAs": "Comma-separated_values",
+    "Summary": "In computing, a comma-separated values  file stores tabular data  in plain text"
   },
   "edn": {
     "recall": 1,
-    "recalledAs": "Extensible_Data_Notation"
+    "recalledAs": "Extensible_Data_Notation",
+    "Summary": "Extensible Data Notation, abbreviated as EDN , is a data format"
   },
   "Graph Modeling Language": {
     "recall": 1,
-    "recalledAs": "Graph_Modelling_Language"
+    "recalledAs": "Graph_Modelling_Language",
+    "Summary": "Graph Modeling Language  is a hierarchical ASCII-based file format for describing graphs"
   },
   "Protocol Buffer": {
     "recall": 1,
-    "recalledAs": "Protocol_Buffers"
+    "recalledAs": "Protocol_Buffers",
+    "Summary": "Protocol Buffers is a method of serializing structured data"
   },
   "Parrot": {
     "recall": 0,
-    "comment": " not matchable from \"Parrot_virtual_machine\"\n"
+    "comment": " not matchable from \"Parrot_virtual_machine\"\n",
+    "Summary": "Unknown"
   },
   "Alpine Abuild": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Ballerina": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "C-ObjDump": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "C2hs Haskell": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Cirru": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Click": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Common Workflow Language": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Cpp-ObjDump": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "CSON": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "D-ObjDump": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "DataWeave": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "desktop": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "DM": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "DNS Zone": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Dogescript": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Easybuild": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Edje Data Collection": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "EmberScript": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "EQ": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Filebench WML": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "FLUX": {
     "recall": 0,
-    "comment": " not clear whether it matches \"Flux (software)\"\n"
+    "comment": " not clear whether it matches \"Flux (software)\"\n",
+    "Summary": "Unknown"
   },
   "Formatted": {
     "recall": 0,
-    "comment": " no github projects via trending\n"
+    "comment": " no github projects via trending\n",
+    "Summary": "Unknown"
   },
   "Gentoo Eclass": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Glyph": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "GN": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Grace": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "HCL": {
     "recall": 0,
-    "comment": " trace leads to Terraform (software)\n"
+    "comment": " trace leads to Terraform (software)\n",
+    "Summary": "Unknown"
   },
   "HTML+Django": {
     "recall": 0,
-    "comment": "' template language is not mentioned in Django''s article'\n"
+    "comment": "' template language is not mentioned in Django''s article'\n",
+    "Summary": "Unknown"
   },
   "HTML+ECR": {
     "recall": 0,
-    "comment": " no trending repositories at github \n"
+    "comment": " no trending repositories at github \n",
+    "Summary": "Unknown"
   },
   "HTML+EEX": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "IRC log": {
     "recall": 0,
-    "comment": " no trending projects at github\n"
+    "comment": " no trending projects at github\n",
+    "Summary": "Unknown"
   },
   "Isabelle ROOT": {
     "recall": 0,
-    "comment": " they keyword \"ROOT\" cannot be matched at \"Isabelle (proof assistant)\" as https://github.com/pirapira/eth-isabelle/blob/master/ROOT suggests\n"
+    "comment": " they keyword \"ROOT\" cannot be matched at \"Isabelle (proof assistant)\" as https://github.com/pirapira/eth-isabelle/blob/master/ROOT suggests\n",
+    "Summary": "Unknown"
   },
   "Jison": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Jison Lex": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "JSON5": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "KiCad Legacy Layout": {
     "recall": 0,
-    "comment": " no trending repos at github\n"
+    "comment": " no trending repos at github\n",
+    "Summary": "Unknown"
   },
   "Kit": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Latte": {
     "recall": 0,
-    "comment": " unclear \"Nette_Framework\" or \"Scrivener_(software)\"\n"
+    "comment": " unclear \"Nette_Framework\" or \"Scrivener_(software)\"\n",
+    "Summary": "Unknown"
   },
   "Lean": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Logos": {
     "recall": 0,
-    "comment": " unclear relationship to Logo (programming language)\n"
+    "comment": " unclear relationship to Logo (programming language)\n",
+    "Summary": "Unknown"
   },
   "LookML": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "LoomScript": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "M4Sugar": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Marko": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Mask": {
     "recall": 0,
-    "comment": " unclear relationship to Concept \"Mask (computing)\"\n"
+    "comment": " unclear relationship to Concept \"Mask (computing)\"\n",
+    "Summary": "Unknown"
   },
   "Moocode": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "MTML": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "NCL": {
     "recall": 0,
-    "comment": " unclear relationship to \"Nested_Context_Language\" or \"NCAR_Command_Language\"\n"
+    "comment": " unclear relationship to \"Nested_Context_Language\" or \"NCAR_Command_Language\"\n",
+    "Summary": "Unknown"
   },
   "NetLinx+ERB": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Nit": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Omgrofl": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "OpenRC runscript": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Org": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "PogoScript": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Pony": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Propeller Spin": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Public Key": {
     "recall": 0,
-    "comment": " no trending on github\n"
+    "comment": " no trending on github\n",
+    "Summary": "Unknown"
   },
   "Pug": {
     "recall": 0,
-    "comment": " unclear relationship to \"Pugs_(programming)\" no trending at github\n"
+    "comment": " unclear relationship to \"Pugs_(programming)\" no trending at github\n",
+    "Summary": "Unknown"
   },
   "Python console": {
     "recall": 0,
-    "comment": " no trending at github\n"
+    "comment": " no trending at github\n",
+    "Summary": "Unknown"
   },
   "Python traceback": {
     "recall": 0,
-    "comment": " no trending at github\n"
+    "comment": " no trending at github\n",
+    "Summary": "Unknown"
   },
   "Raw token data": {
     "recall": 0,
-    "comment": " no trending at github\n"
+    "comment": " no trending at github\n",
+    "Summary": "Unknown"
   },
   "Reason": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "RMarkdown": {
     "recall": 0,
-    "mentionIn": "RStudio"
+    "mentionIn": "RStudio",
+    "Summary": "RStudio is a free and open-source integrated development environment  for R, a programming language for statistical computing and graphics"
   },
   "Rouge": {
     "recall": 0,
-    "comment": " cannot find code at github repos marked as using Rouge\n"
+    "comment": " cannot find code at github repos marked as using Rouge\n",
+    "Summary": "Unknown"
   },
   "Scaml": {
     "recall": 0,
-    "comment": " no trending repos at github\n"
+    "comment": " no trending repos at github\n",
+    "Summary": "Unknown"
   },
   "Shell": {
     "recall": 0,
-    "comment": " mixes bash and batch into one pot on github\n"
+    "comment": " mixes bash and batch into one pot on github\n",
+    "Summary": "Unknown"
   },
   "ShellSession": {
     "recall": 0,
-    "comment": " unclear match\n"
+    "comment": " unclear match\n",
+    "Summary": "Unknown"
   },
   "Shen": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Slim": {
     "recall": 0,
-    "comment": " no trending repos on github\n"
+    "comment": " no trending repos on github\n",
+    "Summary": "Unknown"
   },
   "Smali": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "SMT": {
     "recall": 0,
-    "comment": " not clear what language is used to persist \"Satisfiability_modulo_theories\" problems\n"
+    "comment": " not clear what language is used to persist \"Satisfiability_modulo_theories\" problems\n",
+    "Summary": "Unknown"
   },
   "SourcePawn": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "SRecode Template": {
     "recall": 0,
-    "comment": " could be \"Redis\" but \"template\" is not mentioned there\n"
+    "comment": " could be \"Redis\" but \"template\" is not mentioned there\n",
+    "Summary": "Unknown"
   },
   "STON": {
     "recall": 0,
-    "comment": " no repo at github\n"
+    "comment": " no repo at github\n",
+    "Summary": "Unknown"
   },
   "Sublime Text Config": {
     "recall": 0,
-    "comment": " no repo at github\n"
+    "comment": " no repo at github\n",
+    "Summary": "Unknown"
   },
   "SugarSS": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Terra": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "Type Language": {
     "recall": 0,
-    "comment": " no repos at github\n"
+    "comment": " no repos at github\n",
+    "Summary": "Unknown"
   },
   "Unity3D Asset": {
     "recall": 0,
-    "comment": " expected at \"Unity_(game_engine)\"\n"
+    "comment": " expected at \"Unity_(game_engine)\"\n",
+    "Summary": "Unknown"
   },
   "Uno": {
     "recall": 0,
-    "comment": " expected at \"Fusebox_(programming)\"\n"
+    "comment": " expected at \"Fusebox_(programming)\"\n",
+    "Summary": "Unknown"
   },
   "Volt": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "wdl": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "wisp": {
-    "recall": 0
+    "recall": 0,
+    "Summary": "Unknown"
   },
   "World of Warcraft Addon Data": {
     "recall": 0,
-    "comment": " no repos at github\n"
+    "comment": " no repos at github\n",
+    "Summary": "Unknown"
   },
   "XCompose": {
     "recall": 0,
-    "comment": " no repos at github\n"
+    "comment": " no repos at github\n",
+    "Summary": "Unknown"
   },
   "YARA": {
     "recall": 0,
-    "mentionIn": "YARA"
+    "mentionIn": "YARA",
+    "Summary": "YARA is the name of a tool primarily used in malware research and detection.It provides a rule-based approach to create descriptions of malware families based on textual or binary patterns"
   },
   "XPages": {
     "recall": 0,
-    "mentionIn": "XPages"
+    "mentionIn": "XPages",
+    "Summary": "XPages is an IBM extension of Java Server Faces with a server side JavaScript runtime and the built-in NoSQL database IBM Domino"
   },
   "Wavefront Material": {
     "recall": 0,
-    "mentionIn": "Wavefront .obj file"
+    "mentionIn": "Wavefront .obj file",
+    "Summary": "OBJ  is a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package"
   },
   "Vue": {
     "recall": 0,
-    "mentionIn": "Vue.js"
+    "mentionIn": "Vue.js",
+    "Summary": "Vue.js  is an open-source JavaScript framework for building user interfaces"
   },
   "ShaderLab": {
     "recall": 0,
-    "mentionIn": "Visual_Studio_Code"
+    "mentionIn": "Visual_Studio_Code",
+    "Summary": "Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and OS X"
   },
   "VCL": {
     "recall": 0,
-    "mentionIn": "Varnish_(software)"
+    "mentionIn": "Varnish_(software)",
+    "Summary": "Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as heavily consumed APIs"
   },
   "UnrealScript": {
     "recall": 0,
-    "mentionIn": "Unreal_Engine"
+    "mentionIn": "Unreal_Engine",
+    "Summary": "The Unreal Engine is a game engine developed by Epic Games, first showcased in the 1998 first-person shooter game Unreal"
   },
   "MUF": {
     "recall": 0,
-    "mentionIn": "TinyMUCK"
+    "mentionIn": "TinyMUCK",
+    "Summary": "TinyMUCK or, more broadly, a MUCK, is a type of user-extendable online text-based role-playing game, designed for role playing and social interaction"
   },
   "POV-Ray SDL": {
     "recall": 0,
     "mentionIn": "SDL_(disambiguation)",
-    "comment": " \"POV-RAY\" as software\n"
+    "comment": " \"POV-RAY\" as software\n",
+    "Summary": null
   },
   "Apex": {
     "recall": 0,
-    "mentionIn": "Salesforce.com"
+    "mentionIn": "Salesforce.com",
+    "Summary": "Salesforce.com  is an American cloud computing company headquartered in San Francisco, California"
   },
   "RPM Spec": {
     "recall": 0,
-    "mentionIn": "rpm (software)"
+    "mentionIn": "rpm (software)",
+    "Summary": null
   },
   "Brightscript": {
     "recall": 0,
-    "mentionIn": "Roku"
+    "mentionIn": "Roku",
+    "Summary": "The Roku Streaming Player, or simply Roku , is a series of digital media player set-top boxes manufactured by Roku, Inc"
   },
   "Roff": {
     "recall": 0,
     "mentionIn": "roff (computer program)",
-    "comment": " more clearly in \"Troff\"\n"
+    "comment": " more clearly in \"Troff\"\n",
+    "Summary": null
   },
   "Filterscript": {
     "recall": 0,
-    "mentionIn": "RenderScript"
+    "mentionIn": "RenderScript",
+    "Summary": "RenderScript is a component of the Android operating system for mobile devices that offers an API for acceleration that takes advantage of heterogeneous hardware"
   },
   "RenderScript": {
     "recall": 0,
-    "mentionIn": "RenderScript"
+    "mentionIn": "RenderScript",
+    "Summary": "RenderScript is a component of the Android operating system for mobile devices that offers an API for acceleration that takes advantage of heterogeneous hardware"
   },
   "Redcode": {
     "recall": 0,
-    "mentionIn": "Redcode_(disambiguation)"
+    "mentionIn": "Redcode_(disambiguation)",
+    "Summary": null
   },
   "JSX": {
     "recall": 0,
-    "mentionIn": "React_(JavaScript_library)"
+    "mentionIn": "React_(JavaScript_library)",
+    "Summary": "React  is an open-source JavaScript library providing a view for data rendered as HTML"
   },
   "RDoc": {
     "recall": 0,
-    "mentionIn": "RDoc"
+    "mentionIn": "RDoc",
+    "Summary": "RDoc, designed by Dave Thomas, is an embedded documentation generator for the Ruby programming language"
   },
   "Myghty": {
     "recall": 0,
-    "mentionIn": "Pylons_project"
+    "mentionIn": "Pylons_project",
+    "Summary": "Pylons Project is an open source organization that develops a set of web application technologies written in Python"
   },
   "Gettext Catalog": {
     "recall": 0,
-    "mentionIn": "Poedit"
+    "mentionIn": "Poedit",
+    "Summary": "Poedit  is a shareware and cross-platform gettext catalog  editor to aid in the process of language localisation.It is written in C++ and depends on some subclasses from the wxWidgets, but utilizes graphical control elements from the GTK+ library."
   },
   "PigLatin": {
     "recall": 0,
-    "mentionIn": "Pig_(programming_tool)"
+    "mentionIn": "Pig_(programming_tool)",
+    "Summary": "Apache Pig is a high-level platform for creating programs that run on Apache Hadoop"
   },
   "HTML+PHP": {
     "recall": 0,
-    "mentionIn": "PHP"
+    "mentionIn": "PHP",
+    "Summary": "PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language"
   },
   "Zephir": {
     "recall": 0,
-    "mentionIn": "PHP"
+    "mentionIn": "PHP",
+    "Summary": "PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language"
   },
   "Parrot Internal Representation": {
     "recall": 0,
-    "mentionIn": "Parrot_intermediate_representation"
+    "mentionIn": "Parrot_intermediate_representation",
+    "Summary": "The Parrot intermediate representation , previously called Intermediate code , is one of the two assembly languages for the Parrot virtual machine"
   },
   "API Blueprint": {
     "recall": 0,
-    "mentionIn": "Overview_of_RESTful_API_Description_Languages"
+    "mentionIn": "Overview_of_RESTful_API_Description_Languages",
+    "Summary": "RESTful  API  DLs  are formal languages designed to provide a structured description of a RESTful web API that is useful both to a human and for automated machine processing"
   },
   "OpenType Feature File": {
     "recall": 0,
-    "mentionIn": "OpenType"
+    "mentionIn": "OpenType",
+    "Summary": "OpenType is a format for scalable computer fonts"
   },
   "OpenCL": {
     "recall": 0,
-    "mentionIn": "OpenCL"
+    "mentionIn": "OpenCL",
+    "Summary": "Open Computing Language  is a framework for writing programs that execute across heterogeneous platforms consisting of central processing units , graphics processing units , digital signal processors , field-programmable gate arrays  and other processors or hardware accelerators"
   },
   "ObjDump": {
     "recall": 0,
-    "mentionIn": "Objdump"
+    "mentionIn": "Objdump",
+    "Summary": "objdump  is a program for displaying various information about object files"
   },
   "NSIS": {
     "recall": 0,
-    "mentionIn": "Nullsoft_Scriptable_Install_System"
+    "mentionIn": "Nullsoft_Scriptable_Install_System",
+    "Summary": "Nullsoft Scriptable Install System  is a script-driven installer authoring tool for Microsoft Windows with minimal overhead backed by Nullsoft, the creators of Winamp"
   },
   "Nix": {
     "recall": 0,
-    "mentionIn": "Nix_package_manager"
+    "mentionIn": "Nix_package_manager",
+    "Summary": "Nix is a cross-platform package management system"
   },
   "Ninja": {
     "recall": 0,
-    "mentionIn": "Ninja_(build_system)"
+    "mentionIn": "Ninja_(build_system)",
+    "Summary": "Ninja is a small build system with a focus on speed"
   },
   "NetLinx": {
     "recall": 0,
-    "mentionIn": "NetLinx"
+    "mentionIn": "NetLinx",
+    "Summary": "NetLinx is both a range of controllers manufactured by AMX and the name of the proprietary programming language  used to program the devices.The NetLinx controllers are rack mountable devices which run a version of VxWorks and integrate both a processor and device controllers and are typically utilized for audio-visual control systems"
   },
   "Module Management System": {
     "recall": 0,
-    "mentionIn": "MMS (disambiguation)"
+    "mentionIn": "MMS (disambiguation)",
+    "Summary": null
   },
   "MoonScript": {
     "recall": 0,
-    "mentionIn": "Lua_(programming_language)"
+    "mentionIn": "Lua_(programming_language)",
+    "Summary": "Lua  is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients"
   },
   "Linux Kernel Module": {
     "recall": 0,
-    "mentionIn": "Loadable_kernel_module"
+    "mentionIn": "Loadable_kernel_module",
+    "Summary": "In computing, a loadable kernel module  is an object file that contains code to extend the running kernel, or so-called base kernel, of an operating system"
   },
   "Literate Agda": {
     "recall": 0,
-    "mentionIn": "Literate_programming"
+    "mentionIn": "Literate_programming",
+    "Summary": "Literate programming is an approach to programming introduced by Donald Knuth in which a program is given as an explanation of the program logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which a compilable source code can be generated.The literate programming paradigm, as conceived by Knuth, represents a move away from writing programs in the manner and order imposed by the computer, and instead enables programmers to develop programs in the order demanded by the logic and flow of their thoughts"
   },
   "Literate CoffeeScript": {
     "recall": 0,
-    "mentionIn": "Literate_programming"
+    "mentionIn": "Literate_programming",
+    "Summary": "Literate programming is an approach to programming introduced by Donald Knuth in which a program is given as an explanation of the program logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which a compilable source code can be generated.The literate programming paradigm, as conceived by Knuth, represents a move away from writing programs in the manner and order imposed by the computer, and instead enables programmers to develop programs in the order demanded by the logic and flow of their thoughts"
   },
   "Literate Haskell": {
     "recall": 0,
-    "mentionIn": "Literate_programming"
+    "mentionIn": "Literate_programming",
+    "Summary": "Literate programming is an approach to programming introduced by Donald Knuth in which a program is given as an explanation of the program logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which a compilable source code can be generated.The literate programming paradigm, as conceived by Knuth, represents a move away from writing programs in the manner and order imposed by the computer, and instead enables programmers to develop programs in the order demanded by the logic and flow of their thoughts"
   },
   "SQF": {
     "recall": 0,
-    "mentionIn": "List_of_file_formats"
+    "mentionIn": "List_of_file_formats",
+    "Summary": "This is a list of file formats used by computers, organized by type"
   },
   "Zimpl": {
     "recall": 0,
-    "mentionIn": "Linear_programming"
+    "mentionIn": "Linear_programming",
+    "Summary": null
   },
   "Cycript": {
     "recall": 0,
-    "mentionIn": "libffi"
+    "mentionIn": "libffi",
+    "Summary": null
   },
   "Blade": {
     "recall": 0,
-    "mentionIn": "Laravel"
+    "mentionIn": "Laravel",
+    "Summary": "Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model\u2013view\u2013controller  architectural pattern and based on Symfony"
   },
   "KiCad Layout": {
     "recall": 0,
     "mentionIn": "KiCad",
-    "comment": " may be Pcbnew\n"
+    "comment": " may be Pcbnew\n",
+    "Summary": "KiCad  is a free software suite for electronic design automation "
   },
   "KiCad Schematic": {
     "recall": 0,
     "mentionIn": "KiCad",
-    "comment": " may be Eeschema\n"
+    "comment": " may be Eeschema\n",
+    "Summary": "KiCad  is a free software suite for electronic design automation "
   },
   "Jupyter Notebook": {
     "recall": 0,
-    "mentionIn": "IPython and Notebook_interface"
+    "mentionIn": "IPython and Notebook_interface",
+    "Summary": null
   },
   "IGOR Pro": {
     "recall": 0,
-    "mentionIn": "IGOR Pro"
+    "mentionIn": "IGOR Pro",
+    "Summary": "IGOR Pro is a scientific data analysis software, numerical computing environment and programming language that runs on Windows or Mac operating systems"
   },
   "HyPhy": {
     "recall": 0,
-    "mentionIn": "HYPHY_(software)"
+    "mentionIn": "HYPHY_(software)",
+    "Summary": "HYPHY  is a free multiplatform  Computational phylogenetics software package intended to perform maximum likelihood analyses of genetic sequence data and equipped with tools to test various statistical hypotheses"
   },
   "HTTP": {
     "recall": 0,
-    "mentionIn": "Hypertext_Transfer_Protocol"
+    "mentionIn": "Hypertext_Transfer_Protocol",
+    "Summary": "The Hypertext Transfer Protocol  is an application protocol for distributed, collaborative, hypermedia information systems"
   },
   "Closure Templates": {
     "recall": 0,
-    "mentionIn": "Google_Closure_Tools"
+    "mentionIn": "Google_Closure_Tools",
+    "Summary": "Google Closure Tools is a set of tools to help developers build rich web applications with JavaScript"
   },
   "GDScript": {
     "recall": 0,
-    "mentionIn": "Godot_(game_engine)"
+    "mentionIn": "Godot_(game_engine)",
+    "Summary": "Godot is a 2D and 3D cross-platform compatible game engine released as open source software under the MIT license"
   },
   "Linker Script": {
     "recall": 0,
-    "mentionIn": "GNU_linker"
+    "mentionIn": "GNU_linker",
+    "Summary": "GNU linker  is the GNU Project's implementation of the Unix command ld"
   },
   "GCC Machine Description": {
     "recall": 0,
-    "mentionIn": "GNU_Compiler_Collection"
+    "mentionIn": "GNU_Compiler_Collection",
+    "Summary": "The GNU Compiler Collection  is a compiler system produced by the GNU Project supporting various programming languages"
   },
   "Game Maker Language": {
     "recall": 0,
-    "mentionIn": "GameMaker_Studio"
+    "mentionIn": "GameMaker_Studio",
+    "Summary": "GameMaker Studio  is a proprietary game creation system created by Mark Overmars in the Delphi programming language.GameMaker accommodates the creation of cross-platform and multi-genre video games using drag and drop action sequences or a sandboxed scripting language known as Game Maker Language, which can be used to develop more advanced games that could not be created just by using the drag and drop features"
   },
   "Spline Font Database": {
     "recall": 0,
-    "mentionIn": "FontForge"
+    "mentionIn": "FontForge",
+    "Summary": "FontForge is a font editor which supports many common font formats"
   },
   "JFlex": {
     "recall": 0,
-    "mentionIn": "Flex_(lexical_analyser_generator)"
+    "mentionIn": "Flex_(lexical_analyser_generator)",
+    "Summary": "Flex  is a free and open-source software alternative to lex"
   },
   "HTML+ERB": {
     "recall": 0,
-    "mentionIn": "ERuby"
+    "mentionIn": "ERuby",
+    "Summary": "eRuby  is a templating system that embeds Ruby into a text document"
   },
   "Ecere Projects": {
     "recall": 0,
-    "mentionIn": "EC_(programming_language)"
+    "mentionIn": "EC_(programming_language)",
+    "Summary": "eC  is an object-oriented programming language, defined as a super-set of the C language.eC was initially developed as part of the Ecere Cross-platform Software Development Kit project.The goals of the language are to provide object-oriented constructs, reflection, properties and dynamic modules on top of the C language while maintaining C compatibility and optimal native performance.eC currently relies on GCC or Clang to perform the final steps of compilation, using C as an intermediate language"
   },
   "ooc": {
     "recall": 0,
-    "mentionIn": "EC_(programming_language)"
+    "mentionIn": "EC_(programming_language)",
+    "Summary": "eC  is an object-oriented programming language, defined as a super-set of the C language.eC was initially developed as part of the Ecere Cross-platform Software Development Kit project.The goals of the language are to provide object-oriented constructs, reflection, properties and dynamic modules on top of the C language while maintaining C compatibility and optimal native performance.eC currently relies on GCC or Clang to perform the final steps of compilation, using C as an intermediate language"
   },
   "Dockerfile": {
     "recall": 0,
-    "mentionIn": "Docker_(software)"
+    "mentionIn": "Docker_(software)",
+    "Summary": "Docker is an open-source project that automates the deployment of Linux applications inside software containers"
   },
   "Darcs Patch": {
     "recall": 0,
-    "mentionIn": "Darcs"
+    "mentionIn": "Darcs",
+    "Summary": "Darcs is a distributed version control system created by David Roundy"
   },
   "Cuda": {
     "recall": 0,
-    "mentionIn": "CUDA"
+    "mentionIn": "CUDA",
+    "Summary": "CUDA is a parallel computing platform and application programming interface  model created by NVIDIA"
   },
   "Gherkin": {
     "recall": 0,
-    "mentionIn": "Cucumber_(software)"
+    "mentionIn": "Cucumber_(software)",
+    "Summary": "Cucumber is a software tool that computer programmers use for testing other software"
   },
   "Csound Score": {
     "recall": 0,
-    "mentionIn": "Csound"
+    "mentionIn": "Csound",
+    "Summary": "Csound is a computer programming language for sound, also known as a sound compiler or an audio programming language, or more precisely, an audio DSL"
   },
   "Liquid": {
     "recall": 0,
-    "mentionIn": "Comparison_of_web_template_engines"
+    "mentionIn": "Comparison_of_web_template_engines",
+    "Summary": "The following table lists the various Web Template Engines used in Web template systems and a brief rundown of their features"
   },
   "Nearley": {
     "recall": 0,
-    "mentionIn": "Comparison_of_parser_generators"
+    "mentionIn": "Comparison_of_parser_generators",
+    "Summary": "This is a list of notable lexer generators and parser generators for various language classes."
   },
   "Cap'n Proto": {
     "recall": 0,
-    "mentionIn": "Comparison_of_data_serialization_formats"
+    "mentionIn": "Comparison_of_data_serialization_formats",
+    "Summary": "This is a comparison of data serialization formats, various ways to convert complex objects to sequences of bits"
   },
   "CartoCSS": {
     "recall": 0,
-    "mentionIn": "CartoDB"
+    "mentionIn": "CartoDB",
+    "Summary": "CartoDB has been rebranded to CARTO on 7-7-2016.CARTO is a Software as a Service  cloud computing platform that provides GIS and web mapping tools for display in a web browser"
   },
   "Bluespec": {
     "recall": 0,
-    "mentionIn": "Bluespec"
+    "mentionIn": "Bluespec",
+    "Summary": "Bluespec, Inc"
   },
   "MAXScript": {
     "recall": 0,
-    "mentionIn": "Autodesk_3ds_Max"
+    "mentionIn": "Autodesk_3ds_Max",
+    "Summary": "Autodesk 3ds Max, formerly 3D Studio, then 3D Studio Max is a professional 3D computer graphics program for making 3D animations, models, games and images"
   },
   "Augeas": {
     "recall": 0,
-    "mentionIn": "Augeas (software)"
+    "mentionIn": "Augeas (software)",
+    "Summary": "Augeas is a free software configuration-management library, written in the C programming language"
   },
   "Unix Assembly": {
     "recall": 0,
-    "mentionIn": "Assembly_language"
+    "mentionIn": "Assembly_language",
+    "Summary": "Assembly is the best language ever with many of the best games made in it, also dos is the best for games .Dos, Assembly, commodore, windows 95, anything with about 200mb of ram will do.As many people know i will kill you if you dont agree with my insane logic, but hey, assembly,dos,assembly,gameboy...An assembly  language, often abbreviated asm, is a low-level programming language for a computer, or other programmable device, in which there is a very strong  correspondence between the language and the architecture's machine code instructions"
   },
   "Arduino": {
     "recall": 0,
-    "mentionIn": "Arduino"
+    "mentionIn": "Arduino",
+    "Summary": "Arduino, sold as Genuino, due to a trademark dispute, outside the U.S"
   },
   "Ant Build System": {
     "recall": 0,
-    "mentionIn": "Apache_Ant"
+    "mentionIn": "Apache_Ant",
+    "Summary": "Apache Ant is a software tool for automating software build processes, which originated from the Apache Tomcat project in early 2000"
   },
   "Maven POM": {
     "recall": 0,
-    "mentionIn": "Apache Maven"
+    "mentionIn": "Apache Maven",
+    "Summary": "Maven is a build automation tool used primarily for Java projects"
   },
   "AGS Script": {
     "recall": 0,
-    "mentionIn": "Adventure_Game_Studio"
+    "mentionIn": "Adventure_Game_Studio",
+    "Summary": "Adventure Game Studio  is an open source development tool that is primarily used to create graphic adventure games"
   },
   "ColdFusion CFC": {
     "recall": 0,
-    "mentionIn": "Adobe ColdFusion"
+    "mentionIn": "Adobe ColdFusion",
+    "Summary": "Adobe ColdFusion is a commercial rapid web application development platform created by JJ Allaire in 1995"
   },
   "1C Enterprise": {
     "recall": 0,
-    "mentionIn": "1C_Company"
+    "mentionIn": "1C_Company",
+    "Summary": "1C Company  is an independent Russian software developer and publisher"
   },
   "ApacheConf": {
     "recall": 0,
-    "mentionIn": ".htaccess"
+    "mentionIn": ".htaccess",
+    "Summary": "A .htaccess  file is a directory-level configuration file supported by several web servers, used for configuration of site-access issues, such as URL redirection, URL shortening, Access-security control , and more.A site could have more than one .htaccess file, and the files are placed inside the web tree , and hence their other name distributed configuration files..htaccess files act as a subset of the server's global configuration file  for the directory that they are in, or all sub-directories.The original purpose of .htaccess\u2014reflected in its name\u2014was to allow per-directory access control by, for example, requiring a password to access the content"
   }
 }

@@ -333,6 +333,34 @@ offset ?offset
             articles[article] = summary
     return articles
 
+def get_summary(article):
+    url = "<http://dbpedia.org/resource/"+article.replace(' ','_')+">"
+    querytext = """
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?summary where { 
+    ?article dbo:abstract ?summary .
+}
+    """.replace("?article",url)
+    for result in query(querytext,use_offset=False):
+        if result["summary"]["xml:lang"] == "en":
+            summary = result["summary"]["value"]
+            result = ""
+            lvl = 0
+            for c in summary:
+                if c == '(':
+                    lvl += 1
+                    continue
+                if c == ')':
+                    lvl -= 1
+                    continue
+                if lvl == 0:
+                    result += c
+            summary = result.strip()
+            return summary.split('. ')[0]
+    return None
+
 
 def articles_with_revisions(root, mindepth, maxdepth):
     querytext = """
