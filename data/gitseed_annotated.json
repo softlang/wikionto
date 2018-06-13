@@ -107,8 +107,8 @@
     "recalledAs": "APL_(programming_language)"
   },
   "Apollo Guidance Computer": {
-    "recall": 1,
-    "recalledAs": "Apollo_Guidance_Computer"
+    "recall": 0,
+    "mentionIn": "Apollo_Guidance_Computer"
   },
   "AppleScript": {
     "recall": 1
@@ -594,7 +594,8 @@
     "recalledAs": "NewLISP"
   },
   "Nginx": {
-    "recall": 1
+    "recall": 0,
+    "mentionIn": "Nginx"
   },
   "Nim": {
     "recall": 1,

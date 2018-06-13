@@ -19,6 +19,8 @@ class Tiobe(LangdictCheck):
                     langdict[rec]["TIOBE"] = 1
                 else:
                     print(rec)
+            elif tld["recall"]==1:
+                langdict[tl]["TIOBE"] = 1
         return langdict
 
 
