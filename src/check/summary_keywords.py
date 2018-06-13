@@ -6,7 +6,7 @@ class SumKeyWords(LangdictCheck):
     def check(self,langdict):
         print("Checking summary for keyword mentions")
         for cl in langdict:
-            summary = langdict[cl]["Summary"]
+            summary = langdict[cl]["Summary"].split('. ')[0]
             if any(word in summary.lower() for word in KEYWORDS):
                 langdict[cl]["PlainTextKeyword"] = 1
             else:
