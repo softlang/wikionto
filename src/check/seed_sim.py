@@ -1,5 +1,5 @@
 from check.langdictcheck import LangdictCheck
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import SnowballStemmer
@@ -41,9 +41,9 @@ def seedsim(cltuple):
 
 
 def sim(text, texts):
-    vect = TfidfVectorizer(analyzer='word', tokenizer=normalize, min_df=0, stop_words='english')
-    tfidf_matrix = vect.fit_transform([text] + texts)
-    cosine_similarities = linear_kernel(tfidf_matrix[0:1], tfidf_matrix).flatten()
+    vect = CountVectorizer(analyzer='word', tokenizer=normalize, min_df=0, stop_words='english')
+    matrix = vect.fit_transform([text] + texts)
+    cosine_similarities = linear_kernel(matrix[0:1], matrix).flatten()
     simmax = max(cosine_similarities[1:])
     return simmax
 
