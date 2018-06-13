@@ -43,6 +43,8 @@ def explore_all():
 class WikiList(LangdictCheck):
     def check(self,langdict):
         print("Checking Wikipedia's lists")
+        for cl in langdict:
+            langdict[cl]['In_Wikipedia_List'] = 0
         for page in lists:
             links = getlinks(page)
             for l in links:

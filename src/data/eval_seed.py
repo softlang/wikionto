@@ -11,5 +11,15 @@ def get_n(n):
                 print(cl)
 
 
+def get_list_linked_seed():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    d = load(f)
+    f.close()
+    sl = list(cl for cl in d if ((d[cl]["GitSeed"]==1) or (d[cl]["TIOBE"]==1)) and (d[cl]["In_Wikipedia_List"]==1))
+    sl0 = list(cl for cl in d if ((d[cl]["GitSeed"] == 1) or (d[cl]["TIOBE"] == 1)))
+    print(len(sl))
+    print(len(sl0))
+
+
 if __name__ == "__main__":
-    get_n(7)
+    get_list_linked_seed()

@@ -829,7 +829,8 @@
     "recall": 1
   },
   "Smarty": {
-    "recall": 1
+    "recall": 1,
+    "recalledAs": "Smarty_(template_engine)"
   },
   "SPARQL": {
     "recall": 1
@@ -989,7 +990,10 @@
   "YANG": {
     "recall": 1
   },
-  "ABNF": {},
+  "ABNF": {
+    "recall": 1,
+    "recalledAs": "Augmented_Backus–Naur_form"
+  },
   "XPM": {
     "recall": 1,
     "recalledAs": "X_PixMap"
@@ -1046,7 +1050,10 @@
     "recall": 1,
     "recalledAs": "MetaQuotes_Language_MQL4/MQL5"
   },
-  "LSL": {},
+  "LSL": {
+    "recall": 0,
+    "mentionIn": "Second_Life"
+  },
   "JSONLD": {
     "recall": 1,
     "recalledAs": "JSON-LD"
@@ -1075,7 +1082,10 @@
     "recall": 1,
     "recalledAs": "F_Sharp_(programming_language)"
   },
-  "Gentoo Ebuild": {},
+  "Gentoo Ebuild": {
+    "recall": 0,
+    "mentionIn": "Ebuild"
+  },
   "Csound Document": {
     "recall": 1,
     "recalledAs": "Csound"
@@ -1088,18 +1098,25 @@
     "recall": 1,
     "recalledAs": "Apache_Thrift"
   },
-  "ASP": {},
+  "ASP": {
+    "recall": 0,
+    "mentionIn": "Active_Server_Pages"
+  },
   "CSV": {
-    "recall": 1
+    "recall": 1,
+    "recalledAs": "Comma-separated_values"
   },
   "edn": {
-    "recall": 1
+    "recall": 1,
+    "recalledAs": "Extensible_Data_Notation"
   },
   "Graph Modeling Language": {
-    "recall": 1
+    "recall": 1,
+    "recalledAs": "Graph_Modelling_Language"
   },
   "Protocol Buffer": {
-    "recall": 1
+    "recall": 1,
+    "recalledAs": "Protocol_Buffers"
   },
   "Parrot": {
     "recall": 0,
@@ -1310,7 +1327,7 @@
   },
   "RMarkdown": {
     "recall": 0,
-    "comment": " no trending at github\n"
+    "mentionIn": "RStudio"
   },
   "Rouge": {
     "recall": 0,

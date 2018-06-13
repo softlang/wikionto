@@ -13,12 +13,16 @@ class Gitseed(LangdictCheck):
         for cl in langdict:
             langdict[cl]["GitSeed"] = 0
         for tl, tld in tiobedict.items():
+            if "recall" not in tld:
+                print(tl)
             if "recalledAs" in tld:
                 rec = tld["recalledAs"]
                 if rec in langdict:
                     langdict[rec]["GitSeed"] = 1
                 else:
                     print(rec)
+            elif tld["recall"]==1:
+                langdict[tl]["GitSeed"] = 1
         return langdict
 
 
