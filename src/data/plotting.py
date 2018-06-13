@@ -1,6 +1,7 @@
-from data import DATAP
+from data import DATAP, CLDEPTH
 from json import load
 import pandas
+from io import StringIO
 import matplotlib.pyplot as plt
 
 FEATURES = ["GitSeed", "TIOBE",
@@ -76,27 +77,62 @@ def plot_features():
     plt.show()
 
 
-def plot_feature(feature):
-    f = open(DATAP + '/langdict.csv', 'r', encoding="UTF8")
-    plot_dtypes = {'name': object}
-    for p in HEADERS:
-        plot_dtypes[p] = int
-    df = pandas.read_csv(f, delimiter='<->', names=['name'] + HEADERS, dtype=plot_dtypes)
-    df.fillna(0)
-    # print(df.describe().to_latex())
+def plot_feature(feature,title,ton=(CLDEPTH+1)):
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    langdict["CLDepth"] = dict()
+    langdict["CFFDepth"] = dict()
+    cldepths = list(map(lambda d: len([cl for cl, feat in langdict.items()
+                                       if (("CLDepth" in langdict[cl]) and (langdict[cl]["CLDepth"] == d))
+                                       and (langdict[cl][feature] == 1)])
+                        , range(ton)))
+    cffdepths = list(map(lambda d: len([cl for cl, feat in langdict.items()
+                                        if (("CFFDepth" in langdict[cl]) and (langdict[cl]["CFFDepth"] == d))
+                                        and (langdict[cl][feature] == 1)])
+                         , range(ton)))
 
-    fig, axes = plt.subplots(nrows=1, ncols=2)
-    rfail = df[(df.CLDepth >= 0) & (df[feature] == 0)].groupby(by=['CLDepth']).apply(lambda x: len(x))
-    rfail.plot(kind='bar', ax=axes[0], color='blue', linestyle='dashed')
+    csvtext = ""
+    for x in range(ton):
+        csvtext += str(x) + ", " + str(cldepths[x]) + ", " + str(cffdepths[x]) + "\n"
+    df = pandas.read_csv(StringIO(csvtext), delimiter=',', names=["depth", "#CL", "#CFF"],
+                  dtype={'depth': int,
+                         '#CL': int,
+                         '#CFF': int})
+    print(df)
+    ax = df.plot(x="depth", y=["#CL", "#CFF"], kind="bar", logy=True, width=0.8, color=["black", "grey"])
 
-    rsuccess = df[(df.CFFDepth >= 0) & (df[feature] == 1)].groupby(by=['CFFDepth']).apply(lambda x: len(x))
-    rsuccess.plot(kind='bar', ax=axes[1], color='blue', linestyle='dashed')
+    ax.set_title(title)
+    for p in ax.patches:
+        ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+    plt.show()
 
-    for ax in axes:
-        for p in ax.patches:
-            ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+def plot_articlesdepth(ton=(CLDEPTH+1)):
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    langdict["CLDepth"] = dict()
+    langdict["CFFDepth"] = dict()
+    cldepths = list(map(lambda d: len([cl for cl, feat in langdict.items()
+                                       if (("CLDepth" in langdict[cl]) and (langdict[cl]["CLDepth"] == d))])
+                        , range(ton)))
+    cffdepths = list(map(lambda d: len([cl for cl, feat in langdict.items()
+                                        if (("CFFDepth" in langdict[cl]) and (langdict[cl]["CFFDepth"] == d))])
+                         , range(ton)))
+
+    csvtext = ""
+    for x in range(ton):
+        csvtext += str(x) + ", " + str(cldepths[x]) + ", " + str(cffdepths[x]) + "\n"
+    df = pandas.read_csv(StringIO(csvtext), delimiter=',', names=["depth", "#CL", "#CFF"],
+                  dtype={'depth': int,
+                         '#CL': int,
+                         '#CFF': int})
+    print(df)
+    ax = df.plot(x="depth", y=["#CL", "#CFF"], kind="bar", logy=True, width=0.8, color=["black", "grey"])
+
+    ax.set_title("Articles per Depth")
+    for p in ax.patches:
+        ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
     plt.show()
 
 
 if __name__ == '__main__':
-    langdict_to_csv()
+    plot_articlesdepth()
