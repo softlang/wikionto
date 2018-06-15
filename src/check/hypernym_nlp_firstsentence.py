@@ -33,7 +33,8 @@ class HypNLPSent(LangdictCheck):
 
     def check(self, langdict):
         print("Checking Hypernym with Stanford")
-
+        for cl in langdict:
+            langdict[cl]["POS"] = 0
         cl_sums = []
         for cl in langdict:
             cl_sums.append((cl, langdict[cl]["Summary"]))
@@ -51,8 +52,6 @@ class HypNLPSent(LangdictCheck):
                     langdict[cl]["POS_" + s] = 1
                 if any(p.lower().endswith(kw) or p.lower().endswith(kw + 's') for p in pos for kw in KEYWORDS):
                     langdict[cl]["POS"] = 1
-                else:
-                    langdict[cl]["POS"] = 0
 
                 for k1, k2 in XKEYWORDS:
                     if any(p.lower().endswith(k1) or p.lower().endswith(k1 + 's') for p in pos) \

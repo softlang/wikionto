@@ -1,22 +1,7 @@
 from multiprocessing.pool import Pool
-from mine.wiki import getcontent
+from mine.wiki import get_infobox
 from data import DATAP
 from json import load, dump
-
-
-def get_infobox(rev):
-    text= getcontent(rev).lower()
-    if '{{infobox' not in text:
-        return None
-    parts = text.split('{{infobox')
-    ibs = []
-    for x in range(1,len(parts)):
-        p = parts[x]
-        name = p.split('|')[0].replace('\\n', '').strip()
-        if name=='software':
-            print(rev)
-        ibs.append(name)
-    return ibs
 
 
 def explore():

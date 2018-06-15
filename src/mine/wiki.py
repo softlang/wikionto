@@ -96,6 +96,20 @@ def getlinks(title):
     return links
 
 
+def get_infobox(pair):
+    l, rev = pair
+    text = getcontent(rev).lower()
+    if '{{infobox' not in text:
+        return None
+    parts = text.split('{{infobox')
+    ibs = []
+    for x in range(1, len(parts)):
+        p = parts[x]
+        name = p.split('|')[0].replace('\\n', '').strip()
+        ibs.append(name)
+    return l, rev, ibs
+
+
 if __name__ == "__main__":
     c = getcontent("741790515")  # this is Java_(programming_language)
     print(c)

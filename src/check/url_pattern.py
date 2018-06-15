@@ -6,12 +6,15 @@ class URLPattern(LangdictCheck):
         print("Checking URL pattern")
 
         for cl in langdict:
+            langdict[cl]["URLPattern"] = 0
+            langdict[cl]["URLBracesPattern"] = 0
+        for cl in langdict:
             if any(kw in cl for kw in KEYWORDS):
                 langdict[cl]["URLPattern"] = 1
 
             if '(' in cl:
                 clbrack = cl.split('(')[1].split(')')[0]
-                if any(kw in clbrack for kw in KEYWORDS):
+                if any(clbrack.endswith(kw) for kw in KEYWORDS):
                     langdict[cl]["URLBracesPattern"] = 1
 
         return langdict

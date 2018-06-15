@@ -133,7 +133,8 @@ def topflop_pos_semdist():
                 "POSX_templatesystem",
                 "POSX_templatingsystem",
                 "POSX_typesettingsystem",
-                "POSX_file"]
+                "POSX_file",
+                "POSX_filetype"]
 
     patdict = dict()
     for p in pattern:
@@ -193,4 +194,9 @@ def weirdo_seed_similarity():
 
 
 if __name__ == "__main__":
-    weirdo_seed_similarity()
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    f.close()
+    for cl, d in langdict.items():
+        if (("No Summary" not in d) and ("POS" in d) and (d["POS"]==0)) and ("URLBracesPattern" in d) and (d["URLBracesPattern"]==1):
+            print(cl)

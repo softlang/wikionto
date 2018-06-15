@@ -1,9 +1,10 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
     category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, articles_with_revisions_live, \
     articles_with_wikidataid
-from mine.property_miner import add_properties
-from json import dump,load
+from mine.wiki import get_infobox
+from json import dump, load
 from data import DATAP, CLDEPTH, CFFDEPTH
+from multiprocessing.pool import Pool
 
 
 def init_langdict():
@@ -73,6 +74,15 @@ def add_wikidata_ids(langdict):
             langdict[cl]["wikidataid"] = clarticles[cl]
         else:
             langdict[cl]["wikidataid"] = "None"
+    return langdict
+
+def add_infobox_templates(langdict):
+    print("Mining Infobox template names")
+    revs = list((l, langdict[l]["Revision"]) for l in langdict.keys())
+    pool = Pool(processes=10)
+    d = list(pool.map(get_infobox, revs))
+    for cl, rev, ibs in d:
+        langdict[cl]["Infobox"] = ibs
     return langdict
 
 def init_article_cats(langdict):
@@ -162,7 +172,7 @@ def mine():
 if __name__ == '__main__':
     with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
         ld = load(f)
-        ld = add_revisions(ld)
+        ld = add_infobox_templates(ld)
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=ld, fp=f, indent=2)
         f.flush()

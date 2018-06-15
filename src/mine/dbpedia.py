@@ -362,6 +362,22 @@ SELECT ?summary where {
     return None
 
 
+def get_Templates(article):
+    url = "<http://dbpedia.org/resource/" + article.replace(' ', '_') + ">"
+    querytext = """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbp: <http://dbpedia.org/resource/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    SELECT ?t where { 
+        ?article dbo:wikiPageUsesTemplate ?t .
+    }
+        """.replace("?article", url)
+    ts = set()
+    for result in query(querytext, use_offset=False):
+        ts.add(result["t"]["value"])
+    return ts
+
+
 def articles_with_revisions(root, mindepth, maxdepth):
     querytext = """
     PREFIX dbo: <http://dbpedia.org/ontology/>
