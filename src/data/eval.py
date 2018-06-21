@@ -192,11 +192,24 @@ def weirdo_seed_similarity():
             if not [f for f in fs if (f in feat) and (feat[f] > 0)]:
                 print(cl + feat["Summary"])
 
+def POS_vs_URL():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    f.close()
+    for cl, d in langdict.items():
+        if (("No Summary" not in d) and ("POS" in d) and (d["POS"] == 0)) and ("URLBracesPattern" in d) and (
+                d["URLBracesPattern"] == 1):
+            print(cl)
 
 if __name__ == "__main__":
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     f.close()
     for cl, d in langdict.items():
-        if (("No Summary" not in d) and ("POS" in d) and (d["POS"]==0)) and ("URLBracesPattern" in d) and (d["URLBracesPattern"]==1):
-            print(cl)
+        if "DbpediaInfoboxTemplate" in d:
+            ts = d["DbpediaInfoboxTemplate"]
+            if "Infobox" in d:
+                for ib in d["Infobox"]:
+                    if ib.lower().replace(" ","_") not in set(t.lower() for t in ts):
+                        print(cl)
+                        print("   "+str(d["Infobox"])+" vs. "+ str(d["DbpediaInfoboxTemplate"]))

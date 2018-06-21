@@ -362,20 +362,30 @@ SELECT ?summary where {
     return None
 
 
-def get_Templates(article):
-    url = "<http://dbpedia.org/resource/" + article.replace(' ', '_') + ">"
+def get_templates(root, mindepth, maxdepth):
     querytext = """
     PREFIX dbo: <http://dbpedia.org/ontology/>
     PREFIX dbp: <http://dbpedia.org/resource/>
     PREFIX dct: <http://purl.org/dc/terms/>
-    SELECT ?t where { 
-        ?article dbo:wikiPageUsesTemplate ?t .
+    SELECT ?article ?t where { 
+      SELECT ?article ?t where {
+        ?article dct:subject/skos:broader{0,7} <http://dbpedia.org/resource/Category:Computer_languages> .
+        ?article <http://dbpedia.org/property/wikiPageUsesTemplate> ?t .
+        FILTER(regex(str(?t),"Infobox","i"))
+      }
+      ORDER BY ASC(?article)
     }
-        """.replace("?article", url)
-    ts = set()
-    for result in query(querytext, use_offset=False):
-        ts.add(result["t"]["value"])
-    return ts
+    limit 10000
+    offset ?offset
+        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    td = dict()
+    for result in query(querytext):
+        t = result["t"]["value"].replace("http://dbpedia.org/resource/Template:Infobox_", "")
+        cl = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        if cl not in td:
+            td[cl] = []
+        td[cl].append(t)
+    return td
 
 
 def articles_with_revisions(root, mindepth, maxdepth):

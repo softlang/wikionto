@@ -1,6 +1,6 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
     category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, articles_with_revisions_live, \
-    articles_with_wikidataid
+    articles_with_wikidataid, get_templates
 from mine.wiki import get_infobox
 from json import dump, load
 from data import DATAP, CLDEPTH, CFFDEPTH
@@ -78,11 +78,10 @@ def add_wikidata_ids(langdict):
 
 def add_infobox_templates(langdict):
     print("Mining Infobox template names")
-    revs = list((l, langdict[l]["Revision"]) for l in langdict.keys())
-    pool = Pool(processes=10)
-    d = list(pool.map(get_infobox, revs))
-    for cl, rev, ibs in d:
-        langdict[cl]["Infobox"] = ibs
+    td = get_templates(CLURI, 0, CLDEPTH)
+    td.update(get_templates(CFFURI, 0, CFFDEPTH))
+    for cl in td:
+        langdict[cl]["DbpediaInfoboxTemplate"] = td[cl]
     return langdict
 
 def init_article_cats(langdict):
@@ -152,6 +151,7 @@ def init_cat_articles():
 def mine():
     langdict = init_langdict()
     langdict = add_summaries(langdict)
+    langdict = add_infobox_templates(langdict)
     langdict = add_revisions(langdict)
     langdict = add_wikidata_ids(langdict)
     #langdict = add_properties(langdict)

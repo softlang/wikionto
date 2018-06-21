@@ -97,10 +97,11 @@ def getlinks(title):
 
 
 def get_infobox(pair):
-    l, rev = pair
+    l = pair[0]
+    rev = pair[1]
     text = getcontent(rev).lower()
     if '{{infobox' not in text:
-        return None
+        return l, rev, []
     parts = text.split('{{infobox')
     ibs = []
     for x in range(1, len(parts)):
