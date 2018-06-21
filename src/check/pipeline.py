@@ -1,5 +1,4 @@
-from check.gitseed import Gitseed
-from check.tiobe import Tiobe
+from check.seed import Seed
 from check.seed_sim import SeedSim
 from check.hypernym_dbpedia import DbpediaHyp
 from check.hypernym_nlp_firstsentence import HypNLPSent
@@ -22,7 +21,7 @@ from functools import reduce
 
 
 def pipeline():
-    ans = [Gitseed, Tiobe, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
+    ans = [Seed, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
            Wikidata, Yago, WordNet, SemDist]
     for c in ans:
         try:

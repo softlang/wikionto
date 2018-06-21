@@ -18,17 +18,28 @@ def depth_semdist_catnr():
 
 def seed_similarity():
     df = load_langdict_csv()
-    df = df.sort_values(by=['Seed_Similarity'])
-    print(df)
-    ax = df.plot(x='name', y='Seed_Similarity', style='.', color='blue')
+    df0 = df[(df["Seed"] == 0)
+             & ((df["DbpediaHypernym"] == 1)
+             | (df["PlainTextKeyword"] == 1)
+             | (df["POS"] == 1)
+             | (df["COP"] == 1)
+             | (df["URLBracesPattern"] == 1)
+             | (df["Infobox programming language"] > -1)
+             | (df["Infobox file format"] > -1)
+             | (df["wikidata_CL"] == 1)
+             | (df["yago_CL"] == 1))]
+    df0 = df0.sort_values(by=['Seed_Similarity'])
+
+    print(df0)
+    ax = df0.plot(x='name', y='Seed_Similarity', style='.', color='blue')
     ax.legend()
     plt.show()
 
 
 def seed_similarity_binned_range():
     df = load_langdict_csv()
-    bins = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-    ind = np.arange(10)
+    bins = list(x for x in range(0,180,10))
+    ind = np.arange(17)
     width = 0.35
 
     df0 = df[(df["GitSeed"] == 0)
@@ -89,4 +100,4 @@ def seed_similarity_binned_range():
 
 
 if __name__ == '__main__':
-    seed_similarity_binned_range()
+    seed_similarity()

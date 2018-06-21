@@ -15,9 +15,10 @@ class HypNLPSent(LangdictCheck):
         summary = pair[1]
         if summary.startswith('.'):
             summary = summary[1:]
+
         dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
         try:
-            parse, = dep_parser.raw_parse(summary)
+            parse, = dep_parser.raw_parse(summary) #TODO If see also appears, take 2nd sentence
             pos = pos_hypernyms(parse)
             cop = cop_hypernym(parse)
             return cl, (pos, cop)
