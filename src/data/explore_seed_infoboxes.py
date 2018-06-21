@@ -12,7 +12,7 @@ def explore():
     f.close()
     clrevs = []
     for cl in langdict:
-        if langdict[cl]["GitSeed"] == 0 and (langdict[cl]["TIOBE"]==0):
+        if langdict[cl]["Seed"] == 0:
             continue
         rev = langdict[cl]["Revision"]
         clrevs.append(rev)

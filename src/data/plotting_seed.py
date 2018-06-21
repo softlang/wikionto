@@ -41,11 +41,11 @@ def plot_seed_depth(ton):
     langdict["CFFDepth"] = dict()
     cldepths = list(map(lambda d: len([cl for cl,feat in langdict.items()
                                        if (("CLDepth" in langdict[cl]) and (langdict[cl]["CLDepth"] == d))
-                                       and ((langdict[cl]["GitSeed"] == 1) or (langdict[cl]["TIOBE"] == 1))])
+                                       and (langdict[cl]["Seed"] == 1)])
                         , range(ton)))
     cffdepths = list(map(lambda d: len([cl for cl,feat in langdict.items()
                                        if (("CFFDepth" in langdict[cl]) and (langdict[cl]["CFFDepth"] == d))
-                                       and ((langdict[cl]["GitSeed"] == 1) or (langdict[cl]["TIOBE"] == 1))])
+                                       and (langdict[cl]["Seed"] == 1)])
                          , range(ton)))
 
     csvtext = ""

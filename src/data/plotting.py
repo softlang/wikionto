@@ -4,8 +4,7 @@ import pandas
 from io import StringIO
 import matplotlib.pyplot as plt
 
-FEATURES = ["GitSeed", "TIOBE",
-            "DbpediaHypernym", "PlainTextKeyword", "POS", "COP", "URLPattern",
+FEATURES = ["Seed", "DbpediaHypernym", "PlainTextKeyword", "POS", "COP", "URLPattern",
             "URLBracesPattern", "MultiInfobox", "Infobox programming language", "Infobox file format",
             "Infobox software", "wikidata_CL", "yago_CL"]
 
@@ -34,8 +33,7 @@ def load_langdict_csv():
     f = open(DATAP + '/langdict.csv', 'r', encoding="UTF8")
     df = pandas.read_csv(f, delimiter='<->', names=["name"]+HEADERS,
                          dtype={'name': object,
-                                "GitSeed": int,
-                                "TIOBE": int,
+                                "Seed": int,
                                 "DbpediaHypernym": int,
                                 "POS": int,
                                 "COP": int,
