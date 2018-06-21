@@ -1,0 +1,2902 @@
+{
+  "recalled": {
+    "Scalable_Vector_Graphics": {
+      "gitseed": [
+        "SVG"
+      ]
+    },
+    "Sass_(stylesheet_language)": {
+      "gitseed": [
+        "Sass"
+      ]
+    },
+    "OpenGL_Shading_Language": {
+      "gitseed": [
+        "GLSL"
+      ],
+      "tiobe": [
+        "GLSL"
+      ]
+    },
+    "Objective-C": {
+      "gitseed": [
+        "Objective-C"
+      ],
+      "tiobe": [
+        "Objective-C"
+      ]
+    },
+    "MetaQuotes_Language_MQL4/MQL5": {
+      "gitseed": [
+        "MQL5"
+      ],
+      "tiobe": [
+        "MQL4"
+      ]
+    },
+    "High-Level_Shading_Language": {
+      "gitseed": [
+        "HLSL"
+      ]
+    },
+    "Extended_Backus\u2013Naur_Form": {
+      "gitseed": [
+        "EBNF"
+      ]
+    },
+    "Cascading_Style_Sheets": {
+      "gitseed": [
+        "CSS"
+      ]
+    },
+    "Blitz_BASIC": {
+      "gitseed": [
+        "BlitzBasic"
+      ],
+      "tiobe": [
+        "BlitzMax"
+      ]
+    },
+    "Abstract_Syntax_Notation_One": {
+      "gitseed": [
+        "ASN.1"
+      ]
+    },
+    "ABAP": {
+      "gitseed": [
+        "ABAP"
+      ],
+      "tiobe": [
+        "ABAP"
+      ]
+    },
+    "ActionScript": {
+      "gitseed": [
+        "ActionScript"
+      ],
+      "tiobe": [
+        "ActionScript"
+      ]
+    },
+    "Ada_(programming_language)": {
+      "gitseed": [
+        "Ada"
+      ],
+      "tiobe": [
+        "Ada"
+      ]
+    },
+    "Agda_(programming_language)": {
+      "gitseed": [
+        "Agda"
+      ]
+    },
+    "Alloy_(specification_language)": {
+      "gitseed": [
+        "Alloy"
+      ]
+    },
+    "AMPL": {
+      "gitseed": [
+        "AMPL"
+      ]
+    },
+    "AngelScript": {
+      "gitseed": [
+        "AngelScript"
+      ],
+      "tiobe": [
+        "Angelscript"
+      ]
+    },
+    "APL_(programming_language)": {
+      "gitseed": [
+        "APL"
+      ],
+      "tiobe": [
+        "APL"
+      ]
+    },
+    "AppleScript": {
+      "gitseed": [
+        "AppleScript"
+      ],
+      "tiobe": [
+        "Applescript"
+      ]
+    },
+    "Arc_(programming_language)": {
+      "gitseed": [
+        "Arc"
+      ],
+      "tiobe": [
+        "Arc"
+      ]
+    },
+    "AsciiDoc": {
+      "gitseed": [
+        "AsciiDoc"
+      ]
+    },
+    "AspectJ": {
+      "gitseed": [
+        "AspectJ"
+      ],
+      "tiobe": [
+        "AspectJ"
+      ]
+    },
+    "Assembly_language": {
+      "gitseed": [
+        "Assembly"
+      ],
+      "tiobe": [
+        "Assembly language"
+      ]
+    },
+    "ATS_(programming_language)": {
+      "gitseed": [
+        "ATS"
+      ]
+    },
+    "AutoHotkey": {
+      "gitseed": [
+        "AutoHotkey"
+      ]
+    },
+    "AutoIt": {
+      "gitseed": [
+        "AutoIt"
+      ],
+      "tiobe": [
+        "AutoIt"
+      ]
+    },
+    "AWK": {
+      "gitseed": [
+        "Awk"
+      ],
+      "tiobe": [
+        "Awk"
+      ]
+    },
+    "Batch_file": {
+      "gitseed": [
+        "Batchfile"
+      ],
+      "tiobe": [
+        "MS-DOS batch"
+      ]
+    },
+    "Befunge": {
+      "gitseed": [
+        "Befunge"
+      ]
+    },
+    "Boo_(programming_language)": {
+      "gitseed": [
+        "Boo"
+      ],
+      "tiobe": [
+        "Boo"
+      ]
+    },
+    "Brainfuck": {
+      "gitseed": [
+        "Brainfuck"
+      ]
+    },
+    "C_(programming_language)": {
+      "gitseed": [
+        "C"
+      ],
+      "tiobe": [
+        "C"
+      ]
+    },
+    "C++": {
+      "gitseed": [
+        "C++"
+      ],
+      "tiobe": [
+        "C++"
+      ]
+    },
+    "Ceylon_(programming_language)": {
+      "gitseed": [
+        "Ceylon"
+      ],
+      "tiobe": [
+        "Ceylon"
+      ]
+    },
+    "Chapel_(programming_language)": {
+      "gitseed": [
+        "Chapel"
+      ]
+    },
+    "Charity_(programming_language)": {
+      "gitseed": [
+        "Charity"
+      ]
+    },
+    "ChucK": {
+      "gitseed": [
+        "ChucK"
+      ]
+    },
+    "Clarion_(programming_language)": {
+      "gitseed": [
+        "Clarion"
+      ],
+      "tiobe": [
+        "Clarion"
+      ]
+    },
+    "Clean_(programming_language)": {
+      "gitseed": [
+        "Clean"
+      ],
+      "tiobe": [
+        "Clean"
+      ]
+    },
+    "Clojure": {
+      "gitseed": [
+        "Clojure"
+      ],
+      "tiobe": [
+        "Clojure"
+      ]
+    },
+    "COBOL": {
+      "gitseed": [
+        "COBOL"
+      ],
+      "tiobe": [
+        "COBOL"
+      ]
+    },
+    "CoffeeScript": {
+      "gitseed": [
+        "CoffeeScript"
+      ],
+      "tiobe": [
+        "CoffeeScript"
+      ]
+    },
+    "COLLADA": {
+      "gitseed": [
+        "COLLADA"
+      ]
+    },
+    "Common_Lisp": {
+      "gitseed": [
+        "Common Lisp"
+      ],
+      "tiobe": [
+        "Common Lisp"
+      ]
+    },
+    "Component_Pascal": {
+      "gitseed": [
+        "Component Pascal"
+      ]
+    },
+    "Cool_(programming_language)": {
+      "gitseed": [
+        "Cool"
+      ]
+    },
+    "Creole_(markup)": {
+      "gitseed": [
+        "Creole"
+      ]
+    },
+    "Crystal_(programming_language)": {
+      "gitseed": [
+        "Crystal"
+      ],
+      "tiobe": [
+        "Crystal"
+      ]
+    },
+    "Csound": {
+      "gitseed": [
+        "Csound"
+      ]
+    },
+    "Cython": {
+      "gitseed": [
+        "Cython"
+      ]
+    },
+    "D_(programming_language)": {
+      "gitseed": [
+        "D"
+      ],
+      "tiobe": [
+        "D"
+      ]
+    },
+    "Dart_(programming_language)": {
+      "gitseed": [
+        "Dart"
+      ],
+      "tiobe": [
+        "Dart"
+      ]
+    },
+    "DIGITAL_Command_Language": {
+      "gitseed": [
+        "DIGITAL Command Language"
+      ]
+    },
+    "Dylan_(programming_language)": {
+      "gitseed": [
+        "Dylan"
+      ],
+      "tiobe": [
+        "Dylan"
+      ]
+    },
+    "E_(programming_language)": {
+      "gitseed": [
+        "E"
+      ],
+      "tiobe": [
+        "E"
+      ]
+    },
+    "EC_(programming_language)": {
+      "gitseed": [
+        "eC"
+      ]
+    },
+    "ECL_(data-centric_programming_language)": {
+      "gitseed": [
+        "ECL"
+      ]
+    },
+    "Eiffel_(programming_language)": {
+      "gitseed": [
+        "Eiffel"
+      ],
+      "tiobe": [
+        "Eiffel"
+      ]
+    },
+    "Elixir_(programming_language)": {
+      "gitseed": [
+        "Elixir"
+      ],
+      "tiobe": [
+        "Elixir"
+      ]
+    },
+    "Elm_(programming_language)": {
+      "gitseed": [
+        "Elm"
+      ],
+      "tiobe": [
+        "Elm"
+      ]
+    },
+    "Emacs_Lisp": {
+      "gitseed": [
+        "Emacs Lisp"
+      ],
+      "tiobe": [
+        "Emacs Lisp"
+      ]
+    },
+    "Erlang_(programming_language)": {
+      "gitseed": [
+        "Erlang"
+      ],
+      "tiobe": [
+        "Erlang"
+      ]
+    },
+    "Factor_(programming_language)": {
+      "gitseed": [
+        "Factor"
+      ],
+      "tiobe": [
+        "Factor"
+      ]
+    },
+    "Fantom_(programming_language)": {
+      "gitseed": [
+        "Fantom"
+      ],
+      "tiobe": [
+        "Fantom"
+      ]
+    },
+    "Forth_(programming_language)": {
+      "gitseed": [
+        "Forth"
+      ],
+      "tiobe": [
+        "Forth"
+      ]
+    },
+    "Fortran": {
+      "gitseed": [
+        "Fortran"
+      ],
+      "tiobe": [
+        "Fortran"
+      ]
+    },
+    "Frege_(programming_language)": {
+      "gitseed": [
+        "Frege"
+      ]
+    },
+    "G-code": {
+      "gitseed": [
+        "G-code"
+      ]
+    },
+    "Genie_(programming_language)": {
+      "gitseed": [
+        "Genie"
+      ],
+      "tiobe": [
+        "Vala/Genie"
+      ]
+    },
+    "Genshi": {
+      "gitseed": [
+        "Genshi"
+      ]
+    },
+    "Gnuplot": {
+      "gitseed": [
+        "Gnuplot"
+      ]
+    },
+    "Go_(programming_language)": {
+      "gitseed": [
+        "Go"
+      ],
+      "tiobe": [
+        "Go"
+      ]
+    },
+    "Golo_(programming_language)": {
+      "gitseed": [
+        "Golo"
+      ]
+    },
+    "Gosu_(programming_language)": {
+      "gitseed": [
+        "Gosu"
+      ],
+      "tiobe": [
+        "Gosu"
+      ]
+    },
+    "Grammatical_Framework": {
+      "gitseed": [
+        "Grammatical Framework"
+      ]
+    },
+    "GraphQL": {
+      "gitseed": [
+        "GraphQL"
+      ]
+    },
+    "DOT_(graph_description_language)": {
+      "gitseed": [
+        "Graphviz (DOT)"
+      ]
+    },
+    "Groovy_(programming_language)": {
+      "gitseed": [
+        "Groovy"
+      ],
+      "tiobe": [
+        "Groovy"
+      ]
+    },
+    "Groovy_Server_Pages": {
+      "gitseed": [
+        "Groovy Server Pages"
+      ]
+    },
+    "Hack_(programming_language)": {
+      "gitseed": [
+        "Hack"
+      ],
+      "tiobe": [
+        "Hack"
+      ]
+    },
+    "Harbour_(software)": {
+      "gitseed": [
+        "Harbour"
+      ]
+    },
+    "Haskell_(programming_language)": {
+      "gitseed": [
+        "Haskell"
+      ],
+      "tiobe": [
+        "Haskell"
+      ]
+    },
+    "Haxe": {
+      "gitseed": [
+        "Haxe"
+      ],
+      "tiobe": [
+        "Haxe"
+      ]
+    },
+    "HTML": {
+      "gitseed": [
+        "HTML"
+      ]
+    },
+    "Hy": {
+      "gitseed": [
+        "Hy"
+      ]
+    },
+    "IDL_(programming_language)": {
+      "gitseed": [
+        "IDL"
+      ],
+      "tiobe": [
+        "IDL"
+      ]
+    },
+    "Idris_(programming_language)": {
+      "gitseed": [
+        "Idris"
+      ],
+      "tiobe": [
+        "Idris"
+      ]
+    },
+    "Io_(programming_language)": {
+      "gitseed": [
+        "Io"
+      ],
+      "tiobe": [
+        "Io"
+      ]
+    },
+    "Ioke_(programming_language)": {
+      "gitseed": [
+        "Ioke"
+      ],
+      "tiobe": [
+        "Ioke"
+      ]
+    },
+    "J_(programming_language)": {
+      "gitseed": [
+        "J"
+      ],
+      "tiobe": [
+        "J"
+      ]
+    },
+    "Java_(programming_language)": {
+      "gitseed": [
+        "Java"
+      ],
+      "tiobe": [
+        "Java"
+      ]
+    },
+    "JavaScript": {
+      "gitseed": [
+        "JavaScript"
+      ],
+      "tiobe": [
+        "JavaScript"
+      ]
+    },
+    "Jolie_(programming_language)": {
+      "gitseed": [
+        "Jolie"
+      ]
+    },
+    "JSON": {
+      "gitseed": [
+        "JSON"
+      ]
+    },
+    "JSONiq": {
+      "gitseed": [
+        "JSONiq"
+      ]
+    },
+    "Julia_(programming_language)": {
+      "gitseed": [
+        "Julia"
+      ],
+      "tiobe": [
+        "Julia"
+      ]
+    },
+    "Kotlin_(programming_language)": {
+      "gitseed": [
+        "Kotlin"
+      ],
+      "tiobe": [
+        "Kotlin"
+      ]
+    },
+    "KRL_(programming_language)": {
+      "gitseed": [
+        "KRL"
+      ]
+    },
+    "Lasso_(programming_language)": {
+      "gitseed": [
+        "Lasso"
+      ],
+      "tiobe": [
+        "Lasso"
+      ]
+    },
+    "Less_(stylesheet_language)": {
+      "gitseed": [
+        "Less"
+      ]
+    },
+    "LFE_(programming_language)": {
+      "gitseed": [
+        "LFE"
+      ]
+    },
+    "LilyPond": {
+      "gitseed": [
+        "LilyPond"
+      ]
+    },
+    "Limbo_(programming_language)": {
+      "gitseed": [
+        "Limbo"
+      ],
+      "tiobe": [
+        "Limbo"
+      ]
+    },
+    "LiveScript": {
+      "gitseed": [
+        "LiveScript"
+      ]
+    },
+    "Logtalk": {
+      "gitseed": [
+        "Logtalk"
+      ]
+    },
+    "LOLCODE": {
+      "gitseed": [
+        "LOLCODE"
+      ]
+    },
+    "Lua_(programming_language)": {
+      "gitseed": [
+        "Lua"
+      ],
+      "tiobe": [
+        "Lua"
+      ]
+    },
+    "MUMPS": {
+      "gitseed": [
+        "M"
+      ],
+      "tiobe": [
+        "MUMPS"
+      ]
+    },
+    "M4_(computer_language)": {
+      "gitseed": [
+        "M4"
+      ],
+      "tiobe": [
+        "M4"
+      ]
+    },
+    "Makefile": {
+      "gitseed": [
+        "Makefile"
+      ]
+    },
+    "Markdown": {
+      "gitseed": [
+        "Markdown"
+      ]
+    },
+    "MATLAB": {
+      "gitseed": [
+        "Matlab"
+      ],
+      "tiobe": [
+        "MATLAB"
+      ]
+    },
+    "Max_(software)": {
+      "gitseed": [
+        "Max"
+      ],
+      "tiobe": [
+        "Max/MSP"
+      ]
+    },
+    "MediaWiki": {
+      "gitseed": [
+        "MediaWiki"
+      ]
+    },
+    "Mercury_(programming_language)": {
+      "gitseed": [
+        "Mercury"
+      ],
+      "tiobe": [
+        "Mercury"
+      ]
+    },
+    "MiniD": {
+      "gitseed": [
+        "MiniD"
+      ]
+    },
+    "Mirah_(programming_language)": {
+      "gitseed": [
+        "Mirah"
+      ]
+    },
+    "Modelica": {
+      "gitseed": [
+        "Modelica"
+      ]
+    },
+    "Modula-2": {
+      "gitseed": [
+        "Modula-2"
+      ],
+      "tiobe": [
+        "Modula-2"
+      ]
+    },
+    "Nemerle": {
+      "gitseed": [
+        "Nemerle"
+      ],
+      "tiobe": [
+        "Nemerle"
+      ]
+    },
+    "NesC": {
+      "gitseed": [
+        "nesC"
+      ]
+    },
+    "NetLogo": {
+      "gitseed": [
+        "NetLogo"
+      ],
+      "tiobe": [
+        "NetLogo"
+      ]
+    },
+    "NewLISP": {
+      "gitseed": [
+        "NewLisp"
+      ]
+    },
+    "Nim_(programming_language)": {
+      "gitseed": [
+        "Nim"
+      ],
+      "tiobe": [
+        "Nim"
+      ]
+    },
+    "Nl_(format)": {
+      "gitseed": [
+        "NL"
+      ]
+    },
+    "Nu_(programming_language)": {
+      "gitseed": [
+        "Nu"
+      ]
+    },
+    "NumPy": {
+      "gitseed": [
+        "NumPy"
+      ]
+    },
+    "Objective-J": {
+      "gitseed": [
+        "Objective-J"
+      ]
+    },
+    "Opa_(programming_language)": {
+      "gitseed": [
+        "Opa"
+      ]
+    },
+    "Opal_(programming_language)": {
+      "gitseed": [
+        "Opal"
+      ]
+    },
+    "Ox_(programming_language)": {
+      "gitseed": [
+        "Ox"
+      ]
+    },
+    "Oxygene_(programming_language)": {
+      "gitseed": [
+        "Oxygene"
+      ],
+      "tiobe": [
+        "Oxygene"
+      ]
+    },
+    "Oz_(programming_language)": {
+      "gitseed": [
+        "Oz"
+      ],
+      "tiobe": [
+        "Oz"
+      ]
+    },
+    "P4_(programming_language)": {
+      "gitseed": [
+        "P4"
+      ]
+    },
+    "Pan_(programming_language)": {
+      "gitseed": [
+        "Pan"
+      ]
+    },
+    "Pascal_(programming_language)": {
+      "gitseed": [
+        "Pascal"
+      ],
+      "tiobe": [
+        "Pascal"
+      ]
+    },
+    "PAWN": {
+      "gitseed": [
+        "PAWN"
+      ]
+    },
+    "Perl": {
+      "gitseed": [
+        "Perl"
+      ],
+      "tiobe": [
+        "Perl"
+      ]
+    },
+    "Perl_6": {
+      "gitseed": [
+        "Perl 6"
+      ]
+    },
+    "PHP": {
+      "gitseed": [
+        "PHP"
+      ],
+      "tiobe": [
+        "PHP"
+      ]
+    },
+    "PicoLisp": {
+      "gitseed": [
+        "PicoLisp"
+      ]
+    },
+    "Pike_(programming_language)": {
+      "gitseed": [
+        "Pike"
+      ],
+      "tiobe": [
+        "Pike"
+      ]
+    },
+    "PL/pgSQL": {
+      "gitseed": [
+        "PLpgSQL"
+      ]
+    },
+    "PL/SQL": {
+      "gitseed": [
+        "PLSQL"
+      ],
+      "tiobe": [
+        "PL/SQL"
+      ]
+    },
+    "PostScript": {
+      "gitseed": [
+        "PostScript"
+      ],
+      "tiobe": [
+        "PostScript"
+      ]
+    },
+    "PowerShell": {
+      "gitseed": [
+        "PowerShell"
+      ],
+      "tiobe": [
+        "PowerShell"
+      ]
+    },
+    "Processing_(programming_language)": {
+      "gitseed": [
+        "Processing"
+      ],
+      "tiobe": [
+        "Processing"
+      ]
+    },
+    "Prolog": {
+      "gitseed": [
+        "Prolog"
+      ],
+      "tiobe": [
+        "Prolog"
+      ]
+    },
+    "Pure_Data": {
+      "gitseed": [
+        "Pure Data"
+      ],
+      "tiobe": [
+        "Pure Data"
+      ]
+    },
+    "PureBasic": {
+      "gitseed": [
+        "PureBasic"
+      ],
+      "tiobe": [
+        "PureBasic"
+      ]
+    },
+    "Python_(programming_language)": {
+      "gitseed": [
+        "Python"
+      ],
+      "tiobe": [
+        "Python"
+      ]
+    },
+    "QML": {
+      "gitseed": [
+        "QML"
+      ]
+    },
+    "R_(programming_language)": {
+      "gitseed": [
+        "R"
+      ],
+      "tiobe": [
+        "R"
+      ]
+    },
+    "Racket_(programming_language)": {
+      "gitseed": [
+        "Racket"
+      ],
+      "tiobe": [
+        "Racket"
+      ]
+    },
+    "RAML_(software)": {
+      "gitseed": [
+        "RAML"
+      ]
+    },
+    "Rebol": {
+      "gitseed": [
+        "Rebol"
+      ],
+      "tiobe": [
+        "REBOL"
+      ]
+    },
+    "Red_(programming_language)": {
+      "gitseed": [
+        "Red"
+      ],
+      "tiobe": [
+        "Red"
+      ]
+    },
+    "Regular_expression": {
+      "gitseed": [
+        "Regular Expression"
+      ]
+    },
+    "ReStructuredText": {
+      "gitseed": [
+        "reStructuredText"
+      ]
+    },
+    "Rexx": {
+      "gitseed": [
+        "REXX"
+      ],
+      "tiobe": [
+        "REXX"
+      ]
+    },
+    "Ring_(programming_language)": {
+      "gitseed": [
+        "Ring"
+      ],
+      "tiobe": [
+        "Ring"
+      ]
+    },
+    "Ruby_(programming_language)": {
+      "gitseed": [
+        "Ruby"
+      ]
+    },
+    "Rust_(programming_language)": {
+      "gitseed": [
+        "Rust"
+      ],
+      "tiobe": [
+        "Rust"
+      ]
+    },
+    "SAS_language": {
+      "gitseed": [
+        "SAS"
+      ]
+    },
+    "Scala_(programming_language)": {
+      "gitseed": [
+        "Scala"
+      ],
+      "tiobe": [
+        "Scala"
+      ]
+    },
+    "Scheme_(programming_language)": {
+      "gitseed": [
+        "Scheme"
+      ],
+      "tiobe": [
+        "Scheme"
+      ]
+    },
+    "Scilab": {
+      "gitseed": [
+        "Scilab"
+      ]
+    },
+    "Self_(programming_language)": {
+      "gitseed": [
+        "Self"
+      ]
+    },
+    "Smalltalk": {
+      "gitseed": [
+        "Smalltalk"
+      ],
+      "tiobe": [
+        "Smalltalk"
+      ]
+    },
+    "SPARQL": {
+      "gitseed": [
+        "SPARQL"
+      ]
+    },
+    "SQL": {
+      "gitseed": [
+        "SQL"
+      ],
+      "tiobe": [
+        "SQL"
+      ]
+    },
+    "SQL_PL": {
+      "gitseed": [
+        "SQLPL"
+      ]
+    },
+    "Squirrel_(programming_language)": {
+      "gitseed": [
+        "Squirrel"
+      ],
+      "tiobe": [
+        "Squirrel"
+      ]
+    },
+    "Stan_(software)": {
+      "gitseed": [
+        "Stan"
+      ]
+    },
+    "Standard_ML": {
+      "gitseed": [
+        "Standard ML"
+      ],
+      "tiobe": [
+        "Standard ML"
+      ]
+    },
+    "Stylus_(stylesheet_language)": {
+      "gitseed": [
+        "Stylus"
+      ]
+    },
+    "SuperCollider": {
+      "gitseed": [
+        "SuperCollider"
+      ],
+      "tiobe": [
+        "SuperCollider"
+      ]
+    },
+    "Swift_(parallel_scripting_language)": {
+      "gitseed": [
+        "Swift"
+      ],
+      "tiobe": [
+        "Swift"
+      ]
+    },
+    "SystemVerilog": {
+      "gitseed": [
+        "SystemVerilog"
+      ]
+    },
+    "Tcl": {
+      "gitseed": [
+        "Tcl"
+      ],
+      "tiobe": [
+        "Tcl"
+      ]
+    },
+    "Tea_(programming_language)": {
+      "gitseed": [
+        "Tea"
+      ]
+    },
+    "Textile_(markup_language)": {
+      "gitseed": [
+        "Textile"
+      ]
+    },
+    "TOML": {
+      "gitseed": [
+        "TOML"
+      ]
+    },
+    "Turing_(programming_language)": {
+      "gitseed": [
+        "Turing"
+      ]
+    },
+    "Turtle_(syntax)": {
+      "gitseed": [
+        "Turtle"
+      ]
+    },
+    "TXL_(programming_language)": {
+      "gitseed": [
+        "TXL"
+      ]
+    },
+    "TypeScript": {
+      "gitseed": [
+        "TypeScript"
+      ],
+      "tiobe": [
+        "TypeScript"
+      ]
+    },
+    "Unified_Parallel_C": {
+      "gitseed": [
+        "Unified Parallel C"
+      ]
+    },
+    "Vala_(programming_language)": {
+      "gitseed": [
+        "Vala"
+      ]
+    },
+    "Verilog": {
+      "gitseed": [
+        "Verilog"
+      ],
+      "tiobe": [
+        "Verilog"
+      ]
+    },
+    "VHDL": {
+      "gitseed": [
+        "VHDL"
+      ],
+      "tiobe": [
+        "VHDL"
+      ]
+    },
+    "Visual_Basic": {
+      "gitseed": [
+        "Visual Basic"
+      ],
+      "tiobe": [
+        "Visual Basic"
+      ]
+    },
+    "Web_Ontology_Language": {
+      "gitseed": [
+        "Web Ontology Language"
+      ]
+    },
+    "WebAssembly": {
+      "gitseed": [
+        "WebAssembly"
+      ]
+    },
+    "Web_IDL": {
+      "gitseed": [
+        "WebIDL"
+      ]
+    },
+    "X10_(programming_language)": {
+      "gitseed": [
+        "X10"
+      ],
+      "tiobe": [
+        "X10"
+      ]
+    },
+    "XBase": {
+      "gitseed": [
+        "xBase"
+      ],
+      "tiobe": [
+        "xBase"
+      ]
+    },
+    "XC_(programming_language)": {
+      "gitseed": [
+        "XC"
+      ]
+    },
+    "XML": {
+      "gitseed": [
+        "XML"
+      ]
+    },
+    "XProc": {
+      "gitseed": [
+        "XProc"
+      ]
+    },
+    "XQuery": {
+      "gitseed": [
+        "XQuery"
+      ],
+      "tiobe": [
+        "XQuery"
+      ]
+    },
+    "XSLT": {
+      "gitseed": [
+        "XSLT"
+      ],
+      "tiobe": [
+        "XSLT"
+      ]
+    },
+    "Xtend": {
+      "gitseed": [
+        "Xtend"
+      ],
+      "tiobe": [
+        "Xtend"
+      ]
+    },
+    "YAML": {
+      "gitseed": [
+        "YAML"
+      ]
+    },
+    "YANG": {
+      "gitseed": [
+        "YANG"
+      ]
+    },
+    "Augmented_Backus\u2013Naur_form": {
+      "gitseed": [
+        "ABNF"
+      ]
+    },
+    "X_PixMap": {
+      "gitseed": [
+        "XPM"
+      ]
+    },
+    "Wavefront_.obj_file": {
+      "gitseed": [
+        "Wavefront Object"
+      ]
+    },
+    "Ur_(programming_language)": {
+      "gitseed": [
+        "UrWeb"
+      ]
+    },
+    "TLA+": {
+      "gitseed": [
+        "TLA"
+      ]
+    },
+    "TI-BASIC": {
+      "gitseed": [
+        "TI Program"
+      ]
+    },
+    "RascalMPL": {
+      "gitseed": [
+        "Rascal"
+      ]
+    },
+    "Plain_Old_Documentation": {
+      "gitseed": [
+        "Pod"
+      ]
+    },
+    "Pic_language": {
+      "gitseed": [
+        "Pic"
+      ]
+    },
+    "Parrot_assembly_language": {
+      "gitseed": [
+        "Parrot Assembly"
+      ]
+    },
+    "OpenEdge_Advanced_Business_Language": {
+      "gitseed": [
+        "OpenEdge ABL"
+      ],
+      "tiobe": [
+        "OpenEdge ABL"
+      ]
+    },
+    "Monkey_X": {
+      "gitseed": [
+        "Monkey"
+      ],
+      "tiobe": [
+        "Monkey"
+      ]
+    },
+    "JSON-LD": {
+      "gitseed": [
+        "JSONLD"
+      ]
+    },
+    "INI_file": {
+      "gitseed": [
+        "INI"
+      ]
+    },
+    "Inform": {
+      "gitseed": [
+        "Inform 7"
+      ],
+      "tiobe": [
+        "Inform"
+      ]
+    },
+    "Gerber_format": {
+      "gitseed": [
+        "Gerber Image"
+      ]
+    },
+    "F_Sharp_(programming_language)": {
+      "gitseed": [
+        "F#"
+      ],
+      "tiobe": [
+        "F#"
+      ]
+    },
+    "Ebuild": {
+      "gitseed": [
+        "Gentoo Ebuild"
+      ]
+    },
+    "C_Sharp_(programming_language)": {
+      "gitseed": [
+        "C#"
+      ],
+      "tiobe": [
+        "C#"
+      ]
+    },
+    "Apache_Thrift": {
+      "gitseed": [
+        "Thrift"
+      ]
+    },
+    "Comma-separated_values": {
+      "gitseed": [
+        "CSV"
+      ]
+    },
+    "Extensible_Data_Notation": {
+      "gitseed": [
+        "edn"
+      ]
+    },
+    "Graph_Modelling_Language": {
+      "gitseed": [
+        "Graph Modeling Language"
+      ]
+    },
+    "Protocol_Buffers": {
+      "gitseed": [
+        "Protocol Buffer"
+      ]
+    },
+    "FoxPro": {
+      "tiobe": [
+        "(Visual) FoxPro"
+      ]
+    },
+    "ABC_(programming_language)": {
+      "tiobe": [
+        "ABC"
+      ]
+    },
+    "ALGOL": {
+      "tiobe": [
+        "Algol"
+      ]
+    },
+    "Alice_(software)": {
+      "tiobe": [
+        "Alice"
+      ]
+    },
+    "Abbreviated_Test_Language_for_All_Systems": {
+      "tiobe": [
+        "ATLAS"
+      ]
+    },
+    "AutoLISP": {
+      "tiobe": [
+        "AutoLISP"
+      ]
+    },
+    "Bash_(Unix_shell)": {
+      "tiobe": [
+        "Bash"
+      ]
+    },
+    "BASIC": {
+      "tiobe": [
+        "Basic"
+      ]
+    },
+    "BBC_BASIC": {
+      "tiobe": [
+        "BBC BASIC"
+      ]
+    },
+    "Bc_(programming_language)": {
+      "tiobe": [
+        "bc"
+      ]
+    },
+    "BCPL": {
+      "tiobe": [
+        "BCPL"
+      ]
+    },
+    "BETA_(programming_language)": {
+      "tiobe": [
+        "BETA"
+      ]
+    },
+    "C++/CLI": {
+      "tiobe": [
+        "C++/CLI"
+      ]
+    },
+    "C\u03c9": {
+      "tiobe": [
+        "C-Omega"
+      ]
+    },
+    "Caml": {
+      "tiobe": [
+        "Caml"
+      ]
+    },
+    "ColdFusion_Markup_Language": {
+      "tiobe": [
+        "CFML"
+      ]
+    },
+    "Cg_(programming_language)": {
+      "tiobe": [
+        "cg"
+      ]
+    },
+    "CHILL": {
+      "tiobe": [
+        "CHILL"
+      ]
+    },
+    "IBM_i_Control_Language": {
+      "tiobe": [
+        "CL (OS/400)"
+      ]
+    },
+    "Clipper_(programming_language)": {
+      "tiobe": [
+        "Clipper"
+      ]
+    },
+    "CLU_(programming_language)": {
+      "tiobe": [
+        "CLU"
+      ]
+    },
+    "Cobra_(programming_language)": {
+      "tiobe": [
+        "Cobra"
+      ]
+    },
+    "COMAL": {
+      "tiobe": [
+        "COMAL"
+      ]
+    },
+    "Curl_(programming_language)": {
+      "tiobe": [
+        "Curl"
+      ]
+    },
+    "Data_control_language": {
+      "tiobe": [
+        "DCL"
+      ]
+    },
+    "Object_Pascal": {
+      "tiobe": [
+        "Delphi/Object Pascal"
+      ]
+    },
+    "DIBOL": {
+      "tiobe": [
+        "DiBOL"
+      ]
+    },
+    "ECMAScript": {
+      "tiobe": [
+        "ECMAScript"
+      ]
+    },
+    "EGL_(programming_language)": {
+      "tiobe": [
+        "EGL"
+      ]
+    },
+    "Etoys_(programming_language)": {
+      "tiobe": [
+        "Etoys"
+      ]
+    },
+    "Euphoria_(programming_language)": {
+      "tiobe": [
+        "Euphoria"
+      ]
+    },
+    "CMS_EXEC": {
+      "tiobe": [
+        "EXEC"
+      ]
+    },
+    "Falcon_(programming_language)": {
+      "tiobe": [
+        "Falcon"
+      ]
+    },
+    "Fortress_(programming_language)": {
+      "tiobe": [
+        "Fortress"
+      ]
+    },
+    "Gambas": {
+      "tiobe": [
+        "Gambas"
+      ]
+    },
+    "GNU_Octave": {
+      "tiobe": [
+        "GNU Octave"
+      ]
+    },
+    "HyperTalk": {
+      "tiobe": [
+        "HyperTalk"
+      ]
+    },
+    "Icon_(programming_language)": {
+      "tiobe": [
+        "Icon"
+      ]
+    },
+    "IBM_Informix-4GL": {
+      "tiobe": [
+        "Informix-4GL"
+      ]
+    },
+    "INTERCAL": {
+      "tiobe": [
+        "INTERCAL"
+      ]
+    },
+    "J_Sharp": {
+      "tiobe": [
+        "J#"
+      ]
+    },
+    "JADE_(programming_language)": {
+      "tiobe": [
+        "JADE"
+      ]
+    },
+    "JavaFX_Script": {
+      "tiobe": [
+        "JavaFX Script"
+      ]
+    },
+    "JScript": {
+      "tiobe": [
+        "JScript"
+      ]
+    },
+    "JScript_.NET": {
+      "tiobe": [
+        "JScript.NET"
+      ]
+    },
+    "LabVIEW": {
+      "tiobe": [
+        "LabVIEW"
+      ]
+    },
+    "Ladder_logic": {
+      "tiobe": [
+        "Ladder Logic"
+      ]
+    },
+    "LINGO_(mathematical_modeling_language)": {
+      "tiobe": [
+        "Lingo"
+      ]
+    },
+    "Lisp_(programming_language)": {
+      "tiobe": [
+        "Lisp"
+      ]
+    },
+    "Logo_(programming_language)": {
+      "tiobe": [
+        "Logo"
+      ]
+    },
+    "LotusScript": {
+      "tiobe": [
+        "LotusScript"
+      ]
+    },
+    "LPC_(programming_language)": {
+      "tiobe": [
+        "LPC"
+      ]
+    },
+    "Lustre_(programming_language)": {
+      "tiobe": [
+        "Lustre"
+      ]
+    },
+    "MAD_(programming_language)": {
+      "tiobe": [
+        "MAD"
+      ]
+    },
+    "Magik_(programming_language)": {
+      "tiobe": [
+        "Magik"
+      ]
+    },
+    "Malbolge": {
+      "tiobe": [
+        "Malbolge"
+      ]
+    },
+    "Maple_(software)": {
+      "tiobe": [
+        "Maple"
+      ]
+    },
+    ".MDX": {
+      "tiobe": [
+        "MDX"
+      ]
+    },
+    "Maya_Embedded_Language": {
+      "tiobe": [
+        "MEL"
+      ]
+    },
+    "MIVA_Script": {
+      "tiobe": [
+        "Miva"
+      ]
+    },
+    "ML_(programming_language)": {
+      "tiobe": [
+        "ML"
+      ]
+    },
+    "Modula-3": {
+      "tiobe": [
+        "Modula-3"
+      ]
+    },
+    "Not_Quite_C": {
+      "tiobe": [
+        "NQC"
+      ]
+    },
+    "Oberon_(programming_language)": {
+      "tiobe": [
+        "Oberon"
+      ]
+    },
+    "Object_REXX": {
+      "tiobe": [
+        "Object Rexx"
+      ]
+    },
+    "Occam_(programming_language)": {
+      "tiobe": [
+        "Occam"
+      ]
+    },
+    "Open_Programming_Language": {
+      "tiobe": [
+        "OPL"
+      ]
+    },
+    "PILOT": {
+      "tiobe": [
+        "PILOT"
+      ]
+    },
+    "PL/I": {
+      "tiobe": [
+        "PL/I"
+      ]
+    },
+    "PowerBASIC": {
+      "tiobe": [
+        "PowerBasic"
+      ]
+    },
+    "Q_(programming_language_from_Kx_Systems)": {
+      "tiobe": [
+        "Q"
+      ]
+    },
+    "IBM_RPG": {
+      "tiobe": [
+        "RPG"
+      ]
+    },
+    "Ruby_(hardware_description_language)": {
+      "tiobe": [
+        "Ruby"
+      ]
+    },
+    "S_(programming_language)": {
+      "tiobe": [
+        "summary"
+      ]
+    },
+    "Sather": {
+      "tiobe": [
+        "Sather"
+      ]
+    },
+    "Scratch_(programming_language)": {
+      "tiobe": [
+        "Scratch"
+      ]
+    },
+    "Sed": {
+      "tiobe": [
+        "sed"
+      ]
+    },
+    "Seed7": {
+      "tiobe": [
+        "Seed7"
+      ]
+    },
+    "SIGNAL_(programming_language)": {
+      "tiobe": [
+        "SIGNAL"
+      ]
+    },
+    "Simula": {
+      "tiobe": [
+        "Simula"
+      ]
+    },
+    "Snap!_(programming_language)": {
+      "tiobe": [
+        "Snap!"
+      ]
+    },
+    "Solidity": {
+      "tiobe": [
+        "Solidity"
+      ]
+    },
+    "SPARK_(programming_language)": {
+      "tiobe": [
+        "SPARK"
+      ]
+    },
+    "SQR": {
+      "tiobe": [
+        "SQR"
+      ]
+    },
+    "Squeak": {
+      "tiobe": [
+        "Squeak"
+      ]
+    },
+    "TACL": {
+      "tiobe": [
+        "TACL"
+      ]
+    },
+    "ThinBasic": {
+      "tiobe": [
+        "thinBasic"
+      ]
+    },
+    "Tom_(pattern_matching_language)": {
+      "tiobe": [
+        "TOM"
+      ]
+    },
+    "Transact-SQL": {
+      "tiobe": [
+        "Transact-SQL"
+      ]
+    },
+    "VBScript": {
+      "tiobe": [
+        "VBScript"
+      ]
+    },
+    "Visual_Basic_.NET": {
+      "tiobe": [
+        "Visual Basic .NET"
+      ]
+    },
+    "WebDNA": {
+      "tiobe": [
+        "WebDNA"
+      ]
+    },
+    "Whitespace_(programming_language)": {
+      "tiobe": [
+        "Whitespace"
+      ]
+    },
+    "Wolfram_Language": {
+      "tiobe": [
+        "Wolfram"
+      ]
+    },
+    "XBase++": {
+      "tiobe": [
+        "XBase++"
+      ]
+    },
+    "XPL": {
+      "tiobe": [
+        "XPL"
+      ]
+    },
+    "Yorick_(programming_language)": {
+      "tiobe": [
+        "Yorick"
+      ]
+    }
+  },
+  "mention": {
+    "Xojo": {
+      "gitseed": [
+        "Xojo"
+      ],
+      "tiobe": [
+        "Xojo"
+      ]
+    },
+    "Salt_(software)": {
+      "gitseed": [
+        "SaltStack"
+      ]
+    },
+    "ArcGIS": {
+      "gitseed": [
+        "GDB"
+      ]
+    },
+    "ERuby": {
+      "gitseed": [
+        "HTML+ERB"
+      ]
+    },
+    "Diff_utility": {
+      "gitseed": [
+        "Diff"
+      ]
+    },
+    "Adobe_ColdFusion": {
+      "gitseed": [
+        "ColdFusion"
+      ]
+    },
+    "PostScript_fonts": {
+      "gitseed": [
+        "Adobe_Font_Metrics"
+      ]
+    },
+    "ANTLR": {
+      "gitseed": [
+        "ANTLR"
+      ]
+    },
+    "Apollo_Guidance_Computer": {
+      "gitseed": [
+        "Apollo Guidance Computer"
+      ]
+    },
+    "BitBake": {
+      "gitseed": [
+        "BitBake"
+      ]
+    },
+    "Bro_(software)": {
+      "gitseed": [
+        "Bro"
+      ]
+    },
+    "Clips": {
+      "gitseed": [
+        "CLIPS"
+      ]
+    },
+    "CMake": {
+      "gitseed": [
+        "CMake"
+      ]
+    },
+    "Coq": {
+      "gitseed": [
+        "Coq"
+      ]
+    },
+    "CWEB": {
+      "gitseed": [
+        "CWeb"
+      ]
+    },
+    "DTrace": {
+      "gitseed": [
+        "DTrace"
+      ]
+    },
+    "EAGLE_(program)": {
+      "gitseed": [
+        "Eagle"
+      ]
+    },
+    "ECLiPSe": {
+      "gitseed": [
+        "ECLiPSe"
+      ]
+    },
+    "FreeMarker": {
+      "gitseed": [
+        "FreeMarker"
+      ]
+    },
+    "GAP_(computer_algebra_system)": {
+      "gitseed": [
+        "GAP"
+      ]
+    },
+    "Gradle": {
+      "gitseed": [
+        "Gradle"
+      ]
+    },
+    "Haml": {
+      "gitseed": [
+        "Haml"
+      ]
+    },
+    "Handlebars_(template_system)": {
+      "gitseed": [
+        "Handlebars"
+      ]
+    },
+    "Inno_Setup": {
+      "gitseed": [
+        "Inno Setup"
+      ]
+    },
+    "Isabelle_(proof_assistant)": {
+      "gitseed": [
+        "Isabelle"
+      ]
+    },
+    "Jasmin_(software)": {
+      "gitseed": [
+        "Jasmin"
+      ]
+    },
+    "JavaServer_Pages": {
+      "gitseed": [
+        "Java Server Pages"
+      ]
+    },
+    "LabView": {
+      "gitseed": [
+        "LabVIEW"
+      ]
+    },
+    "Lex_(software)": {
+      "gitseed": [
+        "Lex"
+      ]
+    },
+    "LLVM": {
+      "gitseed": [
+        "LLVM"
+      ]
+    },
+    "Mako_(template_engine)": {
+      "gitseed": [
+        "Mako"
+      ]
+    },
+    "Meson_(software)": {
+      "gitseed": [
+        "Meson"
+      ]
+    },
+    "Metal_(API)": {
+      "gitseed": [
+        "Metal"
+      ]
+    },
+    "MuPAD": {
+      "gitseed": [
+        "mupad"
+      ]
+    },
+    "Nginx": {
+      "gitseed": [
+        "Nginx"
+      ]
+    },
+    "OCaml": {
+      "gitseed": [
+        "OCaml"
+      ],
+      "tiobe": [
+        "OCaml"
+      ]
+    },
+    "OpenSCAD": {
+      "gitseed": [
+        "OpenSCAD"
+      ]
+    },
+    "Papyrus_(software)": {
+      "gitseed": [
+        "Papyrus"
+      ]
+    },
+    "Pickle_(Python)": {
+      "gitseed": [
+        "Pickle"
+      ]
+    },
+    "PostCSS": {
+      "gitseed": [
+        "PostCSS"
+      ]
+    },
+    "PowerBuilder": {
+      "gitseed": [
+        "PowerBuilder"
+      ],
+      "tiobe": [
+        "PowerScript"
+      ]
+    },
+    "Puppet_(software)": {
+      "gitseed": [
+        "Puppet"
+      ]
+    },
+    "Qmake": {
+      "gitseed": [
+        "QMake"
+      ]
+    },
+    "Ragel": {
+      "gitseed": [
+        "Ragel"
+      ]
+    },
+    "Ren'Py": {
+      "gitseed": [
+        "Ren'Py"
+      ]
+    },
+    "Robot_Framework": {
+      "gitseed": [
+        "RobotFramework"
+      ]
+    },
+    "Runoff_(program)": {
+      "gitseed": [
+        "RUNOFF"
+      ]
+    },
+    "Sage_(Mozilla_Firefox_extension)": {
+      "gitseed": [
+        "Sage"
+      ]
+    },
+    "Slash_(CMS)": {
+      "gitseed": [
+        "Slash"
+      ]
+    },
+    "Smarty_(template_engine)": {
+      "gitseed": [
+        "Smarty"
+      ],
+      "tiobe": [
+        "Smarty"
+      ]
+    },
+    "Stata": {
+      "gitseed": [
+        "Stata"
+      ],
+      "tiobe": [
+        "Stata"
+      ]
+    },
+    "Tcsh": {
+      "gitseed": [
+        "Tcsh"
+      ],
+      "tiobe": [
+        "tcsh"
+      ]
+    },
+    "TeX": {
+      "gitseed": [
+        "TeX"
+      ],
+      "tiobe": [
+        "Tex"
+      ]
+    },
+    "Text_(Chrome_app)": {
+      "gitseed": [
+        "Text"
+      ]
+    },
+    "Twig_(template_engine)": {
+      "gitseed": [
+        "Twig"
+      ]
+    },
+    "Vim_(text_editor)": {
+      "gitseed": [
+        "Vim script"
+      ]
+    },
+    "XS_(Perl)": {
+      "gitseed": [
+        "XS"
+      ]
+    },
+    "Yacc": {
+      "gitseed": [
+        "Yacc"
+      ],
+      "tiobe": [
+        "yacc"
+      ]
+    },
+    "Wolfram_Mathematica": {
+      "gitseed": [
+        "Mathematica"
+      ]
+    },
+    "SubRip": {
+      "gitseed": [
+        "SubRip Text"
+      ]
+    },
+    "Second_Life": {
+      "gitseed": [
+        "LSL"
+      ]
+    },
+    "GNU_bison": {
+      "gitseed": [
+        "Bison"
+      ]
+    },
+    "General_Algebraic_Modeling_System": {
+      "gitseed": [
+        "GAMS"
+      ]
+    },
+    "Csound": {
+      "gitseed": [
+        "Csound Score"
+      ]
+    },
+    "Active_Server_Pages": {
+      "gitseed": [
+        "ASP"
+      ]
+    },
+    "RStudio": {
+      "gitseed": [
+        "RMarkdown"
+      ]
+    },
+    "YARA": {
+      "gitseed": [
+        "YARA"
+      ]
+    },
+    "XPages": {
+      "gitseed": [
+        "XPages"
+      ]
+    },
+    "Wavefront .obj file": {
+      "gitseed": [
+        "Wavefront Material"
+      ]
+    },
+    "Vue.js": {
+      "gitseed": [
+        "Vue"
+      ]
+    },
+    "Visual_Studio_Code": {
+      "gitseed": [
+        "ShaderLab"
+      ]
+    },
+    "Varnish_(software)": {
+      "gitseed": [
+        "VCL"
+      ]
+    },
+    "Unreal_Engine": {
+      "gitseed": [
+        "UnrealScript"
+      ]
+    },
+    "TinyMUCK": {
+      "gitseed": [
+        "MUF"
+      ]
+    },
+    "POV-Ray": {
+      "gitseed": [
+        "POV-Ray SDL"
+      ],
+      "tiobe": [
+        "POV-Ray"
+      ]
+    },
+    "Salesforce.com": {
+      "gitseed": [
+        "Apex"
+      ],
+      "tiobe": [
+        "Apex"
+      ]
+    },
+    "rpm_(software)": {
+      "gitseed": [
+        "RPM Spec"
+      ]
+    },
+    "Roku": {
+      "gitseed": [
+        "Brightscript"
+      ]
+    },
+    "roff_(computer_program)": {
+      "gitseed": [
+        "Roff"
+      ]
+    },
+    "RenderScript": {
+      "gitseed": [
+        "RenderScript"
+      ]
+    },
+    "Core_War": {
+      "gitseed": [
+        "Redcode"
+      ]
+    },
+    "React_(JavaScript_library)": {
+      "gitseed": [
+        "JSX"
+      ]
+    },
+    "RDoc": {
+      "gitseed": [
+        "RDoc"
+      ]
+    },
+    "Pylons_project": {
+      "gitseed": [
+        "Myghty"
+      ]
+    },
+    "Poedit": {
+      "gitseed": [
+        "Gettext Catalog"
+      ]
+    },
+    "Pig_(programming_tool)": {
+      "gitseed": [
+        "PigLatin"
+      ]
+    },
+    "PHP": {
+      "gitseed": [
+        "Zephir"
+      ]
+    },
+    "Parrot_intermediate_representation": {
+      "gitseed": [
+        "Parrot Internal Representation"
+      ]
+    },
+    "Overview_of_RESTful_API_Description_Languages": {
+      "gitseed": [
+        "API Blueprint"
+      ]
+    },
+    "OpenType": {
+      "gitseed": [
+        "OpenType Feature File"
+      ]
+    },
+    "OpenCL": {
+      "gitseed": [
+        "OpenCL"
+      ],
+      "tiobe": [
+        "OpenCL"
+      ]
+    },
+    "Objdump": {
+      "gitseed": [
+        "ObjDump"
+      ]
+    },
+    "Nullsoft_Scriptable_Install_System": {
+      "gitseed": [
+        "NSIS"
+      ],
+      "tiobe": [
+        "NSIS"
+      ]
+    },
+    "Nix_package_manager": {
+      "gitseed": [
+        "Nix"
+      ]
+    },
+    "Ninja_(build_system)": {
+      "gitseed": [
+        "Ninja"
+      ]
+    },
+    "NetLinx": {
+      "gitseed": [
+        "NetLinx"
+      ]
+    },
+    "MMS (disambiguation)": {
+      "gitseed": [
+        "Module Management System"
+      ]
+    },
+    "Lua_(programming_language)": {
+      "gitseed": [
+        "MoonScript"
+      ]
+    },
+    "Loadable_kernel_module": {
+      "gitseed": [
+        "Linux Kernel Module"
+      ]
+    },
+    "Literate_programming": {
+      "gitseed": [
+        "Literate Haskell"
+      ]
+    },
+    "List_of_file_formats": {
+      "gitseed": [
+        "SQF"
+      ]
+    },
+    "Linear_programming": {
+      "gitseed": [
+        "Zimpl"
+      ]
+    },
+    "libffi": {
+      "gitseed": [
+        "Cycript"
+      ]
+    },
+    "Laravel": {
+      "gitseed": [
+        "Blade"
+      ]
+    },
+    "KiCad": {
+      "gitseed": [
+        "KiCad Schematic"
+      ]
+    },
+    "IPython": {
+      "gitseed": [
+        "Jupyter Notebook"
+      ]
+    },
+    "IGOR_Pro": {
+      "gitseed": [
+        "IGOR Pro"
+      ]
+    },
+    "HYPHY_(software)": {
+      "gitseed": [
+        "HyPhy"
+      ]
+    },
+    "Hypertext_Transfer_Protocol": {
+      "gitseed": [
+        "HTTP"
+      ]
+    },
+    "Google_Closure_Tools": {
+      "gitseed": [
+        "Closure Templates"
+      ]
+    },
+    "Godot_(game_engine)": {
+      "gitseed": [
+        "GDScript"
+      ]
+    },
+    "GNU_linker": {
+      "gitseed": [
+        "Linker Script"
+      ]
+    },
+    "GNU_Compiler_Collection": {
+      "gitseed": [
+        "GCC Machine Description"
+      ]
+    },
+    "GameMaker_Studio": {
+      "gitseed": [
+        "Game Maker Language"
+      ]
+    },
+    "FontForge": {
+      "gitseed": [
+        "Spline Font Database"
+      ]
+    },
+    "Flex_(lexical_analyser_generator)": {
+      "gitseed": [
+        "JFlex"
+      ]
+    },
+    "EC_(programming_language)": {
+      "gitseed": [
+        "ooc"
+      ]
+    },
+    "Docker_(software)": {
+      "gitseed": [
+        "Dockerfile"
+      ]
+    },
+    "Darcs": {
+      "gitseed": [
+        "Darcs Patch"
+      ]
+    },
+    "CUDA": {
+      "gitseed": [
+        "Cuda"
+      ]
+    },
+    "Cucumber_(software)": {
+      "gitseed": [
+        "Gherkin"
+      ]
+    },
+    "Comparison_of_web_template_engines": {
+      "gitseed": [
+        "Liquid"
+      ]
+    },
+    "Comparison_of_parser_generators": {
+      "gitseed": [
+        "Nearley"
+      ]
+    },
+    "CartoDB": {
+      "gitseed": [
+        "CartoCSS"
+      ]
+    },
+    "Bluespec": {
+      "gitseed": [
+        "Bluespec"
+      ]
+    },
+    "Autodesk_3ds_Max": {
+      "gitseed": [
+        "MAXScript"
+      ],
+      "tiobe": [
+        "MAXScript"
+      ]
+    },
+    "Augeas_(software)": {
+      "gitseed": [
+        "Augeas"
+      ]
+    },
+    "Assembly_language": {
+      "gitseed": [
+        "Unix Assembly"
+      ]
+    },
+    "Arduino": {
+      "gitseed": [
+        "Arduino"
+      ]
+    },
+    "Apache_Ant": {
+      "gitseed": [
+        "Ant Build System"
+      ]
+    },
+    "Apache Maven": {
+      "gitseed": [
+        "Maven POM"
+      ]
+    },
+    "Adventure_Game_Studio": {
+      "gitseed": [
+        "AGS Script"
+      ]
+    },
+    "Adobe ColdFusion": {
+      "gitseed": [
+        "ColdFusion CFC"
+      ]
+    },
+    "1C_Company": {
+      "gitseed": [
+        "1C Enterprise"
+      ]
+    },
+    ".htaccess": {
+      "gitseed": [
+        "ApacheConf"
+      ]
+    },
+    "4th_Dimension_(software)": {
+      "tiobe": [
+        "4th Dimension/4D"
+      ]
+    },
+    "Keysight_VEE": {
+      "tiobe": [
+        "Agilent VEE"
+      ]
+    },
+    "List_of_macOS_components": {
+      "tiobe": [
+        "Automator"
+      ]
+    },
+    "ArcView_3.x": {
+      "tiobe": [
+        "Avenue"
+      ]
+    },
+    "Bourne_shell": {
+      "tiobe": [
+        "Bourne shell"
+      ]
+    },
+    "C_shell": {
+      "tiobe": [
+        "C shell"
+      ]
+    },
+    "Ch_(computer_programming)": {
+      "tiobe": [
+        "Ch"
+      ]
+    },
+    "George_Necula": {
+      "tiobe": [
+        "CIL"
+      ]
+    },
+    "Heron_(event_processor)": {
+      "tiobe": [
+        "Heron"
+      ]
+    },
+    "HP_9800_series": {
+      "tiobe": [
+        "HPL"
+      ]
+    },
+    "KornShell": {
+      "tiobe": [
+        "Korn shell"
+      ]
+    },
+    "Revolution_(software_platform)": {
+      "tiobe": [
+        "LiveCode"
+      ]
+    },
+    "Meditech": {
+      "tiobe": [
+        "Magic"
+      ]
+    },
+    "Cincom_Systems": {
+      "tiobe": [
+        "MANTIS"
+      ]
+    },
+    "MOO": {
+      "tiobe": [
+        "MOO"
+      ]
+    },
+    "Lego_Mindstorms_NXT": {
+      "tiobe": [
+        "NXT-G"
+      ]
+    },
+    "Paradox_(theorem_prover)": {
+      "tiobe": [
+        "Paradox"
+      ]
+    },
+    "S-PLUS": {
+      "tiobe": [
+        "S-PLUS"
+      ]
+    },
+    "SAS_(software)": {
+      "tiobe": [
+        "SAS"
+      ]
+    },
+    "Simulink": {
+      "tiobe": [
+        "Simulink"
+      ]
+    },
+    "SPSS": {
+      "tiobe": [
+        "SPSS"
+      ]
+    },
+    "C\u03c9": {
+      "tiobe": [
+        "Xen"
+      ]
+    },
+    "Z_shell": {
+      "tiobe": [
+        "Z shell"
+      ]
+    }
+  },
+  "unknown": {
+    "Pep8": "gitseed",
+    "EJS": "gitseed",
+    "Fancy": "gitseed",
+    "fish": "gitseed",
+    "PureScript": "gitseed",
+    "Parrot": "gitseed",
+    "Alpine Abuild": "gitseed",
+    "Ballerina": "gitseed",
+    "C-ObjDump": "gitseed",
+    "C2hs Haskell": "gitseed",
+    "Cirru": "gitseed",
+    "Click": "gitseed",
+    "Common Workflow Language": "gitseed",
+    "Cpp-ObjDump": "gitseed",
+    "CSON": "gitseed",
+    "D-ObjDump": "gitseed",
+    "DataWeave": "gitseed",
+    "desktop": "gitseed",
+    "DM": "gitseed",
+    "DNS Zone": "gitseed",
+    "Dogescript": "gitseed",
+    "Easybuild": "gitseed",
+    "Edje Data Collection": "gitseed",
+    "EmberScript": "gitseed",
+    "EQ": "gitseed",
+    "Filebench WML": "gitseed",
+    "FLUX": "gitseed",
+    "Formatted": "gitseed",
+    "Gentoo Eclass": "gitseed",
+    "Glyph": "gitseed",
+    "GN": "gitseed",
+    "Grace": "gitseed",
+    "HCL": "gitseed",
+    "HTML+Django": "gitseed",
+    "HTML+ECR": "gitseed",
+    "HTML+EEX": "gitseed",
+    "IRC log": "gitseed",
+    "Isabelle ROOT": "gitseed",
+    "Jison": "gitseed",
+    "Jison Lex": "gitseed",
+    "JSON5": "gitseed",
+    "KiCad Legacy Layout": "gitseed",
+    "Kit": "gitseed",
+    "Latte": "gitseed",
+    "Lean": "gitseed",
+    "Logos": "gitseed",
+    "LookML": "gitseed",
+    "LoomScript": "gitseed",
+    "M4Sugar": "gitseed",
+    "Marko": "gitseed",
+    "Mask": "gitseed",
+    "Moocode": "gitseed",
+    "MTML": "gitseed",
+    "NCL": "gitseed",
+    "NetLinx+ERB": "gitseed",
+    "Nit": "gitseed",
+    "Omgrofl": "gitseed",
+    "OpenRC runscript": "gitseed",
+    "Org": "gitseed",
+    "PogoScript": "gitseed",
+    "Pony": "gitseed",
+    "Propeller Spin": "gitseed",
+    "Public Key": "gitseed",
+    "Pug": "gitseed",
+    "Python console": "gitseed",
+    "Python traceback": "gitseed",
+    "Raw token data": "gitseed",
+    "Reason": "gitseed",
+    "Rouge": "gitseed",
+    "Scaml": "gitseed",
+    "Shell": "gitseed",
+    "ShellSession": "gitseed",
+    "Shen": "gitseed",
+    "Slim": "gitseed",
+    "Smali": "gitseed",
+    "SMT": "gitseed",
+    "SourcePawn": "gitseed",
+    "SRecode Template": "gitseed",
+    "STON": "gitseed",
+    "Sublime Text Config": "gitseed",
+    "SugarSS": "gitseed",
+    "Terra": "gitseed",
+    "Type Language": "gitseed",
+    "Unity3D Asset": "gitseed",
+    "Uno": "gitseed",
+    "Volt": "gitseed",
+    "wdl": "gitseed",
+    "wisp": "gitseed",
+    "World of Warcraft Addon Data": "gitseed",
+    "XCompose": "gitseed",
+    "Cap'n Proto": "gitseed",
+    "cT": "tiobe",
+    "Felix": "tiobe",
+    "Moto": "tiobe",
+    "NATURAL": "tiobe",
+    "Pliant": "tiobe",
+    "Programming Without Coding Technology": "tiobe",
+    "Slate": "tiobe",
+    "Suneido": "tiobe"
+  }
+}

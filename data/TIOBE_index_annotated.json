@@ -1,12 +1,10 @@
 {
   "(Visual) FoxPro": {
-    "hints": " FoxPro, Fox Pro, VFP\n",
     "recall": 1,
     "recalledAs": "FoxPro",
     "summary": "FoxPro was a text-based procedurally oriented programming language and database management system , and it is also an object-oriented programming language, originally published by Fox Software and later by Microsoft, for MS-DOS, Windows, Macintosh, and UNIX"
   },
   "4th Dimension/4D": {
-    "hints": " 4D, 4th Dimension\n",
     "recall": 0,
     "mention": "4th_Dimension_(software)",
     "summary": "4D  is a relational database management system and IDE developed by Laurent Ribardi\u00e8re"
@@ -17,13 +15,11 @@
     "summary": "ABAP  is a high-level programming language created by the German software company SAP"
   },
   "ABC": {
-    "hints": " ABC (exceptions",
     "recall": 1,
     "recalledAs": "ABC_(programming_language)",
     "summary": "ABC is an imperative general-purpose programming language and programming environment developed at CWI, Netherlands by Leo Geurts, Lambert Meertens, and Steven Pemberton"
   },
   "ActionScript": {
-    "hints": " ActionScript, AS1, AS2, AS3\n",
     "recall": 1,
     "recalledAs": "ActionScript",
     "summary": "ActionScript is an object-oriented programming language originally developed by Macromedia Inc"
@@ -44,7 +40,6 @@
     "summary": "ALGOL  is a family of imperative computer programming languages, originally developed in the mid-1950s, which greatly influenced many other languages and was the standard method for algorithm description used by the ACM in textbooks and academic sources for more than thirty years.In the sense that most modern languages are \"Algol-like\", it was arguably the most successful of the four high-level programming languages with which it was roughly contemporary: Fortran, Lisp, and COBOL"
   },
   "Alice": {
-    "hints": " Alice (confidence",
     "recall": 1,
     "recalledAs": "Alice_(software)",
     "summary": "Alice is an open-source object-based educational programming language with an integrated development environment "
@@ -80,7 +75,6 @@
     "summary": "AspectJ is an aspect-oriented programming  extension created at PARC for the Java programming language"
   },
   "Assembly language": {
-    "hints": " Assembly, Assembly language\n",
     "recall": 1,
     "recalledAs": "Assembly_language",
     "summary": "Assembly is the best language ever with many of the best games made in it, also dos is the best for games .Dos, Assembly, commodore, windows 95, anything with about 200mb of ram will do.As many people know i will kill you if you dont agree with my insane logic, but hey, assembly,dos,assembly,gameboy...An assembly  language, often abbreviated asm, is a low-level programming language for a computer, or other programmable device, in which there is a very strong  correspondence between the language and the architecture's machine code instructions"
@@ -111,7 +105,6 @@
     "summary": "ArcView GIS was a geographic information system software product produced by ESRI"
   },
   "Awk": {
-    "hints": " Awk, Mawk, Gawk, Nawk\n",
     "recall": 1,
     "recalledAs": "AWK",
     "summary": "AWK is a programming language designed for text processing and typically used as a data extraction and reporting tool"
@@ -122,7 +115,6 @@
     "summary": "Bash is a Unix shell and command language written by Brian Fox for the GNU Project as a free software replacement for the Bourne shell"
   },
   "Basic": {
-    "hints": " Basic (confidence",
     "recall": 1,
     "recalledAs": "BASIC",
     "summary": "BASIC  is a family of general-purpose, high-level programming languages whose design philosophy emphasizes ease of use"
@@ -143,37 +135,31 @@
     "summary": "BCPL  is a procedural, imperative, and structured computer programming language"
   },
   "BETA": {
-    "hints": " BETA (confidence",
     "recall": 1,
     "recalledAs": "BETA_(programming_language)",
     "summary": "BETA is a pure object-oriented language originating within the \"Scandinavian School\" in object-orientation where the first object-oriented language Simula was developed"
   },
   "BlitzMax": {
-    "hints": " BlitzMax, BlitzBasic, Blitz Basic\n",
     "recall": 1,
     "recalledAs": "Blitz_BASIC",
     "summary": "Blitz BASIC refers to the programming language dialect that was interpreted by the first Blitz compilers, devised by New Zealand-based developer Mark Sibly"
   },
   "Boo": {
-    "hints": null,
     "recall": 1,
     "recalledAs": "Boo_(programming_language)",
     "summary": "Boo is an object-oriented, statically typed, general-purpose programming language that seeks to make use of the Common Language Infrastructure's support for Unicode, internationalization, and web applications, while using a Python-inspired syntax and a special focus on language and compiler extensibility"
   },
   "Bourne shell": {
-    "hints": " Bourne shell, sh\n",
     "recall": 0,
     "mention": "Bourne_shell",
     "Summary": "The Bourne shell  is a shell, or command-line interpreter, for computer operating systems.The Bourne shell was the default shell for Version 7 Unix"
   },
   "C shell": {
-    "hints": " Csh, C shell (confidence",
     "recall": 0,
     "mention": "C_shell",
     "summary": "The C shell  is a Unix shell created by Bill Joy while he was a graduate student at University of California, Berkeley in the late 1970s"
   },
   "C#": {
-    "hints": " C#, C-Sharp, C Sharp, CSharp, CSharp.NET, C#.NET\n",
     "recall": 1,
     "recalledAs": "C_Sharp_(programming_language)",
     "summary": "C#  is a multi-paradigm programming language encompassing strong typing, imperative, declarative, functional, generic, object-oriented , and component-oriented programming disciplines"
@@ -194,7 +180,6 @@
     "summary": "C\u03c9  is a free extension to the C# programming language, developed by the WebData team in Microsoft SQL Server in collaboration with Microsoft Research in the UK and Redmond"
   },
   "C": {
-    "hints": " C (exceptions",
     "recall": 1,
     "recalledAs": "C_(programming_language)",
     "summary": "C  is a general-purpose, imperative computer programming language, supporting structured programming, lexical variable scope and recursion, while a static type system prevents many unintended operations"
@@ -210,19 +195,16 @@
     "summary": "Ceylon is an object-oriented, strongly statically typed programming language with an emphasis on immutability, created by Red Hat"
   },
   "CFML": {
-    "hints": " CFML, ColdFusion\n",
     "recall": 1,
     "recalledAs": "ColdFusion_Markup_Language",
     "summary": "ColdFusion Markup Language, more commonly known as CFML, is a scripting language for web development that runs on the JVM, the .NET framework, and Google App Engine"
   },
   "cg": {
-    "hints": " cg (confidence",
     "recall": 1,
     "recalledAs": "Cg_(programming_language)",
     "summary": "Cg  is a high-level shading language developed by Nvidia in close collaboration with Microsoft for programming vertex and pixel shaders"
   },
   "Ch": {
-    "hints": " Ch (exceptions",
     "recall": 0,
     "mention": "Ch_(computer_programming)",
     "summary": "Ch /\u02ccsi\u02d0\u02c8e\u026at\u0283/ is a proprietary cross-platform C and C++ interpreter and scripting language environment, originally designed by Harry H"
@@ -238,7 +220,6 @@
     "summary": "George Ciprian Necula is a Romanian computer scientist and professor at the University of California, Berkeley who does research in the area of programming languages and software engineering, with a particular focus on software verification and formal methods."
   },
   "CL (OS/400)": {
-    "hints": " CL (exceptions",
     "recall": 1,
     "recalledAs": "IBM_i_Control_Language",
     "summary": "The IBM i Control Language  is a scripting language for the IBM's IBM i platform  bearing a resemblance to the IBM Job Control Language and consisting of an ever-expanding set of command objects  used to invoke traditional AS/400 programs and/or get help on what those programs do"
@@ -249,7 +230,6 @@
     "summary": "Clarion is a commercial, proprietary, 4GL, multi-paradigm, programming language and Integrated Development Environment from SoftVelocity used to program database applications"
   },
   "Clean": {
-    "hints": " Clean (confidence",
     "recall": 1,
     "recalledAs": "Clean_(programming_language)",
     "summary": "In computer science, Clean is a general-purpose purely functional computer programming language"
@@ -260,7 +240,6 @@
     "summary": "Clipper is an xBase compiler, which is a computer programming language, that is used to create software programs that originally operated primarily under MS-DOS"
   },
   "Clojure": {
-    "hints": " Clojure, ClojureScript\n",
     "recall": 1,
     "recalledAs": "Clojure",
     "summary": "Clojure  is a dialect of the Lisp programming language created by Rich Hickey"
@@ -296,7 +275,6 @@
     "summary": "Common Lisp  is a dialect of the Lisp programming language, published in ANSI standard document ANSI INCITS 226-1994  "
   },
   "Crystal": {
-    "hints": " Crystal (confidence",
     "recall": 1,
     "recalledAs": "Crystal_(programming_language)",
     "summary": "In computer software programming languages, Crystal is a general-purpose, object-oriented programming language, designed and developed by Ary Borenszweig and Juan Wajnerman and more than 200 contributors"
@@ -311,7 +289,6 @@
     "summary": "Curl is a reflective object-oriented programming language for interactive web applications whose goal is to provide a smoother transition between formatting and programming"
   },
   "D": {
-    "hints": " D (confidence",
     "recall": 1,
     "recalledAs": "D_(programming_language)",
     "summary": "D is an object-oriented, imperative, multi-paradigm system programming language created by Walter Bright of Digital Mars and released in 2001"
@@ -327,13 +304,11 @@
     "summary": "A data control language  is a syntax similar to a computer programming language used to control access to data stored in a database "
   },
   "Delphi/Object Pascal": {
-    "hints": " Delphi, Delphi.NET, DwScript, Object Pascal, Pascal (confidence",
     "recall": 1,
     "recalledAs": "Object_Pascal",
     "summary": "Object Pascal refers to a branch of object-oriented derivatives of Pascal, mostly known as the primary programming language of Delphi."
   },
   "DiBOL": {
-    "hints": " DBL, Synergy/DE, DIBOL\n",
     "recall": 1,
     "recalledAs": "DIBOL",
     "summary": "DiBOL or Digital's Business Oriented Language is a general-purpose, procedural, imperative programming language, designed for use in Management Information Systems  software development"
@@ -344,7 +319,6 @@
     "summary": "Dylan is a multi-paradigm programming language that includes support for functional and object-oriented programming, and is dynamic and reflective while providing a programming model designed to support efficient machine code generation, including fine-grained control over dynamic and static behaviors"
   },
   "E": {
-    "hints": " E (exceptions",
     "recall": 1,
     "recalledAs": "E_(programming_language)",
     "summary": "E is an object-oriented programming language for secure distributed computing, created by Mark S"
@@ -375,7 +349,6 @@
     "summary": "Elm is a functional programming language for declaratively creating web browser-based graphical user interfaces"
   },
   "Emacs Lisp": {
-    "hints": " Emacs Lisp, Elips\n",
     "recall": 1,
     "recalledAs": "Emacs_Lisp",
     "summary": "Emacs Lisp is a dialect of the Lisp programming language used by the GNU Emacs and XEmacs text editors "
@@ -401,7 +374,6 @@
     "summary": "CMS EXEC, or EXEC, is an interpreted, command procedure control, computer scripting language used by the CMS EXEC Processor supplied with the IBM Virtual Machine/Conversational Monitor System  operating system.EXEC was written in 1966 by Stuart Madnick at MIT on the model of CTSS RUNCOM"
   },
   "F#": {
-    "hints": " F#, F-Sharp, FSharp, F Sharp\n",
     "recall": 1,
     "recalledAs": "F_Sharp_(programming_language)",
     "summary": "F#  is a strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods"
@@ -422,7 +394,6 @@
     "summary": "Fantom is a general purpose object-oriented programming language created by Brian and Andy Frank that runs on the Java Runtime Environment , JavaScript, and the .NET Common Language Runtime  "
   },
   "Felix": {
-    "hints": " Felix (confidence",
     "recall": 0,
     "comment": "Unknown"
   },
@@ -458,7 +429,6 @@
     "comment": "interpreted as two main subjects"
   },
   "Go": {
-    "hints": " Go, Golang\n",
     "recall": 1,
     "recalledAs": "Go_(programming_language)",
     "summary": "Go  is an open source programming language created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson"
@@ -469,7 +439,6 @@
     "summary": "Gosu is a statically-typed programming language that runs on the Java Virtual Machine released under the Apache 2"
   },
   "Groovy": {
-    "hints": " Groovy, GPATH, GSQL, Groovy++\n",
     "recall": 1,
     "recalledAs": "Groovy_(programming_language)",
     "summary": "Apache Groovy is an object-oriented programming language for the Java platform"
@@ -505,13 +474,11 @@
     "summary": "HyperTalk was a high-level, procedural programming language created in 1987 by Dan Winkler and used in conjunction with Apple Computer's HyperCard hypermedia program by Bill Atkinson"
   },
   "Icon": {
-    "hints": " Icon (confidence",
     "recall": 1,
     "recalledAs": "Icon_(programming_language)",
     "summary": "Icon is a very high-level programming language featuring goal-directed execution and many facilities for managing strings and textual patterns"
   },
   "IDL": {
-    "hints": " IDL (exceptions",
     "recall": 1,
     "recalledAs": "IDL_(programming_language)",
     "summary": "IDL, short for Interactive Data Language, is a programming language used for data analysis"
@@ -552,7 +519,6 @@
     "summary": "Visual J#  is an implementation of the J# programming language that was a transitional language for programmers of Java and Visual J++ languages, so they could use their existing knowledge and applications on .NET Framework"
   },
   "J": {
-    "hints": " J (confidence",
     "recall": 1,
     "recalledAs": "J_(programming_language)",
     "summary": "The J programming language, developed in the early 1990s by Kenneth E"
@@ -573,7 +539,6 @@
     "summary": "JavaFX Script was a scripting language designed by Sun Microsystems, forming part of the JavaFX family of technologies on the Java Platform.JavaFX targeted the Rich Internet Application domain , specializing in rapid development of visually rich applications for the desktop and mobile markets"
   },
   "JavaScript": {
-    "hints": " JavaScript, JS, SSJS\n",
     "recall": 1,
     "recalledAs": "JavaScript",
     "summary": "JavaScript  is a high-level, dynamic, untyped, and interpreted programming language"
@@ -589,13 +554,11 @@
     "summary": "JScript .NET is a .NET programming language developed by Microsoft.The primary differences between JScript and JScript .NET can be summarized as follows:Firstly, JScript is a scripting language, and as such programs  can be executed without the need to compile the code first"
   },
   "Julia": {
-    "hints": " Julia, Julialang, julia-lang\n",
     "recall": 1,
     "recalledAs": "Julia_(programming_language)",
     "summary": "Julia is a high-level dynamic programming language designed to address the requirements of high-performance numerical and scientific computing while also being effective for general-purpose programming, web use or as a specification language"
   },
   "Korn shell": {
-    "hints": " Korn shell, ksh\n",
     "recall": 0,
     "mention": "KornShell",
     "summary": "KornShell  is a Unix shell which was developed by David Korn at Bell Labs in the early 1980s and announced at USENIX on July 14, 1983"
@@ -637,13 +600,11 @@
     "summary": "Lisp  is a family of computer programming languages with a long history and a distinctive, fully parenthesized prefix notation"
   },
   "LiveCode": {
-    "hints": " Revolution, LiveCode\n",
     "recall": 0,
     "mention": "Revolution_(software_platform)",
     "summary": "Revolution is a software development environment/multimedia authoring software in the tradition of HyperCard and is based on the MetaCard engine"
   },
   "Logo": {
-    "hints": " Logo (confidence",
     "recall": 1,
     "recalledAs": "Logo_(programming_language)",
     "summary": "Logo is an educational programming language, designed in 1967 by Daniel G"
@@ -659,7 +620,6 @@
     "summary": "LPC  is an object-oriented programming language derived from C and developed originally by Lars Pensj\u00f6 to facilitate MUD building on LPMuds"
   },
   "Lua": {
-    "hints": " Lua, LuaJIT\n",
     "recall": 1,
     "recalledAs": "Lua_(programming_language)",
     "summary": "Lua  is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients"
@@ -670,18 +630,16 @@
     "summary": "Lustre is a formally defined, declarative, and synchronous dataflow programming language for programming reactive systems"
   },
   "M4": {
-    "recall": 0,
-    "mention": "M4_(computer_language)",
+    "recall": 1,
+    "recalledAs": "M4_(computer_language)",
     "summary": "m4 is a general-purpose macro processor included in all UNIX-like operating systems, and is a component of the POSIX standard.The language was designed by Brian Kernighan and Dennis Ritchie for the original versions of UNIX"
   },
   "MAD": {
-    "hints": " MAD (confidence",
     "recall": 1,
     "recalledAs": "MAD_(programming_language)",
     "summary": "MAD  is a programming language and compiler for the IBM 704 and later the IBM 709, IBM 7090, IBM 7040, UNIVAC 1107, UNIVAC 1108, Philco 210-211, and eventually the IBM S/370 mainframe computers"
   },
   "Magic": {
-    "hints": " Magic (confidence",
     "recall": 0,
     "mention": "Meditech",
     "summary": "Meditech, which is a short form for Medical Information Technology, Inc., is a Massachusetts-based software and service company selling information systems that are installed in health care organizations"
@@ -771,14 +729,13 @@
     "comment": "Unknown"
   },
   "MQL4": {
-    "hints": " MQL4, MQL5\n",
     "recall": 1,
     "recalledAs": "MetaQuotes_Language_MQL4/MQL5",
     "summary": "MQL4  and MQL5  are integrated programming languages designed for developing trading robots, technical market indicators, scripts and function libraries within the MetaTrader software.The primary objective of MQL4 and MQL5 is automation of trading and facilitation of operational analysis"
   },
   "MS-DOS batch": {
-    "recall": 0,
-    "mention": "Batch_file",
+    "recall": 1,
+    "recalledAs": "Batch_file",
     "summary": "A batch file is a kind of script file in DOS, OS/2 and Windows"
   },
   "MUMPS": {
@@ -801,7 +758,6 @@
     "summary": "NetLogo is an agent-based programming language and integrated modeling environment."
   },
   "Nim": {
-    "hints": " Nim, Nimrod\n",
     "recall": 1,
     "recalledAs": "Nim_(programming_language)",
     "summary": "Nim (formerly named Nimrod) is an imperative, multi-paradigm, compiled programming language[7] designed and developed by Andreas Rumpf."
@@ -832,15 +788,13 @@
     "summary": "The Object REXX programming language is an object-oriented scripting language initially produced by IBM for OS/2"
   },
   "Objective-C": {
-    "hints": " Objective-C, objc, obj-c\n",
     "recall": 1,
     "recalledAs": "Objective-C",
     "summary": "Objective-C is a general-purpose, object-oriented programming language that adds Smalltalk-style messaging to the C programming language"
   },
   "OCaml": {
-    "hints": " Objective Caml, OCaml\n",
-    "recall": 1,
-    "recalledAs": "OCaml",
+    "recall": 0,
+    "mention": "OCaml",
     "summary": "OCaml , originally named Objective Caml, is the main implementation of the programming language Caml, created by Xavier Leroy, J\u00e9r\u00f4me Vouillon, Damien Doligez, Didier R\u00e9my, Asc\u00e1nder Su\u00e1rez and others in 1996"
   },
   "Occam": {
@@ -854,7 +808,6 @@
     "summary": "Open Computing Language  is a framework for writing programs that execute across heterogeneous platforms consisting of central processing units , graphics processing units , digital signal processors , field-programmable gate arrays  and other processors or hardware accelerators"
   },
   "OpenEdge ABL": {
-    "hints": " Progress, Progress 4GL, ABL, Advanced Business Language, OpenEdge\n",
     "recall": 1,
     "recalledAs": "OpenEdge_Advanced_Business_Language",
     "summary": "OpenEdge Advanced Business Language, or OpenEdge ABL for short, is a business application development language created and maintained by Progress Software Corporation "
@@ -880,7 +833,6 @@
     "summary": "Paradox is an automated theorem proving system developed by Koen Lindstr\u00f6m Claessen and Niklas S\u00f6rensson at the Chalmers University of Technology"
   },
   "Pascal": {
-    "hints": " Pascal (confidence",
     "recall": 1,
     "recalledAs": "Pascal_(programming_language)",
     "summary": "Pascal is an imperative and procedural programming language, which Niklaus Wirth designed in 1968\u201369 and published in 1970, as a small, efficient language intended to encourage good programming practices using structured programming and data structuring"
@@ -901,13 +853,11 @@
     "summary": "Pike is an interpreted, general-purpose, high-level, cross-platform, dynamic programming language, with a syntax similar to that of C"
   },
   "PILOT": {
-    "hints": " PILOT (confidence",
     "recall": 1,
     "recalledAs": "PILOT",
     "summary": "Programmed Instruction, Learning, or Teaching  is a simple programming language developed in the 1960s"
   },
   "PL/I": {
-    "hints": " PL/1, PL/I\n",
     "recall": 1,
     "recalledAs": "PL/I",
     "summary": "PL/I  is a procedural, imperative computer programming language designed for scientific, engineering, business and system programming uses"
@@ -922,7 +872,6 @@
     "comment": "Unknown"
   },
   "PostScript": {
-    "hints": " PostScript, PS\n",
     "recall": 1,
     "recalledAs": "PostScript",
     "summary": "PostScript  is a computer language for creating vector graphics"
@@ -948,13 +897,11 @@
     "summary": "PowerShell is a task automation and configuration management framework from Microsoft, consisting of a command-line shell and associated scripting language"
   },
   "Processing": {
-    "hints": " Processing (exceptions",
     "recall": 1,
     "recalledAs": "Processing_(programming_language)",
     "summary": "Processing is an open-source computer programming language and integrated development environment  built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context"
   },
   "Programming Without Coding Technology": {
-    "hints": " Programming Without Coding Technology, PWCT\n",
     "recall": 0,
     "comment": "Unknown"
   },
@@ -964,7 +911,6 @@
     "summary": "Prolog is a general-purpose logic programming language associated with artificial intelligence and computational linguistics.Prolog has its roots in first-order logic, a formal logic, and unlike many other programming languages, Prolog is intended primarily as a declarative programming language: the program logic is expressed in terms of relations, represented as facts and rules"
   },
   "Pure Data": {
-    "hints": " Pure Data, PD\n",
     "recall": 1,
     "recalledAs": "Pure_Data",
     "summary": "Pure Data  is a visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works"
@@ -984,8 +930,7 @@
     "recalledAs": "Q_(programming_language_from_Kx_Systems)",
     "summary": "Q is a proprietary array processing language developed by Arthur Whitney and commercialized by Kx Systems"
   },
-  "recall": {
-    "hints": " R (confidence",
+  "R": {
     "recall": 1,
     "recalledAs": "R_(programming_language)",
     "summary": "R is a programming language and software environment for statistical computing and graphics supported by Kakajan Kab for Statistical Computing"
@@ -1001,7 +946,6 @@
     "summary": "Rebol  is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed by Carl Sassenrath for network communications and distributed computing"
   },
   "Red": {
-    "hints": " Red (confidence",
     "recall": 1,
     "recalledAs": "Red_(programming_language)",
     "summary": "Red is a computer programming language"
@@ -1017,7 +961,6 @@
     "summary": "Ring is a dynamic and general-purpose programming language"
   },
   "RPG": {
-    "hints": " RPG (confidence",
     "recall": 1,
     "recalledAs": "IBM_RPG",
     "summary": "RPG is a high-level programming language  for business applications"
@@ -1028,19 +971,16 @@
     "summary": "Ruby is a hardware description language created around 1990 intended to facilitate the notation and development of integrated circuits."
   },
   "Rust": {
-    "hints": " Rust, Rustlang\n",
     "recall": 1,
     "recalledAs": "Rust_(programming_language)",
     "summary": "Rust is a general-purpose, multi-paradigm, compiled programming language sponsored by Mozilla Research"
   },
   "S-PLUS": {
-    "hints": " S-PLUS (exceptions",
     "recall": 0,
     "mention": "S-PLUS",
     "summary": "S-PLUS is a commercial implementation of the S programming language sold by TIBCO Software Inc..It features object-oriented programming capabilities and advanced analytical algorithms.Due to the increasing popularity of the open source S successor R, TIBCO Software released the TIBCO Enterprise Runtime for R  as an alternative R interpreter."
   },
   "summary": {
-    "hints": " S (exceptions",
     "recall": 1,
     "recalledAs": "S_(programming_language)",
     "summary": "S is a statistical programming language developed primarily by John Chambers and  Rick Becker and Allan Wilks of Bell Laboratories"
@@ -1061,7 +1001,6 @@
     "summary": "Scala  is a general-purpose programming language"
   },
   "Scheme": {
-    "hints": " Scheme (exceptions",
     "recall": 1,
     "recalledAs": "Scheme_(programming_language)",
     "summary": "Scheme is a programming language that supports multiple paradigms, including functional programming and imperative programming, and is one of the two main dialects of Lisp"
@@ -1082,7 +1021,6 @@
     "summary": "Seed7 is an extensible general-purpose programming language designed by Thomas Mertes"
   },
   "SIGNAL": {
-    "hints": " SIGNAL (confidence",
     "recall": 1,
     "recalledAs": "SIGNAL_(programming_language)",
     "summary": "SIGNAL is a programming language based on synchronized data-flow : a process is a set of equations on elementary flows describing both data and control.The SIGNAL formal model provides the capability to describe systems with several clocks   as relational specifications"
@@ -1098,7 +1036,6 @@
     "summary": "Simulink, developed by MathWorks, is a graphical programming environment for modeling, simulating and analyzing multidomain dynamical systems"
   },
   "Slate": {
-    "hints": " Slate (confidence",
     "recall": 0,
     "comment": "Unknown"
   },
@@ -1153,7 +1090,6 @@
     "summary": "Squirrel is a high level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games and hardware such as Electric Imp.MirthKit, a simple toolkit for making and distributing open source, cross-platform 2D games, uses Squirrel for its platform"
   },
   "Standard ML": {
-    "hints": " Standard ML, SML\n",
     "recall": 1,
     "recalledAs": "Standard_ML",
     "summary": "Standard ML  is a general-purpose, modular, functional programming language with compile-time type checking and type inference"
@@ -1168,7 +1104,6 @@
     "comment": "Unknown"
   },
   "SuperCollider": {
-    "hints": " SuperCollider (confidence",
     "recall": 1,
     "recalledAs": "SuperCollider",
     "summary": "SuperCollider is an environment and programming language originally released in 1996 by James McCartney for real-time audio synthesis and algorithmic composition.Since then it has been evolving into a system used and further developed by both scientists and artists working with sound"
@@ -1184,7 +1119,6 @@
     "summary": "TACL  is the scripting programming language used in Tandem Computers"
   },
   "Tcl": {
-    "hints": " Tcl/Tk, Tcl\n",
     "recall": 1,
     "recalledAs": "Tcl",
     "summary": "Tcl  is a scripting language created by John Ousterhout"
@@ -1205,13 +1139,11 @@
     "summary": "thinBasic is a BASIC-like computer programming language interpreter with a central core engine architecture surrounded by many specialized modules"
   },
   "TOM": {
-    "hints": " TOM (confidence",
     "recall": 1,
     "recalledAs": "Tom_(pattern_matching_language)",
     "summary": "Tom is a programming language particularly well-suited for programming various transformations on tree structures and XML based documents"
   },
   "Transact-SQL": {
-    "hints": " T-SQL, Transact-SQL, TSQL\n",
     "recall": 1,
     "recalledAs": "Transact-SQL",
     "summary": "Transact-SQL  is Microsoft's and Sybase's proprietary extension to the SQL  used to interact with relational databases"
@@ -1222,7 +1154,6 @@
     "summary": "TypeScript is a free and open source programming language developed and maintained by Microsoft"
   },
   "Vala/Genie": {
-    "hints": " Vala, Genie\n",
     "recall": 1,
     "recalledAs": "Genie_(programming_language)",
     "summary": "Genie is a modern, general-purpose high-level programming language in active development since 2008"
@@ -1243,13 +1174,11 @@
     "summary": "VHDL  is a hardware description language used in electronic design automation to describe digital and mixed-signal systems such as field-programmable gate arrays and integrated circuits"
   },
   "Visual Basic .NET": {
-    "hints": " Visual Basic .NET, VB.NET, Visual Basic.NET, Visual Basic (confidence",
     "recall": 1,
     "recalledAs": "Visual_Basic_.NET",
     "summary": "Visual Basic .NET  is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework"
   },
   "Visual Basic": {
-    "hints": " Visual Basic (confidence",
     "recall": 1,
     "recalledAs": "Visual_Basic",
     "summary": "Visual Basic is a third-generation event-driven programming language and integrated development environment  from Microsoft for its COM programming model first released in 1991 and declared legacy in 2008"
@@ -1290,7 +1219,6 @@
     "summary": "C\u03c9  is a free extension to the C# programming language, developed by the WebData team in Microsoft SQL Server in collaboration with Microsoft Research in the UK and Redmond"
   },
   "Xojo": {
-    "hints": " REALbasic, Xojo\n",
     "recall": 0,
     "mention": "Xojo",
     "summary": "The Xojo programming environment is developed and commercially marketed by Xojo, Inc of Austin, Texas for software development targeting Mac OS X, Microsoft Windows, x86 Linux, iOS, as well as the web and Raspberry Pi"
@@ -1326,7 +1254,6 @@
     "summary": "Yorick is an interpreted programming language designed for numerics, graph plotting, and steering large scientific simulation codes"
   },
   "Z shell": {
-    "hints": " Z shell, zsh",
     "recall": 0,
     "mention": "Z_shell",
     "summary": "The Z shell  is a Unix shell that can be used as an interactive login shell and as a powerful command interpreter for shell scripting"

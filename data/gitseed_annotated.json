@@ -679,7 +679,7 @@
     "recalledAs": "Lua_(programming_language)",
     "summary": "Lua  is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients"
   },
-  "mention": {
+  "M": {
     "recall": 1,
     "recalledAs": "MUMPS",
     "summary": "MUMPS (Massachusetts General Hospital Utility Multi-Programming System), or M, is a general-purpose computer programming language that provides ACID (Atomic, Consistent, Isolated, and Durable) transaction processing"
@@ -805,10 +805,9 @@
     "summary": "Objective-J is a programming language developed as part of the Cappuccino web development framework"
   },
   "OCaml": {
-    "recall": 1,
-    "recalledAs": "OCaml",
-    "summary": "OCaml ( oh-KAM-əl), originally named Objective Caml, is the main implementation of the programming language Caml, created by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez and others in 1996.",
-    "comment": "We do not differentiate between language and its main implementation if such distinction is ontology-wise obvious, but no essential insight from the article."
+    "recall": 0,
+    "mention": "OCaml",
+    "summary": "OCaml ( oh-KAM-əl), originally named Objective Caml, is the main implementation of the programming language Caml, created by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez and others in 1996."
   },
   "Opa": {
     "recall": 1,
@@ -918,8 +917,8 @@
     "summary": "PowerBuilder is an integrated development environment owned by SAP"
   },
   "PowerShell": {
-    "recall": 0,
-    "mention": "PowerShell",
+    "recall": 1,
+    "recalledAs": "PowerShell",
     "summary": "PowerShell is a task automation and configuration management framework from Microsoft, consisting of a command-line shell and associated scripting language."
   },
   "Processing": {
@@ -964,7 +963,7 @@
     "recall": 1,
     "summary": "QML (Qt Modeling Language) is a user interface markup language."
   },
-  "recall": {
+  "R": {
     "recall": 1,
     "recalledAs": "R_(programming_language)",
     "summary": "R is a programming language and software environment for statistical computing and graphics supported by Kakajan Kab for Statistical Computing"
@@ -1283,7 +1282,8 @@
     "summary": "Xtend is a general-purpose high-level programming language for the Java Virtual Machine."
   },
   "Yacc": {
-    "recall": 1,
+    "recall": 0,
+    "mention": "Yacc",
     "summary": "Yacc (Yet Another Compiler-Compiler) is a computer program for the Unix operating system developed by Stephen C. Johnson."
   },
   "YAML": {
@@ -1415,8 +1415,8 @@
     "summary": "An ebuild is a specialized bash script which automates compilation and installation procedures for software packages"
   },
   "Csound Document": {
-    "recall": 1,
-    "recalledAs": "Csound",
+    "recall": 0,
+    "mention": "Csound",
     "summary": "Csound is a computer programming language for sound, also known as a sound compiler or an audio programming language, or more precisely, an audio DSL"
   },
   "C#": {
