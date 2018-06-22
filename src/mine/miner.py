@@ -76,6 +76,7 @@ def add_wikidata_ids(langdict):
             langdict[cl]["wikidataid"] = "None"
     return langdict
 
+
 def add_infobox_templates(langdict):
     print("Mining Infobox template names")
     td = get_templates(CLURI, 0, CLDEPTH)
@@ -83,6 +84,7 @@ def add_infobox_templates(langdict):
     for cl in td:
         langdict[cl]["DbpediaInfoboxTemplate"] = td[cl]
     return langdict
+
 
 def init_article_cats(langdict):
     print("Mining categories of articles")

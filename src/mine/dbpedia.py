@@ -380,7 +380,7 @@ def get_templates(root, mindepth, maxdepth):
         """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
     td = dict()
     for result in query(querytext):
-        t = result["t"]["value"].replace("http://dbpedia.org/resource/Template:Infobox_", "")
+        t = result["t"]["value"].replace("http://dbpedia.org/resource/Template:", "")
         cl = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
         if cl not in td:
             td[cl] = []

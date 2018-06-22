@@ -3,7 +3,7 @@ from mine.wiki import getcontent
 from check.langdictcheck import LangdictCheck
 
 
-class InfoboxEx(LangdictCheck):
+class InfoboxPosition(LangdictCheck):
 
     def get_text(self,clrev):
         return clrev[0], getcontent(clrev[1])
@@ -19,7 +19,7 @@ class InfoboxEx(LangdictCheck):
         for cl in langdict:
             text = cltexts[cl]
             if text is None:
-                langdict[cl]["MultiInfobox"] = -1
+                langdict[cl]["MultiInfobox"] = 0
                 langdict[cl]["Infobox programming language"] = -1
                 langdict[cl]["Infobox software"] = -1
                 langdict[cl]["Infobox file format"] = -1
