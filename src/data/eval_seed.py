@@ -40,14 +40,7 @@ def annotate_summary():
     f.flush()
     f.close()
 
-def count_negative_seed():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
-    d = load(f)
-    x=0
-    for cl in d:
-        if d[cl]["negativeSeed"] == 1:
-            x+=1
-    print(x)
+
 
 def count_seed():
     f = open(DATAP + '/seed_annotated.json', 'r', encoding="UTF8")

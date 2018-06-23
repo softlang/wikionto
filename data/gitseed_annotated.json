@@ -861,6 +861,7 @@
   },
   "PAWN": {
     "recall": 1,
+    "recalledAs": "Pawn_(scripting_language)",
     "comment": "Pawn_(scripting_language) does not exist at Wikipedia, but is kept in Dbpedia Live"
   },
   "Perl": {

@@ -12,13 +12,16 @@ class Seed(LangdictCheck):
         f.close()
         for cl in langdict:
             langdict[cl]["Seed"] = 0
-        for l in d["recall"]:
-            langdict[l]["Seed"] = 1
+        for l in d["recalled"]:
+            if l in langdict:
+                langdict[l]["Seed"] = 1
+            else:
+                print("recalled not in langdict:" + l)
         for l in d["mention"]:
             if l in langdict:
                 langdict[l]["SeedMention"] = 1
             else:
-                print(l + " not in langdict")
+                print("mention not in langdict: " + l)
         return langdict
 
 

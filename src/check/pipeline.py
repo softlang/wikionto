@@ -4,7 +4,7 @@ from check.hypernym_dbpedia import DbpediaHyp
 from check.hypernym_nlp_firstsentence import HypNLPSent
 from check.summary_keywords import SumKeyWords
 from check.url_pattern import URLPattern
-from check.infobox_existence import InfoboxEx
+from check.infobox_dbpedia_existence import InfoboxDbEx
 from check.lists_of import WikiList
 from check.wikidata import Wikidata
 from check.yago import Yago
@@ -21,8 +21,8 @@ from functools import reduce
 
 
 def pipeline():
-    ans = [Seed, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxEx, WikiList,
-           Wikidata, Yago, WordNet, SemDist]
+    ans = [Seed, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxDbEx, WikiList,
+           Wikidata, Yago, WordNet, SemDist, SeedSim]
     for c in ans:
         try:
             c().solo()
