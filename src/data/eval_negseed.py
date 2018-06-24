@@ -38,7 +38,7 @@ def create_negative_seed():
     for ib, cls in d.items():
         while True:
             c = randint(0, len(cls) - 1)
-            if ld[cls[c]]["Summary"] is "No Summary":
+            if "Summary" not in ld[cls[c]]:
                 if len(cls) == 1:
                     break
                 else:
@@ -59,7 +59,7 @@ def check_negative_seed():
     ld = load(f)
     for cl in d:
         print(cl)
-        print("  " + ld[cl]["Summary"].split(". ")[0])
+        print("  " + ld[cl]["Summary"])
         if "POS" in ld[cl]:
             print("  " + str(ld[cl]["POS"]))
         print("  " + str(set(ld[cl]["DbpediaInfoboxTemplate"])))

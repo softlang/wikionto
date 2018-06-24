@@ -1,13 +1,16 @@
 from data import DATAP
-from json import load, dump
+from json import load
 import operator
 
 
-def words_in_titles(name):
+def words_in_titles(name, seed=True):
     f = open(DATAP + '/' + name + '.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
+        if seed:
+            if langdict[cl]["Seed"] == 0:
+                continue
         text = cl
         words = text.split('_')
         for w in words:
@@ -29,7 +32,7 @@ def tags_in_titles_braces(name, seed=True):
         if '(' not in cl:
             continue
         if seed:
-            if (langdict[cl]["TIOBE"] == 0) and (langdict[cl]["GitSeed"] == 0):
+            if langdict[cl]["Seed"] == 0:
                 continue
         tag = cl.split('(')[1].split(')')[0]
         if tag in pattern_freq:
@@ -41,13 +44,16 @@ def tags_in_titles_braces(name, seed=True):
         print(cl + ', ' + str(v))
 
 
-def words_in_tags_in_titles_braces(name):
+def words_in_tags_in_titles_braces(name, seed=True):
     f = open(DATAP + '/' + name + '.json', 'r', encoding="UTF8")
     langdict = load(f)
     pattern_freq = dict()
     for cl in langdict:
         if '(' not in cl:
             continue
+        if seed:
+            if langdict[cl]["Seed"] == 0:
+                continue
         tag = cl.split('(')[1].split(')')[0]
         tags = tag.split('_')
         for t in tags:

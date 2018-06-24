@@ -31,11 +31,10 @@ def get_single(summary):
 
 def explore():
     f = open(DATAP + '/langdict.json', 'r', encoding="utf8")
-    langdict = load(f)
+    d = load(f)
     f.close()
-    cl_sums = list(langdict[cl]["Summary"] for cl in langdict if ("No Summary" not in langdict[cl]["Summary"])
-                   and ((langdict[cl]["TIOBE"] == 1) or (langdict[cl]["GitSeed"] == 1)))
-    pool = Pool(processes=8)
+    cl_sums = list(d[cl]["Summary"] for cl in d if ("Summary" in d[cl]) and (d[cl]["Seed"] == 1))
+    pool = Pool(processes=10)
     nnlists = pool.map(get_single, cl_sums)
     nouns_f = dict()
     for nnlist in nnlists:
@@ -49,15 +48,17 @@ def explore():
     f.flush()
     f.close()
 
+
 def get_top10():
     f = open(DATAP + '/explore_seed_nouns.json', 'r', encoding="utf8")
     nouns_f = load(f)
     f.close()
     import operator
-    top10 = list((k,nouns_f[k]) for k in nouns_f)
+    top10 = list((k, nouns_f[k]) for k in nouns_f)
     top10.sort(key=operator.itemgetter(1))
-    for k,v in top10:
-        print((k,v))
+    for k, v in top10:
+        print((k, v))
+
 
 if __name__ == "__main__":
     get_top10()
