@@ -8,6 +8,8 @@ class InfoboxDbEx(LangdictCheck):
         validibs = ["infobox_software", "infobox_programming_language", "infobox_file_format",
                     "infobox_technology_standard", "infobox_software_license", "infobox"]
         for cl in langdict:
+            if "DbpediaInfoboxTemplate" not in langdict[cl]:
+                continue
             ibs = langdict[cl]["DbpediaInfoboxTemplate"]
             langdict[cl]["MultiInfobox"] = len(ibs)
             langdict[cl]["Infobox programming language"] = int("infobox_programming_language" in ibs)

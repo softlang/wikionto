@@ -9,7 +9,7 @@ class URLPattern(LangdictCheck):
             langdict[cl]["URLPattern"] = 0
             langdict[cl]["URLBracesPattern"] = 0
         for cl in langdict:
-            if any(kw in cl for kw in KEYWORDS):
+            if any(word.endswith(kw) for kw in KEYWORDS for word in cl.split('_')):
                 langdict[cl]["URLPattern"] = 1
 
             if '(' in cl:

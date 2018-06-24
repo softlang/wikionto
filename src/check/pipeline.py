@@ -23,10 +23,7 @@ def pipeline():
     ans = [Seed, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxDbEx, WikiList,
            Wikidata, Yago, WordNet, SemDist, SeedSim]
     for c in ans:
-        try:
-            c().solo()
-        except:
-            print("Error")
+        c().solo()
 
 
 """
@@ -44,5 +41,5 @@ def pipeline():
 """
 
 if __name__ == '__main__':
-    mine()
+    #mine()
     pipeline()
