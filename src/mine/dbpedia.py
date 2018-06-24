@@ -277,7 +277,7 @@ offset ?offset
 
 
 # Only dbpedia.org holds the hypernym relation
-def articles_with_hypernyms(root, mindepth, maxdepth):
+def articles_with_NonLiveHypernyms(root, mindepth, maxdepth):
     querytext = """
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/resource/>

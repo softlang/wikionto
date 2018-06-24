@@ -17,7 +17,6 @@ from json import dump, load
 
 from mine.miner import mine
 from data import DATAP
-from functools import reduce
 
 
 def pipeline():

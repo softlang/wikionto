@@ -1,6 +1,6 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
     category_to_subcategory_below, to_uri, articles_with_revisions_live, \
-    articles_with_wikidataid, get_templates, articles_with_hypernyms
+    articles_with_wikidataid, get_templates, articles_with_NonLiveHypernyms
 from json import dump, load
 from data import DATAP, DEPTH, CATS
 
