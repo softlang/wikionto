@@ -1,6 +1,6 @@
-from data import DATAP, CLDEPTH, CFFDEPTH
+from data import DATAP, DEPTH, CATS
 from json import load, dump
-from mine.dbpedia import articles_with_commons, CLURI, CFFURI
+from mine.dbpedia import articles_with_commons, to_uri
 
 
 def check_eponymous(catdict, langdict):
@@ -8,16 +8,13 @@ def check_eponymous(catdict, langdict):
     for cat in catdict:
         catdict[cat]["Eponymous"] = int(cat in langdict)
 
-    acdictcl = articles_with_commons(CLURI, 0, CLDEPTH)
-    acdictcff = articles_with_commons(CFFURI, 0, CFFDEPTH)
-    for cl in acdictcl:
-        for cat in acdictcl[cl]:
-            if cat in catdict:
-                catdict[cat]["Eponymous"] = 1
-    for cl in acdictcff:
-        for cat in acdictcff[cl]:
-            if cat in catdict:
-                catdict[cat]["Eponymous"] = 1
+    # TODO: http://live.dbpedia.org/property/commons for Java : Category:Java (en)
+    for c in CATS:
+        cls = articles_with_commons(to_uri(c), 0, DEPTH)
+        for cl in cls:
+            for cat in cls[cl]:
+                if cat in catdict:
+                    catdict[cat]["Eponymous"] = 1
     return catdict
 
 

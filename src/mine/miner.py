@@ -1,180 +1,83 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
-    category_to_subcategory_below, category_to_articles_below, CLURI, CFFURI, articles_with_revisions_live, \
-    articles_with_wikidataid, get_templates
-from mine.wiki import get_infobox
+    category_to_subcategory_below, to_uri, articles_with_revisions_live, \
+    articles_with_wikidataid, get_templates, articles_with_hypernyms
 from json import dump, load
-from data import DATAP, CLDEPTH, CFFDEPTH
-from multiprocessing.pool import Pool
+from data import DATAP, DEPTH, CATS
 
 
 def init_langdict():
     print("Mining article names and depth of first appearance")
-    cls_result = list(map(lambda x: (x, 0), articles_below(CLURI, 0, 0)))
-    cffs_result = list(map(lambda x: (x, 0), articles_below(CFFURI, 0, 0)))
-    for i in range(CLDEPTH):
-        x = i + 1
-        cls = articles_below(CLURI, x, x)
-        cls_result = cls_result + [(cl, x) for cl in cls if cl not in list(zip(*cls_result))[0]]
-
-    for i in range(CFFDEPTH):
-        x = i + 1
-        cffs = articles_below(CFFURI, x, x)
-        cffs_result = cffs_result + [(cff, x) for cff in cffs if cff not in list(zip(*cffs_result))[0]]
-
     langdict = dict()
-    for cl, d in cls_result:
-        langdict[cl] = dict()
-        langdict[cl]["CLDepth"] = d
-        if cl not in list(zip(*cffs_result))[0]:
-            langdict[cl]["CFFDepth"] = -1
-    for cff, d in cffs_result:
-        if cff not in langdict:
-            langdict[cff] = dict()
-            langdict[cff]["CLDepth"] = -1
-        langdict[cff]["CFFDepth"] = d
+    for c in CATS:
+        for i in range(DEPTH + 1):
+            articles = articles_below(to_uri(c), 0, 0)
+            for cl in articles:
+                if cl not in langdict:
+                    langdict[cl] = dict()
+                langdict[cl][c + "Depth"] = i
     return langdict
 
 
-def add_summaries(langdict):
-    print("Mining article summaries")
-    cl_sums = get_summaries()
+def add_function(langdict, fun, name):
+    d = dict()
+    for c in CATS:
+        d.update(fun(to_uri(c), 0, DEPTH))
     for cl in langdict:
-        if cl in cl_sums:
-            langdict[cl]["Summary"] = cl_sums[cl]
-        else:
-            langdict[cl]["Summary"] = "No Summary"
-    return langdict
-
-
-def get_summaries():
-    clarticles = articles_with_summaries(CLURI, 0, CLDEPTH)
-    cffarticles = articles_with_summaries(CFFURI, 0, CFFDEPTH)
-    clarticles.update(cffarticles)
-    return clarticles
-
-def add_revisions(langdict):
-    print("Mining wikipedia revisions of articles")
-    clarticles = articles_with_revisions_live(CLURI, 0, CLDEPTH)
-    cffarticles = articles_with_revisions_live(CFFURI, 0, CFFDEPTH)
-    clarticles.update(cffarticles)
-    for cl in langdict:
-        if cl in clarticles:
-            langdict[cl]["Revision"] = clarticles[cl]
-        else:
-            langdict[cl]["Revision"] = "-1"
-    return langdict
-
-def add_wikidata_ids(langdict):
-    print("Mining wikidata ids of articles")
-    clarticles = articles_with_wikidataid(CLURI, 0, CLDEPTH)
-    cffarticles = articles_with_wikidataid(CFFURI, 0, CFFDEPTH)
-    clarticles.update(cffarticles)
-    for cl in langdict:
-        if cl in clarticles:
-            langdict[cl]["wikidataid"] = clarticles[cl]
-        else:
-            langdict[cl]["wikidataid"] = "None"
-    return langdict
-
-
-def add_infobox_templates(langdict):
-    print("Mining Infobox template names")
-    td = get_templates(CLURI, 0, CLDEPTH)
-    td.update(get_templates(CFFURI, 0, CFFDEPTH))
-    for cl in td:
-        langdict[cl]["DbpediaInfoboxTemplate"] = td[cl]
-    return langdict
-
-
-def init_article_cats(langdict):
-    print("Mining categories of articles")
-    atc = articles_to_categories_below(CLURI, 0, CLDEPTH)
-    atc.update(articles_to_categories_below(CFFURI, 0, CFFDEPTH))
-    for cl in atc:
-        langdict[cl]['cats'] = atc[cl]['cats']
+        if cl in d:
+            langdict[cl][name] = d[cl]
     return langdict
 
 
 def init_cat_subcat():
     print("Mining subcategories of categories")
-    cat_dict = category_to_subcategory_below(CLURI, 0, 0)
-    cff_cat_subcat = category_to_subcategory_below(CFFURI, 0, 0)
-    for cat in cat_dict:
-        cat_dict[cat]["CLDepth"] = 0
-    for cat in cff_cat_subcat:
-        cff_cat_subcat[cat]["CFFDepth"] = 0
-
-    for i in range(CLDEPTH):
-        x = i + 1
-        cls_cat_subcat_x = category_to_subcategory_below(CLURI, x, x)
-        for cat in cls_cat_subcat_x:
-            if cat not in cat_dict:
-                cat_dict[cat]["CLDepth"] = x
-                cat_dict[cat]["subcats"] = cls_cat_subcat_x[cat]["subcats"]
-
-    for i in range(CFFDEPTH):
-        x = i + 1
-        cffs_cat_subcat_x = category_to_subcategory_below(CFFURI, x, x)
-        for cat in cffs_cat_subcat_x:
-            if cat not in cff_cat_subcat:
-                cff_cat_subcat[cat]["CFFDepth"] = x
-                cff_cat_subcat[cat]["subcats"] = cffs_cat_subcat_x[cat]["subcats"]
-    cat_dict.update(cff_cat_subcat)
-    return cat_dict
+    catdict = dict()
+    for c in CATS:
+        for i in range(DEPTH + 1):
+            d2 = category_to_subcategory_below(to_uri(c), i, i)
+            for cat, subcats in d2.items():
+                if cat not in catdict:
+                    catdict[c] = dict()
+                    catdict[c][c + "Depth"] = i
+                    catdict[c]["subcats"] = subcats
+    return catdict
 
 
-def init_cat_articles():
+def init_cat_articles(catdict, langdict):
     print("Mining articles of categories")
-    cl_cat_articles = category_to_articles_below(CLURI, 0, 0)
-    cff_cat_articles = category_to_articles_below(CFFURI, 0, 0)
-    for cat in cl_cat_articles:
-        cl_cat_articles[cat]["CLDepth"] = 0
-    for cat in cff_cat_articles:
-        cff_cat_articles[cat]["CFFDepth"] = 0
-
-    for i in range(CLDEPTH):
-        x = i + 1
-        cls_cat_articles_x = category_to_articles_below(CLURI, x, x)
-        for cat in cls_cat_articles_x:
-            if cat not in cl_cat_articles:
-                cl_cat_articles[cat]["CLDepth"] = x
-                cl_cat_articles[cat]["articles"] = cls_cat_articles_x[cat]["articles"]
-    for i in range(CFFDEPTH):
-        x = i + 1
-        cffs_cat_articles_x = category_to_articles_below(CFFURI, x, x)
-        for cat in cffs_cat_articles_x:
-            if cat not in cff_cat_articles:
-                cff_cat_articles[cat]["CFFDepth"] = x
-                cff_cat_articles[cat]["articles"] = cffs_cat_articles_x[cat]["articles"]
-    cl_cat_articles.update(cff_cat_articles)
-    return cl_cat_articles
+    for cl in langdict:
+        for c in langdict[cl]["cats"]:
+            if "articles" not in catdict[c]:
+                catdict[c]["articles"] = []
+            catdict[c]["articles"].append(cl)
+    return catdict
 
 
 def mine():
     langdict = init_langdict()
-    langdict = add_summaries(langdict)
-    langdict = add_infobox_templates(langdict)
-    langdict = add_revisions(langdict)
-    langdict = add_wikidata_ids(langdict)
-    #langdict = add_properties(langdict)
-    langdict = init_article_cats(langdict)
+    langdict = add_function(langdict, articles_with_summaries, "Summary")
+    langdict = add_function(langdict, articles_with_revisions_live, "Revision")
+    langdict = add_function(langdict, articles_with_wikidataid, "wikidataid")
+    langdict = add_function(langdict, articles_with_NonLiveHypernyms, "DbpediaHypernyms")
+    langdict = add_function(langdict, get_templates, "DbpediaInfoboxTemplate")
+    langdict = add_function(langdict, articles_to_categories_below, "cats")
+    # langdict = add_properties(langdict)
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
 
     catdict = init_cat_subcat()
-    catdict.update(init_cat_articles())
-    f = open(DATAP + '/catdict.json', 'w', encoding='utf8')
-    dump(obj=catdict, fp=f, indent=2)
-    f.flush()
-    f.close()
+    catdict = init_cat_articles(catdict, langdict)
+    with open(DATAP + '/catdict.json', 'w', encoding='utf8') as f:
+        dump(obj=catdict, fp=f, indent=2)
+        f.flush()
+        f.close()
 
 
 if __name__ == '__main__':
     with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
         ld = load(f)
-        ld = add_infobox_templates(ld)
+        ld = add_function(ld, get_templates, "DbpediaInfoboxTemplate")
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=ld, fp=f, indent=2)
         f.flush()

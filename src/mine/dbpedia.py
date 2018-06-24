@@ -4,21 +4,25 @@ from collections import defaultdict
 from time import sleep
 from urllib.error import HTTPError
 
-CLURI = "<http://dbpedia.org/resource/Category:Computer_languages>"
-CFFURI = "<http://dbpedia.org/resource/Category:Computer_file_formats>"
+URI = "<http://dbpedia.org/resource/"
+
 DBPEDIA = "http://dbpedia.org/sparql"
 DBPEDIALIVE = "http://dbpedia-live.openlinksw.com/sparql"
 
 
-def query(query, url=DBPEDIALIVE, use_offset=True):
-    if use_offset and ("?offset" not in query):
+def to_uri(name):
+    return URI + name + ">"
+
+
+def query(qtext, url=DBPEDIALIVE, use_offset=True):
+    if use_offset and ("?offset" not in qtext):
         raise ArgumentError("Work with offset as dbpedia returns a limited amount of results.")
     sparql = SPARQLWrapper(url)
     sparql.setReturnFormat(JSON)
     offset = 0
     results = []
     while True:
-        fquery = query
+        fquery = qtext
         if use_offset:
             fquery = fquery.replace("?offset", str(offset))
         sparql.setQuery(fquery)
@@ -227,8 +231,8 @@ def articles_out_with(propname, mindepthcl, maxdepthcl, mindepthcff, maxdepthcff
         }  
     }
     LIMIT 10000
-    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>')\
-        .replace("?mindepthcl",str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl))\
+    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>') \
+        .replace("?mindepthcl", str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl)) \
         .replace("?mindepthcff", str(mindepthcff)).replace("?maxdepthcff", str(maxdepthcff))
     return len(query(query=prop_out_query, use_offset=False))
 
@@ -248,8 +252,8 @@ def articles_out_with_reverse(propname, mindepthcl, maxdepthcl, mindepthcff, max
         }  
     }
     LIMIT 10000
-    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>')\
-        .replace("?mindepthcl",str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl))\
+    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>') \
+        .replace("?mindepthcl", str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl)) \
         .replace("?mindepthcff", str(mindepthcff)).replace("?maxdepthcff", str(maxdepthcff))
     return len(query(query=prop_out_query, use_offset=False))
 
@@ -273,29 +277,30 @@ offset ?offset
 
 
 # Only dbpedia.org holds the hypernym relation
-def articles_with_hypernym(root, mindepth, maxdepth, hypernym):
-    articles = []
+def articles_with_hypernyms(root, mindepth, maxdepth):
     querytext = """
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/resource/>
 PREFIX dct: <http://purl.org/dc/terms/>
-SELECT ?article where { 
-    SELECT DISTINCT ?article where {
+SELECT ?article ?hyp where { 
+    SELECT DISTINCT ?article ?hyp where {
         ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
-        FILTER(regex(str(?hyp),"?hypernym","i"))
         ?article <http://purl.org/linguistics/gold/hypernym> ?hyp .
     }
     ORDER BY ASC(?article)
 }
 limit 10000
 offset ?offset
-    """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth)).replace(
-        "?hypernym", hypernym)
-    results = query(querytext, url=DBPEDIALIVE)
+    """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(querytext, url=DBPEDIA)
+    d = dict()
     for result in results:
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
-        articles.append(article)
-    return articles
+        hyp = result["hyp"]["value"].replace("http://dbpedia.org/resource/", "")
+        if article not in d:
+            d[article] = []
+        d[article].append(hyp)
+    return d
 
 
 def articles_with_summaries(root, mindepth, maxdepth):
@@ -333,34 +338,6 @@ offset ?offset
             articles[article] = summary
     return articles
 
-def get_summary(article):
-    url = "<http://dbpedia.org/resource/"+article.replace(' ','_')+">"
-    querytext = """
-PREFIX dbo: <http://dbpedia.org/ontology/>
-PREFIX dbp: <http://dbpedia.org/resource/>
-PREFIX dct: <http://purl.org/dc/terms/>
-SELECT ?summary where { 
-    ?article dbo:abstract ?summary .
-}
-    """.replace("?article",url)
-    for result in query(querytext,use_offset=False):
-        if result["summary"]["xml:lang"] == "en":
-            summary = result["summary"]["value"]
-            result = ""
-            lvl = 0
-            for c in summary:
-                if c == '(':
-                    lvl += 1
-                    continue
-                if c == ')':
-                    lvl -= 1
-                    continue
-                if lvl == 0:
-                    result += c
-            summary = result.strip()
-            return summary.split('. ')[0]
-    return None
-
 
 def get_templates(root, mindepth, maxdepth):
     querytext = """
@@ -380,7 +357,7 @@ def get_templates(root, mindepth, maxdepth):
         """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
     td = dict()
     for result in query(querytext):
-        t = result["t"]["value"].replace("http://dbpedia.org/resource/Template:", "")
+        t = result["t"]["value"].replace("http://dbpedia.org/resource/Template:", "").lower()
         cl = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
         if cl not in td:
             td[cl] = []
@@ -409,6 +386,7 @@ def articles_with_revisions(root, mindepth, maxdepth):
         rev = result["rev"]["value"]
         articles[article] = rev
     return articles
+
 
 def articles_with_revisions_live(root, mindepth, maxdepth):
     querytext = """
@@ -456,8 +434,9 @@ def articles_with_wikidataid(root, mindepth, maxdepth):
         articles[article] = qid
     return articles
 
+
 def category_to_subcategory_below(root, mindepth, maxdepth):
-    cat_subcat = defaultdict(dict)
+    cat_subcat = dict()
     querytext = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -476,8 +455,8 @@ offset ?offset
         cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
         subcat = result["subcat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
         if cat not in cat_subcat:
-            cat_subcat[cat]["subcats"] = []
-        cat_subcat[cat]["subcats"].append(subcat)
+            cat_subcat[cat] = []
+        cat_subcat[cat].append(subcat)
     return cat_subcat
 
 
@@ -526,6 +505,6 @@ offset ?offset
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
         cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
         if article not in article_cats:
-            article_cats[article]["cats"] = []
-        article_cats[article]["cats"].append(cat)
+            article_cats[article] = []
+        article_cats[article].append(cat)
     return article_cats

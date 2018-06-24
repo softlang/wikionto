@@ -1,8 +1,9 @@
 from os.path import dirname, abspath, join
 
 DATAP = join(dirname(abspath(__file__)), '..', '..', 'data')
-CLDEPTH = 7
-CFFDEPTH = 7
+DEPTH = 8
+
+CATS = ["Category:Formal_languages", "Category:Computer_file_formats", "Category:Installation_software"]
 
 WIKIDATA = "https://query.wikidata.org/sparql"
 

@@ -41,4 +41,4 @@ class InfoboxPosition(LangdictCheck):
 
 
 if __name__ == "__main__":
-    InfoboxEx().solo()
+    InfoboxPosition().solo()

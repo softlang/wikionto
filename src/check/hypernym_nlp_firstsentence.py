@@ -38,14 +38,16 @@ class HypNLPSent(LangdictCheck):
             langdict[cl]["POS"] = 0
         cl_sums = []
         for cl in langdict:
-            cl_sums.append((cl, langdict[cl]["Summary"]))
+            if "Summary" in langdict[cl]:
+                cl_sums.append((cl, langdict[cl]["Summary"]))
         pool = Pool(processes=8)
         parsed_pairs = pool.map(self.check_single, cl_sums)
         parsed_pairs = dict(parsed_pairs)
         for cl in langdict:
-            summary = langdict[cl]["Summary"]
+            if "Summary" not in langdict[cl]:
+                continue
             hyp = parsed_pairs[cl]
-            if not ((summary == "No Summary") | (hyp is None)):
+            if hyp is not None:
                 (pos, s), cop = hyp
                 langdict[cl]["POSHypernyms"] = pos
                 langdict[cl]["COPHypernym"] = cop
