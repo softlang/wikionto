@@ -13,16 +13,15 @@ class SeedSim(LangdictCheck):
         print("Annotating similarity to seed sentences")
         ssums = []
         for cl, feat in langdict.items():
-            if (("TIOBE" in feat and feat["TIOBE"] == 1) or
-                    ("GitSeed" in feat and feat["GitSeed"] == 1)) and \
-                        feat["Summary"] is not "No Summary":
+            if (feat["Seed"] == 1) and ("Summary" in feat):
                 ssums.append(feat["Summary"])
 
         pool = Pool(processes=4)
-        cltuples = [(cl, langdict[cl]["Summary"], ssums) for cl in langdict]
+        cltuples = [(cl, langdict[cl]["Summary"], ssums) for cl in langdict if "Summary" in langdict[cl]]
         cltuples = list(pool.map(seedsim, cltuples))
-        for cl, rsim in cltuples:
-            langdict[cl]["Seed_Similarity"] = rsim
+        for cl, wsim, csim in cltuples:
+            langdict[cl]["Seed_Similarity_Word"] = wsim
+            langdict[cl]["Seed_Similarity_Char"] = csim
         return langdict
 
 
@@ -31,18 +30,25 @@ def seedsim(cltuple):
         cl = cltuple[0]
         text = cltuple[1]
         ssums = cltuple[2]
-        if (text == "No Summary") or (text is "no summary") or (text is ''):
-            return cl, 0.0
-        else:
-            return cl, sim(text, ssums)
+        return cl, sim_word(text, ssums), sim_char(text, ssums)
     except IndexError:
         print("ERROR at " + cl)
         return cl, 0.0
 
 
-def sim(text, texts):
+def sim_word(text, texts):
     vect = CountVectorizer(analyzer='word', tokenizer=normalize, min_df=0, stop_words='english')
-    matrix = vect.fit_transform([text] + texts)
+    texts.append(text)
+    matrix = vect.fit_transform(texts)
+    cosine_similarities = linear_kernel(matrix[0:1], matrix).flatten()
+    simmax = max(cosine_similarities[1:])
+    return simmax
+
+
+def sim_char(text, texts):
+    vect = CountVectorizer(analyzer='char_wb', tokenizer=normalize, min_df=0, stop_words='english', ngram_range=(5, 5))
+    texts.append(text)
+    matrix = vect.fit_transform(texts)
     cosine_similarities = linear_kernel(matrix[0:1], matrix).flatten()
     simmax = max(cosine_similarities[1:])
     return simmax
