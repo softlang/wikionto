@@ -10,7 +10,7 @@ def init_langdict():
     langdict = dict()
     for c in CATS:
         for i in range(DEPTH + 1):
-            articles = articles_below(to_uri(c), 0, 0)
+            articles = articles_below(to_uri(c), i, i)
             for cl in articles:
                 if cl not in langdict:
                     langdict[cl] = dict()
@@ -19,6 +19,7 @@ def init_langdict():
 
 
 def add_function(langdict, fun, name):
+    print("Mining "+name)
     d = dict()
     for c in CATS:
         d.update(fun(to_uri(c), 0, DEPTH))
@@ -36,9 +37,14 @@ def init_cat_subcat():
             d2 = category_to_subcategory_below(to_uri(c), i, i)
             for cat, subcats in d2.items():
                 if cat not in catdict:
-                    catdict[c] = dict()
-                    catdict[c][c + "Depth"] = i
-                    catdict[c]["subcats"] = subcats
+                    catdict[cat] = dict()
+                    catdict[cat][c + "Depth"] = i
+                if "subcats" not in catdict[cat]:
+                    catdict[cat]["subcats"] = subcats #TODO possible bug
+                    for sc in subcats:
+                        if sc not in catdict:
+                            catdict[sc] = dict()
+                            catdict[sc][c+"Depth"] = i+1
     return catdict
 
 
@@ -46,7 +52,10 @@ def init_cat_articles(catdict, langdict):
     print("Mining articles of categories")
     for cl in langdict:
         for c in langdict[cl]["cats"]:
-            if "articles" not in catdict[c]:
+            if c not in catdict:
+                print(c)
+                continue
+            elif "articles" not in catdict[c]:
                 catdict[c]["articles"] = []
             catdict[c]["articles"].append(cl)
     return catdict
@@ -65,7 +74,10 @@ def mine():
         dump(obj=langdict, fp=f, indent=2)
         f.flush()
         f.close()
+    mine_cats(langdict)
 
+
+def mine_cats(langdict):
     catdict = init_cat_subcat()
     catdict = init_cat_articles(catdict, langdict)
     with open(DATAP + '/catdict.json', 'w', encoding='utf8') as f:
@@ -75,10 +87,7 @@ def mine():
 
 
 if __name__ == '__main__':
+    #mine()
     with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
-        ld = load(f)
-        ld = add_function(ld, get_templates, "DbpediaInfoboxTemplate")
-    with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
-        dump(obj=ld, fp=f, indent=2)
-        f.flush()
-        f.close()
+        langdict = load(f)
+        mine_cats(langdict)
