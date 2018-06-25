@@ -9,6 +9,7 @@ class InfoboxDbEx(LangdictCheck):
                     "infobox_technology_standard", "infobox_software_license", "infobox"]
         for cl in langdict:
             if "DbpediaInfoboxTemplate" not in langdict[cl]:
+                langdict[cl]["negativeSeed"] = 0
                 continue
             ibs = langdict[cl]["DbpediaInfoboxTemplate"]
             langdict[cl]["MultiInfobox"] = len(ibs)

@@ -20,9 +20,9 @@ class SeedSim(LangdictCheck):
         cltuples = [(cl, langdict[cl]["Summary"], ssums) for cl in langdict if
                     "Summary" in langdict[cl] and langdict[cl]["Seed"] == 0]
         cltuples = list(pool.map(seedsim, cltuples))
-        for cl, wsim, csim in cltuples:
-            langdict[cl]["Seed_Similarity_Word"] = wsim
-            langdict[cl]["Seed_Similarity_Char"] = csim
+        for cl, simc5, simc10 in cltuples:
+            langdict[cl]["Seed_Similarity_Char5"] = simc5
+            langdict[cl]["Seed_Similarity_Char10"] = simc10
         return langdict
 
 
@@ -31,24 +31,38 @@ def seedsim(cltuple):
         cl = cltuple[0]
         text = cltuple[1]
         ssums = cltuple[2]
-        return cl, sim_word(text, ssums), sim_char(text, ssums)
+        simc5, simc10 = sim_texts(text, ssums)
+        return cl, simc5, simc10
     except IndexError:
         print("ERROR at " + cl + "with length " + len(cltuple))
-        return cl, 0.0
+        return cl, 0.0, 0.0
 
 
-def sim_word(text, texts):
+def sim_texts(text, texts):
+    simc5 = 0
+    simc10 = 0
+    for t in texts:
+        sim = sim_char5(text, t)
+        if simc5 < sim:
+            simc5 = sim
+        sim = sim_char10(text, t)
+        if simc10 < sim:
+            simc10 = sim
+    return simc5, simc10
+
+
+def sim_char10(text1, text2):
     vect = HashingVectorizer(analyzer='char_wb', tokenizer=normalize, stop_words='english', ngram_range=(10, 10))
-    texts.append(text)
+    texts = [text1, text2]
     matrix = vect.fit_transform(texts)
     cosine_similarities = linear_kernel(matrix[0:1], matrix).flatten()
     simmax = max(cosine_similarities[1:])
     return simmax
 
 
-def sim_char(text, texts):
-    vect = HashingVectorizer(analyzer='char_wb', tokenizer=normalize, stop_words='english', ngram_range=(5, 5))
-    texts.append(text)
+def sim_char5(text1, text2):
+    vect = HashingVectorizer(analyzer='word', tokenizer=normalize, stop_words='english')
+    texts = [text1, text2]
     matrix = vect.transform(texts)
     cosine_similarities = linear_kernel(matrix[0:1], matrix).flatten()
     simmax = max(cosine_similarities[1:])
@@ -67,10 +81,4 @@ def stem_tokens(tokens):
 
 
 if __name__ == '__main__':
-    # SeedSim().solo()
-    s1 = sim_word("Ruby is a programming language",
-                  ["Python is a programming language", "Chiby is a song", "Esperanto is a constructed language"])
-    s2 = sim_char("Ruby is a programming language",
-                  ["Python is a programming language", "Chiby is a song", "Esperanto is a constructed language"])
-    print(s1)
-    print(s2)
+    SeedSim().solo()
