@@ -14,7 +14,8 @@ def init_langdict():
             for cl in articles:
                 if cl not in langdict:
                     langdict[cl] = dict()
-                langdict[cl][c + "Depth"] = i
+                if c+"Depth" not in langdict[cl]:
+                    langdict[cl][c + "Depth"] = i
     return langdict
 
 
@@ -44,6 +45,7 @@ def init_cat_subcat():
                     for sc in subcats:
                         if sc not in catdict:
                             catdict[sc] = dict()
+                        if c+"Depth" not in catdict[sc]:
                             catdict[sc][c+"Depth"] = i+1
     return catdict
 

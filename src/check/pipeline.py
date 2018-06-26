@@ -21,7 +21,7 @@ from data import DATAP
 
 def pipeline():
     ans = [Seed, SumKeyWords, DbpediaHyp, HypNLPSent, URLPattern, InfoboxDbEx, WikiList,
-           Wikidata, Yago, WordNet, SemDist, SeedSim]
+           SemDist]
     for c in ans:
         c().solo()
 
@@ -41,5 +41,5 @@ def pipeline():
 """
 
 if __name__ == '__main__':
-    #mine()
+    mine()
     pipeline()

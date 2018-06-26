@@ -9,7 +9,8 @@ class Wikidata(LangdictCheck):
         cls = get_computer_languages()
         cffs = get_computer_formats()
         for cl in langdict:
-            qitem = langdict[cl]["wikidataid"]
+            if "wikidataid" in langdict[cl]:
+                qitem = langdict[cl]["wikidataid"]
             langdict[cl]["wikidata_CL"] = int(qitem in set(cls) | set(cffs))
         return langdict
 

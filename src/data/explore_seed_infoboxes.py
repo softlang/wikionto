@@ -3,15 +3,14 @@ from json import load, dump
 
 
 def explore():
-    print("Checking for infobox existence")
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     f.close()
     freq = dict()
     for cl in langdict:
-        if langdict[cl]["Seed"] == 0:
+        if langdict[cl]["Seed"] == 0 or "DbpediaInfoboxTemplate" not in langdict[cl]:
             continue
-        for i in langdict[cl]["DbpediaInfoboxTemplate"]:
+        for i in set(langdict[cl]["DbpediaInfoboxTemplate"]):
             if i in freq:
                 freq[i] += 1
             else:
@@ -21,6 +20,16 @@ def explore():
     f.flush()
     f.close()
 
+def find_software_pl():
+    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    langdict = load(f)
+    f.close()
+    cls = [cl for cl in langdict if "DbpediaInfoboxTemplate" in langdict[cl]
+           and langdict[cl]["Seed"] == 1
+           and "infobox_software" in langdict[cl]["DbpediaInfoboxTemplate"]
+           and "infobox_programming_language" in langdict[cl]["DbpediaInfoboxTemplate"]]
+    print(cls)
+
 
 if __name__ == '__main__':
-    explore()
+    find_software_pl()
