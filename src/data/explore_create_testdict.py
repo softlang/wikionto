@@ -12,7 +12,7 @@ def create_testdict():
     testnegseedset = []
     testdict = dict()
     for cl, feat in langdict.items():
-        if feat["Seed"] == 1 and len(testseedset) < 10:
+        if feat["Seed"] == 1:
             testseedset.append(cl)
             testdict[cl] = feat
         elif feat["negativeSeed"] == 1 and len(testset) < 10:

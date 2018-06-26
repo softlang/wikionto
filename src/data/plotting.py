@@ -1,4 +1,4 @@
-from data import DATAP, CLDEPTH
+from data import DATAP
 from json import load
 import pandas
 from io import StringIO

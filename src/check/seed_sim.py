@@ -16,13 +16,12 @@ class SeedSim(LangdictCheck):
             if (langdict[cl]["Seed"] == 1) and ("Summary" in langdict[cl]):
                 ssums.append(langdict[cl]["Summary"])
 
-        pool = Pool(processes=4)
+        pool = Pool(processes=6)
         cltuples = [(cl, langdict[cl]["Summary"], ssums) for cl in langdict if
                     "Summary" in langdict[cl] and langdict[cl]["Seed"] == 0]
         cltuples = list(pool.map(seedsim, cltuples))
-        for cl, simc5, simc10 in cltuples:
-            langdict[cl]["Seed_Similarity_Char5"] = simc5
-            langdict[cl]["Seed_Similarity_Char10"] = simc10
+        for cl, simc5 in cltuples:
+            langdict[cl]["Seed_Similarity_Word"] = simc5
         return langdict
 
 
@@ -31,24 +30,20 @@ def seedsim(cltuple):
         cl = cltuple[0]
         text = cltuple[1]
         ssums = cltuple[2]
-        simc5, simc10 = sim_texts(text, ssums)
-        return cl, simc5, simc10
+        simc5 = sim_texts(text, ssums)
+        return cl, simc5
     except IndexError:
         print("ERROR at " + cl + "with length " + len(cltuple))
-        return cl, 0.0, 0.0
+        return cl, 0.0
 
 
 def sim_texts(text, texts):
     simc5 = 0
-    simc10 = 0
     for t in texts:
         sim = sim_char5(text, t)
         if simc5 < sim:
             simc5 = sim
-        sim = sim_char10(text, t)
-        if simc10 < sim:
-            simc10 = sim
-    return simc5, simc10
+    return simc5
 
 
 def sim_char10(text1, text2):
