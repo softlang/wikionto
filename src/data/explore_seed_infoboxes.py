@@ -20,6 +20,7 @@ def explore():
     f.flush()
     f.close()
 
+
 def find_software_pl():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)

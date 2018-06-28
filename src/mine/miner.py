@@ -3,6 +3,9 @@ from mine.dbpedia import articles_below, articles_with_summaries, articles_to_ca
     articles_with_wikidataid, get_templates, articles_with_NonLiveHypernyms
 from json import dump, load
 from data import DATAP, DEPTH, CATS
+from nltk.stem import PorterStemmer
+from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 
 def init_langdict():
@@ -14,19 +17,39 @@ def init_langdict():
             for cl in articles:
                 if cl not in langdict:
                     langdict[cl] = dict()
-                if c+"Depth" not in langdict[cl]:
+                if c + "Depth" not in langdict[cl]:
                     langdict[cl][c + "Depth"] = i
     return langdict
 
 
 def add_function(langdict, fun, name):
-    print("Mining "+name)
+    print("Mining " + name)
     d = dict()
     for c in CATS:
         d.update(fun(to_uri(c), 0, DEPTH))
     for cl in langdict:
         if cl in d:
             langdict[cl][name] = d[cl]
+    return langdict
+
+
+def add_wordset(langdict):
+    # stopwords
+    stop_words = set(stopwords.words('english'))
+    stop_words |= {',', '.', ';', '*', '-', '_', ':', "''", '#', '``'}
+    stemmer = PorterStemmer(PorterStemmer.NLTK_EXTENSIONS)
+
+    for cl in langdict:
+        if "Summary" not in langdict[cl]:
+            continue
+        text = langdict[cl]["Summary"]
+        if text is '':
+            continue
+        sents = sent_tokenize(text)
+        s = sents[0]
+        if s.lower().startswith("see also"):
+            s = sents[1]
+        langdict[cl]["words"] = list(set(stemmer.stem(w) for w in word_tokenize(s) if w.lower() not in stop_words))
     return langdict
 
 
@@ -41,12 +64,12 @@ def init_cat_subcat():
                     catdict[cat] = dict()
                     catdict[cat][c + "Depth"] = i
                 if "subcats" not in catdict[cat]:
-                    catdict[cat]["subcats"] = subcats #TODO possible bug
+                    catdict[cat]["subcats"] = subcats  # TODO possible bug
                     for sc in subcats:
                         if sc not in catdict:
                             catdict[sc] = dict()
-                        if c+"Depth" not in catdict[sc]:
-                            catdict[sc][c+"Depth"] = i+1
+                        if c + "Depth" not in catdict[sc]:
+                            catdict[sc][c + "Depth"] = i + 1
     return catdict
 
 
@@ -71,6 +94,7 @@ def mine():
     langdict = add_function(langdict, articles_with_NonLiveHypernyms, "DbpediaHypernyms")
     langdict = add_function(langdict, get_templates, "DbpediaInfoboxTemplate")
     langdict = add_function(langdict, articles_to_categories_below, "cats")
+    langdict = add_wordset(langdict)
     # langdict = add_properties(langdict)
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
@@ -89,7 +113,11 @@ def mine_cats(langdict):
 
 
 if __name__ == '__main__':
-    #mine()
+    # mine()
     with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
         langdict = load(f)
-        mine_cats(langdict)
+        langdict = add_wordset(langdict)
+    with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
+        dump(obj=langdict, fp=f, indent=2)
+        f.flush()
+        f.close()

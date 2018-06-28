@@ -59,7 +59,8 @@ def check_negative_seed():
     ld = load(f)
     for cl in d:
         print(cl)
-        print("  " + ld[cl]["Summary"])
+        if "Summary" in ld[cl]:
+            print("  " + ld[cl]["Summary"])
         if "POS" in ld[cl]:
             print("  " + str(ld[cl]["POS"]))
         print("  " + str(set(ld[cl]["DbpediaInfoboxTemplate"])))
