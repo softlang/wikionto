@@ -10,9 +10,10 @@ def pos_hypernyms(parse):
         nns = []
         while parse.nodes[x]['tag'] == 'NN':
             nns.append(parse.nodes[x]['word'])
-            x+=1
+            last = parse.nodes[x]['word']
+            x += 1
         if last is not None and parse.nodes[x]['tag'] is not 'POS':
-            return nns,'The'
+            return nns, 'The'
 
     for index, wdict in parse.nodes.items():
         if ((wdict['tag'] == 'VBZ') & (wdict['word'] in ['is', 'refers', 'denotes', 'specifies'])) | (

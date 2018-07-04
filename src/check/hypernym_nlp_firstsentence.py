@@ -1,5 +1,6 @@
 from multiprocessing import Pool
 from nltk.parse.corenlp import CoreNLPDependencyParser
+from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
 
@@ -13,12 +14,16 @@ class HypNLPSent(LangdictCheck):
     def check_single(self, pair):
         cl = pair[0]
         summary = pair[1]
-        if summary.startswith('.'):
-            summary = summary[1:]
+        sents = sent_tokenize(summary)
+        if len(sents) < 1:
+            print(cl+":"+summary)
+        summary = sents[0]
+        if sents[0] is "." or sents[0] is "" or sents[0].startswith("See also"):
+            summary = sents[1]
 
         dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
         try:
-            parse, = dep_parser.raw_parse(summary) #TODO If see also appears, take 2nd sentence
+            parse, = dep_parser.raw_parse(summary)
             pos = pos_hypernyms(parse)
             cop = cop_hypernym(parse)
             return cl, (pos, cop)
@@ -51,6 +56,9 @@ class HypNLPSent(LangdictCheck):
                 (pos, s), cop = hyp
                 langdict[cl]["POSHypernyms"] = pos
                 langdict[cl]["COPHypernym"] = cop
+                langdict[cl]["POS_isa"] = 0
+                langdict[cl]["POS_isoneof"] = 0
+                langdict[cl]["POS_The"] = 0
                 if len(s) > 0:
                     langdict[cl]["POS_" + s] = 1
                 if any(p.lower().endswith(kw) or p.lower().endswith(kw + 's') for p in pos for kw in KEYWORDS):

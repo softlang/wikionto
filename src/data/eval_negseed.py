@@ -3,14 +3,10 @@ from json import load, dump
 from random import randint
 
 
-def count_negative_seed():
+def count_negative_seed_candidates():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     d = load(f)
-    x = 0
-    for cl in d:
-        if d[cl]["negativeSeed"] == 1:
-            x += 1
-    print(x)
+    print(len([cl for cl in d if d[cl]["negativeSeedCandidate"] == 1]))
 
 
 def create_negative_seed_pre():
@@ -18,7 +14,7 @@ def create_negative_seed_pre():
     d = load(f)
     tempd = dict()
     for cl in d:
-        if d[cl]["negativeSeed"] == 1:
+        if d[cl]["negativeSeedCandidate"] == 1:
             for ib in list(set(d[cl]["DbpediaInfoboxTemplate"])):
                 if ib not in tempd:
                     tempd[ib] = []

@@ -13,11 +13,11 @@ class InfoboxDbEx(LangdictCheck):
         for cl in langdict:
             langdict[cl]["ValidInfobox"] = 0
             if "DbpediaInfoboxTemplate" not in langdict[cl]:
-                langdict[cl]["negativeSeed"] = 0
+                langdict[cl]["negativeSeedCandidate"] = 0
                 continue
             ibs = langdict[cl]["DbpediaInfoboxTemplate"]
             langdict[cl]["MultiInfobox"] = len(ibs)
-            langdict[cl]["negativeSeed"] = int(not any(ib in ibs for ib in nonnegibs) and bool(ibs))
+            langdict[cl]["negativeSeedCandidate"] = int(not any(ib in ibs for ib in nonnegibs) and bool(ibs))
             for ib in validibs:
                 if ib in ibs:
                     langdict[cl][ib] = 1
