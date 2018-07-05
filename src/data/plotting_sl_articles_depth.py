@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from json import load
-from data import DATAP, CATS
+from data import DATAP, CATS, DEPTH
 from pandas import read_csv
 from io import StringIO
 
@@ -40,5 +40,9 @@ def plot_allsl_depth(ton):
     plt.show()
 
 def check_sl(l,d):
-    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern"]
+    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern"]
     return any(d[l][c]==1 for c in checks)
+
+
+if __name__ == '__main__':
+    plot_allsl_depth(DEPTH+1)

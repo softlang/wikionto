@@ -15,7 +15,7 @@ def boxplot(m):
         cat = CATS[i]
         csvtext = ""
         for cl in d:
-            if cat + "Depth" in d[cl] and m in d[cl] and d[cl]["Seed"] == 0 and d[cl]["URLBracesPattern"] == 1:
+            if cat + "Depth" in d[cl] and m in d[cl]:
                 csvtext += str(d[cl][cat + "Depth"]) + ", " + str(d[cl][m]) + "\n"
         if not csvtext:
             continue
@@ -29,4 +29,4 @@ def boxplot(m):
 
 
 if __name__ == '__main__':
-    boxplot("WordSetSim")
+    boxplot("SemanticDistance")

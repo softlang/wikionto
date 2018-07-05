@@ -16,6 +16,9 @@ from json import load
 import matplotlib.pyplot as plt
 from data import DATAP, KEYWORDS
 
+def check_sl(l,d):
+    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern"]
+    return any(d[l][c]==1 for c in checks)
 
 def pos_vs_cop():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")

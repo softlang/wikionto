@@ -11,7 +11,7 @@ KEYWORDS = ['language', 'format', 'notation']
 
 # stretched keywords resulting which maybe hint at languages. Here, maybe means that we subjectively know that such
 # software has its own language, but! we cannot objectively present proof in the summary.
-XKEYWORDS = [['file', ''], ['file', 'type'], ['template', 'engine'], ['templating', 'system'], ['build', 'tool'],
+XKEYWORDS = [['file', 'type'], ['template', 'engine'], ['templating', 'system'], ['build', 'tool'],
              ['template', 'system'], ['theorem', 'prover'], ['parser', 'generator'], ['typesetting', 'system']]
 
 #  ex_pattern = ["List_of","comparison","Comparison"]

@@ -17,10 +17,13 @@ class HypNLPSent(LangdictCheck):
         sents = sent_tokenize(summary)
         if len(sents) < 1:
             print(cl+":"+summary)
+            return cl, None
         summary = sents[0]
         if sents[0] is "." or sents[0] is "" or sents[0].startswith("See also"):
-            summary = sents[1]
-
+            if len(sents) > 1:
+                summary = sents[1]
+            else:
+                return cl, None
         dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
         try:
             parse, = dep_parser.raw_parse(summary)
