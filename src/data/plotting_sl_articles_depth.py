@@ -40,8 +40,10 @@ def plot_allsl_depth(ton):
     plt.show()
 
 def check_sl(l,d):
-    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern"]
-    return any(d[l][c]==1 for c in checks)
+    #checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern"]
+    checks = ["URLPattern"]
+    #return any(d[l][c]==1 for c in checks)
+    return True
 
 
 if __name__ == '__main__':

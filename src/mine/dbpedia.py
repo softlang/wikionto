@@ -2,7 +2,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from argparse import ArgumentError
 from collections import defaultdict
 from time import sleep
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 
 URI = "<http://dbpedia.org/resource/"
 
@@ -30,6 +30,10 @@ def query(qtext, url=DBPEDIALIVE, use_offset=True):
             try:
                 res = sparql.query()
                 break
+            except URLError:
+                print("    URL error! Sleeping ...")
+                print(qtext)
+                sleep(15)
             except HTTPError:
                 print("    HTTP error! Sleeping 5 secs...")
                 sleep(15)
@@ -452,8 +456,8 @@ offset ?offset
     """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
     results = query(querytext)
     for result in results:
-        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
-        subcat = result["subcat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/", "")
+        subcat = result["subcat"]["value"].replace("http://dbpedia.org/resource/", "")
         if cat not in cat_subcat:
             cat_subcat[cat] = []
         cat_subcat[cat].append(subcat)

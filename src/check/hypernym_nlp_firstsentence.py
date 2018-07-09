@@ -48,7 +48,7 @@ class HypNLPSent(LangdictCheck):
         for cl in langdict:
             if "Summary" in langdict[cl]:
                 cl_sums.append((cl, langdict[cl]["Summary"]))
-        pool = Pool(processes=8)
+        pool = Pool(processes=4)
         parsed_pairs = pool.map(self.check_single, cl_sums)
         parsed_pairs = dict(parsed_pairs)
         for cl in langdict:

@@ -94,7 +94,7 @@ def mine():
     langdict = add_function(langdict, articles_with_NonLiveHypernyms, "DbpediaHypernyms")
     langdict = add_function(langdict, get_templates, "DbpediaInfoboxTemplate")
     langdict = add_function(langdict, articles_to_categories_below, "cats")
-    langdict = add_wordset(langdict)
+    # langdict = add_wordset(langdict)
     # langdict = add_properties(langdict)
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
@@ -113,11 +113,4 @@ def mine_cats(langdict):
 
 
 if __name__ == '__main__':
-    # mine()
-    with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
-        langdict = load(f)
-        langdict = add_wordset(langdict)
-    with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
-        dump(obj=langdict, fp=f, indent=2)
-        f.flush()
-        f.close()
+    mine()
