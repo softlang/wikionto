@@ -473,11 +473,6 @@
         "Genshi"
       ]
     },
-    "Gnuplot": {
-      "gitseed": [
-        "Gnuplot"
-      ]
-    },
     "Go_(programming_language)": {
       "gitseed": [
         "Go"
@@ -1968,6 +1963,11 @@
     }
   },
   "mention": {
+    "Gnuplot": {
+      "gitseed": [
+        "Gnuplot"
+      ]
+    },
     "Xojo": {
       "gitseed": [
         "Xojo"

@@ -453,7 +453,7 @@
     "comment": "title hints at language"
   },
   "Gnuplot": {
-    "recall": 1,
+    "recall": 0,
     "summary": "gnuplot is a command-line program that can generate two- and three-dimensional plots of functions, data, and data fits"
   },
   "Go": {
