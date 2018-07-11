@@ -1,8 +1,11 @@
 import matplotlib.pyplot as plt
 from json import load
-from data import DATAP, CATS
+from data import DATAP, CATS, KEYWORDS
 from pandas import read_csv
 from io import StringIO
+from collections import deque
+from check.transitive_childtest import get_sls_nosls
+
 
 def plot_cats(fromn=0, ton=9):
     f = open(DATAP + '/ocatdict.json', 'r', encoding="UTF8")
@@ -13,7 +16,7 @@ def plot_cats(fromn=0, ton=9):
         depthlist.append(list(map(lambda d: len([cat for cat in catdict
                                                  if
                                                  ((c + "Depth" in catdict[cat]) and (catdict[cat][c + "Depth"] == d)
-                                                  and check_cat(cat, catdict,True))])
+                                                  and check_cat(cat))])
                                   , range(fromn, ton))))
 
     csvtext = ""
@@ -33,18 +36,15 @@ def plot_cats(fromn=0, ton=9):
     print(df)
     df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=True, width=0.8)
 
-    ax.set_title('#Strong valid Categories at Depth')
+    ax.set_title('#Categories with language, format, notation in title')
     ax.legend(["FL","CFF","IS"])
     #for p in ax.patches:
     #    ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
     plt.show()
 
 
-def check_cat(cat, catdict, check=False):
-    if check:
-        return catdict[cat]["#NonSLs"] == 0
-    else:
-        return True
+def check_cat(cat):
+    return any(kw in cat for kw in KEYWORDS)
 
 
 if __name__ == '__main__':

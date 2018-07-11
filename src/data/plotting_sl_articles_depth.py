@@ -6,7 +6,7 @@ from io import StringIO
 
 
 def plot_allsl_depth(ton):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
@@ -34,17 +34,14 @@ def plot_allsl_depth(ton):
     print(df)
     df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=True, width=0.8, color=["red", "green", "blue"])
 
-    ax.set_title('Articles at Depth')
-    for p in ax.patches:
-        ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+    ax.set_title('Articles per Depth')
+    ax.legend(["FL", "CFF", "IS"])
     plt.show()
 
 def check_sl(l,d):
-    #checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern"]
-    checks = ["URLPattern"]
-    #return any(d[l][c]==1 for c in checks)
-    return True
-
+    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern", "PlainTextKeyword"]
+    #checks = ["URLPattern"]
+    return True #any(d[l][c]==1 for c in checks)
 
 if __name__ == '__main__':
     plot_allsl_depth(DEPTH+1)

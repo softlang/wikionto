@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from data import DATAP, KEYWORDS
 
 def check_sl(l,d):
-    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern"]
+    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern", "PlainTextKeyword"]
     return any(d[l][c]==1 for c in checks)
 
 def pos_vs_cop():
@@ -183,18 +183,6 @@ def topflop_pos_semdist():
         for x in range(-10, 0):
             print("    " + str(cllist[x]))
 
-
-def weirdo_seed_similarity():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
-    langdict = load(f)
-    for cl, feat in langdict.items():
-        if feat["Seed_Similarity"] > 0.8:
-            fs = ["GitSeed", "TIOBE", "DbpediaHypernym", "PlainTextKeyword", "POS", "COP", "URLPattern",
-                  "URLBracesPattern", "Infobox programming language", "Infobox file format",
-                  "Infobox software", "wikidata_CL", "yago_CL"]
-            if not [f for f in fs if (f in feat) and (feat[f] > 0)]:
-                print(cl + feat["Summary"])
-
 def POS_vs_URL():
     f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
     langdict = load(f)
@@ -205,14 +193,4 @@ def POS_vs_URL():
             print(cl)
 
 if __name__ == "__main__":
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
-    langdict = load(f)
-    f.close()
-    for cl, d in langdict.items():
-        if "DbpediaInfoboxTemplate" in d:
-            ts = d["DbpediaInfoboxTemplate"]
-            if "Infobox" in d:
-                for ib in d["Infobox"]:
-                    if ib.lower().replace(" ","_") not in set(t.lower() for t in ts):
-                        print(cl)
-                        print("   "+str(d["Infobox"])+" vs. "+ str(d["DbpediaInfoboxTemplate"]))
+    count_pos_variants()
