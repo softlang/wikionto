@@ -9,7 +9,7 @@ class SumKeyWords(LangdictCheck):
             if "Summary" not in langdict[cl]:
                 langdict[cl]["PlainTextKeyword"] = 0
                 continue
-            summary = langdict[cl]["Summary"].split('. ')[0]
+            summary = langdict[cl]["Summary"]
             if any(word in summary.lower() for word in KEYWORDS):
                 langdict[cl]["PlainTextKeyword"] = 1
             else:

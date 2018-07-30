@@ -37,4 +37,4 @@ print(df.to_latex())
 
 nogo = [l for l in langdict if is_seed(l,langdict) and not check_sl(l,langdict)]
 print(nogo)
-print(langdict["Augmented_Backus–Naur_form"]) # no summary
+print(langdict["Augmented_Backus–Naur_Form"])

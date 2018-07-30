@@ -1297,7 +1297,7 @@
   },
   "ABNF": {
     "recall": 1,
-    "recalledAs": "Augmented_Backus\u2013Naur_form",
+    "recalledAs": "Augmented_Backus\u2013Naur_Form",
     "summary": "In computer science, augmented Backus–Naur form (ABNF) is a metalanguage based on Backus–Naur form (BNF), but consisting of its own syntax and derivation rules."
   },
   "XPM": {

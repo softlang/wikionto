@@ -5,16 +5,17 @@ from json import load, dump
 
 
 def check_transitive_children():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
     ld = load(f)
-    f = open(DATAP + '/catdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/ocatdict.json', 'r', encoding="UTF8")
     cd = load(f)
 
     for c in cd:
-        sls, no_sls = get_sls_nosls(c, cd, ld)
+        seed, sls, no_sls = get_sls_nosls(c, cd, ld)
+        cd[c]["#Seed"] = len(seed)
         cd[c]["#SLs"] = len(sls)
         cd[c]["#NonSLs"] = len(no_sls)
-    f = open(DATAP + '/catdict.json', 'w', encoding="UTF8")
+    f = open(DATAP + '/ocatdict.json', 'w', encoding="UTF8")
     dump(cd, f, indent=2)
     f.flush()
     f.close()
@@ -26,6 +27,7 @@ def get_sls_nosls(c, cd, ld):
 
     no_sls = set()
     sls = set()
+    seed = set()
 
     while not len(catqueue) == 0:
         cat = catqueue.pop()
@@ -39,8 +41,10 @@ def get_sls_nosls(c, cd, ld):
                     sls.add(a)
                 else:
                     no_sls.add(a)
+                if ld[a]["Seed"]==1:
+                    seed.add(a)
         cat_done.add(cat)
-    return sls, no_sls
+    return seed, sls, no_sls
 
 
 if __name__ == "__main__":
