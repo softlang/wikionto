@@ -1,6 +1,6 @@
 from collections import deque
 from data import DATAP
-from data.eval import check_sl
+from data.eval.article_reduction import check_sl
 from json import load, dump
 
 

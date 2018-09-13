@@ -6,7 +6,7 @@ from io import StringIO
 
 
 def plot_allsl_depth(ton):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
@@ -31,7 +31,7 @@ def plot_allsl_depth(ton):
     df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + CATS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=True, width=0.8, color=["red", "green", "blue"])
+    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Articles at Depth')
     for p in ax.patches:
@@ -40,7 +40,7 @@ def plot_allsl_depth(ton):
 
 
 def plot_seed_depth(ton):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
@@ -66,7 +66,7 @@ def plot_seed_depth(ton):
     df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + CATS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=True, width=0.8, color=["red", "green", "blue"])
+    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Articles at Depth')
     for p in ax.patches:
@@ -101,7 +101,7 @@ def plot_negative_seed_depth(ton):
     df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + CATS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=True, width=0.8, color=["red", "green", "blue"])
+    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Negative Seed Distribution')
     for p in ax.patches:
