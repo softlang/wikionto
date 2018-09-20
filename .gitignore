@@ -63,3 +63,4 @@ src/__pycache__/
 src/langdict.json
 .idea/
 venv/
+data/dump/
