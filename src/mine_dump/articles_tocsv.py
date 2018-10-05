@@ -67,6 +67,7 @@ def extract_features(csvwriter):
     elapsed_time = time.time() - start_time
     print("Elapsed time: {}".format(hms_string(elapsed_time)))
 
+
 if __name__ == "__main__":
     with open(DUMP_PATH+FILENAME_ARTICLES, 'r', encoding=ENCODING) as f:
         adict = load(f)
