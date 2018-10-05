@@ -1,6 +1,6 @@
 from os.path import dirname, abspath, join
 
-DATAP = join(dirname(abspath(__file__)), '..', '..', 'data')
+DATAP = abspath(join(dirname(abspath(__file__)), '..', '..', 'data'))
 DEPTH = 8
 
 CATS = ["Category:Formal_languages", "Category:Computer_file_formats", "Category:Installation_software"]

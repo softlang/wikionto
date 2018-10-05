@@ -5,7 +5,7 @@ from json import load
 from data import DATAP
 
 def cluster():
-    ld = load(open(DATAP+'/olangdict.json','r',encoding='UTF-8'))
+    ld = load(open(DATAP+'\\temp\olangdict.json','r',encoding='UTF-8'))
 
     spark = SparkSession.builder\
                         .master("local")\

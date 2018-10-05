@@ -10,10 +10,10 @@ df = DataFrame(columns=['#articles'], index=nndict['NN'].keys())
 for word in nndict['NN']:
     freq = nndict['NN'][word]
     df.loc[word] = Series({'#articles': freq})
-
-df = df[df['#articles'] > 0].sort_values(by='#articles')
-print(df)
-ax = df.tail(10).plot(y="#articles", kind='barh', color='royalblue', fontsize=14)
-ax.legend(prop={'size': 14})
-plt.show()
+print(df.to_latex())
+#df = df[df['#articles'] > 0].sort_values(by='#articles')
+#print(df)
+#ax = df.tail(10).plot(y="#articles", kind='barh', color='royalblue', fontsize=14)
+#ax.legend(prop={'size': 14})
+#plt.show()
 
