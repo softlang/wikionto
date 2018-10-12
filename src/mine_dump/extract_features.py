@@ -28,7 +28,7 @@ def extract_pre(sql_sc):
         .format("com.databricks.spark.csv") \
         .schema(schema) \
         .option("header", "false") \
-        .option("quotechar", '"') \
+        .option("quotechar", '|') \
         .option("delimiter", ',') \
         .load(DATAP + '/dump/articles.csv.bz2')
 
@@ -38,7 +38,7 @@ def extract_pre(sql_sc):
     df['title', 'first_sentence', 'infoboxnames', 'urlwords'].write \
         .format("com.databricks.spark.csv") \
         .option("header", "false") \
-        .option("quotechar", '"') \
+        .option("quotechar", '|') \
         .option("delimiter", ",") \
         .csv(DATAP + '/dump/articles_annotated_pre')
 
@@ -65,6 +65,9 @@ def extract_nlp(sql_sc):
     df = df.withColumn("pos_hyps", pos_ex(df.first_sentence))
     df['title', 'urlwords', 'infoboxnames', 'nouns', 'pos_hyps'].write \
         .format("com.databricks.spark.csv") \
+        .option("header", "false") \
+        .option("quotechar", '|') \
+        .option("delimiter", ",") \
         .csv(DATAP + '/dump/articles_annotated')
 
 
