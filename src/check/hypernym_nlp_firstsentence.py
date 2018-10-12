@@ -11,6 +11,8 @@ from check.langdictcheck import LangdictCheck
 
 class HypNLPSent(LangdictCheck):
 
+
+
     def check_single(self, pair):
         cl = pair[0]
         summary = pair[1]

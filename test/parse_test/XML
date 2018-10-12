@@ -1,0 +1,350 @@
+<!-- Copied from https://en.wikipedia.org/wiki/XML for testing purposes. -->
+{{stack
+ | {{Infobox file format
+    | icon = | logo =
+    | screenshot = [[File:XML.svg|200px|alt=]]
+    | extension = .xml
+    |_nomimecode = on
+    | mime = {{ublist |<code>application/xml</code> |<code>text/xml</code>{{lower|0.2em|<ref>{{cite web |url=http://www.rfc-editor.org/rfc/rfc7303.txt |title=XML Media Types, RFC 7303 |publisher=Internet Engineering Task Force |date=July 2014}}</ref>}} }}
+    | type_code =
+    | uniform_type = public.xml
+    | conforms_to = public.text
+    | magic =
+    | owner = {{nowrap|[[World Wide Web Consortium]]}}
+    | genre = [[Markup language]]
+    | container_for = | contained_by =
+    | extended_from = [[Standard Generalized Markup Language|SGML]]
+    | extended_to = {{hlist|list_style=line-height:1.35em; | [[List of XML markup languages|Numerous languages]], including [[XHTML]] |[[RSS]] |[[Atom (standard)|Atom]] | [[KML]]}}
+    | standard =
+      {{Unbulleted list |item_style=padding:0.1em 0;line-height:1.2em;<!--(longitem)-->
+       | [http://www.w3.org/TR/2008/REC-xml-20081126/ 1.0 (Fifth Edition)]<br />{{nowrap|{{smaller|({{release date and age|2008|11|26}})}}}}
+       | [http://www.w3.org/TR/2006/REC-xml11-20060816/ 1.1 (Second Edition)]<br />{{nowrap|{{smaller|({{release date and age|2006|08|16}})}}}}
+      }}
+    | free = Yes
+   }}
+ | {{Infobox technology standard
+    | title = Extensible Markup Language (XML)
+    | status = Published
+    | year_started = {{Start date and age|1996}}
+    | editors = {{ublist|class=nowrap |[[Tim Bray]] |[[Jean Paoli]] |[[Michael Sperberg-McQueen|C. M. Sperberg-McQueen]] |Eve Maler |François Yergeau |[[John W. Cowan|John Cowan]]}}
+    | base_standards =
+    | related_standards = [[W3C XML Schema|XML Schema]]
+    | abbreviation = XML
+    | domain = [[Serialization|Data serialization]]
+    | website = [http://www.w3.org/TR/rec-xml XML 1.0]
+}} }}
+
+In  [[computing]], '''Extensible Markup Language''' ('''XML''') is a [[markup language]] that defines a set of rules for encoding [[electronic document|document]]s in a [[file format|format]] that is both [[Human-readable medium|human-readable]] and [[Machine-readable data|machine-readable]]. The [[World Wide Web Consortium|W3C]]'s XML 1.0 Specification<ref>{{cite web |url=http://www.w3.org/TR/REC-xml |title=XML 1.0 Specification |publisher=World Wide Web Consortium |accessdate=22 August 2010}}</ref> and several other related specifications<ref>{{cite web |url=http://www.dblab.ntua.gr/~bikakis/XML%20and%20Semantic%20Web%20W3C%20Standards%20Timeline-History.pdf |format=PDF |title=XML and Semantic Web W3C Standards Timeline|website=Dblab.ntua.gr |accessdate=14 August 2016}}</ref>—all of them free [[open standard]]s—define XML.<ref>{{cite web |title=W3C DOCUMENT LICENSE |url=http://www.w3.org/Consortium/Legal/2002/copyright-documents-20021231e|website=W3.org|accessdate=16 November 2017}}</ref>
+
+The design goals of XML emphasize simplicity, generality, and usability across the [[Internet]].<ref name="XML Goals">{{cite web |title=XML 1.0 Origin and Goals |url=http://www.w3.org/TR/REC-xml/#sec-origin-goals|website=W3.org |accessdate=14 August 2016}}</ref> It is a textual data format with strong support via [[Unicode]] for different [[Language|human languages]]. Although the design of XML focuses on documents, the language is widely used for the representation of arbitrary [[data structure]]s<ref>{{cite journal |title=Extremes of XML |first=Philip |last=Fennell |date=June 2013 |journal=XML London 2013 |doi=10.14337/XMLLondon13.Fennell01 |url=http://xmllondon.com/2013/presentations/fennell/ |pages=80–86 |isbn=978-0-9926471-0-0}}</ref> such as those used in [[web service]]s.
+
+Several [[XML schema|schema systems]] exist to aid in the definition of XML-based languages, while programmers have developed many [[application programming interface]]s (APIs) to aid the processing of XML data.
+
+==Applications of XML==
+The essence of why extensible markup languages are necessary is explained at ''[[Markup language]]'' (for example, see ''[[Markup language#XML|Markup language § XML]]'') and at ''[[Standard Generalized Markup Language]]''.
+
+Hundreds of document formats using XML syntax have been developed,<ref name="Cover pages list">{{cite web|url= http://xml.coverpages.org/xmlApplications.html|title= XML Applications and Initiatives|website=Xml.coverages.org|accessdate=16 November 2017}}</ref> including [[RSS]], [[Atom (standard)|Atom]], [[SOAP]], [[SVG]], and [[XHTML]]. XML-based formats have become the default for many office-productivity tools, including [[Microsoft Office]] ([[Office Open XML]]), [[OpenOffice.org]] and [[LibreOffice]] ([[OpenDocument]]), and [[Apple Computer|Apple]]'s [[iWork]]{{Citation needed|reason= No source for the information.|date=May 2017}}. XML has also provided the base language for [[communication protocol]]s such as [[Extensible Messaging and Presence Protocol|XMPP]]. Applications for the [[Microsoft]] [[.NET Framework]] use XML files for configuration.  Apple has an implementation of a registry based on XML.<ref>{{cite web|url= https://web.archive.org/web/20130316005848/http://www.appleexaminer.com:80/MacsAndOS/Analysis/PLIST/PLIST.html|title= appleexaminer.com: "PLIST files"|publisher= The Apple Examiner|accessdate=16 November 2017}}</ref>
+
+Most industry data standards, e.g. [[Health Level 7|HL7]], [[OpenTravel Alliance|OTA]], NDC, [[FpML]], [[MISMO]] etc. are based on XML and the rich features of the XML schema specification. Many of these standards are quite complex and it is not uncommon for a specification to comprise several thousand pages.
+
+In publishing, [[Darwin Information Typing Architecture|DITA]] is an XML industry data standard.  XML is used extensively to underpin various publishing formats.
+
+XML is widely used in a [[Service-oriented_architecture|Services Oriented Architecture (SOA)]]. Disparate systems communicate with each other by exchanging XML messages. The message exchange format is standardised as an XML schema (XSD). This is also referred to as the canonical schema.
+
+XML has come into common use for the interchange of data over the Internet. [[History of the Internet#Internet Engineering Task Force|IETF]] [[:RFC:3023]], now superseded by [[:RFC:7303]], gave rules for the construction of [[Internet media type|Internet Media Types]] for use when sending XML. It also defines the media types <code>application/xml</code> and <code>text/xml</code>, which say only that the data is in XML, and nothing about its [[semantics]].
+
+RFC 7303 also recommends that XML-based languages be given media types ending in <code>+xml</code>; for example <code>image/svg+xml</code> for [[SVG]].
+
+Further guidelines for the use of XML in a networked context appear in RFC 3470, also known as IETF BCP 70, a document covering many aspects of designing and deploying an XML-based language.
+
+==Key terminology==
+The material in this section is based on the XML Specification. This is not an exhaustive list of all the constructs that appear in XML; it provides an introduction to the key constructs most often encountered in day-to-day use.
+
+; Character
+: An XML document is a string of ''characters''. [[Valid characters in XML|Almost]] every legal [[Unicode]] character may appear in an XML document.
+
+; Processor and application
+: The ''processor'' analyzes the markup and passes structured information to an ''application''. The specification places requirements on what an XML processor must do and not do, but the application is outside its scope. The processor (as the specification calls it) is often referred to colloquially as an ''XML parser''.
+
+; Markup and content
+: The characters making up an XML document are divided into ''markup'' and ''content'', which may be distinguished by the application of simple syntactic rules. Generally, strings that constitute markup either begin with the character <code>&lt;</code> and end with a <code>></code>, or they begin with the character <code>&</code> and end with a <code>;</code>. Strings of characters that are not markup are content. However, in a [[CDATA]] section, the delimiters <code>&lt;![CDATA[</code> and <code>]]></code> are classified as markup, while the text between them is classified as content. In addition, whitespace before and after the outermost element is classified as markup.
+
+; Tag
+: A ''tag'' is a markup construct that begins with <code>&lt;</code> and ends with <code>></code>. Tags come in three flavors:
+:* ''start-tag'', such as <code>&lt;section></code>;
+:* ''end-tag'', such as <code>&lt;/section></code>;
+:* ''empty-element tag'', such as <code>&lt;line-break /></code>.
+
+; Element
+: An ''element'' is a logical document component that either begins with a start-tag and ends with a matching end-tag or consists only of an empty-element tag. The characters between the start-tag and end-tag, if any, are the element's ''content'', and may contain markup, including other elements, which are called ''child elements''. An example is <code>&lt;greeting>Hello, world!&lt;/greeting></code>. Another is <code>&lt;line-break&nbsp;/></code>.
+
+; Attribute
+: An ''attribute'' is a markup construct consisting of a name–value pair that exists within a start-tag or empty-element tag. An example is <code>&lt;img src="madonna.jpg" alt="Madonna" /></code>, where the names of the attributes are "src" and "alt", and their values are "madonna.jpg" and "Madonna" respectively. Another example is <code>&lt;step number="3">Connect A to B.&lt;/step></code>, where the name of the attribute is "number" and its value is "3". An XML attribute can only have a single value and each attribute can appear at most once on each element. In the common situation where a list of multiple values is desired, this must be done by encoding the list into a well-formed XML attribute{{efn-lr|i.e., embedded quote characters would be a problem}} with some format beyond what XML defines itself. Usually this is either a comma or semi-colon delimited list or, if the individual values are known not to contain spaces,{{efn-lr|A common example of this is [[CSS]] class or identifier names.}} a space-delimited list can be used. <code>&lt;div class="inner greeting-box">Welcome!&lt;/div></code>, where the attribute "class" has both the value "inner greeting-box" and also indicates the two [[CSS]] class names "inner" and "greeting-box".
+
+; XML declaration
+: XML documents may begin with an ''XML declaration'' that describes some information about themselves. An example is <code>&lt;?xml version="1.0" encoding="UTF-8"?></code>.
+
+==Characters and escaping==
+XML documents consist entirely of characters from the [[Unicode]] repertoire. Except for a small number of specifically excluded [[control characters]], any character defined by Unicode may appear within the content of an XML document.
+
+XML includes facilities for identifying the ''encoding'' of the Unicode characters that make up the document, and for expressing characters that, for one reason or another, cannot be used directly.
+
+===Valid characters===
+{{Main|Valid characters in XML}}
+Unicode code points in the following ranges are valid in XML 1.0 documents:<ref>{{cite web|url=http://www.w3.org/TR/2008/REC-xml-20081126/#charsets|title=Extensible Markup Language (XML) 1.0 (Fifth Edition)|publisher=World Wide Web Consortium|date=2008-11-26|accessdate=23 November 2012}}</ref>
+* U+0009 (Horizontal Tab), U+000A (Line Feed), U+000D (Carriage Return): these are the only [[C0 and C1 control codes|C0]] controls accepted in XML 1.0;
+* U+0020–U+D7FF, U+E000–U+FFFD: this excludes ''some'' (not all) non-characters in the [[Basic Multilingual Plane|BMP]] (all surrogates, U+FFFE and U+FFFF are forbidden);
+* U+10000–U+10FFFF: this includes ''all'' code points in supplementary planes, including non-characters.
+
+XML 1.1<ref>{{cite web|url=http://www.w3.org/TR/xml11/#charsets |title=Extensible Markup Language (XML) 1.1 (Second Edition) |publisher=World Wide Web Consortium |accessdate=22 August 2010}}</ref> extends the set of allowed characters to include all the above, plus the remaining characters in the range U+0001–U+001F. At the same time, however, it restricts the use of C0 and [[C0 and C1 control codes|C1]] control characters other than U+0009 (Horizontal Tab), U+000A (Line Feed), U+000D (Carriage Return), and U+0085 (Next Line) by requiring them to be written in escaped form (for example U+0001 must be written as <code>&amp;#x01;</code> or its equivalent). In the case of C1 characters, this restriction is a backwards incompatibility; it was introduced to allow common encoding errors to be detected.
+
+The code point [[Null character|U+0000]] (Null) is the only character that is not permitted in any XML 1.0 or 1.1 document.
+
+===Encoding detection===
+The Unicode character set can be encoded into bytes for storage or transmission in a variety of different ways, called "encodings". Unicode itself defines encodings that cover the entire repertoire; well-known ones include [[UTF-8]] and [[UTF-16]].<ref>{{cite web|url=http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF|title=Characters vs. Bytes|website=Tbray.org|accessdate=16 November 2017}}</ref> There are many other text encodings that predate Unicode, such as [[ASCII]] and [[ISO/IEC 8859]]; their character repertoires in almost every case are subsets of the Unicode character set.
+
+XML allows the use of any of the Unicode-defined encodings, and any other encodings whose characters also appear in Unicode. XML also provides a mechanism whereby an XML processor can reliably, without any prior knowledge, determine which encoding is being used.<ref>{{cite web|url=http://www.w3.org/TR/REC-xml/#sec-guessing|title=Autodetection of Character Encodings|website=W3.org|accessdate=16 November 2017}}</ref> Encodings other than UTF-8 and UTF-16 are not necessarily recognized by every XML parser.
+
+===Escaping===
+XML provides ''[[Escape sequence|escape]]'' facilities for including characters that are problematic to include directly. For example:
+* The characters "&lt;" and "&amp;" are key syntax markers and may ''never'' appear in content outside a [[CDATA]] section. It is allowed, but not recommended, to use "&lt;" in XML entity values.<ref>{{cite web|url=http://www.w3.org/TR/2008/REC-xml-20081126/#NT-AttValue|title=Extensible Markup Language (XML) 1.0 (Fifth Edition)|website=W3.org|accessdate=16 November 2017}}</ref>
+* Some character encodings support only a subset of Unicode. For example, it is legal to encode an XML document in ASCII, but ASCII lacks code points for Unicode characters such as "é".
+* It might not be possible to type the character on the author's machine.
+* Some characters have [[homoglyph|glyphs]] that cannot be visually distinguished from other characters, such as the [[non-breaking space]] (<code>&amp;#xa0;</code>) " " and the [[Space (punctuation)|space]] (<code>&amp;#x20;</code>) " ", and the [[А|Cyrillic capital letter A]] (<code>&amp;#x410;</code>) "А" and the [[A|Latin capital letter A]] (<code>&amp;#x41;</code>) "A".
+
+There are five [[List of XML and HTML character entity references#Predefined entities in XML|predefined entities]]:
+* <code>&amp;lt;</code> represents "&lt;";
+* <code>&amp;gt;</code> represents "&gt;";
+* <code>&amp;amp;</code> represents "&amp;";
+* <code>&amp;apos;</code> represents "<tt>'</tt>";
+* <code>&amp;quot;</code> represents '<tt>"</tt>'.
+All permitted Unicode characters may be represented with a ''[[numeric character reference]]''. Consider the Chinese character "中", whose numeric code in Unicode is hexadecimal 4E2D, or decimal 20,013. A user whose keyboard offers no method for entering this character could still insert it in an XML document encoded either as <code>&amp;#20013;</code> or <code>&amp;#x4e2d;</code>. Similarly, the string "I &lt;3 Jörg" could be encoded for inclusion in an XML document as <code>I &amp;lt;3 J&amp;#xF6;rg</code>.
+
+<code>&amp;#0;</code> is not permitted, however, because the [[null character]] is one of the control characters excluded from XML, even when using a numeric character reference.<ref>{{cite web|url=http://www.w3.org/International/questions/qa-controls|title=W3C I18N FAQ: HTML, XHTML, XML and Control Codes|website=W3.org|accessdate=16 November 2017}}</ref> An alternative encoding mechanism such as [[Base64]] is needed to represent such characters.
+
+===Comments===
+Comments may appear anywhere in a document outside other markup. Comments cannot appear before the XML declaration. Comments begin with <code>&lt;!--</code> and end with <code>--&gt;</code>. For compatibility with [[SGML]], the string "--" (double-hyphen) is not allowed inside comments;<ref>{{cite web|url=http://www.w3.org/TR/REC-xml/#sec-comments|title=Extensible Markup Language (XML)|website=W3.org|accessdate=16 November 2017}} Section "Comments"</ref> this means comments cannot be nested. The ampersand has no special significance within comments, so entity and character references are not recognized as such, and there is no way to represent characters outside the character set of the document encoding.
+
+An example of a valid comment:
+<code>&lt;!--no need to escape &lt;code&gt; &amp; such in comments--&gt;</code>
+
+===International use===
+{{Contains Armenian text|example}}{{CyrillicText|example}}
+XML 1.0 (Fifth Edition) and XML 1.1 support the direct use of almost any [[Unicode]] character in element names, attributes, comments, character data, and processing instructions (other than the ones that have special symbolic meaning in XML itself, such as the less-than sign, "<"). The following is a well-formed XML document including [[Chinese character|Chinese]], [[Armenian alphabet|Armenian]] and [[Cyrillic script|Cyrillic]] characters:
+<source lang="xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<俄语 լեզու="ռուսերեն">данные</俄语>
+</source>
+
+==Well-formedness and error-handling==
+{{main|Well-formed document}}
+The XML specification defines an XML document as a [[Well-formed element|well-formed]] text, meaning that it satisfies a list of syntax rules provided in the specification. Some key points in the fairly lengthy list include:
+* The document contains only properly encoded legal Unicode characters.
+* None of the special syntax characters such as <code>&lt;</code> and <code>&amp;</code> appear except when performing their markup-delineation roles.
+* The start-tag, end-tag, and empty-element tag that delimit elements are correctly nested, with [[tag omission|none missing]] and none overlapping.
+* Tag names are case-sensitive; the start-tag and end-tag must match exactly.
+* Tag names cannot contain any of the characters !"#$%&amp;'()*+,/;&lt;=&gt;?@[\]^`{|}~, nor a space character, and cannot begin with "-", ".", or a numeric digit.
+* A single root element contains all the other elements.
+
+The definition of an ''XML document'' excludes texts that contain violations of well-formedness rules; they are simply not XML. An XML processor that encounters such a violation is required to report such errors and to cease normal processing. This policy, occasionally referred to as "[[Draco (lawgiver)|draconian]] error handling," stands in notable contrast to the behavior of programs that process [[HTML]], which are designed to produce a reasonable result even in the presence of severe markup errors.<ref>{{cite web|url=http://diveintomark.org/archives/2004/01/16/draconianism|archiveurl=https://web.archive.org/web/20110726002036/http://diveintomark.org/archives/2004/01/16/draconianism|archivedate=2011-07-26|title=The history of draconian error handling in XML|year=2004|accessdate=18 July 2013|first=Mark|last=Pilgrim|website=Web.archive.org}}</ref> XML's policy in this area has been criticized as a violation of [[Postel's law]] ("Be conservative in what you send; be liberal in what you accept").<ref>{{cite web|url=http://diveintomark.org/archives/2004/01/08/postels-law|archiveurl=https://web.archive.org/web/20110514120305/http://diveintomark.org/archives/2004/01/08/postels-law|archivedate=2011-05-14|title=There are no exceptions to Postel's Law [dive into mark&#93;|publisher=Web.archive.org|accessdate=22 April 2013}}</ref>
+
+The XML specification defines a [[XML validation|valid XML document]] as a [[well-formed XML document]] which also conforms to the rules of a [[Document Type Definition]] (DTD).<ref>{{cite web|url=https://xmlnotepad.codeplex.com/|title=XML Notepad|website=Xmlnotepad/codeplex.com|accessdate=16 November 2017}}</ref><ref>{{cite web|url=https://www.microsoft.com/en-us/download/details.aspx?id=7973|title=XML Notepad 2007|website=Microsoft.com|accessdate=16 November 2017}}</ref>
+
+==Schemas and validation==
+In addition to being well-formed, an XML document may be ''valid''. This means that it contains a reference to a [[Document Type Definition]] (DTD), and that its elements and attributes are declared in that DTD and follow the grammatical rules for them that the DTD specifies.
+
+XML processors are classified as ''validating'' or ''non-validating'' depending on whether or not they check XML documents for validity. A processor that discovers a validity error must be able to report it, but may continue normal processing.
+
+A DTD is an example of a ''[[XML schema|schema]]'' or ''grammar''. Since the initial publication of XML 1.0, there has been substantial work in the area of schema languages for XML. Such schema languages typically constrain the set of elements that may be used in a document, which attributes may be applied to them, the order in which they may appear, and the allowable parent/child relationships.
+
+===Document Type Definition===
+{{Main|Document Type Definition}}
+The oldest schema language for XML is the [[Document Type Definition]] (DTD), inherited from [[SGML]].
+
+DTDs have the following benefits:
+* DTD support is ubiquitous due to its inclusion in the XML 1.0 standard.
+* DTDs are terse compared to element-based schema languages and consequently present more information in a single screen.
+* DTDs allow the declaration of [[SGML entity|standard public entity sets]] for publishing characters.
+* DTDs define a ''document type'' rather than the types used by a namespace, thus grouping all constraints for a document in a single collection.
+
+DTDs have the following limitations:
+* They have no explicit support for newer [[feature (software design)|features]] of XML, most importantly [[XML Namespace|namespaces]].
+* They lack expressiveness. XML DTDs are simpler than SGML DTDs and there are certain structures that cannot be expressed with regular grammars. DTDs only support rudimentary datatypes.
+* They lack readability. DTD designers typically make heavy use of parameter entities (which behave essentially as textual [[macro (computer science)|macros]]), which make it easier to define complex grammars, but at the expense of clarity.
+* They use a syntax based on [[regular expression]] syntax, inherited from [[SGML]], to describe the schema. Typical XML APIs such as [[Simple API for XML|SAX]] do not attempt to offer applications a structured representation of the syntax, so it is less accessible to programmers than an element-based syntax may be.
+
+Two peculiar features that distinguish DTDs from other schema types are the syntactic support for embedding a DTD within XML documents and for defining ''entities'', which are arbitrary fragments of text and/or markup that the XML processor inserts in the DTD itself and in the XML document wherever they are referenced, like character escapes.
+
+DTD technology is still used in many applications because of its ubiquity.
+
+===XML Schema===
+{{Main|XML Schema (W3C)}}
+A newer schema language, described by the W3C as the successor of DTDs, is [[XML Schema (W3C)|XML Schema]], often referred to by the [[initialism]] for XML Schema instances, XSD (XML Schema Definition). XSDs are far more powerful than DTDs in describing XML languages. They use a rich [[Data type|datatyping]] system and allow for more detailed constraints on an XML document's logical structure. XSDs also use an XML-based format, which makes it possible to use ordinary XML tools to help process them.
+
+xs:schema element that defines a schema:
+<source lang="xml">
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"></xs:schema>
+</source>
+
+===RELAX NG===
+[[RELAX NG]] (Regular Language for XML Next Generation) was initially specified by [[OASIS (organization)|OASIS]] and is now a standard (Part 2: ''Regular-grammar-based validation'' of [[DSDL|ISO/IEC 19757 - DSDL]]). RELAX NG schemas may be written in either an XML based syntax or a more compact non-XML syntax; the two syntaxes are [[isomorphic]] and [[James Clark (programmer)|James Clark]]'s conversion tool—[http://www.thaiopensource.com/relaxng/trang.html Trang]—can convert between them without loss of information. RELAX NG has a simpler definition and validation framework than XML Schema, making it easier to use and implement. It also has the ability to use [[datatype]] framework [[Plug-in (computing)|plug-ins]]; a RELAX NG schema author, for example, can require values in an XML document to conform to definitions in XML Schema Datatypes.
+
+===Schematron===
+[[Schematron]] is a language for making [[Assertion (computing)|assertions]] about the presence or absence of patterns in an XML document. It typically uses [[XPath]] expressions. Schematron is now a standard (Part 3: ''Rule-based validation'' of [[DSDL|ISO/IEC 19757 - DSDL]]).
+
+===DSDL and other schema languages===
+[[Document Schema Definition Languages|DSDL]] (Document Schema Definition Languages) is a multi-part ISO/IEC standard (ISO/IEC 19757) that brings together a comprehensive set of small schema languages, each targeted at specific problems. DSDL includes [[RELAX NG]] full and compact syntax, [[Schematron]] assertion language, and languages for defining datatypes, character repertoire constraints, renaming and entity expansion, and namespace-based [[routing]] of document fragments to different validators. DSDL schema languages do not have the vendor support of XML Schemas yet, and are to some extent a grassroots reaction of industrial publishers to the lack of utility of XML Schemas for [[publishing]].
+
+Some schema languages not only describe the structure of a particular XML format but also offer limited facilities to influence processing of individual XML files that conform to this format. DTDs and XSDs both have this ability; they can for instance provide the [[infoset]] augmentation facility and attribute defaults. RELAX NG and Schematron intentionally do not provide these.
+
+==Related specifications==
+A cluster of specifications closely related to XML have been developed, starting soon after the initial publication of XML 1.0. It is frequently the case that the term "XML" is used to refer to XML together with one or more of these other technologies that have come to be seen as part of the XML core.
+* [[XML namespace]]s enable the same document to contain XML elements and attributes taken from different vocabularies, without any [[naming collision]]s occurring. Although XML Namespaces are not part of the XML specification itself, virtually all XML software also supports XML Namespaces.
+* [[XML Base]] defines the <code>xml:base</code> attribute, which may be used to set the base for resolution of relative URI references within the scope of a single XML element.
+* [[XML Information Set]] or XML Infoset is an abstract data model for XML documents in terms of ''information items''. The infoset is commonly used in the specifications of XML languages, for convenience in describing constraints on the XML constructs those languages allow.
+* [[XSL]] (Extensible Stylesheet Language) is a family of languages used to transform and render XML documents, split into three parts:
+:* [[XSLT]] (XSL Transformations), an XML language for transforming XML documents into other XML documents or other formats such as HTML, plain text, or XSL-FO. XSLT is very tightly coupled with XPath, which it uses to address components of the input XML document, mainly elements and attributes.
+:* [[XSL-FO]] (XSL Formatting Objects), an XML language for rendering XML documents, often used to generate PDFs.
+:* [[XPath]] (XML Path Language), a non-XML language for addressing the components (elements, attributes, and so on) of an XML document. XPath is widely used in other core-XML specifications and in programming libraries for accessing XML-encoded data.
+* [[XQuery]] (XML Query) is an XML query language strongly rooted in XPath and XML Schema. It provides methods to access, manipulate and return XML, and is mainly conceived as a query language for [[XML database]]s.
+* [[XML Signature]] defines syntax and processing rules for creating [[digital signature]]s on XML content.
+* [[XML Encryption]] defines syntax and processing rules for [[encryption|encrypting]] XML content.
+* [[xml-model]] (Part 11: ''Schema Association''  of [[DSDL|ISO/IEC 19757 - DSDL]]) defines a means of associating any xml document with any of the schema types mentioned [[#Schemas and validation|above]].
+
+Some other specifications conceived as part of the "XML Core" have failed to find wide adoption, including [[XInclude]], [[XLink]], and [[XPointer]].
+
+==Programming interfaces==
+The design goals of XML include, "It shall be easy to write programs which process XML documents."<ref name="XML Goals"/> Despite this, the XML specification contains almost no information about how programmers might go about doing such processing. The [[XML Infoset]] specification provides a vocabulary to refer to the constructs within an XML document, but does not provide any guidance on how to access this information. A variety of [[API]]s for accessing XML have been developed and used, and some have been standardized.
+
+Existing APIs for XML processing tend to fall into these categories:
+* Stream-oriented APIs accessible from a programming language, for example [[Simple API for XML|SAX]] and [[StAX]].
+* Tree-traversal APIs accessible from a programming language, for example [[DOM (XML API)|DOM]].
+* [[XML data binding]], which provides an automated translation between an XML document and programming-language objects.
+* Declarative transformation languages such as [[XSLT]] and [[XQuery]].
+* Syntax extensions to general-purpose programming languages, for example [[LINQ]] and [[Scala (programming language)|Scala]].
+
+Stream-oriented facilities require less memory and, for certain tasks based on a linear traversal of an XML document, are faster and simpler than other alternatives. Tree-traversal and data-binding APIs typically require the use of much more memory, but are often found more convenient for use by programmers; some include declarative retrieval of document components via the use of XPath expressions.
+
+XSLT is designed for declarative description of XML document transformations, and has been widely implemented both in server-side packages and Web browsers. XQuery overlaps XSLT in its functionality, but is designed more for searching of large [[XML database]]s.
+
+===Simple API for XML===
+{{main|Simple API for XML}}
+[[Simple API for XML]] (SAX) is a [[Lexical analysis|lexical]], [[Event-driven programming|event-driven]] API in which a document is read serially and its contents are reported as [[Callback (computer programming)|callbacks]] to various [[Method (computer science)|methods]] on a [[Event handler|handler object]] of the user's design. SAX is fast and efficient to implement, but difficult to use for extracting information at random from the XML, since it tends to burden the application author with keeping track of what part of the document is being processed. It is better suited to situations in which certain types of information are always handled the same way, no matter where they occur in the document.
+
+===Pull parsing===
+Pull parsing<ref>{{cite web|url=http://www.xml.com/pub/a/2005/07/06/tr.html|title=Push, Pull, Next!|first=Bob|last=DuCharme|website=Xml.com|accessdate=16 November 2017}}</ref> treats the document as a series of items read in sequence using the [[Iterator pattern|iterator design pattern]]. This allows for writing of [[recursive descent parser]]s in which the structure of the code performing the parsing mirrors the structure of the XML being parsed, and intermediate parsed results can be used and accessed as local variables within the methods performing the parsing, or passed down (as method parameters) into lower-level methods, or returned (as method return values) to higher-level methods. Examples of pull parsers include [https://metacpan.org/pod/Data::Edit::Xml Data::Edit::Xml] in [[Perl (programming language)|Perl]], [[StAX]] in the [[Java (programming language)|Java]] programming language, XMLPullParser in [[Smalltalk]], XMLReader in [[PHP]], ElementTree.iterparse in [[Python (programming language)|Python]], System.Xml.XmlReader in the [[.NET Framework]], and the DOM traversal API (NodeIterator and TreeWalker).
+
+A pull parser creates an iterator that sequentially visits the various elements, attributes, and data in an XML document. Code that uses this iterator can test the current item (to tell, for example, whether it is a start-tag or end-tag, or text), and inspect its attributes (local name, [[XML namespace|namespace]], values of XML attributes, value of text, etc.), and can also move the iterator to the next item. The code can thus extract information from the document as it traverses it. The recursive-descent approach tends to lend itself to keeping data as typed local variables in the code doing the parsing, while SAX, for instance, typically requires a parser to manually maintain intermediate data within a stack of elements that are parent elements of the element being parsed. Pull-parsing code can be more straightforward to understand and maintain than SAX parsing code.
+
+===Document Object Model===
+{{main|Document Object Model}}
+[[Document Object Model]] (DOM) is an API that allows for navigation of the entire document as if it were a tree of [[Node (computer science)|node]] [[Object (computer science)|objects]] representing the document's contents. A DOM document can be created by a parser, or can be generated manually by users (with limitations). Data types in DOM nodes are abstract; implementations provide their own programming language-specific [[language binding|bindings]]. DOM implementations tend to be [[memory]] intensive, as they generally require the entire document to be loaded into memory and constructed as a tree of objects before access is allowed.
+
+===Data binding===
+[[XML data binding]] is the binding of XML documents to a hierarchy of custom and strongly typed objects, in contrast to the generic objects created by a DOM parser. This approach simplifies code development, and in many cases allows problems to be identified at compile time rather than run-time. It is suitable for applications where the document structure is known and fixed at the time the application is written. Example data binding systems include the [[Java Architecture for XML Binding]] (JAXB), XML Serialization in [[.NET Framework]].<ref>{{cite web|url=http://msdn.microsoft.com/en-us/library/ms950721.aspx|title=XML Serialization in the .NET Framework|website=Msdn.microsoft.com|accessdate=31 July 2009}}</ref> and XML serialization in [[gSOAP]].
+
+===XML as data type===
+XML has appeared as a [[first-class data type]] in other languages. The [[E4X|ECMAScript for XML]] (E4X) extension to the [[ECMAScript]]/JavaScript language explicitly defines two specific objects (XML and XMLList) for JavaScript, which support XML document nodes and XML node lists as distinct objects and use a dot-notation specifying parent-child relationships.<ref>{{cite web|title=Processing XML with E4X|url=https://developer.mozilla.org/en/core_javascript_1.5_guide/processing_xml_with_e4x|work=Mozilla Developer Center|publisher=Mozilla Foundation}}</ref> E4X is supported by the [[Mozilla]] 2.5+ browsers (though now deprecated) and Adobe [[Actionscript]], but has not been adopted more universally. Similar notations are used in Microsoft's [[LINQ]] implementation for Microsoft .NET 3.5 and above, and in [[Scala (programming language)|Scala]] (which uses the Java VM). The open-source xmlsh application, which provides a Linux-like shell with special features for XML manipulation, similarly treats XML as a data type, using the <[ ]> notation.<ref>{{cite web|url=http://www.xmlsh.org/CoreSyntax|title=XML Shell: Core Syntax|website=Xmlsh.org|date=2010-05-13|accessdate=22 August 2010}}</ref> The [[Resource Description Framework]] defines a data type <code>rdf:XMLLiteral</code> to hold wrapped, [[canonical XML]].<ref>{{cite web|url=http://www.w3.org/TR/2003/WD-rdf-concepts-20030123/#dfn-rdf-XMLLiteral|title=Resource Description Framework (RDF): Concepts and Abstract Syntax|publisher=W3.org|accessdate=22 August 2010}}</ref> Facebook has produced extensions to the [[PHP]] and [[JavaScript]] languages that add XML to the core syntax in a similar fashion to E4X, namely [[XHP]] and [[React (JavaScript library)#JSX|JSX]] respectively.
+
+==History==
+XML is an application [[Profile (engineering)|profile]] of [[SGML]] (ISO 8879).<ref name="iso19757-3_xmlref">{{cite journal|title=ISO/IEC 19757-3|page=vi|publisher=[[International Organization for Standardization|ISO]]/[[International Electrotechnical Commission|IEC]]|date=1 June 2006}}</ref>
+
+The versatility of [[SGML]] for dynamic information display was understood by early digital media publishers in the late 1980s prior to the rise of the Internet.<ref name="OED">{{cite web|title=A conversation with Tim Bray: Searching for ways to tame the world's vast stores of information|url=http://www.acmqueue.com/modules.php?name=Content&pa=showpage&pid=282|first=Tim |last=Bray |date=February 2005|publisher=Association for Computing Machinery's "Queue site"|accessdate=16 April 2006}}</ref><ref name="multimedia">{{cite book|title=Interactive multimedia|chapter=Publishers, multimedia, and interactivity|publisher=Cobb Group|isbn=1-55615-124-1|year=1988|author1=edited by Sueann Ambron |author2=Kristina Hooper |author3=foreword by John Sculley.  |lastauthoramp=yes }}</ref> By the mid-1990s some practitioners of SGML had gained experience with the then-new [[World Wide Web]], and believed that SGML offered solutions to some of the problems the Web was likely to face as it grew. [[Dan Connolly (computer scientist)|Dan Connolly]] added SGML to the list of W3C's activities when he joined the staff in 1995; work began in mid-1996 when [[Sun Microsystems]] engineer [[Jon Bosak]] developed a charter and recruited collaborators. Bosak was well connected in the small community of people who had experience both in SGML and the Web.<ref name="drmacro">{{cite web|title=XML is 10|url=http://drmacros-xml-rants.blogspot.com/2006/11/xml-ten-year-aniversary.html|year=2006|author=Eliot Kimber|website=Drmacros-xml-rants.blogspot.com|accessdate=16 November 2017}}</ref>
+
+XML was compiled by a [[working group]] of eleven members,<ref>The working group was originally called the "Editorial Review Board." The original members and seven who were added before the first edition was complete, are listed at the end of the first edition of the XML Recommendation, at http://www.w3.org/TR/1998/REC-xml-19980210.</ref> supported by a (roughly) 150-member Interest Group. Technical debate took place on the Interest Group mailing list and issues were resolved by consensus or, when that failed, majority vote of the Working Group. A record of design decisions and their rationales was compiled by [[Michael Sperberg-McQueen]] on December 4, 1997.<ref>{{cite web|url=http://www.w3.org/XML/9712-reports.html|title=Reports From the W3C SGML ERB to the SGML WG And from the W3C XML ERB to the XML SIG|publisher=W3.org|accessdate=31 July 2009}}</ref> [[James Clark (XML expert)|James Clark]] served as Technical Lead of the Working Group, notably contributing the empty-element <code>&lt;empty&nbsp;/></code> syntax and the name "XML". Other names that had been put forward for consideration included "MAGMA" (Minimal Architecture for Generalized Markup Applications), "SLIM" (Structured Language for Internet Markup) and "MGML" (Minimal Generalized Markup Language). The co-editors of the specification were originally [[Tim Bray]] and [[Michael Sperberg-McQueen]]. Halfway through the project Bray accepted a consulting engagement with [[Netscape Communications Corporation|Netscape]], provoking vociferous protests from Microsoft. Bray was temporarily asked to resign the editorship. This led to intense dispute in the Working Group, eventually solved by the appointment of Microsoft's [[Jean Paoli]] as a third co-editor.
+
+The XML Working Group never met face-to-face; the design was accomplished using a combination of email and weekly teleconferences. The major design decisions were reached in a short burst of intense work between August and November 1996,<ref>{{cite web|url=http://java.sun.com/xml/birth_of_xml.html|title=Oracle Technology Network for Java Developers - Oracle Technology Network - Oracle|website=Java.sun.com|accessdate=16 November 2017}}</ref> when the first Working Draft of an XML specification was published.<ref>{{cite web|url=http://www.w3.org/TR/WD-xml-961114.html|title=Extensible Markup Language (XML)|publisher=W3.org|date=1996-11-14|accessdate=31 July 2009}}</ref> Further design work continued through 1997, and XML 1.0 became a [[W3C]] Recommendation on February 10, 1998.
+
+===Sources===
+XML is a profile of an ISO standard [[SGML]], and most of XML comes from SGML unchanged. From SGML comes the separation of logical and physical structures (elements and entities), the availability of grammar-based validation (DTDs), the separation of data and metadata (elements and attributes), mixed content, the separation of processing from representation ([[processing instruction]]s), and the default angle-bracket syntax. Removed were the SGML declaration (XML has a fixed delimiter set and adopts [[Unicode]] as the document [[Character encoding|character set]]).
+
+Other sources of technology for XML were the [[Text Encoding Initiative|TEI]] (Text Encoding Initiative), which defined a profile of SGML for use as a "transfer syntax"; and [[HTML]], in which elements were synchronous with their resource, document character sets were separate from resource encoding, the <code>xml:lang</code> attribute was invented, and (like [[HTTP]]) metadata accompanied the resource rather than being needed at the declaration of a link. The ERCS(Extended Reference Concrete Syntax) project of the SPREAD (Standardization Project Regarding East Asian Documents) project of the ISO-related China/Japan/Korea Document Processing expert group was the basis of XML 1.0's naming rules; SPREAD also introduced hexadecimal numeric character references and the concept of references to make available all Unicode characters. To support ERCS, XML and HTML better, the SGML standard IS 8879 was revised in 1996 and 1998 with WebSGML Adaptations. The XML header followed that of ISO [[HyTime]].
+
+Ideas that developed during discussion that are novel in XML included the algorithm for encoding detection and the encoding header, the processing instruction target, the xml:space attribute, and the new close delimiter for empty-element tags. The notion of well-formedness as opposed to validity (which enables parsing without a schema) was first formalized in XML, although it had been implemented successfully in the Electronic Book Technology "Dynatext" software;<ref>{{cite web|author1=Jon Bosak |author2=Sun Microsystems |url=http://2006.xmlconference.org/proceedings/162/presentation.html|archiveurl=https://web.archive.org/web/20070711133314/http://2006.xmlconference.org/proceedings/162/presentation.html|archivedate=2007-07-11|title=Closing Keynote, XML 2006|publisher=2006.xmlconference.org|date=2006-12-07|accessdate=31 July 2009}}</ref> the software from the University of Waterloo New Oxford English Dictionary Project; the RISP LISP SGML text processor at Uniscope, Tokyo; the US Army Missile Command IADS hypertext system; Mentor Graphics Context; Interleaf and Xerox Publishing System.
+
+===Versions===
+There are two current versions of XML. The first (''XML 1.0'') was initially defined in 1998. It has undergone minor revisions since then, without being given a new version number, and is currently in its fifth edition, as published on November 26, 2008. It is widely implemented and still recommended for general use.
+
+The second (''XML 1.1'') was initially published on February 4, 2004, the same day as XML 1.0 Third Edition,<ref>{{cite web|url=http://www.w3.org/TR/2004/REC-xml-20040204|title=Extensible Markup Language (XML) 1.0 (Third Edition)|publisher=W3.org|accessdate=22 August 2010}}</ref> and is currently in its second edition, as published on August 16, 2006. It contains features (some contentious) that are intended to make XML easier to use in certain cases.<ref name="xml11rationale">{{cite web|url=http://www.w3.org/TR/xml11/#sec-xml11|title=Extensible Markup Language (XML) 1.1 (Second Edition)&nbsp;, Rationale and list of changes for XML 1.1|accessdate=20 January 2012|website=W3.org}}</ref> The main changes are to enable the use of line-ending characters used on [[EBCDIC]] platforms, and the use of scripts and characters absent from Unicode 3.2. XML 1.1 is not very widely implemented and is recommended for use only by those who need its particular features.<ref>{{cite book|last=Harold|first=Elliotte Rusty|title=Effective XML|publisher=Addison-Wesley|year=2004|pages=10–19|url=http://www.cafeconleche.org/books/effectivexml/|isbn=0-321-15040-6}}</ref>
+
+Prior to its fifth edition release, XML 1.0 differed from XML 1.1 in having stricter requirements for characters available for use in element and attribute names and unique identifiers: in the first four editions of XML 1.0 the characters were exclusively enumerated using a specific version of the [[Unicode]] standard (Unicode 2.0 to Unicode 3.2.) The fifth edition substitutes the mechanism of XML 1.1, which is more future-proof but reduces [[Redundancy (information theory)|redundancy]]. The approach taken in the fifth edition of XML 1.0 and in all editions of XML 1.1 is that only certain characters are forbidden in names, and everything else is allowed to accommodate suitable name characters in future Unicode versions. In the fifth edition, XML names may contain characters in the [[Balinese script|Balinese]], [[Cham script|Cham]], or [[Phoenician alphabet|Phoenician]] scripts among many others added to Unicode since Unicode 3.2.<ref name="xml11rationale"/>
+
+Almost any Unicode code point can be used in the character data and attribute values of an XML 1.0 or 1.1 document, even if the character corresponding to the code point is not defined in the current version of Unicode. In character data and attribute values, XML 1.1 allows the use of more [[control character]]s than XML 1.0, but, for "robustness", most of the control characters introduced in XML 1.1 must be expressed as numeric character references (and #x7F through #x9F, which had been allowed in XML 1.0, are in XML 1.1 even required to be expressed as numeric character references<ref>{{cite web|url=http://www.w3.org/TR/xml11/#sec-xml11|title=Extensible Markup Language (XML) 1.1 (Second Edition)|publisher=W3.org|accessdate=22 August 2010}}</ref>). Among the supported control characters in XML 1.1 are two line break codes that must be treated as whitespace. Whitespace characters are the only control codes that can be written directly.
+
+There has been discussion of an XML 2.0, although no organization has announced plans for work on such a project. XML-SW (SW for [[Skunkworks project|skunkworks]]), written by one of the original developers of XML,<ref>Tim Bray: ''[http://www.textuality.com/xml/xmlSW.html Extensible Markup Language, SW (XML-SW)].'' 2002-02-10</ref> contains some proposals for what an XML 2.0 might look like: elimination of DTDs from syntax, integration of [[XML namespace|namespaces]], [[XML Base]] and [[XML Information Set]] into the base standard.
+
+The World Wide Web Consortium also has an XML Binary Characterization Working Group doing preliminary research into use cases and properties for a binary encoding of XML Information Set. The working group is not chartered to produce any official standards. Since XML is by definition text-based, ITU-T and ISO are using the name [[Fast Infoset]] for their own binary infoset to avoid confusion (see ITU-T Rec. X.891 and ISO/IEC 24824-1).
+
+==Criticism==
+XML and its extensions have regularly been criticized for verbosity and complexity.<ref>{{cite web|url=http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html|title=XML: The Angle Bracket Tax|website=Codinghorror.com|accessdate=16 November 2017}}</ref> Mapping the basic tree model of XML to [[type system]]s of programming languages or databases can be difficult, especially when XML is used for exchanging highly structured data between applications, which was not its primary design goal. However, [[XML data binding]] systems allow applications to access XML data directly from objects representing a [[data structure]] of the data in the programming language used, which ensures [[type safety]], rather than using the [[Document Object Model|DOM]] or [[Simple API for XML|SAX]] to retrieve data from a direct representation of the XML itself. This is accomplished by automatically creating a mapping between elements of the XML schema [[XSD]] of the document and members of a class to be represented in memory. Other criticisms attempt to refute the claim that XML is a [[self-describing]] language<ref>{{cite web|url=http://workflow.healthbase.info/monographs/XML_myths_Browne.pdf|format=PDF|title=The Myth of Self-Describing XML|date=September 2003|website=Workflow.healthbase.info|accessdate=16 November 2017}}</ref> (though the XML specification itself makes no such claim). [[JSON]], [[YAML]], and [[S-expression|S-Expressions]] are frequently proposed as simpler alternatives (see [[Comparison of data serialization formats]]);<ref>{{cite web|url=https://stackoverflow.com/questions/51492/what-usable-alternatives-to-xml-syntax-do-you-know|title=What usable alternatives to XML syntax do you know?|website=Stackoverflow.com|accessdate=16 November 2017}}</ref> that focus on representing highly structured data rather than documents, which may contain both highly structured and relatively unstructured content. However, W3C standardized XML schema specifications offer a broader range of structured [[XSD]] data types compared to simpler serialization formats and offer modularity and reuse through [[XML namespace]].
+
+==See also==
+* [[List of XML markup languages]]
+* [[List of XML schemas]]
+* [[Comparison of layout engines (XML)]]
+* [[Comparison of data serialization formats]]
+* [[Binary XML]]
+* [[EBML]]
+* [[WBXML]]
+* [[XHTML]]
+* [[XML Protocol]]
+
+==Notes==
+{{Notelist-lr}}
+
+==References==
+{{Reflist|refs=
+<ref name="deprecate-text-xml">{{cite web|url=http://tools.ietf.org/html/draft-murata-kohn-lilley-xml-03|title=Internet Drafts: XML Media Types|publisher=Internet Engineering Task Force|date=24 September 2009|accessdate=29 February 2012|author1=M. Murata |author2=D. Kohn |author3=C. Lilley  |last-author-amp=yes }}</ref>
+}}
+
+==Further reading==
+* Annex A of ISO 8879:1986 (SGML)
+* {{cite journal|ssrn=900616|author=Lawrence A. Cunningham|title=Language, Deals and Standards: The Future of XML Contracts|journal=Washington University Law Review|year=2005}}
+* {{cite journal|last1=Bosak|first1=Jon |first2=Tim |last2=Bray |title=XML and the Second-Generation Web|journal=Scientific American|date=May 1999 |url=http://www.scientificamerican.com/article.cfm?id=xml-and-the-second-genera |archive-url=https://web.archive.org/web/20091001200447/http://www.scientificamerican.com/article.cfm?id=xml-and-the-second-genera | archive-date=1 October 2009 }}
+* {{cite web|url=http://www.developer.com/xml/article.php/10929_3583081_1|title=Making Mistakes with XML|last=Kelly|first=Sean |date=February 6, 2006|work=Developer.com|accessdate=26 October 2010}}
+* {{cite web|url=http://www.oreillynet.com/xml/blog/2003/02/five_years_later_xml.html|title=Five years later, XML..|last=St. Laurent|first=Simon|date=February 12, 2003|work=O'Reilly XML Blog|publisher=[[O'Reilly Media]]|accessdate=26 October 2010}}
+* {{cite web|url=http://www.w3.org/2008/02/xml10-pressrelease|title=W3C XML is Ten!|date=12 February 2008|publisher=[[World Wide Web Consortium]]|accessdate=26 October 2010}}
+* {{cite web|url=http://wam.inrialpes.fr/courses/PG-MoSIG12/xml.pdf |title=Introduction to XML |date=October 2012 |work=Course Slides |publisher=[[Pierre Geneves]] |deadurl=bot: unknown |archiveurl=https://web.archive.org/web/20151016053704/http://wam.inrialpes.fr/courses/PG-MoSIG12/xml.pdf |archivedate=2015-10-16 |df= }}
+
+==External links==
+{{Commons category|XML}}
+{{Wikibooks|Subject:XML}}
+{{Prone to spam|date=November 2013}}
+{{Z148}}<!--
+{{No more links}}
+Please be cautious adding more external links.
+Wikipedia is not a collection of links and should not be used for advertising.
+Excessive or inappropriate links will be removed.
+See [[Wikipedia:External links]] and [[Wikipedia:Spam]] for details.
+If there are already suitable links, propose additions or replacements on
+the article's talk page, or submit your link to the relevant category at
+the Open Directory Project (dmoz.org) and link there using {{Dmoz}}.
+-->
+* [http://www.w3.org/XML/ W3C XML homepage]
+* [http://www.w3.org/TR/REC-xml XML 1.0 Specification]
+* [http://xml.ascc.net/en/utf-8/ercsretro.html Retrospective on Extended Reference Concrete Syntax] by [[Rick Jelliffe]]
+* [http://www.xml.com/pub/a/w3j/s3.bosak.html ''XML, Java and the Future of the Web''] (1997) by [[Jon Bosak]]
+* [http://validator.w3.org/ http://validator.w3.org/] The Official [W3C] Markup Validation Service
+* [http://xml.silmaril.ie/ The XML FAQ] originally for the W3C's XML SIG by Peter Flynn
+* [https://jsonformatter.org/xml-formatter XML Formatter] W3C's XML Formatter
+
+{{W3C Standards}}
+{{Web browsers}}
+{{Data Exchange}}
+
+{{Authority control}}
+
+{{DEFAULTSORT:Xml}}
+[[Category:Application layer protocols]]
+[[Category:Articles with example code]]
+[[Category:Bibliography file formats]]
+[[Category:Computer file formats]]
+[[Category:Data modeling languages]]
+[[Category:Data serialization formats]]
+[[Category:Markup languages]]
+[[Category:Open formats]]
+[[Category:Presentation layer protocols]]
+[[Category:Technical communication]]
+[[Category:World Wide Web Consortium standards]]
+[[Category:XML| ]]

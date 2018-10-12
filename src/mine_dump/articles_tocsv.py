@@ -3,6 +3,7 @@ from json import load
 import time
 import os
 from data import DATAP
+from mine_dump import hms_string
 import csv
 
 DUMP_PATH = DATAP + '/dump/'
@@ -15,13 +16,6 @@ TITLE = NS+"title"
 REV = NS+"revision"
 TEXT = NS+"text"
 pathWikiXML = os.path.abspath(DUMP_PATH+FILENAME_WIKI)
-
-# Nicely formatted time string
-def hms_string(sec_elapsed):
-    h = int(sec_elapsed / (60 * 60))
-    m = int((sec_elapsed % (60 * 60)) / 60)
-    s = sec_elapsed % 60
-    return "{}:{:>02}:{:>05.2f}".format(h, m, s)
 
 
 def strip_tag_name(tag):
@@ -73,5 +67,5 @@ if __name__ == "__main__":
         adict = load(f)
     with open(DATAP + '/dump/articles.csv', 'w', encoding="UTF8") as f:
         csvwriter = csv.writer(f, delimiter=',',  escapechar=' ',
-                            quotechar='"', lineterminator='\n')
+                            quotechar='|', lineterminator='\n')
         extract_features(csvwriter)

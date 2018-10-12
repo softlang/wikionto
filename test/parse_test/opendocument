@@ -1,0 +1,346 @@
+<!-- Copied from https://en.wikipedia.org/wiki/OpenDocument for testing purposes. -->
+
+{{distinguish|Open Document Architecture|OpenDoc|Office Open XML}}
+{{redirect|ODF}}
+{{Use dmy dates|date=December 2012}}
+{{OpenDocument}}
+{{Infobox
+| titlestyle = font-size:130%;padding-bottom:0.15em;
+| title = OpenDocument Text
+| image1 = [[File:ODF textdocument 48x48.png|OpenDocument Text icon]]
+| labelstyle = padding:0.2em 0;line-height:1.2em;padding-right:0.65em;
+| datastyle = line-height:1.35em;
+|  data4  = {{nowrap|'''[[Filename extension]]s'''<br/>{{mono|.odt{{nbsp|2}}.fodt}}}}
+|  data5  = {{nowrap|'''[[Internet media type]]'''}} {{longitem|{{mono|application/vnd.oasis.<br/>opendocument.text}}}}
+|  data7  = {{nowrap|'''[[Uniform Type Identifier|Uniform Type Identifier (UTI)]]'''<br/>{{mono|org.oasis.opendocument.text}}<ref name="uti">{{cite web |url=http://www.huw.id.au/filetypes.html#OpenDocument |title=Filetypes |author=Huw Alexander Ogilvie |accessdate=20 June 2008}}</ref>}}
+|  data8  = {{nowrap|'''UTI conformation'''<br/>{{mono|org.oasis-open.opendocument<br/>public.composite-content}}}}
+| label10 = Developed&nbsp;by
+|  data10 = [[OASIS (organization)|OASIS]]
+| label11 = Initial release
+|  data11 = {{start date and age|2005|05|01|df=yes}}
+| label12 = [[Software release life cycle|Latest release]]
+|  data12 = {{longitem|1.2<br/>{{smaller|{{nowrap|({{start date and age|2011|09|29|df=yes}})}}}}}}
+| label13 = Type of format
+|  data13 = [[Document file format|Document]]
+| label16 = Extended&nbsp;from
+|  data16 = [[XML]]
+| label18 = [[International standard|Standard]]
+|  data18 = {{nowrap|ISO/IEC 26300<ref name="odf12-part1"/><ref name="odf12-part2"/><ref name="odf12-part3"/><ref name="odf10"/><br/>{{smaller|(OASIS OpenDocument Format)}}}}
+| label19 = {{nowrap|[[Open format]]?}}
+|  data19 = [[OpenDocument#Licensing|Yes]]
+| label20 = Website
+|  data20 = {{hlist |[http://www.oasis-open.org/committees/office/ OASIS] |[http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=45374 ISO/IEC]}}
+}}
+{{Infobox
+| titlestyle = font-size:130%;padding-bottom:0.15em;
+| title = OpenDocument Presentation
+| image1 = [[File:ODF presentation 48x48.png|OpenDocument Presentation icon]]
+| labelstyle = padding:0.2em 0;line-height:1.2em;padding-right:0.65em;
+| datastyle = line-height:1.35em;
+|  data4  = {{nowrap|'''Filename extensions'''<br/>{{mono|.odp{{nbsp|2}}.fodp}}}}
+|  data5  = {{nowrap|'''Internet media type'''}} {{longitem|{{mono|application/vnd.oasis.<br/>opendocument.presentation}}}}
+|  data7  = {{nowrap|'''Uniform Type Identifier (UTI)'''<br/>{{mono|org.oasis.opendocument.presentation}}<ref name="uti"/>}}
+|  data8  = {{nowrap|'''UTI conformation'''<br/>{{mono|org.oasis-open.opendocument<br/>public.composite-content}}}}
+| label10 = Developed&nbsp;by
+|  data10 = OASIS
+| label11 = Initial release
+|  data11 = {{start date and age|2005|05|01|df=yes}}
+| label12 = Latest release
+|  data12 = {{longitem|1.2<br/>{{smaller|{{nowrap|({{start date and age|2011|09|29|df=yes}})}}}}}}
+| label13 = Type of format
+|  data13 = [[Presentation]]
+| label16 = Extended&nbsp;from
+|  data16 = XML
+| label18 = Standard
+|  data18 = {{nowrap|ISO/IEC 26300<ref name="odf12-part1"/><ref name="odf12-part2"/><ref name="odf12-part3"/><ref name="odf10"/><br/>{{smaller|(OASIS OpenDocument Format)}}}}
+| label19 = Open&nbsp;format?
+|  data19 = Yes
+}}
+{{Infobox
+| titlestyle = font-size:130%;padding-bottom:0.15em;
+| title = OpenDocument Spreadsheet
+| image1 = [[File:ODF spreadsheet 48x48.png|OpenDocument Spreadsheet icon]]
+| labelstyle = padding:0.2em 0;line-height:1.2em;padding-right:0.65em;
+| datastyle = line-height:1.35em;
+|  data4  = {{nowrap|'''Filename extensions'''<br/>{{mono|.ods{{nbsp|2}}.fods}}}}
+|  data5  = {{nowrap|'''Internet media type'''}} {{longitem|{{mono|application/vnd.oasis.<br/>opendocument.spreadsheet}}}}
+|  data7  = {{nowrap|'''Uniform Type Identifier (UTI)'''<br/>{{mono|org.oasis.opendocument.spreadsheet}}<ref name="uti"/>}}
+|  data8  = {{nowrap|'''UTI conformation'''<br/>{{mono|org.oasis-open.opendocument<br/>public.composite-content}}}}
+| label10 = Developed&nbsp;by
+|  data10 = OASIS
+| label11 = Initial release
+|  data11 = {{start date and age|2005|05|01|df=yes}}
+| label12 = Latest release
+|  data12 = {{longitem|1.2<br/>{{smaller|{{nowrap|({{start date and age|2011|09|29|df=yes}})}}}}}}
+| label13 = Type of format
+|  data13 = [[Spreadsheet]]
+| label16 = Extended&nbsp;from
+|  data16 = XML
+| label18 = Standard
+|  data18 = {{nowrap|ISO/IEC 26300<ref name="odf12-part1"/><ref name="odf12-part2"/><ref name="odf12-part3"/><ref name="odf10"/><br/>{{smaller|(OASIS OpenDocument Format)}}}}
+| label19 = Open&nbsp;format?
+|  data19 = Yes
+}}
+{{Infobox
+| titlestyle = font-size:130%;padding-bottom:0.15em;
+| title = OpenDocument Graphics
+| image1 = [[File:ODF spreadsheet 48x48.png|OpenDocument Spreadsheet icon]]
+| labelstyle = padding:0.2em 0;line-height:1.2em;padding-right:0.65em;
+| datastyle = line-height:1.35em;
+|  data4  = {{nowrap|'''Filename extensions'''<br/>{{mono|.odg{{nbsp|2}}.fodg}}}}
+|  data5  = {{nowrap|'''Internet media type'''}} {{longitem|{{mono|application/vnd.oasis.<br/>opendocument.graphics}}}}
+|  data7  = {{nowrap|'''Uniform Type Identifier (UTI)'''<br/>{{mono|org.oasis.opendocument.graphics}}<ref name="uti"/>}}
+|  data8  = {{nowrap|'''UTI conformation'''<br/>{{mono|org.oasis-open.opendocument<br/>public.composite-content}}}}
+| label10 = Developed&nbsp;by
+|  data10 = OASIS
+| label11 = Initial release
+|  data11 = {{start date and age|2005|05|01|df=yes}}
+| label12 = Latest release
+|  data12 = {{longitem|1.2<br/>{{smaller|{{nowrap|({{start date and age|2011|09|29|df=yes}})}}}}}}
+| label13 = Type of format
+|  data13 = [[Graphics file format|Graphics]]
+| label16 = Extended&nbsp;from
+|  data16 = XML
+| label18 = Standard
+|  data18 = {{nowrap|ISO/IEC 26300<ref name="odf12-part1"/><ref name="odf12-part2"/><ref name="odf12-part3"/><ref name="odf10"/><br/>{{smaller|(OASIS OpenDocument Format)}}}}
+| label19 = Open&nbsp;format?
+|  data19 = Yes
+}}
+
+The '''Open Document Format for Office Applications''' ('''ODF'''), also known as '''OpenDocument''', is a [[Zip_(file_format)|ZIP]]-compressed<ref>Extract an odt file with unzip on Linux to see the actual resource hierarchy</ref> [[XML]]-based [[file format]] for [[spreadsheet]]s, [[chart]]s, [[Presentation program|presentations]] and [[word processor|word processing]] documents. It was developed with the aim of providing an open, XML-based file format specification for office applications.<ref>{{cite web |url=https://www.oasis-open.org/committees/office/charter.php |title=OASIS Open Document Format for Office Applications (OpenDocument) TC |publisher=Organization for the Advancement of Structured Information Standards |date=19 January 2005 |accessdate=6 October 2013}}</ref>
+
+The standard was developed by a technical committee in the [[OASIS (organization)|Organization for the Advancement of Structured Information Standards]] (OASIS) consortium.<ref>{{cite web |url=http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office |title=OASIS Open Document Format for Office Applications (OpenDocument) TC |publisher=[[OASIS (organization)|Organization for the Advancement of Structured Information Standards]]}}</ref> It was based on the [[Sun Microsystems]] specification for [[OpenOffice.org XML]], the default format for [[OpenOffice.org]], which had been specifically intended "to provide an open standard for office documents."<ref>{{citation |url=http://xml.coverpages.org/openoffice-xml_specification_draft200012.pdf |format=PDF |title=StarOffice XML File Format Working Draft, Technical Reference Manual, Draft 9, December 2000 |date=December 2000 |accessdate=2010-08-08}}</ref>
+
+In addition to being an OASIS standard, it was published as an [[International Organization for Standardization|ISO]]/[[International Electrotechnical Commission|IEC]] international standard ISO/IEC 26300{{snd}} Open Document Format for Office Applications (OpenDocument).<ref name="odf12-part1"/><ref name="odf12-part2"/><ref name="odf12-part3"/><ref name="odf10"/><ref name="iso.org">{{citation |url=http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=59302 |title=ISO/IEC 26300:2006/Amd 1:2012 – Open Document Format for Office Applications (OpenDocument) v1.1 |date=8 March 2012 |accessdate=12 April 2012}}</ref><ref name="http">{{cite web |url=http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=59302 |title=ISO/IEC 26300:2006/DAM 1 – OpenDocument v1.1 |accessdate=29 March 2011}}</ref>
+
+==Specifications==<!-- This section is linked from [[ODP]] -->
+{{Main article|OpenDocument technical specification}}
+
+The most common [[filename extension]]s used for OpenDocument documents are:<ref>{{cite web|url=http://www.ua.es/en/rua/formatos.html |title=UA.es |work=ua.es |language=es |deadurl=yes |archiveurl=https://web.archive.org/web/20090615185541/http://www.ua.es/en/rua/formatos.html |archivedate=15 June 2009 }}</ref><ref name="hg flat opendocument">{{cite web |url=http://www.ensode.net/roller/dheffelfinger/entry/openoffice_documents_version_control_with |title=OpenOffice.org Document Version Control With Mercurial |accessdate=7 June 2010}}</ref>
+
+* <code>.odt</code> and <code>.fodt</code> for [[word processor|word processing]] (text) documents
+* <code>.ods</code> and <code>.fods</code> for [[spreadsheet]]s
+* <code>.odp</code> and <code>.fodp</code> for [[presentation]]s
+* <code>.odg</code> and <code>.fodg</code> for [[graphics]]
+* <code>.odf</code> for [[formula]]e, mathematical equations
+
+The original OpenDocument format consists of an [[XML]] document that has <code><document></code> as its [[root element]]. OpenDocument files can also take the format of a [[ZIP (file format)|ZIP]] compressed archive containing a number of files and directories; these can contain binary content and benefit from ZIP's [[lossless compression]] to reduce file size. OpenDocument benefits from [[separation of concerns]] by separating the content, styles, metadata, and application settings into four separate XML files.
+
+There is a comprehensive set of example documents in OpenDocument format available.<ref>{{cite web|url=http://testsuite.opendocumentfellowship.com/|archiveurl=https://web.archive.org/web/20110830170930/http://testsuite.opendocumentfellowship.com/ |archivedate=30 August 2011 |title=OpenDocument Sample Documents|year=2006|publisher=[[Intel Corporation]]|accessdate= 12 December 2012|deadurl=yes}}</ref> The whole test suite is available under the [[Creative Commons licenses|Creative Commons Attribution 2.5 license]].
+
+==Standardization==
+{{Main article|OpenDocument standardization}}
+
+The OpenDocument standard was developed by a Technical Committee (TC) under the OASIS ([[Organization for the Advancement of Structured Information Standards]]) industry consortium. The ODF-TC has members from a diverse set of companies and individuals. Active TC members have voting rights. Members associated with Sun and IBM have sometimes had a large voting influence.<ref>{{cite web | url=http://www.oasis-open.org/committees/membership.php?wg_abbrev=office | title=OpenDocument TC's {{Sic|hide=y|publicly|-}}visible membership roster | accessdate=3 November 2007}}</ref> The standardization process involved the developers of many office suites or related document systems. The first official ODF-TC meeting to discuss the standard was 16 December 2002; OASIS approved OpenDocument as an OASIS standard on 1 May 2005.  OASIS submitted the ODF specification to [[ISO/IEC JTC1|ISO/IEC Joint Technical Committee 1]] (JTC 1) on 16 November 2005, under Publicly Available Specification (PAS) rules. ISO/IEC standardization for an open document standard including text, spreadsheet and presentation was proposed for the first time in [[DKUUG]] 28 August 2001.<ref>{{cite web | url=http://www.open-std.org/keld/iso26300-odf/dkuug-std-010828.pdf | title=Meeting agenda for DKUUG STD 2001-08-28 – item 5.6 | accessdate=13 March 2015}}</ref>
+
+After a six-month review period, on 3 May 2006, OpenDocument unanimously passed its six-month DIS (Draft International Standard) ballot in [[JTC 1]] ([[ISO/IEC JTC1/SC34]]), with broad participation,<ref>{{cite web | url=http://www.jtc1sc34.org/repository/0728revc.htm | title=<!--what the title actually says: "ISO/IEC JTC 1/SC 34 Information Technology -->Document Description and Processing Languages-->Summary of Voting on DIS ISO/IEC 26300 – Open Document Format for Office Applications (OpenDocument) v1.0 | date=13 June 2006 | accessdate=24 August 2006 | author=ISO/IEC SC34 Secretariat | work=ISO/IEC JTC 1/SC 34 Document Repository | archiveurl=https://web.archive.org/web/20061001180333/http://www.jtc1sc34.org/repository/0728revc.htm | archivedate = 1 October 2006}}</ref> after which the OpenDocument specification was "approved for release as an ISO and IEC International Standard" under the name ISO/IEC 26300:2006.<ref>{{cite web | url=http://www.iso.org/iso/en/commcentre/pressreleases/2006/Ref1004.html | title=ISO and IEC approve OpenDocument OASIS standard for data interoperability of office applications | date=8 May 2006 | accessdate=24 August 2006 | work=ISO Press Releases | publisher=[[International Organization for Standardization|ISO]] | deadurl=yes | archiveurl=https://web.archive.org/web/20060519180809/http://www.iso.org/iso/en/commcentre/pressreleases/2006/Ref1004.html | archivedate=19 May 2006 | df=dmy-all }}</ref>
+
+After responding to all written ballot comments, and a 30-day default ballot, the OpenDocument [[international standard]] went to publication in ISO, officially published 30 November 2006.
+
+Further standardization work with OpenDocument includes:
+
+* The [[Organization for the Advancement of Structured Information Standards|OASIS]] Committee Specification [http://www.oasis-open.org/committees/download.php/19274/OpenDocument-v1.0ed2-cs1.pdf '''OpenDocument 1.0''' (second edition)] corresponds to the published ISO/IEC 26300:2006 standard. The content of ISO/IEC 26300 and OASIS OpenDocument v1.0 2nd ed. is identical.<ref name="odf10">{{citation |url=http://standards.iso.org/ittf/PubliclyAvailableStandards/c043485_ISO_IEC_26300_2006(E).zip |title=ISO/IEC 26300:2006 |format=ZIP, PDF |publisher=ISO |accessdate=22 November 2009}}</ref> It includes the editorial changes made to address JTC1 ballot comments. It is available in ODF, HTML and PDF formats.
+* '''[http://docs.oasis-open.org/office/v1.1/OS/OpenDocument-v1.1.pdf OpenDocument 1.1]''' includes additional features to address accessibility concerns.<ref>{{cite web | url=http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office#odf11 | title=OpenDocument 1.1 Specifications | year=2006 | accessdate=31 October 2006 | publisher=[[OASIS (organization)|OASIS]]}}</ref> It was approved as an OASIS Standard on 2007-02-01 following a call for vote issued on 2007-01-16.<ref>{{cite web | title=Approval of OpenDocument v1.1 as OASIS Standard | url=http://lists.oasis-open.org/archives/office/200702/msg00003.html | accessdate=6 February 2007 | publisher=[[OASIS (organization)|OASIS]]}}</ref> The public announcement was made on 2007-02-13.<ref>{{cite web | title=Members Approve OpenDocument Version 1.1 as OASIS Standard | url=http://www.oasis-open.org/news/oasis-news-2007-02-14.php | accessdate=15 February 2007 | publisher=[[OASIS (organization)|OASIS]]}}</ref> This version was not initially submitted to ISO/IEC, because it is considered to be a minor update to ODF 1.0 only, and OASIS were working already on ODF 1.2 at the time ODF 1.1 was approved.<ref>{{cite web|url=http://www.zdnet.co.uk/talkback/0,1000001161,39409700-39001068c-20093634o,00.htm|title=OOXML expert: ODF standard is broken|author=Peter Judge|publisher=ZDNet|date=2 May 2008|accessdate=10 September 2012}}</ref> However it was later submitted to ISO/IEC (as of March 2011, it was in "enquiry stage" as Draft Amendment 1{{snd}} ISO/IEC 26300:2006/DAM 1) and published in March 2012 as "ISO/IEC 26300:2006/Amd 1:2012 – Open Document Format for Office Applications (OpenDocument) v1.1".<ref name="iso.org"/><ref name="http"/>
+* '''[http://docs.oasis-open.org/office/v1.2/OpenDocument-v1.2.pdf OpenDocument 1.2]''' includes additional accessibility features, [[Resource Description Framework|RDF]]-based metadata,<ref name="register">{{cite web|accessdate=18 April 2012|publisher=The Register|url=https://www.theregister.co.uk/2011/09/12/libreoffice_extensions_and_templates_store_open/|date=3 October 2011|title=Open Document Format updated to fix spreadsheets|first=Gavin|last=Clarke}}</ref> a spreadsheet formula specification based on [[OpenFormula]],<ref name="register" /> support for [[digital signature]]s and some features suggested by the public.  It consists of three parts: Part 1: OpenDocument Schema, Part 2: Recalculated Formula (OpenFormula) Format and Part 3: Packages.  Version 1.2 of the specification was approved as an OASIS Standard on 29 September 2011.<ref name="odf12">{{citation |url=http://www.oasis-open.org/news/pr/odf-1-2-approval |title=Members Approve OpenDocument Format (ODF) Version 1.2 as OASIS Standard |date=5 October 2011 |accessdate=12 April 2012}}</ref>  It was submitted to the relevant ISO committee under the Publicly Available Specification (PAS) procedure in March 2014.<ref>{{cite web | url=http://isotc.iso.org/livelink/livelink?func=ll&objId=16678620&objAction=Open | format=PDF | title=Minutes of ISO/IEC JTC 1/SC 34/WG 6 teleconference meeting, 2014-04-16 | date=2014-04-24 | accessdate=2014-10-13}}</ref>  As of October 2014, it has been unanimously approved as a Draft International Standard, some comments have been raised in process that need to be addressed before OpenDocument 1.2 can proceed to become an International Standard.<ref>{{cite web | url=http://isotc.iso.org/livelink/livelink?func=ll&objId=16810106&objAction=Open | format=PDF | title=ISO/IEC JTC 1/SC 34/WG 6 N 103 Minutes of teleconference meeting of ISO/IEC JTC 1/SC 34/WG 6 2014-09-24, 23:00-00:00 UTC | date=2014-09-25 | accessdate=2014-10-13}}</ref> OpenDocument 1.2 was published as ISO/IEC standard on 17 June 2015.<ref name="odf12-part1">{{cite web | url=http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=66363 | title=ISO/IEC 26300-1:2015 – Information technology – Open Document Format for Office Applications (OpenDocument) v1.2 – Part 1: OpenDocument Schema | date=2015-05-13 | accessdate=2015-06-02}}</ref><ref name="odf12-part2">{{cite web | url=http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=66375 | title=ISO/IEC 26300-2:2015 – Information technology – Open Document Format for Office Applications (OpenDocument) v1.2 – Part 2: Recalculated Formula (OpenFormula) Format | date=2015-05-13 |accessdate=16 February 2016}}</ref><ref name="odf12-part3">{{cite web | url=http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=66376 | title=ISO/IEC 26300-3:2015 – Information technology – Open Document Format for Office Applications (OpenDocument) v1.2 – Part 3: Packages | date=2015-05-13 | accessdate=2015-06-02}}</ref>
+
+===Future===
+* '''''OpenDocument 1.3''''' (a.k.a. "ODF-Next") As of January, 2014, the current state of a possible future version of OpenDocument specification is a working draft (a preliminary unapproved sketch, outline, or version of the specification). The OASIS Advanced Document Collaboration subcommittee (created in December, 2010) is working on an update of OpenDocument change-tracking that will not only enhance the existing change-tracking feature set, but also lay the foundation for the standardization of [[Collaborative real-time editor|real-time collaboration]] by making change tracking compatible with real-time collaboration.<ref>{{citation |url=https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office-collab |title=OpenDocument - Advanced Document Collaboration SC |accessdate=2014-01-31}}</ref><ref>{{citation |url=http://www.robweir.com/blog/2010/12/odf-tc-creates-advanced-document-collaboration-subcommittee.html |title=ODF TC Creates Advanced Document Collaboration Subcommittee |date=2010-12-05 |accessdate=2014-01-31}}</ref><ref>{{citation |url=https://fosdem.org/2014/schedule/event/real_time_compatible_odf_change_tracking/ |title=Real-time compatible ODF change-tracking |accessdate=2014-01-31}}</ref>
+
+==Application support==
+
+===Software===
+{{Main article|OpenDocument software}}
+
+The OpenDocument format is used in [[free software]] and in [[proprietary software]]. This includes [[office suites]] (both stand-alone and web-based) and individual applications such as word-processors, spreadsheets, presentation, and data management applications. Prominent text editors, word processors and office suites supporting OpenDocument fully or partially include:
+
+* [[AbiWord]]<ref>{{cite web|url=http://www.abisource.com/wiki/OpenDocument_support|title=OpenDocument support|publisher=AbiSource community|work=AbiWord Wiki|accessdate=10 September 2012}}</ref><ref name="abiword">{{cite web|url=http://www.abisource.com/release-notes/2.4.2.phtml|title=Abiword 2.4.2 Release Notes.|work=abisource.com|accessdate=2009-03-03}}</ref>
+* [[Adobe Buzzword]]<ref>{{cite web|url=http://labs.adobe.com/technologies/buzzword/ |title=Adobe Buzzword online word processor from Acrobat.com |publisher=Labs.adobe.com |date= |accessdate=19 May 2009}}</ref>
+* [[Apache OpenOffice]]
+* [[Bean (software)]]
+* [[Calibre (software)|Calibre]] [[E-book|ebook]] viewer, converter, editor, and manager
+* [[Calligra Suite]]<ref>{{cite web|url=http://www.calligra-suite.org/words/ |title=Words |publisher=Calligra Suite |date= |accessdate=23 February 2012}}</ref>
+* [[Corel Corporation|Corel]] [[Corel WordPerfect Office|WordPerfect Office X6]]<ref>{{cite web
+|url=http://www.wordperfect.com/us/pages/12100162.html
+|title=Corel WordPerfect Office X4 - Standard Edition - Compatible
+|accessdate=3 May 2008}}</ref>
+* [[Evince]]
+* [[Gnumeric]]<ref>{{cite web|url=https://help.gnome.org/users/gnumeric/stable/gnumeric.html#file-format-odf|title=File Formats|author=Eric Baudais & others|publisher=GNOME Documentation Project|work=The Gnumeric Manual, version 1.12|date=February 2014|accessdate=1 February 2018}}</ref>
+* [[Google Docs]]
+* [[IBM Lotus Symphony]]<ref name="register" /><ref>{{cite web|url=http://blogs.msdn.com/dmahugh/archive/2009/05/09/1-2-1.aspx |title=1 + 2 = 1?|author=Doug Mahugh|publisher=MSDN Blogs|date=10 May 2009<!-- 2:26 AM-->|accessdate=10 September 2012}}</ref><ref>{{cite web|url=http://symphony.lotus.com/software/lotus/symphony/help.nsf/ReleaseNotes|title=Symphony.lotus.com|work=symphony.lotus.com|deadurl=yes|archiveurl=https://web.archive.org/web/20090710011646/http://symphony.lotus.com/software/lotus/symphony/help.nsf/ReleaseNotes|archivedate=10 July 2009|df=dmy-all}}</ref>
+* [[Inkscape]] exports .odg
+* [[KOffice]]<ref>{{cite web|url=http://koffice.org/filters/1.6/|title=Koffice.org|work=koffice.org|deadurl=yes|archiveurl=https://web.archive.org/web/20080513125754/http://koffice.org/filters/1.6/|archivedate=13 May 2008|df=dmy-all}}</ref>
+* [[LibreOffice]]<ref name="register" />
+* [[Microsoft Office 2003]] and [[Microsoft Office XP|Office XP]] (with the Open Source OpenXML/ODF Translator Add-in for Office)<ref>{{cite web|url=http://odf-converter.sourceforge.net/download.html#hRequirements|title=OpenXML/ODF Translator Add-ins for Office|accessdate=31 January 2014}}</ref>
+* [[Microsoft Office 2007]] (with Service Pack 2 or 3) supports ODF 1.1<ref>{{cite web|url=https://news.microsoft.com/2008/05/21/microsoft-expands-list-of-formats-supported-in-microsoft-office|title=Microsoft Expands List of Formats Supported in Microsoft Office|publisher=Microsoft Corporation|date=21 May 2008|accessdate=21 September 2016}}</ref> (Windows only)
+* [[Microsoft Office 2010]] supports ODF 1.1 (Windows only)
+* [[Microsoft Office 2013]] supports ODF 1.2 (Windows only)
+* [[Microsoft Office 2016]] and [[Microsoft Office 2019|2019]] support ODF 1.2 (Windows: read/write; OS X: read-only after online conversion<ref>{{cite web|title=View OpenDocument Format (ODF) files in Office for Mac|url=https://support.office.com/en-us/article/view-opendocument-format-odf-files-in-office-for-mac-97644726-c089-487c-aac4-07b19fe92cc0|website=Office Support|publisher=Microsoft|accessdate=3 October 2018}}</ref>)
+* [[Microsoft OneDrive]] / [[Office Web Apps]]<ref>{{cite web|last=Foley |first=Mary Jo |url=http://www.zdnet.com/blog/microsoft/microsoft-adds-odf-support-url-shortening-to-its-skydrive-storage-service/12480 |title=Microsoft adds ODF support, URL shortening to its SkyDrive storage service |publisher=ZDNet |date=17 April 2012 |accessdate=13 August 2012}}</ref>
+* [[NeoOffice]]
+* [[Okular]]
+* [[OnlyOffice|ONLYOFFICE]]
+* [[OpenOffice.org]]
+* [[Scribus]] imports .odt and .odg
+* [[SoftMaker Office]]
+* [[Sun Microsystems]] [[StarOffice]]
+* [[TextEdit]]
+* [[WordPad]] 6.1 (Windows 7) partial support.
+* [[Zoho Office Suite]]<ref name="register" />
+Various organizations have announced development of conversion software (including ''plugins'' and ''filters'') to support OpenDocument on [[Microsoft]]'s products.<ref>{{cite web | url=http://www.groklaw.net/article.php?story=20060504015438308 | title=OpenDocument Foundation to MA: We Have a Plugin | date=4 May 2006 | accessdate=23 August 2006 | publisher=Groklaw}}</ref><ref>{{cite news | url=http://www.zdnet.com.au/news/software/soa/Microsoft_Office_to_get_a_dose_of_OpenDocument/0,130061733,139255766,00.htm | title=Microsoft Office to get a dose of OpenDocument | date=5 May 2006 | accessdate=6 December 2006|publisher=CNet}}</ref> {{asof|July 2007}}, there are nine packages of conversion software.<!--Commented out invalid reference<ref name="odf20070727"/>--> Microsoft first released support for the OpenDocument Format in Office 2007 SP2.<ref>{{cite web | title=Office 2007 SP2 Supports ODF | url=https://www.pcworld.com/article/164015/office_2007_sp2_supports_odf.html | date=28 April 2009 | publisher=PC World}}</ref> However, the implementation faced [[OpenDocument software#Microsoft Office 2007 SP2 support controversy|substantial criticism]] and the [[ODF Alliance]] and others claimed that the third party plugins provided better support.<ref name="sp2-fact-sheet">{{cite web|url=http://www.odfalliance.org/resources/fact-sheet-Microsoft-ODF-support.pdf |title=Fact-sheet Microsoft ODF support |accessdate=24 May 2009 |quote=''MS Excel 2007 will process ODF spreadsheet documents when loaded via the Sun Plug-In 3.0 for MS Office or the SourceForge “OpenXML/ODF Translator Add-in for Office,” but will fail when using the “built-in” support provided by Office 2007 SP2.'' |publisher=odfalliance |deadurl=yes |archiveurl=https://web.archive.org/web/20090611181719/http://www.odfalliance.org/resources/fact-sheet-Microsoft-ODF-support.pdf |archivedate=11 June 2009 }}</ref> Microsoft Office 2010 can open and save OpenDocument Format documents natively, although not all features are supported.<ref>{{cite web|url=http://office.microsoft.com/en-us/starter-help/differences-between-the-opendocument-text-odt-format-and-the-word-docx-format-HA010355788.aspx|title=Differences between the OpenDocument Text (.odt) format and the Word (.docx) format|work=office.microsoft.com}}</ref>
+
+Starting with [[Mac OS X 10.5]], the [[TextEdit]] application and [[Quick Look]] preview feature support the OpenDocument Text format.
+
+===Accessibility===
+{{Further|OpenDocument software#Accessibility}}
+
+==Licensing==
+
+===Public access to the standard===
+Versions of the OpenDocument Format approved by [[OASIS (organization)|OASIS]] are available for free download and use.<ref>{{cite web|url=http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office|title=OASIS Open Document Format for Office Applications (OpenDocument) TC|publisher=OASIS|accessdate=10 September 2012}}</ref> The [[Information Technology Task Force|ITTF]] has added ISO/IEC 26300 to its "list of freely available standards"; anyone may download and use this standard free-of-charge under the terms of a click-through license.<ref>{{cite web |url=http://standards.iso.org/ittf/PubliclyAvailableStandards/index.html|title=Freely Available Standards|publisher=International Organization for Standardization|accessdate=22 September 2009}}</ref>
+
+===Additional royalty-free licensing===
+Obligated [http://www.oasis-open.org/committees/daycount/tc/office.html members] of the OASIS ODF TC have agreed to make deliverables available to implementors under the OASIS Royalty Free with Limited Terms [http://www.oasis-open.org/who/intellectualproperty.php policy].
+
+Key contributor [[Sun Microsystems]] made an irrevocable intellectual property covenant, providing all implementers with the guarantee that Sun will not seek to enforce any of its enforceable U.S. or foreign patents against any implementation of the OpenDocument specification in which development Sun participates to the point of incurring an obligation.<ref name="SunOpenDocumentPatentStatement">{{cite web | url = http://www.oasis-open.org/committees/office/ipr.php | title = Sun OpenDocument Patent Statement | work = OASIS Open Document Format for Office Applications (OpenDocument) TC | author = Microsystems, Inc. | publisher = OASIS foundation}}</ref>
+
+A second contributor to ODF development, [[IBM]]&nbsp;– which, for instance, has contributed Lotus spreadsheet documentation<ref>{{cite web|url=http://lists.oasis-open.org/archives/office/200607/msg00076.html|title=Formula subcommittee status|author=David A. Wheeler|publisher=office@lists.oasis-open.org, office-formula@lists.oasis-open.org|date=21 Jul 2006<!-- 13:50:46 -0400 (EDT)-->|accessdate=12 September 2012}}</ref>&nbsp;–  has made their patent rights available through their'' Interoperability Specifications Pledge'' in which "IBM irrevocably covenants to you that it will not assert any Necessary Claims against you for your making, using, importing, selling, or offering for sale Covered Implementations."<ref name="IBM-ISP-list">{{cite web|url=http://www-03.ibm.com/linux/ossstds/isplist.html|title=Interoperability Pledge Specification List|work=Interoperability Specifications Pledge|publisher=IBM Corp|date=12 December 2011|accessdate=10 September 2012}}</ref>
+
+The [[Software Freedom Law Center]] has [http://www.softwarefreedom.org/resources/2006/OpenDocument.html examined] whether there are any legal barriers to the use of the OpenDocument Format (ODF) in free and open source software arising from the standardization process. In their opinion ODF is free of legal encumbrances that would prevent its use in free and open source software, as distributed under licenses authored by Apache and the FSF.
+
+==Response==
+
+===Support for OpenDocument===
+Several governments, companies, organizations and software products support the OpenDocument format. For example:
+
+* The OpenDoc Society runs frequent [[ODF Plugfest]]s in association with industry groups and Public Sector organisations. The 10th Plugfest<ref>[http://plugfest.opendocumentformat.org/2014-london/ 10th Plugfest hosted by the UK Cabinet Office December 2014]</ref> was hosted by the UK [[Government Digital Service]] in conjunction with industry associations including the [[OpenForum Europe]] and [[OpenUK | OpenUK (formerly Open Source Consortium)]].
+** An output of the 10th Plugfest was an ODF toolkit<ref>http://www.openforumeurope.org/library/odf-toolkit-2/</ref> which includes "Open Document Format principles for Government Technology" that has the purpose of simply explaining the case for ODF directed at the "average civil servant" and includes an extract from the UK Government policy relating to Open Document Format.
+** The toolkit also includes a single page graphical image<ref>https://web.archive.org/web/20150620003502/http://www.openforumeurope.org/library/ODF/odf-toolkit-folder/OFE-COIS-ODF-infographic-release-02150325-by-sa.jpeg</ref> designed to articulate the consequences of not choosing Open Document Format. The illustration has now been translated into more than 10 languages.
+* Information technology companies like [[Apple Inc.]], [[Adobe Systems]], [[Google]], [[IBM]], [[Intel]], [[Microsoft]], [[Nokia]], [[Novell]], [[Red Hat]], [[Oracle Corporation|Oracle]] as well as other companies who may or may not be working inside the OASIS OpenDocument Adoption Technical Committee.
+* Over 600 companies and organizations promote OpenDocument format through The [[OpenDocument Format Alliance]].<ref>{{cite web |url=http://www.odfalliance.org/members.php |title=ODF Alliance members |accessdate=24 May 2009 |work=ODF Alliance |deadurl=yes |archiveurl=https://web.archive.org/web/20090403055912/http://www.odfalliance.org/members.php |archivedate=3 April 2009 |df=dmy-all }}</ref>
+* [[NATO]] with its 26 members uses ODF as a mandatory standard for all members.<ref>{{cite web|url=http://www.h-online.com/news/NATO-supports-ODF-open-document-format--/111127|title=NATO supports ODF open document format|first=Stefan|last=Krempl|publisher=The H Open|date=18 July 2008<!--, 15:28-->|accessdate=10 September 2012|archive-url=https://web.archive.org/web/20090924190030/http://www.h-online.com/news/NATO-supports-ODF-open-document-format--/111127|archive-date=24 September 2009|dead-url=yes|df=dmy-all}}</ref>
+* The TAC (Telematics between Administrations Committee), composed of e-government policy-makers from the 25 [[European Union]] Member States, endorsed a set of recommendations for promoting the use of open document formats in the public sector.<ref name="ec.europa.eu">{{cite web|url=http://ec.europa.eu/idabc/en/document/3197.html|title=IDA promotes the use of open document formats for e-government interoperability|work=IDA Report 22|date=June 2004|publisher=IDABC|accessdate=10 September 2012}}</ref>
+* The free office suites [[Apache OpenOffice]], [[Calligra]], [[KOffice]], [[NeoOffice]] and [[LibreOffice]] all use OpenDocument as their default file format.
+* Several organisations, such as the [https://web.archive.org/web/20071027064136/http://opendocumentfellowship.com/ OpenDocument Fellowship] and [http://opendocsociety.org/ OpenDoc Society] were founded to support and promote OpenDocument.
+* The UK government has adopted ODF as the standard for all documents in the UK civil service<ref>{{cite web | url=https://www.gov.uk/government/news/open-document-formats-selected-to-meet-user-needs|title=Open document formats selected to meet user needs}}</ref>
+* The [[Wikimedia Foundation]] supports ODF export from [[MediaWiki]], which powers [[Wikipedia]] and a number of other Internet [[wiki]]-based sites.<ref>{{cite web | url= https://wikimediafoundation.org/wiki/Wikis_Go_Printable | title= Wikis Go Printable | work= [[Wikimedia Foundation]] | date= 13 December 2007 | accessdate= 31 December 2007}}</ref>
+* The default text processing applications in Windows 10 ([[WordPad]]) and Mac OS 10.9 ([[TextEdit]]) support OpenDocument Text.
+
+On 4 November 2005, IBM and Sun Microsystems convened the "OpenDocument (ODF) Summit" in [[Armonk, New York]], to discuss how to boost OpenDocument adoption.  The ODF Summit brought together representatives from several industry groups and technology companies, including Oracle, Google, Adobe, Novell, Red Hat, Computer Associates, Corel, Nokia, Intel, and Linux e-mail company Scalix (LaMonica, 10 November 2005). The providers committed resources to technically improve OpenDocument through existing standards bodies and to promote its usage in the marketplace, possibly through a stand-alone foundation.<ref>{{cite web|url=http://news.cnet.com/OpenDocument-format-gathers-steam/2100-7344_3-5942913.html|title=OpenDocument format gathers steam|author=Martin LaMonica|publisher=CNET News|date=10 November 2005<!-- 4:00 AM PST-->|accessdate=10 September 2012}}</ref> Scholars have suggested that the "OpenDocument standard is the wedge that can hold open the door for competition, particularly with regard to the specific concerns of the public sector."<ref name="papers.ssrn.com">{{cite web|ssrn=1656616|author=Tony Casson|author2=Patrick S. Ryan|date=1 May 2006|title=Open Standards, Open Source Adoption in the Public Sector, and Their Relationship to Microsoft’s Market Dominance|publisher= Social Science Electronic Publishing, Inc.|accessdate=10 September 2012}}</ref>  Indeed, adoption by the public sector has risen considerably since the promulgation of the OpenDocument format initiated the 2005/2006 time period.<ref name="papers.ssrn.com" />
+
+*Different applications using ODF as a standard document format have different methods of providing macro/scripting capabilities. There is no [[macro language]] specified in ODF. Users and developers differ on whether inclusion of a standard scripting language would be desirable.<ref>{{cite web | url=http://www.linux.com/archive/articles/47935 | archiveurl=https://web.archive.org/web/20110521183559/http://www.linux.com/archive/articles/47935 | archivedate=21 May 2011 | title=Macros an obstacle to office suite compatibility | author=Marco Fioretti | accessdate=11 May 2008}}</ref>
+* The ODF specification for tracked changes is limited and does not fully specify all cases, resulting in implementation-specific behaviors.<ref>{{cite web | url=http://blogs.msdn.com/dmahugh/archive/2009/05/13/tracked-changes.aspx | title=Tracked Changes | author=Doug Mahugh (Microsoft) | date=13 May 2009}}</ref> In addition, OpenDocument does not support change tracking in elements like tables or [[MathML]].<ref name="doyourmath">{{cite web | url=http://idippedut.dk/post/Do-your-math-OOXML-and-OMML | title=Do your math - OOXML and OMML (Updated 2008-02-12) | author=Jesper Lund Stocholm (Danish ISO/IEC representative) | date=12 December 2008 | deadurl=bot: unknown | archiveurl=https://web.archive.org/web/20160326225935/http://idippedut.dk/post/Do-your-math-OOXML-and-OMML | archivedate=26 March 2016 | df=dmy-all }}</ref>
+* It is not permitted to use generic ODF formatting style elements (like font information) for the MathML elements.<ref name="doyourmath"/>
+
+==Adoption==
+{{Main article|OpenDocument adoption}}
+
+One objective of open formats like OpenDocument is to guarantee long-term access to data without legal or technical barriers, and some governments have come to view open formats as a public policy issue.  Several governments around the world have introduced policies of partial or complete adoption.<ref name="papers.ssrn.com"/>  What this means varies from case to case; in some cases, it means that the ODF standard has a national standard identifier; in some cases, it means that the ODF standard is permitted to be used where national regulation says that non-proprietary formats must be used, and in still other cases, it means that some government body has actually decided that ODF will be used in some specific context. The following is an incomplete list:
+
+{| class="wikitable"
+|-
+
+!style="padding:0.25em 1.0em;"| International
+|colspan="2" class="hlist" style="vertical-align:top;padding:0.25em 0.5em;"|
+* [[NATO]]<ref>{{cite web |title=NATO Interoperability Standards and Profiles |url=https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/standard.aspx?vndb=standards&vsbn=y&refid=iso-iec-26300&sbbs=y |accessdate=21 November 2014}}</ref>
+* [[European Union]]<ref name="ec.europa.eu"/><ref name="europa.eu-news"/>
+|-
+
+!rowspan="4" style="padding:0.25em 1.0em;"| National
+!style="text-align:right;padding-right:0.5em;"| Africa
+|class="hlist" style="vertical-align:top;padding:0.25em 0.5em;"|
+* [[South Africa]]
+|-
+!style="text-align:right;padding-right:0.5em;"| Asia
+|class="hlist" style="vertical-align:top;padding:0.25em 0.5em;"|
+* [[Japan]]
+* [[Malaysia]]
+* [[India]]
+* [[Russia]]
+* [[South Korea]]
+* [[Taiwan]]<ref>{{cite web |url=https://www.ndc.gov.tw/en/News_Content.aspx?n=0E2DCBAA6CB72F12&sms=B079565EECDD8520&s=33EF0883B81062FF |title=Promote Government’s Open Document Standards Develop New Value for Document Circulation |publisher=National Development Council Taiwan |date=9 June 2015}}</ref><ref>{{cite web |url=https://conference.libreoffice.org/assets/Conference/Aarhus/Slides/FranklinWeng.pdf |title=Successful Story: Migrating Libreoffice to I-Lan County Government |publisher=Franklin Weng |date=24 Sep 2015}}</ref><ref>{{cite web |url=https://conference.libreoffice.org/assets/Conference/Brno/weng-odf-migration-in-taiwan.pdf |title=Taiwan migration to ODF: progress, problems and what to do next |publisher=Franklin Weng |date=8 Sep 2016}}</ref>
+|-
+!style="text-align:right;padding-right:0.5em;"| Europe
+|style="vertical-align:top;padding:0.25em 0.5em;"|
+{{startflatlist}}
+* [[European Union]]<ref name="ec.europa.eu"/><ref name="europa.eu-news">[https://joinup.ec.europa.eu/community/osor/news/ec-recommends-supporting-open-document-format]</ref>
+** [[Belgium]]
+** [[Croatia]]
+** [[Denmark]]
+** [[France]]
+** [[Germany]]<ref name="bundestag-drucksache-17-5730">{{cite web |url=https://dip21.bundestag.de/dip21/btd/17/057/1705730.pdf|title=Antwort der Bundesregierung auf die Kleine Anfrage der Abgeordneten Dr. Konstantin von Notz, Ingrid Hönlinger, Memet Kilic, weiterer Abgeordneter und der Fraktion BÜNDNIS 90/DIE GRÜNEN – Drucksache 17/5589 |date=5 May 2011 |accessdate=14 July 2017}}</ref>
+** [[Hungary]]
+** [[Italy]]
+** [[Latvia]]<ref>{{cite web |title=Elektronisko dokumentu izstrādāšanas, noformēšanas, glabāšanas un aprites kārtība valsts un pašvaldību iestādēs un kārtība, kādā notiek elektronisko dokumentu aprite starp valsts un pašvaldību iestādēm vai starp šīm iestādēm un fiziskajām un juridiskajām personām |url=http://likumi.lv/ta/id/111613-elektronisko-dokumentu-izstradasanas-noformesanas-glabasanas-un-aprites-kartiba-valsts-un-pasvaldibu-iestades-un-kartiba-kada-n...#p-373012 |accessdate= 28 November 2016}}</ref>
+** [[Netherlands]]<ref>{{cite web |title=ODF 1.2 on Dutch "apply or explain" list |url=https://lijsten.forumstandaardisatie.nl/open-standaard/odf12}}</ref>
+** [[Poland]]<ref>{{cite web |url=http://isap.sejm.gov.pl/DetailsServlet?id=WDU20120000526 |title=Rozporządzenie Rady Ministrów z dnia 12 kwietnia 2012 r. w sprawie Krajowych Ram Interoperacyjności, minimalnych wymagań dla rejestrów publicznych i wymiany informacji w postaci elektronicznej oraz minimalnych wymagań dla systemów teleinformatycznych |publisher=Internetowy System Aktów Prawnych |date= |accessdate=2016-05-17}}</ref>
+** [[Portugal]]<ref>{{cite web |url=http://www.esop.pt/portugal-publishes-open-standards-catalogodf-pdf-and-several-other-standards-are-mandatory/ |title=ESOP » Portugal publishes open standards catalog. ODF, PDF and several other standards are mandatory |publisher=Esop.pt |date= |accessdate=2013-05-01 |archive-url=https://web.archive.org/web/20130402024414/http://www.esop.pt/portugal-publishes-open-standards-catalogodf-pdf-and-several-other-standards-are-mandatory/ |archive-date=2 April 2013 |dead-url=yes |df=dmy-all }}</ref>
+** [[Slovakia]]
+** [[Sweden]]<ref>{{cite web |title=Öppna standarder - Programvaror och tjänster 2014 |url=https://www.avropa.se/contentassets/c5e98243c85f4ac997f905555e504f3b/oppna-standarder---programvaror-och-tjanster--v-1.00--20150617.pdf }}{{Dead link|date=September 2018 |bot=InternetArchiveBot |fix-attempted=yes }}</ref>
+** [[United Kingdom]]<ref>{{cite web |url=https://www.gov.uk/government/publications/open-source-open-standards-and-re-use-government-action-plan |title=Open source, open standards and re-use: government action plan |publisher=[[Government of the United Kingdom]] |date=27 January 2010 }}</ref>
+{{endflatlist}}
+{{startflatlist}}
+* [[Norway]]<ref name="NorwayDocumentStandard">{{cite web |title=New obligatory IT standards for the state sector adopted |url=http://www.regjeringen.no/en/dep/fad/press-centre/press-releases/2009/new-obligatory-it-standards-for-the-stat.html?id=570650 |accessdate=19 December 2012}}</ref>
+* [[Russia]]
+* [[Serbia]]
+* [[Switzerland]]
+* [[Turkey]]
+{{endflatlist}}
+|-
+!style="text-align:right;white-space:nowrap;padding-right:0.5em;"| South America
+|class="hlist" style="vertical-align:top;padding:0.25em 0.5em;"|
+* [[Brazil]]
+* [[Uruguay]]<ref>{{cite web |url=http://www.agesic.gub.uy/innovaportal/file/497/1/estandares_ofimatica_v20.pdf |title=Estándares de ofimática |publisher=Agencia de Gobierno Electrónico y Sociedad de la Información y del Conocimiento |date= |accessdate=2017-11-28}}</ref>
+* [[Venezuela]]
+|-
+
+!style="padding:0.25em 1.0em;"|  Subnational
+|colspan="2" class="hlist" style="vertical-align:top;padding:0.25em 0.5em;"|
+* [[Andalusia]], Spain
+* [[Assam]], India
+* [[Extremadura]], Spain
+* [[Hong Kong]], China
+* [[Kerala]], India
+* [[Massachusetts]], United States<ref>{{cite web |url=http://www.eweek.com/c/a/Linux-and-Open-Source/Massachusetts-Verdict-MS-Office-Formats-Out/|title=Massachusetts Verdict: MS Office Formats Out |date=24 September 2005 |publisher=eWeek |accessdate=23 October 2012}}</ref>
+* [[Misiones]], Argentina
+* [[Munich]], Bavaria, Germany<ref>{{cite web |url=http://www.h-online.com/open/news/item/Munich-administration-switches-to-OpenDocument-Format-895415.html |title=Munich administration switches to OpenDocument Format |author=Stefan Krempl |date=5 January 2010 |quote="Open source OpenDocument Format (ODF) is now the main document exchange standard, with PDF being used for non-editable files."}}</ref>
+* [[Paraná (state)|Paraná]], Brazil
+|}
+
+==See also==
+* [[OpenDocument technical specification]]
+* [[Comparison of Office Open XML and OpenDocument]]
+* [[Comparison of document markup languages]]
+* [[List of document markup languages]]
+* [[OpenDocument software]]
+* [[Standardization of Office Open XML#Reactions to standardization|Reactions to Microsoft lobbying at ISO]]
+
+==References==
+{{Reflist|30em}}
+
+== External links ==
+* {{commons category inline|OpenDocument}}
+* [http://opendocumentformat.org/ OpenDocumentFormat.org] Portal for consumers, business users and developers with information on OpenDocument format.
+* [http://documentfreedom.org/index.en.html Document Freedom Day]
+* [http://opendocsociety.org/ OpenDoc Society] Association with members around the world that promote best practices in office productivity such as OpenDocument format.
+* [http://opendocumentfellowship.com/{{dead link|date=March 2018 |bot=InternetArchiveBot |fix-attempted=yes }} OpenDocument Fellowship] Volunteer organization with members around the world to promote the adoption, use and development of the OpenDocument format.
+* [http://opendocument.xml.org/ OpenDocument XML.org] The official community gathering place and information resource for the OpenDocument OASIS Standard (ISO/IEC 26300).
+* [http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office OASIS OpenDocument Technical Committee] coordinates the OpenDocument development and is the official source for specifications, schemas, etc.
+* [http://www.robweir.com/blog/2009/06/odf-lies-and-whispers.html Technical disputes regarding ODF vs. OOXML]
+* [http://office.microsoft.com/en-us/word-help/differences-between-the-opendocument-text-odt-format-and-the-word-docx-format-HA010355788.aspx Microsoft Office (2007, 2010 and 2013), Differences between the OpenDocument Text (.odt) format and the Word (.docx) format]
+
+{{OASIS Standards}}
+{{Office document file formats}}
+{{ISO standards}}
+{{OpenOffice|state=collapsed}}
+{{List of International Electrotechnical Commission standards}}
+{{Document markup languages}}
+
+{{Authority control}}
+
+[[Category:OpenDocument]]
+[[Category:Computer file formats]]
+[[Category:Document-centric XML-based standards]]
+[[Category:ISO/IEC 26300]]
+[[Category:Open formats]]
+[[Category:OpenOffice]]
+[[Category:Markup languages]]

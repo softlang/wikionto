@@ -1,16 +1,7 @@
 import unittest
 from check.hypernym_nlp_firstsentence import HypNLPSent
 from check.hypernym_nlp_summary import check as check2
-import warnings
-
-
-def ignore_warnings(test_func):
-    def do_test(self, *args, **kwargs):
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", ResourceWarning)
-            test_func(self, *args, **kwargs)
-
-    return do_test
+from test import ignore_warnings
 
 
 class TestHypernyms(unittest.TestCase):
