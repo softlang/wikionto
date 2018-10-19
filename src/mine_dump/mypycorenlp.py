@@ -25,7 +25,7 @@ class StanfordCoreNLP:
         #s = requests.Session()
         #s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
         output = ""
-        with requests.get(self.server_url) as req
+        with requests.get(self.server_url) as req:
             data = text.encode()
             r = requests.post(
                 self.server_url, params={

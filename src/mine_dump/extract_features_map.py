@@ -9,7 +9,6 @@ from pyspark.sql.functions import udf
 from pyspark.sql.types import StructType, StructField, StringType
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import SQLContext
-from pyspark.sql.functions import regexp_extract
 from os.path import join
 import time
 import os
@@ -32,7 +31,9 @@ def extract_pre(sql_sc):
         .option("quotechar", '|') \
         .option("delimiter", ',') \
         .load(DATAP + '/dump/articles.csv')
-    #df = df.repartition(100)
+    df = df.repartition(100)
+
+
     df = df.withColumn("first_sentence", first_ex(df.text))
     df = df.withColumn('infoboxnames', inf_ex2(df.text))
     df = df.withColumn("urlwords", url_ex(df.title))
@@ -94,6 +95,7 @@ def spark_stuff():
     sql_sc = SQLContext(sc)
     extract_pre(sql_sc)
     # print(df.columns)
+
 
 if __name__ == "__main__":
     # merge_csvs("C:/Programmierung/Repos/WikiOnto/data/dump/articles_annotated_pre",

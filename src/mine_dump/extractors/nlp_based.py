@@ -15,7 +15,7 @@ def extract_nouns(first):
             "annotators": "tokenize,ssplit,pos",
             "outputFormat": "json",
             # Only split the sentence at End Of Line. We assume that this method only takes in one single sentence.
-            "ssplit.eolonly": "true",
+            "ssplit.eolonly": "false",
             # Setting enforceRequirements to skip some annotators and make the process faster
             "enforceRequirements": "false"
         })
