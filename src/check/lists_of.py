@@ -17,7 +17,7 @@ class WikiList(LangdictCheck):
         print("Checking Wikipedia's lists")
         for cl in langdict:
             langdict[cl]['In_Wikipedia_List'] = 0
-        f = open(DATAP + "/Language_Lists.txt", "r", encoding="UTF8")
+        f = open(DATAP + "/temp/Language_Lists.txt", "r", encoding="UTF8")
         for page in f:
             links = getlinks(page.strip())
             for l in links:

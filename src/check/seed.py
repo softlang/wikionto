@@ -7,7 +7,7 @@ class Seed(LangdictCheck):
 
     def check(self, langdict):
         print("Checking Gitseed")
-        f = open(DATAP + "/seed_annotated.json", 'r', encoding="UTF8")
+        f = open(DATAP + "/temp/seed_annotated.json", 'r', encoding="UTF8")
         d = load(f)
         f.close()
         for cl in langdict:

@@ -78,7 +78,7 @@ def init_cat_articles(catdict, langdict):
     for cl in langdict:
         for c in langdict[cl]["cats"]:
             if c not in catdict:
-                print(c)
+                #print(c)
                 continue
             elif "articles" not in catdict[c]:
                 catdict[c]["articles"] = []
