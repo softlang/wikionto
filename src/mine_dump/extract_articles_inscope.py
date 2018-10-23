@@ -109,6 +109,8 @@ def build_scope(roots):
     print("Dumping")
     with open(DATAP + '/dump/articles_inscope.json', 'w', encoding="UTF8") as f:
         dump(scope, f)
+        print("In scope:" + str(len(scope)))
+    return scope
 
 def reverse_cattocatlinks():
     with open(DATAP + '/dump/tocatlinks_category.json', 'r', encoding="UTF8") as f:
@@ -123,6 +125,11 @@ def reverse_cattocatlinks():
     with open(DATAP + '/dump/tocatlinks_category_reverse.json', 'w', encoding="UTF8") as f:
         dump(subcattocat, f)
 
+def count_articles_in_scope():
+    with open(DATAP + '/dump/articles_inscope.json', 'r', encoding="UTF8") as f:
+        scope = load(f)
+        print(len(scope))
+
 
 if __name__ == '__main__':
     t = start_time()
@@ -130,9 +137,8 @@ if __name__ == '__main__':
     #id_dictionaries('category_ids')
     #tocatjson('article')
     #tocatjson('category')
-    #roots = ["Formal_languages", "Computer_file_formats", "Installation_software"]
+    roots = ["Formal_languages", "Computer_file_formats", "Installation_software"]
     # for r in roots:
     #    build_frontierdict(r)
-    #build_scope(roots)
-    reverse_cattocatlinks()
+    scope = build_scope(roots)
     stop_time(t)

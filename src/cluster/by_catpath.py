@@ -3,6 +3,7 @@ from json import load, dump
 from mine_dump import start_time, stop_time
 import sys
 
+
 def get_path_to_contents_categories():
     with open(DATAP + '/dump/tocatlinks_category.json') as f:
         cat_to_cat = load(f)
@@ -10,33 +11,25 @@ def get_path_to_contents_categories():
     pathdict = dict()
     CONTENTS_ID = 14105005
     pathdict[CONTENTS_ID] = []
-    front = []
-    for subcat in cat_to_cat[CONTENTS_ID]:
-        front.append([subcat])
-        pathdict[subcat] = [CONTENTS_ID]
+    front = [[CONTENTS_ID]]
     while front:
-        ccat = front[0]
+        path0 = front[0]
+        front = front[1:]
+        head = path0[0]
+        if head not in cat_to_cat:
+            continue
+        for nextcat in cat_to_cat[head]:
+            if nextcat in path0:
+                continue
+            if nextcat in pathdict:
+                pathdict[nextcat] = list(set(pathdict[nextcat] + path0))
+            else:
+                pathdict[nextcat] = path0
+            front = [([nextcat] + path0)] + front
 
-
-
-    for subcat in cat_to_cat[CONTENTS_ID]:
-        pathdict.update(annotate_path(cat_to_cat, subcat, [CONTENTS_ID], pathdict))
     with open(DATAP + '/dump/tocatlinks_category_allpaths.json', "w", encoding="UTF8") as f:
         dump(pathdict, f)
 
-def annotate_path(cat_to_cat, cat, catpath, pathdict):
-    if cat in pathdict:
-        oldsize = len(pathdict[cat])
-        pathdict[cat] = list(set(catpath) | set(pathdict[cat]))
-        if len(pathdict[cat]) == oldsize:
-            return pathdict
-    else:
-        pathdict[cat] = catpath
-    if cat not in cat_to_cat:
-        return pathdict
-    for subcat in cat_to_cat[cat]:
-        pathdict.update(annotate_path(cat_to_cat, subcat, pathdict[cat] + [cat], pathdict))
-    return pathdict
 
 def get_path_to_contents_article(spid, cat_to_cat_reverse, cat_front):
     pid = int(spid)
@@ -56,7 +49,7 @@ def get_path_to_contents_article(spid, cat_to_cat_reverse, cat_front):
             break
         cat_results |= new_cat_front
         cat_front = new_cat_front
-        #print(len(cat_results))
+        # print(len(cat_results))
     return cat_results
 
 

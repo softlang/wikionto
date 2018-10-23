@@ -1,5 +1,5 @@
 from multiprocessing import Pool
-from nltk.parse.corenlp import CoreNLPDependencyParser
+from util.corenlpapi import CustomParser
 from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
@@ -8,17 +8,18 @@ from data import KEYWORDS, XKEYWORDS
 from check.hypernym_nlp_pattern import cop_hypernym, pos_hypernyms
 from check.langdictcheck import LangdictCheck
 
+import requests
+
 
 class HypNLPSent(LangdictCheck):
 
-
-
-    def check_single(self, pair):
-        cl = pair[0]
-        summary = pair[1]
+    def check_single(self, triple):
+        cl = triple[0]
+        summary = triple[1]
+        session = triple[2]
         sents = sent_tokenize(summary)
         if len(sents) < 1:
-            print(cl+":"+summary)
+            print(cl + ":" + summary)
             return cl, None
         summary = sents[0]
         if sents[0] is "." or sents[0] is "" or sents[0].startswith("See also"):
@@ -26,7 +27,7 @@ class HypNLPSent(LangdictCheck):
                 summary = sents[1]
             else:
                 return cl, None
-        dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
+        dep_parser = CustomParser(url='http://localhost:9000', session=session)
         try:
             parse, = dep_parser.raw_parse(summary)
             pos = pos_hypernyms(parse)
@@ -44,13 +45,15 @@ class HypNLPSent(LangdictCheck):
 
     def check(self, langdict):
         print("Checking Hypernym with Stanford")
+        session = requests.Session()
         for cl in langdict:
             langdict[cl]["POS"] = 0
         cl_sums = []
         for cl in langdict:
             if "Summary" in langdict[cl]:
-                cl_sums.append((cl, langdict[cl]["Summary"]))
+                cl_sums.append((cl, langdict[cl]["Summary"], session))
         pool = Pool(processes=4)
+
         parsed_pairs = pool.map(self.check_single, cl_sums)
         parsed_pairs = dict(parsed_pairs)
         for cl in langdict:
