@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from json import load
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from pandas import read_csv
 from io import StringIO
 
@@ -15,7 +15,7 @@ csvtext = ""
 for i in range(ton):
     csvtext += str(i)
     for ind in indicators:
-        indlist = [cl for cl in langdict if any(cat+"Depth" in langdict[cl] and langdict[cl][cat+"Depth"]==i for cat in CATS)
+        indlist = [cl for cl in langdict if any(cat +"Depth" in langdict[cl] and langdict[cl][cat+"Depth"] == i for cat in ROOTS)
                                                      and ind in langdict[cl] and langdict[cl][ind]==1]
         csvtext += ","+str(len(indlist))
     csvtext += "\n"

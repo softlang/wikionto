@@ -1,6 +1,8 @@
 import requests
 import json
 from socket import SOL_SOCKET, SO_REUSEADDR
+from requests.sessions import Session
+
 
 class StanfordCoreNLP:
     """
@@ -22,22 +24,22 @@ class StanfordCoreNLP:
 
         # Checks that the Stanford CoreNLP server is started.
 
-        #s = requests.Session()
-        #s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+        s = Session()
+        # s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
         output = ""
-        with requests.get(self.server_url) as req:
-            data = text.encode()
-            r = requests.post(
-                self.server_url, params={
-                    'properties': str(properties)
-                }, data=data, headers={'Connection': 'close'})
-            output = r.text
-            if ('outputFormat' in properties
-                    and properties['outputFormat'] == 'json'):
-                try:
+        try:
+            with requests.get(self.server_url) as req:
+                data = text.encode()
+                r = requests.post(
+                    self.server_url, params={
+                        'properties': str(properties)
+                    }, data=data, headers={'Connection': 'close'})
+                output = r.text
+                if ('outputFormat' in properties
+                        and properties['outputFormat'] == 'json'):
                     output = json.loads(output, encoding='utf-8', strict=True)
-                except:
-                    pass
+        except requests.exceptions.ConnectionError:
+            return self.annotate(text, properties)
         return output
 
 
@@ -46,11 +48,11 @@ if __name__ == "__main__":
     summary = "Java is a language."
     output = nlp.annotate(summary, properties={
         "annotators": "tokenize,ssplit,pos",
-        #"outputFormat": "json",
+        # "outputFormat": "json",
         # Only split the sentence at End Of Line. We assume that this method only takes in one single sentence.
         "ssplit.eolonly": "true",
         # Setting enforceRequirements to skip some annotators and make the process faster
         "enforceRequirements": "false"
     })
-    #print(str(output['sentences'][0]['tokens'][0]['pos']))
+    # print(str(output['sentences'][0]['tokens'][0]['pos']))
     print(str(output))

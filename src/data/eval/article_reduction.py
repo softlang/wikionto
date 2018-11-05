@@ -1,4 +1,4 @@
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from pandas import DataFrame, Series
 from json import load
 
@@ -19,7 +19,7 @@ def print_reduction():
     langdict = load(f)
     df = DataFrame(columns=['#seed', '#art', '#rec_art', '#rec_nonseed', 'reduced %'],
                    index=['Formal languages', 'Computer file formats', 'Installation software'])
-    for c in CATS:
+    for c in ROOTS:
         articles = [a for a in langdict if c + "Depth" in langdict[a]]
         seed_articles = [sa for sa in articles if is_seed(sa, langdict)]
         recovered_articles = [ra for ra in articles if check_sl(ra, langdict)]

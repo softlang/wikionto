@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from json import load
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from pandas import read_csv
 from io import StringIO
 from check.infobox_dbpedia_existence import validibs, nonnegibs
@@ -14,7 +14,7 @@ depthlist = []
 csvtext = ""
 for i in range(ton):
     csvtext += str(i)
-    cls = set(cl for cl in langdict if any(cat+"Depth" in langdict[cl] and langdict[cl][cat+"Depth"]==i for cat in CATS))
+    cls = set(cl for cl in langdict if any(cat +"Depth" in langdict[cl] and langdict[cl][cat+"Depth"] == i for cat in ROOTS))
 
     clspos = set(cl for cl in cls if "DbpediaInfoboxTemplate" in langdict[cl] and any(temp in validibs for temp in langdict[cl]["DbpediaInfoboxTemplate"]))
     clsneu = set(cl for cl in cls if "DbpediaInfoboxTemplate" in langdict[cl] and any(

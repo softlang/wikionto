@@ -70,7 +70,7 @@ def pos_nn(index, s, parse):
     nns = []
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
-        if wdict['tag'] == 'NN':
+        if wdict['tag'] == 'NN' or wdict['tag'] == 'NNP':
             nns.append(wdict['word'])
     return nns, s
 

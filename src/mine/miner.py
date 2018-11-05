@@ -2,7 +2,7 @@ from mine.dbpedia import articles_below, articles_with_summaries, articles_to_ca
     category_to_subcategory_below, to_uri, articles_with_revisions_live, \
     articles_with_wikidataid, get_templates, articles_with_NonLiveHypernyms
 from json import dump, load
-from data import DATAP, DEPTH, CATS
+from data import DATAP, DEPTH, ROOTS
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
@@ -11,7 +11,7 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 def init_langdict():
     print("Mining article names and depth of first appearance")
     langdict = dict()
-    for c in CATS:
+    for c in ROOTS:
         for i in range(DEPTH + 1):
             articles = articles_below(to_uri(c), i, i)
             for cl in articles:
@@ -25,7 +25,7 @@ def init_langdict():
 def add_function(langdict, fun, name):
     print("Mining " + name)
     d = dict()
-    for c in CATS:
+    for c in ROOTS:
         d.update(fun(to_uri(c), 0, DEPTH))
     for cl in langdict:
         if cl in d:
@@ -56,7 +56,7 @@ def add_wordset(langdict):
 def init_cat_subcat():
     print("Mining subcategories of categories")
     catdict = dict()
-    for c in CATS:
+    for c in ROOTS:
         for i in range(DEPTH + 1):
             d2 = category_to_subcategory_below(to_uri(c), i, i)
             for cat, subcats in d2.items():
@@ -70,6 +70,15 @@ def init_cat_subcat():
                             catdict[sc] = dict()
                         if c + "Depth" not in catdict[sc]:
                             catdict[sc][c + "Depth"] = i + 1
+                for subcat in subcats:
+                    if subcat not in catdict:
+                        catdict[subcat] = dict()
+                        catdict[subcat]["supercats"] = [cat]
+                    else:
+                        if "supercats" not in catdict[subcat]:
+                            catdict[subcat]["supercats"] = [cat]
+                        else:
+                            catdict[subcat]["supercats"].append(cat)
     return catdict
 
 
@@ -96,6 +105,7 @@ def mine():
     langdict = add_function(langdict, articles_to_categories_below, "cats")
     # langdict = add_wordset(langdict)
     # langdict = add_properties(langdict)
+    langdict = {key: values for key, values in langdict.items() if "Summary" in values}
     with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
         dump(obj=langdict, fp=f, indent=2)
         f.flush()
@@ -113,4 +123,6 @@ def mine_cats(langdict):
 
 
 if __name__ == '__main__':
-    mine()
+    with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
+        langdict = load(f)
+    mine_cats(langdict)

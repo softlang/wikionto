@@ -1,4 +1,4 @@
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from pandas import DataFrame, Series
 from json import load
 
@@ -16,7 +16,7 @@ ton = 9
 f = open(DATAP + '/ocatdict.json', 'r', encoding="UTF8")
 catdict = load(f)
 df = DataFrame(columns=['Cat','Seed Cat','SL Cat', "NoSL Cat", 'SL %'], index=['Formal languages','Computer file formats','Installation software'])
-for c in CATS:
+for c in ROOTS:
     cats = [cat for cat in catdict if c+"Depth" in catdict[cat]]
     cats_withseed = [cat for cat in cats if catdict[cat]["#Seed"]>0]
     cats_withsl = [cat for cat in cats if catdict[cat]["#SLs"]>0]

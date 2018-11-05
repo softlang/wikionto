@@ -3,7 +3,7 @@ from nltk.parse.corenlp import CoreNLPDependencyParser
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
 from check.hypernym_nlp_pattern import pos_hypernyms
-from mine_dump.mypycorenlp import StanfordCoreNLP
+from util.CustomStanfordParser import StanfordCoreNLP
 
 
 def extract_nouns(first):

@@ -1,4 +1,4 @@
-from data import CATS, DATAP, DEPTH
+from data import ROOTS, DATAP, DEPTH
 from json import load
 from pandas import read_csv
 import matplotlib.pyplot as plt
@@ -9,10 +9,10 @@ def boxplot(m):
     f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
     d = load(f)
     f.close()
-    fig, ax = plt.subplots(nrows=1, ncols=len(CATS))
-    for i in range(len(CATS)):
+    fig, ax = plt.subplots(nrows=1, ncols=len(ROOTS))
+    for i in range(len(ROOTS)):
         # columns: Article, Depth, Metric m
-        cat = CATS[i]
+        cat = ROOTS[i]
         csvtext = ""
         for cl in d:
             if cat + "Depth" in d[cl] and m in d[cl] and d[cl]["ValidInfobox"]==1:

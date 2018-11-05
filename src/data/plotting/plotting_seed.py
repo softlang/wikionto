@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from json import load
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from pandas import read_csv
 from io import StringIO
 
@@ -10,7 +10,7 @@ def plot_allsl_depth(ton):
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
-    for c in CATS:
+    for c in ROOTS:
         depthlist.append(list(map(lambda d: len([cl for cl in langdict
                                                  if
                                                  ((c + "Depth" in langdict[cl]) and (langdict[cl][c + "Depth"] == d))])
@@ -19,19 +19,19 @@ def plot_allsl_depth(ton):
     csvtext = ""
     for n in range(ton):
         csvtext += str(n)
-        for i in range(len(CATS)):
+        for i in range(len(ROOTS)):
             csvtext += ", " + str(depthlist[i][n])
         csvtext += "\n"
 
     dtypes = dict()
     dtypes["depth"] = int
-    for c in CATS:
+    for c in ROOTS:
         dtypes[c] = int
 
-    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + CATS,
+    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
+    df.plot(x="depth", y=ROOTS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Articles at Depth')
     for p in ax.patches:
@@ -44,7 +44,7 @@ def plot_seed_depth(ton):
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
-    for c in CATS:
+    for c in ROOTS:
         depthlist.append(list(map(lambda d: len([cl for cl in langdict
                                                  if
                                                  ((c + "Depth" in langdict[cl]) and (langdict[cl][c + "Depth"] == d))
@@ -54,19 +54,19 @@ def plot_seed_depth(ton):
     csvtext = ""
     for n in range(ton):
         csvtext += str(n)
-        for i in range(len(CATS)):
+        for i in range(len(ROOTS)):
             csvtext += ", " + str(depthlist[i][n])
         csvtext += "\n"
 
     dtypes = dict()
     dtypes["depth"] = int
-    for c in CATS:
+    for c in ROOTS:
         dtypes[c] = int
 
-    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + CATS,
+    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
+    df.plot(x="depth", y=ROOTS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Articles at Depth')
     for p in ax.patches:
@@ -79,7 +79,7 @@ def plot_negative_seed_depth(ton):
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
-    for c in CATS:
+    for c in ROOTS:
         depthlist.append(list(map(lambda d: len([cl for cl in langdict
                                                  if
                                                  ((c + "Depth" in langdict[cl]) and (langdict[cl][c + "Depth"] == d))
@@ -89,19 +89,19 @@ def plot_negative_seed_depth(ton):
     csvtext = ""
     for n in range(ton):
         csvtext += str(n)
-        for i in range(len(CATS)):
+        for i in range(len(ROOTS)):
             csvtext += ", " + str(depthlist[i][n])
         csvtext += "\n"
 
     dtypes = dict()
     dtypes["depth"] = int
-    for c in CATS:
+    for c in ROOTS:
         dtypes[c] = int
 
-    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + CATS,
+    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=CATS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
+    df.plot(x="depth", y=ROOTS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Negative Seed Distribution')
     for p in ax.patches:

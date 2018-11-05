@@ -1,4 +1,4 @@
-from data import DATAP, DEPTH, CATS
+from data import DATAP, DEPTH, ROOTS
 from json import load, dump
 from mine.dbpedia import articles_with_commons, to_uri
 
@@ -9,7 +9,7 @@ def check_eponymous(catdict, langdict):
         catdict[cat]["Eponymous"] = int(cat in langdict)
 
     # TODO: http://live.dbpedia.org/property/commons for Java : Category:Java (en)
-    for c in CATS:
+    for c in ROOTS:
         cls = articles_with_commons(to_uri(c), 0, DEPTH)
         for cl in cls:
             for cat in cls[cl]:

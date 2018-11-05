@@ -1,5 +1,5 @@
 from multiprocessing import Pool
-from util.corenlpapi import CustomParser
+from util.CustomDependencyParser import CustomParser
 from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError

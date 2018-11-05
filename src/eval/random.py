@@ -2,7 +2,8 @@ from data import DATAP
 from json import load
 import random
 import pandas as pd
-import numpy
+
+indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
 
 def perform_eval():
     with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
@@ -41,11 +42,7 @@ def perform_eval():
 
 
 def get_classification(title, langdict):
-    indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
     resultdict = {ind: langdict[title][ind] for ind in indicators}
-    for ind in indicators:
-        if ind not in resultdict:
-            resultdict[ind] = 0
     resultdict['Complementary'] = sum(resultdict.values()) > 0
     return resultdict
 
@@ -61,6 +58,7 @@ def get_article_tags():
         iwl = []
         pos = []
         comp = []
+        keyws = []
         for title in df['title']:
             classifdict = get_classification(title, langdict)
             vi.append(classifdict['ValidInfobox'])
@@ -80,19 +78,20 @@ def analyze_language_class():
     df = get_article_tags()
 
     dfsum = pd.DataFrame()
-    dfsum['Name'] = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]
+    headers = indicators + ["Complementary"]
+    dfsum['Name'] = headers
     dfsum.set_index('Name')
     tps = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         tps.append(get_count(df, name, 1, 1))
     fps = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         fps.append(get_count(df, name, 0, 1))
     tns = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         tns.append(get_count(df, name, 0, 0))
     fns = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         fns.append(get_count(df, name, 1, 0))
 
     dfsum['TP'] = tps
@@ -101,35 +100,39 @@ def analyze_language_class():
     dfsum['FN'] = fns
     dfsum['Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
-    print(dfsum)
+    dfsum['Acc'] = (dfsum.TP + dfsum.TN) / (dfsum.TP + dfsum.TN + dfsum.FP + dfsum.FN)
+    dfsum['Language'] = dfsum.TP + dfsum.FP
+    #dfsum['Noise'] = dfsum.TN + dfsum.FN
+    return dfsum
+
 
 
 def analyze_noise_class():
     df = get_article_tags()
+    headers = indicators + ["Complementary"]
 
     dfsum = pd.DataFrame()
-    dfsum['Name'] = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]
+    dfsum['Name'] = headers
     dfsum.set_index('Name')
     tps = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         tps.append(get_count(df, name, 0, 0))
     fps = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         fps.append(get_count(df, name, 1, 0))
     tns = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         tns.append(get_count(df, name, 1, 1))
     fns = []
-    for name in ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS", "Complementary"]:
+    for name in headers:
         fns.append(get_count(df, name, 0, 1))
-
     dfsum['TP'] = tps
     dfsum['FP'] = fps
     dfsum['TN'] = tns
     dfsum['FN'] = fns
     dfsum['Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
-    print(dfsum)
+    return dfsum
 
 
 def get_count(df, indicator, expected, actual):
@@ -137,9 +140,22 @@ def get_count(df, indicator, expected, actual):
 
 
 def debug_evaluation():
+    indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
     df = get_article_tags()
-    print(df[(df.tag == 0) & (df.POS == 1)])
+    for ind in indicators:
+        print(ind+": False Positives")
+        dffp = df[(df.tag == 0) & (df[ind] == 1)]
+        dffp = dffp['title']
+        print(dffp)
+        print("")
+        print(ind+": False Negatives")
+        dffn = df[(df.tag == 1) & (df[ind] == 0)]
+        dffn = dffn['title']
+        print(dffn)
+        print("")
 
 
 if __name__ == "__main__":
-    analyze_language_class()
+    df = analyze_language_class()
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+        print(df)

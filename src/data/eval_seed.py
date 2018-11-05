@@ -1,4 +1,4 @@
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from json import load, dump
 
 
@@ -7,7 +7,7 @@ def get_n(n):
     langdict = load(f)
     for cl, p in langdict.items():
         if p["Seed"] == 1:
-            for c in CATS:
+            for c in ROOTS:
                 if c + "Depth" in p and p[c + "Depth"] == n:
                     print(c + ":" + cl)
 

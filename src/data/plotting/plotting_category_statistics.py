@@ -1,4 +1,4 @@
-from data import DATAP, CATS
+from data import DATAP, ROOTS
 from data.eval import check_sl
 from collections import deque
 from json import load
