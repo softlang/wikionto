@@ -1,4 +1,4 @@
-from data import DATAP, ROOTS
+from data import DATAP, ROOTS, INDICATORS
 from pandas import DataFrame, Series
 from json import load
 
@@ -8,9 +8,7 @@ def is_seed(l, d):
 
 
 def check_sl(l, d):
-    checks = ["POS", "ValidInfobox", "In_Wikipedia_List", "URLPattern", "URLBracesPattern", "PlainTextKeyword"]
-    # checks = ["URLPattern"]
-    return any(d[l][c] == 1 for c in checks)
+    return any(d[l][c] == 1 for c in INDICATORS)
 
 
 def print_reduction():

@@ -64,3 +64,5 @@ src/langdict.json
 .idea/
 venv/
 data/dump/
+src/mine_dump/pyspark/
+src/cluster/pyspark/

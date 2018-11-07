@@ -86,12 +86,13 @@ def init_cat_articles(catdict, langdict):
     print("Mining articles of categories")
     for cl in langdict:
         for c in langdict[cl]["cats"]:
-            if c not in catdict:
+            tc = "Category:"+c
+            if tc not in catdict:
                 #print(c)
                 continue
-            elif "articles" not in catdict[c]:
-                catdict[c]["articles"] = []
-            catdict[c]["articles"].append(cl)
+            elif "articles" not in catdict[tc]:
+                catdict[tc]["articles"] = []
+            catdict[tc]["articles"].append(cl)
     return catdict
 
 

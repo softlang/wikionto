@@ -106,7 +106,6 @@ def analyze_language_class():
     return dfsum
 
 
-
 def analyze_noise_class():
     df = get_article_tags()
     headers = indicators + ["Complementary"]
