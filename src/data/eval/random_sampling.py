@@ -51,7 +51,7 @@ def get_classification(title, langdict):
 
 
 def get_article_tags():
-    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/temp/olangdict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
     with open(DATAP + '/eval/random.csv', 'r', encoding="UTF8") as f:
         df = pd.read_csv(f, delimiter=',', quotechar='|', names=['title', 'tag'])
@@ -101,13 +101,13 @@ def analyze_language_class():
     dfsum['FP'] = fps
     dfsum['TN'] = tns
     dfsum['FN'] = fns
-    dfsum['Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
+    dfsum['Positive-Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
+    dfsum['Negative-Prec'] = dfsum.TN / (dfsum.FN + dfsum.TN)
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
+    dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
     dfsum['Acc'] = (dfsum.TP + dfsum.TN) / (dfsum.TP + dfsum.TN + dfsum.FP + dfsum.FN)
     dfsum['F1'] = (2*dfsum.TP) / (2*dfsum.TP + dfsum.FP + dfsum.FN)
-    dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
-    dfsum['g-mean'] = sqrt(dfsum.Rec * dfsum.specificity)
-    dfsum['NPV'] = dfsum.TN / (dfsum.FN + dfsum.TN)
+    dfsum['g-mean'] = numpy.sqrt(dfsum.Rec * dfsum.specificity)
 
     #dfsum['Noise'] = dfsum.TN + dfsum.FN
     return dfsum

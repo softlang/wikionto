@@ -1067,6 +1067,9 @@
     "Ruby_(programming_language)": {
       "gitseed": [
         "Ruby"
+      ],
+      "tiobe": [
+        "Ruby"
       ]
     },
     "Rust_(programming_language)": {
@@ -1834,11 +1837,6 @@
     "IBM_RPG": {
       "tiobe": [
         "RPG"
-      ]
-    },
-    "Ruby_(hardware_description_language)": {
-      "tiobe": [
-        "Ruby"
       ]
     },
     "S_(programming_language)": {

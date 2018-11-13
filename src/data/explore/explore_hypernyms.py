@@ -23,7 +23,7 @@ def dump_gt_1000():
     counter = collections.Counter(hyps)
     hdict = [(n, count) for n, count in counter.items() if count > 1000]
     hdict = sorted(hdict, key=(lambda e: e[1]))
-    f = open(DATAP + '/exploration/poshypernyms_new.csv', 'w', encoding="UTF8")
+    f = open(DATAP + '/exploration/poshypernyms.csv', 'w', encoding="UTF8")
     for n, count in hdict:
         f.write(n + ', ' + str(count) + "\n")
 
