@@ -6,83 +6,83 @@ from json.decoder import JSONDecodeError
 
 from data import KEYWORDS, XKEYWORDS
 from check.hypernym_nlp_pattern import cop_hypernym, pos_hypernyms
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 
 import requests
 
 
-class HypNLPSent(LangdictCheck):
+class HypNLPSent(ArtdictCheck):
 
     def check_single(self, triple):
-        cl = triple[0]
+        title = triple[0]
         summary = triple[1]
         session = triple[2]
         sents = sent_tokenize(summary)
         if len(sents) < 1:
-            print(cl + ":" + summary)
-            return cl, None
+            print(title + ":" + summary)
+            return title, None
         summary = sents[0]
         if sents[0] is "." or sents[0] is "" or sents[0].startswith("See also"):
             if len(sents) > 1:
                 summary = sents[1]
             else:
-                return cl, None
+                return title, None
         dep_parser = CustomParser(url='http://localhost:9000', session=session)
         try:
             parse, = dep_parser.raw_parse(summary)
             pos = pos_hypernyms(parse)
             cop = cop_hypernym(parse)
-            return cl, (pos, cop)
+            return title, (pos, cop)
         except JSONDecodeError:
-            print("Decode Error at :" + cl)
-            return cl, None
+            print("Decode Error at :" + title)
+            return title, None
         except StopIteration:
-            print("Stopped at " + cl)
-            return cl, None
+            print("Stopped at " + title)
+            return title, None
         except HTTPError:
-            print("HTTPError " + cl)
-            return cl, None
+            print("HTTPError " + title)
+            return title, None
 
-    def check(self, langdict):
+    def check(self, artdict):
         print("Checking Hypernym with Stanford")
         session = requests.Session()
-        for cl in langdict:
-            langdict[cl]["POS"] = 0
-        cl_sums = []
-        for cl in langdict:
-            if "Summary" in langdict[cl]:
-                cl_sums.append((cl, langdict[cl]["Summary"], session))
+        for a in artdict:
+            artdict[a]["POS"] = 0
+        summaries = []
+        for a in artdict:
+            if "Summary" in artdict[a]:
+                summaries.append((a, artdict[a]["Summary"], session))
         pool = Pool(processes=4)
 
-        parsed_pairs = pool.map(self.check_single, cl_sums)
+        parsed_pairs = pool.map(self.check_single, summaries)
         parsed_pairs = dict(parsed_pairs)
-        for cl in langdict:
-            if "Summary" not in langdict[cl]:
+        for a in artdict:
+            if "Summary" not in artdict[a]:
                 continue
-            hyp = parsed_pairs[cl]
+            hyp = parsed_pairs[a]
             if hyp is not None:
                 (pos, s), cop = hyp
-                langdict[cl]["POSHypernyms"] = pos
-                langdict[cl]["COPHypernym"] = cop
-                langdict[cl]["POS_isa"] = 0
-                langdict[cl]["POS_isoneof"] = 0
-                langdict[cl]["POS_The"] = 0
+                artdict[a]["POSHypernyms"] = pos
+                artdict[a]["COPHypernym"] = cop
+                artdict[a]["POS_isa"] = 0
+                artdict[a]["POS_isoneof"] = 0
+                artdict[a]["POS_The"] = 0
                 if len(s) > 0:
-                    langdict[cl]["POS_" + s] = 1
+                    artdict[a]["POS_" + s] = 1
                 if any(p.lower().endswith(kw) or p.lower().endswith(kw + 's') for p in pos for kw in KEYWORDS):
-                    langdict[cl]["POS"] = 1
+                    artdict[a]["POS"] = 1
 
                 for k1, k2 in XKEYWORDS:
                     if any(p.lower().endswith(k1) or p.lower().endswith(k1 + 's') for p in pos) \
                             and any(p.lower().endswith(k2) or p.lower().endswith(k2 + 's') for p in pos):
-                        langdict[cl]["POSX_" + k1 + k2] = 1
+                        artdict[a]["POSX_" + k1 + k2] = 1
                     else:
-                        langdict[cl]["POSX_" + k1 + k2] = 0
+                        artdict[a]["POSX_" + k1 + k2] = 0
 
                 if cop is not None:
                     if any(kw in c.lower() for c in cop for kw in KEYWORDS):
-                        langdict[cl]["COP"] = 1
-        return langdict
+                        artdict[a]["COP"] = 1
+        return artdict
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
 from data import DATAP, KEYWORDS
 from json import load
 
-f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
-ld = load(f)
-for a in ld:
-    if ("list" in a.lower() or "comparison" in a.lower()) and any(k in a for k in KEYWORDS):
-        print(a)
+f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
+articledict = load(f)
+for title in articledict:
+    if ("list" in title.lower() or "comparison" in title.lower()) and any(k in title for k in KEYWORDS):
+        print(title)

@@ -1,5 +1,6 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
-from data import WIKIDATA
+
+WIKIDATA = "https://query.wikidata.org/sparql"
 
 
 def get_computer_languages():

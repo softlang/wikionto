@@ -1,28 +1,28 @@
 from data import DATAP
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 from json import load
 
 
-class Seed(LangdictCheck):
+class Seed(ArtdictCheck):
 
-    def check(self, langdict):
+    def check(self, articledict):
         print("Checking Gitseed")
         f = open(DATAP + "/temp/seed_annotated.json", 'r', encoding="UTF8")
-        d = load(f)
+        seedmatches = load(f)
         f.close()
-        for cl in langdict:
-            langdict[cl]["Seed"] = 0
-        for l in d["recalled"]:
-            if l in langdict:
-                langdict[l]["Seed"] = 1
+        for title in articledict:
+            articledict[title]["Seed"] = 0
+        for title in seedmatches["recalled"]:
+            if title in articledict:
+                articledict[title]["Seed"] = 1
             else:
-                print("recalled not in langdict:" + l)
-        for l in d["mention"]:
-            if l in langdict:
-                langdict[l]["SeedMention"] = 1
+                print("recalled not in articledict:" + title)
+        for title in seedmatches["mention"]:
+            if title in articledict:
+                articledict[title]["SeedMention"] = 1
             else:
-                print("mention not in langdict: " + l)
-        return langdict
+                print("mention not in articledict: " + title)
+        return articledict
 
 
 if __name__ == '__main__':

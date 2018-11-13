@@ -2,12 +2,44 @@ from multiprocessing import Pool
 from nltk.parse.corenlp import CoreNLPDependencyParser
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
-from data import DATAP
 from check.hypernym_nlp_pattern import cop_hypernym, pos_hypernyms
+from check.abstract_check import ArtdictCheck
 
 
-def check(pair):
-    cl = pair[0]
+class SummaryHypernyms(ArtdictCheck):
+
+    def check(self, artdict):
+        print("Checking Hypernym with Stanford")
+
+        summaries = []
+        for a in artdict:
+            summaries.append((a, artdict[a]["Summary"]))
+        pool = Pool(processes=8)
+        parsed_pairs = pool.map(check_single, summaries)
+        parsed_pairs = dict(parsed_pairs)
+        for a in artdict:
+            summary = artdict[a]["Summary"]
+            hyp = parsed_pairs[a]
+            if (summary == "No Summary") | (hyp is None):
+                artdict[a]["SumPOSLanguage"] = 0
+                artdict[a]["SumCOPLanguage"] = 0
+                artdict[a]["SumPOSFormat"] = 0
+                artdict[a]["SumCOPFormat"] = 0
+            else:
+                pos, cop = hyp
+                artdict[a]["SumPOSHypernyms"] = pos
+                artdict[a]["SumCOPHypernym"] = cop
+                artdict[a]["SumPOSLanguage"] = int(bool(list(filter(lambda w: w.endswith("language"), pos)))
+                                                   | bool(list(filter(lambda w: w.endswith("languages"), pos))))
+                artdict[a]["SumCOPLanguage"] = int(str(cop).endswith("language") | str(cop).endswith("languages"))
+                artdict[a]["SumPOSFormat"] = int(bool(list(filter(lambda w: w.endswith("format"), pos)))
+                                                 | bool(list(filter(lambda w: w.endswith("formats"), pos))))
+                artdict[a]["SumCOPFormat"] = int(str(cop).endswith("format") | str(cop).endswith("formats"))
+        return artdict
+
+
+def check_single(pair):
+    title = pair[0]
     summary = pair[1]
     if summary.startswith('.'):
         summary = summary[1:]
@@ -20,59 +52,17 @@ def check(pair):
             for p in parsed:
                 pos_list += pos_hypernyms(p)
                 cop_list += cop_hypernym(p)
-            return cl, (pos_list, cop_list)
+            return title, (pos_list, cop_list)
         except JSONDecodeError:
-            print("Decode Error at :" + cl)
-            return cl, None
+            print("Decode Error at :" + title)
+            return title, None
         except StopIteration:
-            print("Stopped at " + cl)
-            return cl, (pos_list, cop_list)
+            print("Stopped at " + title)
+            return title, (pos_list, cop_list)
         except HTTPError:
-            print("HTTPError " + cl)
-            return cl, None
-
-
-def check_stanford(langdict):
-    print("Checking Hypernym with Stanford")
-
-    cl_sums = []
-    for cl in langdict:
-        cl_sums.append((cl, langdict[cl]["Summary"]))
-    pool = Pool(processes=8)
-    parsed_pairs = pool.map(check, cl_sums)
-    parsed_pairs = dict(parsed_pairs)
-    for cl in langdict:
-        summary = langdict[cl]["Summary"]
-        hyp = parsed_pairs[cl]
-        if (summary == "No Summary") | (hyp is None):
-            langdict[cl]["SumPOSLanguage"] = 0
-            langdict[cl]["SumCOPLanguage"] = 0
-            langdict[cl]["SumPOSFormat"] = 0
-            langdict[cl]["SumCOPFormat"] = 0
-        else:
-            pos, cop = hyp
-            langdict[cl]["SumPOSHypernyms"] = pos
-            langdict[cl]["SumCOPHypernym"] = cop
-            langdict[cl]["SumPOSLanguage"] = int(bool(list(filter(lambda w: w.endswith("language"), pos)))
-                                              | bool(list(filter(lambda w: w.endswith("languages"), pos))))
-            langdict[cl]["SumCOPLanguage"] = int(str(cop).endswith("language") | str(cop).endswith("languages"))
-            langdict[cl]["SumPOSFormat"] = int(bool(list(filter(lambda w: w.endswith("format"), pos)))
-                                            | bool(list(filter(lambda w: w.endswith("formats"), pos))))
-            langdict[cl]["SumCOPFormat"] = int(str(cop).endswith("format") | str(cop).endswith("formats"))
-    return langdict
-
-
-def solo():
-    import json
-    with open(DATAP + '/testdict.json', 'r', encoding="UTF8") as f:
-        langdict = json.load(f)
-        langdict = check_stanford(langdict)
-        f.close()
-    with open(DATAP + '/testdict.json', 'w', encoding="UTF8") as f:
-        json.dump(obj=langdict, fp=f, indent=2)
-        f.flush()
-        f.close()
+            print("HTTPError " + title)
+            return title, None
 
 
 if __name__ == "__main__":
-    solo()
+    SummaryHypernyms().solo()

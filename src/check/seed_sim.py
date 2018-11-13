@@ -1,4 +1,4 @@
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 from sklearn.feature_extraction.text import HashingVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 from nltk.tokenize import sent_tokenize, word_tokenize
@@ -7,22 +7,22 @@ from multiprocessing import Pool
 import string
 
 
-class SeedSim(LangdictCheck):
+class SeedSim(ArtdictCheck):
 
-    def check(self, langdict):
+    def check(self, articledict):
         print("Annotating similarity to seed sentences")
-        ssums = []
-        for cl in langdict:
-            if (langdict[cl]["Seed"] == 1) and ("Summary" in langdict[cl]):
-                ssums.append(langdict[cl]["Summary"])
+        seed_summaries = []
+        for title in articledict:
+            if (articledict[title]["Seed"] == 1) and ("Summary" in articledict[title]):
+                seed_summaries.append(articledict[title]["Summary"])
 
         pool = Pool(processes=6)
-        cltuples = [(cl, langdict[cl]["Summary"], ssums) for cl in langdict if
-                    "Summary" in langdict[cl] and langdict[cl]["Seed"] == 0]
+        cltuples = [(cl, articledict[cl]["Summary"], seed_summaries) for cl in articledict if
+                    "Summary" in articledict[cl] and articledict[cl]["Seed"] == 0]
         cltuples = list(pool.map(seedsim, cltuples))
-        for cl, simc5 in cltuples:
-            langdict[cl]["Seed_Similarity_Word"] = simc5
-        return langdict
+        for title, simc5 in cltuples:
+            articledict[title]["Seed_Similarity_Word"] = simc5
+        return articledict
 
 
 def seedsim(cltuple):

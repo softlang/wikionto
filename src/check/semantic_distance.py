@@ -1,26 +1,26 @@
 from json import load
 
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 from data import DATAP
 
 
-class SemDist(LangdictCheck):
+class SemDist(ArtdictCheck):
 
-    def check(self, langdict):
+    def check(self, articledict):
         print("Checking semantic distance")
         f = open(DATAP + '/catdict.json', 'r', encoding="UTF8")
         catdict = load(f)
-        for cl in langdict:
-            cats = langdict[cl]["cats"]
+        for title in articledict:
+            cats = articledict[title]["cats"]
             total = len(cats)
             reachable_cats = 0
             for cat in cats:
                 if cat in catdict:
                     reachable_cats += 1
-            langdict[cl]["SemanticDistance"] = total - (reachable_cats * 2)
-            langdict[cl]["SemanticallyRelevant"] = int(langdict[cl]["SemanticDistance"] < 1)
-            langdict[cl]["NumberOfCategories"] = total
-        return langdict
+            articledict[title]["SemanticDistance"] = total - (reachable_cats * 2)
+            articledict[title]["SemanticallyRelevant"] = int(articledict[title]["SemanticDistance"] < 1)
+            articledict[title]["NumberOfCategories"] = total
+        return articledict
 
 
 if __name__ == '__main__':

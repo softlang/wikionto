@@ -25,8 +25,8 @@ def pos_hypernyms(parse):
 def pos_is_an_one_nn(index, s, parse):
     for x in range(index, len(parse.nodes.items()), 1):
         wdict = parse.nodes[x]
-        if (wdict['tag'] == 'DT') & any(wdict['word'] == w for w in ['a', 'an', 'the']):
-            return pos_x(x, s + 'a', parse)
+        if (wdict['tag'] == 'DT') & any(wdict['word'] == w for w in ['title', 'an', 'the']):
+            return pos_x(x, s + 'title', parse)
         if (wdict['tag'] == 'CD') & (wdict['word'] in ['one']):
             return pos_of_nns(x, s+'one', parse)
     return [], ''

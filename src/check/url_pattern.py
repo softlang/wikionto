@@ -1,23 +1,24 @@
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 from data import KEYWORDS
 
-class URLPattern(LangdictCheck):
-    def check(self,langdict):
+
+class URLPattern(ArtdictCheck):
+    def check(self, artdict):
         print("Checking URL pattern")
 
-        for cl in langdict:
-            langdict[cl]["URLPattern"] = 0
-            langdict[cl]["URLBracesPattern"] = 0
-        for cl in langdict:
-            if any(word.endswith(kw) for kw in KEYWORDS for word in cl.split('_')):
-                langdict[cl]["URLPattern"] = 1
+        for title in artdict:
+            artdict[title]["URLPattern"] = 0
+            artdict[title]["URLBracesPattern"] = 0
+        for title in artdict:
+            if any(word.endswith(kw) for kw in KEYWORDS for word in title.split('_')):
+                artdict[title]["URLPattern"] = 1
 
-            if '(' in cl:
-                clbrack = cl.split('(')[1].split(')')[0]
+            if '(' in title:
+                clbrack = title.split('(')[1].split(')')[0]
                 if any(clbrack.endswith(kw) for kw in KEYWORDS):
-                    langdict[cl]["URLBracesPattern"] = 1
+                    artdict[title]["URLBracesPattern"] = 1
 
-        return langdict
+        return artdict
 
 
 if __name__ == "__main__":

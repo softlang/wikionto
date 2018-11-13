@@ -1,7 +1,10 @@
 from data import DATAP
 from json import load
 import random
+import numpy
 import pandas as pd
+from math import sqrt
+
 
 indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
 
@@ -101,7 +104,11 @@ def analyze_language_class():
     dfsum['Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
     dfsum['Acc'] = (dfsum.TP + dfsum.TN) / (dfsum.TP + dfsum.TN + dfsum.FP + dfsum.FN)
-    dfsum['Language'] = dfsum.TP + dfsum.FP
+    dfsum['F1'] = (2*dfsum.TP) / (2*dfsum.TP + dfsum.FP + dfsum.FN)
+    dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
+    dfsum['g-mean'] = sqrt(dfsum.Rec * dfsum.specificity)
+    dfsum['NPV'] = dfsum.TN / (dfsum.FN + dfsum.TN)
+
     #dfsum['Noise'] = dfsum.TN + dfsum.FN
     return dfsum
 

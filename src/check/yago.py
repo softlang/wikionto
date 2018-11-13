@@ -1,15 +1,16 @@
-from check.langdictcheck import LangdictCheck
-from mine.yago import get_artificial_languages
+from check.abstract_check import ArtdictCheck
+from data import yago_articles
 
 
-class Yago(LangdictCheck):
+# This check depends on extracting the Wikidata ID
+class Yago(ArtdictCheck):
 
-    def check(self, langdict):
+    def check(self, articledict):
         print("Checking instance of 'Artificial language' in yago")
-        als = get_artificial_languages()
-        for cl in langdict:
-            langdict[cl]["yago_CL"] = int(cl in als)
-        return langdict
+        yago = yago_articles()
+        for title in articledict:
+            articledict[title]["yago"] = int(title in yago)
+        return articledict
 
 
 if __name__ == "__main__":

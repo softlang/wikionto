@@ -4,7 +4,7 @@ from data import DATAP, ROOTS, KEYWORDS
 from pandas import read_csv
 from io import StringIO
 from collections import deque
-from check.transitive_childtest import get_sls_nosls
+from check.childtest import get_sls_nosls
 
 
 def plot_cats(fromn=0, ton=9):

@@ -1,20 +1,20 @@
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 from data import KEYWORDS
 
 
-class SumKeyWords(LangdictCheck):
-    def check(self,langdict):
+class SumKeyWords(ArtdictCheck):
+    def check(self, articledict):
         print("Checking summary for keyword mentions")
-        for cl in langdict:
-            if "Summary" not in langdict[cl]:
-                langdict[cl]["PlainTextKeyword"] = 0
+        for title in articledict:
+            if "Summary" not in articledict[title]:
+                articledict[title]["PlainTextKeyword"] = 0
                 continue
-            summary = langdict[cl]["Summary"]
+            summary = articledict[title]["Summary"]
             if any(word in summary.lower() for word in KEYWORDS):
-                langdict[cl]["PlainTextKeyword"] = 1
+                articledict[title]["PlainTextKeyword"] = 1
             else:
-                langdict[cl]["PlainTextKeyword"] = 0
-        return langdict
+                articledict[title]["PlainTextKeyword"] = 0
+        return articledict
 
 
 if __name__ == '__main__':

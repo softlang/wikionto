@@ -1,33 +1,27 @@
-from check.langdictcheck import LangdictCheck
-from sklearn.feature_extraction.text import HashingVectorizer
-from sklearn.metrics.pairwise import linear_kernel
-from nltk.tokenize import sent_tokenize, word_tokenize
-from nltk.stem import SnowballStemmer
-from multiprocessing import Pool
-import string
+from check.abstract_check import ArtdictCheck
 
 
-class SeedWordSetSim(LangdictCheck):
+class SeedWordSetSim(ArtdictCheck):
 
-    def check(self, langdict):
+    def check(self, articledict):
         print("Annotating similarity to seed sentences")
 
-        seedwordlists = list(langdict[cl]["words"] for cl in langdict
-                             if "words" in langdict[cl] and langdict[cl]["Seed"] == 1)
+        seedwordlists = list(articledict[cl]["words"] for cl in articledict
+                             if "words" in articledict[cl] and articledict[cl]["Seed"] == 1)
 
         i = 0
-        for cl in langdict:
+        for title in articledict:
             i += 1
-            if "words" not in langdict[cl] or langdict[cl]["Seed"] == 1:
+            if "words" not in articledict[title] or articledict[title]["Seed"] == 1:
                 continue
-            words = set(langdict[cl]["words"])
+            words = set(articledict[title]["words"])
             if not words:
                 continue
             sims = map(lambda wordlist: len(set(wordlist) & set(words)), seedwordlists)
-            langdict[cl]["WordSetSim"] = max(sims)
+            articledict[title]["WordSetSim"] = max(sims)
             if i % 1000 == 0:
-                print(str(i) + "/" + str(len(langdict.items())))
-        return langdict
+                print(str(i) + "/" + str(len(articledict.items())))
+        return articledict
 
 
 if __name__ == '__main__':

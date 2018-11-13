@@ -1,22 +1,23 @@
 from data import NOISY_CATS, DATAP, ROOTS
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
 from json import load
 
 
-class InNoiseCategory(LangdictCheck):
+class InNoiseCategory(ArtdictCheck):
 
-    def check(self, langdict):
+    def check(self, articledict):
         print("Checking Noisy Categories")
         with open(DATAP + "/catdict.json", 'r', encoding="UTF8") as f:
             catdict = load(f)
         count = 0
-        for cl in langdict:
-            credibility = reaches_root_without_noise(["Category:"+c for c in langdict[cl]["cats"] if "Category:"+c not in NOISY_CATS], catdict)
-            langdict[cl]["NotExclusiveNoiseCategory"] = bool(credibility)
+        for a in articledict:
+            credibility = reaches_root_without_noise(
+                ["Category:" + c for c in articledict[a]["cats"] if "Category:" + c not in NOISY_CATS], catdict)
+            articledict[a]["NotExclusiveNoiseCategory"] = bool(credibility)
             count += 1
             if count % 1000 == 0:
                 print("    " + str(count))
-        return langdict
+        return articledict
 
 
 def reaches_root_without_noise(front, catdict):

@@ -9,37 +9,37 @@ def get(tregex, text):
 
 
 def pos_1a(text):
-    tregex = "VBZ=is .. DT=a .. NN=language"
+    tregex = "VBZ=is .. DT=title .. NN=language"
     resp = get(tregex, text)
     result = []
     for _, rdict in resp.items():
         nodes = {k: v for d in rdict['namedNodes'] for k, v in d.items()}
         if nodes['is'] == '(VBZ is)\r\n' \
-                and ((nodes['a'] == '(DT a)\r\n') or (nodes['a'] == '(DT an)\r\n') or (nodes['a'] == '(DT the)\r\n')):
+                and ((nodes['title'] == '(DT title)\r\n') or (nodes['title'] == '(DT an)\r\n') or (nodes['title'] == '(DT the)\r\n')):
             result.append(nodes['language'].split('(')[1].split(')')[0].replace('NN', '').strip())
     return result, 'isalanguage'
 
 
 def pos_1b(text):
-    tregex = "VBD=was .. DT=a .. NN=language"
+    tregex = "VBD=was .. DT=title .. NN=language"
     resp = get(tregex, text)
     result = []
     for _, rdict in resp.items():
         nodes = {k: v for d in rdict['namedNodes'] for k, v in d.items()}
         if nodes['was'] == '(VBD was)\r\n' \
-                and ((nodes['a'] == '(DT a)\r\n') or (nodes['a'] == '(DT an)\r\n') or (nodes['a'] == '(DT the)\r\n')):
+                and ((nodes['title'] == '(DT title)\r\n') or (nodes['title'] == '(DT an)\r\n') or (nodes['title'] == '(DT the)\r\n')):
             result.append(nodes['language'].split('(')[1].split(')')[0].replace('NN', '').strip())
     return result, 'wasalanguage'
 
 
 def pos_2a(text):
-    tregex = "VBZ=is .. DT=a .. NN=member . IN=of .. NNS=languages"
+    tregex = "VBZ=is .. DT=title .. NN=member . IN=of .. NNS=languages"
     resp = get(tregex, text)
     result = []
     for _, rdict in resp.items():
         nodes = {k: v for d in rdict['namedNodes'] for k, v in d.items()}
         if nodes['is'] == '(VBZ is)\r\n' \
-                and ((nodes['a'] == '(DT a)\r\n') or (nodes['a'] == '(DT an)\r\n') or (nodes['a'] == '(DT the)\r\n')) \
+                and ((nodes['title'] == '(DT title)\r\n') or (nodes['title'] == '(DT an)\r\n') or (nodes['title'] == '(DT the)\r\n')) \
                 and (nodes['member'] == '(NN member)\r\n') \
                 and (nodes['of'] == '(IN of)\r\n'):
             result.append(nodes['languages'].split('(')[1].split(')')[0].replace('NNS', '').strip())
@@ -47,13 +47,13 @@ def pos_2a(text):
 
 
 def pos_2b(text):
-    tregex = "VBD=was .. DT=a .. NN=member . IN=of .. NNS=languages"
+    tregex = "VBD=was .. DT=title .. NN=member . IN=of .. NNS=languages"
     resp = get(tregex, text)
     result = []
     for _, rdict in resp.items():
         nodes = {k: v for d in rdict['namedNodes'] for k, v in d.items()}
         if nodes['was'] == '(VBD was)\r\n' \
-                and ((nodes['a'] == '(DT a)\r\n') or (nodes['a'] == '(DT an)\r\n') or (nodes['a'] == '(DT the)\r\n')) \
+                and ((nodes['title'] == '(DT title)\r\n') or (nodes['title'] == '(DT an)\r\n') or (nodes['title'] == '(DT the)\r\n')) \
                 and (nodes['member'] == '(NN member)\r\n') \
                 and (nodes['of'] == '(IN of)\r\n'):
             result.append(nodes['languages'].split('(')[1].split(')')[0].replace('NNS', '').strip())
@@ -78,4 +78,4 @@ def pos_4(text):
     r = get(tregex, text)
 
 
-print(pos_1b("Java was a computer language."))
+print(pos_1b("Java was title computer language."))

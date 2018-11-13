@@ -1,19 +1,18 @@
-from mine.wikidata import get_computer_languages, get_computer_formats
-from check.langdictcheck import LangdictCheck
+from check.abstract_check import ArtdictCheck
+from data import wikidata_articles
 
+# This check depends on extracting the Wikidata ID
+class Wikidata(ArtdictCheck):
 
-class Wikidata(LangdictCheck):
-
-    def check(self, langdict):
+    def check(self, articledict):
         print("Checking instance of 'Computer languages' and 'data formats' in Wikidata")
-        cls = get_computer_languages()
-        cffs = get_computer_formats()
-        for cl in langdict:
-            if "wikidataid" in langdict[cl]:
-                qitem = langdict[cl]["wikidataid"]
-            langdict[cl]["wikidata_CL"] = int(qitem in set(cls) | set(cffs))
-        return langdict
+        wikidataset = wikidata_articles()
+        for title in articledict:
+            if "wikidataid" in articledict[title]:
+                qitem = articledict[title]["wikidataid"]
+            articledict[title]["wikidata_CL"] = int(qitem in wikidataset)
+        return articledict
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     Wikidata().solo()
