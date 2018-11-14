@@ -2,7 +2,7 @@ from json import load
 from data import DATAP
 
 
-f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
 ld = load(f)
 
 ls_i = [l for l in ld if ld[l]["ValidInfobox"]==1 and "(software)" in l]

@@ -14,9 +14,9 @@ HEADERS = FEATURES + METRICS
 
 
 def langdict_to_csv():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
-    with open(DATAP + '/langdict.csv', 'w', encoding="UTF8") as fcsv:
+    with open(DATAP + '/articledict.csv', 'w', encoding="UTF8") as fcsv:
         for cl in langdict:
             row = cl
             for p in HEADERS:
@@ -30,7 +30,7 @@ def langdict_to_csv():
 
 
 def load_langdict_csv():
-    f = open(DATAP + '/langdict.csv', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.csv', 'r', encoding="UTF8")
     df = pandas.read_csv(f, delimiter='<->', names=["name"]+HEADERS,
                          dtype={'name': object,
                                 "Seed": int,
@@ -76,7 +76,7 @@ def plot_features():
 
 
 def plot_feature(feature,title,ton=(CLDEPTH+1)):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     langdict["CLDepth"] = dict()
     langdict["CFFDepth"] = dict()
@@ -105,7 +105,7 @@ def plot_feature(feature,title,ton=(CLDEPTH+1)):
     plt.show()
 
 def plot_articlesdepth(ton=(CLDEPTH+1)):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     langdict["CLDepth"] = dict()
     langdict["CFFDepth"] = dict()

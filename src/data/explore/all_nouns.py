@@ -36,7 +36,7 @@ def get_nouns(cl_to_texts):
 
 
 if __name__ == '__main__':
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     d = load(f)
     cl_to_texts = [(cl, d[cl]["Summary"]) for cl in d if "Summary" in d[cl]]
     pool = Pool(processes=4)

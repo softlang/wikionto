@@ -67,4 +67,4 @@ def words_in_tags_in_titles_braces(name, seed=True):
 
 
 if __name__ == '__main__':
-    tags_in_titles_braces('langdict')
+    tags_in_titles_braces('articledict')

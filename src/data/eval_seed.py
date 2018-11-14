@@ -3,7 +3,7 @@ from json import load, dump
 
 
 def get_n(n):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     for cl, p in langdict.items():
         if p["Seed"] == 1:

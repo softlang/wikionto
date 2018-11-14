@@ -6,7 +6,7 @@ from json import load
 def stratify_thoughts_and_statistics():
     f = open(DATAP + "/catdict.json", "r")
     cd = load(f)
-    f = open(DATAP + "/langdict.json", "r")
+    f = open(DATAP + "/articledict.json", "r")
     ld = load(f)
 
     stat_cat_none = [c for c in cd if cd[c]["#SLs"] + cd[c]["#NonSLs"] == 0]

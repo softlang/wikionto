@@ -25,11 +25,11 @@ def check_reachable_by(langdict, c):
 def solo():
     import json
     for c in ex_cat:
-        with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+        with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
             langdict = json.load(f)
             langdict = check_reachable_by(langdict,c)
             f.close()
-        with open(DATAP + '/langdict.json', 'w', encoding="UTF8") as f:
+        with open(DATAP + '/articledict.json', 'w', encoding="UTF8") as f:
             json.dump(obj=langdict, fp=f, indent=2)
             f.flush()
             f.close()

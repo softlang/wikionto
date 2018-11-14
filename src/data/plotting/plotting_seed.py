@@ -75,7 +75,7 @@ def plot_seed_depth(ton):
 
 
 def plot_negative_seed_depth(ton):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []

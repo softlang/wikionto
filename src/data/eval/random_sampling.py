@@ -9,7 +9,7 @@ from math import sqrt
 indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
 
 def perform_eval():
-    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
 
     articles_visited = set()

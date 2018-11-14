@@ -52,7 +52,7 @@ def reverse_properties():
 
 
 def properties_to_articles():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     with open(DATAP + '/all_props.json', 'r', encoding="UTF8") as f:
         propdict = load(f)
@@ -155,7 +155,7 @@ def property_lattice():
 
 
 def seed_properties():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     f.close()
     f = open(DATAP + '/all_props.json', 'r', encoding="UTF8")

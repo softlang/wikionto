@@ -21,7 +21,7 @@ def check_sl(l,d):
     return any(d[l][c]==1 for c in checks)
 
 def pos_vs_cop():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["StanfordCOPHypernym"] == 1):
@@ -29,7 +29,7 @@ def pos_vs_cop():
 
 
 def dbpediahyp_vs_pos():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     cldict = load(f)
     for cl in cldict:
         if (cldict[cl]["StanfordPOSHypernym"] == 0) and (cldict[cl]["DbpediaHypernym"] == 1):
@@ -37,7 +37,7 @@ def dbpediahyp_vs_pos():
 
 
 def dbpediaprop_vs_pos():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     lf = pd.DataFrame(langdict).transpose()
     catalog = lf.reindex(columns=["StanfordPOSHypernym", "DbpediaInfobox"])
@@ -55,7 +55,7 @@ def dbpediaprop_vs_pos():
 
 
 def dbpediaprop_single_vs_pos():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     for cl in langdict:
         if "properties" not in langdict[cl]:
@@ -72,7 +72,7 @@ def dbpediaprop_single_vs_pos():
 
 def versus():
     print("POS vs Gitseed")
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     for cl in langdict:
         if (langdict[cl]["GitSeed"] == 1) and ("POS" not in langdict[cl]) and ("POSX" not in langdict[cl]):
@@ -80,7 +80,7 @@ def versus():
 
 
 def seed_depth():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     max_cl = 0
     max_cff = 0
@@ -95,7 +95,7 @@ def seed_depth():
 
 
 def count_pos_variants():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     pat = {p for cl in langdict for p in langdict[cl] if p.startswith('POS_')}
     pxdict = {p: {cl for (cl, cldict) in langdict.items() if p in cldict} for p in pat}
@@ -104,7 +104,7 @@ def count_pos_variants():
 
 
 def get_nohitpos():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     cls = [cl for cl in langdict if langdict[cl]["Summary"] == 'No Summary']
     print(len(cls))
@@ -122,7 +122,7 @@ def get_nohitpos():
 
 
 def topflop_pos_semdist():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
 
     pattern = ["POS_isa",
@@ -184,7 +184,7 @@ def topflop_pos_semdist():
             print("    " + str(cllist[x]))
 
 def POS_vs_URL():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     f.close()
     for cl, d in langdict.items():

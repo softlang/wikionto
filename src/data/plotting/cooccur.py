@@ -6,7 +6,7 @@ from data import DATAP
 from json import load
 
 
-f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
 langdict = load(f)
 f.close()
 

@@ -3,7 +3,7 @@ from data import DATAP
 
 
 def pos_vs_neginfobox():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     ld = load(f)
     rs = [cl for cl in ld if ld[cl]["POS"] == 1 and ld[cl]["negativeSeed"] == 1]
     ns = [cl for cl in ld if ld[cl]["negativeSeed"] == 1]
@@ -13,7 +13,7 @@ def pos_vs_neginfobox():
 
 
 def pos_vs_posinfobox():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     ld = load(f)
     rs1 = [cl for cl in ld if "Summary" in ld[cl] and ld[cl]["POS"] == 0 and ld[cl]["ValidInfobox"] == 1]
     ns = [cl for cl in ld if "Summary" in ld[cl] and ld[cl]["ValidInfobox"] == 1]

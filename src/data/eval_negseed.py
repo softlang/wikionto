@@ -4,13 +4,13 @@ from random import randint
 
 
 def count_negative_seed_candidates():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     d = load(f)
     print(len([cl for cl in d if d[cl]["negativeSeedCandidate"] == 1]))
 
 
 def create_negative_seed_pre():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     d = load(f)
     tempd = dict()
     for cl in d:
@@ -28,7 +28,7 @@ def create_negative_seed_pre():
 def create_negative_seed():
     f = open(DATAP + '/seed_neg_pre.json', 'r', encoding="UTF8")
     d = load(f)
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     ld = load(f)
     nsd = dict()
     for ib, cls in d.items():
@@ -51,7 +51,7 @@ def create_negative_seed():
 def check_negative_seed():
     f = open(DATAP + '/seed_neg.json', 'r', encoding="UTF8")
     d = load(f)
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     ld = load(f)
     for cl in d:
         print(cl)

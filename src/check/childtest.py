@@ -6,6 +6,7 @@ from check.abstract_check import CatdictCheck
 class ChildCheck(CatdictCheck):
 
     def check(self, catdict, articledict):
+        print("Checking direct and transitive children")
         for c in catdict:
             seed, sls, no_sls = get_transitive_positive_negative_children(c, catdict, articledict)
             catdict[c]["#Seed-trans"] = len(seed)

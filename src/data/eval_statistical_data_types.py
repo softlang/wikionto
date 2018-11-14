@@ -3,7 +3,7 @@ from data import DATAP
 from collections import deque
 from data.eval import check_sl
 
-f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
 ld = load(f)
 
 f = open(DATAP + '/catdict.json', 'r', encoding="UTF8")

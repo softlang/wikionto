@@ -1,7 +1,7 @@
 from data import DATAP, XKEYWORDS
 from json import load
 
-f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
 ld = load(f)
 
 for k1, k2 in XKEYWORDS:

@@ -6,7 +6,7 @@ from io import StringIO
 
 
 def plot_urlbraces(ton):
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []

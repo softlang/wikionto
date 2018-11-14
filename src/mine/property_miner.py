@@ -11,10 +11,10 @@ def add_properties(langdict):
 
 
 if __name__ == '__main__':
-    with open(DATAP + '/langdict.json', 'r', encoding='utf8') as f:
+    with open(DATAP + '/articledict.json', 'r', encoding='utf8') as f:
         langdict = load(f)
         langdict = add_properties(langdict)
-    with open(DATAP + '/langdict.json', 'w', encoding='utf8') as f:
+    with open(DATAP + '/articledict.json', 'w', encoding='utf8') as f:
         dump(langdict, f, indent=2)
         f.flush()
         f.close()

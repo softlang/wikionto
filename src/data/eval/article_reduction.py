@@ -13,7 +13,7 @@ def check_sl(l, d):
 
 def print_reduction():
     ton = 9
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     df = DataFrame(columns=['#seed', '#art', '#rec_art', '#rec_nonseed', 'reduced %'],
                    index=['Formal languages', 'Computer file formats', 'Installation software'])

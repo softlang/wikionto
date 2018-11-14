@@ -3,7 +3,7 @@ from json import load
 
 
 def get_list_linked_seed():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     d = load(f)
     f.close()
     sl = list(

@@ -25,7 +25,7 @@ def recognize():
             tiobedict[line[:-1]]['hints'] = None
     f.close()
 
-    f = open(DATAP+'/langdict.json', 'r', encoding="utf8")
+    f = open(DATAP+'/articledict.json', 'r', encoding="utf8")
     langdict = load(f)
     f.close()
     for tl in tiobedict:

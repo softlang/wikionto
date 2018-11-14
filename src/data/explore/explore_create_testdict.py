@@ -3,7 +3,7 @@ from data import DATAP
 
 
 def create_testdict():
-    with open(DATAP + '/langdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
         f.close()
 

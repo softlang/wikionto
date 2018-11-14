@@ -30,7 +30,7 @@ def get_single(summary):
 
 
 def explore():
-    f = open(DATAP + '/langdict.json', 'r', encoding="utf8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="utf8")
     d = load(f)
     f.close()
     cl_sums = list(d[cl]["Summary"] for cl in d if ("Summary" in d[cl]) and (d[cl]["Seed"] == 1))

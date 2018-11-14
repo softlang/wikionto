@@ -90,6 +90,7 @@ offset ?offset
         articles.add(article)
     return articles
 
+
 def articles_with_commons(root, mindepth, maxdepth):
     querytext = """
     PREFIX dct: <http://purl.org/dc/terms/>
@@ -108,158 +109,12 @@ def articles_with_commons(root, mindepth, maxdepth):
     acdict = dict()
     for result in results:
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
-        commons = result["article"]["value"].replace("Category:","")
+        commons = result["article"]["value"]
         if article in acdict:
             acdict[article].append(commons)
         else:
             acdict[article] = [commons]
     return acdict
-
-def get_properties(root, mindepth, maxdepth, langdict):
-    sparql = SPARQLWrapper(DBPEDIALIVE)
-    sparql.setReturnFormat(JSON)
-    offset = 0
-    querytext = """
-    PREFIX dct: <http://purl.org/dc/terms/>
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    SELECT DISTINCT ?article ?property where { 
-        SELECT DISTINCT ?article ?property WHERE{ 
-            ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
-            FILTER(regex(str(?property),"dbpedia.org/property","i"))
-            ?article ?property ?o .
-        }
-        GROUP BY ?property
-        ORDER BY ASC(?property)
-    }
-    limit 10000
-    offset ?offset
-        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
-    oldpropname = ""
-    while True:
-        fquery = querytext
-        fquery = fquery.replace("?offset", str(offset))
-        sparql.setQuery(fquery)
-        while True:
-            try:
-                res = sparql.query()
-                break
-            except HTTPError:
-                print("    HTTP error! Sleeping 5 secs...")
-                sleep(15)
-        qres = res.convert()
-
-        size = len(qres["results"]["bindings"])
-
-        for result in qres["results"]["bindings"]:
-            article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
-            propname = result["property"]["value"].replace("http://dbpedia.org/property/", "")
-            if oldpropname != propname:
-                oldpropname = propname
-            if "properties" in langdict[article]:
-                langdict[article]["properties"].append(propname)
-            else:
-                langdict[article]["properties"] = [propname]
-        if size == 10000:
-            offset += 10000
-        if size != 10000:
-            break
-    return langdict
-
-
-def properties_in(root, mindepth, maxdepth):
-    queryText = """
-    PREFIX dbo: <http://dbpedia.org/ontology/>
-    PREFIX dbr: <http://dbpedia.org/resource/>
-    PREFIX dct: <http://purl.org/dc/terms/>
-    SELECT ?prop, (COUNT(?article) as ?count) where { 
-        SELECT DISTINCT ?article ?prop where {
-            ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
-
-            FILTER(regex(str(?prop),"http://dbpedia.org/property","i"))
-            ?article ?prop ?object .   
-        }
-        GROUP BY ?prop
-    }
-    GROUP BY ?prop
-    ORDER BY DESC(?count)
-        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
-    results = query(queryText, use_offset=False)
-    propdict = dict()
-    for result in results:
-        propname = result["prop"]["value"].replace("http://dbpedia.org/property/", "")
-        in_count = int(result["count"]["value"])
-        propdict[propname] = dict()
-        propdict[propname]["in_count"] = in_count
-    return propdict
-
-
-def reverse_properties_in(root, mindepth, maxdepth):
-    queryText = """
-    PREFIX dbo: <http://dbpedia.org/ontology/>
-    PREFIX dbr: <http://dbpedia.org/resource/>
-    PREFIX dct: <http://purl.org/dc/terms/>
-    SELECT ?prop, (COUNT(?article) as ?count) where { 
-        SELECT DISTINCT ?article ?prop where {
-            ?root ^skos:broader{?mindepth,?maxdepth}/^dct:subject ?article.
-
-            FILTER(regex(str(?prop),"http://dbpedia.org/property","i"))
-            ?o ?prop ?article .   
-        }
-        GROUP BY ?prop
-    }
-    GROUP BY ?prop
-    HAVING(COUNT(?article) > 50)
-    ORDER BY DESC(?count)
-        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
-    results = query(queryText, use_offset=False)
-    propdict = dict()
-    for result in results:
-        propname = result["prop"]["value"].replace("http://dbpedia.org/property/", "")
-        in_count = int(result["count"]["value"])
-        propdict[propname] = dict()
-        propdict[propname]["in_count"] = in_count
-    return propdict
-
-
-def articles_out_with(propname, mindepthcl, maxdepthcl, mindepthcff, maxdepthcff):
-    prop_out_query = """
-    PREFIX dbr: <http://dbpedia.org/resource/>
-    PREFIX dct: <http://purl.org/dc/terms/>
-    SELECT DISTINCT ?article where {
-        ?article ?property ?object . 
-        FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepthcl,?maxdepthcl} <http://dbpedia.org/resource/Category:Computer_languages>.
-        }
-        FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepthcff,?maxdepthcff} <http://dbpedia.org/resource/Category:Computer_file_formats>.
-        }  
-    }
-    LIMIT 10000
-    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>') \
-        .replace("?mindepthcl", str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl)) \
-        .replace("?mindepthcff", str(mindepthcff)).replace("?maxdepthcff", str(maxdepthcff))
-    return len(query(query=prop_out_query, use_offset=False))
-
-
-def articles_out_with_reverse(propname, mindepthcl, maxdepthcl, mindepthcff, maxdepthcff):
-    prop_out_query = """
-    PREFIX dbr: <http://dbpedia.org/resource/>
-    PREFIX dct: <http://purl.org/dc/terms/>
-    SELECT DISTINCT ?article where {
-        FILTER(regex(str(?article),"dbpedia.org/resource","i"))
-        ?object ?property ?article . 
-        FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepthcl,?maxdepthcl} <http://dbpedia.org/resource/Category:Computer_languages>.
-        }
-        FILTER NOT EXISTS {
-            ?article dct:subject/skos:broader{?mindepthcff,?maxdepthcff} <http://dbpedia.org/resource/Category:Computer_file_formats>.
-        }  
-    }
-    LIMIT 10000
-    """.replace("?property", '<http://dbpedia.org/property/' + propname + '>') \
-        .replace("?mindepthcl", str(mindepthcl)).replace("?maxdepthcl", str(maxdepthcl)) \
-        .replace("?mindepthcff", str(mindepthcff)).replace("?maxdepthcff", str(maxdepthcff))
-    return len(query(query=prop_out_query, use_offset=False))
 
 
 def articles_with_redirects(root, mindepth, maxdepth):
@@ -464,6 +319,31 @@ offset ?offset
     return cat_subcat
 
 
+def category_to_supercategory_below(root, mindepth, maxdepth):
+    cat_subcat = dict()
+    querytext = """
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?cat ?supercat where { 
+    SELECT DISTINCT ?cat ?supercat where {
+        ?cat skos:broader{?mindepth,?maxdepth} ?root.
+        ?supercat ^skos:broader ?cat.
+    }
+    ORDER BY ASC(?cat)
+}
+limit 10000
+offset ?offset
+    """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    results = query(querytext)
+    for result in results:
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/", "")
+        supercat = result["supercat"]["value"].replace("http://dbpedia.org/resource/", "")
+        if cat not in cat_subcat:
+            cat_subcat[cat] = []
+        cat_subcat[cat].append(supercat)
+    return cat_subcat
+
+
 def category_to_articles_below(root, mindepth, maxdepth):
     cat_articles = defaultdict(dict)
     querytext = """
@@ -481,7 +361,7 @@ offset ?offset
     """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
     results = query(querytext)
     for result in results:
-        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/", "")
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
         if cat not in cat_articles:
             cat_articles[cat]["articles"] = []
@@ -507,7 +387,7 @@ offset ?offset
     results = query(querytext)
     for result in results:
         article = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
-        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/Category:", "")
+        cat = result["cat"]["value"].replace("http://dbpedia.org/resource/", "")
         if article not in article_cats:
             article_cats[article] = []
         article_cats[article].append(cat)

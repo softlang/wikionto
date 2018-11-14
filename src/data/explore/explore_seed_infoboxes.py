@@ -3,7 +3,7 @@ from json import load, dump
 
 
 def explore():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     f.close()
     freq = dict()
@@ -22,7 +22,7 @@ def explore():
 
 
 def find_software_pl():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     langdict = load(f)
     f.close()
     cls = [cl for cl in langdict if "DbpediaInfoboxTemplate" in langdict[cl]

@@ -6,9 +6,9 @@ import collections
 def interactive():
     f = open(DATAP + '/catdict.json', 'r', encoding="UTF8")
     cd = load(f)
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     ld = load(f)
-    cats = ["Category:"+c for c in ld["In_the_Blue_of_Evening"]["cats"] if "Category:"+c in cd]
+    cats = [c for c in ld["In_the_Blue_of_Evening"]["cats"] if c in cd]
     noise = set()
     #repeat this line interactively
     cats = set(supercat for c in cats for supercat in cd[c]["supercats"] if
@@ -17,7 +17,7 @@ def interactive():
 
 
 def dump_gt_1000():
-    f = open(DATAP + '/langdict.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
     ld = load(f)
     hyps = [hyp for l in ld if "POSHypernyms" in ld[l] for hyp in ld[l]["POSHypernyms"]]
     counter = collections.Counter(hyps)
