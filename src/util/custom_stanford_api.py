@@ -9,8 +9,6 @@ class StanfordCoreNLP:
     """
 
     def __init__(self, url, session=Session()):
-        if url[-1] == '/':
-            url = url[:-1]
         self.server_url = url
         self.session = session
 
@@ -19,27 +17,32 @@ class StanfordCoreNLP:
 
         properties = {
             "annotators": annotators,
-            # "outputFormat": "json",
-            # Only split the sentence at End Of Line. We assume that this method only takes in one single sentence.
-            # "ssplit.eolonly": "true",
             # Setting enforceRequirements to skip some annotators and make the process faster
-            "enforceRequirements": "true"
+            "enforceRequirements": "false",
+            #'timeout': 6000000,
+            'tokenize.options': 'untokenizable=allDelete'
         }
         params = dict()
         params['properties'] = str(properties)
 
         if pattern is not None:
-            params['pattern'] = pattern.encode()
+            params['pattern'] = pattern
 
         try:
             with self.session.get(self.server_url) as req:
-                data = text.encode()
+                data = text.encode('utf-8')
                 r = requests.post(
                     self.server_url, params=params, data=data, headers={'Connection': 'close'})
-                output = r.text
-                if ('outputFormat' in properties
-                        and properties['outputFormat'] == 'json'):
-                    output = json.loads(output, encoding='utf-8', strict=True)
+                if r.status_code == 500:
+                    print(r.content)
+                    raise Exception500
+                output = r.json()
+                # output = json.loads(r.text, encoding='utf-8', strict=True)
+
         except requests.exceptions.ConnectionError:
             return self.annotate(text, properties)
         return output
+
+
+class Exception500(Exception):
+    pass

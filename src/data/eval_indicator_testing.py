@@ -1,4 +1,4 @@
-from data import load_articledict
+from data import load_articledict, INDICATORS
 from pandas import read_csv
 from io import StringIO
 
@@ -7,7 +7,8 @@ ld = load_articledict()
 posseed = set(l for l in ld if ld[l]["PositiveInfobox"] == 1)
 negseed = set(l for l in ld if ld[l]["NegativeInfobox"] == 1)
 
-inds = ["URLBracesPattern", "In_Wikipedia_List", "POS", "PlainTextKeyword"]
+inds = INDICATORS
+inds.remove("PositiveInfobox")
 csvtext = ""
 for p in inds:
     tp = len(set(l for l in posseed if ld[l][p] == 1))

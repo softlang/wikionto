@@ -1,6 +1,6 @@
 import unittest
 from check.pos_firstsentence import HypNLPSent
-from check.pos_firstsentence_auto import HypNLPSent as HypNLPSent2
+from check.pos_firstsentence import HypNLPSent as HypNLPSent2
 from check.pos_summary import check_single as check2
 from test import ignore_warnings
 import requests

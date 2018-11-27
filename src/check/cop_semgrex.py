@@ -1,5 +1,7 @@
 import requests
 import threading
+from util.custom_stanford_api import StanfordCoreNLP, Exception500
+
 VARIANT_IDS = ['The', 'isa', 'isoneof', 'isnameof', 'ismemberof', 'isfamilyof']
 
 
@@ -18,21 +20,20 @@ class COPSemgrex():
         self.text = text
 
     def run(self):
-        url = "http://localhost:9000/semgrex/"
         while not is_alive():
             print("Not alive")
             threading.sleep(50)
         cops = dict()
         for variant in VARIANT_IDS:
-            properties = {'timeout': 6000000,
-                          "enforceRequirements": "true",
-                          'annotators': 'tokenize, ssplit, pos, lemma, depparse'}
-            request_params = {"pattern": self.semgrex_dict[variant], 'properties': str(properties)}
-            r = requests.post(url, data=self.text.encode(), params=request_params, headers={'Connection': 'close'})
-            if r.status_code == 500:
-                print(r.content)
+            try:
+                parser = StanfordCoreNLP(url='http://localhost:9000/semgrex/')
+                responsedict = parser.annotate(text=self.text,
+                                               annotators='tokenize, ssplit, pos, lemma, depparse',
+                                               pattern=self.semgrex_dict[variant])
+                cops[variant] = get_noun(responsedict)
+            except Exception500:
                 cops[variant] = []
-            cops[variant] = get_noun(r.json())
+
         return cops
 
 

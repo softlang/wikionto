@@ -1,68 +1,93 @@
 from multiprocessing import Pool
-from nltk.parse.corenlp import CoreNLPDependencyParser
+from util.custom_stanford_api import StanfordCoreNLP
+from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
-from check.pos_pattern import cop_hypernym, pos_hypernyms
+from json import loads
+
+from data import KEYWORDS, XKEYWORDS
+from check.pos_hearst_automaton import HearstAutomaton
 from check.abstract_check import ArtdictCheck
 
-
-class SummaryHypernyms(ArtdictCheck):
-
-    def check(self, artdict):
-        print("Checking Hypernym with Stanford")
-
-        summaries = []
-        for a in artdict:
-            summaries.append((a, artdict[a]["Summary"]))
-        pool = Pool(processes=8)
-        parsed_pairs = pool.map(check_single, summaries)
-        parsed_pairs = dict(parsed_pairs)
-        for a in artdict:
-            summary = artdict[a]["Summary"]
-            hyp = parsed_pairs[a]
-            if (summary == "No Summary") | (hyp is None):
-                artdict[a]["SumPOSLanguage"] = 0
-                artdict[a]["SumCOPLanguage"] = 0
-                artdict[a]["SumPOSFormat"] = 0
-                artdict[a]["SumCOPFormat"] = 0
-            else:
-                pos, cop = hyp
-                artdict[a]["SumPOSHypernyms"] = pos
-                artdict[a]["SumCOPHypernym"] = cop
-                artdict[a]["SumPOSLanguage"] = int(bool(list(filter(lambda w: w.endswith("language"), pos)))
-                                                   | bool(list(filter(lambda w: w.endswith("languages"), pos))))
-                artdict[a]["SumCOPLanguage"] = int(str(cop).endswith("language") | str(cop).endswith("languages"))
-                artdict[a]["SumPOSFormat"] = int(bool(list(filter(lambda w: w.endswith("format"), pos)))
-                                                 | bool(list(filter(lambda w: w.endswith("formats"), pos))))
-                artdict[a]["SumCOPFormat"] = int(str(cop).endswith("format") | str(cop).endswith("formats"))
-        return artdict
+import requests
 
 
-def check_single(pair):
-    title = pair[0]
-    summary = pair[1]
-    if summary.startswith('.'):
-        summary = summary[1:]
-    dep_parser = CoreNLPDependencyParser(url='http://localhost:9000')
-    while True:
+class HypNLPSummary(ArtdictCheck):
+
+    def check_single(self, triple):
+        title = triple[0]
+        summary = triple[1]
+        session = triple[2]
+        sents = sent_tokenize(summary)
+        if len(sents) < 1:
+            print(title + ":" + summary)
+            return title, None
+        parser = StanfordCoreNLP(url='http://localhost:9000', session=session)
         try:
-            parsed = dep_parser.parse_text(summary)
+            parsedict = parser.annotate(summary)
             pos_list = []
-            cop_list = []
-            for p in parsed:
-                pos_list += pos_hypernyms(p)
-                cop_list += cop_hypernym(p)
-            return title, (pos_list, cop_list)
+            for x in range(len(parsedict["sentences"])):
+                parsedict = index_keyvalue_to_key(parsedict["sentences"][x]["tokens"])
+                pos_list.append(HearstAutomaton(parsedict).run())
+            return title, pos_list
         except JSONDecodeError:
             print("Decode Error at :" + title)
             return title, None
         except StopIteration:
             print("Stopped at " + title)
-            return title, (pos_list, cop_list)
+            return title, None
         except HTTPError:
             print("HTTPError " + title)
             return title, None
 
+    def check(self, artdict):
+        print("Checking Hypernym with Stanford")
+        session = requests.Session()
+        for a in artdict:
+            artdict[a]["SUMMARY_POS"] = 0
+        summaries = []
+        for a in artdict:
+            if "Summary" in artdict[a]:
+                summaries.append((a, artdict[a]["Summary"], session))
+        pool = Pool(processes=4)
+
+        parsed_pairs = pool.map(self.check_single, summaries)
+        parsed_pairs = dict(parsed_pairs)
+        for a in artdict:
+            if "Summary" not in artdict[a]:
+                continue
+            pos_dict_list = parsed_pairs[a]
+            if pos_dict_list is not None:
+                artdict[a]["SUMMARY_POSHypernym"] = []
+                for posdict in pos_dict_list:
+                    for variant, hypernyms in posdict.items():
+                        if "SUMMARY_POS" + variant not in artdict[a]:
+                            artdict[a]["SUMMARY_POS" + variant] = []
+                        artdict[a]["SUMMARY_POS" + variant].append(hypernyms)
+                    pos = [hyp for hyplist in posdict.values() for hyp in hyplist]
+
+                    artdict[a]["SUMMARY_POSHypernym"].append(pos)
+                    if any(p.lower().endswith(kw) or p.lower().endswith(kw + 's') for p in pos for kw in KEYWORDS):
+                        artdict[a]["SUMMARY_POS"] = 1
+
+                    for k1, k2 in XKEYWORDS:
+                        if any(p.lower().endswith(k1) or p.lower().endswith(k1 + 's') for p in pos) \
+                                and any(p.lower().endswith(k2) or p.lower().endswith(k2 + 's') for p in pos):
+                            artdict[a]["SUMMARY_POSX_" + k1 + k2] = 1
+                        else:
+                            artdict[a]["SUMMARY_POSX_" + k1 + k2] = 0
+        return artdict
+
+
+def index_keyvalue_to_key(parsedict_list):
+    result = dict()
+    for parsedict in parsedict_list:
+        d = parsedict
+        index = parsedict["index"]
+        del d["index"]
+        result[index] = d
+    return result
+
 
 if __name__ == "__main__":
-    SummaryHypernyms().solo()
+    HypNLPSummary().solo()

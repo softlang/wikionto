@@ -9,13 +9,15 @@ class FoldocTopic(ArtdictCheck):
         f = open(DATAP + "/temp/Foldoc_words.txt", "r", encoding="utf-8")
         words = []
         for line in f:
-            words.append(line)
+            words.append(line.replace("\n", ""))
         symbols = [".", ",", ";", ""]
+        wordsymbols = [word + symbol + " " for word in words for symbol in symbols]
         for a in artdict:
             artdict[a]["Foldoc"] = 0
             if "Summary" in artdict[a]:
                 summary = artdict[a]["Summary"]
-                artdict[a]["Foldoc"] = int(any(word + symbol + " " in summary for word in words for symbol in symbols))
+                r = int(any(wordsymbol in summary for wordsymbol in wordsymbols))
+                artdict[a]["Foldoc"] = r
         return artdict
 
 

@@ -1,11 +1,11 @@
 from multiprocessing import Pool
-from util.CustomDependencyParser import CustomParser
+from util.custom_stanford_api import StanfordCoreNLP
 from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
 
 from data import KEYWORDS, XKEYWORDS
-from check.pos_pattern import cop_hypernym, pos_hypernyms
+from check.pos_hearst_automaton import HearstAutomaton
 from check.abstract_check import ArtdictCheck
 
 import requests
@@ -21,18 +21,18 @@ class HypNLPSent(ArtdictCheck):
         if len(sents) < 1:
             print(title + ":" + summary)
             return title, None
-        summary = sents[0]
+        first_sentence = sents[0]
         if sents[0] is "." or sents[0] is "" or sents[0].startswith("See also"):
             if len(sents) > 1:
-                summary = sents[1]
+                first_sentence = sents[1]
             else:
                 return title, None
-        dep_parser = CustomParser(url='http://localhost:9000', session=session)
+        parser = StanfordCoreNLP(url='http://localhost:9000', session=session)
         try:
-            parse, = dep_parser.raw_parse(summary)
-            pos = pos_hypernyms(parse)
-            cop = cop_hypernym(parse)
-            return title, (pos, cop)
+            parsedict = parser.annotate(first_sentence)
+            parsedict = index_keyvalue_to_key(parsedict["sentences"][0]["tokens"])
+            pos = HearstAutomaton(parsedict).run()
+            return title, pos
         except JSONDecodeError:
             print("Decode Error at :" + title)
             return title, None
@@ -47,7 +47,7 @@ class HypNLPSent(ArtdictCheck):
         print("Checking Hypernym with Stanford")
         session = requests.Session()
         for a in artdict:
-            artdict[a]["O_POS"] = 0
+            artdict[a]["POS"] = 0
         summaries = []
         for a in artdict:
             if "Summary" in artdict[a]:
@@ -57,32 +57,33 @@ class HypNLPSent(ArtdictCheck):
         parsed_pairs = pool.map(self.check_single, summaries)
         parsed_pairs = dict(parsed_pairs)
         for a in artdict:
-            if "Summary" not in artdict[a]:
-                continue
-            hyp = parsed_pairs[a]
-            if hyp is not None:
-                (pos, s), cop = hyp
-                artdict[a]["O_POSHypernyms"] = pos
-                artdict[a]["O_COPHypernym"] = cop
-                artdict[a]["O_POS_isa"] = 0
-                artdict[a]["O_POS_isoneof"] = 0
-                artdict[a]["O_POS_The"] = 0
-                if len(s) > 0:
-                    artdict[a]["O_POS_" + s] = 1
+            artdict[a]["POS"] = 0
+            posdict = parsed_pairs[a]
+            if posdict is not None:
+                for variant, hypernyms in posdict.items():
+                    artdict[a]["POS" + variant] = hypernyms
+                pos = [hyp for hyplist in posdict.values() for hyp in hyplist]
+                artdict[a]["POSHypernym"] = pos
                 if any(p.lower().endswith(kw) or p.lower().endswith(kw + 's') for p in pos for kw in KEYWORDS):
-                    artdict[a]["O_POS"] = 1
+                    artdict[a]["POS"] = 1
 
                 for k1, k2 in XKEYWORDS:
                     if any(p.lower().endswith(k1) or p.lower().endswith(k1 + 's') for p in pos) \
                             and any(p.lower().endswith(k2) or p.lower().endswith(k2 + 's') for p in pos):
-                        artdict[a]["O_POSX_" + k1 + k2] = 1
+                        artdict[a]["POSX_" + k1 + k2] = 1
                     else:
-                        artdict[a]["O_POSX_" + k1 + k2] = 0
-
-                if cop is not None:
-                    if any(kw in c.lower() for c in cop for kw in KEYWORDS):
-                        artdict[a]["O_COP"] = 1
+                        artdict[a]["POSX_" + k1 + k2] = 0
         return artdict
+
+
+def index_keyvalue_to_key(parsedict_list):
+    result = dict()
+    for parsedict in parsedict_list:
+        d = parsedict
+        index = parsedict["index"]
+        del d["index"]
+        result[index] = d
+    return result
 
 
 if __name__ == "__main__":

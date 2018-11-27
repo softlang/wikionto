@@ -38,7 +38,7 @@ def retrievelists():
 DEPTH = 8
 ROOTS = ["Category:Formal_languages", "Category:Computer_file_formats", "Category:Installation_software"]
 
-INDICATORS = ["POS", "PositiveInfobox", "In_Wikipedia_List", "URLBracesPattern"]
+INDICATORS = ["PositiveInfobox", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS", "COP"]
 
 # CONFIG FOR INDICATORS
 # - for POS and URLBracesPattern

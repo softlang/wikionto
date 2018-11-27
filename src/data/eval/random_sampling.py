@@ -1,12 +1,10 @@
-from data import DATAP
+from data import DATAP, INDICATORS
 from json import load
 import random
 import numpy
 import pandas as pd
 from math import sqrt
 
-
-indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
 
 def perform_eval():
     with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
@@ -45,35 +43,30 @@ def perform_eval():
 
 
 def get_classification(title, langdict):
-    resultdict = {ind: langdict[title][ind] for ind in indicators}
+    resultdict = {ind: langdict[title][ind] for ind in INDICATORS if ind in langdict[title]}
     resultdict['Complementary'] = sum(resultdict.values()) > 0
     return resultdict
 
 
 def get_article_tags():
-    with open(DATAP + '/temp/olangdict.json', 'r', encoding="UTF8") as f:
+    with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
     with open(DATAP + '/eval/random.csv', 'r', encoding="UTF8") as f:
         df = pd.read_csv(f, delimiter=',', quotechar='|', names=['title', 'tag'])
         df.set_index('title')
-        vi = []
-        urlbp = []
-        iwl = []
-        pos = []
-        comp = []
-        keyws = []
+        indicatorrow = dict()
+        for ind in INDICATORS:
+            indicatorrow[ind] = []
+
         for title in df['title']:
+            if title not in langdict:
+                print(title)
+                continue
             classifdict = get_classification(title, langdict)
-            vi.append(classifdict['ValidInfobox'])
-            urlbp.append(classifdict['URLBracesPattern'])
-            iwl.append(classifdict['In_Wikipedia_List'])
-            pos.append(classifdict['POS'])
-            comp.append(classifdict['Complementary'])
-        df['ValidInfobox'] = vi
-        df['URLBracesPattern'] = urlbp
-        df['In_Wikipedia_List'] = iwl
-        df['POS'] = pos
-        df['Complementary'] = comp
+            for ind in INDICATORS:
+                indicatorrow[ind].append(classifdict[ind])
+        for ind in INDICATORS:
+            df[ind] = indicatorrow[ind]
     return df
 
 
@@ -81,7 +74,7 @@ def analyze_language_class():
     df = get_article_tags()
 
     dfsum = pd.DataFrame()
-    headers = indicators + ["Complementary"]
+    headers = INDICATORS + ["Complementary"]
     dfsum['Name'] = headers
     dfsum.set_index('Name')
     tps = []
@@ -106,16 +99,16 @@ def analyze_language_class():
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
     dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
     dfsum['Acc'] = (dfsum.TP + dfsum.TN) / (dfsum.TP + dfsum.TN + dfsum.FP + dfsum.FN)
-    dfsum['F1'] = (2*dfsum.TP) / (2*dfsum.TP + dfsum.FP + dfsum.FN)
+    dfsum['F1'] = (2 * dfsum.TP) / (2 * dfsum.TP + dfsum.FP + dfsum.FN)
     dfsum['g-mean'] = numpy.sqrt(dfsum.Rec * dfsum.specificity)
 
-    #dfsum['Noise'] = dfsum.TN + dfsum.FN
+    # dfsum['Noise'] = dfsum.TN + dfsum.FN
     return dfsum
 
 
 def analyze_noise_class():
     df = get_article_tags()
-    headers = indicators + ["Complementary"]
+    headers = INDICATORS + ["Complementary"]
 
     dfsum = pd.DataFrame()
     dfsum['Name'] = headers
@@ -149,12 +142,12 @@ def debug_evaluation():
     indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
     df = get_article_tags()
     for ind in indicators:
-        print(ind+": False Positives")
+        print(ind + ": False Positives")
         dffp = df[(df.tag == 0) & (df[ind] == 1)]
         dffp = dffp['title']
         print(dffp)
         print("")
-        print(ind+": False Negatives")
+        print(ind + ": False Negatives")
         dffn = df[(df.tag == 1) & (df[ind] == 0)]
         dffn = dffn['title']
         print(dffn)
