@@ -1,6 +1,6 @@
 from check.seed import Seed
 from check.hypernym_dbpedia import DbpediaHyp
-from check.hypernym_nlp_firstsentence import HypNLPSent
+from check.pos_firstsentence import HypNLPSent
 from check.summary_keywords import SumKeyWords
 from check.url_pattern import URLPattern
 from check.infobox_dbpedia_existence import InfoboxDbEx

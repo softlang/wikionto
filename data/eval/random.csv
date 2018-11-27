@@ -99,7 +99,7 @@
 |Golo_(programming_language)|,|1|
 |Conserved_name|,|0|
 |Coherence_theory_of_truth|,|0|
-|2D_plus_Delta|,|1|
+|2D_plus_Delta|,|0|
 |Invisible_Party|,|0|
 |Adaptive-additive_algorithm|,|0|
 |Don_Tallon|,|0|
@@ -132,7 +132,7 @@
 |Adobe_Spark|,|0|
 |1186_Turnera|,|0|
 |List_of_IIHF_World_Championships_by_attendance|,|0|
-|GYP_(software)|,|1|
+|GYP_(software)|,|0|,|implicit|
 |Spriggite|,|0|
 |ART_image_file_format|,|1|
 |Participatory_politics|,|0|
@@ -172,7 +172,7 @@
 |Alfa_Romeo_33_Stradale|,|0|
 |Special_group_(finite_group_theory)|,|0|
 |Our_Love_Is_on_the_Faultline|,|0|
-|G.729.1|,|1|
+|G.729.1|,|0|
 |Walter_Edwin_Arnoldi|,|0|
 |Directed_panspermia|,|0|
 |HR_8832|,|0|
@@ -680,7 +680,7 @@
 |Rock_Your_Body|,|0|
 |Generalized_minimal_residual_method|,|0|
 |Ivan_Śleszyński|,|0|
-|Waf|,|1|
+|Waf|,|0|,|implicit|
 |Just_Wanna_Dance_(Todd_Terry_Project_song)|,|0|
 |Leibniz_formula_for_determinants|,|0|
 |Sodablasting|,|0|
@@ -745,7 +745,7 @@
 |Bass_Enterprises_Oil_Spill|,|0|
 |Dissipative_particle_dynamics|,|0|
 |Generation_effect|,|0|
-|ThinkFree_Office|,|1|
+|ThinkFree_Office|,|0|
 |Parallel_all-pairs_shortest_path_algorithm|,|0|
 |Botanical_identity_of_soma–haoma|,|0|
 |Super_Best_Friends|,|0|
@@ -921,7 +921,7 @@
 |Bhagavad-Gītā_As_It_Is|,|0|
 |Parachute_(iPod_game)|,|0|
 |Product_numerical_range|,|0|
-|Java_Agent_Template|,|1|
+|Java_Agent_Template|,|0|
 |2009_Hermosillo_daycare_center_fire|,|0|
 |Kōtoku-in|,|0|
 |Subject_expansion|,|0|
@@ -967,7 +967,7 @@
 |Institut_für_Dokumentologie_und_Editorik|,|0|
 |NGC_966|,|0|
 |Service_refactoring|,|0|
-|Data_Catalog_Vocabulary|,|1|
+|Data_Catalog_Vocabulary|,|1|,|Ontology instances|
 |Anthony_Carr_(psychic)|,|0|
 |Clausula_(rhetoric)|,|0|
 |Yahoo!_Tech|,|0|
@@ -1016,7 +1016,7 @@
 |Infornography|,|0|
 |The_Third_Culture|,|0|
 |Gurobi|,|0|
-|CINT|,|1|
+|CINT|,|0|
 |Reebok_insider_trading_case|,|0|
 |List_of_number-one_urban_singles_of_2003_(Australia)|,|0|
 |Mercedes-Benz_C-Class_(W202)|,|0|
@@ -1036,7 +1036,7 @@
 |G4_(U.S._TV_channel)|,|0|
 |List_of_Ultras_of_Canada|,|0|
 |Leslie_matrix|,|0|
-|C_Object_Processor|,|1|
+|C_Object_Processor|,|1|,|superset of|
 |Zyablov_bound|,|0|
 |Eyeball_Records|,|0|
 |Reading_comprehension|,|0|
@@ -1265,7 +1265,7 @@
 |Weak_emergence|,|0|
 |Kondzilla|,|0|
 |DVB_3D-TV|,|0|
-|AAP_DTD|,|1|
+|AAP_DTD|,|0|,|implicit|
 |10/GUI|,|0|
 |Homeopathy_in_New_Zealand|,|0|
 |XCORE-200|,|0|
@@ -1411,7 +1411,7 @@
 |Fiddler's_Reach_Fog_Signal|,|0|
 |Jitender_Singh_Tomar|,|0|
 |Jappic|,|0|
-|Defun|,|1|
+|Defun|,|0|,|implicit|
 |Yazidis|,|0|
 |In_the_Groove_(video_game)|,|0|
 |You_Will_Know|,|0|
@@ -1434,7 +1434,7 @@
 |Say_It_Loud_–_I'm_Black_and_I'm_Proud|,|0|
 |Biased_random_walk_on_a_graph|,|0|
 |Johann_Andreas_Eisenmenger|,|0|
-|Yacc|,|1|
+|Yacc|,|1|,|implements|
 |Rajpurohit|,|0|
 |Coset_construction|,|0|
 |Elaboration|,|0|

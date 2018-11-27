@@ -1,10 +1,10 @@
-from data import DATAP
+from data import DATAP, INDICATORS
 from json import load
 from pandas import DataFrame, Series
 
 f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
 ld = load(f)
-inds = ["ValidInfobox", "URLPattern", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS"]
+inds = INDICATORS
 df = DataFrame(columns=['Articles', 'Ex', 'Positive', 'Solo'], index=inds)
 for ind in inds:
     sls = [l for l in ld if ld[l][ind] == 1]

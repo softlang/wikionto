@@ -1,16 +1,20 @@
 from check.abstract_check import CatdictCheck
-
+from data import KEYWORDS
 
 class CategoryURLPattern(CatdictCheck):
 
     def check(self, catdict, articledict):
         print("Checking category names")
-        ex_pattern = ["Data_types", "lists_of", "comparison", "companies"]
+
         for c in catdict:
-            if any(w in c for w in ex_pattern):
-                catdict[c]["ExCatNamePattern"] = 0
-            else:
-                catdict[c]["IncludedNamePattern"] = 1
+            catdict[c]["URLPattern"] = 0
+            if any(word.endswith(kw) or word.endswith(kw+'s') for kw in KEYWORDS for word in c.split('_')):
+                catdict[c]["URLPattern"] = 1
+            catdict[c]["URLBracesPattern"] = 0
+            if '(' in c:
+                brack = c.split('(')[1].split(')')[0]
+                if any(brack.endswith(kw) for kw in KEYWORDS):
+                    catdict[c]["URLBracesPattern"] = 1
         return catdict
 
 

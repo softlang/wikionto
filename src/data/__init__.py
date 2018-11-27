@@ -1,9 +1,18 @@
 from os.path import dirname, abspath, join
 from mine.wikidata import get_computer_languages, get_computer_formats
 from mine.yago import get_artificial_languages
+from json import load
 
 # UTIL
 DATAP = abspath(join(dirname(abspath(__file__)), '..', '..', 'data'))
+
+
+def load_articledict():
+    return load(open(DATAP + "/articledict.json", "r"))
+
+
+def load_catdict():
+    return load(open(DATAP + "/catdict.json", "r"))
 
 
 # - Wikidata
@@ -42,9 +51,6 @@ XKEYWORDS = [['file', 'type'], ['template', 'engine'], ['templating', 'system'],
 
 # - infobox indication
 POSITIVETEMPLATES = ["infobox_programming_language", "infobox_file_format"]
-NEUTRALTEMPLATES = ["infobox_software", "infobox_technology_standard", "infobox_software_license"] + \
-                   ["infobox", "infobox_unit", "infobox_data_structure", "infobox_writing_system",
-                    "infobox_quality_tool", "infobox_identifier"]
 
 # - Wikipedia Lists
 LIST_ARTICLES = retrievelists()
@@ -54,6 +60,10 @@ LIST_ARTICLES = retrievelists()
 NOISY_CATS = ['Category:Statistical_data_types', 'Category:Knowledge_representation',
               'Category:Propositional_attitudes‎',
               'Category:Theorems']
+# - Note that all other infoboxes are negative. There are about 600 different templates used in the scope.
+NEUTRALTEMPLATES = ["infobox_software", "infobox_technology_standard", "infobox_software_license"] + \
+                   ["infobox", "infobox_unit", "infobox_data_structure", "infobox_writing_system",
+                    "infobox_quality_tool", "infobox_identifier"]
 
 # - Negative URL keywords
 EX_URL_KEYWORD = ["List_of", "comparison", "Comparison"]

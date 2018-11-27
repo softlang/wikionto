@@ -1,5 +1,5 @@
 from mine.dbpedia import articles_below
-from data import DATAP
+from data import DATAP, load_catdict
 
 ex_cat = [
     "<http://dbpedia.org/resource/Category:Songs>",
@@ -22,6 +22,20 @@ def check_reachable_by(langdict, c):
     return langdict
 
 
+def reachable_by(catdict, title, cat):
+    if cat not in catdict:
+        return False
+    cat_front = set([cat])
+    visited = set()
+    while cat_front:
+        visited |= cat_front
+        article_in_front = [a for c in cat_front for a in catdict[c]["articles"]]
+        if title in article_in_front:
+            return True
+        cat_front = [catdict[c]["supercats"] for c in cat_front if c in catdict and c not in visited]
+    return False
+
+
 def solo():
     import json
     for c in ex_cat:
@@ -36,4 +50,5 @@ def solo():
 
 
 if __name__ == "__main__":
-    solo()
+    b = reachable_by(load_catdict(), 'Augmented_Backus–Naur_Form', 'Category:Computer_languages')
+    print(b)

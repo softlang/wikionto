@@ -9,11 +9,14 @@ def stratify_thoughts_and_statistics():
     f = open(DATAP + "/articledict.json", "r")
     ld = load(f)
 
-    stat_cat_none = [c for c in cd if cd[c]["#SLs"] + cd[c]["#NonSLs"] == 0]
-    strat_cat_tp = [c for c in cd if cd[c]["#NonSLs"] == 0 and cd[c]["#SLs"] > 0]
-    strat_cat_tn = [c for c in cd if cd[c]["#NonSLs"] > 0 and cd[c]["#SLs"] == 0]
-    strat_cat_fp = [c for c in cd if cd[c]["#NonSLs"] > cd[c]["#SLs"] > 0]
-    strat_cat_fn = [c for c in cd if cd[c]["#SLs"] >= cd[c]["#NonSLs"] > 0]
+    #TODO: For configuration, create a pandas overview on distribution between #positive vs #negative
+    strat_cat_none = [c for c in cd if cd[c]["#Positive"] + cd[c]["#Negative"] == 0]
+    strat_cat_small = [c for c in cd if "articles" in cd[c] and len(cd[c]["articles"]) < 5]
+    strat_cat_tp = [c for c in cd if
+                    c not in strat_cat_none + strat_cat_small and cd[c]["#Negative"] < 0.25 * len(cd[c]["articles"])]
+    strat_cat_tn = [c for c in cd if cd[c]["#Negative"] > 0 and cd[c]["#Positive"] == 0]
+    strat_cat_fp = [c for c in cd if cd[c]["#Negative"] > cd[c]["#Positive"] > 0]
+    strat_cat_fn = [c for c in cd if cd[c]["#Positive"] >= cd[c]["#Negative"] > 0]
     strat_cat_f = [c for c in strat_cat_fp + strat_cat_fn]
 
     strat_a_tp = set(a for c in strat_cat_tp for a in cd[c]["articles"])
@@ -66,6 +69,7 @@ def stratify_thoughts_and_statistics():
     print("False noise sampled:" + str(len(strat_a_f_noise) * z))
 
     print(len([a for a in strat_a_tp if ld[a]["ValidInfobox"] or ld[a]["URLBracesPattern"]]))
+
 
 def get_subcats_with_articles_transitive(cd, c):
     subcats = set()

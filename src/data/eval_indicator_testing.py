@@ -1,15 +1,13 @@
-from json import load
-from data import DATAP
+from data import load_articledict
 from pandas import read_csv
 from io import StringIO
 
-f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
-ld = load(f)
+ld = load_articledict()
 
-posseed = set(l for l in ld if ld[l]["ValidInfobox"] == 1)
-negseed = set(l for l in ld if ld[l]["negativeSeed"] == 1)
+posseed = set(l for l in ld if ld[l]["PositiveInfobox"] == 1)
+negseed = set(l for l in ld if ld[l]["NegativeInfobox"] == 1)
 
-inds = ["URLBracesPattern", "In_Wikipedia_List", "POS"]
+inds = ["URLBracesPattern", "In_Wikipedia_List", "POS", "PlainTextKeyword"]
 csvtext = ""
 for p in inds:
     tp = len(set(l for l in posseed if ld[l][p] == 1))
@@ -45,7 +43,7 @@ print("Complementary & " + str(tp) + " & " + str(fp) + " & " + str(tn) + " & " +
 
 print(len(set(l for l in negseed)))
 print(len(set(l for l in posseed)))
-print(len(set(l for l in ld if ld[l]["negativeSeedCandidate"] == 1)))
+print(len(set(l for l in ld if ld[l]["NegativeInfobox"] == 1)))
 
 print([l for l in ld if ld[l]["Seed"] == 1 and not "Summary" in ld[l]])
 

@@ -2,8 +2,8 @@ import time
 from nltk.parse.corenlp import CoreNLPDependencyParser
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
-from check.hypernym_nlp_pattern import pos_hypernyms
-from util.CustomStanfordParser import StanfordCoreNLP
+from check.pos_pattern import pos_hypernyms
+from util.custom_stanford_api import StanfordCoreNLP
 
 
 def extract_nouns(first):
@@ -11,7 +11,7 @@ def extract_nouns(first):
         if first is None:
             return ""
         time.sleep(0.1)
-        output = StanfordCoreNLP(server_url='http://localhost:9000').annotate(first, properties={
+        output = StanfordCoreNLP(url='http://localhost:9000').annotate(first, properties={
             "annotators": "tokenize,ssplit,pos",
             "outputFormat": "json",
             # Only split the sentence at End Of Line. We assume that this method only takes in one single sentence.

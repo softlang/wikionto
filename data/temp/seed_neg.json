@@ -1,9 +1,9 @@
 {
   "Scapegoat_tree": {
-    "recall": 1
+    "recall": 0
   },
   "Byte": {
-    "recall": 1
+    "recall": 0
   },
   "Children_of_the_Mind": {
     "recall": 0
@@ -45,7 +45,7 @@
     "recall": 0
   },
   "Nemeth_Braille": {
-    "recall": 1
+    "recall": 0
   },
   "IEEE_Intelligent_Systems": {
     "recall": 0
@@ -99,7 +99,7 @@
     "recall": 0
   },
   "ISO/IEC_8859": {
-    "recall": 1
+    "recall": 0
   },
   "Java_virtual_machine": {
     "recall": 0

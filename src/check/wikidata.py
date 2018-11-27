@@ -10,6 +10,7 @@ class Wikidata(ArtdictCheck):
         for title in articledict:
             if "wikidataid" in articledict[title]:
                 qitem = articledict[title]["wikidataid"]
+                qitem = qitem.replace('http://', 'http://www.')
             articledict[title]["wikidata_CL"] = int(qitem in wikidataset)
         return articledict
 
