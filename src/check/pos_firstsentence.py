@@ -1,5 +1,5 @@
 from multiprocessing import Pool
-from util.custom_stanford_api import StanfordCoreNLP
+from util.custom_stanford_api import StanfordCoreNLP, index_keyvalue_to_key
 from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
@@ -74,16 +74,6 @@ class HypNLPSent(ArtdictCheck):
                     else:
                         artdict[a]["POSX_" + k1 + k2] = 0
         return artdict
-
-
-def index_keyvalue_to_key(parsedict_list):
-    result = dict()
-    for parsedict in parsedict_list:
-        d = parsedict
-        index = parsedict["index"]
-        del d["index"]
-        result[index] = d
-    return result
 
 
 if __name__ == "__main__":

@@ -11,6 +11,8 @@ class InfoboxDbEx(ArtdictCheck):
             artdict[a]["PositiveInfobox"] = 0
             artdict[a]["NegativeInfobox"] = 0
             artdict[a]["NeutralInfobox"] = 0
+            if "DbpediaInfoboxTemplate" not in artdict[a]:
+                continue
             ibs = artdict[a]["DbpediaInfoboxTemplate"]
             artdict[a]["#Infobox"] = len(ibs)
             for ib in ibs:

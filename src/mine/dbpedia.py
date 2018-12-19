@@ -205,7 +205,7 @@ def get_templates(root, mindepth, maxdepth):
     PREFIX dct: <http://purl.org/dc/terms/>
     SELECT ?article ?t where { 
       SELECT ?article ?t where {
-        ?article dct:subject/skos:broader{0,7} <http://dbpedia.org/resource/Category:Computer_languages> .
+        ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root .
         ?article <http://dbpedia.org/property/wikiPageUsesTemplate> ?t .
         FILTER(regex(str(?t),"Infobox","i"))
       }

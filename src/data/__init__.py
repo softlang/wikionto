@@ -1,6 +1,6 @@
 from os.path import dirname, abspath, join
-from mine.wikidata import get_computer_languages, get_computer_formats
-from mine.yago import get_artificial_languages
+#from mine.wikidata import get_computer_languages, get_computer_formats
+#from mine.yago import get_artificial_languages
 from json import load
 
 # UTIL
@@ -13,16 +13,6 @@ def load_articledict():
 
 def load_catdict():
     return load(open(DATAP + "/catdict.json", "r"))
-
-
-# - Wikidata
-def wikidata_articles():
-    return set(get_computer_languages() + get_computer_formats())
-
-
-# - Yago
-def yago_articles():
-    return set(get_artificial_languages())
 
 
 # - Wikipedia Lists
@@ -38,7 +28,7 @@ def retrievelists():
 DEPTH = 8
 ROOTS = ["Category:Formal_languages", "Category:Computer_file_formats", "Category:Installation_software"]
 
-INDICATORS = ["PositiveInfobox", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS", "COP"]
+INDICATORS = ["PositiveInfobox", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS", "COP", "wikidata_CL"]
 
 # CONFIG FOR INDICATORS
 # - for POS and URLBracesPattern

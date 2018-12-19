@@ -31,3 +31,8 @@ def get_computer_formats():
         cls.append(r["cl"]["value"])
     print(size)
     return cls
+
+
+# - Wikidata
+def wikidata_articles():
+    return set(get_computer_languages() + get_computer_formats())

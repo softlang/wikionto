@@ -2,7 +2,7 @@ from mine.dbpedia import articles_below, articles_with_summaries, articles_to_ca
     category_to_subcategory_below, to_uri, articles_with_revisions_live, \
     articles_with_wikidataid, get_templates, articles_with_NonLiveHypernyms, category_to_supercategory_below
 from json import dump, load
-from data import DATAP, DEPTH, ROOTS
+from data import DATAP, DEPTH, ROOTS, load_articledict
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
@@ -135,6 +135,9 @@ def mine_cats(articledict):
 
 
 if __name__ == '__main__':
-    with open(DATAP + '/articledict.json', 'r', encoding='utf8') as f:
-        articledict = load(f)
-    mine_cats(articledict)
+    articledict = load_articledict()
+    articledict = add_function(articledict, get_templates, "DbpediaInfoboxTemplate")
+    with open(DATAP + '/articledict.json', 'w', encoding='utf8') as f:
+        dump(obj=articledict, fp=f, indent=2)
+        f.flush()
+        f.close()

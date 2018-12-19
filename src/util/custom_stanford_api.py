@@ -19,7 +19,7 @@ class StanfordCoreNLP:
             "annotators": annotators,
             # Setting enforceRequirements to skip some annotators and make the process faster
             "enforceRequirements": "false",
-            #'timeout': 6000000,
+            'timeout': 6000000,
             'tokenize.options': 'untokenizable=allDelete'
         }
         params = dict()
@@ -43,6 +43,14 @@ class StanfordCoreNLP:
             return self.annotate(text, properties)
         return output
 
+def index_keyvalue_to_key(parsedict_list):
+    result = dict()
+    for parsedict in parsedict_list:
+        d = parsedict
+        index = parsedict["index"]
+        del d["index"]
+        result[index] = d
+    return result
 
 class Exception500(Exception):
     pass

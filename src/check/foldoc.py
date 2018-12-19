@@ -13,11 +13,10 @@ class FoldocTopic(ArtdictCheck):
         symbols = [".", ",", ";", ""]
         wordsymbols = [word + symbol + " " for word in words for symbol in symbols]
         for a in artdict:
-            artdict[a]["Foldoc"] = 0
+            artdict[a]["Foldoc"] = []
             if "Summary" in artdict[a]:
                 summary = artdict[a]["Summary"]
-                r = int(any(wordsymbol in summary for wordsymbol in wordsymbols))
-                artdict[a]["Foldoc"] = r
+                artdict[a]["#Foldoc"] = len([wordsymbol for wordsymbol in wordsymbols if wordsymbol in summary])
         return artdict
 
 

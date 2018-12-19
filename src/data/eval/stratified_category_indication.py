@@ -9,7 +9,6 @@ def stratify_thoughts_and_statistics():
     f = open(DATAP + "/articledict.json", "r")
     ld = load(f)
 
-    #TODO: For configuration, create a pandas overview on distribution between #positive vs #negative
     strat_cat_none = [c for c in cd if cd[c]["#Positive"] + cd[c]["#Negative"] == 0]
     strat_cat_small = [c for c in cd if "articles" in cd[c] and len(cd[c]["articles"]) < 5]
     strat_cat_tp = [c for c in cd if

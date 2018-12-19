@@ -25,3 +25,8 @@ limit 10000
         cls.append(r["s"]["value"].replace("http://dbpedia.org/resource/", ""))
     print(size)
     return cls
+
+
+# - Yago
+def yago_articles():
+    return set(get_artificial_languages())

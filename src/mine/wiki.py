@@ -8,6 +8,7 @@ HEADER = {'User-Agent': 'WikiOnto'}
 
 def wiki_request(params):
     params['format'] = 'json'
+    params['formatversion'] = 2
     params['action'] = 'query'
     params['utf8'] = ''
     try:
@@ -39,7 +40,7 @@ def getsubcats(title):
         , 'redirects': '1'}
     wikijson = wiki_request(params)
     members = wikijson["query"]["categorymembers"]
-    subcats = list(map(lambda d: d["title"].replace(" ", "_"), members))
+    subcats = [member["title"].replace(" ", "_") for member in members]
 
     return subcats
 
@@ -52,7 +53,7 @@ def getarticles(title):
         , 'redirects': '1'}
     wikijson = wiki_request(params)
     members = wikijson["query"]["categorymembers"]
-    articles = list(map(lambda d: d["title"].replace(" ", "_"), members))
+    articles = [m["title"].replace(" ", "_") for m in members]
     return articles
 
 
@@ -62,7 +63,7 @@ def getcategories(title):
         , 'redirects': '1'}
     wikijson = wiki_request(params)
     members = next(iter(wikijson["query"]["pages"].values()))["categories"]
-    categories = list(map(lambda d: d["title"].replace(" ", "_"), members))
+    categories = [m["title"].replace(" ", "_") for m in members]
     return categories
 
 
@@ -74,25 +75,51 @@ def getcontent(revid):
     if wikijson is None:
         return None
     try:
-        return dumps(wikijson)
+        return wikijson
     except KeyError:
         return None
 
 
 def getlinks(title):
-    params = {'prop':'links'
-              , 'titles': title}
+    params = {'prop': 'links'
+        , 'titles': title}
     wikijson = wiki_request(params)
     links = []
-    while True:
-        ls = next(iter(wikijson["query"]["pages"].values()))['links']
-        for l in ls:
-            links.append(l['title'])
-        if 'continue' not in wikijson:
-            break
-        plcontinue = wikijson['continue']['plcontinue']
-        params['plcontinue'] = plcontinue
-        wikijson = wiki_request(params)
+    try:
+        if 'missing' in next(iter(wikijson["query"]["pages"].values())):
+            return links
+        while True:
+            if "query" not in wikijson:
+                print("None at query " + title)
+                return links
+            if "pages" not in wikijson["query"]:
+                print("None at pages " + title)
+                return links
+            if wikijson["query"]["pages"].values() is None:
+                print("None at values " + title)
+                return links
+            nextpages = next(iter(wikijson["query"]["pages"].values()))
+            if 'links' not in nextpages:
+                print("None at links " + title)
+                return links
+            ls = nextpages['links']
+            for l in ls:
+                links.append(l['title'])
+            if 'continue' not in wikijson:
+                break
+            plcontinue = wikijson['continue']['plcontinue']
+            params['plcontinue'] = plcontinue
+            wikijson = wiki_request(params)
+        return links
+    except KeyError:
+        return links
+
+
+def getlinks_multi(titles):
+    params = {'prop': 'links',
+              'titles': titles}
+    wikijson = wiki_request(params)
+    links = []
     return links
 
 
@@ -112,6 +139,9 @@ def get_infobox(pair):
 
 
 if __name__ == "__main__":
-    c = getcontent("741790515")  # this is Java_(programming_language)
-    print(c)
-    print("Infobox software" in c)
+    from data import load_articledict
+
+    ad = load_articledict()
+    titles = list(ad.keys())
+    titles = titles[:100]
+    c = getlinks_multi(titles)

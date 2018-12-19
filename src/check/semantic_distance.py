@@ -37,4 +37,4 @@ class SemDistCat(CatdictCheck):
 
 
 if __name__ == '__main__':
-    SemDistCat().solo()
+    SemDist().solo()

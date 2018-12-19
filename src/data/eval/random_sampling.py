@@ -3,7 +3,6 @@ from json import load
 import random
 import numpy
 import pandas as pd
-from math import sqrt
 
 
 def perform_eval():
@@ -24,22 +23,23 @@ def perform_eval():
         articles = list(langdict.keys())
         articles.sort()
 
-        for x in range(count, 1483):
+        for x in range(count, 1000):
             index = random.randint(0, len(langdict))
             article = articles[index]
             if article in articles_visited:
                 x -= 1
             else:
                 articles_visited.add(article)
-                print(str(x) + " https://en.wikipedia.org/wiki/" + article)
+                print("https://en.wikipedia.org/wiki/" + article)
                 agreement = ""
                 while agreement not in ["yes", "no"]:
-                    agreement = input("Enter 'yes' or 'no'!")
+                    agreement = input(str(x) + " Enter 'yes' or 'no'!")
                 if agreement == "yes":
                     agreement_int = "1"
                 if agreement == "no":
                     agreement_int = "0"
                 f.write("|" + article + "|,|" + agreement_int + "|\n")
+                f.flush()
 
 
 def get_classification(title, langdict):
@@ -48,6 +48,7 @@ def get_classification(title, langdict):
     return resultdict
 
 
+# one row per article, indicators are columns
 def get_article_tags():
     with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
         langdict = load(f)
@@ -55,7 +56,7 @@ def get_article_tags():
         df = pd.read_csv(f, delimiter=',', quotechar='|', names=['title', 'tag'])
         df.set_index('title')
         indicatorrow = dict()
-        for ind in INDICATORS:
+        for ind in INDICATORS + ["Complementary"]:
             indicatorrow[ind] = []
 
         for title in df['title']:
@@ -63,9 +64,9 @@ def get_article_tags():
                 print(title)
                 continue
             classifdict = get_classification(title, langdict)
-            for ind in INDICATORS:
+            for ind in INDICATORS + ["Complementary"]:
                 indicatorrow[ind].append(classifdict[ind])
-        for ind in INDICATORS:
+        for ind in INDICATORS + ["Complementary"]:
             df[ind] = indicatorrow[ind]
     return df
 
@@ -74,33 +75,33 @@ def analyze_language_class():
     df = get_article_tags()
 
     dfsum = pd.DataFrame()
-    headers = INDICATORS + ["Complementary"]
-    dfsum['Name'] = headers
+    rownames = INDICATORS + ["Complementary"]
+    dfsum['Name'] = rownames
     dfsum.set_index('Name')
     tps = []
-    for name in headers:
+    for name in rownames:
         tps.append(get_count(df, name, 1, 1))
     fps = []
-    for name in headers:
+    for name in rownames:
         fps.append(get_count(df, name, 0, 1))
     tns = []
-    for name in headers:
+    for name in rownames:
         tns.append(get_count(df, name, 0, 0))
     fns = []
-    for name in headers:
+    for name in rownames:
         fns.append(get_count(df, name, 1, 0))
 
     dfsum['TP'] = tps
     dfsum['FP'] = fps
     dfsum['TN'] = tns
     dfsum['FN'] = fns
-    dfsum['Positive-Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
-    dfsum['Negative-Prec'] = dfsum.TN / (dfsum.FN + dfsum.TN)
+    dfsum['Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
+    #dfsum['Negative-Prec'] = dfsum.TN / (dfsum.FN + dfsum.TN)
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
-    dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
+    #dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
     dfsum['Acc'] = (dfsum.TP + dfsum.TN) / (dfsum.TP + dfsum.TN + dfsum.FP + dfsum.FN)
-    dfsum['F1'] = (2 * dfsum.TP) / (2 * dfsum.TP + dfsum.FP + dfsum.FN)
-    dfsum['g-mean'] = numpy.sqrt(dfsum.Rec * dfsum.specificity)
+    #dfsum['F1'] = (2 * dfsum.TP) / (2 * dfsum.TP + dfsum.FP + dfsum.FN)
+    #dfsum['g-mean'] = numpy.sqrt(dfsum.Rec * dfsum.specificity)
 
     # dfsum['Noise'] = dfsum.TN + dfsum.FN
     return dfsum
@@ -139,7 +140,7 @@ def get_count(df, indicator, expected, actual):
 
 
 def debug_evaluation():
-    indicators = ['ValidInfobox', "URLBracesPattern", "In_Wikipedia_List", "POS"]
+    indicators = ["POS", "COP"]
     df = get_article_tags()
     for ind in indicators:
         print(ind + ": False Positives")
@@ -155,6 +156,8 @@ def debug_evaluation():
 
 
 if __name__ == "__main__":
-    df = analyze_language_class()
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-        print(df)
+    perform_eval()
+    #df = analyze_language_class()
+    #with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    #    print(df)
+    #debug_evaluation()

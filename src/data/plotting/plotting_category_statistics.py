@@ -1,14 +1,10 @@
 from data import load_catdict, KEYWORDS
 import matplotlib.pyplot as plt
 from pandas import DataFrame, Series
-from mine_dump import start_time, stop_time
 
 
 def plot_statistics():
     cd = load_catdict()
-    dtypes = {"category": object,
-              "#Positive": int,
-              "#Negative": int}
     df = DataFrame(columns=['#Positive', '#Negative'], index=cd.keys())
     for c in cd:
         df.loc[c] = Series({'#Positive': cd[c]["#Positive"],
@@ -28,12 +24,9 @@ def plot_statistics():
 
 def plot_scatter(minsize, r):
     cd = load_catdict()
+    cat_strats, article_strats = get_strats(minsize, r, cd)
+    lonelies_cats, tps_cats, tns_cats, mixed_cats = cat_strats
 
-    lonelies_cats = [c for c in cd if (cd[c]["#Positive"] + cd[c]["#Negative"]) < minsize]
-    tps_cats = [c for c in cd if cd[c]["#Positive"] > minsize and (cd[c]["#Positive"] * r) > cd[c]["#Negative"]]
-    tns_cats = [c for c in cd if cd[c]["#Negative"] > minsize and (cd[c]["#Negative"] * r) > cd[c]["#Positive"]]
-    mixed_cats = [c for c in cd if ((cd[c]["#Positive"] + cd[c]["#Negative"]) >= minsize) and
-                  (cd[c]["#Positive"] * r) <= cd[c]["#Negative"] and (cd[c]["#Negative"] * r) <= cd[c]["#Positive"]]
     positive_url_cats = [c for c in cd if cd[c]["URLPattern"] or cd[c]["URLBracesPattern"]]
 
     lonelies = DataFrame(columns=['#Positive', '#Negative'], index=lonelies_cats)
@@ -51,8 +44,6 @@ def plot_scatter(minsize, r):
     positive_url = DataFrame(columns=['#Positive', '#Negative'], index=positive_url_cats)
     for c in positive_url_cats:
         positive_url.loc[c] = Series({'#Positive': cd[c]["#Positive"], '#Negative': cd[c]["#Negative"]})
-
-
 
     linedf = DataFrame(columns=['#Positive', '#Negative'], index=cd.keys())
     x = 1
@@ -74,19 +65,29 @@ def plot_scatter(minsize, r):
     ax.legend(["Regression Line", "Mixed", "Too Small", "Positive", "Negative"])
     plt.gca().set_aspect('equal', adjustable='box')
 
+    plt.show()
+
+
+def get_strats(minsize, r, cd=load_catdict()):
+    lonelies_cats = [c for c in cd if (cd[c]["#Positive"] + cd[c]["#Negative"]) < minsize]
+    tps_cats = [c for c in cd if cd[c]["#Positive"] > minsize and (cd[c]["#Positive"] * r) > cd[c]["#Negative"]]
+    tns_cats = [c for c in cd if cd[c]["#Negative"] > minsize and (cd[c]["#Negative"] * r) > cd[c]["#Positive"]]
+    mixed_cats = [c for c in cd if ((cd[c]["#Positive"] + cd[c]["#Negative"]) >= minsize) and
+                  (cd[c]["#Positive"] * r) <= cd[c]["#Negative"] and (cd[c]["#Negative"] * r) <= cd[c]["#Positive"]]
+
+    cat_strats = lonelies_cats, tps_cats, tns_cats, mixed_cats
     atps = set(a for c in tps_cats for a in cd[c]["articles"])
     atns = set(a for c in tns_cats for a in cd[c]["articles"])
     amixed = set(a for c in mixed_cats for a in cd[c]["articles"] if a not in atps and a not in atns)
     alonelies = set(
         a for c in lonelies_cats if "articles" in cd[c] for a in cd[c]["articles"] if
         a not in atps and a not in atns and a not in amixed)
-
+    article_strats = alonelies, atps, atns, amixed
     print("Presumably Positive: " + str(len(atps)))
     print("Presumably Negative: " + str(len(atns)))
     print("Presumably Mixed: " + str(len(amixed)))
     print("Presumably Lonely: " + str(len(alonelies)))
-
-    plt.show()
+    return cat_strats, article_strats
 
 
 if __name__ == '__main__':
