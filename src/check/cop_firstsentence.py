@@ -27,6 +27,7 @@ class COPFirstSentence(ArtdictCheck):
                 return title, None
         try:
             cop = COPSemgrex(first_sentence).run()
+            del cop['Aisa']
             return title, cop
         except JSONDecodeError:
             print("Decode Error at :" + title)
@@ -59,8 +60,8 @@ class COPFirstSentence(ArtdictCheck):
                     artdict[a]["COP" + variant] = hypernyms
                 cop = [hyp for hyplist in hypdict.values() for hyp in hyplist]
                 artdict[a]["COPHypernym"] = cop
-                if any(hyp.lower().endswith(kw) or hyp.lower().endswith(kw + 's') for hyp in cop for kw in KEYWORDS):
-                    artdict[a]["COP"] = 1
+                #if any(hyp.lower().endswith(kw) or hyp.lower().endswith(kw + 's') for hyp in cop for kw in KEYWORDS):
+                #    artdict[a]["COP"] = 1
 
         return artdict
 

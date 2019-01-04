@@ -1,8 +1,6 @@
 import requests
-import threading
+import time
 from util.custom_stanford_api import StanfordCoreNLP, Exception500
-
-VARIANT_IDS = ['The', 'isa', 'isoneof', 'isnameof', 'ismemberof', 'isfamilyof']
 
 
 class COPSemgrex():
@@ -10,6 +8,7 @@ class COPSemgrex():
     # processes the token dictionary for one sentence
     def __init__(self, text):
         self.semgrex_dict = {
+            'Aisa': '{pos:/NN.*/}=hypernym >cop {pos:/VB.*/}=Verb >det {}=det >nsubj ({}=Subj >det {word:/A|An/}=det2)',
             'The': '{pos:/NN.*/}=hypernym >det {word:The}',
             'isa': '{pos:/NN.*/}=hypernym >cop {pos:/VB.*/}=Verb >det {}=det',
             'isoneof': '{pos:CD;word:one}=one >cop {pos:/VB.*/}=Verb >=rel {pos:/NN.*/}=hypernym',
@@ -22,18 +21,21 @@ class COPSemgrex():
     def run(self):
         while not is_alive():
             print("Not alive")
-            threading.sleep(50)
+            time.sleep(5)
         cops = dict()
-        for variant in VARIANT_IDS:
+        for variant, semgrex in self.semgrex_dict.items():
             try:
                 parser = StanfordCoreNLP(url='http://localhost:9000/semgrex/')
                 responsedict = parser.annotate(text=self.text,
                                                annotators='tokenize, ssplit, pos, lemma, depparse',
-                                               pattern=self.semgrex_dict[variant])
+                                               pattern=semgrex)
                 cops[variant] = get_noun(responsedict)
             except Exception500:
                 cops[variant] = []
 
+        for hypernym in cops['isa']:
+            if hypernym in cops['Aisa']:
+                cops['isa'].remove(hypernym)
         return cops
 
 
@@ -56,6 +58,6 @@ def is_alive():
 
 
 if __name__ == '__main__':
-    sentence = "Perl 6 is a member of the Perl family of programming languages."
+    sentence = "A programming language is a formal language."
     cop = COPSemgrex(sentence).run()
     print(cop)

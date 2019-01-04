@@ -1,30 +1,32 @@
 from data import DATAP, INDICATORS
 from json import load
 import random
-import numpy
 import pandas as pd
 
 
 def perform_eval():
     with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
-        langdict = load(f)
+        ad = load(f)
+        S = [a for a in ad if ad[a]["Seed"]]
 
-    articles_visited = set()
+    articles_visited = set(S)
     with open(DATAP + '/eval/random.csv', 'r', encoding="UTF8") as f:
         olddata = ""
         count = 0
         for line in f:
             olddata += line
             count += 1
-            articles_visited.add(line.split(",")[0].replace("|", ""))
+            title = line.split(",")[0].replace("|", "")
+            articles_visited.add(title)
+    print("old size: " + str(len(articles_visited)))
 
     with open(DATAP + '/eval/random.csv', 'w', encoding="UTF8") as f:
         f.write(olddata)
-        articles = list(langdict.keys())
+        articles = list(ad.keys())
         articles.sort()
 
-        for x in range(count, 1000):
-            index = random.randint(0, len(langdict))
+        for x in range(count, 2000):
+            index = random.randint(0, len(ad))
             article = articles[index]
             if article in articles_visited:
                 x -= 1
