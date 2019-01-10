@@ -7,9 +7,9 @@ import pandas as pd
 def perform_eval():
     with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
         ad = load(f)
-        S = [a for a in ad if ad[a]["Seed"]]
+        S = set(a for a in ad if ad[a]["Seed"])
 
-    articles_visited = set(S)
+    articles_visited = set()
     with open(DATAP + '/eval/random.csv', 'r', encoding="UTF8") as f:
         olddata = ""
         count = 0
@@ -28,7 +28,7 @@ def perform_eval():
         for x in range(count, 2000):
             index = random.randint(0, len(ad))
             article = articles[index]
-            if article in articles_visited:
+            if article in articles_visited or article in S:
                 x -= 1
             else:
                 articles_visited.add(article)

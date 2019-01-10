@@ -1,6 +1,7 @@
 from data import DATAP
 from json import load
 import re
+from subprocess import call
 
 
 def transform(in_file, out_file):
@@ -22,7 +23,15 @@ def transform(in_file, out_file):
             out_file.flush()
 
 
+def transform_trees():
+    pathin = DATAP + "/temp/trees/sltree<n>.dot"
+    pathout = DATAP + "/temp/trees/sltree<n>_names.dot"
+    for x in range(0, 100, 1):
+        with open(pathout.replace("<n>", str(x)), 'w', encoding='utf-8') as out_file:
+            with open(pathin.replace("<n>", str(x)), 'r', encoding='utf-8') as in_file:
+                transform(in_file, out_file)
+        call(["dot", "-Tpdf", pathout.replace("<n>", str(x)), "-o", pathout.replace("<n>",str(x)).replace("dot", "pdf")])
+
+
 if __name__ == '__main__':
-    with open(DATAP + '/sltree_names_prune1.dot', 'w', encoding='utf-8') as out_file:
-        with open(DATAP + '/sltree_prune1.dot', 'r', encoding='utf-8') as in_file:
-            transform(in_file, out_file)
+    transform_trees()

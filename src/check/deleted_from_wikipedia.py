@@ -1,21 +1,30 @@
 from check.abstract_check import ArtdictCheck
-from mine.wiki import getlinks
-from multiprocessing import Pool
+from data import DATAP
+from json import load
 
-
-class DeletedFromWikipedia(ArtdictCheck):
+class IdentifyDeletedFromWikipedia(ArtdictCheck):
 
     def check(self, articledict):
-        titles = articledict.keys()
-        checked = Pool(20).map(self.check_single, titles)
-        for title, value in checked:
-            articledict[title]["DeletedFromWikipedia"] = int(value)
+        titles = set(articledict.keys())
+
+        with open(DATAP+"/dump/article_ids_reverse.json", "r") as f:
+            title_to_id = load(f)
+
+        valid_titles = set(t for t in title_to_id.keys())
+        invalid_titles = titles - valid_titles
+
+        for it in invalid_titles:
+            articledict[it]["DeletedFromWikipedia"] = 1
         return articledict
 
-    def check_single(self, title):
-        content = getlinks(title)
-        return title, bool(content)
+class DeleteNonExistentPages(ArtdictCheck):
+    def check(self, articledict):
+        invalid = [a for a in articledict if "DeletedFromWikipedia" in articledict[a]]
+        for i in invalid:
+            if "DeletedFromWikipedia" in articledict[i] and articledict[i]["DeletedFromWikipedia"]:
+                del articledict[i]
+        return articledict
 
 
 if __name__ == '__main__':
-    DeletedFromWikipedia().solo()
+    DeleteNonExistentPages().solo()
