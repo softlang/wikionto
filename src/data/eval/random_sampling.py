@@ -14,10 +14,11 @@ def perform_eval():
         olddata = ""
         count = 0
         for line in f:
-            olddata += line
-            count += 1
             title = line.split(",")[0].replace("|", "")
-            articles_visited.add(title)
+            if title in ad:
+                count += 1
+                articles_visited.add(title)
+                olddata += line
     print("old size: " + str(len(articles_visited)))
 
     with open(DATAP + '/eval/random.csv', 'w', encoding="UTF8") as f:
