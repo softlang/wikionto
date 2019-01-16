@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 from scipy.sparse import dok_matrix
 import csv
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
-from sklearn.feature_selection import SelectKBest, chi2
+from sklearn.feature_selection import SelectKBest, chi2, mutual_info_classif
 from yellowbrick.features import RFECV
 from json import dump
 from classify.dottransformer import transform
 
-F_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "COPHypernym", "Wikipedia_Lists"]
+F_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "COPHypernym", "Wikipedia_Lists", "Words", "POSHypernym"]
 
 
 def get_random_data():
@@ -40,6 +40,7 @@ def build_f_to_id(FS, ad):
     f_to_id = dict(zip(fs, fids))
     with open(DATAP + '/f_to_id.json', 'w', encoding='utf-8') as f:
         dump(f_to_id, f, indent=1)
+    print("Total number of features:" + str(len(f_to_id)))
     return f_to_id, fs
 
 
@@ -76,30 +77,32 @@ def get_data_sets(ad):
     return (A_train, y_train), (A_test, y_test), (f_to_id, fs)
 
 
-def train_decisiontree_with(A_train, y_train, A_test, y_test, f_to_id, fs, id_to_a_train, k_best, export=True):
-    assert k_best > 0
+def train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_test, k, export=True):
+    assert k > 0
 
     dtc = DecisionTreeClassifier(random_state=0)
-    selector = SelectKBest(chi2, k=k_best)
+    selector = SelectKBest(chi2, k=k)
 
     X_train = build_doc_matrix(id_to_a_train, f_to_id, ad, F_SETNAMES)
+    X_test = build_doc_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
+
     result = selector.fit(X_train, y_train)
     X_train = selector.transform(X_train)
+    X_test = selector.transform(X_test)
     fitted_ids = [i for i in result.get_support(indices=True)]
 
     clf = dtc.fit(X_train, y_train, check_input=True)
 
     if export:
-        export_graphviz(clf, out_file=DATAP + "/temp/trees/sltree" + str(k_best) + ".dot", filled=True)
-        transform(fitted_ids, k_best)
+        export_graphviz(clf, out_file=DATAP + "/temp/trees/sltree" + str(k) + ".dot", filled=True)
+        transform(fitted_ids, k)
 
     # id_to_a_test = build_id_to_a(A_test)
     # X_test = build_doc_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
-    print("Learned with " + str(k_best) + ": " + str(dtc.score(X_train, y_train)) + " self accuracy ")
+    print("Learned with " + str(k) + ": " + str(dtc.score(X_train, y_train)) + " self accuracy ")
     # "and " + str(dtc.score(X_test, y_test)) + " test accuracy")
 
-    y_test_predicted = dtc.predict(X_train)
-    y_test = y_train
+    y_test_predicted = dtc.predict(X_test)
     tp = 0
     tn = 0
     fp = 0
@@ -114,15 +117,16 @@ def train_decisiontree_with(A_train, y_train, A_test, y_test, f_to_id, fs, id_to
         if y_test[x] == '0' and y_test_predicted[x] == '1':
             fp += 1
 
-    return {"TP": tp, "TN": tn, "FP": fp, "FN": fn, "k": k_best}
+    return {"TP": tp, "TN": tn, "FP": fp, "FN": fn, "k": k}
 
 
 def train_decisiontree_exploration(ad):
     (A_train, y_train), (A_test, y_test), (f_to_id, fs) = get_data_sets(ad)
     id_to_a_train = build_id_to_a(A_train)
+    id_to_a_test = build_id_to_a(A_test)
     evals = []
     for k in range(1, 100, 1):
-        eval_dict = train_decisiontree_with(A_train, y_train, A_test, y_test, f_to_id, fs, id_to_a_train, k)
+        eval_dict = train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_test, k)
         evals.append(eval_dict)
     df = pd.DataFrame(evals)
     df["TPR"] = df["TP"] / (df["TP"] + df["FN"])
