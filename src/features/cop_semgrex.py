@@ -1,6 +1,6 @@
 import requests
 import time
-from util.custom_stanford_api import StanfordCoreNLP, Exception500
+from stanford.custom_stanford_api import StanfordCoreNLP, Exception500
 
 
 class COPSemgrex():

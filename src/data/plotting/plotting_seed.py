@@ -1,13 +1,11 @@
 import matplotlib.pyplot as plt
-from json import load
-from data import DATAP, ROOTS
+from data import ROOTS, load_articledict
 from pandas import read_csv
 from io import StringIO
 
 
 def plot_allsl_depth(ton):
-    f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
-    langdict = load(f)
+    langdict = load_articledict()
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
     for c in ROOTS:
@@ -40,9 +38,8 @@ def plot_allsl_depth(ton):
 
 
 def plot_seed_depth(ton):
-    f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")
-    langdict = load(f)
-    fig, ax = plt.subplots(nrows=1, ncols=1)
+    langdict = load_articledict()
+    #fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
     for c in ROOTS:
         depthlist.append(list(map(lambda d: len([cl for cl in langdict
@@ -66,17 +63,24 @@ def plot_seed_depth(ton):
     df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS,
                   dtype=dtypes)
     print(df)
-    df.plot(x="depth", y=ROOTS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
+    plt.rc('xtick', labelsize=30)
+    plt.rc('ytick', labelsize=30)
+    font = {'family': 'normal',
+            'weight': 'bold',
+            'size': 42}
+    plt.rc('font', **font)
 
-    ax.set_title('Articles at Depth')
-    for p in ax.patches:
-        ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+    ax = df.plot(x="depth", y=ROOTS, kind="bar", logy=True, width=0.9, color=["red", "green", "blue"])
+
+    ax.set_title('Seed articles per depth.')
+
+    #for p in ax.patches:
+    #    ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
     plt.show()
 
 
 def plot_negative_seed_depth(ton):
-    f = open(DATAP + '/articledict.json', 'r', encoding="UTF8")
-    langdict = load(f)
+    langdict = load_articledict()
     fig, ax = plt.subplots(nrows=1, ncols=1)
     depthlist = []
     for c in ROOTS:
@@ -110,4 +114,4 @@ def plot_negative_seed_depth(ton):
 
 
 if __name__ == "__main__":
-    plot_allsl_depth(9)
+    plot_negative_seed_depth(9)

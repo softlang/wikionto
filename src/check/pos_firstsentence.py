@@ -1,5 +1,5 @@
 from multiprocessing import Pool
-from util.custom_stanford_api import StanfordCoreNLP, index_keyvalue_to_key
+from stanford.custom_stanford_api import StanfordCoreNLP, index_keyvalue_to_key
 from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError

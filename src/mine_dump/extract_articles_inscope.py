@@ -1,7 +1,7 @@
 from data import DATAP
 from json import dump, load
 import csv
-from mine_dump import start_time, stop_time
+from stanford import start_time, stop_time
 
 def id_dictionaries(csvname):
     with open(DATAP + '/dump/' + csvname + '.csv', 'r', encoding="UTF8") as f:
@@ -107,7 +107,7 @@ def build_scope(roots):
                         if r_title + 'DEPTH' not in scope[a]:
                             scope[a][r_title + 'DEPTH'] = d
     print("Dumping")
-    with open(DATAP + '/dump/articles_inscope.json', 'w', encoding="UTF8") as f:
+    with open(DATAP + '/dump/articles_inscope_'+('_'.join(roots))+'.json', 'w', encoding="UTF8") as f:
         dump(scope, f)
         print("In scope:" + str(len(scope)))
     return scope
@@ -137,8 +137,10 @@ if __name__ == '__main__':
     #id_dictionaries('category_ids')
     #tocatjson('article')
     #tocatjson('category')
-    roots = ["Formal_languages", "Computer_file_formats", "Installation_software"]
+    #roots = ["Formal_languages", "Computer_file_formats", "Installation_software"]
+    roots = ["Animals"]
     # for r in roots:
     #    build_frontierdict(r)
+    build_frontierdict("Animals")
     scope = build_scope(roots)
     stop_time(t)

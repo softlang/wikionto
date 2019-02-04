@@ -1,18 +1,17 @@
-from os.path import dirname, abspath, join
 #from mine.wikidata import get_computer_languages, get_computer_formats
 #from mine.yago import get_artificial_languages
 from json import load
 
 # UTIL
-DATAP = abspath(join(dirname(abspath(__file__)), '..', '..', 'data'))
+DATAP = "S:/Wikipedia"
 
 
 def load_articledict():
-    return load(open(DATAP + "/articledict.json", "r"))
+    return load(open(DATAP + "/articledict.json", "r", encoding="utf-8"))
 
 
 def load_catdict():
-    return load(open(DATAP + "/catdict.json", "r"))
+    return load(open(DATAP + "/catdict.json", "r", encoding="utf-8"))
 
 
 # - Wikipedia Lists

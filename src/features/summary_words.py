@@ -1,11 +1,8 @@
 from check.abstract_check import ArtdictCheck
-from data import KEYWORDS
-from nltk import sent_tokenize, word_tokenize
-from util.custom_stanford_api import StanfordCoreNLP, index_keyvalue_to_key
+from stanford.custom_stanford_api import StanfordCoreNLP, index_keyvalue_to_key
 from multiprocessing import Pool
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
-
 
 class SumNouns(ArtdictCheck):
     def check(self, articledict):
@@ -36,11 +33,11 @@ def get_words(pair):
             return title, []
         for sentence in parsedict['sentences']:
             parsedict = sentence["tokens"]
-            for index in range(1, len(parsedict)):
-                wdict = parsedict[index]
-                tag = wdict['pos']
-                if 'NN' in tag:
-                    nouns.append(wdict['word'])
+            nouns += [wdict['word'] for wdict in parsedict if 'NN' in wdict['pos']]
+            #for index in range(1, len(parsedict)):
+            #    wdict = parsedict[index]
+            #    if 'NN' in wdict['pos']:
+            #        nouns.append(wdict['word'])
         return title, nouns
     except JSONDecodeError:
         print("Decode Error at :" + title)

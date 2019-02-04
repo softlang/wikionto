@@ -30,7 +30,7 @@ class StanfordCoreNLP:
 
         try:
             with self.session.get(self.server_url) as req:
-                data = text.encode('utf-8')
+                data = text.encode('utf8')
                 r = requests.post(
                     self.server_url, params=params, data=data, headers={'Connection': 'close'})
                 if r.status_code == 500:

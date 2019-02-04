@@ -3,8 +3,7 @@ from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
 
-from data import KEYWORDS
-from check.cop_semgrex import COPSemgrex
+from features.cop_semgrex import COPSemgrex
 from check.abstract_check import ArtdictCheck
 import requests
 

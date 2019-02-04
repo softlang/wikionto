@@ -3,7 +3,7 @@ from data import DATAP
 from nltk.stem import PorterStemmer
 import collections
 from multiprocessing import Pool
-from util.custom_stanford_api import StanfordCoreNLP
+from stanford.custom_stanford_api import StanfordCoreNLP
 from json import loads, dump
 from json.decoder import JSONDecodeError
 

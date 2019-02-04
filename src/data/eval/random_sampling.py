@@ -2,6 +2,7 @@ from data import DATAP, INDICATORS
 from json import load
 import random
 import pandas as pd
+import csv
 
 
 def perform_eval():
@@ -50,6 +51,17 @@ def get_classification(title, langdict):
     resultdict['Complementary'] = sum(resultdict.values()) > 0
     return resultdict
 
+def get_random_data():
+    with open(DATAP + "/eval/random.csv", "r", encoding="utf-8") as f:
+        reader = csv.reader(f, quotechar='|', quoting=csv.QUOTE_MINIMAL)
+
+        A_random = []
+        y = []
+        for row in reader:
+            A_random.append(row[0])
+            y.append(row[1])
+
+        return A_random, y
 
 # one row per article, indicators are columns
 def get_article_tags():

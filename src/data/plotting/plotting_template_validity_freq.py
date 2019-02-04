@@ -3,7 +3,7 @@ from json import load
 from data import DATAP, ROOTS
 from pandas import read_csv
 from io import StringIO
-from check.infobox_dbpedia_existence import validibs, nonnegibs
+from features.infobox_dbpedia_existence import validibs, nonnegibs
 
 ton = 9
 f = open(DATAP + '/olangdict.json', 'r', encoding="UTF8")

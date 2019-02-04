@@ -1,6 +1,6 @@
 from data import DATAP
 from json import load, dump
-from util import start_time, stop_time
+from stanford import start_time, stop_time
 
 class ArtdictCheck:
 
@@ -11,7 +11,7 @@ class ArtdictCheck:
             articledict = self.check(articledict)
             stop_time(t)
         with open(DATAP + '/articledict.json', 'w', encoding="UTF8") as f:
-            dump(obj=articledict, fp=f, indent=2)
+            dump(obj=articledict, fp=f)
             f.flush()
 
     def dryrun(self):

@@ -3,9 +3,6 @@ from mine.dbpedia import articles_below, articles_with_summaries, articles_to_ca
     articles_with_wikidataid, get_templates, articles_with_NonLiveHypernyms, category_to_supercategory_below
 from json import dump, load
 from data import DATAP, DEPTH, ROOTS, load_articledict
-from nltk.stem import PorterStemmer
-from nltk.corpus import stopwords
-from nltk.tokenize import sent_tokenize, word_tokenize
 
 
 def init_articledict():
@@ -30,27 +27,6 @@ def add_function(articledict, fun, name):
     for cl in articledict:
         if cl in d:
             articledict[cl][name] = d[cl]
-    return articledict
-
-
-def add_wordset(articledict):
-    # stopwords
-    stop_words = set(stopwords.words('english'))
-    stop_words |= {',', '.', ';', '*', '-', '_', ':', "''", '#', '``'}
-    stemmer = PorterStemmer(PorterStemmer.NLTK_EXTENSIONS)
-
-    for title in articledict:
-        if "Summary" not in articledict[title]:
-            continue
-        text = articledict[title]["Summary"]
-        if text is '':
-            continue
-        sents = sent_tokenize(text)
-        s = sents[0]
-        if s.lower().startswith("see also"):
-            s = sents[1]
-        articledict[title]["words"] = list(
-            set(stemmer.stem(w) for w in word_tokenize(s) if w.lower() not in stop_words))
     return articledict
 
 
@@ -110,8 +86,8 @@ def mine():
     articledict = init_articledict()
     articledict = add_function(articledict, articles_with_summaries, "Summary")
     articledict = add_function(articledict, articles_with_revisions_live, "Revision")
-    articledict = add_function(articledict, articles_with_wikidataid, "wikidataid")
-    articledict = add_function(articledict, articles_with_NonLiveHypernyms, "DbpediaHypernyms")
+    #articledict = add_function(articledict, articles_with_wikidataid, "wikidataid")
+    #articledict = add_function(articledict, articles_with_NonLiveHypernyms, "DbpediaHypernyms")
     articledict = add_function(articledict, get_templates, "DbpediaInfoboxTemplate")
     articledict = add_function(articledict, articles_to_categories_below, "cats")
     # articledict = add_wordset(articledict)
