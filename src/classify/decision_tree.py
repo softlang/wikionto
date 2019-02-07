@@ -11,12 +11,14 @@ from sklearn.feature_selection import SelectKBest, chi2, mutual_info_classif
 from yellowbrick.features import RFECV
 from json import dump
 from classify.dottransformer import transform
+from data.eval.random_sampling import get_random_data
 
-F_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "COPHypernym", "Wikipedia_Lists", "Lemmas"] #Words
+F_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "COPHypernym", "Wikipedia_Lists", "Lemmas"]  # Words
+
 
 def get_seed(ad):
     S = [a for a in ad if ad[a]["Seed"]]
-    y = [1 for s in S]
+    y = ['1' for s in S]
     return S, y
 
 
@@ -54,11 +56,15 @@ def get_data_sets(ad):
     A_seed, y_seed = get_seed(ad)
     A_random, y_random = get_random_data()
 
-    A_data, y_data = A_random + A_seed, y_random + y_seed
+    A_data, y_data = A_seed + A_random, y_seed + y_random
 
-    A_test, y_test = A_data[:500], y_data[:500]
-    A_train, y_train = A_data[:-500], y_data[:-500]
+    A_train, y_train = A_data[:1321], y_data[:1321]
+    A_test, y_test = A_data[1321:], y_data[1321:]
 
+
+    print("Retrieving data sets:")
+    print("Positive in train: " + str(len([y for y in y_train if y == '1'])))
+    print("Positive in test: " + str(len([y for y in y_test if y == '1'])))
     (f_to_id, fs) = build_f_to_id(F_SETNAMES, ad)
 
     return (A_train, y_train), (A_test, y_test), (f_to_id, fs)
@@ -66,7 +72,7 @@ def get_data_sets(ad):
 
 def train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_test, k, export=True):
     assert k > 0
-
+    print("Training with "+str(k))
     dtc = DecisionTreeClassifier(random_state=0)
     selector = SelectKBest(chi2, k=k)
 
@@ -85,11 +91,6 @@ def train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_tes
         export_graphviz(clf, out_file=DATAP + "/temp/lemmatrees2/sltree" + str(k) + ".dot", filled=True)
         transform(fitted_ids, k)
 
-    # id_to_a_test = build_id_to_a(A_test)
-    # X_test = build_doc_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
-    print("Learned with " + str(k) + ": " + str(dtc.score(X_train, y_train)) + " self accuracy ")
-    # "and " + str(dtc.score(X_test, y_test)) + " test accuracy")
-
     y_test_predicted = dtc.predict(X_test)
     tp = 0
     tn = 0
@@ -100,17 +101,19 @@ def train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_tes
             tp += 1
         if y_test[x] == '1' and y_test_predicted[x] == '0':
             fn += 1
-            print(str(x)+":"+str(id_to_a_test[x]))
+            #print(str(x) + ":" + str(id_to_a_test[x]))
         if y_test[x] == '0' and y_test_predicted[x] == '0':
             tn += 1
         if y_test[x] == '0' and y_test_predicted[x] == '1':
+            #print(id_to_a_test[x])
             fp += 1
 
     return selector, dtc, {"TP": tp, "TN": tn, "FP": fp, "FN": fn, "k": k, "#Features": flen,
                            "Balanced_Accuracy": balanced_accuracy_score(y_test, y_test_predicted),
                            "F_Measure": f1_score(y_test, y_test_predicted, pos_label='1'),
                            "TPR": recall_score(y_test, y_test_predicted, pos_label='1'),
-                           "PPV": precision_score(y_test, y_test_predicted, pos_label='1')}
+                           "PPV": precision_score(y_test, y_test_predicted, pos_label='1'),
+                           "Self_Accuracy": dtc.score(X_train, y_train)}
 
 
 def train_decisiontree_exploration(ad):
@@ -120,8 +123,8 @@ def train_decisiontree_exploration(ad):
     evals = []
     id_to_a_all = build_id_to_a([a for a in ad])
     X_all0 = build_dok_matrix(id_to_a_all, f_to_id, ad, F_SETNAMES)
-    for k in range(1, 20, 1):
-        selector, dtc, eval_dict = train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_test, k)
+    for k in range(1, 1000, 1):
+        selector, dtc, eval_dict = train_decisiontree_with(y_train, y_test, f_to_id, id_to_a_train, id_to_a_test, k, False)
         X_allk = selector.transform(X_all0)
         y_all = dtc.predict(X_allk)
         eval_dict["Positive"] = len([y for y in y_all if y == '1'])

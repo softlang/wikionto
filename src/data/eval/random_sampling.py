@@ -3,6 +3,7 @@ from json import load
 import random
 import pandas as pd
 import csv
+import webbrowser
 
 
 def perform_eval():
@@ -26,15 +27,16 @@ def perform_eval():
         f.write(olddata)
         articles = list(ad.keys())
         articles.sort()
-
-        for x in range(count, 2000):
+        x = count
+        while x < 4000:
             index = random.randint(0, len(ad))
             article = articles[index]
-            if article in articles_visited or article in S:
-                x -= 1
+            if article in articles_visited or article in S or "List_of" in article:
+                continue
             else:
                 articles_visited.add(article)
                 print("https://en.wikipedia.org/wiki/" + article)
+                webbrowser.open("https://en.wikipedia.org/wiki/" + article, new=2)
                 agreement = ""
                 while agreement not in ["yes", "no"]:
                     agreement = input(str(x) + " Enter 'yes' or 'no'!")
@@ -44,12 +46,14 @@ def perform_eval():
                     agreement_int = "0"
                 f.write("|" + article + "|,|" + agreement_int + "|\n")
                 f.flush()
+                x += 1
 
 
 def get_classification(title, langdict):
     resultdict = {ind: langdict[title][ind] for ind in INDICATORS if ind in langdict[title]}
     resultdict['Complementary'] = sum(resultdict.values()) > 0
     return resultdict
+
 
 def get_random_data():
     with open(DATAP + "/eval/random.csv", "r", encoding="utf-8") as f:
@@ -62,6 +66,7 @@ def get_random_data():
             y.append(row[1])
 
         return A_random, y
+
 
 # one row per article, indicators are columns
 def get_article_tags():
@@ -111,12 +116,12 @@ def analyze_language_class():
     dfsum['TN'] = tns
     dfsum['FN'] = fns
     dfsum['Prec'] = dfsum.TP / (dfsum.TP + dfsum.FP)
-    #dfsum['Negative-Prec'] = dfsum.TN / (dfsum.FN + dfsum.TN)
+    # dfsum['Negative-Prec'] = dfsum.TN / (dfsum.FN + dfsum.TN)
     dfsum['Rec'] = dfsum.TP / (dfsum.TP + dfsum.FN)
-    #dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
+    # dfsum['specificity'] = dfsum.TN / (dfsum.FP + dfsum.TN)
     dfsum['Acc'] = (dfsum.TP + dfsum.TN) / (dfsum.TP + dfsum.TN + dfsum.FP + dfsum.FN)
-    #dfsum['F1'] = (2 * dfsum.TP) / (2 * dfsum.TP + dfsum.FP + dfsum.FN)
-    #dfsum['g-mean'] = numpy.sqrt(dfsum.Rec * dfsum.specificity)
+    # dfsum['F1'] = (2 * dfsum.TP) / (2 * dfsum.TP + dfsum.FP + dfsum.FN)
+    # dfsum['g-mean'] = numpy.sqrt(dfsum.Rec * dfsum.specificity)
 
     # dfsum['Noise'] = dfsum.TN + dfsum.FN
     return dfsum
@@ -172,7 +177,7 @@ def debug_evaluation():
 
 if __name__ == "__main__":
     perform_eval()
-    #df = analyze_language_class()
-    #with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    # df = analyze_language_class()
+    # with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     #    print(df)
-    #debug_evaluation()
+    # debug_evaluation()
