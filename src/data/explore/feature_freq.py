@@ -1,8 +1,7 @@
 from data import load_articledict
 
 
-def analyze_feature_frequency(F_SetNames):
-    ad = load_articledict()
+def analyze_feature_frequency(ad, F_SetNames):
     freq = dict()
     for a in ad:
         for F_Name in F_SetNames:
