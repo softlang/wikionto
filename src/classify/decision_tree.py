@@ -7,7 +7,7 @@ from scipy.sparse import dok_matrix
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from sklearn.metrics import balanced_accuracy_score, f1_score, recall_score, precision_score
 from sklearn.feature_selection import SelectKBest, chi2, mutual_info_classif, f_classif
-from yellowbrick.features import RFECV
+#from yellowbrick.features import RFECV
 from classify.dottransformer import transform
 from imblearn.under_sampling import RepeatedEditedNearestNeighbours
 from imblearn.over_sampling import SMOTENC
@@ -55,7 +55,7 @@ def build_dok_matrix(id_to_a, f_to_id, ad, F_Names):
         for F_Name in F_Names:
             if F_Name in ad[a]:
                 for f in ad[a][F_Name]:
-                    if F_Name + "::" + f in ad[a]:
+                    if F_Name + "::" + f in f_to_id:
                         matrix[aid, f_to_id[F_Name + "::" + f]] = 1
     return matrix
 
@@ -158,7 +158,7 @@ def train_decisiontree_exploration(ad, k0=1, kmax=60, kstep=1, splitnr=1000, sco
         evals.append(eval_dict)
     return pd.DataFrame(evals)
 
-
+"""
 def crossvalidation_search_decision_tree(ad):
     (A_train, y_train), (A_test, y_test), f_to_id = get_data_sets(ad)
     A = A_train + A_test
@@ -172,7 +172,7 @@ def crossvalidation_search_decision_tree(ad):
     print("finished fit")
     selector.poof()
     # export_graphviz(selector.estimator_, out_file=DATAP + "/temp/trees/sltree_crossval.dot")
-
+"""
 
 def feature_count_positive(ad):
     (A_train, y_train), (A_test, y_test), f_to_id = get_data_sets(ad)
@@ -190,15 +190,15 @@ if __name__ == '__main__':
     # crossvalidation_search_decision_tree(ad)
     df = train_decisiontree_exploration(ad)
     ax = df.plot.scatter(x="FPR", y="TPR", style="x", c="purple")
-    df = train_decisiontree_exploration(ad, splitnr=2000)
-    df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="orange")
-    df = train_decisiontree_exploration(ad, splitnr=3000)
-    df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="red")
-    df = train_decisiontree_exploration(ad, undersam=True, splitnr=3000)
+    #df = train_decisiontree_exploration(ad, splitnr=2000)
+    #df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="orange")
+    #df = train_decisiontree_exploration(ad, splitnr=3000)
+    #df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="red")
+    #df = train_decisiontree_exploration(ad, undersam=True, splitnr=3000)
     df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="purple")
-    df = train_decisiontree_exploration(ad, oversam=True, splitnr=3000)
+    df = train_decisiontree_exploration(ad, oversam=True, splitnr=1000)
     df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="orange")
-    df = train_decisiontree_exploration(ad, oversam=True, undersam=True, splitnr=3000)
+    df = train_decisiontree_exploration(ad, oversam=True, undersam=True, splitnr=1000)
     df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="red")
     plt.show()
     df.to_csv(DATAP + "/dct_kbest.csv")
