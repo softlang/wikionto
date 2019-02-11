@@ -3,7 +3,7 @@
 from json import load
 
 # UTIL
-DATAP = "S:/Wikipedia"
+DATAP = "S:/Data/Wikipedia"
 
 
 def load_articledict():
@@ -12,15 +12,6 @@ def load_articledict():
 
 def load_catdict():
     return load(open(DATAP + "/catdict.json", "r", encoding="utf-8"))
-
-
-# - Wikipedia Lists
-def retrievelists():
-    list_articles = []
-    # the file is derived from executing and filtering results of data.explore.explore_lists
-    for line in open(DATAP + "/temp/Language_Lists.txt", "r", encoding="UTF8"):
-        list_articles.append(line.strip())
-    return list_articles
 
 
 # SCOPING
@@ -42,7 +33,7 @@ XKEYWORDS = [['file', 'type'], ['template', 'engine'], ['templating', 'system'],
 POSITIVETEMPLATES = ["infobox_programming_language", "infobox_file_format"]
 
 # - Wikipedia Lists
-LIST_ARTICLES = retrievelists()
+# LIST_ARTICLES = retrievelists()
 
 # CONFIG FOR NEGATIVE INDICATION (EXPLORATION USE)
 # - Negative categories

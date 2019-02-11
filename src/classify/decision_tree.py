@@ -7,10 +7,9 @@ from scipy.sparse import dok_matrix
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from sklearn.metrics import balanced_accuracy_score, f1_score, recall_score, precision_score
 from sklearn.feature_selection import SelectKBest, chi2, mutual_info_classif, f_classif
-#from yellowbrick.features import RFECV
 from classify.dottransformer import transform
 from imblearn.under_sampling import RepeatedEditedNearestNeighbours
-from imblearn.over_sampling import SMOTENC
+from imblearn.over_sampling import SMOTE
 from imblearn.combine import SMOTEENN
 # util
 import numpy
@@ -60,7 +59,8 @@ def build_dok_matrix(id_to_a, f_to_id, ad, F_Names):
     return matrix
 
 
-def get_data_sets(ad, splitnr=1000):
+def build_train_test_data(ad, splitnr=1000):
+    print("Retrieving data sets:")
     A_seed, y_seed = get_seed(ad)
     A_random, y_random = get_random_data()
 
@@ -69,23 +69,25 @@ def get_data_sets(ad, splitnr=1000):
     A_train, y_train = A_data[:splitnr], y_data[:splitnr]
     A_test, y_test = A_data[splitnr:], y_data[splitnr:]
 
-    print("Retrieving data sets:")
     print("Positive in train: " + str(len([y for y in y_train if y == '1'])))
     print("Positive in test: " + str(len([y for y in y_test if y == '1'])))
     (f_to_id, fs) = build_f_to_id(F_SETNAMES, ad)
 
-    return (A_train, y_train), (A_test, y_test), (f_to_id, fs)
+    id_to_a_train = build_id_to_a(A_train)
+    id_to_a_test = build_id_to_a(A_test)
+
+    print("Build Sparse Matrix")
+    X_train = build_dok_matrix(id_to_a_train, f_to_id, ad, F_SETNAMES)
+    X_test = build_dok_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
+
+    return X_train, y_train, X_test, y_test, f_to_id
 
 
 def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, oversam=False, export=False):
     assert k > 0
     print("Training with " + str(k))
-    y_train, y_test, f_to_id, id_to_a_train, id_to_a_test = train_data
+    X_train, y_train, X_test, y_test, f_to_id = train_data
     dtc = DecisionTreeClassifier(random_state=0)
-
-    print("Build Sparse Matrix")
-    X_train = build_dok_matrix(id_to_a_train, f_to_id, ad, F_SETNAMES)
-    X_test = build_dok_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
 
     print("Select KBest")
     selector = SelectKBest(score_function, k=k)
@@ -100,8 +102,11 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
         renn = RepeatedEditedNearestNeighbours()
         X_train, y_train = renn.fit_resample(X_train, y_train)
     if oversam and not undersam:
-        smote_nc = SMOTENC(categorical_features=[0, 1], random_state=0)
-        X_train, y_train = smote_nc.fit_resample(X_train, y_train)
+        #feature_indices_array = list(range(len(f_to_id)))
+        #smote_nc = SMOTENC(categorical_features=feature_indices_array, random_state=0)
+        #X_train, y_train = smote_nc.fit_resample(X_train, y_train)
+        sm = SMOTE(random_state=42)
+        X_train, y_train = sm.fit_resample(X_train, y_train)
     if oversam and undersam:
         smote_enn = SMOTEENN(random_state=0)
         X_train, y_train = smote_enn.fit_resample(X_train, y_train)
@@ -140,17 +145,14 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
                            "Self_Accuracy": dtc.score(X_train, y_train)}
 
 
-def train_decisiontree_exploration(ad, k0=1, kmax=60, kstep=1, splitnr=1000, score_function=chi2, undersam=False,
+def train_decisiontree_exploration(ad, train_data, k0=1, kmax=100, kstep=1, score_function=mutual_info_classif, undersam=False,
                                    oversam=False):
-    (A_train, y_train), (A_test, y_test), (f_to_id, fs) = get_data_sets(ad, splitnr)
-    id_to_a_train = build_id_to_a(A_train)
-    id_to_a_test = build_id_to_a(A_test)
+    X_train, y_train, X_test, y_test, f_to_id = train_data
     evals = []
     id_to_a_all = build_id_to_a([a for a in ad])
     X_all0 = build_dok_matrix(id_to_a_all, f_to_id, ad, F_SETNAMES)
     for k in range(k0, kmax, kstep):
-        train_data = y_train, y_test, f_to_id, id_to_a_train, id_to_a_test
-        selector, dtc, eval_dict = train_decisiontree_with(train_data, k, score_function, False, undersam, oversam)
+        selector, dtc, eval_dict = train_decisiontree_with(train_data, k, score_function, undersam, oversam)
         X_allk = selector.transform(X_all0)
         y_all = dtc.predict(X_allk)
         eval_dict["Positive"] = len([y for y in y_all if y == '1'])
@@ -158,47 +160,29 @@ def train_decisiontree_exploration(ad, k0=1, kmax=60, kstep=1, splitnr=1000, sco
         evals.append(eval_dict)
     return pd.DataFrame(evals)
 
-"""
-def crossvalidation_search_decision_tree(ad):
-    (A_train, y_train), (A_test, y_test), f_to_id = get_data_sets(ad)
-    A = A_train + A_test
-    id_to_a_train = build_id_to_a(A)
-    y = y_train + y_test
-    dtc = DecisionTreeClassifier(random_state=0)
-    selector = RFECV(dtc)
-    X = build_dok_matrix(id_to_a_train, f_to_id, ad, F_SETNAMES)
-    print("built matrix")
-    selector = selector.fit(X, y)
-    print("finished fit")
-    selector.poof()
-    # export_graphviz(selector.estimator_, out_file=DATAP + "/temp/trees/sltree_crossval.dot")
-"""
-
-def feature_count_positive(ad):
-    (A_train, y_train), (A_test, y_test), f_to_id = get_data_sets(ad)
-    A_positive = []
-    for x in range(len(y_train)):
-        if y_train[x]:
-            A_positive.append(A_train[x])
-    features = set(name + "::" + f for a in A_positive for name in F_SETNAMES if name in ad[a] for f in ad[a][name])
-    print(len(features))
-
 
 if __name__ == '__main__':
     ad = load_articledict()
-    # feature_count_positive(ad)
     # crossvalidation_search_decision_tree(ad)
-    df = train_decisiontree_exploration(ad)
-    ax = df.plot.scatter(x="FPR", y="TPR", style="x", c="purple")
+    train_data = build_train_test_data(ad)
+    df = train_decisiontree_exploration(ad, train_data)
+    df.to_csv(DATAP + "/dct_kbest_default.csv")
+    ax = df.plot.scatter(x="FPR", y="TPR", style="x", c="blue")
+    df.plot(x="k", y=["TPR", "FPR", "Balanced_Accuracy", "F_Measure", "Self_Accuracy"], title="KBest")
     #df = train_decisiontree_exploration(ad, splitnr=2000)
     #df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="orange")
-    #df = train_decisiontree_exploration(ad, splitnr=3000)
-    #df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="red")
-    #df = train_decisiontree_exploration(ad, undersam=True, splitnr=3000)
+    # df = train_decisiontree_exploration(ad, splitnr=3000)
+    # df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="red")
+    df = train_decisiontree_exploration(ad, train_data, undersam=True)
+    df.to_csv(DATAP + "/dct_kbest_undersam.csv")
     df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="purple")
-    df = train_decisiontree_exploration(ad, oversam=True, splitnr=1000)
+    df.plot(x="k", y=["TPR", "FPR", "Balanced_Accuracy", "F_Measure", "Self_Accuracy"], title="KBest Undersampling")
+    df = train_decisiontree_exploration(ad, train_data, oversam=True)
+    df.to_csv(DATAP + "/dct_kbest_oversam.csv")
     df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="orange")
-    df = train_decisiontree_exploration(ad, oversam=True, undersam=True, splitnr=1000)
+    df.plot(x="k", y=["TPR", "FPR", "Balanced_Accuracy", "F_Measure", "Self_Accuracy"], title="KBest Oversampling")
+    df = train_decisiontree_exploration(ad, train_data, oversam=True, undersam=True)
+    df.to_csv(DATAP + "/dct_kbest_combinesam.csv")
     df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="red")
+    df.plot(x="k", y=["TPR", "FPR", "Balanced_Accuracy", "F_Measure", "Self_Accuracy"], title="KBest Combined Resampling")
     plt.show()
-    df.to_csv(DATAP + "/dct_kbest.csv")
