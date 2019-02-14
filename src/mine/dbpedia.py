@@ -198,7 +198,7 @@ offset ?offset
     return articles
 
 
-def get_templates(root, mindepth, maxdepth):
+def get_infobox_templates(root, mindepth, maxdepth):
     querytext = """
     PREFIX dbo: <http://dbpedia.org/ontology/>
     PREFIX dbp: <http://dbpedia.org/resource/>
@@ -208,6 +208,30 @@ def get_templates(root, mindepth, maxdepth):
         ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root .
         ?article <http://dbpedia.org/property/wikiPageUsesTemplate> ?t .
         FILTER(regex(str(?t),"Infobox","i"))
+      }
+      ORDER BY ASC(?article)
+    }
+    limit 10000
+    offset ?offset
+        """.replace("?root", root).replace("?mindepth", str(mindepth)).replace("?maxdepth", str(maxdepth))
+    td = dict()
+    for result in query(querytext):
+        t = result["t"]["value"].replace("http://dbpedia.org/resource/Template:", "").lower()
+        cl = result["article"]["value"].replace("http://dbpedia.org/resource/", "")
+        if cl not in td:
+            td[cl] = []
+        td[cl].append(t)
+    return td
+
+def get_all_templates(root, mindepth=0, maxdepth=8):
+    querytext = """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbp: <http://dbpedia.org/resource/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    SELECT ?article ?t where { 
+      SELECT ?article ?t where {
+        ?article dct:subject/skos:broader{?mindepth,?maxdepth} ?root .
+        ?article <http://dbpedia.org/property/wikiPageUsesTemplate> ?t .
       }
       ORDER BY ASC(?article)
     }

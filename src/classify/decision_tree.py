@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 from json import dump
 from collections import Counter
 
-F_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "COPHypernym", "Lemmas", "Wikipedia_Lists"]  # Lemmas,
+F_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "Summary:COPHypernym", "Lemmas", "Wikipedia_Lists"]  # Lemmas,
 
 
 def get_seed(ad):
@@ -80,13 +80,13 @@ def build_train_test_data(ad, splitnr=1000):
     X_train = build_dok_matrix(id_to_a_train, f_to_id, ad, F_SETNAMES)
     X_test = build_dok_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
 
-    return X_train, y_train, X_test, y_test, f_to_id
+    return X_train, y_train, X_test, y_test, f_to_id, id_to_a_train, id_to_a_test
 
 
 def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, oversam=False, export=False):
     assert k > 0
     print("Training with " + str(k))
-    X_train, y_train, X_test, y_test, f_to_id = train_data
+    X_train, y_train, X_test, y_test, f_to_id, id_to_a_train, id_to_a_test = train_data
     dtc = DecisionTreeClassifier(random_state=0)
 
     print("Select KBest")
@@ -116,7 +116,7 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
     clf = dtc.fit(X_train, y_train, check_input=True)
 
     if export:
-        export_graphviz(clf, out_file=DATAP + "/temp/lemmatrees2/sltree" + str(k) + ".dot", filled=True)
+        export_graphviz(clf, out_file=DATAP + "/temp/trees/sltree" + str(k) + ".dot", filled=True)
         transform(fitted_ids, k)
 
     y_test_predicted = dtc.predict(X_test)
@@ -131,10 +131,12 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
             tp += 1
         if y_test[x] == '1' and y_test_predicted[x] == '0':
             fn += 1
+            print("FN: " + id_to_a_test[x])
         if y_test[x] == '0' and y_test_predicted[x] == '0':
             tn += 1
         if y_test[x] == '0' and y_test_predicted[x] == '1':
             fp += 1
+            print("FP: " + id_to_a_test[x])
 
     return selector, dtc, {"TP": tp, "TN": tn, "FP": fp, "FN": fn, "k": k, "#Features": len(fitted_ids),
                            "Balanced_Accuracy": balanced_accuracy_score(y_test, y_test_predicted),
@@ -145,14 +147,14 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
                            "Self_Accuracy": dtc.score(X_train, y_train)}
 
 
-def train_decisiontree_exploration(ad, train_data, k0=1, kmax=100, kstep=1, score_function=mutual_info_classif, undersam=False,
-                                   oversam=False):
-    X_train, y_train, X_test, y_test, f_to_id = train_data
+def train_decisiontree_exploration(ad, train_data, k0=13, kmax=19, kstep=1, score_function=chi2, undersam=False,
+                                   oversam=False, export=False):
+    X_train, y_train, X_test, y_test, f_to_id, id_to_a_train, id_to_a_test = train_data
     evals = []
     id_to_a_all = build_id_to_a([a for a in ad])
     X_all0 = build_dok_matrix(id_to_a_all, f_to_id, ad, F_SETNAMES)
     for k in range(k0, kmax, kstep):
-        selector, dtc, eval_dict = train_decisiontree_with(train_data, k, score_function, undersam, oversam)
+        selector, dtc, eval_dict = train_decisiontree_with(train_data, k, score_function, undersam, oversam, export)
         X_allk = selector.transform(X_all0)
         y_all = dtc.predict(X_allk)
         eval_dict["Positive"] = len([y for y in y_all if y == '1'])

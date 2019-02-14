@@ -23,11 +23,12 @@ class COPSemgrex():
             print("Not alive")
             time.sleep(5)
         cops = dict()
+
         for variant, semgrex in self.semgrex_dict.items():
             try:
                 parser = StanfordCoreNLP(url='http://localhost:9000/semgrex/')
                 responsedict = parser.annotate(text=self.text,
-                                               annotators='tokenize, ssplit, pos, lemma, depparse',
+                                               annotators='tokenize, ssplit, pos, depparse',
                                                pattern=semgrex)
                 cops[variant] = get_noun(responsedict)
             except Exception500:
@@ -58,6 +59,9 @@ def is_alive():
 
 
 if __name__ == '__main__':
-    sentence = "A programming language is a formal language."
+    from data import load_articledict
+
+    ad = load_articledict()
+    sentence = ad["Java_(programming_language)"]["Summary"]
     cop = COPSemgrex(sentence).run()
     print(cop)

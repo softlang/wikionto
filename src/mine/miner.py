@@ -1,6 +1,6 @@
 from mine.dbpedia import articles_below, articles_with_summaries, articles_to_categories_below, \
     category_to_subcategory_below, to_uri, articles_with_revisions_live, \
-    articles_with_wikidataid, get_templates, articles_with_NonLiveHypernyms, category_to_supercategory_below
+    articles_with_wikidataid, get_infobox_templates, articles_with_NonLiveHypernyms, category_to_supercategory_below
 from json import dump, load
 from data import DATAP, DEPTH, ROOTS, load_articledict
 
@@ -88,7 +88,7 @@ def mine():
     articledict = add_function(articledict, articles_with_revisions_live, "Revision")
     #articledict = add_function(articledict, articles_with_wikidataid, "wikidataid")
     #articledict = add_function(articledict, articles_with_NonLiveHypernyms, "DbpediaHypernyms")
-    articledict = add_function(articledict, get_templates, "DbpediaInfoboxTemplate")
+    articledict = add_function(articledict, get_infobox_templates, "DbpediaInfoboxTemplate")
     articledict = add_function(articledict, articles_to_categories_below, "cats")
     # articledict = add_wordset(articledict)
     # articledict = add_properties(articledict)
@@ -112,7 +112,7 @@ def mine_cats(articledict):
 
 if __name__ == '__main__':
     articledict = load_articledict()
-    articledict = add_function(articledict, get_templates, "DbpediaInfoboxTemplate")
+    articledict = add_function(articledict, get_infobox_templates, "DbpediaInfoboxTemplate")
     with open(DATAP + '/articledict.json', 'w', encoding='utf8') as f:
         dump(obj=articledict, fp=f, indent=2)
         f.flush()
