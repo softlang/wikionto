@@ -1,13 +1,18 @@
-#from mine.wikidata import get_computer_languages, get_computer_formats
-#from mine.yago import get_artificial_languages
-from json import load
+# from mine.wikidata import get_computer_languages, get_computer_formats
+# from mine.yago import get_artificial_languages
+from json import load, dump
 
 # UTIL
 DATAP = "S:/Data/Wikipedia"
-
+AP = DATAP + "/articledict.json"
 
 def load_articledict():
-    return load(open(DATAP + "/articledict.json", "r", encoding="utf-8"))
+    return load(open(AP, "r", encoding="utf-8"))
+
+
+def save_articledict(ad):
+    with open(AP, "w", encoding="utf-8") as f:
+        dump(ad, f)
 
 
 def load_catdict():
@@ -16,9 +21,10 @@ def load_catdict():
 
 # SCOPING
 DEPTH = 8
-ROOTS = ["Category:Formal_languages", "Category:Computer_file_formats", "Category:Installation_software"]
+ROOTS = ["Category:Formal_languages", "Category:Computer_file_formats"]
 
-INDICATORS = ["PositiveInfobox", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS", "COP", "wikidata_CL"]
+INDICATORS = ["PositiveInfobox", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS", "COP",
+              "wikidata_CL"]
 
 # CONFIG FOR INDICATORS
 # - for POS and URLBracesPattern

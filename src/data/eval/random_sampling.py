@@ -17,10 +17,11 @@ def perform_eval():
         count = 0
         for line in f:
             title = line.split(",")[0].replace("|", "")
-            if title in ad:
+            if title in ad and not ad[title]["IsStub"]:
                 count += 1
                 articles_visited.add(title)
                 olddata += line
+        olddata += "\n"
     print("old size: " + str(len(articles_visited)))
 
     with open(DATAP + '/eval/random.csv', 'w', encoding="UTF8") as f:
@@ -31,7 +32,7 @@ def perform_eval():
         while x < 4000:
             index = random.randint(0, len(ad))
             article = articles[index]
-            if article in articles_visited or article in S or "List_of" in article:
+            if article in articles_visited or article in S or "List_of" in article or ad[article]["IsStub"]:
                 continue
             else:
                 articles_visited.add(article)

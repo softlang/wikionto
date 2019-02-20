@@ -1,15 +1,44 @@
-from data import DATAP, load_articledict
+from data import DATAP, load_articledict, save_articledict
 from data.eval.random_sampling import get_random_data
 from string import Template, ascii_uppercase
 from collections import deque
 from json import dump
+import random
 
 QP = DATAP + "/survey/questions"
 
 
-def chunks(l, n):
-    for i in range(0, len(l), n):
-        yield l[i:i + n]
+def randomchunks(articles, articledict, chunksize, chunknumber):
+    visited = set()
+    articles.sort()
+
+    chunks = []
+    chunkindex = 0
+    while len(visited) != len(articles):
+        index = random.randint(0, len(articles))
+        article = articles[index]
+
+        if article in visited:
+            continue
+        chunks[chunkindex].append(article)
+        articledict[article]["Eval"] = 1
+
+        if len(chunks[chunkindex]) == chunksize:
+            chunkindex += 1
+            if chunkindex == chunknumber:
+                break
+            chunks[chunkindex] = []
+    return chunks, articledict
+
+
+def randomize_order(articles):
+    rand_articles = []
+    while len(articles) != len(rand_articles):
+        index = random.randint(0, len(articles))
+        article = articles[index]
+        if article not in rand_articles:
+            rand_articles.append(article)
+    return rand_articles
 
 
 def generate_questionnaire():
@@ -73,10 +102,17 @@ def generate_pack(foldername, chunk, chunkname):
     f_questions = open(QP + "/" + foldername + "/" + str(chunkname) + "_questions.xml", "w", encoding="utf-8")
     f_questions.write(HEADER)
 
+    # util json file for assignments
+    qid_to_a = dict()
+
     qnr = 1
     for a in chunk:
         f_questions.write(questionTemplate.substitute(title=a, qnr=qnr) + "\n")
+        qid_to_a[chunkname + str(qnr)] = a
         qnr += 1
+
+    with open(QP + "/qid_to_article.json", "w", encoding="utf-8") as f:
+        dump(qid_to_a, f)
 
     f_questions.write(END)
     f_questions.close()
@@ -84,8 +120,11 @@ def generate_pack(foldername, chunk, chunkname):
 
 A_traintest, y = get_random_data()
 ad = load_articledict()
+for a in ad:
+    ad[a]["Eval"] = 0
 A_seed = [a for a in ad if ad[a]["Seed"]]
-A_eval = [a for a in ad if a not in A_seed and a not in A_traintest]
+A_eval = [a for a in ad if
+          a not in A_seed and a not in A_traintest and not ad[a]["IsStub"] and not ad[a]["DeletedFromWikipedia"]]
 
 letters = ascii_uppercase
 letters2 = [c1 + c2 for c1 in letters for c2 in letters]
@@ -94,33 +133,24 @@ for ls in letters2:
     if nr > 40:
         break
     print(str(nr) + " = " + ls)
-    print(str(nr+1) + " = " + ls)
+    print(str(nr + 1) + " = " + ls)
     nr += 2
 letterids = deque(letters2[:-2])
 
-chunk_lists = []
-chunks_A_traintest = chunks(A_traintest, 94)
-Qs_seedtemp = A_seed * 12
-print(len(A_traintest) / 94)
-assert (len(A_traintest) / 94) <= len(letterids)
-for Qs_traintest in chunks_A_traintest:
-    Qs_seedi = Qs_seedtemp[:5]
-    Qs_seedtemp = Qs_seedtemp[5:]
-    chunkname = letterids.popleft()
-    generate_pack("test", Qs_seedi + Qs_traintest, chunkname)
-
-chunk_lists = []
-chunks_A_eval = chunks(A_eval, 94)
+chunks_A_eval, ad = randomchunks(A_eval, ad, 90, 20)
 chunks_queue = deque(chunks_A_eval)
-Qs_seedtemp = A_seed * 24
-print(len(A_eval) / 94)
-letterids = deque(letters2[:-2])
+seedtitles = A_seed * 40
+print("The number of chunks is actual " + str(len(chunks_A_eval)) + " vs estimated " + str(len(A_eval) / 90))
 while letterids:
-    Qs_eval = chunks_queue.popleft()
-    Qs_seedi = Qs_seedtemp[:5]
-    assert len(Qs_seedi) == 5
-    Qs_seedtemp = Qs_seedtemp[5:]
     chunkname = letterids.popleft()
-    generate_pack("eval", Qs_seedi + Qs_eval, chunkname)
+    chunk = chunks_queue.popleft()
+    seedchunk = seedtitles[:9]
+    assert len(seedchunk) == 9
+    seedtitles = seedtitles[9:]
+
+    finalchunk = seedchunk[:5] + randomize_order(seedchunk[5:] + chunk)
+
+    generate_pack("eval", finalchunk, chunkname)
 
 generate_questionnaire()
+save_articledict(ad)

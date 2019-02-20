@@ -2,7 +2,7 @@ from features.cop_firstsentence import COPFirstSentence
 from features.infobox_dbpedia_existence import InfoboxDbEx
 from features.lists_of import WikiList
 from features.urlwords import ExtractURLWords
-from features.deleted_from_wikipedia import IdentifyDeletedFromWikipedia
+from check.deleted_from_wikipedia import IdentifyDeletedFromWikipedia
 from features.summary_words import SumNouns
 from features.summary_lemma import SumLemmas
 from mine.miner import mine
@@ -18,4 +18,4 @@ def article_indicators():
 
 if __name__ == '__main__':
     mine()
-    article_indicators()
+    #article_indicators()

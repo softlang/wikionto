@@ -13,8 +13,9 @@ def wiki_request(params):
     params['utf8'] = ''
     try:
         r = requests.get(URL, params=params, headers=HEADER).json()
-    except requests.ConnectionError:
+    except requests.ConnectionError as cer:
         print("Connection Error")
+        print(cer)
         r = wiki_request(params)
     except JSONDecodeError:
         return None

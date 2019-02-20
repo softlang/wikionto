@@ -43,10 +43,10 @@ def check_seed():
 
 
 def merge_seeds():
-    f = open(DATAP + '/gitseed_annotated.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/temp/gitseed_annotated.json', 'r', encoding="UTF8")
     gd = load(f)
     f.close()
-    f = open(DATAP + '/TIOBE_index_annotated.json', 'r', encoding="UTF8")
+    f = open(DATAP + '/temp/TIOBE_index_annotated.json', 'r', encoding="UTF8")
     td = load(f)
     f.close()
 
@@ -90,11 +90,11 @@ def merge_seeds():
                 d["unknown"][l] += ", tiobe"
             else:
                 d["unknown"][l] = "tiobe"
-    f = open(DATAP + '/seed_annotated.json', 'w', encoding="UTF8")
+    f = open(DATAP + '/temp/seed_annotated.json', 'w', encoding="UTF8")
     dump(d, f, indent=2)
     f.flush()
     f.close()
 
 
 if __name__ == "__main__":
-    get_n(8)
+    merge_seeds()

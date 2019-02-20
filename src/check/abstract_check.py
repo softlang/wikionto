@@ -1,18 +1,16 @@
-from data import DATAP
+from data import DATAP, load_articledict, save_articledict
 from json import load, dump
 from stanford import start_time, stop_time
+
 
 class ArtdictCheck:
 
     def solo(self):
-        with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
-            articledict = load(f)
-            t = start_time()
-            articledict = self.check(articledict)
-            stop_time(t)
-        with open(DATAP + '/articledict.json', 'w', encoding="UTF8") as f:
-            dump(obj=articledict, fp=f)
-            f.flush()
+        articledict = load_articledict()
+        t = start_time()
+        articledict = self.check(articledict)
+        stop_time(t)
+        save_articledict(articledict)
 
     def dryrun(self):
         with open(DATAP + '/testdict.json', 'r', encoding="UTF8") as f:
@@ -25,8 +23,7 @@ class ArtdictCheck:
 
 class CatdictCheck:
     def solo(self):
-        with open(DATAP + '/articledict.json', 'r', encoding="UTF8") as f:
-            articledict = load(f)
+        articledict = load_articledict()
         with open(DATAP + '/catdict.json', 'r', encoding="UTF8") as f:
             cd = load(f)
             cd = self.check(cd, articledict)

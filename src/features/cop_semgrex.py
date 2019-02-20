@@ -25,14 +25,14 @@ class COPSemgrex():
         cops = dict()
 
         for variant, semgrex in self.semgrex_dict.items():
-            try:
-                parser = StanfordCoreNLP(url='http://localhost:9000/semgrex/')
-                responsedict = parser.annotate(text=self.text,
-                                               annotators='tokenize, ssplit, pos, depparse',
-                                               pattern=semgrex)
-                cops[variant] = get_noun(responsedict)
-            except Exception500:
+            parser = StanfordCoreNLP(url='http://localhost:9000/semgrex/')
+            responsedict = parser.annotate(text=self.text,
+                                           annotators='tokenize, ssplit, pos, depparse',
+                                           pattern=semgrex)
+            if not responsedict:
                 cops[variant] = []
+            else:
+                cops[variant] = get_noun(responsedict)
 
         for hypernym in cops['isa']:
             if hypernym in cops['Aisa']:

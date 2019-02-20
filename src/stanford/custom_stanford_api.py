@@ -12,15 +12,15 @@ class StanfordCoreNLP:
         self.server_url = url
         self.session = session
 
-    def annotate(self, text, annotators="tokenize,ssplit,pos", pattern=None):
+    def annotate(self, text, annotators="tokenize,ssplit,pos", pattern=None, runnr=1):
         assert isinstance(text, str)
 
         properties = {
             "annotators": annotators,
             # Setting enforceRequirements to skip some annotators and make the process faster
-            "enforceRequirements": "false",
-            'timeout': 6000000,
-            'tokenize.options': 'untokenizable=allDelete'
+            "enforceRequirements": "true",
+            'timeout': 6000000000000,
+            'tokenize.options': 'untokenizable=noneDelete'
         }
         params = dict()
         params['properties'] = str(properties)
@@ -38,9 +38,13 @@ class StanfordCoreNLP:
                     raise Exception500
                 output = r.json()
                 # output = json.loads(r.text, encoding='utf-8', strict=True)
-
-        except requests.exceptions.ConnectionError:
-            return self.annotate(text, properties)
+        except:
+            print("Caught Exception")
+            if runnr > 10:
+                print(text.encode('utf8'))
+                return {}
+            else:
+                return self.annotate(text, properties, runnr=runnr+1)
         return output
 
 def index_keyvalue_to_key(parsedict_list):
