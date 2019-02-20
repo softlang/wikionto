@@ -75,9 +75,10 @@
     "summary": "AspectJ is an aspect-oriented programming  extension created at PARC for the Java programming language"
   },
   "Assembly language": {
-    "recall": 1,
-    "recalledAs": "Assembly_language",
-    "summary": "Assembly is the best language ever with many of the best games made in it, also dos is the best for games .Dos, Assembly, commodore, windows 95, anything with about 200mb of ram will do.As many people know i will kill you if you dont agree with my insane logic, but hey, assembly,dos,assembly,gameboy...An assembly  language, often abbreviated asm, is a low-level programming language for a computer, or other programmable device, in which there is a very strong  correspondence between the language and the architecture's machine code instructions"
+    "recall": 0,
+    "mention": "Assembly_language",
+    "summary": "Assembly is the best language ever with many of the best games made in it, also dos is the best for games .Dos, Assembly, commodore, windows 95, anything with about 200mb of ram will do.As many people know i will kill you if you dont agree with my insane logic, but hey, assembly,dos,assembly,gameboy...An assembly  language, often abbreviated asm, is a low-level programming language for a computer, or other programmable device, in which there is a very strong  correspondence between the language and the architecture's machine code instructions",
+    "comment": "describes a type of language. Many concrete instances exist."
   },
   "ATLAS": {
     "recall": 1,
@@ -384,8 +385,8 @@
     "summary": "Factor is a stack-oriented programming language created by Slava Pestov"
   },
   "Falcon": {
-    "recall": 1,
-    "recalledAs": "Falcon_(programming_language)",
+    "recall": 0,
+    "comment": "deleted article Falcon_(programming_language)",
     "summary": "Falcon is an open source, multi-paradigm programming language"
   },
   "Fantom": {
@@ -1204,9 +1205,10 @@
     "summary": "X10 is a programming language being developed by IBM at the Thomas J"
   },
   "xBase": {
-    "recall": 1,
-    "recalledAs": "XBase",
-    "summary": "xBase is the generic term for all programming languages that derive from the original dBASE  programming language and database formats"
+    "recall": 0,
+    "mention": "XBase",
+    "summary": "xBase is the generic term for all programming languages that derive from the original dBASE  programming language and database formats",
+    "comment": "not a language, one variant is probably only known for TIOBE"
   },
   "XBase++": {
     "recall": 1,

@@ -1,7 +1,7 @@
 {
   "REALbasic": {
-    "recall": 0,
-    "mention": "Xojo",
+    "recall": 1,
+    "recalledAs": "Xojo",
     "summary": "The Xojo programming environment is developed and commercially marketed by Xojo, Inc of Austin, Texas for software development targeting Mac OS X, Microsoft Windows, x86 Linux, iOS, as well as the web and Raspberry Pi"
   },
   "SVG": {
@@ -312,8 +312,8 @@
     "summary": "Csound is a computer programming language for sound, also known as a sound compiler or an audio programming language, or more precisely, an audio DSL"
   },
   "CWeb": {
-    "recall": 0,
-    "mention": "CWEB",
+    "recall": 1,
+    "recalledAs": "CWEB",
     "summary": "CWEB is a computer programming system created by Donald Knuth and Silvio Levy as a follow-up to Knuth's WEB literate programming system, using the C programming language  instead of Pascal.Like WEB, it consists of two primary programs: CTANGLE, which produces compilable C code from the source texts, and CWEAVE, which produces nicely-formatted printable documentation using TeX."
   },
   "Cython": {
@@ -428,8 +428,8 @@
     "summary": "FreeMarker is a Java-based Template Engine, originally focusing on dynamic web page generation with MVC software architecture"
   },
   "Frege": {
-    "recall": 1,
-    "recalledAs": "Frege_(programming_language)",
+    "recall": 0,
+    "comment": "former article Frege_(programming_language)",
     "summary": "Frege is a non-strict, purely functional programming language for the Java virtual machine in the spirit of Haskell.It is considered a Haskell dialect or simply \"a\" Haskell for the Java virtual machine.Frege has a strong static type system with type inference"
   },
   "G-code": {
@@ -447,10 +447,10 @@
     "summary": "Genie is a modern, general-purpose high-level programming language in active development since 2008"
   },
   "Genshi": {
-    "recall": 1,
+    "recall": 0,
     "mention": "Genshi_(templating_language)",
     "summary": "Genshi is a template engine for XML-based vocabularies written in Python",
-    "comment": "title hints at language"
+    "comment": "Not categorized in Dbpedia"
   },
   "Gnuplot": {
     "recall": 0,
@@ -496,8 +496,8 @@
     "summary": "Apache Groovy is an object-oriented programming language for the Java platform"
   },
   "Groovy Server Pages": {
-    "recall": 1,
-    "recalledAs": "Groovy_Server_Pages",
+    "recall": 0,
+    "comment": "deleted article Groovy_Server_Pages",
     "summary": "Groovy Server Pages  is a presentation language for web applications, similar to JSP"
   },
   "Hack": {
@@ -506,10 +506,9 @@
     "summary": "Hack is a programming language for the HipHop Virtual Machine , created by Facebook as a dialect of PHP"
   },
   "Haml": {
-    "recall": 0,
-    "mention": "Haml",
-    "summary": "Haml (HTML Abstraction Markup Language) is a templating system to avoid writing the inline code in a web document and make HTML easy and clean",
-    "comment": "Two subjects in one sentence, where language is hidden..."
+    "recall": 1,
+    "recalledAs": "Haml",
+    "summary": "Haml (HTML Abstraction Markup Language) is a templating system to avoid writing the inline code in a web document and make HTML easy and clean"
   },
   "Handlebars": {
     "recall": 0,
@@ -576,7 +575,7 @@
   },
   "Jasmin": {
     "recall": 0,
-    "mention": "Jasmin_(software)",
+    "comment": "Jasmin_(software) deleted from Wikipedia",
     "summary": "Jasmin is a free open source assembler to create class files from human readable assembler-like syntax using the Java Virtual Machine instruction sets"
   },
   "Java": {
@@ -585,8 +584,8 @@
     "summary": "Java is a general-purpose computer-programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible"
   },
   "Java Server Pages": {
-    "recall": 0,
-    "mention": "JavaServer_Pages",
+    "recall": 1,
+    "recalledAs": "JavaServer_Pages",
     "summary": "JavaServer Pages  is a technology that helps software developers create dynamically generated web pages based on HTML, XML, or other document types"
   },
   "JavaScript": {
@@ -650,7 +649,7 @@
   "LilyPond": {
     "recall": 1,
     "summary": "LilyPond is a computer program and file format for music engraving",
-    "c:": "Two main subjects"
+    "comment:": "Two main subjects"
   },
   "Limbo": {
     "recall": 1,
@@ -696,14 +695,13 @@
   },
   "Mako": {
     "recall": 0,
-    "mention": "Mako_(template_engine)",
-    "summary": "Mako is a template engine written in Python"
+    "comment": "Deleted from Wikipedia Mako template engine"
   },
   "Markdown": {
     "recall": 1,
     "summary": "Markdown is a lightweight markup language with plain text formatting syntax."
   },
-  "Matlab": {
+  "MATLAB": {
     "recall": 1,
     "recalledAs": "MATLAB",
     "summary": "MATLAB  is a multi-paradigm numerical computing environment and fourth-generation programming language"
@@ -714,8 +712,10 @@
     "summary": "Max is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74"
   },
   "MediaWiki": {
-    "recall": 1,
-    "summary": "MediaWiki is a free and open-source wiki application."
+    "recall": 0,
+    "mention": "MediaWiki",
+    "summary": "MediaWiki is a free and open-source wiki application.",
+    "comment": "Engine is the only main topic"
   },
   "Mercury": {
     "recall": 1,
@@ -759,8 +759,8 @@
     "summary": "Nemerle is a general-purpose high-level statically typed programming language designed for platforms using the Common Language Infrastructure (.NET/Mono)"
   },
   "nesC": {
-    "recall": 1,
-    "recalledAs": "NesC",
+    "recall": 0,
+    "comment": "deleted article NesC",
     "summary": "nesC is a component-based, event-driven programming language used to build applications for the TinyOS platform"
   },
   "NetLogo": {
@@ -793,8 +793,8 @@
     "summary": "Nu is an interpreted object-oriented programming language, with a Lisp-like syntax, created by Tim Burks as an alternative scripting language to program OS X through its Cocoa application programming interface "
   },
   "NumPy": {
-    "recall": 1,
-    "summary": "NumPy is an extension to the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large library of high-level mathematical functions to operate on these arrays"
+    "recall": 0,
+    "comment": "old article summary seems to be invalid: NumPy is an extension to the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large library of high-level mathematical functions to operate on these arrays"
   },
   "Objective-C": {
     "recall": 1,
@@ -805,8 +805,8 @@
     "summary": "Objective-J is a programming language developed as part of the Cappuccino web development framework"
   },
   "OCaml": {
-    "recall": 0,
-    "mention": "OCaml",
+    "recall": 1,
+    "recalledAs": "OCaml",
     "summary": "OCaml ( oh-KAM-əl), originally named Objective Caml, is the main implementation of the programming language Caml, created by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez and others in 1996."
   },
   "Opa": {
@@ -859,7 +859,7 @@
     "recalledAs": "Pascal_(programming_language)",
     "summary": "Pascal is an imperative and procedural programming language, which Niklaus Wirth designed in 1968\u201369 and published in 1970, as a small, efficient language intended to encourage good programming practices using structured programming and data structuring"
   },
-  "PAWN": {
+  "Pawn": {
     "recall": 1,
     "recalledAs": "Pawn_(scripting_language)",
     "comment": "Pawn_(scripting_language) does not exist at Wikipedia, but is kept in Dbpedia Live"
@@ -994,9 +994,10 @@
     "summary": "Red is a computer programming language"
   },
   "Regular Expression": {
-    "recall": 1,
-    "recalledAs": "Regular_expression",
-    "summary": "In theoretical computer science and formal language theory, a regular expression  is a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e"
+    "recall": 0,
+    "mention": "Regular_expression",
+    "summary": "In theoretical computer science and formal language theory, a regular expression  is a sequence of characters that define a search pattern, mainly for use in pattern matching with strings, or string matching, i.e",
+    "comment": "Classified as a concept rather than a language."
   },
   "Ren'Py": {
     "recall": 0,
@@ -1154,7 +1155,8 @@
   "TeX": {
     "recall": 0,
     "mention": "TeX",
-    "summary": "TeX, stylized within the system as TEX, is a typesetting system designed and mostly written by Donald Knuth and released in 1978"
+    "summary": "TeX, stylized within the system as TEX, is a typesetting system designed and mostly written by Donald Knuth and released in 1978",
+    "comment": "Text is too unclear."
   },
   "Text": {
     "recall": 0,
@@ -1270,8 +1272,8 @@
     "summary": "XQuery (XML Query) is a query and functional programming language that queries and transforms collections of structured and unstructured data, usually in the form of XML, text and with vendor-specific extensions for other data formats (JSON, binary, etc.)."
   },
   "XS": {
-    "recall": 0,
-    "mention": "XS_(Perl)",
+    "recall": 1,
+    "recalledAs": "XS_(Perl)",
     "summary": "XS is an interface through which a program written in the Perl programming language can call a C or C++ language subroutine"
   },
   "XSLT": {
@@ -1300,7 +1302,7 @@
     "recalledAs": "Augmented_Backus\u2013Naur_Form",
     "summary": "In computer science, augmented Backus–Naur form (ABNF) is a metalanguage based on Backus–Naur form (BNF), but consisting of its own syntax and derivation rules."
   },
-  "XPM": {
+  "X PixMap": {
     "recall": 1,
     "recalledAs": "X_PixMap",
     "summary": "X PixMap  is an image file format used by the X Window System, created in 1989 by Daniel Dardailler and Colas Nahaboo working at Bull Research Center at Sophia Antipolis, France, and later enhanced by Arnaud Le Hors.It is intended primarily for creating icon pixmaps, and supports transparent pixels"
@@ -1401,8 +1403,8 @@
     "summary": "The Gerber format is an open ASCII vector format for 2D binary images"
   },
   "GAMS": {
-    "recall": 0,
-    "mention": "General_Algebraic_Modeling_System",
+    "recall": 1,
+    "recalledAs": "General_Algebraic_Modeling_System",
     "summary": "The General Algebraic Modeling System  is a high-level modeling system for mathematical optimization"
   },
   "F#": {
@@ -1411,9 +1413,10 @@
     "summary": "F#  is a strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods"
   },
   "Gentoo Ebuild": {
-    "recall": 1,
-    "recalledAs": "Ebuild",
-    "summary": "An ebuild is a specialized bash script which automates compilation and installation procedures for software packages"
+    "recall": 0,
+    "mention": "Ebuild",
+    "summary": "An ebuild is a specialized bash script which automates compilation and installation procedures for software packages",
+    "comment": "Unclear whether it is a dialect or a library-like extension."
   },
   "Csound Document": {
     "recall": 0,
@@ -1754,10 +1757,6 @@
     "comment": " could be \"Redis\" but \"template\" is not mentioned there\n"
   },
   "STON": {
-    "recall": 0,
-    "comment": " no repo at github\n"
-  },
-  "Sublime Text Config": {
     "recall": 0,
     "comment": " no repo at github\n"
   },
@@ -2132,7 +2131,7 @@
   },
   "Cap'n Proto": {
     "recall": 0,
-    "n": "Comparison_of_data_serialization_formats",
+    "mention": "Comparison_of_data_serialization_formats",
     "summary": "This is a comparison of data serialization formats, various ways to convert complex objects to sequences of bits"
   },
   "CartoCSS": {
@@ -2159,11 +2158,6 @@
     "recall": 0,
     "mention": "Assembly_language",
     "summary": "Assembly is the best language ever with many of the best games made in it, also dos is the best for games .Dos, Assembly, commodore, windows 95, anything with about 200mb of ram will do.As many people know i will kill you if you dont agree with my insane logic, but hey, assembly,dos,assembly,gameboy...An assembly  language, often abbreviated asm, is a low-level programming language for a computer, or other programmable device, in which there is a very strong  correspondence between the language and the architecture's machine code instructions"
-  },
-  "Arduino": {
-    "recall": 0,
-    "mention": "Arduino",
-    "summary": "Arduino, sold as Genuino, due to a trademark dispute, outside the U.S"
   },
   "Ant Build System": {
     "recall": 0,
@@ -2194,5 +2188,136 @@
     "recall": 0,
     "mention": ".htaccess",
     "summary": "A .htaccess  file is a directory-level configuration file supported by several web servers, used for configuration of site-access issues, such as URL redirection, URL shortening, Access-security control , and more.A site could have more than one .htaccess file, and the files are placed inside the web tree , and hence their other name distributed configuration files..htaccess files act as a subset of the server's global configuration file  for the directory that they are in, or all sub-directories.The original purpose of .htaccess\u2014reflected in its name\u2014was to allow per-directory access control by, for example, requiring a password to access the content"
+  },
+  "Asymptote": {
+    "recall": 1,
+    "recalledAs": "Asymptote_(vector_graphics_language)"
+  },
+  "Cloud Firestore Security Rules": {
+    "recall": 0,
+    "mention": "Firebase"
+  },
+  "CoNLL-U": {
+    "recall": 0
+  },
+  "EML": {
+    "recall": 0,
+    "mention": "EML",
+    "comment": "Too many options."
+  },
+  "F*": {
+    "recall": 1,
+    "recalledAs": "F*_(programming_language)"
+  },
+  "FIGlet Font":{
+    "recall": 0,
+    "mention": "FIGlet",
+    "comment": "casual mention of font files"
+  },
+  "Git Attributes":{
+    "recall": 0,
+    "comment": "Unclear whether mentioned in search results"
+  },
+  "Git Config":{
+    "recall": 0,
+    "mention": "Git"
+  },
+  "Glyph Bitmap Distribution Format":{
+    "recall": 1,
+    "recalledAs": "Glyph_Bitmap_Distribution_Format"
+  },
+  "HAProxy":{
+    "recall": 0,
+    "comment": "Could refer to HAProxy"
+  },
+  "HTML+Razor":{
+    "recall": 1,
+    "recalledAs": "ASP.NET_Razor"
+  },
+  "HXML":{
+    "recall": 0,
+    "mention": "XML_transformation_language"
+  },
+  "HiveQL":{
+    "recall": 0,
+    "mention": "Apache_Hive"
+  },
+  "Ignore List":{
+    "recall": 0,
+    "mention": "Git"
+  },
+  "JSON with Comments":{
+    "recall": 0,
+    "comment": "maybe at JSON but unclear mentioning"
+  },
+  "Java Properties":{
+    "recall": 1,
+    "recalledAs": ".properties"
+  },
+  "LTspice Symbol":{
+    "recall": 0,
+    "mention": "LTspice"
+  },
+  "Modula-3":{
+    "recall": 1
+  },
+  "Nextflow":{
+    "recall": 0,
+    "mention": "Cuneiform_(programming_language)"
+  },
+  "Pod 6":{
+    "recall": 1,
+    "recalledAs": "Plain_Old_Documentation"
+  },
+  "Quake":{
+    "recall": 0,
+    "comment": "Unclear relation to game engine Quake"
+  },
+  "RPC":{
+    "recall": 0,
+    "comment": "Unclear search results, even together with xdr or rpcgen"
+  },
+  "Roff Manpage":{
+    "recall": 0,
+    "mention": "troff"
+  },
+  "Slice":{
+    "recall": 0,
+    "comment": "No relevant search results"
+  },
+  "Solidity":{
+    "recall": 1
+  },
+  "Windows Registry Entries":{
+    "recall": 0,
+    "mention": "Windows Registry"
+  },
+  "X BitMap":{
+    "recall": 1,
+    "recalledAs": "X_BitMap"
+  },
+  "X Font Directory Index":{
+    "recall": 0,
+    "comment": "No relevant search results"
+  },
+  "YASnippet":{
+    "recall": 0,
+    "comment": "No relevant search results"
+  },
+  "Zig":{
+    "recall": 0,
+    "comment": "No relevant search results"
+  },
+  "nanorc":{
+    "recall": 0,
+    "comment": "No relevant search results"
+  },
+  "q":{
+    "recall": 0,
+    "comment": "Unclear whether it means Pure_(programming_language) or Q_(programming_language_from_Kx_Systems). See text."
+  },
+  "sed":{
+    "recall": 1,
+    "recalledAs": "Sed"
   }
 }

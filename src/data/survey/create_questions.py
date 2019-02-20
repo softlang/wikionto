@@ -2,6 +2,9 @@ from data import DATAP, load_articledict
 from data.eval.random_sampling import get_random_data
 from string import Template, ascii_uppercase
 from collections import deque
+from json import dump
+
+QP = DATAP + "/survey/questions"
 
 
 def chunks(l, n):
@@ -9,10 +12,45 @@ def chunks(l, n):
         yield l[i:i + n]
 
 
+def generate_questionnaire():
+    pageTemplate = Template("""
+    <page intID="${intID1}">
+    <php intID="${intID2}"><![CDATA[
+    $$code = value('ZY01x01', 'label');
+    $$kennung = $$code.'${qnr}'; 
+    question($$kennung);
+    ]]></php>
+    <question id="ZZ${qnr}" intID="${intID3}" />
+    </page>
+    """)
+
+    f_questionnaire = open(QP + "/questionnaire.xml", "w", encoding="utf-8")
+    f_questionnaire.write("""<?xml version="1.0"?>
+    <questionnaire>
+    <page intID="1">
+    <question id="ZY02" intID="2" />
+    <question id="ZY01" intID="3" />
+    </page>""")
+
+    qnr = 1
+    intID = 3
+    while qnr < 100:
+        if qnr < 10:
+            f_questionnaire.write(
+                pageTemplate.substitute(intID1=intID + 1, intID2=intID + 2, intID3=intID + 3, qnr="0" + str(qnr)))
+        else:
+            f_questionnaire.write(
+                pageTemplate.substitute(intID1=intID + 1, intID2=intID + 2, intID3=intID + 3, qnr=qnr))
+        qnr += 1
+        intID += 3
+
+    f_questionnaire.write("</questionnaire>")
+    f_questionnaire.close()
+
+
 def generate_pack(foldername, chunk, chunkname):
     assert len(chunk) <= 99
     # Preparation
-    QP = DATAP + "/survey/questions"
 
     HEADER = """<?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE surveyContent SYSTEM "https://www.soscisurvey.de/templates/doctype.survey.dtd">
@@ -27,48 +65,21 @@ def generate_pack(foldername, chunk, chunkname):
     END = "\n</surveyContent>"
 
     # Templates
-    with open(DATAP + "/survey/sosci_template.txt", "r", encoding="utf-8") as f:
+    with open(DATAP + "/survey/sosci_template.xml", "r", encoding="utf-8") as f:
         text = f.read()
     questionTemplate = Template(text)
-    Tpage = Template("<page intID=\"${intID}\">\n")
-    Tquest = Template("<question id=\"${letterid}${idx}\" intID=\"${intID}\" />\n")
-    Ttext = Template("<question id=\"ZZ${idx}\" intID=\"${intID}\" />\n")
-    Tembed = Template("""<html intID="${intID}"><![CDATA[
-<iframe src="https://en.wikipedia.org/wiki/${title}" title="${title}" width="100%" height="300">
-  <p>Your browser does not support iframes.</p>
-</iframe>
-]]></html>""")
 
     # file resources
-    f_questionnaire = open(QP + "/" + foldername + "/" + str(chunkname) + "_questionnaire.txt", "w", encoding="utf-8")
-    f_questionnaire.write("<?xml version=\"1.0\"?>\n<questionnaire>\n")
     f_questions = open(QP + "/" + foldername + "/" + str(chunkname) + "_questions.xml", "w", encoding="utf-8")
     f_questions.write(HEADER)
 
-    intID = 1
-    idx = 1
+    qnr = 1
     for a in chunk:
-        f_questions.write(questionTemplate.substitute(title=a) + "\n")
-        f_questionnaire.write(Tpage.substitute(intID=intID))
-        intID += 1
-        if idx < 10:
-            f_questionnaire.write(Tquest.substitute(letterid=chunkname, idx="0" + str(idx), intID=intID))
-            intID += 1
-            f_questionnaire.write(Ttext.substitute(idx="0" + str(idx), intID=intID))
-        else:
-            f_questionnaire.write(Tquest.substitute(letterid=chunkname, idx=idx, intID=intID))
-            intID += 1
-            f_questionnaire.write(Ttext.substitute(idx=idx, intID=intID))
-        intID += 1
-        f_questionnaire.write(Tembed.substitute(title=a, intID=intID))
-        f_questionnaire.write("</page>\n")
-        idx += 1
-        intID += 1
+        f_questions.write(questionTemplate.substitute(title=a, qnr=qnr) + "\n")
+        qnr += 1
 
     f_questions.write(END)
     f_questions.close()
-    f_questionnaire.write("</questionnaire>")
-    f_questionnaire.close()
 
 
 A_traintest, y = get_random_data()
@@ -78,6 +89,13 @@ A_eval = [a for a in ad if a not in A_seed and a not in A_traintest]
 
 letters = ascii_uppercase
 letters2 = [c1 + c2 for c1 in letters for c2 in letters]
+nr = 1
+for ls in letters2:
+    if nr > 40:
+        break
+    print(str(nr) + " = " + ls)
+    print(str(nr+1) + " = " + ls)
+    nr += 2
 letterids = deque(letters2[:-2])
 
 chunk_lists = []
@@ -90,7 +108,6 @@ for Qs_traintest in chunks_A_traintest:
     Qs_seedtemp = Qs_seedtemp[5:]
     chunkname = letterids.popleft()
     generate_pack("test", Qs_seedi + Qs_traintest, chunkname)
-
 
 chunk_lists = []
 chunks_A_eval = chunks(A_eval, 94)
@@ -105,3 +122,5 @@ while letterids:
     Qs_seedtemp = Qs_seedtemp[5:]
     chunkname = letterids.popleft()
     generate_pack("eval", Qs_seedi + Qs_eval, chunkname)
+
+generate_questionnaire()
