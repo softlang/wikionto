@@ -6,8 +6,14 @@ from json import load, dump
 DATAP = "S:/Data/Wikipedia"
 AP = DATAP + "/articledict.json"
 
+
 def load_articledict():
     return load(open(AP, "r", encoding="utf-8"))
+
+
+def valid_article(a, ad):
+    return not ad[a]["IsStub"] and not ad[a]["DeletedFromWikipedia"] and not ad[a]["NotStandalone"] \
+           and "List_of" not in a and "Comparison_of" not in a
 
 
 def save_articledict(ad):

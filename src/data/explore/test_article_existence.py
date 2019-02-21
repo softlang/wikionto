@@ -4,8 +4,8 @@ import webbrowser
 ad = load_articledict()
 f = open(DATAP + "/temp/deleted_test.txt", "w", encoding="utf-8")
 
-titles = [a for a in ad if ad[a]["Seed"]]
-
+titles = [a for a in ad if ad[a]["Eval"]]
+print(len(titles))
 x = 0
 for title in titles:
     webbrowser.open("https://en.wikipedia.org/wiki/" + title, new=2)

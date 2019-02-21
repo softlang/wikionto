@@ -1,4 +1,4 @@
-from data import DATAP, load_articledict, save_articledict
+from data import DATAP, load_articledict, save_articledict, valid_article
 from data.eval.random_sampling import get_random_data
 from string import Template, ascii_uppercase
 from collections import deque
@@ -14,12 +14,15 @@ def randomchunks(articles, articledict, chunksize, chunknumber):
 
     chunks = []
     chunkindex = 0
+    chunks.append([])
     while len(visited) != len(articles):
         index = random.randint(0, len(articles))
         article = articles[index]
 
         if article in visited:
             continue
+        visited.add(article)
+
         chunks[chunkindex].append(article)
         articledict[article]["Eval"] = 1
 
@@ -27,14 +30,14 @@ def randomchunks(articles, articledict, chunksize, chunknumber):
             chunkindex += 1
             if chunkindex == chunknumber:
                 break
-            chunks[chunkindex] = []
+            chunks.append([])
     return chunks, articledict
 
 
 def randomize_order(articles):
     rand_articles = []
     while len(articles) != len(rand_articles):
-        index = random.randint(0, len(articles))
+        index = random.randint(0, len(articles)-1)
         article = articles[index]
         if article not in rand_articles:
             rand_articles.append(article)
@@ -124,33 +127,39 @@ for a in ad:
     ad[a]["Eval"] = 0
 A_seed = [a for a in ad if ad[a]["Seed"]]
 A_eval = [a for a in ad if
-          a not in A_seed and a not in A_traintest and not ad[a]["IsStub"] and not ad[a]["DeletedFromWikipedia"]]
+          a not in A_seed
+          and a not in A_traintest
+          and valid_article(a, ad)]
 
 letters = ascii_uppercase
 letters2 = [c1 + c2 for c1 in letters for c2 in letters]
 nr = 1
 for ls in letters2:
-    if nr > 40:
+    if nr > 20:
         break
     print(str(nr) + " = " + ls)
-    print(str(nr + 1) + " = " + ls)
-    nr += 2
+    nr += 1
 letterids = deque(letters2[:-2])
 
 chunks_A_eval, ad = randomchunks(A_eval, ad, 90, 20)
+print(len(chunks_A_eval))
+assert len([a for c in chunks_A_eval for a in c]) == (90 * 20)
 chunks_queue = deque(chunks_A_eval)
 seedtitles = A_seed * 40
 print("The number of chunks is actual " + str(len(chunks_A_eval)) + " vs estimated " + str(len(A_eval) / 90))
-while letterids:
+while len(chunks_queue) != 0:
     chunkname = letterids.popleft()
+    print("Generating "+chunkname)
     chunk = chunks_queue.popleft()
     seedchunk = seedtitles[:9]
     assert len(seedchunk) == 9
     seedtitles = seedtitles[9:]
-
+    # starter questions + mixin
     finalchunk = seedchunk[:5] + randomize_order(seedchunk[5:] + chunk)
-
+    assert len(finalchunk) == 99
     generate_pack("eval", finalchunk, chunkname)
 
+print("Generate Questionnaire")
 generate_questionnaire()
+print("Save articledict")
 save_articledict(ad)
