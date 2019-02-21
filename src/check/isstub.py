@@ -16,13 +16,5 @@ class IdentifyStubs(ArtdictCheck):
         return articledict
 
 
-class DeleteStubPages(ArtdictCheck):
-    def check(self, articledict):
-        invalid = [a for a in articledict if articledict[a]["IsStub"]]
-        for i in invalid:
-            del articledict[i]
-        return articledict
-
-
 if __name__ == '__main__':
     IdentifyStubs().solo()
