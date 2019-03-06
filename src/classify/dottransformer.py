@@ -5,10 +5,11 @@ from subprocess import call
 
 TP = DATAP + "/temp/trees"
 
-def transform(fitted_ids, k):
-    in_file_path = TP + "/sltree"+str(k)+".dot"
+
+def transform(fitted_ids, configurationname):
+    in_file_path = TP + "/sltree_" + configurationname + ".dot"
     in_file = open(in_file_path, 'r', encoding='utf-8')
-    out_file_path = TP + "/sltree" + str(k) + "_name.dot"
+    out_file_path = TP + "/sltree_" + configurationname + "_name.dot"
     out_file = open(out_file_path, 'w', encoding='utf-8')
 
     with open(DATAP + '/f_to_id.json', 'r', encoding='utf-8') as id_file:
@@ -30,4 +31,4 @@ def transform(fitted_ids, k):
             out_file.flush()
     out_file.close()
     in_file.close()
-    call(["dot", "-Tpdf", out_file_path, "-o", TP + "/sltree"+str(k)+"_name.pdf"])
+    call(["dot", "-Tpdf", out_file_path, "-o", TP + "/sltree" + configurationname + "_name.pdf"])

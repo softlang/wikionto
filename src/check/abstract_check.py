@@ -1,12 +1,14 @@
-from data import DATAP, load_articledict, save_articledict
+from data import DATAP, load_articledict, save_articledict, backup_articledict
 from json import load, dump
-from stanford import start_time, stop_time
+from data import start_time, stop_time
 
 
 class ArtdictCheck:
 
-    def solo(self):
+    def solo(self, backup=True):
         articledict = load_articledict()
+        if backup:
+            backup_articledict(articledict)
         t = start_time()
         articledict = self.check(articledict)
         stop_time(t)

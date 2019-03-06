@@ -1,5 +1,5 @@
 # my
-from data import load_articledict, DATAP
+from data import load_articledict, save_articledict, DATAP
 from data.explore.feature_freq import analyze_feature_frequency
 from data.eval.random_sampling import get_random_data
 # learn
@@ -29,13 +29,14 @@ def get_seed(ad):
 
 def build_f_to_id(FS, ad):
     freq = analyze_feature_frequency(ad, FS)
+    print("Total number of features:" + str(len(freq)))
     fs = [f for f, count in freq.items() if count > 10]
 
     fids = list(range(len(fs)))
     f_to_id = dict(zip(fs, fids))
     with open(DATAP + '/f_to_id.json', 'w', encoding='utf-8') as f:
         dump(f_to_id, f, indent=1)
-    print("Total number of features:" + str(len(f_to_id)))
+    print("Reduced number of features:" + str(len(f_to_id)))
     return f_to_id, fs
 
 
@@ -59,41 +60,50 @@ def build_dok_matrix(id_to_a, f_to_id, ad, F_Names):
     return matrix
 
 
-def build_train_test_data(ad, splitnr=3000, splitsize=1000):
-    splitnr2 = splitnr + splitsize
-    print("Retrieving data sets:")
+def build_train_data(ad, f_to_id, splitnr=3000):
     A_seed, y_seed = get_seed(ad)
+    # A_seed, y_seed = [], []
     A_random, y_random = get_random_data()
-
     A_train, y_train = A_seed + A_random[:splitnr], y_seed + y_random[:splitnr]
-    A_test, y_test = A_random[splitnr:splitnr2], y_random[splitnr:splitnr2]
-
-    print("Positive in train: " + str(len([y for y in y_train if y == '1'])))
-    print("Positive in test: " + str(len([y for y in y_test if y == '1'])))
-    (f_to_id, fs) = build_f_to_id(F_SETNAMES, ad)
-
     id_to_a_train = build_id_to_a(A_train)
-    id_to_a_test = build_id_to_a(A_test)
-
-    print("Build Sparse Matrix")
     X_train = build_dok_matrix(id_to_a_train, f_to_id, ad, F_SETNAMES)
-    X_test = build_dok_matrix(id_to_a_test, f_to_id, ad, F_SETNAMES)
-
-    return X_train, y_train, X_test, y_test, f_to_id, id_to_a_train, id_to_a_test
+    return X_train, y_train, id_to_a_train
 
 
-def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, oversam=False, export=False):
-    assert k > 0
-    print("Training with " + str(k))
-    X_train, y_train, X_test, y_test, f_to_id, id_to_a_train, id_to_a_test = train_data
+def build_validation_data(ad, f_to_id, splitnr=3000, splitsize=1000):
+    splitnr2 = splitnr + splitsize
+    A_random, y_random = get_random_data()
+    A_validate, y_validate = A_random[splitnr:splitnr2], y_random[splitnr:splitnr2]
+    id_to_a_validate = build_id_to_a(A_validate)
+    X_validate = build_dok_matrix(id_to_a_validate, f_to_id, ad, F_SETNAMES)
+    return X_validate, y_validate, id_to_a_validate
+
+
+def build_eval_data_single(ad, f_to_id):
+    A_eval, y_eval = zip(*[(a, ad[a]["SL1"]) for a in ad if "SL1" in ad[a]])
+    id_to_a_eval = build_id_to_a(A_eval)
+    X_eval = build_dok_matrix(id_to_a_eval, f_to_id, ad, F_SETNAMES)
+    return X_eval, y_eval, id_to_a_eval
+
+
+def build_eval_data_double(ad, f_to_id):
+    A_eval, y_eval = zip(*[(a, ad[a]["SL2"]) for a in ad if "SL2" in ad[a]])
+    id_to_a_eval = build_id_to_a(A_eval)
+    X_eval = build_dok_matrix(id_to_a_eval, f_to_id, ad, F_SETNAMES)
+    return X_eval, y_eval, id_to_a_eval
+
+
+def train_decisiontree_FPR(configurationname, train_data, score_function, undersam=False, oversam=False, export=False):
+    print("Training with configuration " + configurationname)
+    X_train, y_train, id_to_a_train = train_data
     dtc = DecisionTreeClassifier(random_state=0)
 
     print("Feature Selection")
-    #selector = SelectFpr(score_function)
-    selector = SelectKBest(score_function, k=k)
+    # selector = SelectFpr(score_function)
+    selector = SelectFpr(score_function)
     result = selector.fit(X_train, y_train)
     X_train = selector.transform(X_train)
-    X_test = selector.transform(X_test)
+
     fitted_ids = [i for i in result.get_support(indices=True)]
 
     print("Apply Resampling")
@@ -113,13 +123,63 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
     print(Counter(y_train))
 
     print("Train Classifier")
-    clf = dtc.fit(X_train, y_train, check_input=True)
+    dtc = dtc.fit(X_train, y_train, check_input=True)
 
     if export:
-        export_graphviz(clf, out_file=DATAP + "/temp/trees/sltree" + str(k) + ".dot", filled=True)
-        transform(fitted_ids, k)
+        export_graphviz(dtc, out_file=DATAP + "/temp/trees/sltree_" + configurationname + ".dot", filled=True)
+        transform(fitted_ids)
 
-    y_test_predicted = dtc.predict(X_test)
+    print("Self Accuracy: " + str(dtc.score(X_train, y_train)))
+
+    return selector, dtc
+
+
+def train_decisiontree_with(configurationname, train_data, k, score_function, undersam=False, oversam=False,
+                            export=False):
+    assert k > 0
+    print("Training with configuration " + configurationname)
+    X_train, y_train, id_to_a_train = train_data
+    dtc = DecisionTreeClassifier(random_state=0)
+
+    print("Feature Selection")
+    # selector = SelectFpr(score_function)
+    selector = SelectKBest(score_function, k=k)
+    result = selector.fit(X_train, y_train)
+    X_train = selector.transform(X_train)
+
+    fitted_ids = [i for i in result.get_support(indices=True)]
+
+    print("Apply Resampling")
+    print(Counter(y_train))
+    if undersam and not oversam:
+        renn = RepeatedEditedNearestNeighbours()
+        X_train, y_train = renn.fit_resample(X_train, y_train)
+    if oversam and not undersam:
+        # feature_indices_array = list(range(len(f_to_id)))
+        # smote_nc = SMOTENC(categorical_features=feature_indices_array, random_state=0)
+        # X_train, y_train = smote_nc.fit_resample(X_train, y_train)
+        sm = SMOTE(random_state=42)
+        X_train, y_train = sm.fit_resample(X_train, y_train)
+    if oversam and undersam:
+        smote_enn = SMOTEENN(random_state=0)
+        X_train, y_train = smote_enn.fit_resample(X_train, y_train)
+    print(Counter(y_train))
+
+    print("Train Classifier")
+    dtc = dtc.fit(X_train, y_train, check_input=True)
+
+    if export:
+        export_graphviz(dtc, out_file=DATAP + "/temp/trees/sltree_" + configurationname + ".dot", filled=True)
+        transform(fitted_ids, configurationname)
+
+    print("Self Accuracy: " + str(dtc.score(X_train, y_train)))
+
+    return selector, dtc
+
+
+def classifier_score(id_to_a_test, classifier, selector, X_test, y_test):
+    X_test = selector.transform(X_test)
+    y_test_predicted = classifier.predict(X_test)
 
     tp = 0
     tn = 0
@@ -136,51 +196,152 @@ def train_decisiontree_with(train_data, k, score_function=chi2, undersam=False, 
             tn += 1
         if y_test[x] == '0' and y_test_predicted[x] == '1':
             fp += 1
-            print("FP: " + id_to_a_test[x])
+            # print("FP: " + id_to_a_test[x])
+    print("Recall: " + str(tp / (tp + fn)))
+    print("Specificity: " + str(tn / (fp + tn)))
 
-    return selector, dtc, {"TP": tp, "TN": tn, "FP": fp, "FN": fn, "k": k, "#Features": len(fitted_ids),
-                           "Balanced_Accuracy": balanced_accuracy_score(y_test, y_test_predicted),
-                           "F_Measure": f1_score(y_test, y_test_predicted, pos_label='1'),
-                           "Recall": recall_score(y_test, y_test_predicted, pos_label='1'),
-                           "Negative-Recall": tn / (fp + tn),
-                           "Precision": precision_score(y_test, y_test_predicted, pos_label='1'),
-                           "Self_Accuracy": dtc.score(X_train, y_train)}
+    return {"TP": tp, "TN": tn, "FP": fp, "FN": fn,
+            "Balanced_Accuracy": balanced_accuracy_score(y_test, y_test_predicted),
+            "F_Measure": f1_score(y_test, y_test_predicted, pos_label='1'),
+            "Recall": recall_score(y_test, y_test_predicted, pos_label='1'),
+            "Negative-Recall": tn / (fp + tn),
+            "Precision": precision_score(y_test, y_test_predicted, pos_label='1'),
+            "Accuracy": classifier.score(X_test, y_test)}
 
 
-def train_decisiontree_exploration(ad, train_data, k0=28, kmax=29, kstep=1, score_function=chi2, undersam=False,
-                                   oversam=False, export=False):
-    X_train, y_train, X_test, y_test, f_to_id, id_to_a_train, id_to_a_test = train_data
+def train_decisiontree_exploration(ad, trainsize):
     evals = []
+    f_to_id, fs = build_f_to_id(F_SETNAMES, ad)
+    # training
+    X_train, y_train, id_to_a_train = build_train_data(ad, f_to_id, trainsize)
+    train_data = X_train, y_train, id_to_a_train
+    # validation
+    # X_validate, y_validate, id_to_validate = build_validation_data(ad, f_to_id, 3000, 1000)
+    # test
+    X_eval2, y_eval2, id_to_a_eval2 = build_eval_data_double(ad, f_to_id)
+
     id_to_a_all = build_id_to_a([a for a in ad])
     X_all0 = build_dok_matrix(id_to_a_all, f_to_id, ad, F_SETNAMES)
 
-    selector, dtc, eval_dict = train_decisiontree_with(train_data, 28, score_function, undersam, oversam, export)
-    X_allk = selector.transform(X_all0)
-    y_all = dtc.predict(X_allk)
+    k0, kmax, kstep = (1, 100, 1)
 
-    for id, title in id_to_a_all.items():
-        ad[title]["Class"] = y_all[id]
-    with open(DATAP+"/articledict.json", "w", encoding="utf-8") as f:
-        dump(ad, f)
+    for k in range(k0, kmax, kstep):
+        configurationname = "KBest_" + str(k) + "_chi2_NoResampling"
+        selector, classifier = train_decisiontree_with(configurationname, train_data, k, chi2)
+        X_allk = selector.transform(X_all0)
+        y_all = classifier.predict(X_allk)
+        eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+        eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+        eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+        eval_dict["Name"] = configurationname + "_eval2"
+        evals.append(eval_dict)
 
-    #for k in range(k0, kmax, kstep):
-    #    selector, dtc, eval_dict = train_decisiontree_with(train_data, k, score_function, undersam, oversam, export)
-    #    X_allk = selector.transform(X_all0)
-    #    y_all = dtc.predict(X_allk)
-    #    eval_dict["Positive"] = len([y for y in y_all if y == '1'])
-    #    eval_dict["Negative"] = len([y for y in y_all if y == '0'])
-    #    evals.append(eval_dict)
+    for k in range(k0, kmax, kstep):
+        configurationname = "KBest_" + str(k) + "_f_classif_NoResampling"
+        selector, classifier = train_decisiontree_with(configurationname, train_data, k, f_classif)
+        X_allk = selector.transform(X_all0)
+        y_all = classifier.predict(X_allk)
+        eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+        eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+        eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+        eval_dict["Name"] = configurationname + "_eval2"
+        evals.append(eval_dict)
+
+    for k in range(k0, kmax, kstep):
+        configurationname = "KBest_" + str(k) + "_mutual_info_classif_NoResampling"
+        selector, classifier = train_decisiontree_with(configurationname, train_data, k, mutual_info_classif)
+        X_allk = selector.transform(X_all0)
+        y_all = classifier.predict(X_allk)
+        eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+        eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+        eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+        eval_dict["Name"] = configurationname + "_eval2"
+        evals.append(eval_dict)
+
+    for k in range(k0, kmax, kstep):
+        configurationname = "KBest_" + str(k) + "_chi2_Oversampling"
+        selector, classifier = train_decisiontree_with(configurationname, train_data, k, chi2, oversam=True)
+        X_allk = selector.transform(X_all0)
+        y_all = classifier.predict(X_allk)
+        eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+        eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+        eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+        eval_dict["Name"] = configurationname + "_eval2"
+        evals.append(eval_dict)
+
+    for k in range(k0, kmax, kstep):
+        configurationname = "KBest_" + str(k) + "_f_classif_Oversampling"
+        selector, classifier = train_decisiontree_with(configurationname, train_data, k, f_classif, oversam=True)
+        X_allk = selector.transform(X_all0)
+        y_all = classifier.predict(X_allk)
+        eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+        eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+        eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+        eval_dict["Name"] = configurationname + "_eval2"
+        evals.append(eval_dict)
+
+    for k in range(k0, kmax, kstep):
+        configurationname = "KBest_" + str(k) + "_mutual_info_classif_Oversampling"
+        selector, classifier = train_decisiontree_with(configurationname, train_data, k, mutual_info_classif,
+                                                       oversam=True)
+        X_allk = selector.transform(X_all0)
+        y_all = classifier.predict(X_allk)
+        eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+        eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+        eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+        eval_dict["Name"] = configurationname + "_eval2"
+        evals.append(eval_dict)
+
     return pd.DataFrame(evals)
+
+
+def final_classification(ad, test=True):
+    f_to_id, fs = build_f_to_id(F_SETNAMES, ad)
+    # training
+    X_train, y_train, id_to_a_train = build_train_data(ad, f_to_id, 4000)
+    train_data = X_train, y_train, id_to_a_train
+    # validation
+    # X_validate, y_validate, id_to_validate = build_validation_data(ad, f_to_id, 3000, 1000)
+    # test
+    X_eval2, y_eval2, id_to_a_eval2 = build_eval_data_double(ad, f_to_id)
+
+    id_to_a_all = build_id_to_a([a for a in ad])
+    X_all0 = build_dok_matrix(id_to_a_all, f_to_id, ad, F_SETNAMES)
+
+    k = 22
+    configurationname = "KBest_" + str(k) + "_mutual_info_classif_Oversampling"
+    selector, classifier = train_decisiontree_with(configurationname, train_data, k, mutual_info_classif,
+                                                   oversam=True, export=True)
+    X_allk = selector.transform(X_all0)
+    y_all = classifier.predict(X_allk)
+
+    if not test:
+        for x in range(len(y_all)):
+            title = id_to_a_all[x]
+            ad[title]["Class"] = y_all[x]
+        save_articledict(ad)
+
+    eval_dict = classifier_score(id_to_a_eval2, classifier, selector, X_eval2, y_eval2)
+    eval_dict["Positive"] = len([y for y in y_all if y == '1'])
+    eval_dict["Negative"] = len([y for y in y_all if y == '0'])
+    eval_dict["Name"] = configurationname + "_eval2"
+
+    return pd.DataFrame([eval_dict])
 
 
 if __name__ == '__main__':
     ad = load_articledict()
-    # crossvalidation_search_decision_tree(ad)
-    train_data = build_train_test_data(ad)
-    df = train_decisiontree_exploration(ad, train_data, export=True)
-    df.to_csv(DATAP + "/dct_kbest_default.csv")
+    df = train_decisiontree_exploration(ad, 2000)
+    df = df.set_index("Name")
+    df.to_csv(DATAP + "/exploration_2000.csv")
+    df = train_decisiontree_exploration(ad, 3000)
+    df = df.set_index("Name")
+    df.to_csv(DATAP + "/exploration_3000.csv")
+    df = train_decisiontree_exploration(ad, 4000)
+    df = df.set_index("Name")
+    df.to_csv(DATAP + "/exploration_4000.csv")
     # ax = df.plot.scatter(x="FPR", y="TPR", style="x", c="blue")
-    df.plot(x="k", y=["Recall", "Negative-Recall", "Precision", "Balanced_Accuracy", "F_Measure"], title="KBest")
+    # df.plot(x="k", y=["Recall", "Negative-Recall", "Precision", "Balanced_Accuracy", "F_Measure"], title="KBest")
     # df = train_decisiontree_exploration(ad, splitnr=2000)
     # df.plot.scatter(x="FPR", y="TPR", ax=ax, style="x", c="orange")
     # df = train_decisiontree_exploration(ad, splitnr=3000)
@@ -197,4 +358,4 @@ if __name__ == '__main__':
     # df.to_csv(DATAP + "/dct_kbest_combinesam.csv")
     # df.plot.scatter(x="FPR", y="TPR", ax=ax, style="o", c="red")
     # df.plot(x="k", y=["TPR", "FPR", "Balanced_Accuracy", "F_Measure", "Self_Accuracy"], title="KBest Combined Resampling")
-    plt.show()
+    # plt.show()

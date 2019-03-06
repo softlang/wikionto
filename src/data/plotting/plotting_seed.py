@@ -60,9 +60,10 @@ def plot_seed_depth(ton):
     for c in ROOTS:
         dtypes[c] = int
 
-    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS,
-                  dtype=dtypes)
-    print(df)
+    df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS, header=None,
+                  dtype=dtypes, index_col=0)
+    #df = df.set_index('depth')
+    print(df.T.to_latex())
     plt.rc('xtick', labelsize=30)
     plt.rc('ytick', labelsize=30)
     font = {'family': 'normal',
@@ -70,7 +71,7 @@ def plot_seed_depth(ton):
             'size': 42}
     plt.rc('font', **font)
 
-    ax = df.plot(x="depth", y=ROOTS, kind="bar", logy=True, width=0.9, color=["red", "green", "blue"])
+    ax = df.plot(y=ROOTS, kind="bar", logy=True, width=0.9, color=["red", "green", "blue"])
 
     ax.set_title('Seed articles per depth.')
 
@@ -104,7 +105,7 @@ def plot_negative_seed_depth(ton):
 
     df = read_csv(StringIO(csvtext), delimiter=',', names=["depth"] + ROOTS,
                   dtype=dtypes)
-    print(df)
+    print(df.to_latex)
     df.plot(x="depth", y=ROOTS, kind="bar", ax=ax, logy=False, width=0.8, color=["red", "green", "blue"])
 
     ax.set_title('Negative Seed Distribution')
@@ -114,4 +115,4 @@ def plot_negative_seed_depth(ton):
 
 
 if __name__ == "__main__":
-    plot_negative_seed_depth(9)
+    plot_seed_depth(9)

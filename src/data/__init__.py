@@ -1,6 +1,7 @@
 # from mine.wikidata import get_computer_languages, get_computer_formats
 # from mine.yago import get_artificial_languages
 from json import load, dump
+import time
 
 # UTIL
 DATAP = "S:/Data/Wikipedia"
@@ -21,14 +22,36 @@ def save_articledict(ad):
         dump(ad, f)
 
 
+def backup_articledict(ad):
+    with open(DATAP+"/temp/articledict_backup.json", "w", encoding="utf-8") as f:
+        dump(ad, f)
+
+
 def load_catdict():
     return load(open(DATAP + "/catdict.json", "r", encoding="utf-8"))
+
+
+# Nicely formatted time string
+def hms_string(sec_elapsed):
+    h = int(sec_elapsed / (60 * 60))
+    m = int((sec_elapsed % (60 * 60)) / 60)
+    s = sec_elapsed % 60
+    return "{}:{:>02}:{:>05.2f}".format(h, m, s)
+
+
+def start_time():
+    return time.time()
+
+
+def stop_time(start_time):
+    print(hms_string(time.time() - start_time))
 
 
 # SCOPING
 DEPTH = 8
 ROOTS = ["Category:Formal_languages", "Category:Computer_file_formats"]
 
+FEATURE_SETNAMES = ["DbpediaInfoboxTemplate", "URL_Braces_Words", "COPHypernym", "Lemmas", "Wikipedia_Lists"]  # Lemmas,
 INDICATORS = ["PositiveInfobox", "URLBracesPattern", "In_Wikipedia_List", "PlainTextKeyword", "POS", "COP",
               "wikidata_CL"]
 

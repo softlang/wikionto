@@ -1,7 +1,5 @@
-from data import DATAP
+from data import DATAP, start_time, stop_time
 from json import load, dump
-import time
-from mine_dump import hms_string
 
 
 def articles_annotate_index():
@@ -22,7 +20,6 @@ def articles_annotate_index():
 
 
 if __name__ == "__main__":
-    start_time = time.time()
+    t = start_time()
     articles_annotate_index()
-    elapsed_time = time.time() - start_time
-    print("Elapsed time: {}".format(hms_string(elapsed_time)))
+    stop_time(t)

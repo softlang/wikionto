@@ -1,6 +1,6 @@
 from data import DATAP
 from pyspark.sql.types import StructType, StructField, StringType
-from pyspark import SparkContext, SparkConf
+from mine_dump.pyspark import SparkContext, SparkConf
 from pyspark.sql import SQLContext
 from os.path import join
 

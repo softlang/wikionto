@@ -1,7 +1,7 @@
-from data import DATAP
+from data import DATAP, start_time, stop_time
 from json import dump, load
 import csv
-from stanford import start_time, stop_time
+
 
 def id_dictionaries(csvname):
     with open(DATAP + '/dump/' + csvname + '.csv', 'r', encoding="UTF8") as f:
@@ -23,6 +23,7 @@ def id_dictionaries(csvname):
         dump(iddict, f)
     with open(DATAP + '/dump/' + csvname + '_reverse.json', 'w', encoding="UTF8") as f:
         dump(iddictr, f)
+
 
 def tocatjson(csvname):
     with open(DATAP + '/dump/tocatlinks_' + csvname + '.csv', 'r', encoding="UTF8") as f:
@@ -83,13 +84,13 @@ def build_scope(roots):
             frontdict = load(f)
             fronts[r] = frontdict
     print("Loaded fronts")
-    #del id_to_title
+    # del id_to_title
     with open(DATAP + '/dump/tocatlinks_article.json', 'r', encoding="UTF8") as f:
         cattoart = load(f)
     print("loaded catlinks")
     scope = dict()
     for r_title, front in fronts.items():
-        print("Processing "+r_title)
+        print("Processing " + r_title)
         d = 0
         rid = root_title_to_id[r_title]
         if rid in cattoart:
@@ -107,10 +108,11 @@ def build_scope(roots):
                         if r_title + 'DEPTH' not in scope[a]:
                             scope[a][r_title + 'DEPTH'] = d
     print("Dumping")
-    with open(DATAP + '/dump/articles_inscope_'+('_'.join(roots))+'.json', 'w', encoding="UTF8") as f:
+    with open(DATAP + '/dump/articles_inscope_' + ('_'.join(roots)) + '.json', 'w', encoding="UTF8") as f:
         dump(scope, f)
         print("In scope:" + str(len(scope)))
     return scope
+
 
 def reverse_cattocatlinks():
     with open(DATAP + '/dump/tocatlinks_category.json', 'r', encoding="UTF8") as f:
@@ -125,6 +127,7 @@ def reverse_cattocatlinks():
     with open(DATAP + '/dump/tocatlinks_category_reverse.json', 'w', encoding="UTF8") as f:
         dump(subcattocat, f)
 
+
 def count_articles_in_scope():
     with open(DATAP + '/dump/articles_inscope.json', 'r', encoding="UTF8") as f:
         scope = load(f)
@@ -133,11 +136,11 @@ def count_articles_in_scope():
 
 if __name__ == '__main__':
     t = start_time()
-    #id_dictionaries('article_ids')
-    #id_dictionaries('category_ids')
-    #tocatjson('article')
-    #tocatjson('category')
-    #roots = ["Formal_languages", "Computer_file_formats", "Installation_software"]
+    # id_dictionaries('article_ids')
+    # id_dictionaries('category_ids')
+    # tocatjson('article')
+    # tocatjson('category')
+    # roots = ["Formal_languages", "Computer_file_formats", "Installation_software"]
     roots = ["Animals"]
     # for r in roots:
     #    build_frontierdict(r)

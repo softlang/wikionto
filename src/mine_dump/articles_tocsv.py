@@ -1,7 +1,7 @@
 from lxml import etree
 from json import load
 from data import DATAP
-from mine_dump import start_time, stop_time
+from data import start_time, stop_time
 from mine_dump.extractors.first_sentence import extract_first_sentence
 import csv
 
