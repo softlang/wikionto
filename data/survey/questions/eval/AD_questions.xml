@@ -1,0 +1,4862 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE surveyContent SYSTEM "https://www.soscisurvey.de/templates/doctype.survey.dtd">
+    <surveyContent version="2.4" type="question">
+    <program>oFb</program>
+    <version>3.1.06-i</version>
+    <timestamp>2019-02-04 12:54:29</timestamp>
+    <language>eng</language>
+    <title>Wikipedia Topic Survey</title>
+    <description />
+    <question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Elm_(programming_language)" target="_blank">Elm_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Elm_(programming_language)" title="Elm_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Erlang_(programming_language)" target="_blank">Erlang_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Erlang_(programming_language)" title="Erlang_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/F_Sharp_(programming_language)" target="_blank">F_Sharp_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/F_Sharp_(programming_language)" title="F_Sharp_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">3</attr>
+<attr id="pos">3</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Factor_(programming_language)" target="_blank">Factor_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Factor_(programming_language)" title="Factor_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">4</attr>
+<attr id="pos">4</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Forth_(programming_language)" target="_blank">Forth_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Forth_(programming_language)" title="Forth_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">5</attr>
+<attr id="pos">5</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Smyk_(car)" target="_blank">Smyk_(car)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Smyk_(car)" title="Smyk_(car)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">6</attr>
+<attr id="pos">6</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Thomas_Young_(scientist)" target="_blank">Thomas_Young_(scientist)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Thomas_Young_(scientist)" title="Thomas_Young_(scientist)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">7</attr>
+<attr id="pos">7</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Alpine_climate" target="_blank">Alpine_climate</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Alpine_climate" title="Alpine_climate" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">8</attr>
+<attr id="pos">8</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Coble_hypersurface" target="_blank">Coble_hypersurface</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Coble_hypersurface" title="Coble_hypersurface" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">9</attr>
+<attr id="pos">9</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/State_diagram" target="_blank">State_diagram</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/State_diagram" title="State_diagram" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">10</attr>
+<attr id="pos">10</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/TicketIQ" target="_blank">TicketIQ</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/TicketIQ" title="TicketIQ" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">11</attr>
+<attr id="pos">11</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Laundry_ball" target="_blank">Laundry_ball</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Laundry_ball" title="Laundry_ball" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">12</attr>
+<attr id="pos">12</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Street_Sharks" target="_blank">Street_Sharks</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Street_Sharks" title="Street_Sharks" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">13</attr>
+<attr id="pos">13</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Naval_drifter" target="_blank">Naval_drifter</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Naval_drifter" title="Naval_drifter" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">14</attr>
+<attr id="pos">14</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Ahlfors_finiteness_theorem" target="_blank">Ahlfors_finiteness_theorem</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Ahlfors_finiteness_theorem" title="Ahlfors_finiteness_theorem" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">15</attr>
+<attr id="pos">15</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Software_Product_Line_Conference" target="_blank">Software_Product_Line_Conference</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Software_Product_Line_Conference" title="Software_Product_Line_Conference" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">16</attr>
+<attr id="pos">16</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Feedback_vertex_set" target="_blank">Feedback_vertex_set</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Feedback_vertex_set" title="Feedback_vertex_set" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">17</attr>
+<attr id="pos">17</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/My_Friend_the_Wind" target="_blank">My_Friend_the_Wind</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/My_Friend_the_Wind" title="My_Friend_the_Wind" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">18</attr>
+<attr id="pos">18</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Gosu_(programming_language)" target="_blank">Gosu_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Gosu_(programming_language)" title="Gosu_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">19</attr>
+<attr id="pos">19</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Homeopathy_Looks_at_the_Horrors_of_Allopathy" target="_blank">Homeopathy_Looks_at_the_Horrors_of_Allopathy</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Homeopathy_Looks_at_the_Horrors_of_Allopathy" title="Homeopathy_Looks_at_the_Horrors_of_Allopathy" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">20</attr>
+<attr id="pos">20</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/STRAT-X" target="_blank">STRAT-X</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/STRAT-X" title="STRAT-X" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">21</attr>
+<attr id="pos">21</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/George_Lindsay_Johnson" target="_blank">George_Lindsay_Johnson</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/George_Lindsay_Johnson" title="George_Lindsay_Johnson" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">22</attr>
+<attr id="pos">22</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Laser_propulsion" target="_blank">Laser_propulsion</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Laser_propulsion" title="Laser_propulsion" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">23</attr>
+<attr id="pos">23</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Esper_(software)" target="_blank">Esper_(software)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Esper_(software)" title="Esper_(software)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">24</attr>
+<attr id="pos">24</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Bombay_Progressive_Artists'_Group" target="_blank">Bombay_Progressive_Artists'_Group</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Bombay_Progressive_Artists'_Group" title="Bombay_Progressive_Artists'_Group" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">25</attr>
+<attr id="pos">25</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Duke_Nukem_II" target="_blank">Duke_Nukem_II</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Duke_Nukem_II" title="Duke_Nukem_II" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">26</attr>
+<attr id="pos">26</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Fibration" target="_blank">Fibration</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Fibration" title="Fibration" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">27</attr>
+<attr id="pos">27</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Automatic_Digital_Computer_M-1" target="_blank">Automatic_Digital_Computer_M-1</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Automatic_Digital_Computer_M-1" title="Automatic_Digital_Computer_M-1" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">28</attr>
+<attr id="pos">28</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/GraphQL" target="_blank">GraphQL</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/GraphQL" title="GraphQL" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">29</attr>
+<attr id="pos">29</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Renault_DeZir" target="_blank">Renault_DeZir</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Renault_DeZir" title="Renault_DeZir" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">30</attr>
+<attr id="pos">30</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/TouchDesigner" target="_blank">TouchDesigner</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/TouchDesigner" title="TouchDesigner" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">31</attr>
+<attr id="pos">31</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Reebok_insider_trading_case" target="_blank">Reebok_insider_trading_case</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Reebok_insider_trading_case" title="Reebok_insider_trading_case" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">32</attr>
+<attr id="pos">32</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Baby_Doll_(wrestler)" target="_blank">Baby_Doll_(wrestler)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Baby_Doll_(wrestler)" title="Baby_Doll_(wrestler)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">33</attr>
+<attr id="pos">33</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Simon_Richardson_(Welsh_cyclist)" target="_blank">Simon_Richardson_(Welsh_cyclist)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Simon_Richardson_(Welsh_cyclist)" title="Simon_Richardson_(Welsh_cyclist)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">34</attr>
+<attr id="pos">34</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Zanazziite" target="_blank">Zanazziite</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Zanazziite" title="Zanazziite" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">35</attr>
+<attr id="pos">35</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Representation_theory_of_the_Galilean_group" target="_blank">Representation_theory_of_the_Galilean_group</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Representation_theory_of_the_Galilean_group" title="Representation_theory_of_the_Galilean_group" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">36</attr>
+<attr id="pos">36</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/In-place_matrix_transposition" target="_blank">In-place_matrix_transposition</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/In-place_matrix_transposition" title="In-place_matrix_transposition" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">37</attr>
+<attr id="pos">37</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Ford_F-Series_(tenth_generation)" target="_blank">Ford_F-Series_(tenth_generation)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Ford_F-Series_(tenth_generation)" title="Ford_F-Series_(tenth_generation)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">38</attr>
+<attr id="pos">38</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/English_Qabalah" target="_blank">English_Qabalah</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/English_Qabalah" title="English_Qabalah" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">39</attr>
+<attr id="pos">39</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Golo_(programming_language)" target="_blank">Golo_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Golo_(programming_language)" title="Golo_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">40</attr>
+<attr id="pos">40</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Disability_classification_in_sailing" target="_blank">Disability_classification_in_sailing</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Disability_classification_in_sailing" title="Disability_classification_in_sailing" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">41</attr>
+<attr id="pos">41</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Handwashing_in_Judaism" target="_blank">Handwashing_in_Judaism</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Handwashing_in_Judaism" title="Handwashing_in_Judaism" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">42</attr>
+<attr id="pos">42</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/GNOME_Commander" target="_blank">GNOME_Commander</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/GNOME_Commander" title="GNOME_Commander" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">43</attr>
+<attr id="pos">43</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/You_Spin_Me_Round_(Like_a_Record)" target="_blank">You_Spin_Me_Round_(Like_a_Record)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/You_Spin_Me_Round_(Like_a_Record)" title="You_Spin_Me_Round_(Like_a_Record)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">44</attr>
+<attr id="pos">44</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/René_Louiche_Desfontaines" target="_blank">René_Louiche_Desfontaines</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/René_Louiche_Desfontaines" title="René_Louiche_Desfontaines" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">45</attr>
+<attr id="pos">45</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Asterius_of_Amasea" target="_blank">Asterius_of_Amasea</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Asterius_of_Amasea" title="Asterius_of_Amasea" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">46</attr>
+<attr id="pos">46</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Godspeed_You!_Black_Emperor" target="_blank">Godspeed_You!_Black_Emperor</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Godspeed_You!_Black_Emperor" title="Godspeed_You!_Black_Emperor" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">47</attr>
+<attr id="pos">47</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Turna_clan" target="_blank">Turna_clan</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Turna_clan" title="Turna_clan" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">48</attr>
+<attr id="pos">48</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Eddy_Brothers" target="_blank">Eddy_Brothers</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Eddy_Brothers" title="Eddy_Brothers" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">49</attr>
+<attr id="pos">49</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/4D_BIM" target="_blank">4D_BIM</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/4D_BIM" title="4D_BIM" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">50</attr>
+<attr id="pos">50</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Hangin'_Tough_(song)" target="_blank">Hangin'_Tough_(song)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Hangin'_Tough_(song)" title="Hangin'_Tough_(song)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">51</attr>
+<attr id="pos">51</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Associació_d'Usuaris_de_Java_de_Catalunya" target="_blank">Associació_d'Usuaris_de_Java_de_Catalunya</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Associació_d'Usuaris_de_Java_de_Catalunya" title="Associació_d'Usuaris_de_Java_de_Catalunya" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">52</attr>
+<attr id="pos">52</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Sringa" target="_blank">Sringa</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Sringa" title="Sringa" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">53</attr>
+<attr id="pos">53</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/BZFlag" target="_blank">BZFlag</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/BZFlag" title="BZFlag" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">54</attr>
+<attr id="pos">54</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Warp-field_experiments" target="_blank">Warp-field_experiments</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Warp-field_experiments" title="Warp-field_experiments" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">55</attr>
+<attr id="pos">55</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Digital_Revolution_Studios" target="_blank">Digital_Revolution_Studios</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Digital_Revolution_Studios" title="Digital_Revolution_Studios" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">56</attr>
+<attr id="pos">56</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/FeaturePak" target="_blank">FeaturePak</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/FeaturePak" title="FeaturePak" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">57</attr>
+<attr id="pos">57</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Disciples_of_Plotinus" target="_blank">Disciples_of_Plotinus</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Disciples_of_Plotinus" title="Disciples_of_Plotinus" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">58</attr>
+<attr id="pos">58</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Discrete_series_representation" target="_blank">Discrete_series_representation</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Discrete_series_representation" title="Discrete_series_representation" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">59</attr>
+<attr id="pos">59</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Transdanubia" target="_blank">Transdanubia</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Transdanubia" title="Transdanubia" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">60</attr>
+<attr id="pos">60</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Perl_language_structure" target="_blank">Perl_language_structure</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Perl_language_structure" title="Perl_language_structure" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">61</attr>
+<attr id="pos">61</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Cultural-historical_activity_theory" target="_blank">Cultural-historical_activity_theory</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Cultural-historical_activity_theory" title="Cultural-historical_activity_theory" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">62</attr>
+<attr id="pos">62</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Bertrand_Meyer" target="_blank">Bertrand_Meyer</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Bertrand_Meyer" title="Bertrand_Meyer" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">63</attr>
+<attr id="pos">63</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/AAC-LD" target="_blank">AAC-LD</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/AAC-LD" title="AAC-LD" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">64</attr>
+<attr id="pos">64</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Claire_Kelly_Schultz" target="_blank">Claire_Kelly_Schultz</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Claire_Kelly_Schultz" title="Claire_Kelly_Schultz" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">65</attr>
+<attr id="pos">65</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Augustin_Lesage" target="_blank">Augustin_Lesage</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Augustin_Lesage" title="Augustin_Lesage" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">66</attr>
+<attr id="pos">66</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Whole_number_rule" target="_blank">Whole_number_rule</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Whole_number_rule" title="Whole_number_rule" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">67</attr>
+<attr id="pos">67</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Andy_Murray" target="_blank">Andy_Murray</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Andy_Murray" title="Andy_Murray" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">68</attr>
+<attr id="pos">68</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Débutante_dress" target="_blank">Débutante_dress</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Débutante_dress" title="Débutante_dress" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">69</attr>
+<attr id="pos">69</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Xenoestrogen" target="_blank">Xenoestrogen</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Xenoestrogen" title="Xenoestrogen" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">70</attr>
+<attr id="pos">70</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Imputation_(law)" target="_blank">Imputation_(law)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Imputation_(law)" title="Imputation_(law)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">71</attr>
+<attr id="pos">71</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" target="_blank">Go_(programming_language)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Go_(programming_language)" title="Go_(programming_language)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">72</attr>
+<attr id="pos">72</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Arnold_Pannartz_and_Konrad_Sweynheim" target="_blank">Arnold_Pannartz_and_Konrad_Sweynheim</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Arnold_Pannartz_and_Konrad_Sweynheim" title="Arnold_Pannartz_and_Konrad_Sweynheim" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">73</attr>
+<attr id="pos">73</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Ayurvedic_acupressure" target="_blank">Ayurvedic_acupressure</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Ayurvedic_acupressure" title="Ayurvedic_acupressure" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">74</attr>
+<attr id="pos">74</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/LOLCat_Bible_Translation_Project" target="_blank">LOLCat_Bible_Translation_Project</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/LOLCat_Bible_Translation_Project" title="LOLCat_Bible_Translation_Project" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">75</attr>
+<attr id="pos">75</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Kampfgruppe" target="_blank">Kampfgruppe</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Kampfgruppe" title="Kampfgruppe" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">76</attr>
+<attr id="pos">76</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Mini" target="_blank">Mini</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Mini" title="Mini" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">77</attr>
+<attr id="pos">77</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Module_(mathematics)" target="_blank">Module_(mathematics)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Module_(mathematics)" title="Module_(mathematics)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">78</attr>
+<attr id="pos">78</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/MIDI_beat_clock" target="_blank">MIDI_beat_clock</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/MIDI_beat_clock" title="MIDI_beat_clock" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">79</attr>
+<attr id="pos">79</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Scripting_language" target="_blank">Scripting_language</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Scripting_language" title="Scripting_language" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">80</attr>
+<attr id="pos">80</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/K-mer" target="_blank">K-mer</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/K-mer" title="K-mer" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">81</attr>
+<attr id="pos">81</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/The_Waylors" target="_blank">The_Waylors</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/The_Waylors" title="The_Waylors" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">82</attr>
+<attr id="pos">82</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Carding_(fraud)" target="_blank">Carding_(fraud)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Carding_(fraud)" title="Carding_(fraud)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">83</attr>
+<attr id="pos">83</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Gordon_Plotkin" target="_blank">Gordon_Plotkin</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Gordon_Plotkin" title="Gordon_Plotkin" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">84</attr>
+<attr id="pos">84</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Madhava_Ashish" target="_blank">Madhava_Ashish</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Madhava_Ashish" title="Madhava_Ashish" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">85</attr>
+<attr id="pos">85</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/German_locomotive_classification" target="_blank">German_locomotive_classification</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/German_locomotive_classification" title="German_locomotive_classification" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">86</attr>
+<attr id="pos">86</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Server_room" target="_blank">Server_room</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Server_room" title="Server_room" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">87</attr>
+<attr id="pos">87</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Chicle" target="_blank">Chicle</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Chicle" title="Chicle" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">88</attr>
+<attr id="pos">88</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Thomson_Reuters_Realized_Volatility_Index" target="_blank">Thomson_Reuters_Realized_Volatility_Index</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Thomson_Reuters_Realized_Volatility_Index" title="Thomson_Reuters_Realized_Volatility_Index" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">89</attr>
+<attr id="pos">89</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Estrada_Doctrine" target="_blank">Estrada_Doctrine</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Estrada_Doctrine" title="Estrada_Doctrine" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">90</attr>
+<attr id="pos">90</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Spiritual_practice" target="_blank">Spiritual_practice</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Spiritual_practice" title="Spiritual_practice" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">91</attr>
+<attr id="pos">91</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Banterer-class_post_ship" target="_blank">Banterer-class_post_ship</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Banterer-class_post_ship" title="Banterer-class_post_ship" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">92</attr>
+<attr id="pos">92</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Kappa_Persei" target="_blank">Kappa_Persei</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Kappa_Persei" title="Kappa_Persei" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">93</attr>
+<attr id="pos">93</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Volcano_plot_(statistics)" target="_blank">Volcano_plot_(statistics)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Volcano_plot_(statistics)" title="Volcano_plot_(statistics)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">94</attr>
+<attr id="pos">94</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Process_analytical_chemistry" target="_blank">Process_analytical_chemistry</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Process_analytical_chemistry" title="Process_analytical_chemistry" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">95</attr>
+<attr id="pos">95</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Thomas_Trueblood" target="_blank">Thomas_Trueblood</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Thomas_Trueblood" title="Thomas_Trueblood" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">96</attr>
+<attr id="pos">96</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Karp's_21_NP-complete_problems" target="_blank">Karp's_21_NP-complete_problems</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Karp's_21_NP-complete_problems" title="Karp's_21_NP-complete_problems" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">97</attr>
+<attr id="pos">97</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/Muhammad_and_the_Bible" target="_blank">Muhammad_and_the_Bible</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/Muhammad_and_the_Bible" title="Muhammad_and_the_Bible" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">98</attr>
+<attr id="pos">98</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+<question>
+<description>Software Language Discovery</description>
+<class>select</class>
+<title>
+<![CDATA[
+Does the article <a href="https://en.wikipedia.org/wiki/V6_(Perl)" target="_blank">V6_(Perl)</a> describe a software language? 
+]]>
+</title>
+<explanation>
+<![CDATA[<p><i>We define a software language as a set of digital artifacts, for which syntax, type system, semantics, and pragmatics can be (in)formally defined, documented, and implemented. Thus, language categories such as programming languages or file formats are included.</i></p>
+
+Click on the link and skim through the article. You have to decide.
+
+<h3>Hints</h3>
+<ul>
+  <li>Looking at the title alone can be misleading.</li>
+  <li>Remember that one article can describe many topics.</li>
+  <li>A casual mention of a software language is not enough.</li>
+  <li>The first paragraph should clarify that a software language is a major topic.</li>
+</ul>  
+
+<iframe src="https://en.wikipedia.org/wiki/V6_(Perl)" title="V6_(Perl)" width="100%" height="300">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ ]]>
+</explanation>
+<inputPosition>right</inputPosition>
+<attributes.specific program="ofb">
+<attr id="id">99</attr>
+<attr id="pos">99</attr>
+<attr id="restrictions.answered">yes</attr>
+</attributes.specific>
+<item>
+<text>Yes</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">1</attr>
+<attr id="pos">1</attr>
+</attributes.specific>
+</item>
+<item>
+<text>No</text>
+<textinput>no</textinput>
+<attributes.specific program="ofb">
+<attr id="id">2</attr>
+<attr id="pos">2</attr>
+</attributes.specific>
+</item>
+</question>
+
+</surveyContent>

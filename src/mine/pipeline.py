@@ -1,5 +1,5 @@
 from features.cop_firstsentence import COPFirstSentence
-from features.infobox_dbpedia_existence import InfoboxDbEx
+from check.infobox_dbpedia_existence import InfoboxDbEx
 from features.lists_of import WikiList
 from features.urlwords import ExtractURLWords
 from check.deleted_from_wikipedia import IdentifyDeletedFromWikipedia

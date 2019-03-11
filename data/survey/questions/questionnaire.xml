@@ -1,0 +1,897 @@
+<?xml version="1.0"?>
+    <questionnaire>
+    <page intID="1">
+    <question id="ZY02" intID="2" />
+    <question id="ZY01" intID="3" />
+    </page>
+    <page intID="4">
+    <php intID="5"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'01'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ01" intID="6" />
+    </page>
+    
+    <page intID="7">
+    <php intID="8"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'02'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ02" intID="9" />
+    </page>
+    
+    <page intID="10">
+    <php intID="11"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'03'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ03" intID="12" />
+    </page>
+    
+    <page intID="13">
+    <php intID="14"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'04'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ04" intID="15" />
+    </page>
+    
+    <page intID="16">
+    <php intID="17"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'05'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ05" intID="18" />
+    </page>
+    
+    <page intID="19">
+    <php intID="20"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'06'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ06" intID="21" />
+    </page>
+    
+    <page intID="22">
+    <php intID="23"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'07'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ07" intID="24" />
+    </page>
+    
+    <page intID="25">
+    <php intID="26"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'08'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ08" intID="27" />
+    </page>
+    
+    <page intID="28">
+    <php intID="29"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'09'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ09" intID="30" />
+    </page>
+    
+    <page intID="31">
+    <php intID="32"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'10'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ10" intID="33" />
+    </page>
+    
+    <page intID="34">
+    <php intID="35"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'11'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ11" intID="36" />
+    </page>
+    
+    <page intID="37">
+    <php intID="38"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'12'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ12" intID="39" />
+    </page>
+    
+    <page intID="40">
+    <php intID="41"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'13'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ13" intID="42" />
+    </page>
+    
+    <page intID="43">
+    <php intID="44"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'14'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ14" intID="45" />
+    </page>
+    
+    <page intID="46">
+    <php intID="47"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'15'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ15" intID="48" />
+    </page>
+    
+    <page intID="49">
+    <php intID="50"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'16'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ16" intID="51" />
+    </page>
+    
+    <page intID="52">
+    <php intID="53"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'17'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ17" intID="54" />
+    </page>
+    
+    <page intID="55">
+    <php intID="56"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'18'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ18" intID="57" />
+    </page>
+    
+    <page intID="58">
+    <php intID="59"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'19'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ19" intID="60" />
+    </page>
+    
+    <page intID="61">
+    <php intID="62"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'20'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ20" intID="63" />
+    </page>
+    
+    <page intID="64">
+    <php intID="65"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'21'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ21" intID="66" />
+    </page>
+    
+    <page intID="67">
+    <php intID="68"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'22'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ22" intID="69" />
+    </page>
+    
+    <page intID="70">
+    <php intID="71"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'23'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ23" intID="72" />
+    </page>
+    
+    <page intID="73">
+    <php intID="74"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'24'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ24" intID="75" />
+    </page>
+    
+    <page intID="76">
+    <php intID="77"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'25'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ25" intID="78" />
+    </page>
+    
+    <page intID="79">
+    <php intID="80"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'26'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ26" intID="81" />
+    </page>
+    
+    <page intID="82">
+    <php intID="83"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'27'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ27" intID="84" />
+    </page>
+    
+    <page intID="85">
+    <php intID="86"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'28'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ28" intID="87" />
+    </page>
+    
+    <page intID="88">
+    <php intID="89"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'29'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ29" intID="90" />
+    </page>
+    
+    <page intID="91">
+    <php intID="92"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'30'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ30" intID="93" />
+    </page>
+    
+    <page intID="94">
+    <php intID="95"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'31'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ31" intID="96" />
+    </page>
+    
+    <page intID="97">
+    <php intID="98"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'32'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ32" intID="99" />
+    </page>
+    
+    <page intID="100">
+    <php intID="101"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'33'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ33" intID="102" />
+    </page>
+    
+    <page intID="103">
+    <php intID="104"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'34'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ34" intID="105" />
+    </page>
+    
+    <page intID="106">
+    <php intID="107"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'35'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ35" intID="108" />
+    </page>
+    
+    <page intID="109">
+    <php intID="110"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'36'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ36" intID="111" />
+    </page>
+    
+    <page intID="112">
+    <php intID="113"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'37'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ37" intID="114" />
+    </page>
+    
+    <page intID="115">
+    <php intID="116"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'38'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ38" intID="117" />
+    </page>
+    
+    <page intID="118">
+    <php intID="119"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'39'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ39" intID="120" />
+    </page>
+    
+    <page intID="121">
+    <php intID="122"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'40'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ40" intID="123" />
+    </page>
+    
+    <page intID="124">
+    <php intID="125"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'41'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ41" intID="126" />
+    </page>
+    
+    <page intID="127">
+    <php intID="128"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'42'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ42" intID="129" />
+    </page>
+    
+    <page intID="130">
+    <php intID="131"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'43'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ43" intID="132" />
+    </page>
+    
+    <page intID="133">
+    <php intID="134"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'44'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ44" intID="135" />
+    </page>
+    
+    <page intID="136">
+    <php intID="137"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'45'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ45" intID="138" />
+    </page>
+    
+    <page intID="139">
+    <php intID="140"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'46'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ46" intID="141" />
+    </page>
+    
+    <page intID="142">
+    <php intID="143"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'47'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ47" intID="144" />
+    </page>
+    
+    <page intID="145">
+    <php intID="146"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'48'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ48" intID="147" />
+    </page>
+    
+    <page intID="148">
+    <php intID="149"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'49'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ49" intID="150" />
+    </page>
+    
+    <page intID="151">
+    <php intID="152"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'50'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ50" intID="153" />
+    </page>
+    
+    <page intID="154">
+    <php intID="155"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'51'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ51" intID="156" />
+    </page>
+    
+    <page intID="157">
+    <php intID="158"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'52'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ52" intID="159" />
+    </page>
+    
+    <page intID="160">
+    <php intID="161"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'53'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ53" intID="162" />
+    </page>
+    
+    <page intID="163">
+    <php intID="164"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'54'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ54" intID="165" />
+    </page>
+    
+    <page intID="166">
+    <php intID="167"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'55'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ55" intID="168" />
+    </page>
+    
+    <page intID="169">
+    <php intID="170"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'56'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ56" intID="171" />
+    </page>
+    
+    <page intID="172">
+    <php intID="173"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'57'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ57" intID="174" />
+    </page>
+    
+    <page intID="175">
+    <php intID="176"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'58'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ58" intID="177" />
+    </page>
+    
+    <page intID="178">
+    <php intID="179"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'59'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ59" intID="180" />
+    </page>
+    
+    <page intID="181">
+    <php intID="182"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'60'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ60" intID="183" />
+    </page>
+    
+    <page intID="184">
+    <php intID="185"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'61'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ61" intID="186" />
+    </page>
+    
+    <page intID="187">
+    <php intID="188"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'62'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ62" intID="189" />
+    </page>
+    
+    <page intID="190">
+    <php intID="191"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'63'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ63" intID="192" />
+    </page>
+    
+    <page intID="193">
+    <php intID="194"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'64'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ64" intID="195" />
+    </page>
+    
+    <page intID="196">
+    <php intID="197"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'65'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ65" intID="198" />
+    </page>
+    
+    <page intID="199">
+    <php intID="200"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'66'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ66" intID="201" />
+    </page>
+    
+    <page intID="202">
+    <php intID="203"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'67'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ67" intID="204" />
+    </page>
+    
+    <page intID="205">
+    <php intID="206"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'68'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ68" intID="207" />
+    </page>
+    
+    <page intID="208">
+    <php intID="209"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'69'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ69" intID="210" />
+    </page>
+    
+    <page intID="211">
+    <php intID="212"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'70'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ70" intID="213" />
+    </page>
+    
+    <page intID="214">
+    <php intID="215"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'71'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ71" intID="216" />
+    </page>
+    
+    <page intID="217">
+    <php intID="218"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'72'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ72" intID="219" />
+    </page>
+    
+    <page intID="220">
+    <php intID="221"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'73'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ73" intID="222" />
+    </page>
+    
+    <page intID="223">
+    <php intID="224"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'74'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ74" intID="225" />
+    </page>
+    
+    <page intID="226">
+    <php intID="227"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'75'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ75" intID="228" />
+    </page>
+    
+    <page intID="229">
+    <php intID="230"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'76'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ76" intID="231" />
+    </page>
+    
+    <page intID="232">
+    <php intID="233"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'77'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ77" intID="234" />
+    </page>
+    
+    <page intID="235">
+    <php intID="236"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'78'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ78" intID="237" />
+    </page>
+    
+    <page intID="238">
+    <php intID="239"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'79'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ79" intID="240" />
+    </page>
+    
+    <page intID="241">
+    <php intID="242"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'80'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ80" intID="243" />
+    </page>
+    
+    <page intID="244">
+    <php intID="245"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'81'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ81" intID="246" />
+    </page>
+    
+    <page intID="247">
+    <php intID="248"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'82'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ82" intID="249" />
+    </page>
+    
+    <page intID="250">
+    <php intID="251"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'83'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ83" intID="252" />
+    </page>
+    
+    <page intID="253">
+    <php intID="254"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'84'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ84" intID="255" />
+    </page>
+    
+    <page intID="256">
+    <php intID="257"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'85'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ85" intID="258" />
+    </page>
+    
+    <page intID="259">
+    <php intID="260"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'86'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ86" intID="261" />
+    </page>
+    
+    <page intID="262">
+    <php intID="263"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'87'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ87" intID="264" />
+    </page>
+    
+    <page intID="265">
+    <php intID="266"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'88'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ88" intID="267" />
+    </page>
+    
+    <page intID="268">
+    <php intID="269"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'89'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ89" intID="270" />
+    </page>
+    
+    <page intID="271">
+    <php intID="272"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'90'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ90" intID="273" />
+    </page>
+    
+    <page intID="274">
+    <php intID="275"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'91'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ91" intID="276" />
+    </page>
+    
+    <page intID="277">
+    <php intID="278"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'92'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ92" intID="279" />
+    </page>
+    
+    <page intID="280">
+    <php intID="281"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'93'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ93" intID="282" />
+    </page>
+    
+    <page intID="283">
+    <php intID="284"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'94'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ94" intID="285" />
+    </page>
+    
+    <page intID="286">
+    <php intID="287"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'95'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ95" intID="288" />
+    </page>
+    
+    <page intID="289">
+    <php intID="290"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'96'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ96" intID="291" />
+    </page>
+    
+    <page intID="292">
+    <php intID="293"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'97'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ97" intID="294" />
+    </page>
+    
+    <page intID="295">
+    <php intID="296"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'98'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ98" intID="297" />
+    </page>
+    
+    <page intID="298">
+    <php intID="299"><![CDATA[
+    $code = value('ZY01x01', 'label');
+    $kennung = $code.'99'; 
+    question($kennung);
+    ]]></php>
+    <question id="ZZ99" intID="300" />
+    </page>
+    </questionnaire>

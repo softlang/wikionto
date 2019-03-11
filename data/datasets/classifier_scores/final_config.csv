@@ -1,0 +1,2 @@
+Name,Accuracy,Balanced_Accuracy,FN,FP,F_Measure,Negative,Negative-Recall,Positive,Precision,Recall,TN,TP
+KBest_23_mutual_info_classif_Oversampling_eval2,0.9883843717001056,0.901953544575725,3,8,0.7027027027027026,134400,0.99140708915145,3121,0.6190476190476191,0.8125,923,13

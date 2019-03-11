@@ -17,6 +17,7 @@ def transform(fitted_ids, configurationname):
         id_to_f = {fid: fname for fname, fid in f_to_id.items()}
 
     print("Transforming file")
+    fnames = set()
     for line in in_file:
         if 'X[' not in line:
             out_file.write(line)
@@ -25,10 +26,12 @@ def transform(fitted_ids, configurationname):
             m = re.search(r'X\[([0-9]+)\]', line)
             fid = int(m.group()[2:-1])
             fname = id_to_f[fitted_ids[fid]]
+            fnames.add(fname)
             line2 = re.sub(r'X\[' + str(fid) + '\]', 'X[' + fname + ']', line)
             out_file.write(line2)
             out_file.write('\n')
             out_file.flush()
+    print(fnames)
     out_file.close()
     in_file.close()
     call(["dot", "-Tpdf", out_file_path, "-o", TP + "/sltree" + configurationname + "_name.pdf"])

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<questionnaire>
+<page intID="1">
+<question id="ZY02" intID="2" />
+<question id="ZY01" intID="3" />
+</page>
+
+
+<!-- Seite 2 -->
+<page intID="4">
+<php intID="5"><![CDATA[
+$code = value('ZY01x01', 'label');
+$kennung = $code.'01';  // Der Punkt (.) verbindet Strings (Texte)
+question($kennung);
+]]></php>
+</page>
+
+
+</questionnaire>
