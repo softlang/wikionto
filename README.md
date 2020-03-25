@@ -15,7 +15,7 @@ This information is related to the paper accepted at SEKE2019.
   year      = {2019}
 }
 ```
-
-* Current datasets and evaluation data can be found at https://github.com/softlang/wikionto/tree/master/data/datasets.
+* We moved datasets and original scripts to the branch 'seke19'.
+* Current datasets and evaluation data can be found at https://github.com/softlang/wikionto/tree/seke19/data/datasets.
 * Added natural language tests based on Stanford Parser. CoreNLPServer must be started before using the tests. 
-* See https://github.com/softlang/wikionto/wiki for more instructions and manuals for reproduction.
+* See https://github.com/softlang/wikionto/tree/seke19/README.md for more instructions and manuals for reproduction.
