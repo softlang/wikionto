@@ -8,7 +8,7 @@ This project addresses multiple challenges:
 * How to recognize subclasses based on clustering?
 * How to recover classification information only by processing natural language text?
 
-# Discovering Indicators for Classifying Wikipedia Articles in a Domain
+### Discovering Indicators for Classifying Wikipedia Articles in a Domain
 This information is related to the paper accepted at SEKE2019 with regards to the challenge 
 _How to recognize relevant articles based on a learned decision tree classifier?_
 
