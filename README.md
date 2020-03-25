@@ -1,19 +1,34 @@
 # wikionto
 Wikipedia-based ontology engineering
 
-## Indicator Discovery
-This information is related to the paper accepted at SEKE2019.
+## Projects
+
+This project addresses multiple challenges:
+* How to recognize relevant articles based on a learned decision tree classifier?
+* How to recognize subclasses based on clustering?
+* How to recover classification information only by processing natural language text?
+
+# Discovering Indicators for Classifying Wikipedia Articles in a Domain
+This information is related to the paper accepted at SEKE2019 with regards to the challenge 
+_How to recognize relevant articles based on a learned decision tree classifier?_
 
 ```
-@inproceedings{HeinzDisc19,
+@inproceedings{HeinzLA19,
   author    = {Marcel Heinz and
-               Ralf Lämmel and
+               Ralf L{\"{a}}mmel and
                Mathieu Acher},
+  editor    = {Angelo Perkusich},
   title     = {Discovering Indicators for Classifying Wikipedia Articles in a Domain
-               - A Case Study on Software Languages},
-  booktitle = {accepted but not yet published at Proc.\ {SEKE} 2019},
+               - {A} Case Study on Software Languages},
+  booktitle = {The 31st International Conference on Software Engineering and Knowledge
+               Engineering, {SEKE} 2019, Hotel Tivoli, Lisbon, Portugal, July 10-12,
+               2019},
+  pages     = {541--706},
+  publisher = {{KSI} Research Inc. and Knowledge Systems Institute Graduate School},
   year      = {2019}
 }
+
+
 ```
 * We moved datasets and original scripts to the branch 'seke19'.
 * Current datasets and evaluation data can be found at https://github.com/softlang/wikionto/tree/seke19/data/datasets.
