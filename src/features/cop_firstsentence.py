@@ -1,4 +1,4 @@
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 from nltk.tokenize import sent_tokenize
 from requests.exceptions import HTTPError
 from json.decoder import JSONDecodeError
@@ -45,7 +45,7 @@ class COPFirstSentence(ArtdictCheck):
         for a in artdict:
             if "Summary" in artdict[a]:
                 summaries.append((a, artdict[a]["Summary"], session))
-        pool = Pool(processes=4)
+        pool = Pool(processes=cpu_count())
 
         parsed_pairs = pool.map(self.check_single, summaries)
         parsed_pairs = dict(parsed_pairs)
