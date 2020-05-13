@@ -5,13 +5,18 @@ Wikipedia-based ontology engineering
 This information is related to the paper accepted at SEKE2019.
 
 ```
-@inproceedings{HeinzDisc19,
+@inproceedings{HeinzLA19,
   author    = {Marcel Heinz and
-               Ralf Lämmel and
+               Ralf L{\"{a}}mmel and
                Mathieu Acher},
+  editor    = {Angelo Perkusich},
   title     = {Discovering Indicators for Classifying Wikipedia Articles in a Domain
-               - A Case Study on Software Languages},
-  booktitle = {accepted but not yet published at Proc.\ {SEKE} 2019},
+               - {A} Case Study on Software Languages},
+  booktitle = {The 31st International Conference on Software Engineering and Knowledge
+               Engineering, {SEKE} 2019, Hotel Tivoli, Lisbon, Portugal, July 10-12,
+               2019},
+  pages     = {541--706},
+  publisher = {{KSI} Research Inc. and Knowledge Systems Institute Graduate School},
   year      = {2019}
 }
 ```
